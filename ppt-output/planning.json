@@ -1,0 +1,495 @@
+[
+  {
+    "page_number": 1,
+    "page_type": "cover",
+    "title": "拥抱AI时代：OpenClaw入门与QClaw实战",
+    "goal": "吸引注意力，定下时代赶路人的基调",
+    "layout_hint": "单一焦点",
+    "content_summary": {
+      "core_argument": "我们都是AI大时代的赶路人！",
+      "main_content": "深圳分公司AI赋能培训",
+      "data_highlights": [],
+      "supporting_points": ["主讲人：科技部 讲师", "日期：2026年4月17日"],
+      "quote_or_conclusion": "只要开始，就不算晚！"
+    },
+    "cards": [
+      {
+        "position": "center",
+        "card_type": "text",
+        "title": "",
+        "content": "深圳分公司AI赋能培训",
+        "data_points": [],
+        "emphasis_keywords": ["AI赋能"]
+      }
+    ],
+    "design_notes": "封面页，大标题居中，强烈的蓝色科技感背景，无需网格卡片"
+  },
+  {
+    "page_number": 2,
+    "page_type": "toc",
+    "title": "培训目录",
+    "goal": "展示本次培训的全景图",
+    "layout_hint": "非对称两栏 (2/3 + 1/3)",
+    "content_summary": {
+      "core_argument": "从认知到实战的完整学习路径",
+      "main_content": "本次培训分为八个核心模块，涵盖从基础认知、工具选择、安全合规到实战演练的全流程。",
+      "data_highlights": [{"value": "8", "label": "核心模块", "interpretation": "全面覆盖日常工作"}],
+      "supporting_points": [],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "left",
+        "card_type": "list",
+        "title": "核心议程",
+        "content": "1. 什么是OpenClaw与“养虾热”？\n2. 国内AI神器深度盘点\n3. 为什么强烈推荐QClaw？\n4. 实操：客户端安装与初体验\n5. ⚠️ 必看：数据安全高压线\n6. 寿险实战演练（7大高频场景）\n7. 隔离网络下的“AI工作流”\n8. 传统寿险人的AI生存指南",
+        "data_points": [],
+        "emphasis_keywords": ["数据安全高压线", "寿险实战演练"]
+      },
+      {
+        "position": "right",
+        "card_type": "data",
+        "title": "培训目标",
+        "content": "帮助零基础员工快速掌握 AI 工具",
+        "data_points": ["60分钟"],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": "左侧大列表展示目录，右侧突出培训时长和目标"
+  },
+  {
+    "page_number": 3,
+    "page_type": "content",
+    "title": "什么是OpenClaw与“养虾热”？",
+    "goal": "通俗解释技术名词，消除受众的陌生感",
+    "layout_hint": "主次结合",
+    "content_summary": {
+      "core_argument": "OpenClaw 是能动手干活的数字员工",
+      "main_content": "在AI时代，OpenClaw代表着一类“能够帮你动手干活的AI智能助手”。如果说以前的AI是个只会聊天的打字机，那现在的OpenClaw就是长了“手”的数字员工。",
+      "data_highlights": [{"value": "100%", "label": "全员参与", "interpretation": "我们都是时代的赶路人"}],
+      "supporting_points": ["不仅仅是聊天", "搜索、整理、写文档", "专属AI小助手"],
+      "quote_or_conclusion": "AI大时代日新月异，我们都是赶路人！"
+    },
+    "cards": [
+      {
+        "position": "left",
+        "card_type": "text",
+        "title": "OpenClaw 定义",
+        "content": "Claw 是“爪子、钳子”的意思。它代表着一类不仅能聊天，更能帮你执行具体任务（如搜索、总结、写文档）的智能助手。",
+        "data_points": [],
+        "emphasis_keywords": ["数字员工", "动手干活"]
+      },
+      {
+        "position": "top-right",
+        "card_type": "text",
+        "title": "何为“养虾热”？",
+        "content": "大家都在调教和培养属于自己的专属AI小助手，让它越来越懂你的工作习惯。",
+        "data_points": [],
+        "emphasis_keywords": ["专属AI小助手"]
+      },
+      {
+        "position": "bottom-right",
+        "card_type": "data",
+        "title": "时代呼唤",
+        "content": "主动拥抱 AI 时代",
+        "data_points": ["100%"],
+        "emphasis_keywords": ["赶路人"]
+      }
+    ],
+    "design_notes": "左侧大卡片详细解释概念，右侧上下两张卡片分别解释“养虾”和时代背景"
+  },
+  {
+    "page_number": 4,
+    "page_type": "content",
+    "title": "国内OpenClaw产品群雄逐鹿",
+    "goal": "对比各家优劣，凸显 QClaw 的优势",
+    "layout_hint": "混合网格",
+    "content_summary": {
+      "core_argument": "市场产品众多，但各有痛点",
+      "main_content": "当前国内 AI 市场百花齐放，各家大厂均推出了自己的 OpenClaw 产品。但在免费额度、生态绑定、使用门槛上存在明显差异。",
+      "data_highlights": [{"value": "8+", "label": "主流工具", "interpretation": "市场竞争激烈"}],
+      "supporting_points": ["积分限制", "一码难求", "生态绑定"],
+      "quote_or_conclusion": "我们需要一款真正适合普通人的工具。"
+    },
+    "cards": [
+      {
+        "position": "top-left",
+        "card_type": "list",
+        "title": "积分限制型",
+        "content": "AutoClaw (澳龙)、EasyClaw、WorkBuddy。功能强大或偏向专业，但免费使用的“体力（token）”非常有限，重度使用很快就会耗尽。",
+        "data_points": [],
+        "emphasis_keywords": ["免费体力有限"]
+      },
+      {
+        "position": "top-right",
+        "card_type": "list",
+        "title": "一码难求型 (内测)",
+        "content": "灵犀Claw、悟空、Solo。背后是大厂支撑，生态结合紧密，但目前均在内测中，需要邀请码，普通人难进。",
+        "data_points": [],
+        "emphasis_keywords": ["需要邀请码"]
+      },
+      {
+        "position": "bottom-left",
+        "card_type": "list",
+        "title": "生态绑定 / 限时型",
+        "content": "飞书 OpenClaw (深度绑定飞书，适用面窄)；jvs claw (新人仅限免费试用7天，无法长期作为生产力)。",
+        "data_points": [],
+        "emphasis_keywords": ["限免7天"]
+      },
+      {
+        "position": "bottom-right",
+        "card_type": "data",
+        "title": "量大管饱型",
+        "content": "腾讯系产品，极其稳定",
+        "data_points": ["QClaw"],
+        "emphasis_keywords": ["腾讯系"]
+      }
+    ],
+    "design_notes": "4张卡片田字格排列，最后一张突出 QClaw"
+  },
+  {
+    "page_number": 5,
+    "page_type": "content",
+    "title": "为什么强烈推荐QClaw？",
+    "goal": "给出选择 QClaw 的 4 个核心理由",
+    "layout_hint": "顶部英雄式",
+    "content_summary": {
+      "core_argument": "零成本、无焦虑、大厂背书",
+      "main_content": "作为咱们非技术人员的“第一只虾”，QClaw 在易用性、成本和生态上具有碾压性优势。",
+      "data_highlights": [{"value": "4000万", "label": "每日Token", "interpretation": "相当于每天免费读写千万字"}],
+      "supporting_points": ["大厂背书", "拒绝配置", "零成本"],
+      "quote_or_conclusion": "本地客户端运行，试错成本极低，心态轻松！"
+    },
+    "cards": [
+      {
+        "position": "top",
+        "card_type": "data",
+        "title": "算力土豪",
+        "content": "每天免费赠送额度，随便用，不心疼！",
+        "data_points": ["4000万"],
+        "emphasis_keywords": ["免费读写千万字"]
+      },
+      {
+        "position": "bottom-left",
+        "card_type": "text",
+        "title": "1. 大厂背书与生态",
+        "content": "腾讯出品，未来在对接微信、QQ、腾讯文档等咱们常用的生态时，有着天然的便利性和想象空间。",
+        "data_points": [],
+        "emphasis_keywords": ["腾讯出品"]
+      },
+      {
+        "position": "bottom-center",
+        "card_type": "text",
+        "title": "2. 拒绝配置折磨",
+        "content": "原生的OpenClaw配置非常繁琐，涉及各种环境搭建，能劝退99%的小白。QClaw把这些都封装好了，开箱即用。",
+        "data_points": [],
+        "emphasis_keywords": ["开箱即用"]
+      },
+      {
+        "position": "bottom-right",
+        "card_type": "text",
+        "title": "3. 零成本无焦虑",
+        "content": "对比云端部署：云服务器要付月费买Token，让人焦虑“怎么回本”。本地客户端运行只需连网和一点电费，心态轻松！",
+        "data_points": [],
+        "emphasis_keywords": ["本地客户端", "心态轻松"]
+      }
+    ],
+    "design_notes": "顶部英雄卡片展示 4000万 核心数据，下方三张卡片并列三大理由"
+  },
+  {
+    "page_number": 6,
+    "page_type": "content",
+    "title": "实操：客户端安装与初体验",
+    "goal": "指导员工完成安装登录",
+    "layout_hint": "非对称两栏 (2/3 + 1/3)",
+    "content_summary": {
+      "core_argument": "三步完成极简安装",
+      "main_content": "注意：QClaw 没有网页版，必须下载客户端！安装过程就像安装微信一样简单。",
+      "data_highlights": [{"value": "1", "label": "秒登录", "interpretation": "扫码即用"}],
+      "supporting_points": ["下载安装包", "傻瓜式安装", "扫码登录"],
+      "quote_or_conclusion": "没有任何繁琐的注册流程。"
+    },
+    "cards": [
+      {
+        "position": "left",
+        "card_type": "process",
+        "title": "安装步骤",
+        "content": "1. 访问官网下载：浏览器输入 qclaw.qq.com 下载安装包\n2. 傻瓜式安装：双击安装包，一路点击“下一步”\n3. 快捷登录：打开客户端，使用微信或QQ扫码，一秒登录",
+        "data_points": [],
+        "emphasis_keywords": ["必须下载客户端", "qclaw.qq.com"]
+      },
+      {
+        "position": "right",
+        "card_type": "data",
+        "title": "极速体验",
+        "content": "免去繁琐的账号注册和密码找回",
+        "data_points": ["1秒"],
+        "emphasis_keywords": ["扫码"]
+      }
+    ],
+    "design_notes": "左侧流程卡片展示3个步骤，右侧强调 1秒 扫码登录"
+  },
+  {
+    "page_number": 7,
+    "page_type": "content",
+    "title": "实操演示：QClaw的“超能力”体验",
+    "goal": "通过 4 个具体案例展示 AI 的能力边界",
+    "layout_hint": "混合网格",
+    "content_summary": {
+      "core_argument": "从写作到逻辑推理的全能助手",
+      "main_content": "现场演示 QClaw 在不同场景下的表现，见证数字员工的超强能力。",
+      "data_highlights": [{"value": "10", "label": "秒提炼", "interpretation": "万字研报瞬间总结"}],
+      "supporting_points": ["角色扮演", "长文摘要", "风格润色", "逻辑推理"],
+      "quote_or_conclusion": "把大白话秒变“高情商专业邮件”。"
+    },
+    "cards": [
+      {
+        "position": "top-left",
+        "card_type": "text",
+        "title": "1. 角色扮演",
+        "content": "赋予 AI 身份。指令：“你现在是一位拥有10年经验的资深寿险理财规划师，请用通俗的语言向我解释什么是‘增额终身寿险’。”",
+        "data_points": [],
+        "emphasis_keywords": ["赋予 AI 身份"]
+      },
+      {
+        "position": "top-right",
+        "card_type": "text",
+        "title": "2. 长文摘要",
+        "content": "丢进万字研报，指令：“请帮我提炼这篇文章的3个核心观点，字数控制在200字以内。”（提效神器）",
+        "data_points": [],
+        "emphasis_keywords": ["提炼核心观点"]
+      },
+      {
+        "position": "bottom-left",
+        "card_type": "text",
+        "title": "3. 风格润色",
+        "content": "输入一段非常口语化的客户沟通记录，指令：“请将这段话改写成一封专业、得体的官方邮件，发给高净值客户。”",
+        "data_points": [],
+        "emphasis_keywords": ["专业、得体"]
+      },
+      {
+        "position": "bottom-right",
+        "card_type": "text",
+        "title": "4. 逻辑推理",
+        "content": "处理繁杂任务。指令：“我明天9点开早会(1h)，下午2点拜访客户，4点交报表(需1.5h准备)。请帮我排出一天的作息表。”",
+        "data_points": [],
+        "emphasis_keywords": ["逻辑推理"]
+      }
+    ],
+    "design_notes": "4个文本卡片均匀分布，展示四大超能力"
+  },
+  {
+    "page_number": 8,
+    "page_type": "section",
+    "title": "⚠️ 必看：数据安全高压线",
+    "goal": "极其严肃地强调公司的合规底线",
+    "layout_hint": "单一焦点",
+    "content_summary": {
+      "core_argument": "数据安全，人人有责！",
+      "main_content": "因为我们的日常办公系统在内网云桌面，物理隔离了外网，所以我们无法在办公电脑上直接使用外部AI。大家只能在个人手机或个人外网电脑上使用！",
+      "data_highlights": [{"value": "0", "label": "容忍度", "interpretation": "对于泄露数据的违规行为"}],
+      "supporting_points": ["严禁违规外联", "严禁输入敏感数据", "严禁输入客户隐私"],
+      "quote_or_conclusion": "只处理“公开的通用知识”与“脱敏模板”！"
+    },
+    "cards": [
+      {
+        "position": "center",
+        "card_type": "list",
+        "title": "三大严禁",
+        "content": "1. 严禁在办公电脑违规外联使用！\n2. 严禁输入任何公司敏感数据（未公开政策、内部财务数据、内部课件等）！\n3. 严禁输入任何客户隐私信息（姓名、电话、身份证号、保单号、病历等）！",
+        "data_points": [],
+        "emphasis_keywords": ["严禁", "敏感数据", "隐私信息"]
+      }
+    ],
+    "design_notes": "全红警告配色（如果 CSS 支持），极简大卡片，强化压迫感和严肃性"
+  },
+  {
+    "page_number": 9,
+    "page_type": "content",
+    "title": "寿险实战场景（一）：内容创作与学习",
+    "goal": "结合业务展示 AI 的实际用途",
+    "layout_hint": "三栏等宽",
+    "content_summary": {
+      "core_argument": "搞定案头工作，释放你的大脑",
+      "main_content": "在不违规的前提下，非技术人员如何用它赋能业务？我们先看内容创作方面的 3 个场景。",
+      "data_highlights": [{"value": "3", "label": "高频场景", "interpretation": "解决日常痛点"}],
+      "supporting_points": ["早会大纲", "条款翻译", "活动策划"],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "left",
+        "card_type": "text",
+        "title": "场景1：早会大纲生成",
+        "content": "痛点：轮到开早会不知道讲什么。\n指令示例：“我明天早会做5分钟分享，主题是‘在拒绝中寻找机会’。请帮我写演讲稿大纲，含真实破冰小故事，风格接地气。”",
+        "data_points": [],
+        "emphasis_keywords": ["早会大纲"]
+      },
+      {
+        "position": "center",
+        "card_type": "text",
+        "title": "场景2：条款“翻译机”",
+        "content": "痛点：新出险种条款复杂，客户听不懂。\n指令示例：“请把这段晦涩的条款，用给5岁小孩讲故事的方式解释一遍，让我能快速理解并转述给我的客户。”",
+        "data_points": [],
+        "emphasis_keywords": ["条款翻译"]
+      },
+      {
+        "position": "right",
+        "card_type": "text",
+        "title": "场景3：活动策划风暴",
+        "content": "痛点：节假日答谢活动没新意。\n指令示例：“我是寿险代理人，母亲节想针对30-45岁高净值女性办线下活动。预算5000元，请给3个新颖的策划方案。”",
+        "data_points": [],
+        "emphasis_keywords": ["活动策划"]
+      }
+    ],
+    "design_notes": "三张卡片并列，每张展示一个寿险痛点及对应的 AI 解决指令"
+  },
+  {
+    "page_number": 10,
+    "page_type": "content",
+    "title": "寿险实战场景（二）：客户经营与技能辅助",
+    "goal": "展示 AI 在营销和工具层面的辅助能力",
+    "layout_hint": "混合网格",
+    "content_summary": {
+      "core_argument": "高情商沟通与效率提升工具",
+      "main_content": "除了写稿子，AI 还能帮你处理客户关系和办公软件难题。",
+      "data_highlights": [{"value": "4", "label": "进阶场景", "interpretation": "全面赋能"}],
+      "supporting_points": ["跟进话术", "竞品对比", "爆款朋友圈", "Excel求助"],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "top-left",
+        "card_type": "text",
+        "title": "场景4：高情商跟进话术",
+        "content": "指令：“刚拜访一位35岁企业主，聊了养老和传承。请写一条感谢+跟进微信，100字内，要有温度，不要太浓的推销味。”",
+        "data_points": [],
+        "emphasis_keywords": ["高情商跟进"]
+      },
+      {
+        "position": "top-right",
+        "card_type": "text",
+        "title": "场景5：竞品对比框架",
+        "content": "指令：“客户拿我司A产品和友商B产品做对比，请帮我列一个客观的对比分析话术框架（保障、性价比等），理清思路。”",
+        "data_points": [],
+        "emphasis_keywords": ["客观对比框架"]
+      },
+      {
+        "position": "bottom-left",
+        "card_type": "text",
+        "title": "场景6：爆款朋友圈",
+        "content": "指令：“帮我写一条微信朋友圈文案，科普意外险重要性，语气轻松幽默，结尾带互动提问，并建议配什么图。”",
+        "data_points": [],
+        "emphasis_keywords": ["轻松幽默"]
+      },
+      {
+        "position": "bottom-right",
+        "card_type": "text",
+        "title": "场景7：Excel技巧求助",
+        "content": "指令：“我有一个Excel表，A列日期，B列业绩，我想把本月业绩大于1万的单元格标红，请告诉我具体操作步骤。”",
+        "data_points": [],
+        "emphasis_keywords": ["具体操作步骤"]
+      }
+    ],
+    "design_notes": "4个进阶场景均匀展示"
+  },
+  {
+    "page_number": 11,
+    "page_type": "content",
+    "title": "思考：隔离网络下如何赋能工作？",
+    "goal": "明确在合规前提下的标准 AI 工作流",
+    "layout_hint": "非对称两栏 (2/3 + 1/3)",
+    "content_summary": {
+      "core_argument": "外脑思考，内网执行",
+      "main_content": "由于公司网络物理隔离，我们需要建立一套安全的“跨网工作流”。AI赋能的是你的大脑，而不是代替你的双手。",
+      "data_highlights": [{"value": "100%", "label": "合规", "interpretation": "守住数据红线"}],
+      "supporting_points": ["外网找灵感", "大脑消化", "内网处理真实数据"],
+      "quote_or_conclusion": "把QClaw当成你的私人教练和灵感智库。"
+    },
+    "cards": [
+      {
+        "position": "left",
+        "card_type": "process",
+        "title": "合规的 AI 工作流",
+        "content": "1. 外网求助：在个人手机/外网电脑上问 QClaw（获取通用框架、技能步骤、灵感点子）\n2. 大脑消化：自己理解并吸收 AI 给出的通用逻辑\n3. 内网执行：回到内网云桌面，结合公司真实的客户数据去完成最终的文档或业务操作",
+        "data_points": [],
+        "emphasis_keywords": ["外网求助", "内网执行"]
+      },
+      {
+        "position": "right",
+        "card_type": "data",
+        "title": "核心法则",
+        "content": "AI赋能大脑，不代替双手",
+        "data_points": ["外脑"],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": "左侧流程卡片清晰展示3个步骤，右侧强调“外脑思考”"
+  },
+  {
+    "page_number": 12,
+    "page_type": "content",
+    "title": "AI时代的寿险员工生存指南",
+    "goal": "缓解员工焦虑，指出未来的核心竞争力",
+    "layout_hint": "主次结合",
+    "content_summary": {
+      "core_argument": "AI不会淘汰你，但“会用AI的同事”会淘汰你",
+      "main_content": "很多同事担心 AI 会取代我们。但寿险是一项充满“人情味”和“信任”的事业，AI 无法提供人性的温度与情感连接。",
+      "data_highlights": [{"value": "0", "label": "情感温度", "interpretation": "AI 的软肋是人类的强项"}],
+      "supporting_points": ["爱与责任", "人情味", "情感连接"],
+      "quote_or_conclusion": "把案头工作交给AI，把时间留给客户！"
+    },
+    "cards": [
+      {
+        "position": "left",
+        "card_type": "text",
+        "title": "灵魂拷问：AI会淘汰我们吗？",
+        "content": "不会。AI 没有同理心，它无法在一个家庭遭遇变故时，握住客户的手给予温度；它也无法在线下酒会上与客户建立深厚的信任关系。寿险的核心永远是“人”。",
+        "data_points": [],
+        "emphasis_keywords": ["温度与信任"]
+      },
+      {
+        "position": "top-right",
+        "card_type": "text",
+        "title": "生存法则",
+        "content": "让 AI 帮你写稿、算公式、想点子、理思路。让你有更多时间去“与人打交道”。",
+        "data_points": [],
+        "emphasis_keywords": ["把时间留给客户"]
+      },
+      {
+        "position": "bottom-right",
+        "card_type": "text",
+        "title": "共勉",
+        "content": "AI大发展大时代，技术日新月异。别怕落后，我们都是赶路人！",
+        "data_points": [],
+        "emphasis_keywords": ["赶路人"]
+      }
+    ],
+    "design_notes": "左侧大卡片探讨深层哲理，右侧给出具体行动建议和共勉"
+  },
+  {
+    "page_number": 13,
+    "page_type": "end",
+    "title": "现场答疑与交流",
+    "goal": "互动环节，引导大家动手实践",
+    "layout_hint": "单一焦点",
+    "content_summary": {
+      "core_argument": "立刻行动起来",
+      "main_content": "大家在安装和实操中遇到什么问题？欢迎提问！",
+      "data_highlights": [],
+      "supporting_points": ["扫码加入交流群", "分享实操心得", "共同进步"],
+      "quote_or_conclusion": "感谢聆听！"
+    },
+    "cards": [
+      {
+        "position": "center",
+        "card_type": "text",
+        "title": "互动环节 (Q&A)",
+        "content": "1. 解答安装与登录问题\n2. 探讨业务场景的 Prompt 写法\n3. 欢迎扫码加入分公司“AI学习交流群”（请在现场出示二维码）\n\n感谢大家的聆听！",
+        "data_points": [],
+        "emphasis_keywords": ["立刻行动"]
+      }
+    ],
+    "design_notes": "简洁的结束页，引导互动"
+  }
+]

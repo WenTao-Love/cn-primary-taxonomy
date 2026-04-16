@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PPT Preview</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  }
+  .toolbar {
+    position: fixed; top: 0; left: 0; right: 0; height: 48px;
+    background: rgba(10,10,10,0.95); border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    z-index: 1000; backdrop-filter: blur(10px);
+  }
+  .toolbar button {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    color: #fff; padding: 6px 16px; border-radius: 6px; cursor: pointer;
+    font-size: 14px; transition: background 0.2s;
+  }
+  .toolbar button:hover { background: rgba(255,255,255,0.2); }
+  .toolbar button:disabled { opacity: 0.3; cursor: not-allowed; }
+  .page-info { font-size: 14px; color: rgba(255,255,255,0.7); min-width: 80px; text-align: center; }
+  .stage {
+    margin-top: 60px; width: 90vw; max-width: 1280px;
+    aspect-ratio: 16/9; overflow: hidden;
+    border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    background: #111; position: relative;
+  }
+  .slide-frame {
+    width: 1280px; height: 720px;
+    transform-origin: top left;
+    position: absolute; top: 0; left: 0;
+    border: none;
+  }
+  .nav-hint {
+    position: fixed; bottom: 12px;
+    color: rgba(255,255,255,0.25); font-size: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <button id="btn-prev" onclick="nav(-1)">Prev</button>
+  <span class="page-info" id="page-info">1 / 13</span>
+  <button id="btn-next" onclick="nav(1)">Next</button>
+</div>
+<div class="stage" id="stage">
+<iframe class="slide-frame" id="slide-0" style="display:block" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;style&gt;
+
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --card-bg-from: #F1F5F9;
+  --card-bg-to: #E2E8F0;
+  --card-border: rgba(37,99,235,0.12);
+  --card-radius: 12px;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --accent-1: #2563EB;
+  --accent-2: #1D4ED8;
+  --accent-3: #059669;
+  --accent-4: #047857;
+  --font-family: PingFang SC, Microsoft YaHei, system-ui, sans-serif;
+}
+
+body {
+  margin: 0; padding: 0;
+  width: 1280px; height: 720px;
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  overflow: hidden;
+  position: relative;
+}
+.title-area {
+  position: absolute;
+  left: 40px; top: 40px;
+  width: 1200px; height: 50px;
+}
+.page-title {
+  font-size: 32px; font-weight: 700; margin: 0;
+  position: relative;
+  display: inline-block;
+}
+.page-title::after {
+  content: &#x27;&#x27;; position: absolute;
+  left: 0; bottom: -8px;
+  width: 60px; height: 4px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  border-radius: 2px;
+}
+.content-area {
+  position: absolute;
+  left: 40px; top: 120px;
+  width: 1200px; height: 540px;
+  display: grid;
+  gap: 20px;
+}
+.card {
+  background: linear-gradient(135deg, var(--card-bg-from), var(--card-bg-to));
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  display: flex; flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.card-title {
+  font-size: 20px; font-weight: 700; margin: 0 0 16px 0;
+  color: var(--text-primary);
+}
+.card-content {
+  font-size: 14px; line-height: 1.8; color: var(--text-secondary);
+  flex: 1;
+}
+.data-card .core-data {
+  font-size: 48px; font-weight: 800; color: var(--accent-1);
+  font-variant-numeric: tabular-nums;
+  margin: 10px 0;
+}
+.footer {
+  position: absolute; bottom: 20px; left: 40px; right: 40px;
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--text-secondary); opacity: 0.6;
+}
+/* Grid Layouts */
+.layout-single { grid-template: 1fr / 1fr; }
+.layout-50-50 { grid-template: 1fr / 1fr 1fr; }
+.layout-23-13 { grid-template: 1fr / 2fr 1fr; }
+.layout-3col { grid-template: 1fr / repeat(3, 1fr); }
+.layout-main-sub { grid-template: 1fr 1fr / 2fr 1fr; }
+.layout-hero-3 { grid-template: auto 1fr / repeat(3, 1fr); }
+.layout-mixed { grid-template: repeat(2, 1fr) / 1fr 1fr; }
+.highlight {
+  color: var(--accent-1); font-weight: bold;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+        &lt;div style=&quot;display:flex; flex-direction:column; justify-content:center; align-items:center; height:100%; text-align:center;&quot;&gt;
+            &lt;div style=&quot;font-size:56px; font-weight:900; color:var(--accent-1); margin-bottom:20px;&quot;&gt;拥抱AI时代：OpenClaw入门与QClaw实战&lt;/div&gt;
+            &lt;div style=&quot;font-size:28px; color:var(--text-primary); margin-bottom:40px;&quot;&gt;深圳分公司AI赋能培训&lt;/div&gt;
+            &lt;div style=&quot;font-size:18px; color:var(--text-secondary); margin-top:60px;&quot;&gt;主讲人：科技部 讲师 | 日期：2026年4月17日&lt;/div&gt;
+        &lt;/div&gt;
+        
+&lt;div class=&quot;footer&quot;&gt;
+  &lt;span&gt;&lt;/span&gt;
+  &lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" sandbox="allow-same-origin" frameborder="0" scrolling="no"></iframe>
+<iframe class="slide-frame" id="slide-1" style="display:none" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;style&gt;
+
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --card-bg-from: #F1F5F9;
+  --card-bg-to: #E2E8F0;
+  --card-border: rgba(37,99,235,0.12);
+  --card-radius: 12px;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --accent-1: #2563EB;
+  --accent-2: #1D4ED8;
+  --accent-3: #059669;
+  --accent-4: #047857;
+  --font-family: PingFang SC, Microsoft YaHei, system-ui, sans-serif;
+}
+
+body {
+  margin: 0; padding: 0;
+  width: 1280px; height: 720px;
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  overflow: hidden;
+  position: relative;
+}
+.title-area {
+  position: absolute;
+  left: 40px; top: 40px;
+  width: 1200px; height: 50px;
+}
+.page-title {
+  font-size: 32px; font-weight: 700; margin: 0;
+  position: relative;
+  display: inline-block;
+}
+.page-title::after {
+  content: &#x27;&#x27;; position: absolute;
+  left: 0; bottom: -8px;
+  width: 60px; height: 4px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  border-radius: 2px;
+}
+.content-area {
+  position: absolute;
+  left: 40px; top: 120px;
+  width: 1200px; height: 540px;
+  display: grid;
+  gap: 20px;
+}
+.card {
+  background: linear-gradient(135deg, var(--card-bg-from), var(--card-bg-to));
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  display: flex; flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.card-title {
+  font-size: 20px; font-weight: 700; margin: 0 0 16px 0;
+  color: var(--text-primary);
+}
+.card-content {
+  font-size: 14px; line-height: 1.8; color: var(--text-secondary);
+  flex: 1;
+}
+.data-card .core-data {
+  font-size: 48px; font-weight: 800; color: var(--accent-1);
+  font-variant-numeric: tabular-nums;
+  margin: 10px 0;
+}
+.footer {
+  position: absolute; bottom: 20px; left: 40px; right: 40px;
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--text-secondary); opacity: 0.6;
+}
+/* Grid Layouts */
+.layout-single { grid-template: 1fr / 1fr; }
+.layout-50-50 { grid-template: 1fr / 1fr 1fr; }
+.layout-23-13 { grid-template: 1fr / 2fr 1fr; }
+.layout-3col { grid-template: 1fr / repeat(3, 1fr); }
+.layout-main-sub { grid-template: 1fr 1fr / 2fr 1fr; }
+.layout-hero-3 { grid-template: auto 1fr / repeat(3, 1fr); }
+.layout-mixed { grid-template: repeat(2, 1fr) / 1fr 1fr; }
+.highlight {
+  color: var(--accent-1); font-weight: bold;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+        &lt;div class=&quot;title-area&quot;&gt;
+            &lt;h1 class=&quot;page-title&quot;&gt;培训目录&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;content-area layout-23-13&quot;&gt;
+            
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;核心议程&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;&lt;div style=&quot;display:flex; gap:10px; margin-bottom:12px;&quot;&gt;&lt;div style=&quot;min-width:8px; height:8px; border-radius:50%; background:var(--accent-1); margin-top:6px;&quot;&gt;&lt;/div&gt;&lt;div&gt;1. 什么是OpenClaw与“养虾热”？&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display:flex; gap:10px; margin-bottom:12px;&quot;&gt;&lt;div style=&quot;min-width:8px; height:8px; border-radius:50%; background:var(--accent-1); margin-top:6px;&quot;&gt;&lt;/div&gt;&lt;div&gt;2. 国内AI神器深度盘点&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display:flex; gap:10px; margin-bottom:12px;&quot;&gt;&lt;div style=&quot;min-width:8px; height:8px; border-radius:50%; background:var(--accent-1); margin-top:6px;&quot;&gt;&lt;/div&gt;&lt;div&gt;3. 为什么强烈推荐QClaw？&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display:flex; gap:10px; margin-bottom:12px;&quot;&gt;&lt;div style=&quot;min-width:8px; height:8px; border-radius:50%; background:var(--accent-1); margin-top:6px;&quot;&gt;&lt;/div&gt;&lt;div&gt;4. 实操：客户端安装与初体验&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display:flex; gap:10px; margin-bottom:12px;&quot;&gt;&lt;div style=&quot;min-width:8px; height:8px; border-radius:50%; background:var(--accent-1); margin-top:6px;&quot;&gt;&lt;/div&gt;&lt;div&gt;5. ⚠️ 必看：&lt;span class=&quot;highlight&quot;&gt;数据安全高压线&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display:flex; gap:10px; margin-bottom:12px;&quot;&gt;&lt;div style=&quot;min-width:8px; height:8px; border-radius:50%; background:var(--accent-1); margin-top:6px;&quot;&gt;&lt;/div&gt;&lt;div&gt;6. &lt;span class=&quot;highlight&quot;&gt;寿险实战演练&lt;/span&gt;（7大高频场景）&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display:flex; gap:10px; margin-bottom:12px;&quot;&gt;&lt;div style=&quot;min-width:8px; height:8px; border-radius:50%; background:var(--accent-1); margin-top:6px;&quot;&gt;&lt;/div&gt;&lt;div&gt;7. 隔离网络下的“AI工作流”&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display:flex; gap:10px; margin-bottom:12px;&quot;&gt;&lt;div style=&quot;min-width:8px; height:8px; border-radius:50%; background:var(--accent-1); margin-top:6px;&quot;&gt;&lt;/div&gt;&lt;div&gt;8. 传统寿险人的AI生存指南&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;card data-card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;培训目标&lt;/h3&gt;
+            &lt;div class=&quot;core-data&quot;&gt;60分钟&lt;/div&gt;
+            &lt;div class=&quot;card-content&quot;&gt;帮助零基础员工快速掌握 AI 工具&lt;/div&gt;
+            &lt;div style=&quot;height:4px; background:var(--card-border); border-radius:2px; margin-top:16px; overflow:hidden;&quot;&gt;
+                &lt;div style=&quot;height:100%; width:75%; background:var(--accent-1); border-radius:2px;&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;/div&gt;
+        
+&lt;div class=&quot;footer&quot;&gt;
+  &lt;span&gt;深圳分公司AI赋能培训 - 培训目录&lt;/span&gt;
+  &lt;span&gt;2 / 13 | QClaw AI Training&lt;/span&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" sandbox="allow-same-origin" frameborder="0" scrolling="no"></iframe>
+<iframe class="slide-frame" id="slide-2" style="display:none" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;style&gt;
+
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --card-bg-from: #F1F5F9;
+  --card-bg-to: #E2E8F0;
+  --card-border: rgba(37,99,235,0.12);
+  --card-radius: 12px;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --accent-1: #2563EB;
+  --accent-2: #1D4ED8;
+  --accent-3: #059669;
+  --accent-4: #047857;
+  --font-family: PingFang SC, Microsoft YaHei, system-ui, sans-serif;
+}
+
+body {
+  margin: 0; padding: 0;
+  width: 1280px; height: 720px;
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  overflow: hidden;
+  position: relative;
+}
+.title-area {
+  position: absolute;
+  left: 40px; top: 40px;
+  width: 1200px; height: 50px;
+}
+.page-title {
+  font-size: 32px; font-weight: 700; margin: 0;
+  position: relative;
+  display: inline-block;
+}
+.page-title::after {
+  content: &#x27;&#x27;; position: absolute;
+  left: 0; bottom: -8px;
+  width: 60px; height: 4px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  border-radius: 2px;
+}
+.content-area {
+  position: absolute;
+  left: 40px; top: 120px;
+  width: 1200px; height: 540px;
+  display: grid;
+  gap: 20px;
+}
+.card {
+  background: linear-gradient(135deg, var(--card-bg-from), var(--card-bg-to));
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  display: flex; flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.card-title {
+  font-size: 20px; font-weight: 700; margin: 0 0 16px 0;
+  color: var(--text-primary);
+}
+.card-content {
+  font-size: 14px; line-height: 1.8; color: var(--text-secondary);
+  flex: 1;
+}
+.data-card .core-data {
+  font-size: 48px; font-weight: 800; color: var(--accent-1);
+  font-variant-numeric: tabular-nums;
+  margin: 10px 0;
+}
+.footer {
+  position: absolute; bottom: 20px; left: 40px; right: 40px;
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--text-secondary); opacity: 0.6;
+}
+/* Grid Layouts */
+.layout-single { grid-template: 1fr / 1fr; }
+.layout-50-50 { grid-template: 1fr / 1fr 1fr; }
+.layout-23-13 { grid-template: 1fr / 2fr 1fr; }
+.layout-3col { grid-template: 1fr / repeat(3, 1fr); }
+.layout-main-sub { grid-template: 1fr 1fr / 2fr 1fr; }
+.layout-hero-3 { grid-template: auto 1fr / repeat(3, 1fr); }
+.layout-mixed { grid-template: repeat(2, 1fr) / 1fr 1fr; }
+.highlight {
+  color: var(--accent-1); font-weight: bold;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+        &lt;div class=&quot;title-area&quot;&gt;
+            &lt;h1 class=&quot;page-title&quot;&gt;什么是OpenClaw与“养虾热”？&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;content-area layout-main-sub&quot;&gt;
+            
+        &lt;div class=&quot;card&quot; style=&quot;grid-row: 1 / -1;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;OpenClaw 定义&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;Claw 是“爪子、钳子”的意思。它代表着一类不仅能聊天，更能帮你执行具体任务（如搜索、总结、写文档）的智能助手。&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;何为“养虾热”？&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;大家都在调教和培养属于自己的&lt;span class=&quot;highlight&quot;&gt;专属AI小助手&lt;/span&gt;，让它越来越懂你的工作习惯。&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;card data-card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;时代呼唤&lt;/h3&gt;
+            &lt;div class=&quot;core-data&quot;&gt;100%&lt;/div&gt;
+            &lt;div class=&quot;card-content&quot;&gt;主动拥抱 AI 时代&lt;/div&gt;
+            &lt;div style=&quot;height:4px; background:var(--card-border); border-radius:2px; margin-top:16px; overflow:hidden;&quot;&gt;
+                &lt;div style=&quot;height:100%; width:75%; background:var(--accent-1); border-radius:2px;&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;/div&gt;
+        
+&lt;div class=&quot;footer&quot;&gt;
+  &lt;span&gt;深圳分公司AI赋能培训 - 什么是OpenClaw与“养虾热”？&lt;/span&gt;
+  &lt;span&gt;3 / 13 | QClaw AI Training&lt;/span&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" sandbox="allow-same-origin" frameborder="0" scrolling="no"></iframe>
+<iframe class="slide-frame" id="slide-3" style="display:none" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;style&gt;
+
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --card-bg-from: #F1F5F9;
+  --card-bg-to: #E2E8F0;
+  --card-border: rgba(37,99,235,0.12);
+  --card-radius: 12px;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --accent-1: #2563EB;
+  --accent-2: #1D4ED8;
+  --accent-3: #059669;
+  --accent-4: #047857;
+  --font-family: PingFang SC, Microsoft YaHei, system-ui, sans-serif;
+}
+
+body {
+  margin: 0; padding: 0;
+  width: 1280px; height: 720px;
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  overflow: hidden;
+  position: relative;
+}
+.title-area {
+  position: absolute;
+  left: 40px; top: 40px;
+  width: 1200px; height: 50px;
+}
+.page-title {
+  font-size: 32px; font-weight: 700; margin: 0;
+  position: relative;
+  display: inline-block;
+}
+.page-title::after {
+  content: &#x27;&#x27;; position: absolute;
+  left: 0; bottom: -8px;
+  width: 60px; height: 4px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  border-radius: 2px;
+}
+.content-area {
+  position: absolute;
+  left: 40px; top: 120px;
+  width: 1200px; height: 540px;
+  display: grid;
+  gap: 20px;
+}
+.card {
+  background: linear-gradient(135deg, var(--card-bg-from), var(--card-bg-to));
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  display: flex; flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.card-title {
+  font-size: 20px; font-weight: 700; margin: 0 0 16px 0;
+  color: var(--text-primary);
+}
+.card-content {
+  font-size: 14px; line-height: 1.8; color: var(--text-secondary);
+  flex: 1;
+}
+.data-card .core-data {
+  font-size: 48px; font-weight: 800; color: var(--accent-1);
+  font-variant-numeric: tabular-nums;
+  margin: 10px 0;
+}
+.footer {
+  position: absolute; bottom: 20px; left: 40px; right: 40px;
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--text-secondary); opacity: 0.6;
+}
+/* Grid Layouts */
+.layout-single { grid-template: 1fr / 1fr; }
+.layout-50-50 { grid-template: 1fr / 1fr 1fr; }
+.layout-23-13 { grid-template: 1fr / 2fr 1fr; }
+.layout-3col { grid-template: 1fr / repeat(3, 1fr); }
+.layout-main-sub { grid-template: 1fr 1fr / 2fr 1fr; }
+.layout-hero-3 { grid-template: auto 1fr / repeat(3, 1fr); }
+.layout-mixed { grid-template: repeat(2, 1fr) / 1fr 1fr; }
+.highlight {
+  color: var(--accent-1); font-weight: bold;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+        &lt;div class=&quot;title-area&quot;&gt;
+            &lt;h1 class=&quot;page-title&quot;&gt;国内OpenClaw产品群雄逐鹿&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;content-area layout-mixed&quot;&gt;
+            
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;积分限制型&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;&lt;div style=&quot;display:flex; gap:10px; margin-bottom:12px;&quot;&gt;&lt;div style=&quot;min-width:8px; height:8px; border-radius:50%; background:var(--accent-1); margin-top:6px;&quot;&gt;&lt;/div&gt;&lt;div&gt;AutoClaw (澳龙)、EasyClaw、WorkBuddy。功能强大或偏向专业，但免费使用的“体力（token）”非常有限，重度使用很快就会耗尽。&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;一码难求型 (内测)&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;&lt;div style=&quot;display:flex; gap:10px; margin-bottom:12px;&quot;&gt;&lt;div style=&quot;min-width:8px; height:8px; border-radius:50%; background:var(--accent-1); margin-top:6px;&quot;&gt;&lt;/div&gt;&lt;div&gt;灵犀Claw、悟空、Solo。背后是大厂支撑，生态结合紧密，但目前均在内测中，&lt;span class=&quot;highlight&quot;&gt;需要邀请码&lt;/span&gt;，普通人难进。&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;生态绑定 / 限时型&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;&lt;div style=&quot;display:flex; gap:10px; margin-bottom:12px;&quot;&gt;&lt;div style=&quot;min-width:8px; height:8px; border-radius:50%; background:var(--accent-1); margin-top:6px;&quot;&gt;&lt;/div&gt;&lt;div&gt;飞书 OpenClaw (深度绑定飞书，适用面窄)；jvs claw (新人仅限免费试用7天，无法长期作为生产力)。&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;card data-card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;量大管饱型&lt;/h3&gt;
+            &lt;div class=&quot;core-data&quot;&gt;QClaw&lt;/div&gt;
+            &lt;div class=&quot;card-content&quot;&gt;&lt;span class=&quot;highlight&quot;&gt;腾讯系&lt;/span&gt;产品，极其稳定&lt;/div&gt;
+            &lt;div style=&quot;height:4px; background:var(--card-border); border-radius:2px; margin-top:16px; overflow:hidden;&quot;&gt;
+                &lt;div style=&quot;height:100%; width:75%; background:var(--accent-1); border-radius:2px;&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;/div&gt;
+        
+&lt;div class=&quot;footer&quot;&gt;
+  &lt;span&gt;深圳分公司AI赋能培训 - 国内OpenClaw产品群雄逐鹿&lt;/span&gt;
+  &lt;span&gt;4 / 13 | QClaw AI Training&lt;/span&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" sandbox="allow-same-origin" frameborder="0" scrolling="no"></iframe>
+<iframe class="slide-frame" id="slide-4" style="display:none" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;style&gt;
+
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --card-bg-from: #F1F5F9;
+  --card-bg-to: #E2E8F0;
+  --card-border: rgba(37,99,235,0.12);
+  --card-radius: 12px;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --accent-1: #2563EB;
+  --accent-2: #1D4ED8;
+  --accent-3: #059669;
+  --accent-4: #047857;
+  --font-family: PingFang SC, Microsoft YaHei, system-ui, sans-serif;
+}
+
+body {
+  margin: 0; padding: 0;
+  width: 1280px; height: 720px;
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  overflow: hidden;
+  position: relative;
+}
+.title-area {
+  position: absolute;
+  left: 40px; top: 40px;
+  width: 1200px; height: 50px;
+}
+.page-title {
+  font-size: 32px; font-weight: 700; margin: 0;
+  position: relative;
+  display: inline-block;
+}
+.page-title::after {
+  content: &#x27;&#x27;; position: absolute;
+  left: 0; bottom: -8px;
+  width: 60px; height: 4px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  border-radius: 2px;
+}
+.content-area {
+  position: absolute;
+  left: 40px; top: 120px;
+  width: 1200px; height: 540px;
+  display: grid;
+  gap: 20px;
+}
+.card {
+  background: linear-gradient(135deg, var(--card-bg-from), var(--card-bg-to));
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  display: flex; flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.card-title {
+  font-size: 20px; font-weight: 700; margin: 0 0 16px 0;
+  color: var(--text-primary);
+}
+.card-content {
+  font-size: 14px; line-height: 1.8; color: var(--text-secondary);
+  flex: 1;
+}
+.data-card .core-data {
+  font-size: 48px; font-weight: 800; color: var(--accent-1);
+  font-variant-numeric: tabular-nums;
+  margin: 10px 0;
+}
+.footer {
+  position: absolute; bottom: 20px; left: 40px; right: 40px;
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--text-secondary); opacity: 0.6;
+}
+/* Grid Layouts */
+.layout-single { grid-template: 1fr / 1fr; }
+.layout-50-50 { grid-template: 1fr / 1fr 1fr; }
+.layout-23-13 { grid-template: 1fr / 2fr 1fr; }
+.layout-3col { grid-template: 1fr / repeat(3, 1fr); }
+.layout-main-sub { grid-template: 1fr 1fr / 2fr 1fr; }
+.layout-hero-3 { grid-template: auto 1fr / repeat(3, 1fr); }
+.layout-mixed { grid-template: repeat(2, 1fr) / 1fr 1fr; }
+.highlight {
+  color: var(--accent-1); font-weight: bold;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+        &lt;div class=&quot;title-area&quot;&gt;
+            &lt;h1 class=&quot;page-title&quot;&gt;为什么强烈推荐QClaw？&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;content-area layout-hero-3&quot;&gt;
+            
+        &lt;div class=&quot;card data-card&quot; style=&quot;grid-column: 1 / -1;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;算力土豪&lt;/h3&gt;
+            &lt;div class=&quot;core-data&quot;&gt;4000万&lt;/div&gt;
+            &lt;div class=&quot;card-content&quot;&gt;每天免费赠送额度，随便用，不心疼！&lt;/div&gt;
+            &lt;div style=&quot;height:4px; background:var(--card-border); border-radius:2px; margin-top:16px; overflow:hidden;&quot;&gt;
+                &lt;div style=&quot;height:100%; width:75%; background:var(--accent-1); border-radius:2px;&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;1. 大厂背书与生态&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;&lt;span class=&quot;highlight&quot;&gt;腾讯出品&lt;/span&gt;，未来在对接微信、QQ、腾讯文档等咱们常用的生态时，有着天然的便利性和想象空间。&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;2. 拒绝配置折磨&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;原生的OpenClaw配置非常繁琐，涉及各种环境搭建，能劝退99%的小白。QClaw把这些都封装好了，&lt;span class=&quot;highlight&quot;&gt;开箱即用&lt;/span&gt;。&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;3. 零成本无焦虑&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;对比云端部署：云服务器要付月费买Token，让人焦虑“怎么回本”。&lt;span class=&quot;highlight&quot;&gt;本地客户端&lt;/span&gt;运行只需连网和一点电费，&lt;span class=&quot;highlight&quot;&gt;心态轻松&lt;/span&gt;！&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;/div&gt;
+        
+&lt;div class=&quot;footer&quot;&gt;
+  &lt;span&gt;深圳分公司AI赋能培训 - 为什么强烈推荐QClaw？&lt;/span&gt;
+  &lt;span&gt;5 / 13 | QClaw AI Training&lt;/span&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" sandbox="allow-same-origin" frameborder="0" scrolling="no"></iframe>
+<iframe class="slide-frame" id="slide-5" style="display:none" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;style&gt;
+
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --card-bg-from: #F1F5F9;
+  --card-bg-to: #E2E8F0;
+  --card-border: rgba(37,99,235,0.12);
+  --card-radius: 12px;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --accent-1: #2563EB;
+  --accent-2: #1D4ED8;
+  --accent-3: #059669;
+  --accent-4: #047857;
+  --font-family: PingFang SC, Microsoft YaHei, system-ui, sans-serif;
+}
+
+body {
+  margin: 0; padding: 0;
+  width: 1280px; height: 720px;
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  overflow: hidden;
+  position: relative;
+}
+.title-area {
+  position: absolute;
+  left: 40px; top: 40px;
+  width: 1200px; height: 50px;
+}
+.page-title {
+  font-size: 32px; font-weight: 700; margin: 0;
+  position: relative;
+  display: inline-block;
+}
+.page-title::after {
+  content: &#x27;&#x27;; position: absolute;
+  left: 0; bottom: -8px;
+  width: 60px; height: 4px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  border-radius: 2px;
+}
+.content-area {
+  position: absolute;
+  left: 40px; top: 120px;
+  width: 1200px; height: 540px;
+  display: grid;
+  gap: 20px;
+}
+.card {
+  background: linear-gradient(135deg, var(--card-bg-from), var(--card-bg-to));
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  display: flex; flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.card-title {
+  font-size: 20px; font-weight: 700; margin: 0 0 16px 0;
+  color: var(--text-primary);
+}
+.card-content {
+  font-size: 14px; line-height: 1.8; color: var(--text-secondary);
+  flex: 1;
+}
+.data-card .core-data {
+  font-size: 48px; font-weight: 800; color: var(--accent-1);
+  font-variant-numeric: tabular-nums;
+  margin: 10px 0;
+}
+.footer {
+  position: absolute; bottom: 20px; left: 40px; right: 40px;
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--text-secondary); opacity: 0.6;
+}
+/* Grid Layouts */
+.layout-single { grid-template: 1fr / 1fr; }
+.layout-50-50 { grid-template: 1fr / 1fr 1fr; }
+.layout-23-13 { grid-template: 1fr / 2fr 1fr; }
+.layout-3col { grid-template: 1fr / repeat(3, 1fr); }
+.layout-main-sub { grid-template: 1fr 1fr / 2fr 1fr; }
+.layout-hero-3 { grid-template: auto 1fr / repeat(3, 1fr); }
+.layout-mixed { grid-template: repeat(2, 1fr) / 1fr 1fr; }
+.highlight {
+  color: var(--accent-1); font-weight: bold;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+        &lt;div class=&quot;title-area&quot;&gt;
+            &lt;h1 class=&quot;page-title&quot;&gt;实操：客户端安装与初体验&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;content-area layout-23-13&quot;&gt;
+            
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;安装步骤&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;&lt;div style=&quot;display:flex; gap:10px; margin-bottom:12px;&quot;&gt;&lt;div style=&quot;min-width:8px; height:8px; border-radius:50%; background:var(--accent-1); margin-top:6px;&quot;&gt;&lt;/div&gt;&lt;div&gt;1. 访问官网下载：浏览器输入 &lt;span class=&quot;highlight&quot;&gt;qclaw.qq.com&lt;/span&gt; 下载安装包&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display:flex; gap:10px; margin-bottom:12px;&quot;&gt;&lt;div style=&quot;min-width:8px; height:8px; border-radius:50%; background:var(--accent-1); margin-top:6px;&quot;&gt;&lt;/div&gt;&lt;div&gt;2. 傻瓜式安装：双击安装包，一路点击“下一步”&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display:flex; gap:10px; margin-bottom:12px;&quot;&gt;&lt;div style=&quot;min-width:8px; height:8px; border-radius:50%; background:var(--accent-1); margin-top:6px;&quot;&gt;&lt;/div&gt;&lt;div&gt;3. 快捷登录：打开客户端，使用微信或QQ扫码，一秒登录&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;card data-card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;极速体验&lt;/h3&gt;
+            &lt;div class=&quot;core-data&quot;&gt;1秒&lt;/div&gt;
+            &lt;div class=&quot;card-content&quot;&gt;免去繁琐的账号注册和密码找回&lt;/div&gt;
+            &lt;div style=&quot;height:4px; background:var(--card-border); border-radius:2px; margin-top:16px; overflow:hidden;&quot;&gt;
+                &lt;div style=&quot;height:100%; width:75%; background:var(--accent-1); border-radius:2px;&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;/div&gt;
+        
+&lt;div class=&quot;footer&quot;&gt;
+  &lt;span&gt;深圳分公司AI赋能培训 - 实操：客户端安装与初体验&lt;/span&gt;
+  &lt;span&gt;6 / 13 | QClaw AI Training&lt;/span&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" sandbox="allow-same-origin" frameborder="0" scrolling="no"></iframe>
+<iframe class="slide-frame" id="slide-6" style="display:none" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;style&gt;
+
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --card-bg-from: #F1F5F9;
+  --card-bg-to: #E2E8F0;
+  --card-border: rgba(37,99,235,0.12);
+  --card-radius: 12px;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --accent-1: #2563EB;
+  --accent-2: #1D4ED8;
+  --accent-3: #059669;
+  --accent-4: #047857;
+  --font-family: PingFang SC, Microsoft YaHei, system-ui, sans-serif;
+}
+
+body {
+  margin: 0; padding: 0;
+  width: 1280px; height: 720px;
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  overflow: hidden;
+  position: relative;
+}
+.title-area {
+  position: absolute;
+  left: 40px; top: 40px;
+  width: 1200px; height: 50px;
+}
+.page-title {
+  font-size: 32px; font-weight: 700; margin: 0;
+  position: relative;
+  display: inline-block;
+}
+.page-title::after {
+  content: &#x27;&#x27;; position: absolute;
+  left: 0; bottom: -8px;
+  width: 60px; height: 4px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  border-radius: 2px;
+}
+.content-area {
+  position: absolute;
+  left: 40px; top: 120px;
+  width: 1200px; height: 540px;
+  display: grid;
+  gap: 20px;
+}
+.card {
+  background: linear-gradient(135deg, var(--card-bg-from), var(--card-bg-to));
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  display: flex; flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.card-title {
+  font-size: 20px; font-weight: 700; margin: 0 0 16px 0;
+  color: var(--text-primary);
+}
+.card-content {
+  font-size: 14px; line-height: 1.8; color: var(--text-secondary);
+  flex: 1;
+}
+.data-card .core-data {
+  font-size: 48px; font-weight: 800; color: var(--accent-1);
+  font-variant-numeric: tabular-nums;
+  margin: 10px 0;
+}
+.footer {
+  position: absolute; bottom: 20px; left: 40px; right: 40px;
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--text-secondary); opacity: 0.6;
+}
+/* Grid Layouts */
+.layout-single { grid-template: 1fr / 1fr; }
+.layout-50-50 { grid-template: 1fr / 1fr 1fr; }
+.layout-23-13 { grid-template: 1fr / 2fr 1fr; }
+.layout-3col { grid-template: 1fr / repeat(3, 1fr); }
+.layout-main-sub { grid-template: 1fr 1fr / 2fr 1fr; }
+.layout-hero-3 { grid-template: auto 1fr / repeat(3, 1fr); }
+.layout-mixed { grid-template: repeat(2, 1fr) / 1fr 1fr; }
+.highlight {
+  color: var(--accent-1); font-weight: bold;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+        &lt;div class=&quot;title-area&quot;&gt;
+            &lt;h1 class=&quot;page-title&quot;&gt;实操演示：QClaw的“超能力”体验&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;content-area layout-mixed&quot;&gt;
+            
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;1. 角色扮演&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;&lt;span class=&quot;highlight&quot;&gt;赋予 AI 身份&lt;/span&gt;。指令：“你现在是一位拥有10年经验的资深寿险理财规划师，请用通俗的语言向我解释什么是‘增额终身寿险’。”&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;2. 长文摘要&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;丢进万字研报，指令：“请帮我提炼这篇文章的3个核心观点，字数控制在200字以内。”（提效神器）&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;3. 风格润色&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;输入一段非常口语化的客户沟通记录，指令：“请将这段话改写成一封&lt;span class=&quot;highlight&quot;&gt;专业、得体&lt;/span&gt;的官方邮件，发给高净值客户。”&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;4. 逻辑推理&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;处理繁杂任务。指令：“我明天9点开早会(1h)，下午2点拜访客户，4点交报表(需1.5h准备)。请帮我排出一天的作息表。”&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;/div&gt;
+        
+&lt;div class=&quot;footer&quot;&gt;
+  &lt;span&gt;深圳分公司AI赋能培训 - 实操演示：QClaw的“超能力”体验&lt;/span&gt;
+  &lt;span&gt;7 / 13 | QClaw AI Training&lt;/span&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" sandbox="allow-same-origin" frameborder="0" scrolling="no"></iframe>
+<iframe class="slide-frame" id="slide-7" style="display:none" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;style&gt;
+
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --card-bg-from: #F1F5F9;
+  --card-bg-to: #E2E8F0;
+  --card-border: rgba(37,99,235,0.12);
+  --card-radius: 12px;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --accent-1: #2563EB;
+  --accent-2: #1D4ED8;
+  --accent-3: #059669;
+  --accent-4: #047857;
+  --font-family: PingFang SC, Microsoft YaHei, system-ui, sans-serif;
+}
+
+body {
+  margin: 0; padding: 0;
+  width: 1280px; height: 720px;
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  overflow: hidden;
+  position: relative;
+}
+.title-area {
+  position: absolute;
+  left: 40px; top: 40px;
+  width: 1200px; height: 50px;
+}
+.page-title {
+  font-size: 32px; font-weight: 700; margin: 0;
+  position: relative;
+  display: inline-block;
+}
+.page-title::after {
+  content: &#x27;&#x27;; position: absolute;
+  left: 0; bottom: -8px;
+  width: 60px; height: 4px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  border-radius: 2px;
+}
+.content-area {
+  position: absolute;
+  left: 40px; top: 120px;
+  width: 1200px; height: 540px;
+  display: grid;
+  gap: 20px;
+}
+.card {
+  background: linear-gradient(135deg, var(--card-bg-from), var(--card-bg-to));
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  display: flex; flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.card-title {
+  font-size: 20px; font-weight: 700; margin: 0 0 16px 0;
+  color: var(--text-primary);
+}
+.card-content {
+  font-size: 14px; line-height: 1.8; color: var(--text-secondary);
+  flex: 1;
+}
+.data-card .core-data {
+  font-size: 48px; font-weight: 800; color: var(--accent-1);
+  font-variant-numeric: tabular-nums;
+  margin: 10px 0;
+}
+.footer {
+  position: absolute; bottom: 20px; left: 40px; right: 40px;
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--text-secondary); opacity: 0.6;
+}
+/* Grid Layouts */
+.layout-single { grid-template: 1fr / 1fr; }
+.layout-50-50 { grid-template: 1fr / 1fr 1fr; }
+.layout-23-13 { grid-template: 1fr / 2fr 1fr; }
+.layout-3col { grid-template: 1fr / repeat(3, 1fr); }
+.layout-main-sub { grid-template: 1fr 1fr / 2fr 1fr; }
+.layout-hero-3 { grid-template: auto 1fr / repeat(3, 1fr); }
+.layout-mixed { grid-template: repeat(2, 1fr) / 1fr 1fr; }
+.highlight {
+  color: var(--accent-1); font-weight: bold;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+        &lt;div style=&quot;display:flex; flex-direction:column; justify-content:center; align-items:center; height:100%; text-align:center;&quot;&gt;
+            &lt;div style=&quot;font-size:20px; font-weight:700; color:var(--accent-1); letter-spacing:4px; margin-bottom:20px;&quot;&gt;PART 07&lt;/div&gt;
+            &lt;div style=&quot;font-size:48px; font-weight:800; color:var(--text-primary); margin-bottom:20px;&quot;&gt;⚠️ 必看：数据安全高压线&lt;/div&gt;
+            &lt;div style=&quot;font-size:20px; color:var(--text-secondary);&quot;&gt;因为我们的日常办公系统在内网云桌面，物理隔离了外网，所以我们无法在办公电脑上直接使用外部AI。大家只能在个人手机或个人外网电脑上使用！&lt;/div&gt;
+        &lt;/div&gt;
+        
+&lt;div class=&quot;footer&quot;&gt;
+  &lt;span&gt;&lt;/span&gt;
+  &lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" sandbox="allow-same-origin" frameborder="0" scrolling="no"></iframe>
+<iframe class="slide-frame" id="slide-8" style="display:none" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;style&gt;
+
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --card-bg-from: #F1F5F9;
+  --card-bg-to: #E2E8F0;
+  --card-border: rgba(37,99,235,0.12);
+  --card-radius: 12px;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --accent-1: #2563EB;
+  --accent-2: #1D4ED8;
+  --accent-3: #059669;
+  --accent-4: #047857;
+  --font-family: PingFang SC, Microsoft YaHei, system-ui, sans-serif;
+}
+
+body {
+  margin: 0; padding: 0;
+  width: 1280px; height: 720px;
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  overflow: hidden;
+  position: relative;
+}
+.title-area {
+  position: absolute;
+  left: 40px; top: 40px;
+  width: 1200px; height: 50px;
+}
+.page-title {
+  font-size: 32px; font-weight: 700; margin: 0;
+  position: relative;
+  display: inline-block;
+}
+.page-title::after {
+  content: &#x27;&#x27;; position: absolute;
+  left: 0; bottom: -8px;
+  width: 60px; height: 4px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  border-radius: 2px;
+}
+.content-area {
+  position: absolute;
+  left: 40px; top: 120px;
+  width: 1200px; height: 540px;
+  display: grid;
+  gap: 20px;
+}
+.card {
+  background: linear-gradient(135deg, var(--card-bg-from), var(--card-bg-to));
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  display: flex; flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.card-title {
+  font-size: 20px; font-weight: 700; margin: 0 0 16px 0;
+  color: var(--text-primary);
+}
+.card-content {
+  font-size: 14px; line-height: 1.8; color: var(--text-secondary);
+  flex: 1;
+}
+.data-card .core-data {
+  font-size: 48px; font-weight: 800; color: var(--accent-1);
+  font-variant-numeric: tabular-nums;
+  margin: 10px 0;
+}
+.footer {
+  position: absolute; bottom: 20px; left: 40px; right: 40px;
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--text-secondary); opacity: 0.6;
+}
+/* Grid Layouts */
+.layout-single { grid-template: 1fr / 1fr; }
+.layout-50-50 { grid-template: 1fr / 1fr 1fr; }
+.layout-23-13 { grid-template: 1fr / 2fr 1fr; }
+.layout-3col { grid-template: 1fr / repeat(3, 1fr); }
+.layout-main-sub { grid-template: 1fr 1fr / 2fr 1fr; }
+.layout-hero-3 { grid-template: auto 1fr / repeat(3, 1fr); }
+.layout-mixed { grid-template: repeat(2, 1fr) / 1fr 1fr; }
+.highlight {
+  color: var(--accent-1); font-weight: bold;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+        &lt;div class=&quot;title-area&quot;&gt;
+            &lt;h1 class=&quot;page-title&quot;&gt;寿险实战场景（一）：内容创作与学习&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;content-area layout-3col&quot;&gt;
+            
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;场景1：早会大纲生成&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;痛点：轮到开早会不知道讲什么。&lt;br&gt;指令示例：“我明天早会做5分钟分享，主题是‘在拒绝中寻找机会’。请帮我写演讲稿大纲，含真实破冰小故事，风格接地气。”&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;场景2：条款“翻译机”&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;痛点：新出险种条款复杂，客户听不懂。&lt;br&gt;指令示例：“请把这段晦涩的条款，用给5岁小孩讲故事的方式解释一遍，让我能快速理解并转述给我的客户。”&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;场景3：活动策划风暴&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;痛点：节假日答谢活动没新意。&lt;br&gt;指令示例：“我是寿险代理人，母亲节想针对30-45岁高净值女性办线下活动。预算5000元，请给3个新颖的策划方案。”&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;/div&gt;
+        
+&lt;div class=&quot;footer&quot;&gt;
+  &lt;span&gt;深圳分公司AI赋能培训 - 寿险实战场景（一）：内容创作与学习&lt;/span&gt;
+  &lt;span&gt;9 / 13 | QClaw AI Training&lt;/span&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" sandbox="allow-same-origin" frameborder="0" scrolling="no"></iframe>
+<iframe class="slide-frame" id="slide-9" style="display:none" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;style&gt;
+
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --card-bg-from: #F1F5F9;
+  --card-bg-to: #E2E8F0;
+  --card-border: rgba(37,99,235,0.12);
+  --card-radius: 12px;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --accent-1: #2563EB;
+  --accent-2: #1D4ED8;
+  --accent-3: #059669;
+  --accent-4: #047857;
+  --font-family: PingFang SC, Microsoft YaHei, system-ui, sans-serif;
+}
+
+body {
+  margin: 0; padding: 0;
+  width: 1280px; height: 720px;
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  overflow: hidden;
+  position: relative;
+}
+.title-area {
+  position: absolute;
+  left: 40px; top: 40px;
+  width: 1200px; height: 50px;
+}
+.page-title {
+  font-size: 32px; font-weight: 700; margin: 0;
+  position: relative;
+  display: inline-block;
+}
+.page-title::after {
+  content: &#x27;&#x27;; position: absolute;
+  left: 0; bottom: -8px;
+  width: 60px; height: 4px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  border-radius: 2px;
+}
+.content-area {
+  position: absolute;
+  left: 40px; top: 120px;
+  width: 1200px; height: 540px;
+  display: grid;
+  gap: 20px;
+}
+.card {
+  background: linear-gradient(135deg, var(--card-bg-from), var(--card-bg-to));
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  display: flex; flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.card-title {
+  font-size: 20px; font-weight: 700; margin: 0 0 16px 0;
+  color: var(--text-primary);
+}
+.card-content {
+  font-size: 14px; line-height: 1.8; color: var(--text-secondary);
+  flex: 1;
+}
+.data-card .core-data {
+  font-size: 48px; font-weight: 800; color: var(--accent-1);
+  font-variant-numeric: tabular-nums;
+  margin: 10px 0;
+}
+.footer {
+  position: absolute; bottom: 20px; left: 40px; right: 40px;
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--text-secondary); opacity: 0.6;
+}
+/* Grid Layouts */
+.layout-single { grid-template: 1fr / 1fr; }
+.layout-50-50 { grid-template: 1fr / 1fr 1fr; }
+.layout-23-13 { grid-template: 1fr / 2fr 1fr; }
+.layout-3col { grid-template: 1fr / repeat(3, 1fr); }
+.layout-main-sub { grid-template: 1fr 1fr / 2fr 1fr; }
+.layout-hero-3 { grid-template: auto 1fr / repeat(3, 1fr); }
+.layout-mixed { grid-template: repeat(2, 1fr) / 1fr 1fr; }
+.highlight {
+  color: var(--accent-1); font-weight: bold;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+        &lt;div class=&quot;title-area&quot;&gt;
+            &lt;h1 class=&quot;page-title&quot;&gt;寿险实战场景（二）：客户经营与技能辅助&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;content-area layout-mixed&quot;&gt;
+            
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;场景4：高情商跟进话术&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;指令：“刚拜访一位35岁企业主，聊了养老和传承。请写一条感谢+跟进微信，100字内，要有温度，不要太浓的推销味。”&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;场景5：竞品对比框架&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;指令：“客户拿我司A产品和友商B产品做对比，请帮我列一个客观的对比分析话术框架（保障、性价比等），理清思路。”&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;场景6：爆款朋友圈&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;指令：“帮我写一条微信朋友圈文案，科普意外险重要性，语气&lt;span class=&quot;highlight&quot;&gt;轻松幽默&lt;/span&gt;，结尾带互动提问，并建议配什么图。”&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;场景7：Excel技巧求助&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;指令：“我有一个Excel表，A列日期，B列业绩，我想把本月业绩大于1万的单元格标红，请告诉我&lt;span class=&quot;highlight&quot;&gt;具体操作步骤&lt;/span&gt;。”&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;/div&gt;
+        
+&lt;div class=&quot;footer&quot;&gt;
+  &lt;span&gt;深圳分公司AI赋能培训 - 寿险实战场景（二）：客户经营与技能辅助&lt;/span&gt;
+  &lt;span&gt;10 / 13 | QClaw AI Training&lt;/span&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" sandbox="allow-same-origin" frameborder="0" scrolling="no"></iframe>
+<iframe class="slide-frame" id="slide-10" style="display:none" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;style&gt;
+
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --card-bg-from: #F1F5F9;
+  --card-bg-to: #E2E8F0;
+  --card-border: rgba(37,99,235,0.12);
+  --card-radius: 12px;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --accent-1: #2563EB;
+  --accent-2: #1D4ED8;
+  --accent-3: #059669;
+  --accent-4: #047857;
+  --font-family: PingFang SC, Microsoft YaHei, system-ui, sans-serif;
+}
+
+body {
+  margin: 0; padding: 0;
+  width: 1280px; height: 720px;
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  overflow: hidden;
+  position: relative;
+}
+.title-area {
+  position: absolute;
+  left: 40px; top: 40px;
+  width: 1200px; height: 50px;
+}
+.page-title {
+  font-size: 32px; font-weight: 700; margin: 0;
+  position: relative;
+  display: inline-block;
+}
+.page-title::after {
+  content: &#x27;&#x27;; position: absolute;
+  left: 0; bottom: -8px;
+  width: 60px; height: 4px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  border-radius: 2px;
+}
+.content-area {
+  position: absolute;
+  left: 40px; top: 120px;
+  width: 1200px; height: 540px;
+  display: grid;
+  gap: 20px;
+}
+.card {
+  background: linear-gradient(135deg, var(--card-bg-from), var(--card-bg-to));
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  display: flex; flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.card-title {
+  font-size: 20px; font-weight: 700; margin: 0 0 16px 0;
+  color: var(--text-primary);
+}
+.card-content {
+  font-size: 14px; line-height: 1.8; color: var(--text-secondary);
+  flex: 1;
+}
+.data-card .core-data {
+  font-size: 48px; font-weight: 800; color: var(--accent-1);
+  font-variant-numeric: tabular-nums;
+  margin: 10px 0;
+}
+.footer {
+  position: absolute; bottom: 20px; left: 40px; right: 40px;
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--text-secondary); opacity: 0.6;
+}
+/* Grid Layouts */
+.layout-single { grid-template: 1fr / 1fr; }
+.layout-50-50 { grid-template: 1fr / 1fr 1fr; }
+.layout-23-13 { grid-template: 1fr / 2fr 1fr; }
+.layout-3col { grid-template: 1fr / repeat(3, 1fr); }
+.layout-main-sub { grid-template: 1fr 1fr / 2fr 1fr; }
+.layout-hero-3 { grid-template: auto 1fr / repeat(3, 1fr); }
+.layout-mixed { grid-template: repeat(2, 1fr) / 1fr 1fr; }
+.highlight {
+  color: var(--accent-1); font-weight: bold;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+        &lt;div class=&quot;title-area&quot;&gt;
+            &lt;h1 class=&quot;page-title&quot;&gt;思考：隔离网络下如何赋能工作？&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;content-area layout-23-13&quot;&gt;
+            
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;合规的 AI 工作流&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;&lt;div style=&quot;display:flex; gap:10px; margin-bottom:12px;&quot;&gt;&lt;div style=&quot;min-width:8px; height:8px; border-radius:50%; background:var(--accent-1); margin-top:6px;&quot;&gt;&lt;/div&gt;&lt;div&gt;1. &lt;span class=&quot;highlight&quot;&gt;外网求助&lt;/span&gt;：在个人手机/外网电脑上问 QClaw（获取通用框架、技能步骤、灵感点子）&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display:flex; gap:10px; margin-bottom:12px;&quot;&gt;&lt;div style=&quot;min-width:8px; height:8px; border-radius:50%; background:var(--accent-1); margin-top:6px;&quot;&gt;&lt;/div&gt;&lt;div&gt;2. 大脑消化：自己理解并吸收 AI 给出的通用逻辑&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display:flex; gap:10px; margin-bottom:12px;&quot;&gt;&lt;div style=&quot;min-width:8px; height:8px; border-radius:50%; background:var(--accent-1); margin-top:6px;&quot;&gt;&lt;/div&gt;&lt;div&gt;3. &lt;span class=&quot;highlight&quot;&gt;内网执行&lt;/span&gt;：回到内网云桌面，结合公司真实的客户数据去完成最终的文档或业务操作&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;card data-card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;核心法则&lt;/h3&gt;
+            &lt;div class=&quot;core-data&quot;&gt;外脑&lt;/div&gt;
+            &lt;div class=&quot;card-content&quot;&gt;AI赋能大脑，不代替双手&lt;/div&gt;
+            &lt;div style=&quot;height:4px; background:var(--card-border); border-radius:2px; margin-top:16px; overflow:hidden;&quot;&gt;
+                &lt;div style=&quot;height:100%; width:75%; background:var(--accent-1); border-radius:2px;&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;/div&gt;
+        
+&lt;div class=&quot;footer&quot;&gt;
+  &lt;span&gt;深圳分公司AI赋能培训 - 思考：隔离网络下如何赋能工作？&lt;/span&gt;
+  &lt;span&gt;11 / 13 | QClaw AI Training&lt;/span&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" sandbox="allow-same-origin" frameborder="0" scrolling="no"></iframe>
+<iframe class="slide-frame" id="slide-11" style="display:none" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;style&gt;
+
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --card-bg-from: #F1F5F9;
+  --card-bg-to: #E2E8F0;
+  --card-border: rgba(37,99,235,0.12);
+  --card-radius: 12px;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --accent-1: #2563EB;
+  --accent-2: #1D4ED8;
+  --accent-3: #059669;
+  --accent-4: #047857;
+  --font-family: PingFang SC, Microsoft YaHei, system-ui, sans-serif;
+}
+
+body {
+  margin: 0; padding: 0;
+  width: 1280px; height: 720px;
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  overflow: hidden;
+  position: relative;
+}
+.title-area {
+  position: absolute;
+  left: 40px; top: 40px;
+  width: 1200px; height: 50px;
+}
+.page-title {
+  font-size: 32px; font-weight: 700; margin: 0;
+  position: relative;
+  display: inline-block;
+}
+.page-title::after {
+  content: &#x27;&#x27;; position: absolute;
+  left: 0; bottom: -8px;
+  width: 60px; height: 4px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  border-radius: 2px;
+}
+.content-area {
+  position: absolute;
+  left: 40px; top: 120px;
+  width: 1200px; height: 540px;
+  display: grid;
+  gap: 20px;
+}
+.card {
+  background: linear-gradient(135deg, var(--card-bg-from), var(--card-bg-to));
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  display: flex; flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.card-title {
+  font-size: 20px; font-weight: 700; margin: 0 0 16px 0;
+  color: var(--text-primary);
+}
+.card-content {
+  font-size: 14px; line-height: 1.8; color: var(--text-secondary);
+  flex: 1;
+}
+.data-card .core-data {
+  font-size: 48px; font-weight: 800; color: var(--accent-1);
+  font-variant-numeric: tabular-nums;
+  margin: 10px 0;
+}
+.footer {
+  position: absolute; bottom: 20px; left: 40px; right: 40px;
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--text-secondary); opacity: 0.6;
+}
+/* Grid Layouts */
+.layout-single { grid-template: 1fr / 1fr; }
+.layout-50-50 { grid-template: 1fr / 1fr 1fr; }
+.layout-23-13 { grid-template: 1fr / 2fr 1fr; }
+.layout-3col { grid-template: 1fr / repeat(3, 1fr); }
+.layout-main-sub { grid-template: 1fr 1fr / 2fr 1fr; }
+.layout-hero-3 { grid-template: auto 1fr / repeat(3, 1fr); }
+.layout-mixed { grid-template: repeat(2, 1fr) / 1fr 1fr; }
+.highlight {
+  color: var(--accent-1); font-weight: bold;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+        &lt;div class=&quot;title-area&quot;&gt;
+            &lt;h1 class=&quot;page-title&quot;&gt;AI时代的寿险员工生存指南&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;content-area layout-main-sub&quot;&gt;
+            
+        &lt;div class=&quot;card&quot; style=&quot;grid-row: 1 / -1;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;灵魂拷问：AI会淘汰我们吗？&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;不会。AI 没有同理心，它无法在一个家庭遭遇变故时，握住客户的手给予温度；它也无法在线下酒会上与客户建立深厚的信任关系。寿险的核心永远是“人”。&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;生存法则&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;让 AI 帮你写稿、算公式、想点子、理思路。让你有更多时间去“与人打交道”。&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;card&quot; style=&quot;&quot;&gt;
+            &lt;h3 class=&quot;card-title&quot;&gt;共勉&lt;/h3&gt;
+            &lt;div class=&quot;card-content&quot;&gt;AI大发展大时代，技术日新月异。别怕落后，我们都是&lt;span class=&quot;highlight&quot;&gt;赶路人&lt;/span&gt;！&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;/div&gt;
+        
+&lt;div class=&quot;footer&quot;&gt;
+  &lt;span&gt;深圳分公司AI赋能培训 - AI时代的寿险员工生存指南&lt;/span&gt;
+  &lt;span&gt;12 / 13 | QClaw AI Training&lt;/span&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" sandbox="allow-same-origin" frameborder="0" scrolling="no"></iframe>
+<iframe class="slide-frame" id="slide-12" style="display:none" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;style&gt;
+
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --card-bg-from: #F1F5F9;
+  --card-bg-to: #E2E8F0;
+  --card-border: rgba(37,99,235,0.12);
+  --card-radius: 12px;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --accent-1: #2563EB;
+  --accent-2: #1D4ED8;
+  --accent-3: #059669;
+  --accent-4: #047857;
+  --font-family: PingFang SC, Microsoft YaHei, system-ui, sans-serif;
+}
+
+body {
+  margin: 0; padding: 0;
+  width: 1280px; height: 720px;
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  overflow: hidden;
+  position: relative;
+}
+.title-area {
+  position: absolute;
+  left: 40px; top: 40px;
+  width: 1200px; height: 50px;
+}
+.page-title {
+  font-size: 32px; font-weight: 700; margin: 0;
+  position: relative;
+  display: inline-block;
+}
+.page-title::after {
+  content: &#x27;&#x27;; position: absolute;
+  left: 0; bottom: -8px;
+  width: 60px; height: 4px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  border-radius: 2px;
+}
+.content-area {
+  position: absolute;
+  left: 40px; top: 120px;
+  width: 1200px; height: 540px;
+  display: grid;
+  gap: 20px;
+}
+.card {
+  background: linear-gradient(135deg, var(--card-bg-from), var(--card-bg-to));
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  display: flex; flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.card-title {
+  font-size: 20px; font-weight: 700; margin: 0 0 16px 0;
+  color: var(--text-primary);
+}
+.card-content {
+  font-size: 14px; line-height: 1.8; color: var(--text-secondary);
+  flex: 1;
+}
+.data-card .core-data {
+  font-size: 48px; font-weight: 800; color: var(--accent-1);
+  font-variant-numeric: tabular-nums;
+  margin: 10px 0;
+}
+.footer {
+  position: absolute; bottom: 20px; left: 40px; right: 40px;
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--text-secondary); opacity: 0.6;
+}
+/* Grid Layouts */
+.layout-single { grid-template: 1fr / 1fr; }
+.layout-50-50 { grid-template: 1fr / 1fr 1fr; }
+.layout-23-13 { grid-template: 1fr / 2fr 1fr; }
+.layout-3col { grid-template: 1fr / repeat(3, 1fr); }
+.layout-main-sub { grid-template: 1fr 1fr / 2fr 1fr; }
+.layout-hero-3 { grid-template: auto 1fr / repeat(3, 1fr); }
+.layout-mixed { grid-template: repeat(2, 1fr) / 1fr 1fr; }
+.highlight {
+  color: var(--accent-1); font-weight: bold;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+        &lt;div style=&quot;display:flex; flex-direction:column; justify-content:center; align-items:center; height:100%; text-align:center;&quot;&gt;
+            &lt;div style=&quot;font-size:48px; font-weight:800; color:var(--accent-1); margin-bottom:40px;&quot;&gt;现场答疑与交流&lt;/div&gt;
+            &lt;div style=&quot;font-size:24px; color:var(--text-primary); margin-bottom:20px;&quot;&gt;1. 解答安装与登录问题
+2. 探讨业务场景的 Prompt 写法
+3. 欢迎扫码加入分公司“AI学习交流群”（请在现场出示二维码）
+
+感谢大家的聆听！&lt;/div&gt;
+        &lt;/div&gt;
+        
+&lt;div class=&quot;footer&quot;&gt;
+  &lt;span&gt;&lt;/span&gt;
+  &lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" sandbox="allow-same-origin" frameborder="0" scrolling="no"></iframe>
+</div>
+<div class="nav-hint">Arrow keys to navigate</div>
+<script>
+let cur = 0;
+const frames = document.querySelectorAll('.slide-frame');
+const total = frames.length;
+const info = document.getElementById('page-info');
+const stage = document.getElementById('stage');
+
+function resize() {
+  const sw = stage.clientWidth, sh = stage.clientHeight;
+  const scale = Math.min(sw / 1280, sh / 720);
+  frames.forEach(f => f.style.transform = 'scale(' + scale + ')');
+}
+function show(i) {
+  frames.forEach((f, idx) => f.style.display = idx === i ? 'block' : 'none');
+  info.textContent = (i+1) + ' / ' + total;
+  document.getElementById('btn-prev').disabled = i === 0;
+  document.getElementById('btn-next').disabled = i === total - 1;
+}
+function nav(d) {
+  const n = cur + d;
+  if (n >= 0 && n < total) { cur = n; show(cur); }
+}
+document.addEventListener('keydown', e => {
+  if (e.key==='ArrowLeft'||e.key==='ArrowUp') nav(-1);
+  if (e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ') nav(1);
+});
+window.addEventListener('resize', resize);
+resize();
+show(0);
+</script>
+</body>
+</html>
