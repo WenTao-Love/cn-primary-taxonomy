@@ -2,494 +2,1817 @@
   {
     "page_number": 1,
     "page_type": "cover",
-    "title": "拥抱AI时代：OpenClaw入门与QClaw实战",
-    "goal": "吸引注意力，定下时代赶路人的基调",
+    "title": " 拥抱AI时代：OpenClaw入门与QClaw寿险实战",
+    "goal": "",
     "layout_hint": "单一焦点",
     "content_summary": {
-      "core_argument": "我们都是AI大时代的赶路人！",
-      "main_content": "深圳分公司AI赋能培训",
+      "core_argument": "",
+      "main_content": " 我们都是AI大时代的赶路人！—— 深圳分公司AI赋能培训",
       "data_highlights": [],
-      "supporting_points": ["主讲人：科技部 讲师", "日期：2026年4月17日"],
-      "quote_or_conclusion": "只要开始，就不算晚！"
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
     },
     "cards": [
       {
         "position": "center",
         "card_type": "text",
         "title": "",
-        "content": "深圳分公司AI赋能培训",
+        "content": " 我们都是AI大时代的赶路人！—— 深圳分公司AI赋能培训",
         "data_points": [],
-        "emphasis_keywords": ["AI赋能"]
+        "emphasis_keywords": []
       }
     ],
-    "design_notes": "封面页，大标题居中，强烈的蓝色科技感背景，无需网格卡片"
+    "design_notes": ""
   },
   {
     "page_number": 2,
     "page_type": "toc",
-    "title": "培训目录",
-    "goal": "展示本次培训的全景图",
-    "layout_hint": "非对称两栏 (2/3 + 1/3)",
+    "title": "目录页",
+    "goal": "",
+    "layout_hint": "混合网格",
     "content_summary": {
-      "core_argument": "从认知到实战的完整学习路径",
-      "main_content": "本次培训分为八个核心模块，涵盖从基础认知、工具选择、安全合规到实战演练的全流程。",
-      "data_highlights": [{"value": "8", "label": "核心模块", "interpretation": "全面覆盖日常工作"}],
-      "supporting_points": [],
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
       "quote_or_conclusion": ""
     },
     "cards": [
       {
-        "position": "left",
-        "card_type": "list",
-        "title": "核心议程",
-        "content": "1. 什么是OpenClaw与“养虾热”？\n2. 国内AI神器深度盘点\n3. 为什么强烈推荐QClaw？\n4. 实操：客户端安装与初体验\n5. ⚠️ 必看：数据安全高压线\n6. 寿险实战演练（7大高频场景）\n7. 隔离网络下的“AI工作流”\n8. 传统寿险人的AI生存指南",
+        "position": "auto",
+        "card_type": "text",
+        "title": "时代呼唤",
+        "content": "为什么现在必须懂AI？",
         "data_points": [],
-        "emphasis_keywords": ["数据安全高压线", "寿险实战演练"]
+        "emphasis_keywords": []
       },
       {
-        "position": "right",
-        "card_type": "data",
-        "title": "培训目标",
-        "content": "帮助零基础员工快速掌握 AI 工具",
-        "data_points": ["60分钟"],
+        "position": "auto",
+        "card_type": "text",
+        "title": "拨云见日",
+        "content": "OpenClaw与大模型的关系",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "神器盘点",
+        "content": "为什么我们选择QClaw？",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "寿险实战",
+        "content": "五大岗位核心工作流重塑",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "严守红线",
+        "content": "数据安全是生命线",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "生存指南",
+        "content": "传统寿险人的破局之道",
+        "data_points": [],
         "emphasis_keywords": []
       }
     ],
-    "design_notes": "左侧大列表展示目录，右侧突出培训时长和目标"
+    "design_notes": ""
   },
   {
     "page_number": 3,
     "page_type": "content",
-    "title": "什么是OpenClaw与“养虾热”？",
-    "goal": "通俗解释技术名词，消除受众的陌生感",
-    "layout_hint": "主次结合",
+    "title": "灵魂拷问：5年后的职场危机",
+    "goal": "",
+    "layout_hint": "三栏等宽",
     "content_summary": {
-      "core_argument": "OpenClaw 是能动手干活的数字员工",
-      "main_content": "在AI时代，OpenClaw代表着一类“能够帮你动手干活的AI智能助手”。如果说以前的AI是个只会聊天的打字机，那现在的OpenClaw就是长了“手”的数字员工。",
-      "data_highlights": [{"value": "100%", "label": "全员参与", "interpretation": "我们都是时代的赶路人"}],
-      "supporting_points": ["不仅仅是聊天", "搜索、整理、写文档", "专属AI小助手"],
-      "quote_or_conclusion": "AI大时代日新月异，我们都是赶路人！"
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
     },
     "cards": [
       {
-        "position": "left",
+        "position": "auto",
         "card_type": "text",
-        "title": "OpenClaw 定义",
-        "content": "Claw 是“爪子、钳子”的意思。它代表着一类不仅能聊天，更能帮你执行具体任务（如搜索、总结、写文档）的智能助手。",
+        "title": "互动提问",
+        "content": "“5年后，你的工作还会存在吗？”",
         "data_points": [],
-        "emphasis_keywords": ["数字员工", "动手干活"]
+        "emphasis_keywords": []
       },
       {
-        "position": "top-right",
+        "position": "auto",
         "card_type": "text",
-        "title": "何为“养虾热”？",
-        "content": "大家都在调教和培养属于自己的专属AI小助手，让它越来越懂你的工作习惯。",
+        "title": "核心观点",
+        "content": "全球 AI Agent 市场将在8年内增长24倍。万亿级赛道已经开启。",
         "data_points": [],
-        "emphasis_keywords": ["专属AI小助手"]
+        "emphasis_keywords": []
       },
       {
-        "position": "bottom-right",
-        "card_type": "data",
-        "title": "时代呼唤",
-        "content": "主动拥抱 AI 时代",
-        "data_points": ["100%"],
-        "emphasis_keywords": ["赶路人"]
+        "position": "auto",
+        "card_type": "text",
+        "title": "金句",
+        "content": "如今是AI大爆发的大时代，技术日新月异，只要开始，就不算晚！",
+        "data_points": [],
+        "emphasis_keywords": []
       }
     ],
-    "design_notes": "左侧大卡片详细解释概念，右侧上下两张卡片分别解释“养虾”和时代背景"
+    "design_notes": ""
   },
   {
     "page_number": 4,
     "page_type": "content",
-    "title": "国内OpenClaw产品群雄逐鹿",
-    "goal": "对比各家优劣，凸显 QClaw 的优势",
-    "layout_hint": "混合网格",
+    "title": "AI已经从“概念”进入“大规模商用”",
+    "goal": "",
+    "layout_hint": "三栏等宽",
     "content_summary": {
-      "core_argument": "市场产品众多，但各有痛点",
-      "main_content": "当前国内 AI 市场百花齐放，各家大厂均推出了自己的 OpenClaw 产品。但在免费额度、生态绑定、使用门槛上存在明显差异。",
-      "data_highlights": [{"value": "8+", "label": "主流工具", "interpretation": "市场竞争激烈"}],
-      "supporting_points": ["积分限制", "一码难求", "生态绑定"],
-      "quote_or_conclusion": "我们需要一款真正适合普通人的工具。"
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
     },
     "cards": [
       {
-        "position": "top-left",
-        "card_type": "list",
-        "title": "积分限制型",
-        "content": "AutoClaw (澳龙)、EasyClaw、WorkBuddy。功能强大或偏向专业，但免费使用的“体力（token）”非常有限，重度使用很快就会耗尽。",
+        "position": "auto",
+        "card_type": "text",
+        "title": "同业案例",
+        "content": "中国人寿数字核保员带动智能审核率提升至 95.8%",
         "data_points": [],
-        "emphasis_keywords": ["免费体力有限"]
+        "emphasis_keywords": []
       },
       {
-        "position": "top-right",
-        "card_type": "list",
-        "title": "一码难求型 (内测)",
-        "content": "灵犀Claw、悟空、Solo。背后是大厂支撑，生态结合紧密，但目前均在内测中，需要邀请码，普通人难进。",
+        "position": "auto",
+        "card_type": "text",
+        "title": "同业案例",
+        "content": "中国太保健康险理赔自动化率达 16%，件均成本降低 47%",
         "data_points": [],
-        "emphasis_keywords": ["需要邀请码"]
+        "emphasis_keywords": []
       },
       {
-        "position": "bottom-left",
-        "card_type": "list",
-        "title": "生态绑定 / 限时型",
-        "content": "飞书 OpenClaw (深度绑定飞书，适用面窄)；jvs claw (新人仅限免费试用7天，无法长期作为生产力)。",
+        "position": "auto",
+        "card_type": "text",
+        "title": "结论",
+        "content": "这些不是PPT里的愿景，而是已经发生、正在淘汰低效产能的真实数据！",
         "data_points": [],
-        "emphasis_keywords": ["限免7天"]
-      },
-      {
-        "position": "bottom-right",
-        "card_type": "data",
-        "title": "量大管饱型",
-        "content": "腾讯系产品，极其稳定",
-        "data_points": ["QClaw"],
-        "emphasis_keywords": ["腾讯系"]
+        "emphasis_keywords": []
       }
     ],
-    "design_notes": "4张卡片田字格排列，最后一张突出 QClaw"
+    "design_notes": ""
   },
   {
     "page_number": 5,
     "page_type": "content",
-    "title": "为什么强烈推荐QClaw？",
-    "goal": "给出选择 QClaw 的 4 个核心理由",
-    "layout_hint": "顶部英雄式",
+    "title": "AI的进化历程：从“打字机”到“数字员工”",
+    "goal": "",
+    "layout_hint": "三栏等宽",
     "content_summary": {
-      "core_argument": "零成本、无焦虑、大厂背书",
-      "main_content": "作为咱们非技术人员的“第一只虾”，QClaw 在易用性、成本和生态上具有碾压性优势。",
-      "data_highlights": [{"value": "4000万", "label": "每日Token", "interpretation": "相当于每天免费读写千万字"}],
-      "supporting_points": ["大厂背书", "拒绝配置", "零成本"],
-      "quote_or_conclusion": "本地客户端运行，试错成本极低，心态轻松！"
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
     },
     "cards": [
       {
-        "position": "top",
-        "card_type": "data",
-        "title": "算力土豪",
-        "content": "每天免费赠送额度，随便用，不心疼！",
-        "data_points": ["4000万"],
-        "emphasis_keywords": ["免费读写千万字"]
+        "position": "auto",
+        "card_type": "text",
+        "title": "2023年（大模型元年）",
+        "content": "聊天机器人时代（ChatGPT，你问它答，Copilot辅助）",
+        "data_points": [],
+        "emphasis_keywords": []
       },
       {
-        "position": "bottom-left",
+        "position": "auto",
         "card_type": "text",
-        "title": "1. 大厂背书与生态",
-        "content": "腾讯出品，未来在对接微信、QQ、腾讯文档等咱们常用的生态时，有着天然的便利性和想象空间。",
+        "title": "2026年（智能体元年）",
+        "content": "智能体Agent时代（OpenClaw，你下指令，它自己干活）",
         "data_points": [],
-        "emphasis_keywords": ["腾讯出品"]
+        "emphasis_keywords": []
       },
       {
-        "position": "bottom-center",
+        "position": "auto",
         "card_type": "text",
-        "title": "2. 拒绝配置折磨",
-        "content": "原生的OpenClaw配置非常繁琐，涉及各种环境搭建，能劝退99%的小白。QClaw把这些都封装好了，开箱即用。",
+        "title": "未来",
+        "content": "数字员工团队（Autopilot，全自动自主运行）",
         "data_points": [],
-        "emphasis_keywords": ["开箱即用"]
-      },
-      {
-        "position": "bottom-right",
-        "card_type": "text",
-        "title": "3. 零成本无焦虑",
-        "content": "对比云端部署：云服务器要付月费买Token，让人焦虑“怎么回本”。本地客户端运行只需连网和一点电费，心态轻松！",
-        "data_points": [],
-        "emphasis_keywords": ["本地客户端", "心态轻松"]
+        "emphasis_keywords": []
       }
     ],
-    "design_notes": "顶部英雄卡片展示 4000万 核心数据，下方三张卡片并列三大理由"
+    "design_notes": ""
   },
   {
     "page_number": 6,
     "page_type": "content",
-    "title": "实操：客户端安装与初体验",
-    "goal": "指导员工完成安装登录",
-    "layout_hint": "非对称两栏 (2/3 + 1/3)",
+    "title": "什么是OpenClaw与“养虾热”？",
+    "goal": "",
+    "layout_hint": "三栏等宽",
     "content_summary": {
-      "core_argument": "三步完成极简安装",
-      "main_content": "注意：QClaw 没有网页版，必须下载客户端！安装过程就像安装微信一样简单。",
-      "data_highlights": [{"value": "1", "label": "秒登录", "interpretation": "扫码即用"}],
-      "supporting_points": ["下载安装包", "傻瓜式安装", "扫码登录"],
-      "quote_or_conclusion": "没有任何繁琐的注册流程。"
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
     },
     "cards": [
       {
-        "position": "left",
-        "card_type": "process",
-        "title": "安装步骤",
-        "content": "1. 访问官网下载：浏览器输入 qclaw.qq.com 下载安装包\n2. 傻瓜式安装：双击安装包，一路点击“下一步”\n3. 快捷登录：打开客户端，使用微信或QQ扫码，一秒登录",
+        "position": "auto",
+        "card_type": "text",
+        "title": "定义解析",
+        "content": "Claw = 爪子/钳子。OpenClaw 代表着一类“能动手干活的数字员工”。",
         "data_points": [],
-        "emphasis_keywords": ["必须下载客户端", "qclaw.qq.com"]
+        "emphasis_keywords": []
       },
       {
-        "position": "right",
-        "card_type": "data",
-        "title": "极速体验",
-        "content": "免去繁琐的账号注册和密码找回",
-        "data_points": ["1秒"],
-        "emphasis_keywords": ["扫码"]
+        "position": "auto",
+        "card_type": "text",
+        "title": "全民养虾",
+        "content": "调教和培养专属自己的 AI 小助手。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "能力展示",
+        "content": "它不仅能写文章，更能帮你整理桌面、合并Excel、写邮件、排日程。",
+        "data_points": [],
+        "emphasis_keywords": []
       }
     ],
-    "design_notes": "左侧流程卡片展示3个步骤，右侧强调 1秒 扫码登录"
+    "design_notes": ""
   },
   {
     "page_number": 7,
-    "page_type": "content",
-    "title": "实操演示：QClaw的“超能力”体验",
-    "goal": "通过 4 个具体案例展示 AI 的能力边界",
-    "layout_hint": "混合网格",
+    "page_type": "section",
+    "title": "理解AI的底层逻辑",
+    "goal": "",
+    "layout_hint": "非对称两栏 (2/3 + 1/3)",
     "content_summary": {
-      "core_argument": "从写作到逻辑推理的全能助手",
-      "main_content": "现场演示 QClaw 在不同场景下的表现，见证数字员工的超强能力。",
-      "data_highlights": [{"value": "10", "label": "秒提炼", "interpretation": "万字研报瞬间总结"}],
-      "supporting_points": ["角色扮演", "长文摘要", "风格润色", "逻辑推理"],
-      "quote_or_conclusion": "把大白话秒变“高情商专业邮件”。"
+      "core_argument": "",
+      "main_content": "理解AI的底层逻辑",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
     },
     "cards": [
       {
-        "position": "top-left",
+        "position": "auto",
         "card_type": "text",
-        "title": "1. 角色扮演",
-        "content": "赋予 AI 身份。指令：“你现在是一位拥有10年经验的资深寿险理财规划师，请用通俗的语言向我解释什么是‘增额终身寿险’。”",
+        "title": "主题",
+        "content": "拨云见日：OpenClaw与大模型的关系",
         "data_points": [],
-        "emphasis_keywords": ["赋予 AI 身份"]
+        "emphasis_keywords": []
       },
       {
-        "position": "top-right",
+        "position": "auto",
         "card_type": "text",
-        "title": "2. 长文摘要",
-        "content": "丢进万字研报，指令：“请帮我提炼这篇文章的3个核心观点，字数控制在200字以内。”（提效神器）",
+        "title": "核心词",
+        "content": "认知升级，告别误区",
         "data_points": [],
-        "emphasis_keywords": ["提炼核心观点"]
-      },
-      {
-        "position": "bottom-left",
-        "card_type": "text",
-        "title": "3. 风格润色",
-        "content": "输入一段非常口语化的客户沟通记录，指令：“请将这段话改写成一封专业、得体的官方邮件，发给高净值客户。”",
-        "data_points": [],
-        "emphasis_keywords": ["专业、得体"]
-      },
-      {
-        "position": "bottom-right",
-        "card_type": "text",
-        "title": "4. 逻辑推理",
-        "content": "处理繁杂任务。指令：“我明天9点开早会(1h)，下午2点拜访客户，4点交报表(需1.5h准备)。请帮我排出一天的作息表。”",
-        "data_points": [],
-        "emphasis_keywords": ["逻辑推理"]
+        "emphasis_keywords": []
       }
     ],
-    "design_notes": "4个文本卡片均匀分布，展示四大超能力"
+    "design_notes": ""
   },
   {
     "page_number": 8,
-    "page_type": "section",
-    "title": "⚠️ 必看：数据安全高压线",
-    "goal": "极其严肃地强调公司的合规底线",
-    "layout_hint": "单一焦点",
+    "page_type": "content",
+    "title": "核心关系：大脑与双手",
+    "goal": "",
+    "layout_hint": "三栏等宽",
     "content_summary": {
-      "core_argument": "数据安全，人人有责！",
-      "main_content": "因为我们的日常办公系统在内网云桌面，物理隔离了外网，所以我们无法在办公电脑上直接使用外部AI。大家只能在个人手机或个人外网电脑上使用！",
-      "data_highlights": [{"value": "0", "label": "容忍度", "interpretation": "对于泄露数据的违规行为"}],
-      "supporting_points": ["严禁违规外联", "严禁输入敏感数据", "严禁输入客户隐私"],
-      "quote_or_conclusion": "只处理“公开的通用知识”与“脱敏模板”！"
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
     },
     "cards": [
       {
-        "position": "center",
-        "card_type": "list",
-        "title": "三大严禁",
-        "content": "1. 严禁在办公电脑违规外联使用！\n2. 严禁输入任何公司敏感数据（未公开政策、内部财务数据、内部课件等）！\n3. 严禁输入任何客户隐私信息（姓名、电话、身份证号、保单号、病历等）！",
+        "position": "auto",
+        "card_type": "text",
+        "title": "大语言模型（LLM）",
+        "content": "AI 的“大脑”（负责理解意图、逻辑思考、路径规划）",
         "data_points": [],
-        "emphasis_keywords": ["严禁", "敏感数据", "隐私信息"]
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "OpenClaw",
+        "content": "AI 的“双手”（负责调度工具、执行操作、完成任务）",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "结论",
+        "content": "两者缺一不可，配合使用才能实现真正的自动化。",
+        "data_points": [],
+        "emphasis_keywords": []
       }
     ],
-    "design_notes": "全红警告配色（如果 CSS 支持），极简大卡片，强化压迫感和严肃性"
+    "design_notes": ""
   },
   {
     "page_number": 9,
     "page_type": "content",
-    "title": "寿险实战场景（一）：内容创作与学习",
-    "goal": "结合业务展示 AI 的实际用途",
-    "layout_hint": "三栏等宽",
+    "title": "生动比喻（一）：医院看病场景",
+    "goal": "",
+    "layout_hint": "混合网格",
     "content_summary": {
-      "core_argument": "搞定案头工作，释放你的大脑",
-      "main_content": "在不违规的前提下，非技术人员如何用它赋能业务？我们先看内容创作方面的 3 个场景。",
-      "data_highlights": [{"value": "3", "label": "高频场景", "interpretation": "解决日常痛点"}],
-      "supporting_points": ["早会大纲", "条款翻译", "活动策划"],
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
       "quote_or_conclusion": ""
     },
     "cards": [
       {
-        "position": "left",
+        "position": "auto",
         "card_type": "text",
-        "title": "场景1：早会大纲生成",
-        "content": "痛点：轮到开早会不知道讲什么。\n指令示例：“我明天早会做5分钟分享，主题是‘在拒绝中寻找机会’。请帮我写演讲稿大纲，含真实破冰小故事，风格接地气。”",
+        "title": "大模型 = 医生",
+        "content": "诊断病情，制定治疗方案（规划分析）。",
         "data_points": [],
-        "emphasis_keywords": ["早会大纲"]
+        "emphasis_keywords": []
       },
       {
-        "position": "center",
+        "position": "auto",
         "card_type": "text",
-        "title": "场景2：条款“翻译机”",
-        "content": "痛点：新出险种条款复杂，客户听不懂。\n指令示例：“请把这段晦涩的条款，用给5岁小孩讲故事的方式解释一遍，让我能快速理解并转述给我的客户。”",
+        "title": "OpenClaw = 护士",
+        "content": "负责打针吃药，操作手术器械（具体执行）。",
         "data_points": [],
-        "emphasis_keywords": ["条款翻译"]
+        "emphasis_keywords": []
       },
       {
-        "position": "right",
+        "position": "auto",
         "card_type": "text",
-        "title": "场景3：活动策划风暴",
-        "content": "痛点：节假日答谢活动没新意。\n指令示例：“我是寿险代理人，母亲节想针对30-45岁高净值女性办线下活动。预算5000元，请给3个新颖的策划方案。”",
+        "title": "没有医生",
+        "content": "护士不知道给谁打什么针。",
         "data_points": [],
-        "emphasis_keywords": ["活动策划"]
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "没有护士",
+        "content": "医生诊断了也没法实际治疗。",
+        "data_points": [],
+        "emphasis_keywords": []
       }
     ],
-    "design_notes": "三张卡片并列，每张展示一个寿险痛点及对应的 AI 解决指令"
+    "design_notes": ""
   },
   {
     "page_number": 10,
     "page_type": "content",
-    "title": "寿险实战场景（二）：客户经营与技能辅助",
-    "goal": "展示 AI 在营销和工具层面的辅助能力",
+    "title": "生动比喻（二）：打车出行场景",
+    "goal": "",
     "layout_hint": "混合网格",
     "content_summary": {
-      "core_argument": "高情商沟通与效率提升工具",
-      "main_content": "除了写稿子，AI 还能帮你处理客户关系和办公软件难题。",
-      "data_highlights": [{"value": "4", "label": "进阶场景", "interpretation": "全面赋能"}],
-      "supporting_points": ["跟进话术", "竞品对比", "爆款朋友圈", "Excel求助"],
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
       "quote_or_conclusion": ""
     },
     "cards": [
       {
-        "position": "top-left",
+        "position": "auto",
         "card_type": "text",
-        "title": "场景4：高情商跟进话术",
-        "content": "指令：“刚拜访一位35岁企业主，聊了养老和传承。请写一条感谢+跟进微信，100字内，要有温度，不要太浓的推销味。”",
+        "title": "大模型 = 高德地图",
+        "content": "规划最佳路线、计算预计时间（制定方案）。",
         "data_points": [],
-        "emphasis_keywords": ["高情商跟进"]
+        "emphasis_keywords": []
       },
       {
-        "position": "top-right",
+        "position": "auto",
         "card_type": "text",
-        "title": "场景5：竞品对比框架",
-        "content": "指令：“客户拿我司A产品和友商B产品做对比，请帮我列一个客观的对比分析话术框架（保障、性价比等），理清思路。”",
+        "title": "OpenClaw = 滴滴司机",
+        "content": "开车送你到目的地、处理突发路况（执行操作）。",
         "data_points": [],
-        "emphasis_keywords": ["客观对比框架"]
+        "emphasis_keywords": []
       },
       {
-        "position": "bottom-left",
+        "position": "auto",
         "card_type": "text",
-        "title": "场景6：爆款朋友圈",
-        "content": "指令：“帮我写一条微信朋友圈文案，科普意外险重要性，语气轻松幽默，结尾带互动提问，并建议配什么图。”",
+        "title": "没有地图",
+        "content": "司机不知道往哪开。",
         "data_points": [],
-        "emphasis_keywords": ["轻松幽默"]
+        "emphasis_keywords": []
       },
       {
-        "position": "bottom-right",
+        "position": "auto",
         "card_type": "text",
-        "title": "场景7：Excel技巧求助",
-        "content": "指令：“我有一个Excel表，A列日期，B列业绩，我想把本月业绩大于1万的单元格标红，请告诉我具体操作步骤。”",
+        "title": "没有司机",
+        "content": "地图只能告诉你怎么走，但你永远到不了目的地。",
         "data_points": [],
-        "emphasis_keywords": ["具体操作步骤"]
+        "emphasis_keywords": []
       }
     ],
-    "design_notes": "4个进阶场景均匀展示"
+    "design_notes": ""
   },
   {
     "page_number": 11,
     "page_type": "content",
-    "title": "思考：隔离网络下如何赋能工作？",
-    "goal": "明确在合规前提下的标准 AI 工作流",
-    "layout_hint": "非对称两栏 (2/3 + 1/3)",
+    "title": "深度解析：一次任务的完整工作流",
+    "goal": "",
+    "layout_hint": "混合网格",
     "content_summary": {
-      "core_argument": "外脑思考，内网执行",
-      "main_content": "由于公司网络物理隔离，我们需要建立一套安全的“跨网工作流”。AI赋能的是你的大脑，而不是代替你的双手。",
-      "data_highlights": [{"value": "100%", "label": "合规", "interpretation": "守住数据红线"}],
-      "supporting_points": ["外网找灵感", "大脑消化", "内网处理真实数据"],
-      "quote_or_conclusion": "把QClaw当成你的私人教练和灵感智库。"
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
     },
     "cards": [
       {
-        "position": "left",
-        "card_type": "process",
-        "title": "合规的 AI 工作流",
-        "content": "1. 外网求助：在个人手机/外网电脑上问 QClaw（获取通用框架、技能步骤、灵感点子）\n2. 大脑消化：自己理解并吸收 AI 给出的通用逻辑\n3. 内网执行：回到内网云桌面，结合公司真实的客户数据去完成最终的文档或业务操作",
+        "position": "auto",
+        "card_type": "text",
+        "title": "用户输入",
+        "content": "“帮我把桌面的文件按类型分类”",
         "data_points": [],
-        "emphasis_keywords": ["外网求助", "内网执行"]
+        "emphasis_keywords": []
       },
       {
-        "position": "right",
-        "card_type": "data",
-        "title": "核心法则",
-        "content": "AI赋能大脑，不代替双手",
-        "data_points": ["外脑"],
+        "position": "auto",
+        "card_type": "text",
+        "title": "大模型思考",
+        "content": "解析意图，决定建立三个文件夹（文档、图片、视频）",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "OpenClaw执行",
+        "content": "调用本地系统接口 -> 扫描桌面 -> 新建文件夹 -> 移动文件",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "完成汇报",
+        "content": "返回操作日志：“整理完毕，耗时28秒”",
+        "data_points": [],
         "emphasis_keywords": []
       }
     ],
-    "design_notes": "左侧流程卡片清晰展示3个步骤，右侧强调“外脑思考”"
+    "design_notes": ""
   },
   {
     "page_number": 12,
-    "page_type": "content",
-    "title": "AI时代的寿险员工生存指南",
-    "goal": "缓解员工焦虑，指出未来的核心竞争力",
-    "layout_hint": "主次结合",
+    "page_type": "section",
+    "title": "工欲善其事，必先利其器",
+    "goal": "",
+    "layout_hint": "非对称两栏 (2/3 + 1/3)",
     "content_summary": {
-      "core_argument": "AI不会淘汰你，但“会用AI的同事”会淘汰你",
-      "main_content": "很多同事担心 AI 会取代我们。但寿险是一项充满“人情味”和“信任”的事业，AI 无法提供人性的温度与情感连接。",
-      "data_highlights": [{"value": "0", "label": "情感温度", "interpretation": "AI 的软肋是人类的强项"}],
-      "supporting_points": ["爱与责任", "人情味", "情感连接"],
-      "quote_or_conclusion": "把案头工作交给AI，把时间留给客户！"
+      "core_argument": "",
+      "main_content": "工欲善其事，必先利其器",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
     },
     "cards": [
       {
-        "position": "left",
+        "position": "auto",
         "card_type": "text",
-        "title": "灵魂拷问：AI会淘汰我们吗？",
-        "content": "不会。AI 没有同理心，它无法在一个家庭遭遇变故时，握住客户的手给予温度；它也无法在线下酒会上与客户建立深厚的信任关系。寿险的核心永远是“人”。",
+        "title": "主题",
+        "content": "神器盘点：为什么我们选择QClaw？",
         "data_points": [],
-        "emphasis_keywords": ["温度与信任"]
+        "emphasis_keywords": []
       },
       {
-        "position": "top-right",
+        "position": "auto",
         "card_type": "text",
-        "title": "生存法则",
-        "content": "让 AI 帮你写稿、算公式、想点子、理思路。让你有更多时间去“与人打交道”。",
+        "title": "核心词",
+        "content": "选择比努力更重要",
         "data_points": [],
-        "emphasis_keywords": ["把时间留给客户"]
-      },
-      {
-        "position": "bottom-right",
-        "card_type": "text",
-        "title": "共勉",
-        "content": "AI大发展大时代，技术日新月异。别怕落后，我们都是赶路人！",
-        "data_points": [],
-        "emphasis_keywords": ["赶路人"]
+        "emphasis_keywords": []
       }
     ],
-    "design_notes": "左侧大卡片探讨深层哲理，右侧给出具体行动建议和共勉"
+    "design_notes": ""
   },
   {
     "page_number": 13,
-    "page_type": "end",
-    "title": "现场答疑与交流",
-    "goal": "互动环节，引导大家动手实践",
-    "layout_hint": "单一焦点",
+    "page_type": "content",
+    "title": "国内AI神器群雄逐鹿",
+    "goal": "",
+    "layout_hint": "混合网格",
     "content_summary": {
-      "core_argument": "立刻行动起来",
-      "main_content": "大家在安装和实操中遇到什么问题？欢迎提问！",
+      "core_argument": "",
+      "main_content": "详细内容",
       "data_highlights": [],
-      "supporting_points": ["扫码加入交流群", "分享实操心得", "共同进步"],
-      "quote_or_conclusion": "感谢聆听！"
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
     },
     "cards": [
       {
-        "position": "center",
+        "position": "auto",
         "card_type": "text",
-        "title": "互动环节 (Q&A)",
-        "content": "1. 解答安装与登录问题\n2. 探讨业务场景的 Prompt 写法\n3. 欢迎扫码加入分公司“AI学习交流群”（请在现场出示二维码）\n\n感谢大家的聆听！",
+        "title": "积分限制型",
+        "content": "AutoClaw(澳龙), EasyClaw, WorkBuddy（功能强，但免费体力极少）",
         "data_points": [],
-        "emphasis_keywords": ["立刻行动"]
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "一码难求型(内测)",
+        "content": "灵犀Claw, 悟空, Solo（大厂生态，但普通人进不去）",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "生态绑定/限时型",
+        "content": "飞书 OpenClaw, jvs claw",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "量大管饱型",
+        "content": "QClaw (腾讯系)",
+        "data_points": [],
+        "emphasis_keywords": []
       }
     ],
-    "design_notes": "简洁的结束页，引导互动"
+    "design_notes": ""
+  },
+  {
+    "page_number": 14,
+    "page_type": "content",
+    "title": "痛点分析：为什么不建议原生配置与云端部署？",
+    "goal": "",
+    "layout_hint": "三栏等宽",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "原生配置的折磨",
+        "content": "复杂的Python环境搭建极其繁琐，足以劝退99%非技术人员。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "云端部署的焦虑",
+        "content": "服务器要交月费，大模型Token要花钱。一旦付费，每天都在焦虑“怎么回本”。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "QClaw本地化优势",
+        "content": "开箱即用。只需要一点电费和网络，试错零成本，心态更轻松！",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 15,
+    "page_type": "content",
+    "title": "强烈推荐QClaw的四大绝对优势",
+    "goal": "",
+    "layout_hint": "混合网格",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "大厂背书",
+        "content": "腾讯出品，极度稳定可靠。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "生态融合",
+        "content": "未来无缝对接微信、QQ、腾讯文档等常用生态。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "拒绝折磨",
+        "content": "封装完整，免去一切繁杂的IT环境配置。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "算力土豪",
+        "content": "每天赠送 4000万 Token（足够每天免费读写千万字）！",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 16,
+    "page_type": "content",
+    "title": "现场演示：一分钟极简安装与初体验",
+    "goal": "",
+    "layout_hint": "三栏等宽",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "官网地址",
+        "content": "`qclaw.qq.com`（注意：目前只有客户端，无网页版）",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "安装流程",
+        "content": "下载安装包 -> 傻瓜式“下一步”。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "极速登录",
+        "content": "微信/QQ扫码，免去注册烦恼，1秒登录！",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 17,
+    "page_type": "section",
+    "title": "用AI解决工作痛点",
+    "goal": "",
+    "layout_hint": "非对称两栏 (2/3 + 1/3)",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "用AI解决工作痛点",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "主题",
+        "content": "寿险实战：五大岗位核心工作流重塑",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "核心词",
+        "content": "提效、减负、赋能",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 18,
+    "page_type": "content",
+    "title": "寿险日常工作的三座大山",
+    "goal": "",
+    "layout_hint": "混合网格",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "📁 资料散乱",
+        "content": "客户资料、产品文档、发票散落各处，查找耗时。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "📊 数据汇总",
+        "content": "月底/季度汇总各渠道业绩，手工搬运极易出错。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "📝 文案撰写",
+        "content": "周报、邮件、培训课件、营销话术费时费力。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "AI 价值",
+        "content": "QClaw 熟练应用后，平均每天能为你节省 1-2 小时！",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 19,
+    "page_type": "content",
+    "title": "实战场景（一）：核保岗 —— 告别资料杂乱",
+    "goal": "",
+    "layout_hint": "三栏等宽",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "痛点",
+        "content": "每天审核大量投保申请，附件和影像资料杂乱无章。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "神级指令",
+        "content": "“帮我把桌面'3月核保申请'文件夹里的体检报告、申请表，按客户姓名自动建立子文件夹并分类归档。”",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "效能提升",
+        "content": "原本30分钟的机械整理，AI 30秒瞬间完成。",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 20,
+    "page_type": "content",
+    "title": "实战场景（二）：理赔岗 —— 票据与明细初筛",
+    "goal": "",
+    "layout_hint": "三栏等宽",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "痛点",
+        "content": "客户提交的理赔发票杂乱，手工提取金额易疲劳。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "神级指令",
+        "content": "“帮我整理'张三理赔资料'文件夹，把所有发票图片按日期重命名排序。”",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "注意",
+        "content": "AI可辅助整理，但金额的最终确认仍需人工复核（人机协同）。",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 21,
+    "page_type": "content",
+    "title": "实战场景（三）：增员与人力岗 —— 简历秒筛与排期",
+    "goal": "",
+    "layout_hint": "三栏等宽",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "痛点",
+        "content": "招聘季候选人简历堆积如山，面试安排协调困难。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "神级指令",
+        "content": "“把'增员简历'文件夹按学历和工作年限分类，并提取所有本科学历候选人的姓名和电话，生成一份本周的面试安排Excel初稿。”",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "效能提升",
+        "content": "1小时的统筹工作缩短至 5 分钟。",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 22,
+    "page_type": "content",
+    "title": "实战场景（四）：销售与客服岗 —— 高情商跟进话术",
+    "goal": "",
+    "layout_hint": "非对称两栏 (2/3 + 1/3)",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "痛点",
+        "content": "拜访完高净值客户后不知道如何优雅跟进，容易显得像硬推销。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "神级指令",
+        "content": "“刚才拜访了一位35岁企业主，聊了养老规划。请帮我写一条得体的感谢+跟进微信，100字内，要有温度，不要有浓重的推销味，结尾留个悬念。”",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 23,
+    "page_type": "content",
+    "title": "实战场景（五）：销售与客服岗 —— 爆款朋友圈文案",
+    "goal": "",
+    "layout_hint": "非对称两栏 (2/3 + 1/3)",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "痛点",
+        "content": "发朋友圈科普保险，文案干瘪没创意，没人点赞。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "神级指令",
+        "content": "“帮我写一条微信朋友圈文案，科普意外险的重要性，配上轻松幽默、接地气的语气，结尾带上一个互动提问，并建议我配什么样的图片。”",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 24,
+    "page_type": "content",
+    "title": "实战场景（六）：内勤与行政岗 —— 晨会大纲一键生成",
+    "goal": "",
+    "layout_hint": "非对称两栏 (2/3 + 1/3)",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "痛点",
+        "content": "轮到自己主持分公司早会，憋不出激情澎湃的发言稿。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "神级指令",
+        "content": "“我明天要在早会上做5分钟分享，主题是‘在拒绝中寻找机会’。请帮我写演讲稿大纲，含一个真实的寿险销售破冰小故事，语言风格要接地气、有感染力。”",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 25,
+    "page_type": "content",
+    "title": "实战场景（七）：全员通用 —— Excel公式与办公求助",
+    "goal": "",
+    "layout_hint": "三栏等宽",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "痛点",
+        "content": "遇到复杂的Excel需求不会写公式，到处求人。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "神级指令",
+        "content": "“我有一个Excel表格，A列是日期，B列是业绩金额，我想把本月业绩大于1万的单元格自动标红，请一步步告诉我具体的操作步骤。”",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "效能提升",
+        "content": "拥有了一个全天候的 IT 办公小助手。",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 26,
+    "page_type": "section",
+    "title": "不可触碰的高压线",
+    "goal": "",
+    "layout_hint": "非对称两栏 (2/3 + 1/3)",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "不可触碰的高压线",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "主题",
+        "content": "严守红线：数据安全是生命线",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "核心词",
+        "content": "敬畏、合规、底线",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 27,
+    "page_type": "content",
+    "title": "⚠️ 真实违规案例警示（血的教训）",
+    "goal": "",
+    "layout_hint": "三栏等宽",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "案例回顾",
+        "content": "2024年，某金融机构员工将1000多位客户信息的Excel发给外部AI进行“智能分析”。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "严重后果",
+        "content": "涉嫌“侵犯公民个人信息罪”被判有期徒刑1年6个月，所在机构被监管重罚200万！",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "教训总结",
+        "content": "为了“偷懒”向外部 AI 提供客户隐私 = 违法犯罪！",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 28,
+    "page_type": "content",
+    "title": "🚫 绝对禁止的五大高压线（不能碰！）",
+    "goal": "",
+    "layout_hint": "混合网格",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "",
+        "content": "客户身份信息（身份证号、护照号、人脸照片）",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "",
+        "content": "金融账户信息（银行卡号、交易密码）",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "",
+        "content": "私密联系方式（手机号、家庭详细住址）",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "",
+        "content": "核心健康信息（病历、体检报告、健康告知问卷）",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "",
+        "content": "公司内部机密（未公开的营销政策、内部财务报表）",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 29,
+    "page_type": "content",
+    "title": "🛡️ 安全决策“三问法”（每次使用前自检30秒）",
+    "goal": "",
+    "layout_hint": "三栏等宽",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "问自己",
+        "content": "这个内容里有客户的姓名/身份证/手机号吗？（有 → 绝对不能用！）",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "问自己",
+        "content": "这个文件标注了“机密”或“内部”吗？（是 → 绝对不能用！）",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "问自己",
+        "content": "如果这个内容泄露出去，会对客户或公司造成损失吗？（会 → 坚决不要冒险！）",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 30,
+    "page_type": "content",
+    "title": "✅ 哪些是安全的？（放心用！）",
+    "goal": "",
+    "layout_hint": "混合网格",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "公开通知",
+        "content": "公司公开发布的文件、制度的润色。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "产品资料",
+        "content": "官网的产品介绍、条款的通俗化翻译。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "个人工作总结",
+        "content": "剔除了客户隐私的个人周报、月报、计划。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "话术模板",
+        "content": "通用的营销话术生成、产品对比框架。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "本地文件整理",
+        "content": "整理自己电脑桌面上的非敏感工作文件。",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 31,
+    "page_type": "content",
+    "title": "隔离网络下的标准合规工作流",
+    "goal": "",
+    "layout_hint": "混合网格",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "当前环境",
+        "content": "办公系统内网云桌面，物理隔离外网。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "核心法则",
+        "content": "外脑思考，内网执行",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "步骤1",
+        "content": "在手机/个人外网电脑问QClaw（获取通用框架、脱敏模板）。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "步骤2",
+        "content": "自己大脑消化吸收AI给出的逻辑。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "步骤3",
+        "content": "回到内网云桌面，结合真实的敏感数据手动完成最终产出。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "总结",
+        "content": "AI赋能的是大脑，而不是代替你的双手。",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 32,
+    "page_type": "section",
+    "title": "做驾驭AI的人",
+    "goal": "",
+    "layout_hint": "非对称两栏 (2/3 + 1/3)",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "做驾驭AI的人",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "主题",
+        "content": "生存指南：传统寿险人的破局之道",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "核心词",
+        "content": "转型、进化、共生",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 33,
+    "page_type": "content",
+    "title": "灵魂拷问：AI会淘汰我们吗？",
+    "goal": "",
+    "layout_hint": "三栏等宽",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "答案是",
+        "content": "绝对不会。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "",
+        "content": "寿险是一项充满“人情味”、“温度”和“信任”的伟大事业。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "",
+        "content": "AI 没有同理心，它无法在家庭遭遇变故时给予温度，无法在线下酒会上与客户建立深厚的信任。",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 34,
+    "page_type": "content",
+    "title": "真正的危机在哪里？",
+    "goal": "",
+    "layout_hint": "三栏等宽",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "残酷的真相",
+        "content": "AI 不会淘汰你，但“熟练使用 AI 的同事”一定会淘汰“拒绝使用 AI 的你”！",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "趋势预测",
+        "content": "纯机械操作型岗位（整理、录入）将大幅缩减。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "趋势预测",
+        "content": "人机协同型岗位（审核、复杂决策、人际沟通）将显著增加。",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 35,
+    "page_type": "content",
+    "title": "打造不可替代的核心竞争力",
+    "goal": "",
+    "layout_hint": "三栏等宽",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "未来公式",
+        "content": "竞争力 = 你的专业经验 × AI的处理能力",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "成为“T型人才”",
+        "content": "用 AI 帮你搞定繁琐的案头工作（写稿、算公式、理思路、查资料）。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "价值转移",
+        "content": "释放出时间，把最宝贵的时间留给“与人打交道”，提供AI无法提供的情绪价值。",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 36,
+    "page_type": "content",
+    "title": "从“执行者”到“管理者+审核者”",
+    "goal": "",
+    "layout_hint": "三栏等宽",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "2023年的模式",
+        "content": "你接到任务 -> 思考怎么做 -> 动手执行 -> 交付结果。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "2026年的模式",
+        "content": "你接到任务 -> 拆解任务交给 AI -> AI 执行80% -> 你审核优化20% -> 交付更高质量的成果。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "角色转变",
+        "content": "从“自己答题”变成“出题人+判卷人”。",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 37,
+    "page_type": "content",
+    "title": "提示词工程（Prompt）：未来的必修课",
+    "goal": "",
+    "layout_hint": "混合网格",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "定义",
+        "content": "提示词就是你对AI下达的指令。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "区别",
+        "content": "同样的AI工具，不同的提示词，产出效果天差地别。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "差的提示词",
+        "content": "“帮我写个周报。”（AI会写得很空洞）",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "好的提示词",
+        "content": "明确身份 + 明确任务 + 明确格式要求 + 给出参考信息。",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 38,
+    "page_type": "content",
+    "title": "行动路线图：今天就能做的3件事",
+    "goal": "",
+    "layout_hint": "三栏等宽",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "即刻下载安装",
+        "content": "今天下班前，在个人设备上安装好 QClaw 客户端。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "首次破冰尝试",
+        "content": "尝试用它完成今天的第一个任务（写一封邮件、生成一段话术或整理桌面）。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "刻意培养习惯",
+        "content": "每天工作时，强迫自己问3次：“这件事 AI 能帮我做吗？”",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 39,
+    "page_type": "content",
+    "title": "投资自己，回报最高",
+    "goal": "",
+    "layout_hint": "三栏等宽",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "",
+        "content": "花时间学习 AI 工具 = 投资未来的生产力。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "",
+        "content": "建立人机协作的思维 = 投资未来的竞争力。",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "",
+        "content": "成为部门内的“AI先锋” = 投资未来的职业选择权。",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
+  },
+  {
+    "page_number": 40,
+    "page_type": "end",
+    "title": "共勉与现场答疑 (Q&A)",
+    "goal": "",
+    "layout_hint": "三栏等宽",
+    "content_summary": {
+      "core_argument": "",
+      "main_content": "详细内容",
+      "data_highlights": [],
+      "supporting_points": [
+        "QClaw培训",
+        "深圳分公司"
+      ],
+      "quote_or_conclusion": ""
+    },
+    "cards": [
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "结语",
+        "content": "AI大时代日新月异，别怕自己落后。只要开始尝试，我们都是这个大时代的赶路人！",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "互动环节",
+        "content": "大家在安装和实操中遇到什么问题？欢迎提问！",
+        "data_points": [],
+        "emphasis_keywords": []
+      },
+      {
+        "position": "auto",
+        "card_type": "text",
+        "title": "加入圈子",
+        "content": "扫码加入深圳分公司“AI学习交流群”（请在现场出示群二维码）。",
+        "data_points": [],
+        "emphasis_keywords": []
+      }
+    ],
+    "design_notes": ""
   }
 ]

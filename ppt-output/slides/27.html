@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --card-bg-from: #F1F5F9;
+  --card-bg-to: #E2E8F0;
+  --card-border: rgba(37,99,235,0.12);
+  --card-radius: 12px;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --accent-1: #2563EB;
+  --accent-2: #1D4ED8;
+  --accent-3: #059669;
+  --accent-4: #047857;
+  --font-family: PingFang SC, Microsoft YaHei, system-ui, sans-serif;
+}
+
+body {
+  margin: 0; padding: 0;
+  width: 1280px; height: 720px;
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  overflow: hidden;
+  position: relative;
+}
+.title-area {
+  position: absolute;
+  left: 40px; top: 40px;
+  width: 1200px; height: 50px;
+}
+.page-title {
+  font-size: 32px; font-weight: 700; margin: 0;
+  position: relative;
+  display: inline-block;
+}
+.page-title::after {
+  content: ''; position: absolute;
+  left: 0; bottom: -8px;
+  width: 60px; height: 4px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  border-radius: 2px;
+}
+.content-area {
+  position: absolute;
+  left: 40px; top: 120px;
+  width: 1200px; height: 540px;
+  display: grid;
+  gap: 20px;
+}
+.card {
+  background: linear-gradient(135deg, var(--card-bg-from), var(--card-bg-to));
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  display: flex; flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.card-title {
+  font-size: 20px; font-weight: 700; margin: 0 0 16px 0;
+  color: var(--text-primary);
+}
+.card-content {
+  font-size: 14px; line-height: 1.8; color: var(--text-secondary);
+  flex: 1;
+}
+.data-card .core-data {
+  font-size: 48px; font-weight: 800; color: var(--accent-1);
+  font-variant-numeric: tabular-nums;
+  margin: 10px 0;
+}
+.footer {
+  position: absolute; bottom: 20px; left: 40px; right: 40px;
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--text-secondary); opacity: 0.6;
+}
+/* Grid Layouts */
+.layout-single { grid-template: 1fr / 1fr; }
+.layout-50-50 { grid-template: 1fr / 1fr 1fr; }
+.layout-23-13 { grid-template: 1fr / 2fr 1fr; }
+.layout-3col { grid-template: 1fr / repeat(3, 1fr); }
+.layout-main-sub { grid-template: 1fr 1fr / 2fr 1fr; }
+.layout-hero-3 { grid-template: auto 1fr / repeat(3, 1fr); }
+.layout-mixed { grid-template: repeat(2, 1fr) / 1fr 1fr; }
+.highlight {
+  color: var(--accent-1); font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+        <div class="title-area">
+            <h1 class="page-title">⚠️ 真实违规案例警示（血的教训）</h1>
+        </div>
+        <div class="content-area layout-3col">
+            
+        <div class="card" style="">
+            <h3 class="card-title">案例回顾</h3>
+            <div class="card-content">2024年，某金融机构员工将1000多位客户信息的Excel发给外部AI进行“智能分析”。</div>
+        </div>
+        
+        <div class="card" style="">
+            <h3 class="card-title">严重后果</h3>
+            <div class="card-content">涉嫌“侵犯公民个人信息罪”被判有期徒刑1年6个月，所在机构被监管重罚200万！</div>
+        </div>
+        
+        <div class="card" style="">
+            <h3 class="card-title">教训总结</h3>
+            <div class="card-content">为了“偷懒”向外部 AI 提供客户隐私 = 违法犯罪！</div>
+        </div>
+        
+        </div>
+        
+<div class="footer">
+  <span>深圳分公司AI赋能培训 - ⚠️ 真实违规案例警示（血的教训）</span>
+  <span>27 / 40 | QClaw AI Training</span>
+</div>
+</body>
+</html>
