@@ -1,0 +1,2075 @@
+[
+  {
+    "page_number": 1,
+    "page_type": "cover",
+    "part_index": 0,
+    "part_title": "封面",
+    "title": "拥抱AI时代：OpenClaw入门与QClaw寿险实战",
+    "subtitle": "了解 AI 技术发展趋势，引导全员先行试用 AI 工具，逐步探索适配路径",
+    "meta": [
+      "深圳分公司AI办公实操培训",
+      "培训时长：60分钟",
+      "日期：2026年4月17日"
+    ],
+    "hero_stats": [
+      {
+        "value": "48",
+        "label": "页完整课件"
+      },
+      {
+        "value": "4",
+        "label": "核心培训重点"
+      },
+      {
+        "value": "当天",
+        "label": "零基础也能上手"
+      }
+    ]
+  },
+  {
+    "page_number": 2,
+    "page_type": "toc",
+    "part_index": 0,
+    "part_title": "目录",
+    "title": "60 分钟培训路线图",
+    "subtitle": "本次培训聚焦安装绑定、核心功能演示、基础办公场景拆解和数据安全，帮助零基础员工先行试用并快速上手。",
+    "sections": [
+      "趋势认知：5年后的AI与职场畅想",
+      "拨云见日：OpenClaw 与大模型的关系",
+      "工具上手：为什么选择 QClaw",
+      "实操教学：基础办公场景拆解",
+      "严守红线：数据安全是生命线",
+      "生存指南：传统寿险人的破局之道"
+    ],
+    "timeline": [
+      [
+        "趋势认知",
+        "10 分钟"
+      ],
+      [
+        "关系理解",
+        "8 分钟"
+      ],
+      [
+        "安装绑定",
+        "10 分钟"
+      ],
+      [
+        "实操演示",
+        "18 分钟"
+      ],
+      [
+        "安全合规",
+        "8 分钟"
+      ],
+      [
+        "行动收束",
+        "6 分钟"
+      ]
+    ]
+  },
+  {
+    "page_number": 3,
+    "page_type": "content",
+    "part_index": 1,
+    "part_title": "时代呼唤",
+    "title": "预测 5 年后的 AI 与职场畅想",
+    "summary": "这不是制造焦虑，而是帮助大家看见一个更积极的方向：AI 将成为每位员工身边的办公助手，工作会变得更高效、更轻松。",
+    "layout": "hero_3",
+    "cards": [
+      {
+        "card_type": "data",
+        "title": "趋势判断",
+        "value": "24x",
+        "label": "AI Agent 市场增长",
+        "description": "全球 AI Agent 市场预计在 8 年内增长 24 倍，说明 AI 助手会越来越像每个人办公桌边的“第二大脑”和“第二双手”。",
+        "progress": 82,
+        "trend": "长期上行",
+        "span": "hero"
+      },
+      {
+        "card_type": "text",
+        "title": "5年后的变化",
+        "content": "未来 5 年，文件整理、资料汇总、文档撰写、表格处理等基础办公事项，会越来越多地由 AI 助手先做初稿或先做第一步。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "list",
+        "title": "更值得期待的职场画面",
+        "content": "AI 的价值，不是让人失去位置，而是帮助每个人把精力放到更重要的事情上。",
+        "items": [
+          "重复整理更少",
+          "资料汇总更快",
+          "写初稿更轻松",
+          "跨岗位协作更顺畅"
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "培训基调",
+        "content": "今天我们不是空谈未来，而是直接上手一个已经能帮助日常办公的工具：QClaw。",
+        "items": [],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 4,
+    "page_type": "content",
+    "part_index": 1,
+    "part_title": "时代呼唤",
+    "title": "为什么现在要先行试用 AI 工具",
+    "summary": "本次培训重点很明确：先了解趋势，再先行试用，再逐步探索适配路径，重点不是一步到位，而是先建立正确认知和使用习惯。",
+    "layout": "hero_3",
+    "cards": [
+      {
+        "card_type": "data",
+        "title": "同业信号",
+        "value": "95.8%",
+        "label": "智能审核率",
+        "description": "头部寿险同业的数字化能力已经进入深水区，可结合中国平安、泰康等行业方向理解：AI 已经从概念展示逐步走向流程提效。",
+        "progress": 96,
+        "trend": "效率提升",
+        "span": "hero"
+      },
+      {
+        "card_type": "data",
+        "title": "现实收益",
+        "value": "47%",
+        "label": "件均成本优化",
+        "description": "公开行业案例表明，AI 在后台流程、理赔辅助和审核支持中的价值已经越来越具体。",
+        "progress": 47,
+        "trend": "成本下降",
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "先行试用的意义",
+        "content": "不是要求大家马上变成技术专家，而是先知道它能做什么、不能做什么、最适合从哪里开始试。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "一句结论",
+        "content": "越早形成正确的试用习惯，越容易在未来办公中形成稳定的人机协作方式。",
+        "items": [],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 5,
+    "page_type": "content",
+    "part_index": 1,
+    "part_title": "时代呼唤",
+    "title": "AI 的进化：从打字机到数字员工",
+    "summary": "理解时代变化最好的方法，就是看它从“会回答”走向“会执行”的路径。",
+    "layout": "three_col",
+    "cards": [
+      {
+        "card_type": "process",
+        "title": "2023 年：聊天机器人",
+        "content": "这一阶段的 AI 更像智能搜索与文案助手。",
+        "steps": [
+          {
+            "title": "提问",
+            "desc": "你问它答"
+          },
+          {
+            "title": "生成",
+            "desc": "输出文本与建议"
+          },
+          {
+            "title": "结束",
+            "desc": "动作还得你自己做"
+          }
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "process",
+        "title": "2026 年：智能体 Agent",
+        "content": "OpenClaw 的价值，就在于把 AI 的能力从“说”推进到“做”。",
+        "steps": [
+          {
+            "title": "理解",
+            "desc": "理解你的任务"
+          },
+          {
+            "title": "规划",
+            "desc": "自己拆解路径"
+          },
+          {
+            "title": "执行",
+            "desc": "调用工具完成动作"
+          }
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "未来：数字员工团队",
+        "content": "未来的组织里，不是一个 AI 做所有事，而是多个能力不同的数字员工协同配合，人负责目标、判断与把关。",
+        "items": [
+          "你将从执行者逐步转变为任务分配者、审核者和最终责任人。"
+        ],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 6,
+    "page_type": "content",
+    "part_index": 1,
+    "part_title": "时代呼唤",
+    "title": "什么是 OpenClaw 与“养虾热”",
+    "summary": "培训中必须先把词讲明白，不然一开始就会产生距离感和误解。",
+    "layout": "mixed_5",
+    "cards": [
+      {
+        "card_type": "text",
+        "title": "词汇翻译",
+        "content": "Claw 的字面意思是“爪子/钳子”。在 AI 语境里，OpenClaw 指的是能真正动手执行任务的数字员工。",
+        "items": [
+          "它不只会回答，更会整理、归类、操作和汇报结果。"
+        ],
+        "span": "wide"
+      },
+      {
+        "card_type": "tag_cloud",
+        "title": "“养虾”在说什么",
+        "content": "所谓“养虾”，本质是让 AI 越来越懂你的工作语言与工作要求。",
+        "items": [
+          "培养助手",
+          "调教习惯",
+          "积累提示词",
+          "建立工作流"
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "list",
+        "title": "最容易感知的能力",
+        "content": "这些都是非技术同事最适合的首批入门动作。",
+        "items": [
+          "整理桌面文件",
+          "写邮件与通知",
+          "生成晨会提纲",
+          "处理 Excel 求助"
+        ],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 7,
+    "page_type": "section",
+    "part_index": 2,
+    "part_title": "底层逻辑",
+    "title": "拨云见日：理解 AI 的底层逻辑",
+    "subtitle": "先把“大脑”和“双手”的关系讲透，后面所有实操才不会停留在“会用按钮”。",
+    "quote": "理解关系，才能理解价值"
+  },
+  {
+    "page_number": 8,
+    "page_type": "content",
+    "part_index": 2,
+    "part_title": "底层逻辑",
+    "title": "核心关系：大模型是大脑，OpenClaw 是双手",
+    "summary": "很多人把两者混为一谈，但真正的威力恰恰来自“思考”和“执行”协同。",
+    "layout": "three_col",
+    "cards": [
+      {
+        "card_type": "text",
+        "title": "大语言模型",
+        "content": "负责理解意图、推理路径、组织语言、做出任务规划。没有它，AI 不知道你真正想达成什么结果。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "OpenClaw",
+        "content": "负责调用工具、操作本地环境、读取文件、整理内容、返回执行过程。没有它，AI 只能停留在纸上谈兵。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "最佳组合",
+        "content": "一个负责想，一个负责做。真正的效率提升，不是把人替掉，而是让“思考 + 执行”更快闭环。",
+        "items": [],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 9,
+    "page_type": "content",
+    "part_index": 2,
+    "part_title": "底层逻辑",
+    "title": "医院比喻：医生与护士",
+    "summary": "抽象技术一旦放进熟悉场景里，非技术同事会立刻明白为什么两者缺一不可。",
+    "layout": "two_col",
+    "cards": [
+      {
+        "card_type": "process",
+        "title": "大模型 = 医生",
+        "content": "医生负责做专业判断，但不直接完成全部操作。",
+        "steps": [
+          {
+            "title": "问诊",
+            "desc": "分析病情"
+          },
+          {
+            "title": "判断",
+            "desc": "给出治疗方案"
+          },
+          {
+            "title": "交代",
+            "desc": "明确下一步要做什么"
+          }
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "process",
+        "title": "OpenClaw = 护士",
+        "content": "护士负责把方案落到动作层面，这才叫真正的完成。",
+        "steps": [
+          {
+            "title": "接单",
+            "desc": "接收治疗安排"
+          },
+          {
+            "title": "执行",
+            "desc": "打针、拿药、操作设备"
+          },
+          {
+            "title": "反馈",
+            "desc": "汇报结果与异常"
+          }
+        ],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 10,
+    "page_type": "content",
+    "part_index": 2,
+    "part_title": "底层逻辑",
+    "title": "打车比喻：地图与司机",
+    "summary": "同一个逻辑再换一个生活化场景，更方便在培训现场快速复述和记忆。",
+    "layout": "two_col",
+    "cards": [
+      {
+        "card_type": "text",
+        "title": "大模型 = 高德地图",
+        "content": "它会规划路线、估算时间、识别拥堵、给出建议路径。它擅长“告诉你怎么走”。",
+        "items": [
+          "没有地图，司机也可能开，但效率低、容易走弯路。"
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "OpenClaw = 滴滴司机",
+        "content": "它会真正踩油门、转方向盘、处理路况并把你送到目的地。它擅长“替你把动作做完”。",
+        "items": [
+          "没有司机，路线再清晰，你也到不了终点。"
+        ],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 11,
+    "page_type": "content",
+    "part_index": 2,
+    "part_title": "底层逻辑",
+    "title": "一次任务是如何被完成的",
+    "summary": "让大家看见任务从输入到完成的完整链路，才能理解 AI 不是“魔法”，而是有步骤的自动化。",
+    "layout": "hero_3",
+    "cards": [
+      {
+        "card_type": "process",
+        "title": "桌面整理任务全流程",
+        "content": "真正的智能体流程，一定包含理解、规划、调用工具和结果反馈四步。",
+        "steps": [
+          {
+            "title": "1. 用户输入",
+            "desc": "把桌面的文件按类型分类"
+          },
+          {
+            "title": "2. 模型思考",
+            "desc": "判断需要扫描、归类与新建文件夹"
+          },
+          {
+            "title": "3. OpenClaw 执行",
+            "desc": "读取目录、创建文件夹、移动文件"
+          },
+          {
+            "title": "4. 返回结果",
+            "desc": "汇报完成情况与耗时"
+          }
+        ],
+        "span": "hero"
+      },
+      {
+        "card_type": "text",
+        "title": "为什么这很重要",
+        "content": "当你理解这套链路后，就知道怎么下更清晰的命令，也知道哪些任务适合交给它。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "list",
+        "title": "适合交给 AI 的动作",
+        "content": "越是重复、规则明确、可验证的动作，越适合先交给 AI。",
+        "items": [
+          "格式统一",
+          "批量归类",
+          "公开资料整合",
+          "模板生成"
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "list",
+        "title": "仍需人工把关的动作",
+        "content": "涉及责任与合规的关键环节，必须保留人工审核。",
+        "items": [
+          "最终金额确认",
+          "客户承诺口径",
+          "敏感信息判断",
+          "高风险决策"
+        ],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 12,
+    "page_type": "content",
+    "part_index": 2,
+    "part_title": "底层逻辑",
+    "title": "怎么判断一件事能不能交给 AI",
+    "summary": "让员工形成判断框架，比背十个示例更重要，这样他们会自己迁移到真实工作场景。",
+    "layout": "mixed_6",
+    "cards": [
+      {
+        "card_type": "tag_cloud",
+        "title": "优先尝试的任务特征",
+        "content": "这些任务最容易做出正向体验。",
+        "items": [
+          "重复多",
+          "规则清晰",
+          "结果可核验",
+          "不含敏感信息",
+          "流程标准化"
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "高回报入口",
+        "content": "先从耗时又不值得你持续投入精力的动作开始，比如整理文件、写初稿、生成提纲、问 Excel 操作。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "谨慎入口",
+        "content": "如果任务包含客户隐私、内部机密、金额确认、正式承诺，就必须把 AI 限制在“辅助思考”而不是“直接处理”。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "判断口诀",
+        "content": "先低后高，从低风险动作开始。先试公开信息、模板生成、流程整理，熟悉边界后再逐步增加复杂度。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "list",
+        "title": "能否马上验证",
+        "content": "可验证，是把 AI 引入工作的重要前提。",
+        "items": [
+          "能否人工快速复核",
+          "能否看出明显错误",
+          "能否一键撤回或重做",
+          "能否限定在公开资料范围"
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "一页结论",
+        "content": "不要把 AI 当成“全自动替身”，而要把它当成“先做 60-80% 粗活，再由你把关”的助手。",
+        "items": [],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 13,
+    "page_type": "section",
+    "part_index": 3,
+    "part_title": "工具选择",
+    "title": "神器盘点：为什么最终选择 QClaw",
+    "subtitle": "不是所有 AI 工具都适合寿险分公司的一线非技术员工，选择错误会导致一上来就挫败。",
+    "quote": "选择比努力更重要"
+  },
+  {
+    "page_number": 14,
+    "page_type": "content",
+    "part_index": 3,
+    "part_title": "工具选择",
+    "title": "国内 AI 助手格局：为什么大家都在找“顺手的虾”",
+    "summary": "员工面对的不是“有没有 AI”，而是“到底哪一款更适合先上手”。",
+    "layout": "mixed_5",
+    "cards": [
+      {
+        "card_type": "compare",
+        "title": "四类产品格局",
+        "content": "从培训角度看，易获得、低门槛、低心理负担，比花哨功能更关键。",
+        "items": [
+          {
+            "name": "积分限制型",
+            "value": 55,
+            "label": "功能强，但免费额度少"
+          },
+          {
+            "name": "内测稀缺型",
+            "value": 35,
+            "label": "大厂生态，但普通人难拿到"
+          },
+          {
+            "name": "生态绑定型",
+            "value": 50,
+            "label": "依赖特定办公生态"
+          },
+          {
+            "name": "量大管饱型",
+            "value": 90,
+            "label": "QClaw 更适合培训起步"
+          }
+        ],
+        "span": "wide"
+      },
+      {
+        "card_type": "text",
+        "title": "积分限制型",
+        "content": "AutoClaw、EasyClaw、WorkBuddy 一类产品上手不差，但免费“体力”有限，重度体验很容易中断。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "内测稀缺型",
+        "content": "灵犀Claw、悟空、Solo 等背后有大厂，但普通员工不一定拿得到资格，不适合做全员培训起点。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "生态绑定型",
+        "content": "飞书 OpenClaw、jvs claw 更依赖平台生态或试用周期，对分公司普及不够友好。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "QClaw 的位置",
+        "content": "腾讯系、门槛低、客户端方式直接、适合先让员工建立第一轮正反馈。",
+        "items": [],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 15,
+    "page_type": "content",
+    "part_index": 3,
+    "part_title": "工具选择",
+    "title": "为什么不建议原生配置和云端部署",
+    "summary": "对非技术员工而言，最危险的不是不会用，而是还没开始就被部署门槛劝退。",
+    "layout": "three_col",
+    "cards": [
+      {
+        "card_type": "text",
+        "title": "原生配置门槛",
+        "content": "原生 OpenClaw 配置经常涉及 Python 环境、依赖安装与命令行操作，足以劝退绝大多数非技术同事。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "云端部署焦虑",
+        "content": "云服务器与模型 Token 都要持续花钱，一旦付费，用户会本能地计算成本，导致尝试意愿下降。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "QClaw 的现实优势",
+        "content": "本地客户端更适合员工先熟悉场景、先感受到价值，再决定要不要做更深度探索。",
+        "items": [],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 16,
+    "page_type": "content",
+    "part_index": 3,
+    "part_title": "工具选择",
+    "title": "强烈推荐 QClaw 的四大理由",
+    "summary": "真正适合内训普及的工具，必须同时满足稳定、低门槛、低焦虑和高可用。",
+    "layout": "mixed_5",
+    "cards": [
+      {
+        "card_type": "data",
+        "title": "免费体量",
+        "value": "4000万",
+        "label": "每日 Token",
+        "description": "材料显示，QClaw 每天赠送 4000 万 Token，足够支持高频尝试与办公级别使用。",
+        "progress": 88,
+        "trend": "试错无压力",
+        "span": "wide"
+      },
+      {
+        "card_type": "text",
+        "title": "腾讯背书",
+        "content": "大厂出品带来更强的稳定感与信任感，尤其适合给第一次接触 AI 的同事建立安全感。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "生态想象力",
+        "content": "和微信、QQ、腾讯文档等生态的天然联想，会让员工更容易理解它未来的办公价值。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "开箱即用",
+        "content": "不折腾环境，不讲一堆命令，员工才愿意在下班前真正迈出第一步。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "本地化心态更轻",
+        "content": "只要有网络和一点电费，就能开始尝试，心态上不会被“回本焦虑”绑架。",
+        "items": [],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 17,
+    "page_type": "content",
+    "part_index": 3,
+    "part_title": "工具选择",
+    "title": "QClaw 安装绑定：零基础也能轻松上手",
+    "summary": "QClaw 是微信直连的 AI 办公助手，培训现场要把“安装绑定简单、上手门槛低”讲清楚，让大家敢于马上试用。",
+    "layout": "two_col",
+    "cards": [
+      {
+        "card_type": "process",
+        "title": "安装三步走",
+        "content": "这里的重点不是技术炫耀，而是把“我也能装”这个信心快速建立起来。",
+        "steps": [
+          {
+            "title": "访问官网",
+            "desc": "进入 qclaw.qq.com 下载客户端"
+          },
+          {
+            "title": "下一步安装",
+            "desc": "按常规软件方式完成安装"
+          },
+          {
+            "title": "微信绑定",
+            "desc": "通过微信直连完成登录与绑定"
+          }
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "list",
+        "title": "培训现场提醒",
+        "content": "让大家在培训当天就形成闭环体验。",
+        "items": [
+          "目前只有客户端，没有网页版",
+          "建议优先在个人设备上安装",
+          "安装完成后立刻试一个公开办公任务"
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "list",
+        "title": "讲师话术建议",
+        "content": "这页的重点是建立“我也能上手”的信心。",
+        "items": [
+          "先说它是微信直连的 AI 办公助手",
+          "再说今天就能装好开始试用",
+          "最后强调先从公开低风险任务开始"
+        ],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 18,
+    "page_type": "content",
+    "part_index": 3,
+    "part_title": "工具选择",
+    "title": "首次登录后，先认识这四个核心区域",
+    "summary": "先看懂界面，再下达任务。第一天先建立“知道先点哪里、知道结果在哪看”的掌控感。",
+    "layout": "two_col",
+    "cards": [
+      {
+        "card_type": "process",
+        "title": "四个核心区域怎么理解",
+        "content": "第一天最重要的不是做复杂任务，而是先看懂界面分工。",
+        "steps": [
+          {
+            "title": "对话区",
+            "desc": "下达任务、补充要求，命令越清楚结果越稳"
+          },
+          {
+            "title": "任务区",
+            "desc": "看执行步骤与当前进度，知道它正在做什么"
+          },
+          {
+            "title": "文件区",
+            "desc": "限定操作范围，优先只指向某个测试文件夹"
+          },
+          {
+            "title": "结果区",
+            "desc": "看返回结果、初稿内容和执行说明"
+          }
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "list",
+        "title": "上手原则与首日目标",
+        "content": "把第一次成功体验做扎实，比马上追求高级玩法更重要。",
+        "items": [
+          "先看懂，再让它做",
+          "先完成一个公开任务",
+          "先学会看结果和进度",
+          "先说出一个适用场景"
+        ],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 19,
+    "page_type": "content",
+    "part_index": 3,
+    "part_title": "工具选择",
+    "title": "核心功能实操演示：第一个任务这样做最稳",
+    "summary": "本次培训聚焦实操教学，所以第一个演示任务一定要短、稳、结果可见，让零基础员工立刻看到 QClaw 在日常办公里的价值。",
+    "layout": "hero_3",
+    "cards": [
+      {
+        "card_type": "process",
+        "title": "公开文件整理 Demo",
+        "content": "这是最适合培训首秀的任务：可视、直观、风险低、成就感强。",
+        "steps": [
+          {
+            "title": "准备素材",
+            "desc": "提前放好测试文件夹和公开文档"
+          },
+          {
+            "title": "明确范围",
+            "desc": "限定在一个文件夹内操作"
+          },
+          {
+            "title": "下达任务",
+            "desc": "按类型或日期归档"
+          },
+          {
+            "title": "人工复核",
+            "desc": "现场打开结果文件夹确认"
+          }
+        ],
+        "span": "hero"
+      },
+      {
+        "card_type": "text",
+        "title": "推荐指令结构",
+        "content": "身份/场景 + 文件位置 + 分类规则 + 输出要求，四要素写清楚，AI 的执行稳定性会明显提高。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "为什么不用高风险任务开场",
+        "content": "涉及客户隐私、金额判断或机密材料的任务，一旦出现疑问，现场气氛会迅速从好奇变成担忧。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "data",
+        "title": "理想时长",
+        "value": "30秒",
+        "label": "首个结果反馈",
+        "description": "材料中提到，简单整理任务可以在几十秒内完成，最适合做培训开场反馈。",
+        "progress": 68,
+        "trend": "反馈及时",
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 20,
+    "page_type": "section",
+    "part_index": 4,
+    "part_title": "业务实战",
+    "title": "寿险实战：五大岗位核心工作流重塑",
+    "subtitle": "把认知和工具真正落到岗位动作里，员工才会觉得“这跟我有关系”。",
+    "quote": "用 AI 解决最具体的工作痛点"
+  },
+  {
+    "page_number": 21,
+    "page_type": "content",
+    "part_index": 4,
+    "part_title": "业务实战",
+    "title": "基础办公事项里，QClaw 最适合先帮你做什么",
+    "summary": "这次培训明确聚焦基础办公场景：文件整理、数据汇总、文档撰写等事项最适合先行试用，这一页就是把应用边界讲清楚。",
+    "layout": "mixed_5",
+    "cards": [
+      {
+        "card_type": "data",
+        "title": "时间价值",
+        "value": "1-2 小时",
+        "label": "每天可节省",
+        "description": "熟练应用 QClaw 后，平均每天可节省 1-2 小时，这正是基础办公事项最先释放的时间价值。",
+        "progress": 74,
+        "trend": "效率释放",
+        "span": "wide"
+      },
+      {
+        "card_type": "text",
+        "title": "文件整理",
+        "content": "公开资料、测试文件、日常文档归档，是最适合 AI 先行试用的入口。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "数据汇总",
+        "content": "月底汇总、字段整理、表格初步处理，属于非常典型的基础办公流程。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "文档撰写",
+        "content": "周报、通知、邮件、晨会提纲、常见话术草稿，都是最容易看到效果的场景。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "培训核心观点",
+        "content": "AI 不是替你做所有事，而是先把最基础、最重复、最容易疲惫的部分拿走。",
+        "items": [],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 22,
+    "page_type": "content",
+    "part_index": 4,
+    "part_title": "业务实战",
+    "title": "五大岗位 × 七类任务：QClaw 的应用地图",
+    "summary": "通过一张应用地图，把“零散案例”变成“可迁移框架”。",
+    "layout": "mixed_6",
+    "cards": [
+      {
+        "card_type": "tag_cloud",
+        "title": "岗位覆盖",
+        "content": "它并不是只服务技术岗，而是服务高频办公场景。",
+        "items": [
+          "核保",
+          "理赔",
+          "增员",
+          "销售",
+          "客服/内勤"
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "tag_cloud",
+        "title": "高频任务",
+        "content": "这些任务构成了最适合起步的能力包。",
+        "items": [
+          "文件整理",
+          "文案生成",
+          "资料归档",
+          "话术润色",
+          "会议提纲",
+          "Excel 求助",
+          "流程梳理"
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "核保/理赔",
+        "content": "最适合从附件整理、票据排序、文件重命名、资料归档等“机械动作”切入。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "销售/客服",
+        "content": "最适合从跟进微信、产品科普文案、客户沟通框架等“文字动作”切入。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "增员/人力",
+        "content": "简历分类、信息提取、面试安排初稿，是最容易感受到时间回报的场景。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "内勤/行政",
+        "content": "晨会大纲、通知草稿、办公技能求助，会让 AI 快速变成“每天都能用一次”的助手。",
+        "items": [],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 23,
+    "page_type": "content",
+    "part_index": 4,
+    "part_title": "业务实战",
+    "title": "核保岗：告别资料杂乱，先从归档做起",
+    "summary": "核保场景要强调“先做整理，再做判断”，避免给人“AI 替你核保”的误解。",
+    "layout": "main_sub",
+    "cards": [
+      {
+        "card_type": "text",
+        "title": "场景主卡",
+        "content": "核保岗每天面对大量申请表、体检报告和影像资料，真正消耗精力的往往不是判断本身，而是前面的归档和查找。",
+        "items": [
+          "推荐指令：帮我把桌面“3月核保申请”文件夹里的体检报告、申请表，按客户姓名自动建立子文件夹并分类归档。",
+          "推荐边界：只处理非敏感测试材料或脱敏材料。"
+        ],
+        "span": "tall"
+      },
+      {
+        "card_type": "data",
+        "title": "效率对比",
+        "value": "30秒",
+        "label": "完成机械整理",
+        "description": "材料中给出的典型体验是：原本 30 分钟的机械整理，AI 在几十秒内就能完成初步归档。",
+        "progress": 84,
+        "trend": "效率显著提升",
+        "span": ""
+      },
+      {
+        "card_type": "list",
+        "title": "培训强调点",
+        "content": "把场景边界讲清楚，员工才会放心尝试。",
+        "items": [
+          "AI 做整理，不替代核保判断",
+          "最终资料是否齐全仍需人工确认",
+          "先限定在测试文件夹内演示"
+        ],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 24,
+    "page_type": "content",
+    "part_index": 4,
+    "part_title": "业务实战",
+    "title": "理赔岗：票据初筛与明细初步整理",
+    "summary": "理赔场景一定要把“AI 辅助整理，不替代金额确认”讲成红线。",
+    "layout": "three_col",
+    "cards": [
+      {
+        "card_type": "text",
+        "title": "痛点",
+        "content": "客户提交的发票图片和申请材料往往杂乱，人工逐张改名、排序、归档非常耗精力。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "神级指令",
+        "content": "帮我整理“张三理赔资料”文件夹，把所有发票图片按日期重命名排序，并把申请表单独归档。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "关键提醒",
+        "content": "AI 可以做初筛、改名、排序和汇总建议，但金额核对、凭证真实性和结论判断必须由人工复核。",
+        "items": [],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 25,
+    "page_type": "content",
+    "part_index": 4,
+    "part_title": "业务实战",
+    "title": "增员与人力：简历秒筛与排期初稿",
+    "summary": "这一页最能打动主管层，因为它直观看到“原来一小时工作可以压缩到几分钟”。",
+    "layout": "hero_3",
+    "cards": [
+      {
+        "card_type": "data",
+        "title": "效率回报",
+        "value": "5 分钟",
+        "label": "完成面试统筹初稿",
+        "description": "材料中提到，原本 1 小时的统筹工作可以压缩到 5 分钟左右，这类场景极适合作为培训后的首批试点。",
+        "progress": 86,
+        "trend": "明显提速",
+        "span": "hero"
+      },
+      {
+        "card_type": "text",
+        "title": "典型痛点",
+        "content": "招聘季候选人简历堆积如山，分类、筛选、提取联系方式和排面试时间都非常碎片化。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "推荐指令",
+        "content": "把“增员简历”文件夹按学历和工作年限分类，并提取所有本科学历候选人的姓名和电话，生成本周面试安排表初稿。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "list",
+        "title": "人工把关点",
+        "content": "让 AI 先做 80%，人来做最后 20% 审核。",
+        "items": [
+          "电话是否准确",
+          "学历信息是否完整",
+          "面试时间是否冲突",
+          "敏感信息是否脱敏"
+        ],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 26,
+    "page_type": "content",
+    "part_index": 4,
+    "part_title": "业务实战",
+    "title": "销售与客服：高情商跟进微信怎么写",
+    "summary": "这页直接解决一线最常见的“我知道该跟进，但不知道怎么说”问题。",
+    "layout": "two_col",
+    "cards": [
+      {
+        "card_type": "text",
+        "title": "真实场景",
+        "content": "刚拜访完一位 35 岁企业主，聊了养老规划。此时最怕的不是没内容，而是说得太硬、太推销、太像模板。",
+        "items": [
+          "推荐提示词：请帮我写一条得体的感谢 + 跟进微信，100 字内，有温度，不要浓重推销味，结尾留个悬念。"
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "list",
+        "title": "高质量结果应具备",
+        "content": "让员工知道“好结果”长什么样，后续才能自己调教提示词。",
+        "items": [
+          "先表达感谢",
+          "回扣刚才聊过的话题",
+          "不急着成交",
+          "语气自然有温度",
+          "结尾留下继续沟通空间"
+        ],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 27,
+    "page_type": "content",
+    "part_index": 4,
+    "part_title": "业务实战",
+    "title": "朋友圈文案：让保险科普更有人味",
+    "summary": "朋友圈不是写给专家看的，而是写给潜在客户和熟人圈看的，AI 非常适合帮你调整语气。",
+    "layout": "main_sub",
+    "cards": [
+      {
+        "card_type": "text",
+        "title": "场景主卡",
+        "content": "很多保险科普文案不是内容不对，而是太官方、太硬、太像“完成任务”。AI 最适合帮你把专业信息改成更接地气、更容易互动的表达。",
+        "items": [
+          "推荐提示词：帮我写一条朋友圈，科普意外险的重要性，语气轻松幽默、接地气，结尾带一个互动提问，并建议配图方向。"
+        ],
+        "span": "tall"
+      },
+      {
+        "card_type": "tag_cloud",
+        "title": "文案要素",
+        "content": "培训现场可以让大家对比“原始版本”和“AI 优化版”的语气差异。",
+        "items": [
+          "真实感",
+          "轻松感",
+          "互动感",
+          "场景化",
+          "避免硬卖"
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "应用提醒",
+        "content": "AI 可以给框架和第一稿，但你最终发出的文字，仍然要符合你自己的客户关系和人设风格。",
+        "items": [],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 28,
+    "page_type": "content",
+    "part_index": 4,
+    "part_title": "业务实战",
+    "title": "内勤与行政：晨会大纲一键生成",
+    "summary": "这类场景最适合帮助“平时不太敢碰 AI”的同事建立第一次成就感。",
+    "layout": "two_col",
+    "cards": [
+      {
+        "card_type": "process",
+        "title": "5 分钟晨会稿生成逻辑",
+        "content": "有了结构化要求，AI 才会输出可直接拿来讲的提纲。",
+        "steps": [
+          {
+            "title": "定主题",
+            "desc": "比如“在拒绝中寻找机会”"
+          },
+          {
+            "title": "加场景",
+            "desc": "要求一个寿险销售故事"
+          },
+          {
+            "title": "定风格",
+            "desc": "接地气、有感染力"
+          },
+          {
+            "title": "要结构",
+            "desc": "生成开场、故事、收束"
+          }
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "list",
+        "title": "为什么这个场景适合培训",
+        "content": "非常适合现场让同事自己补一句要求，立即看到效果变化。",
+        "items": [
+          "内容公开、风险低",
+          "结果可直接朗读",
+          "前后效果差异明显",
+          "适合现场互动修改"
+        ],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 29,
+    "page_type": "content",
+    "part_index": 4,
+    "part_title": "业务实战",
+    "title": "全员通用：Excel 公式与办公求助",
+    "summary": "很多人以为自己不会用 AI，其实只是没有意识到“办公求助”就是最简单的入口。",
+    "layout": "hero_3",
+    "cards": [
+      {
+        "card_type": "text",
+        "title": "办公助手定位",
+        "content": "当你卡在某个 Excel 操作、筛选条件、条件格式、公式写法时，QClaw 可以变成一个全天候 IT 办公小助手。",
+        "items": [
+          "推荐提示词：A 列是日期，B 列是业绩金额，我想把本月业绩大于 1 万的单元格自动标红，请一步步告诉我具体操作。"
+        ],
+        "span": "hero"
+      },
+      {
+        "card_type": "text",
+        "title": "为什么这很适合起步",
+        "content": "它几乎不涉及敏感数据，只要把真实数据换成字段描述，就可以安全地先问方法。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "体验价值",
+        "content": "遇到 Excel 或办公问题时，先让 AI 给你步骤框架，再自己动手验证，能明显减少反复求人和试错时间。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "list",
+        "title": "好的提问方式",
+        "content": "描述越具体，返回的步骤越能直接照着做。",
+        "items": [
+          "说清列名/字段",
+          "说清想要的效果",
+          "要求分步骤输出",
+          "必要时附上模拟示例"
+        ],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 30,
+    "page_type": "content",
+    "part_index": 4,
+    "part_title": "业务实战",
+    "title": "QClaw 现场演示实操步骤：文件整理版",
+    "summary": "这一页直接给出可照着演的步骤、指令和讲师动作，现场优先用这个版本：稳、快、结果直观。",
+    "layout": "two_col",
+    "cards": [
+      {
+        "card_type": "process",
+        "title": "现场演示 6 步",
+        "content": "这一页就是上台操作顺序，照着做即可。",
+        "steps": [
+          {
+            "title": "第1步",
+            "desc": "先展示原始文件夹的杂乱状态"
+          },
+          {
+            "title": "第2步",
+            "desc": "明确范围，只限定测试文件夹"
+          },
+          {
+            "title": "第3步",
+            "desc": "输入整理指令，要求按类型归档"
+          },
+          {
+            "title": "第4步",
+            "desc": "执行时只解释它在读取和分类"
+          },
+          {
+            "title": "第5步",
+            "desc": "打开结果文件夹，现场核验结果"
+          },
+          {
+            "title": "第6步",
+            "desc": "补一句边界提醒：仅适合公开或脱敏材料"
+          }
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "process",
+        "title": "动作与切换",
+        "content": "右侧这张卡只保留上台最需要记住的动作，不再分散成多张小卡。",
+        "steps": [
+          {
+            "title": "推荐指令",
+            "desc": "请整理测试文件夹，按类型建子文件夹并输出整理说明"
+          },
+          {
+            "title": "讲师动作",
+            "desc": "先看原始状态，再读范围和目标，结果出来只讲 3 个重点"
+          },
+          {
+            "title": "理想时长",
+            "desc": "首轮结果控制在 40 秒左右"
+          },
+          {
+            "title": "异常切换",
+            "desc": "网络波动就切备用结果页或备用场景"
+          }
+        ],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 31,
+    "page_type": "content",
+    "part_index": 4,
+    "part_title": "业务实战",
+    "title": "QClaw 第二轮实操：文档撰写与数据汇总",
+    "summary": "第一轮演完文件整理，第二轮建议演文档撰写或数据汇总，贴近日常办公，也更有干货。",
+    "layout": "two_col",
+    "cards": [
+      {
+        "card_type": "process",
+        "title": "文档撰写演示步骤",
+        "content": "先稳后难。文件整理先建立信心，文档撰写再展示拓展能力。",
+        "steps": [
+          {
+            "title": "给背景",
+            "desc": "例如写周会通知或晨会提纲"
+          },
+          {
+            "title": "给要求",
+            "desc": "限定字数、语气、结构和对象"
+          },
+          {
+            "title": "看初稿",
+            "desc": "先让 QClaw 出第一版"
+          },
+          {
+            "title": "再追问",
+            "desc": "再要求更口语化或更正式"
+          }
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "process",
+        "title": "数据汇总步骤与话术",
+        "content": "现场话术：先讲场景，再讲目标，最后讲边界。强调它辅助办公，不替代最终判断。",
+        "steps": [
+          {
+            "title": "说字段",
+            "desc": "明确表格有哪些列"
+          },
+          {
+            "title": "说目标",
+            "desc": "例如统计本月业绩或筛选名单"
+          },
+          {
+            "title": "要步骤",
+            "desc": "要求分步骤解释处理逻辑"
+          },
+          {
+            "title": "再验证",
+            "desc": "用模拟数据快速核验"
+          }
+        ],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 32,
+    "page_type": "section",
+    "part_index": 5,
+    "part_title": "安全合规",
+    "title": "严守红线：数据安全是生命线",
+    "subtitle": "这一部分必须用最严肃的口气讲，因为它决定培训能不能真正落地。",
+    "quote": "AI 可以提效，但绝不能碰合规底线"
+  },
+  {
+    "page_number": 33,
+    "page_type": "content",
+    "part_index": 5,
+    "part_title": "安全合规",
+    "title": "真实违规案例：不是提醒，而是警钟",
+    "summary": "只有把代价说透，员工才会真正把“不要上传敏感信息”当回事。",
+    "layout": "hero_3",
+    "cards": [
+      {
+        "card_type": "data",
+        "title": "违规后果",
+        "value": "1年6个月",
+        "label": "有期徒刑",
+        "description": "材料中的真实案例表明，向外部 AI 提供 1000 多位客户信息做分析，最终触及刑事责任。",
+        "progress": 100,
+        "trend": "高风险",
+        "span": "hero"
+      },
+      {
+        "card_type": "data",
+        "title": "机构代价",
+        "value": "200万",
+        "label": "监管重罚",
+        "description": "不仅个人受罚，机构也会承担监管处罚和品牌风险。",
+        "progress": 100,
+        "trend": "损失巨大",
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "案例回放",
+        "content": "某金融机构员工把包含大量客户信息的 Excel 发送给外部 AI 做“智能分析”，结果造成严重后果。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "核心结论",
+        "content": "为了偷懒而把客户隐私交给外部 AI，不是小失误，而是可能直接违法。",
+        "items": [],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 34,
+    "page_type": "content",
+    "part_index": 5,
+    "part_title": "安全合规",
+    "title": "绝对禁止的五大高压线",
+    "summary": "这一页要让大家明确：不是“谨慎点用”，而是“有些内容绝不能碰”。",
+    "layout": "mixed_5",
+    "cards": [
+      {
+        "card_type": "text",
+        "title": "客户身份信息",
+        "content": "身份证号、护照号、人脸照片等，属于极高敏感信息，绝对不能上传给外部 AI。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "金融账户信息",
+        "content": "银行卡号、交易密码、账户流水等，任何外发都可能带来不可逆的风险。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "私密联系方式",
+        "content": "手机号、详细住址、家庭住址等信息，不能因为“只是帮我整理一下”就放松警惕。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "健康信息",
+        "content": "病历、体检报告、健康告知问卷，是寿险业务里最需要敬畏的数据类型之一。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "公司内部机密",
+        "content": "未公开营销政策、内部财务数据、未授权课件，同样不能被当成训练或生成素材。",
+        "items": [],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 35,
+    "page_type": "content",
+    "part_index": 5,
+    "part_title": "安全合规",
+    "title": "安全决策“三问法”：每次使用前先过脑",
+    "summary": "把合规动作做成一个人人都能记住的小动作，比给一大页制度更有效。",
+    "layout": "three_col",
+    "cards": [
+      {
+        "card_type": "text",
+        "title": "第一问",
+        "content": "这个内容里有没有客户姓名、身份证号、手机号、银行卡号等可识别个人信息？有，就不能用。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "第二问",
+        "content": "这个文件是否带有“机密”“内部”“秘密”等标识？如果是，就不能拿去问外部 AI。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "第三问",
+        "content": "如果这份内容泄露出去，会不会对客户或公司造成损失？只要答案是“会”，就坚决不要冒险。",
+        "items": [],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 36,
+    "page_type": "content",
+    "part_index": 5,
+    "part_title": "安全合规",
+    "title": "哪些内容相对安全，可以放心先用",
+    "summary": "讲完不能做什么，还要讲能做什么，否则员工只会留下“AI 很危险”的印象。",
+    "layout": "mixed_6",
+    "cards": [
+      {
+        "card_type": "text",
+        "title": "公开通知",
+        "content": "对公司公开发布的文件、制度、公告做语言润色和结构优化。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "公开产品资料",
+        "content": "对官网产品介绍、公开条款说明做通俗化翻译和总结。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "个人工作总结",
+        "content": "前提是已经剔除客户隐私和公司机密，只保留公开工作结构与表达需求。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "话术模板",
+        "content": "生成通用营销话术、对比框架、客户沟通思路，但不带入真实客户隐私。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "本地公开文件整理",
+        "content": "整理自己电脑桌面上的非敏感工作文件，是最适合的入门动作。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "正确姿势",
+        "content": "先脱敏，再借助 AI。让 AI 帮你做框架、模板和初稿，而不是直接处理原始敏感数据。",
+        "items": [],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 37,
+    "page_type": "content",
+    "part_index": 5,
+    "part_title": "安全合规",
+    "title": "隔离网络下的标准工作流：外脑思考，内网执行",
+    "summary": "这是最适合寿险场景的合规心法，必须反复强调。",
+    "layout": "hero_3",
+    "cards": [
+      {
+        "card_type": "process",
+        "title": "标准合规路径",
+        "content": "AI 是你的外脑，不是替你把公司敏感数据搬到外部世界的捷径。",
+        "steps": [
+          {
+            "title": "1. 外网提问",
+            "desc": "在个人手机或外网电脑上问通用问题"
+          },
+          {
+            "title": "2. 消化逻辑",
+            "desc": "把 AI 给出的框架先自己理解吸收"
+          },
+          {
+            "title": "3. 回到内网",
+            "desc": "在云桌面内结合真实敏感数据手动完成"
+          },
+          {
+            "title": "4. 人工把关",
+            "desc": "确保最终输出符合制度和口径"
+          }
+        ],
+        "span": "hero"
+      },
+      {
+        "card_type": "text",
+        "title": "当前环境认知",
+        "content": "办公系统内网云桌面与外网物理隔离，本身就是为了保护敏感数据。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "为什么这套方法最稳",
+        "content": "既能借用 AI 的思路、模板和结构能力，又不会让客户数据离开合规边界。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "一句话记住",
+        "content": "让 AI 提供方法，让你来处理真实数据。",
+        "items": [],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 38,
+    "page_type": "content",
+    "part_index": 5,
+    "part_title": "安全合规",
+    "title": "脱敏改写：把危险问题，改成安全问题",
+    "summary": "员工真正需要学会的，不只是“不要发”，更是“怎么改写后再问”。",
+    "layout": "two_col",
+    "cards": [
+      {
+        "card_type": "list",
+        "title": "危险问法",
+        "content": "这些问法的问题，不在于 AI 不聪明，而在于你把不该外发的内容送了出去。",
+        "items": [
+          "帮我分析这份客户名单的购买潜力",
+          "把这份含身份证号的理赔表整理成摘要",
+          "根据这个真实客户健康问卷给出建议",
+          "把未公开政策做成销售话术"
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "list",
+        "title": "安全改写",
+        "content": "先要方法、要模板、要框架，再由自己在内网结合真实数据执行。",
+        "items": [
+          "请给我一个客户分层分析模板",
+          "请给我一个理赔资料整理的字段清单",
+          "请给我一个健康问卷脱敏后的分析框架",
+          "请给我一个公开产品对比的话术骨架"
+        ],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 39,
+    "page_type": "content",
+    "part_index": 5,
+    "part_title": "安全合规",
+    "title": "安全使用黄金流程：先判断，再脱敏，再提问",
+    "summary": "把安全使用动作流程化，员工回去才真正做得出来。",
+    "layout": "three_col",
+    "cards": [
+      {
+        "card_type": "process",
+        "title": "步骤一：判断",
+        "content": "先判断再操作。",
+        "steps": [
+          {
+            "title": "看内容",
+            "desc": "先过三问法"
+          },
+          {
+            "title": "看边界",
+            "desc": "确认是否含敏感信息"
+          },
+          {
+            "title": "看后果",
+            "desc": "判断泄露风险"
+          }
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "process",
+        "title": "步骤二：脱敏",
+        "content": "让问题变成方法咨询。",
+        "steps": [
+          {
+            "title": "去标识",
+            "desc": "删姓名、证件号、电话"
+          },
+          {
+            "title": "换模板",
+            "desc": "改成通用场景"
+          },
+          {
+            "title": "保结构",
+            "desc": "只保留问题骨架"
+          }
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "process",
+        "title": "步骤三：提问",
+        "content": "最终执行与责任必须回到人身上。",
+        "steps": [
+          {
+            "title": "要框架",
+            "desc": "让 AI 给方法"
+          },
+          {
+            "title": "要模板",
+            "desc": "让 AI 给初稿"
+          },
+          {
+            "title": "人工完成",
+            "desc": "回到内网落地"
+          }
+        ],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 40,
+    "page_type": "section",
+    "part_index": 6,
+    "part_title": "行动激励",
+    "title": "生存指南：做驾驭 AI 的传统寿险人",
+    "subtitle": "培训的最后不是把大家送回焦虑，而是把大家送回行动。",
+    "quote": "AI 不会淘汰你，但会用 AI 的同事会拉开差距"
+  },
+  {
+    "page_number": 41,
+    "page_type": "content",
+    "part_index": 6,
+    "part_title": "行动激励",
+    "title": "AI 会淘汰我们吗？先回答这个担忧",
+    "summary": "如果不先处理情绪问题，后面的所有方法都会被“我是不是会失业”覆盖掉。",
+    "layout": "hero_3",
+    "cards": [
+      {
+        "card_type": "text",
+        "title": "先给结论",
+        "content": "寿险是一门强烈依赖信任、温度、同理心和复杂情境判断的事业，AI 无法替代人与人之间的长期关系经营。",
+        "items": [
+          "它不能代替你在家庭遭遇变故时给予温度。",
+          "它也无法替代你在线下长期建立信任。"
+        ],
+        "span": "hero"
+      },
+      {
+        "card_type": "text",
+        "title": "AI 擅长什么",
+        "content": "AI 擅长的是整理、归纳、生成初稿、做辅助分析和提出结构化建议。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "人更擅长什么",
+        "content": "人更擅长的是判断责任、情绪沟通、复杂协商、建立长期关系和承担后果。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "真正的方向",
+        "content": "不是人与 AI 对抗，而是让 AI 帮你把更多时间重新还给“与人打交道”。",
+        "items": [],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 42,
+    "page_type": "content",
+    "part_index": 6,
+    "part_title": "行动激励",
+    "title": "真正的危机：不是 AI，而是效率差距被放大",
+    "summary": "这页要把竞争压力讲清楚，但不能讲成空泛威胁。",
+    "layout": "three_col",
+    "cards": [
+      {
+        "card_type": "text",
+        "title": "残酷真相",
+        "content": "AI 不会直接淘汰你，但熟练使用 AI 的同事，会在响应速度、质量和精力分配上迅速拉开差距。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "岗位趋势",
+        "content": "纯机械操作型岗位会持续缩减，而人机协同、审核把关、复杂沟通型岗位会越来越重要。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "角色重心",
+        "content": "从“做”走向“审”，从执行走向组织与把关。未来的优势不在于亲手做得多快，而在于能否更快组织 AI 产出高质量底稿。",
+        "items": [],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 43,
+    "page_type": "content",
+    "part_index": 6,
+    "part_title": "行动激励",
+    "title": "未来竞争力公式：专业经验 × AI 处理能力",
+    "summary": "真正不可替代的，不是单一技能，而是“业务理解”和“AI 使用能力”的乘法效应。",
+    "layout": "main_sub",
+    "cards": [
+      {
+        "card_type": "text",
+        "title": "竞争力公式",
+        "content": "经验 × AI，更像乘法不是加法。同样一个工具，不同业务经验的人用出来的结果完全不同；同样的经验，不借助 AI 又会被效率拖住。",
+        "items": [
+          "业务理解负责判断，AI 负责放大效率。"
+        ],
+        "span": "tall"
+      },
+      {
+        "card_type": "list",
+        "title": "专业经验负责",
+        "content": "这些是 AI 无法凭空长出来的。",
+        "items": [
+          "理解客户",
+          "理解产品",
+          "理解流程",
+          "理解风险"
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "list",
+        "title": "AI 处理能力负责",
+        "content": "它会把你的专业经验放大，而不是凭空替代。",
+        "items": [
+          "写初稿",
+          "理结构",
+          "做整理",
+          "给建议"
+        ],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 44,
+    "page_type": "content",
+    "part_index": 6,
+    "part_title": "行动激励",
+    "title": "从执行者到管理者 + 审核者",
+    "summary": "岗位价值并没有消失，而是在重新定义“你该亲手做什么”。",
+    "layout": "two_col",
+    "cards": [
+      {
+        "card_type": "process",
+        "title": "旧模式：全靠自己做",
+        "content": "这种模式最消耗的是你的时间和精力。",
+        "steps": [
+          {
+            "title": "接任务",
+            "desc": "自己想"
+          },
+          {
+            "title": "找资料",
+            "desc": "自己拼"
+          },
+          {
+            "title": "做初稿",
+            "desc": "自己熬"
+          },
+          {
+            "title": "交结果",
+            "desc": "自己扛"
+          }
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "process",
+        "title": "新模式：AI 先做 80%，你把关 20%",
+        "content": "角色升级的核心，不是少做事，而是把精力放到更值钱的部分。",
+        "steps": [
+          {
+            "title": "拆任务",
+            "desc": "交给 AI 处理粗活"
+          },
+          {
+            "title": "审结果",
+            "desc": "筛错、改口径、补细节"
+          },
+          {
+            "title": "定输出",
+            "desc": "你对结果负责"
+          },
+          {
+            "title": "再复用",
+            "desc": "沉淀成自己的方法库"
+          }
+        ],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 45,
+    "page_type": "content",
+    "part_index": 6,
+    "part_title": "行动激励",
+    "title": "提示词工程：未来的必修课",
+    "summary": "同样一个工具，用得好不好，往往差在你给它的任务是否具体、可执行、可验证。",
+    "layout": "mixed_6",
+    "cards": [
+      {
+        "card_type": "text",
+        "title": "差的提示词",
+        "content": "帮我写个周报。这样的命令过于笼统，AI 只能给你一个平庸且难落地的答案。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "好的提示词",
+        "content": "明确身份、明确任务、明确格式、给出参考信息，效果会立刻拉开差距。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "tag_cloud",
+        "title": "四要素公式",
+        "content": "这是最容易记住、也最容易现场练习的提示词框架。",
+        "items": [
+          "身份",
+          "任务",
+          "格式",
+          "参考信息"
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "寿险场景加法",
+        "content": "如果是销售跟进，要补客户画像与语气；如果是晨会提纲，要补主题、时长、风格与故事要求。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "为什么提示词重要",
+        "content": "提示词不是“会不会说话”，而是你能否把模糊想法翻译成清晰任务。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "data",
+        "title": "训练方法",
+        "value": "每天 3 次",
+        "label": "主动问 AI",
+        "description": "让自己养成习惯：工作中每遇到一个任务，先问一次“这件事 AI 能帮我做哪一部分？”",
+        "progress": 75,
+        "trend": "习惯养成",
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 46,
+    "page_type": "content",
+    "part_index": 6,
+    "part_title": "行动激励",
+    "title": "今天下班前，就做这三件事",
+    "summary": "培训的最后一定要收束到动作，不然认知很快会重新蒸发。",
+    "layout": "three_col",
+    "cards": [
+      {
+        "card_type": "process",
+        "title": "第一件事",
+        "content": "先把门槛跨过去。",
+        "steps": [
+          {
+            "title": "安装",
+            "desc": "在个人设备装好 QClaw"
+          },
+          {
+            "title": "登录",
+            "desc": "确保能顺利进入客户端"
+          },
+          {
+            "title": "确认",
+            "desc": "把入口留在桌面"
+          }
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "process",
+        "title": "第二件事",
+        "content": "先做出第一次正反馈。",
+        "steps": [
+          {
+            "title": "选任务",
+            "desc": "找一个公开低风险任务"
+          },
+          {
+            "title": "下指令",
+            "desc": "按四要素提问"
+          },
+          {
+            "title": "复核",
+            "desc": "看结果并调整"
+          }
+        ],
+        "span": ""
+      },
+      {
+        "card_type": "process",
+        "title": "第三件事",
+        "content": "把偶发使用变成稳定能力。",
+        "steps": [
+          {
+            "title": "养习惯",
+            "desc": "每天主动问 3 次"
+          },
+          {
+            "title": "做记录",
+            "desc": "留住有效提示词"
+          },
+          {
+            "title": "再复用",
+            "desc": "形成自己的方法库"
+          }
+        ],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 47,
+    "page_type": "content",
+    "part_index": 6,
+    "part_title": "行动激励",
+    "title": "最后送给大家两句话",
+    "summary": "结尾要同时传递压力和希望，既要让大家行动，也要让大家安心。",
+    "layout": "two_col",
+    "cards": [
+      {
+        "card_type": "text",
+        "title": "第一句话",
+        "content": "AI 不会淘汰你，但会用 AI 的同事会淘汰你。真正拉开差距的，是行动速度和学习意愿。",
+        "items": [],
+        "span": ""
+      },
+      {
+        "card_type": "text",
+        "title": "第二句话",
+        "content": "我们都是 AI 大模型大时代的赶路人。现在开始，永远不晚；愿意开始，就已经领先于原地观望。",
+        "items": [],
+        "span": ""
+      }
+    ]
+  },
+  {
+    "page_number": 48,
+    "page_type": "end",
+    "part_index": 6,
+    "part_title": "行动激励",
+    "title": "共勉与现场答疑",
+    "subtitle": "别怕开始晚，怕的是一直不开始。",
+    "cards": [
+      "回顾：先了解 AI 发展趋势，再先行试用工具，再逐步探索适配路径。",
+      "行动：今天就完成安装绑定、首个低风险任务和一次基础办公试用。",
+      "共勉：我们都是这个大时代的赶路人，一起加油。"
+    ]
+  }
+]

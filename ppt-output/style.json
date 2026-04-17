@@ -1,11 +1,40 @@
 {
-  "style_name": "蓝白商务 (Blue White Business)",
-  "style_id": "blue_white",
-  "background": { "primary": "#FFFFFF", "gradient_to": "#F8FAFC" },
-  "card": { "gradient_from": "#F1F5F9", "gradient_to": "#E2E8F0", "border": "rgba(37,99,235,0.12)", "border_radius": 12 },
-  "text": { "primary": "#1E293B", "secondary": "#64748B", "title_size": 28, "body_size": 14, "card_title_size": 20 },
-  "accent": { "primary": ["#2563EB", "#1D4ED8"], "secondary": ["#059669", "#047857"] },
-  "font_family": "PingFang SC, Microsoft YaHei, system-ui, sans-serif",
-  "grid_pattern": { "enabled": false },
-  "decorations": { "corner_lines": false, "glow_effects": false, "description": "清爽简洁，蓝色标题装饰条，卡片带浅色背景和细边框" }
+  "style_name": "蓝白商务增强版 (Blue White Business Plus)",
+  "style_id": "blue_white_qclaw",
+  "background": {
+    "primary": "#F8FBFF",
+    "gradient_to": "#EEF4FF"
+  },
+  "card": {
+    "gradient_from": "#FFFFFF",
+    "gradient_to": "#F2F7FF",
+    "border": "rgba(37,99,235,0.14)",
+    "border_radius": 18
+  },
+  "text": {
+    "primary": "#102A43",
+    "secondary": "#52667A",
+    "title_size": 28,
+    "body_size": 14,
+    "card_title_size": 20
+  },
+  "accent": {
+    "primary": [
+      "#2563EB",
+      "#1D4ED8"
+    ],
+    "secondary": [
+      "#0EA5E9",
+      "#059669"
+    ]
+  },
+  "font_family": "'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif",
+  "grid_pattern": {
+    "enabled": false
+  },
+  "decorations": {
+    "corner_lines": false,
+    "glow_effects": false,
+    "description": "清爽的金融培训风，配合高密度卡片和柔和渐变色块"
+  }
 }
