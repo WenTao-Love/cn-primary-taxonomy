@@ -253,7 +253,25 @@ const extraEntries = [
     {key:'cn-yuwen-2022:3-4-kj-1', code:'3-4-kj-1', data:{domain:'口语交际',desc:'能倾听、转述、讨论和表达观点，做到条理较清楚、态度自然大方'}},
     {key:'cn-yuwen-2022:3-4-bd-1', code:'3-4-bd-1', data:{domain:'标点符号',desc:'正确使用引号、冒号、分号、省略号、破折号等常见标点'}},
     {key:'cn-yuwen-2022:3-4-kwdy-1', code:'3-4-kwdy-1', data:{domain:'整本书阅读',desc:'养成整本书阅读习惯，能记录阅读内容并交流阅读感受'}},
-    {key:'cn-yuwen-2022:3-4-zh-1', code:'3-4-zh-1', data:{domain:'综合性学习',desc:'围绕主题搜集整理资料，合作完成表达、展示和交流活动'}}
+    {key:'cn-yuwen-2022:3-4-zh-1', code:'3-4-zh-1', data:{domain:'综合性学习',desc:'围绕主题搜集整理资料，合作完成表达、展示和交流活动'}},
+    {key:'cn-yuwen-2022:5-6-sz-3', code:'5-6-sz-3', data:{domain:'识字与写字',desc:'能借助工具书和相关资料自主解决阅读中的生字生词问题'}},
+    {key:'cn-yuwen-2022:5-6-sz-4', code:'5-6-sz-4', data:{domain:'识字与写字',desc:'用硬笔规范书写较长篇幅文字，行款整齐，力求美观'}},
+    {key:'cn-yuwen-2022:5-6-yysy-2', code:'5-6-yysy-2', data:{domain:'词句段运用',desc:'体会词句在表情达意中的作用，增强语言运用的准确性和表现力'}},
+    {key:'cn-yuwen-2022:5-6-yysy-4', code:'5-6-yysy-4', data:{domain:'词句段运用',desc:'正确理解和运用常见复句关系，提高语言表达的逻辑性'}},
+    {key:'cn-yuwen-2022:5-6-yysy-5', code:'5-6-yysy-5', data:{domain:'词句段运用',desc:'体会并恰当运用常见修辞手法，增强表达效果'}},
+    {key:'cn-yuwen-2022:5-6-jz-1', code:'5-6-jz-1', data:{domain:'句子',desc:'能发现并修改语病、语意重复和表达不准确等问题'}},
+    {key:'cn-yuwen-2022:5-6-jz-2', code:'5-6-jz-2', data:{domain:'句子',desc:'能围绕中心组织语段，增强句段间的衔接与逻辑'}},
+    {key:'cn-yuwen-2022:5-6-yd-3', code:'5-6-yd-3', data:{domain:'阅读与鉴赏',desc:'能概括主要内容与中心意思，整合信息并借助资料理解文本'}},
+    {key:'cn-yuwen-2022:5-6-yd-4', code:'5-6-yd-4', data:{domain:'阅读与鉴赏',desc:'能分析人物形象、文章结构和表达方法，体会作品思想感情'}},
+    {key:'cn-yuwen-2022:5-6-gsw-1', code:'5-6-gsw-1', data:{domain:'古诗文',desc:'借助注释、资料和诵读理解古诗文内容、情感和表达特点'}},
+    {key:'cn-yuwen-2022:5-6-gsw-2', code:'5-6-gsw-2', data:{domain:'古诗文',desc:'初步理解浅近文言文常见词句和基本表达方式'}},
+    {key:'cn-yuwen-2022:5-6-xz-1', code:'5-6-xz-1', data:{domain:'习作',desc:'能根据需要写简单说明文、发言稿等应用性表达'}},
+    {key:'cn-yuwen-2022:5-6-xz-2', code:'5-6-xz-2', data:{domain:'习作',desc:'围绕主题写人记事、写景状物，做到内容具体、感情真实'}},
+    {key:'cn-yuwen-2022:5-6-xz-3', code:'5-6-xz-3', data:{domain:'习作',desc:'养成独立修改习作的习惯，能从内容、结构和语言等方面完善表达'}},
+    {key:'cn-yuwen-2022:5-6-kj-1', code:'5-6-kj-1', data:{domain:'口语交际',desc:'能围绕主题有条理表达观点，倾听并回应他人意见'}},
+    {key:'cn-yuwen-2022:5-6-bd-1', code:'5-6-bd-1', data:{domain:'标点符号',desc:'能根据表达内容和语气灵活、正确使用常见标点符号'}},
+    {key:'cn-yuwen-2022:5-6-kwdy-1', code:'5-6-kwdy-1', data:{domain:'整本书阅读',desc:'能围绕任务开展整本书阅读，形成较完整的阅读记录和交流成果'}},
+    {key:'cn-yuwen-2022:5-6-zh-1', code:'5-6-zh-1', data:{domain:'综合性学习',desc:'围绕专题搜集、筛选、整合资料，并进行合作探究和成果表达'}}
   ]],
   ['cn-shuxue-2022', [
     {key:'cn-shuxue-2022:3-4-syds-1', code:'3-4-syds-1', data:{domain:'数与代数-数与运算',desc:'认识更大的数和简单分数，能进行多位数加减、乘一位数等运算'}},
@@ -269,7 +287,15 @@ const extraEntries = [
     {key:'cn-shuxue-2022:3-4-tx-2', code:'3-4-tx-2', data:{domain:'图形与几何-观察物体',desc:'能辨认从不同角度观察简单组合物体看到的图形'}},
     {key:'cn-shuxue-2022:3-4-tx-3', code:'3-4-tx-3', data:{domain:'图形与几何-图形运动',desc:'进一步认识轴对称、平移和旋转现象，并能作简单判断'}},
     {key:'cn-shuxue-2022:3-4-sjtj-1', code:'3-4-sjtj-1', data:{domain:'统计与概率',desc:'能设计简单调查，整理数据，读写统计表和条形统计图'}},
-    {key:'cn-shuxue-2022:3-4-zonghe-1', code:'3-4-zonghe-1', data:{domain:'综合与实践',desc:'综合运用列表、画图、推理等方法解决搭配、统计和优化选择问题'}}
+    {key:'cn-shuxue-2022:3-4-zonghe-1', code:'3-4-zonghe-1', data:{domain:'综合与实践',desc:'综合运用列表、画图、推理等方法解决搭配、统计和优化选择问题'}},
+    {key:'cn-shuxue-2022:5-6-syds-1', code:'5-6-syds-1', data:{domain:'数与代数-数与运算',desc:'理解小数、分数、百分数和负数，会进行相关运算与转化'}},
+    {key:'cn-shuxue-2022:5-6-syds-2', code:'5-6-syds-2', data:{domain:'数与代数-数量关系',desc:'理解比、比例、方程和分数百分数应用中的数量关系，并解决问题'}},
+    {key:'cn-shuxue-2022:5-6-syds-3', code:'5-6-syds-3', data:{domain:'数与代数-估算与推断',desc:'能利用估算、近似值和规律检验结果的合理性'}},
+    {key:'cn-shuxue-2022:5-6-tx-1', code:'5-6-tx-1', data:{domain:'图形与几何-测量与立体图形',desc:'掌握平面图形面积、圆、长方体、圆柱圆锥等图形的特征与测量'}},
+    {key:'cn-shuxue-2022:5-6-tx-2', code:'5-6-tx-2', data:{domain:'图形与几何-比例尺与空间观念',desc:'能借助比例尺和空间想象解决地图、立体图形等问题'}},
+    {key:'cn-shuxue-2022:5-6-cl-1', code:'5-6-cl-1', data:{domain:'量与计量',desc:'认识更大或更复杂的面积、体积和容积单位，并进行换算与应用'}},
+    {key:'cn-shuxue-2022:5-6-sjtj-1', code:'5-6-sjtj-1', data:{domain:'统计与概率',desc:'能读懂和绘制折线统计图、扇形统计图，并用平均数分析数据'}},
+    {key:'cn-shuxue-2022:5-6-zonghe-1', code:'5-6-zonghe-1', data:{domain:'综合与实践',desc:'综合运用算术、方程、比例和图形知识解决较复杂实际问题'}}
   ]]
 ];
 

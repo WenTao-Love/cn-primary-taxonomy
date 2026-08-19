@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>中国小学教育知识图谱 · CN-Primary-Taxonomy v0.1</title>
+<title>中国小学教育知识图谱 · CN-Primary-Taxonomy</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background:#0f1419; color:#e6e6e6; overflow:hidden; }
@@ -16,7 +16,9 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
 .legend h3 { font-size:12px; color:#7f8c9a; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px; }
 .legend-item { display:flex; align-items:center; gap:8px; margin:4px 0; font-size:12px; }
 .legend-dot { width:10px; height:10px; border-radius:50%; }
-.controls { position:absolute; top:20px; right:20px; z-index:10; display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; max-width:320px;}
+.controls { position:absolute; top:20px; right:20px; z-index:10; display:flex; flex-direction:column; gap:8px; align-items:flex-end; max-width:460px; }
+.control-group { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+.control-group-label { font-size:11px; color:#7f8c9a; align-self:center; margin-right:4px; }
 .controls button { background:rgba(20,28,40,0.85); color:#ccc; border:1px solid rgba(255,255,255,0.12); padding:6px 12px; border-radius:6px; cursor:pointer; font-size:12px; backdrop-filter:blur(8px); transition:all 0.2s;}
 .controls button:hover { background:rgba(60,80,120,0.6); color:#fff; border-color:rgba(255,255,255,0.25); }
 .controls button.active { background:rgba(70,130,220,0.3); color:#5dade2; border-color:#5dade2; }
@@ -87,7 +89,14 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
     <div class="search-results" id="search-results"></div>
   </div>
   <div class="controls">
-    <button data-subject="all" class="active">全部</button>
+    <div class="control-group" id="grade-controls">
+      <span class="control-group-label">年级</span>
+      <button data-grade="all" class="active">全部年级</button>
+    </div>
+    <div class="control-group" id="subject-controls">
+      <span class="control-group-label">学科</span>
+      <button data-subject="all" class="active">全部学科</button>
+    </div>
   </div>
   <div class="legend">
     <h3>学科颜色</h3>
@@ -133,6 +142,7 @@ const DIFFICULTY = n => '★'.repeat(n)+'☆'.repeat(5-n);
 let data = {nodes:[], links:[]};
 let simulation, svg, gLinks, gNodes;
 let currentSubject = 'all';
+let currentGrade = 'all';
 let selectedNode = null;
 
 async function init() {
@@ -147,12 +157,25 @@ async function init() {
   document.getElementById('stat-deps').textContent = deps.edgeCount;
   document.getElementById('stat-subjects').textContent = new Set(topics.topics.map(t=>t.subject)).size;
   const grades = [...new Set(topics.topics.map(t=>t.grade))].sort((a,b)=>a-b).map(g=>`${g}年级`).join(' / ');
-  document.getElementById('subtitle').textContent = `${topics.version || 'CN-Primary-Taxonomy'} · ${grades} · ${topics.topicCount} 知识点 · ${deps.edgeCount} 依赖关系 · 基于 Marble Skill Taxonomy 二次开发`;
+  document.getElementById('subtitle').textContent = `${topics.version || 'CN-Primary-Taxonomy'} · 当前范围 ${grades} · ${topics.topicCount} 知识点 · ${deps.edgeCount} 依赖关系`;
+
+  // Build grade buttons
+  const gradeCounts = {};
+  topics.topics.forEach(t=>gradeCounts[t.grade]=(gradeCounts[t.grade]||0)+1);
+  const gradeControls = document.getElementById('grade-controls');
+  Object.entries(gradeCounts).sort((a,b)=>Number(a[0])-Number(b[0])).forEach(([g,c])=>{
+    const btn = document.createElement('button');
+    btn.dataset.grade = g;
+    btn.textContent = `${g}年级 (${c})`;
+    btn.onclick = ()=>filterGrade(g);
+    gradeControls.appendChild(btn);
+  });
+  gradeControls.querySelector('button[data-grade=\"all\"]').onclick = ()=>filterGrade('all');
 
   // Build subject buttons
   const subjectCounts = {};
   topics.topics.forEach(t=>subjectCounts[t.subject]=(subjectCounts[t.subject]||0)+1);
-  const controls = document.querySelector('.controls');
+  const controls = document.getElementById('subject-controls');
   Object.entries(subjectCounts).sort((a,b)=>b[1]-a[1]).forEach(([s,c])=>{
     const btn = document.createElement('button');
     btn.dataset.subject = s;
@@ -160,7 +183,7 @@ async function init() {
     btn.onclick = ()=>filterSubject(s);
     controls.appendChild(btn);
   });
-  controls.querySelector('button').onclick = ()=>filterSubject('all');
+  controls.querySelector('button[data-subject=\"all\"]').onclick = ()=>filterSubject('all');
 
   buildGraph(topics, deps);
   setupSearch(topics);
@@ -443,9 +466,23 @@ function renderAssistantPanel() {
 
 function filterSubject(subject) {
   currentSubject = subject;
-  document.querySelectorAll('.controls button').forEach(b=>b.classList.toggle('active', b.dataset.subject===subject));
+  document.querySelectorAll('#subject-controls button').forEach(b=>b.classList.toggle('active', b.dataset.subject===subject));
+  applyFilters();
+}
+
+function filterGrade(grade) {
+  currentGrade = grade;
+  document.querySelectorAll('#grade-controls button').forEach(b=>b.classList.toggle('active', b.dataset.grade===grade));
+  applyFilters();
+}
+
+function applyFilters() {
   const visibleIds = new Set();
-  data.nodes.forEach(n=>{if(subject==='all'||n.subject===subject) visibleIds.add(n.id);});
+  data.nodes.forEach(n=>{
+    const gradeMatched = currentGrade==='all' || String(n.grade)===String(currentGrade);
+    const subjectMatched = currentSubject==='all' || n.subject===currentSubject;
+    if(gradeMatched && subjectMatched) visibleIds.add(n.id);
+  });
   // When filtering, also keep dependencies visible
   data.links.forEach(l=>{
     const sid=l.source.id||l.source, tid=l.target.id||l.target;

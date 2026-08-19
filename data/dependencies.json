@@ -1,7 +1,7 @@
 {
   "version": "v0.2-expanded",
   "note": "DAG 依赖方向：topicId 依赖 prerequisiteId（先学prerequisite，再学topic）",
-  "edgeCount": 418,
+  "edgeCount": 581,
   "dependencies": [
     {
       "topicId": "ct_YW2S001",
@@ -1564,6 +1564,384 @@
       "reason": "数学3年级“综合与实践”领域按知识与能力递进组织，学习检查结果是否符合情境前通常会先掌握表达解题过程"
     },
     {
+      "topicId": "ct_SX4S002",
+      "prerequisiteId": "ct_SX4S001",
+      "strength": "soft",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习亿以内数的读写和大小比较前通常会先掌握亿以内数的认识"
+    },
+    {
+      "topicId": "ct_SX4S003",
+      "prerequisiteId": "ct_SX4S002",
+      "strength": "hard",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习三位数乘两位数笔算前通常会先掌握亿以内数的读写和大小比较"
+    },
+    {
+      "topicId": "ct_SX4S004",
+      "prerequisiteId": "ct_SX4S003",
+      "strength": "hard",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习积的变化规律前通常会先掌握三位数乘两位数笔算"
+    },
+    {
+      "topicId": "ct_SX4S005",
+      "prerequisiteId": "ct_SX4S004",
+      "strength": "hard",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习除数是两位数的除法前通常会先掌握积的变化规律"
+    },
+    {
+      "topicId": "ct_SX4S006",
+      "prerequisiteId": "ct_SX4S005",
+      "strength": "hard",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习商不变规律前通常会先掌握除数是两位数的除法"
+    },
+    {
+      "topicId": "ct_SX4X007",
+      "prerequisiteId": "ct_SX4S006",
+      "strength": "soft",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习小数的意义前通常会先掌握商不变规律"
+    },
+    {
+      "topicId": "ct_SX4X008",
+      "prerequisiteId": "ct_SX4X007",
+      "strength": "soft",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习小数大小比较前通常会先掌握小数的意义"
+    },
+    {
+      "topicId": "ct_SX4X009",
+      "prerequisiteId": "ct_SX4X008",
+      "strength": "hard",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习小数加减法前通常会先掌握小数大小比较"
+    },
+    {
+      "topicId": "ct_SX4X010",
+      "prerequisiteId": "ct_SX4X009",
+      "strength": "hard",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习四则混合运算和运算律应用前通常会先掌握小数加减法"
+    },
+    {
+      "topicId": "ct_SX4X011",
+      "prerequisiteId": "ct_SX4X010",
+      "strength": "hard",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习解决较复杂两三步应用题前通常会先掌握四则混合运算和运算律应用"
+    },
+    {
+      "topicId": "ct_SX4S013",
+      "prerequisiteId": "ct_SX4S012",
+      "strength": "soft",
+      "reason": "数学4年级“图形与几何”领域按知识与能力递进组织，学习角的意义和角的度量前通常会先掌握直线射线线段的区别"
+    },
+    {
+      "topicId": "ct_SX4S014",
+      "prerequisiteId": "ct_SX4S013",
+      "strength": "hard",
+      "reason": "数学4年级“图形与几何”领域按知识与能力递进组织，学习用量角器画指定度数的角前通常会先掌握角的意义和角的度量"
+    },
+    {
+      "topicId": "ct_SX4S015",
+      "prerequisiteId": "ct_SX4S014",
+      "strength": "soft",
+      "reason": "数学4年级“图形与几何”领域按知识与能力递进组织，学习平行和垂直前通常会先掌握用量角器画指定度数的角"
+    },
+    {
+      "topicId": "ct_SX4X016",
+      "prerequisiteId": "ct_SX4S015",
+      "strength": "hard",
+      "reason": "数学4年级“图形与几何”领域按知识与能力递进组织，学习平行四边形和梯形认识前通常会先掌握平行和垂直"
+    },
+    {
+      "topicId": "ct_SX4X017",
+      "prerequisiteId": "ct_SX4X016",
+      "strength": "soft",
+      "reason": "数学4年级“图形与几何”领域按知识与能力递进组织，学习从不同方向观察立体图形提升前通常会先掌握平行四边形和梯形认识"
+    },
+    {
+      "topicId": "ct_SX4X019",
+      "prerequisiteId": "ct_SX4S018",
+      "strength": "hard",
+      "reason": "数学4年级“量与计量”领域按知识与能力递进组织，学习用面积单位解决实际问题前通常会先掌握公顷和平方千米初步认识"
+    },
+    {
+      "topicId": "ct_SX4X021",
+      "prerequisiteId": "ct_SX4X020",
+      "strength": "hard",
+      "reason": "数学4年级“统计与概率”领域按知识与能力递进组织，学习根据数据绘制统计图前通常会先掌握条形统计图进一步应用"
+    },
+    {
+      "topicId": "ct_SX4X023",
+      "prerequisiteId": "ct_SX4X022",
+      "strength": "soft",
+      "reason": "数学4年级“综合与实践”领域按知识与能力递进组织，学习估算检验结果合理性提升前通常会先掌握列表画图分析数量关系"
+    },
+    {
+      "topicId": "ct_SX5S002",
+      "prerequisiteId": "ct_SX5S001",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习小数乘整数前通常会先掌握小数的数位和计数单位提升"
+    },
+    {
+      "topicId": "ct_SX5S003",
+      "prerequisiteId": "ct_SX5S002",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习小数乘小数前通常会先掌握小数乘整数"
+    },
+    {
+      "topicId": "ct_SX5S004",
+      "prerequisiteId": "ct_SX5S003",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习积的近似值前通常会先掌握小数乘小数"
+    },
+    {
+      "topicId": "ct_SX5S005",
+      "prerequisiteId": "ct_SX5S004",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习小数除以整数前通常会先掌握积的近似值"
+    },
+    {
+      "topicId": "ct_SX5S006",
+      "prerequisiteId": "ct_SX5S005",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习一个数除以小数前通常会先掌握小数除以整数"
+    },
+    {
+      "topicId": "ct_SX5S007",
+      "prerequisiteId": "ct_SX5S006",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习商的近似值前通常会先掌握一个数除以小数"
+    },
+    {
+      "topicId": "ct_SX5S008",
+      "prerequisiteId": "ct_SX5S007",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习循环小数初步认识前通常会先掌握商的近似值"
+    },
+    {
+      "topicId": "ct_SX5X009",
+      "prerequisiteId": "ct_SX5S008",
+      "strength": "soft",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习分数的意义和单位1前通常会先掌握循环小数初步认识"
+    },
+    {
+      "topicId": "ct_SX5X010",
+      "prerequisiteId": "ct_SX5X009",
+      "strength": "soft",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习真分数假分数带分数前通常会先掌握分数的意义和单位1"
+    },
+    {
+      "topicId": "ct_SX5X011",
+      "prerequisiteId": "ct_SX5X010",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习分数与除法关系前通常会先掌握真分数假分数带分数"
+    },
+    {
+      "topicId": "ct_SX5X012",
+      "prerequisiteId": "ct_SX5X011",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习分数基本性质前通常会先掌握分数与除法关系"
+    },
+    {
+      "topicId": "ct_SX5X013",
+      "prerequisiteId": "ct_SX5X012",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习约分和通分前通常会先掌握分数基本性质"
+    },
+    {
+      "topicId": "ct_SX5X014",
+      "prerequisiteId": "ct_SX5X013",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习异分母分数大小比较前通常会先掌握约分和通分"
+    },
+    {
+      "topicId": "ct_SX5X015",
+      "prerequisiteId": "ct_SX5X014",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习分数加减法前通常会先掌握异分母分数大小比较"
+    },
+    {
+      "topicId": "ct_SX5S017",
+      "prerequisiteId": "ct_SX5S016",
+      "strength": "soft",
+      "reason": "数学5年级“图形与几何”领域按知识与能力递进组织，学习三角形面积前通常会先掌握平行四边形面积"
+    },
+    {
+      "topicId": "ct_SX5S018",
+      "prerequisiteId": "ct_SX5S017",
+      "strength": "soft",
+      "reason": "数学5年级“图形与几何”领域按知识与能力递进组织，学习梯形面积前通常会先掌握三角形面积"
+    },
+    {
+      "topicId": "ct_SX5S019",
+      "prerequisiteId": "ct_SX5S018",
+      "strength": "hard",
+      "reason": "数学5年级“图形与几何”领域按知识与能力递进组织，学习组合图形面积前通常会先掌握梯形面积"
+    },
+    {
+      "topicId": "ct_SX5X020",
+      "prerequisiteId": "ct_SX5S019",
+      "strength": "soft",
+      "reason": "数学5年级“图形与几何”领域按知识与能力递进组织，学习长方体和正方体特征前通常会先掌握组合图形面积"
+    },
+    {
+      "topicId": "ct_SX5X021",
+      "prerequisiteId": "ct_SX5X020",
+      "strength": "hard",
+      "reason": "数学5年级“图形与几何”领域按知识与能力递进组织，学习长方体和正方体表面积前通常会先掌握长方体和正方体特征"
+    },
+    {
+      "topicId": "ct_SX5X022",
+      "prerequisiteId": "ct_SX5X021",
+      "strength": "soft",
+      "reason": "数学5年级“图形与几何”领域按知识与能力递进组织，学习体积和容积初步认识前通常会先掌握长方体和正方体表面积"
+    },
+    {
+      "topicId": "ct_SX5X023",
+      "prerequisiteId": "ct_SX5X022",
+      "strength": "hard",
+      "reason": "数学5年级“图形与几何”领域按知识与能力递进组织，学习长方体和正方体体积前通常会先掌握体积和容积初步认识"
+    },
+    {
+      "topicId": "ct_SX6S002",
+      "prerequisiteId": "ct_SX6S001",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习分数乘法计算前通常会先掌握分数乘法的意义"
+    },
+    {
+      "topicId": "ct_SX6S003",
+      "prerequisiteId": "ct_SX6S002",
+      "strength": "soft",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习倒数的意义前通常会先掌握分数乘法计算"
+    },
+    {
+      "topicId": "ct_SX6S004",
+      "prerequisiteId": "ct_SX6S003",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习分数除法计算前通常会先掌握倒数的意义"
+    },
+    {
+      "topicId": "ct_SX6S005",
+      "prerequisiteId": "ct_SX6S004",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习分数乘除法应用题前通常会先掌握分数除法计算"
+    },
+    {
+      "topicId": "ct_SX6S006",
+      "prerequisiteId": "ct_SX6S005",
+      "strength": "soft",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习比的意义前通常会先掌握分数乘除法应用题"
+    },
+    {
+      "topicId": "ct_SX6S007",
+      "prerequisiteId": "ct_SX6S006",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习比的基本性质与化简比前通常会先掌握比的意义"
+    },
+    {
+      "topicId": "ct_SX6S008",
+      "prerequisiteId": "ct_SX6S007",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习按比例分配前通常会先掌握比的基本性质与化简比"
+    },
+    {
+      "topicId": "ct_SX6X009",
+      "prerequisiteId": "ct_SX6S008",
+      "strength": "soft",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习百分数的意义前通常会先掌握按比例分配"
+    },
+    {
+      "topicId": "ct_SX6X010",
+      "prerequisiteId": "ct_SX6X009",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习百分数和分数小数互化前通常会先掌握百分数的意义"
+    },
+    {
+      "topicId": "ct_SX6X011",
+      "prerequisiteId": "ct_SX6X010",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习百分数应用题前通常会先掌握百分数和分数小数互化"
+    },
+    {
+      "topicId": "ct_SX6X012",
+      "prerequisiteId": "ct_SX6X011",
+      "strength": "soft",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习负数初步认识前通常会先掌握百分数应用题"
+    },
+    {
+      "topicId": "ct_SX6X013",
+      "prerequisiteId": "ct_SX6X012",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习用方程表示数量关系前通常会先掌握负数初步认识"
+    },
+    {
+      "topicId": "ct_SX6X014",
+      "prerequisiteId": "ct_SX6X013",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习解简易方程前通常会先掌握用方程表示数量关系"
+    },
+    {
+      "topicId": "ct_SX6X015",
+      "prerequisiteId": "ct_SX6X014",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习列方程解决应用题前通常会先掌握解简易方程"
+    },
+    {
+      "topicId": "ct_SX6S017",
+      "prerequisiteId": "ct_SX6S016",
+      "strength": "hard",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习圆的周长前通常会先掌握圆的认识"
+    },
+    {
+      "topicId": "ct_SX6S018",
+      "prerequisiteId": "ct_SX6S017",
+      "strength": "hard",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习圆的面积前通常会先掌握圆的周长"
+    },
+    {
+      "topicId": "ct_SX6S019",
+      "prerequisiteId": "ct_SX6S018",
+      "strength": "hard",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习扇形和组合图形面积前通常会先掌握圆的面积"
+    },
+    {
+      "topicId": "ct_SX6X020",
+      "prerequisiteId": "ct_SX6S019",
+      "strength": "soft",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习比例尺的意义前通常会先掌握扇形和组合图形面积"
+    },
+    {
+      "topicId": "ct_SX6X021",
+      "prerequisiteId": "ct_SX6X020",
+      "strength": "hard",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习按比例尺求实际距离和图上距离前通常会先掌握比例尺的意义"
+    },
+    {
+      "topicId": "ct_SX6X022",
+      "prerequisiteId": "ct_SX6X021",
+      "strength": "soft",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习圆柱和圆锥初步认识前通常会先掌握按比例尺求实际距离和图上距离"
+    },
+    {
+      "topicId": "ct_SX6X023",
+      "prerequisiteId": "ct_SX6X022",
+      "strength": "hard",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习圆柱表面积和体积前通常会先掌握圆柱和圆锥初步认识"
+    },
+    {
+      "topicId": "ct_SX6X024",
+      "prerequisiteId": "ct_SX6X023",
+      "strength": "soft",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习圆锥体积公式理解前通常会先掌握圆柱表面积和体积"
+    },
+    {
+      "topicId": "ct_SX6X026",
+      "prerequisiteId": "ct_SX6X025",
+      "strength": "soft",
+      "reason": "数学6年级“统计与概率”领域按知识与能力递进组织，学习平均数的意义和应用前通常会先掌握扇形统计图"
+    },
+    {
+      "topicId": "ct_SX6X028",
+      "prerequisiteId": "ct_SX6X027",
+      "strength": "soft",
+      "reason": "数学6年级“综合与实践”领域按知识与能力递进组织，学习毕业总复习中的知识关联前通常会先掌握综合运用比例和方程解决问题"
+    },
+    {
       "topicId": "ct_YW1S002",
       "prerequisiteId": "ct_YW1S001",
       "strength": "soft",
@@ -2386,6 +2764,396 @@
       "reason": "语文3年级“综合性学习”领域按知识与能力递进组织，学习展示学习成果并简单说明前通常会先掌握整理采访或观察记录"
     },
     {
+      "topicId": "ct_YW4S002",
+      "prerequisiteId": "ct_YW4S001",
+      "strength": "hard",
+      "reason": "语文4年级“识字与写字”领域按知识与能力递进组织，学习借助工具书理解词语义项前通常会先掌握多音字和词义对应"
+    },
+    {
+      "topicId": "ct_YW4S003",
+      "prerequisiteId": "ct_YW4S002",
+      "strength": "hard",
+      "reason": "语文4年级“识字与写字”领域按知识与能力递进组织，学习硬笔书写行款规范前通常会先掌握借助工具书理解词语义项"
+    },
+    {
+      "topicId": "ct_YW4X004",
+      "prerequisiteId": "ct_YW4S003",
+      "strength": "soft",
+      "reason": "语文4年级“识字与写字”领域按知识与能力递进组织，学习同音字形近字语境辨析前通常会先掌握硬笔书写行款规范"
+    },
+    {
+      "topicId": "ct_YW4S006",
+      "prerequisiteId": "ct_YW4S005",
+      "strength": "soft",
+      "reason": "语文4年级“词句段运用”领域按知识与能力递进组织，学习扩句和缩句综合运用前通常会先掌握体会关键动词形容词的表达效果"
+    },
+    {
+      "topicId": "ct_YW4S007",
+      "prerequisiteId": "ct_YW4S006",
+      "strength": "soft",
+      "reason": "语文4年级“词句段运用”领域按知识与能力递进组织，学习比喻拟人排比综合辨识前通常会先掌握扩句和缩句综合运用"
+    },
+    {
+      "topicId": "ct_YW4S008",
+      "prerequisiteId": "ct_YW4S007",
+      "strength": "soft",
+      "reason": "语文4年级“词句段运用”领域按知识与能力递进组织，学习用关联词组织复句前通常会先掌握比喻拟人排比综合辨识"
+    },
+    {
+      "topicId": "ct_YW4X009",
+      "prerequisiteId": "ct_YW4S008",
+      "strength": "soft",
+      "reason": "语文4年级“词句段运用”领域按知识与能力递进组织，学习标点符号在语境中的作用前通常会先掌握用关联词组织复句"
+    },
+    {
+      "topicId": "ct_YW4X010",
+      "prerequisiteId": "ct_YW4X009",
+      "strength": "soft",
+      "reason": "语文4年级“词句段运用”领域按知识与能力递进组织，学习修改常见病句前通常会先掌握标点符号在语境中的作用"
+    },
+    {
+      "topicId": "ct_YW4X011",
+      "prerequisiteId": "ct_YW4X010",
+      "strength": "soft",
+      "reason": "语文4年级“词句段运用”领域按知识与能力递进组织，学习围绕中心句组织语段前通常会先掌握修改常见病句"
+    },
+    {
+      "topicId": "ct_YW4X012",
+      "prerequisiteId": "ct_YW4X011",
+      "strength": "soft",
+      "reason": "语文4年级“词句段运用”领域按知识与能力递进组织，学习句子排序与段落衔接提升前通常会先掌握围绕中心句组织语段"
+    },
+    {
+      "topicId": "ct_YW4S014",
+      "prerequisiteId": "ct_YW4S013",
+      "strength": "hard",
+      "reason": "语文4年级“阅读”领域按知识与能力递进组织，学习联系上下文理解词句前通常会先掌握概括自然段和全文主要内容"
+    },
+    {
+      "topicId": "ct_YW4S015",
+      "prerequisiteId": "ct_YW4S014",
+      "strength": "soft",
+      "reason": "语文4年级“阅读”领域按知识与能力递进组织，学习体会人物语言动作神态描写前通常会先掌握联系上下文理解词句"
+    },
+    {
+      "topicId": "ct_YW4S016",
+      "prerequisiteId": "ct_YW4S015",
+      "strength": "hard",
+      "reason": "语文4年级“阅读”领域按知识与能力递进组织，学习边读边想象画面和情境前通常会先掌握体会人物语言动作神态描写"
+    },
+    {
+      "topicId": "ct_YW4X017",
+      "prerequisiteId": "ct_YW4S016",
+      "strength": "hard",
+      "reason": "语文4年级“阅读”领域按知识与能力递进组织，学习体会关键词句的表达效果前通常会先掌握边读边想象画面和情境"
+    },
+    {
+      "topicId": "ct_YW4X018",
+      "prerequisiteId": "ct_YW4X017",
+      "strength": "hard",
+      "reason": "语文4年级“阅读”领域按知识与能力递进组织，学习比较阅读材料的异同前通常会先掌握体会关键词句的表达效果"
+    },
+    {
+      "topicId": "ct_YW4X019",
+      "prerequisiteId": "ct_YW4X018",
+      "strength": "soft",
+      "reason": "语文4年级“阅读”领域按知识与能力递进组织，学习批注和提问促进阅读前通常会先掌握比较阅读材料的异同"
+    },
+    {
+      "topicId": "ct_YW4X020",
+      "prerequisiteId": "ct_YW4X019",
+      "strength": "soft",
+      "reason": "语文4年级“阅读”领域按知识与能力递进组织，学习整本书阅读记录与分享前通常会先掌握批注和提问促进阅读"
+    },
+    {
+      "topicId": "ct_YW4S022",
+      "prerequisiteId": "ct_YW4S021",
+      "strength": "soft",
+      "reason": "语文4年级“古诗文”领域按知识与能力递进组织，学习《题西林壁》前通常会先掌握借助想象理解写景古诗"
+    },
+    {
+      "topicId": "ct_YW4X023",
+      "prerequisiteId": "ct_YW4S022",
+      "strength": "soft",
+      "reason": "语文4年级“古诗文”领域按知识与能力递进组织，学习《清平乐·村居》前通常会先掌握《题西林壁》"
+    },
+    {
+      "topicId": "ct_YW4X024",
+      "prerequisiteId": "ct_YW4X023",
+      "strength": "soft",
+      "reason": "语文4年级“古诗文”领域按知识与能力递进组织，学习浅近文言语句停顿和释义前通常会先掌握《清平乐·村居》"
+    },
+    {
+      "topicId": "ct_YW4S026",
+      "prerequisiteId": "ct_YW4S025",
+      "strength": "hard",
+      "reason": "语文4年级“习作”领域按知识与能力递进组织，学习写清一件事的起因经过结果前通常会先掌握写观察习作"
+    },
+    {
+      "topicId": "ct_YW4X027",
+      "prerequisiteId": "ct_YW4S026",
+      "strength": "hard",
+      "reason": "语文4年级“习作”领域按知识与能力递进组织，学习围绕中心选择材料前通常会先掌握写清一件事的起因经过结果"
+    },
+    {
+      "topicId": "ct_YW4X028",
+      "prerequisiteId": "ct_YW4X027",
+      "strength": "hard",
+      "reason": "语文4年级“习作”领域按知识与能力递进组织，学习修改习作中的错别字和病句前通常会先掌握围绕中心选择材料"
+    },
+    {
+      "topicId": "ct_YW5S002",
+      "prerequisiteId": "ct_YW5S001",
+      "strength": "hard",
+      "reason": "语文5年级“识字与写字”领域按知识与能力递进组织，学习借助工具书和资料解决阅读生词前通常会先掌握结合语境辨析词语细微差别"
+    },
+    {
+      "topicId": "ct_YW5X003",
+      "prerequisiteId": "ct_YW5S002",
+      "strength": "hard",
+      "reason": "语文5年级“识字与写字”领域按知识与能力递进组织，学习硬笔书写整篇文章布局前通常会先掌握借助工具书和资料解决阅读生词"
+    },
+    {
+      "topicId": "ct_YW5S005",
+      "prerequisiteId": "ct_YW5S004",
+      "strength": "soft",
+      "reason": "语文5年级“词句段运用”领域按知识与能力递进组织，学习用多种修辞增强表达前通常会先掌握体会关键词句在表情达意中的作用"
+    },
+    {
+      "topicId": "ct_YW5S006",
+      "prerequisiteId": "ct_YW5S005",
+      "strength": "soft",
+      "reason": "语文5年级“词句段运用”领域按知识与能力递进组织，学习复句关系辨析和表达前通常会先掌握用多种修辞增强表达"
+    },
+    {
+      "topicId": "ct_YW5S007",
+      "prerequisiteId": "ct_YW5S006",
+      "strength": "soft",
+      "reason": "语文5年级“词句段运用”领域按知识与能力递进组织，学习修改语病和表达不准确处前通常会先掌握复句关系辨析和表达"
+    },
+    {
+      "topicId": "ct_YW5X008",
+      "prerequisiteId": "ct_YW5S007",
+      "strength": "soft",
+      "reason": "语文5年级“词句段运用”领域按知识与能力递进组织，学习段落内部的过渡与衔接前通常会先掌握修改语病和表达不准确处"
+    },
+    {
+      "topicId": "ct_YW5X009",
+      "prerequisiteId": "ct_YW5X008",
+      "strength": "soft",
+      "reason": "语文5年级“词句段运用”领域按知识与能力递进组织，学习围绕观点组织论述性语段前通常会先掌握段落内部的过渡与衔接"
+    },
+    {
+      "topicId": "ct_YW5X010",
+      "prerequisiteId": "ct_YW5X009",
+      "strength": "soft",
+      "reason": "语文5年级“词句段运用”领域按知识与能力递进组织，学习标点与语气表达的关系前通常会先掌握围绕观点组织论述性语段"
+    },
+    {
+      "topicId": "ct_YW5S012",
+      "prerequisiteId": "ct_YW5S011",
+      "strength": "soft",
+      "reason": "语文5年级“阅读”领域按知识与能力递进组织，学习理解作者描写顺序和写作线索前通常会先掌握概括文章主要内容和中心意思"
+    },
+    {
+      "topicId": "ct_YW5S013",
+      "prerequisiteId": "ct_YW5S012",
+      "strength": "hard",
+      "reason": "语文5年级“阅读”领域按知识与能力递进组织，学习分析人物形象和精神品质前通常会先掌握理解作者描写顺序和写作线索"
+    },
+    {
+      "topicId": "ct_YW5S014",
+      "prerequisiteId": "ct_YW5S013",
+      "strength": "hard",
+      "reason": "语文5年级“阅读”领域按知识与能力递进组织，学习体会描写方法和表达作用前通常会先掌握分析人物形象和精神品质"
+    },
+    {
+      "topicId": "ct_YW5X015",
+      "prerequisiteId": "ct_YW5S014",
+      "strength": "hard",
+      "reason": "语文5年级“阅读”领域按知识与能力递进组织，学习借助资料理解作品背景前通常会先掌握体会描写方法和表达作用"
+    },
+    {
+      "topicId": "ct_YW5X016",
+      "prerequisiteId": "ct_YW5X015",
+      "strength": "hard",
+      "reason": "语文5年级“阅读”领域按知识与能力递进组织，学习对比阅读不同文本的表达方式前通常会先掌握借助资料理解作品背景"
+    },
+    {
+      "topicId": "ct_YW5X017",
+      "prerequisiteId": "ct_YW5X016",
+      "strength": "soft",
+      "reason": "语文5年级“阅读”领域按知识与能力递进组织，学习带着任务进行整本书阅读前通常会先掌握对比阅读不同文本的表达方式"
+    },
+    {
+      "topicId": "ct_YW5X018",
+      "prerequisiteId": "ct_YW5X017",
+      "strength": "soft",
+      "reason": "语文5年级“阅读”领域按知识与能力递进组织，学习批注提问和摘要结合阅读前通常会先掌握带着任务进行整本书阅读"
+    },
+    {
+      "topicId": "ct_YW5S020",
+      "prerequisiteId": "ct_YW5S019",
+      "strength": "soft",
+      "reason": "语文5年级“古诗文”领域按知识与能力递进组织，学习《示儿》前通常会先掌握借助注释理解古诗文重点字词"
+    },
+    {
+      "topicId": "ct_YW5X021",
+      "prerequisiteId": "ct_YW5S020",
+      "strength": "soft",
+      "reason": "语文5年级“古诗文”领域按知识与能力递进组织，学习《闻官军收河南河北》前通常会先掌握《示儿》"
+    },
+    {
+      "topicId": "ct_YW5X022",
+      "prerequisiteId": "ct_YW5X021",
+      "strength": "soft",
+      "reason": "语文5年级“古诗文”领域按知识与能力递进组织，学习浅近文言文重点语句理解前通常会先掌握《闻官军收河南河北》"
+    },
+    {
+      "topicId": "ct_YW5S024",
+      "prerequisiteId": "ct_YW5S023",
+      "strength": "hard",
+      "reason": "语文5年级“习作”领域按知识与能力递进组织，学习写景状物抓住特征前通常会先掌握写人叙事突出细节"
+    },
+    {
+      "topicId": "ct_YW5X025",
+      "prerequisiteId": "ct_YW5S024",
+      "strength": "hard",
+      "reason": "语文5年级“习作”领域按知识与能力递进组织，学习围绕主题进行材料取舍前通常会先掌握写景状物抓住特征"
+    },
+    {
+      "topicId": "ct_YW5X026",
+      "prerequisiteId": "ct_YW5X025",
+      "strength": "hard",
+      "reason": "语文5年级“习作”领域按知识与能力递进组织，学习写简单说明性文章前通常会先掌握围绕主题进行材料取舍"
+    },
+    {
+      "topicId": "ct_YW5X027",
+      "prerequisiteId": "ct_YW5X026",
+      "strength": "hard",
+      "reason": "语文5年级“习作”领域按知识与能力递进组织，学习修改习作的内容和语言前通常会先掌握写简单说明性文章"
+    },
+    {
+      "topicId": "ct_YW6S002",
+      "prerequisiteId": "ct_YW6S001",
+      "strength": "hard",
+      "reason": "语文6年级“识字与写字”领域按知识与能力递进组织，学习借助多源资料解决阅读障碍前通常会先掌握在复杂语境中准确运用词语"
+    },
+    {
+      "topicId": "ct_YW6X003",
+      "prerequisiteId": "ct_YW6S002",
+      "strength": "hard",
+      "reason": "语文6年级“识字与写字”领域按知识与能力递进组织，学习规范书写毕业表达材料前通常会先掌握借助多源资料解决阅读障碍"
+    },
+    {
+      "topicId": "ct_YW6S005",
+      "prerequisiteId": "ct_YW6S004",
+      "strength": "soft",
+      "reason": "语文6年级“词句段运用”领域按知识与能力递进组织，学习综合运用修辞服务中心表达前通常会先掌握体会句式变化和表达语气"
+    },
+    {
+      "topicId": "ct_YW6S006",
+      "prerequisiteId": "ct_YW6S005",
+      "strength": "soft",
+      "reason": "语文6年级“词句段运用”领域按知识与能力递进组织，学习优化语段层次和逻辑前通常会先掌握综合运用修辞服务中心表达"
+    },
+    {
+      "topicId": "ct_YW6X007",
+      "prerequisiteId": "ct_YW6S006",
+      "strength": "soft",
+      "reason": "语文6年级“词句段运用”领域按知识与能力递进组织，学习准确修改病句和语意问题前通常会先掌握优化语段层次和逻辑"
+    },
+    {
+      "topicId": "ct_YW6X008",
+      "prerequisiteId": "ct_YW6X007",
+      "strength": "soft",
+      "reason": "语文6年级“词句段运用”领域按知识与能力递进组织，学习围绕观点展开较完整论述前通常会先掌握准确修改病句和语意问题"
+    },
+    {
+      "topicId": "ct_YW6X009",
+      "prerequisiteId": "ct_YW6X008",
+      "strength": "soft",
+      "reason": "语文6年级“词句段运用”领域按知识与能力递进组织，学习标点与人物语言层次前通常会先掌握围绕观点展开较完整论述"
+    },
+    {
+      "topicId": "ct_YW6S011",
+      "prerequisiteId": "ct_YW6S010",
+      "strength": "soft",
+      "reason": "语文6年级“阅读”领域按知识与能力递进组织，学习分析文章结构和谋篇布局前通常会先掌握概括文章内容和中心关系"
+    },
+    {
+      "topicId": "ct_YW6S012",
+      "prerequisiteId": "ct_YW6S011",
+      "strength": "hard",
+      "reason": "语文6年级“阅读”领域按知识与能力递进组织，学习分析人物形象的多维证据前通常会先掌握分析文章结构和谋篇布局"
+    },
+    {
+      "topicId": "ct_YW6S013",
+      "prerequisiteId": "ct_YW6S012",
+      "strength": "hard",
+      "reason": "语文6年级“阅读”领域按知识与能力递进组织，学习体会写法服务主题前通常会先掌握分析人物形象的多维证据"
+    },
+    {
+      "topicId": "ct_YW6X014",
+      "prerequisiteId": "ct_YW6S013",
+      "strength": "hard",
+      "reason": "语文6年级“阅读”领域按知识与能力递进组织，学习比较不同文本中的人物与主题前通常会先掌握体会写法服务主题"
+    },
+    {
+      "topicId": "ct_YW6X015",
+      "prerequisiteId": "ct_YW6X014",
+      "strength": "hard",
+      "reason": "语文6年级“阅读”领域按知识与能力递进组织，学习整合多则材料提取信息前通常会先掌握比较不同文本中的人物与主题"
+    },
+    {
+      "topicId": "ct_YW6X016",
+      "prerequisiteId": "ct_YW6X015",
+      "strength": "soft",
+      "reason": "语文6年级“阅读”领域按知识与能力递进组织，学习围绕主题开展整本书深度阅读前通常会先掌握整合多则材料提取信息"
+    },
+    {
+      "topicId": "ct_YW6X017",
+      "prerequisiteId": "ct_YW6X016",
+      "strength": "soft",
+      "reason": "语文6年级“阅读”领域按知识与能力递进组织，学习阅读策略迁移到新文本前通常会先掌握围绕主题开展整本书深度阅读"
+    },
+    {
+      "topicId": "ct_YW6S019",
+      "prerequisiteId": "ct_YW6S018",
+      "strength": "soft",
+      "reason": "语文6年级“古诗文”领域按知识与能力递进组织，学习《石灰吟》前通常会先掌握结合背景理解古诗文情感"
+    },
+    {
+      "topicId": "ct_YW6X020",
+      "prerequisiteId": "ct_YW6S019",
+      "strength": "soft",
+      "reason": "语文6年级“古诗文”领域按知识与能力递进组织，学习《竹石》前通常会先掌握《石灰吟》"
+    },
+    {
+      "topicId": "ct_YW6X021",
+      "prerequisiteId": "ct_YW6X020",
+      "strength": "soft",
+      "reason": "语文6年级“古诗文”领域按知识与能力递进组织，学习浅近文言文实词和句式理解前通常会先掌握《竹石》"
+    },
+    {
+      "topicId": "ct_YW6S023",
+      "prerequisiteId": "ct_YW6S022",
+      "strength": "hard",
+      "reason": "语文6年级“习作”领域按知识与能力递进组织，学习写活动和场面做到点面结合前通常会先掌握写人记事突出主题和真情实感"
+    },
+    {
+      "topicId": "ct_YW6X024",
+      "prerequisiteId": "ct_YW6S023",
+      "strength": "hard",
+      "reason": "语文6年级“习作”领域按知识与能力递进组织，学习写简单演讲稿或毕业发言前通常会先掌握写活动和场面做到点面结合"
+    },
+    {
+      "topicId": "ct_YW6X025",
+      "prerequisiteId": "ct_YW6X024",
+      "strength": "hard",
+      "reason": "语文6年级“习作”领域按知识与能力递进组织，学习独立修改习作并说明修改理由前通常会先掌握写简单演讲稿或毕业发言"
+    },
+    {
       "topicId": "ct_SX2S010",
       "prerequisiteId": "ct_SX1X034",
       "strength": "soft",
@@ -2396,6 +3164,24 @@
       "prerequisiteId": "ct_SX2X104",
       "strength": "soft",
       "reason": "数学3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SX4S001",
+      "prerequisiteId": "ct_SX3X036",
+      "strength": "soft",
+      "reason": "数学4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SX5S001",
+      "prerequisiteId": "ct_SX4X011",
+      "strength": "soft",
+      "reason": "数学5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SX6S001",
+      "prerequisiteId": "ct_SX5X015",
+      "strength": "soft",
+      "reason": "数学6年级该领域学习建立在5年级同领域基础之上"
     },
     {
       "topicId": "ct_SX2S020",
@@ -2410,6 +3196,24 @@
       "reason": "数学3年级该领域学习建立在2年级同领域基础之上"
     },
     {
+      "topicId": "ct_SX4S012",
+      "prerequisiteId": "ct_SX3X050",
+      "strength": "soft",
+      "reason": "数学4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SX5S016",
+      "prerequisiteId": "ct_SX4X017",
+      "strength": "soft",
+      "reason": "数学5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SX6S016",
+      "prerequisiteId": "ct_SX5X023",
+      "strength": "soft",
+      "reason": "数学6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
       "topicId": "ct_SX2S001",
       "prerequisiteId": "ct_SX1X060",
       "strength": "soft",
@@ -2420,6 +3224,18 @@
       "prerequisiteId": "ct_SX2X112",
       "strength": "soft",
       "reason": "数学3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SX4S018",
+      "prerequisiteId": "ct_SX3X060",
+      "strength": "soft",
+      "reason": "数学4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SX5X024",
+      "prerequisiteId": "ct_SX4X019",
+      "strength": "soft",
+      "reason": "数学5年级该领域学习建立在4年级同领域基础之上"
     },
     {
       "topicId": "ct_SX2X060",
@@ -2434,6 +3250,24 @@
       "reason": "数学3年级该领域学习建立在2年级同领域基础之上"
     },
     {
+      "topicId": "ct_SX4X020",
+      "prerequisiteId": "ct_SX3X066",
+      "strength": "soft",
+      "reason": "数学4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SX5X025",
+      "prerequisiteId": "ct_SX4X021",
+      "strength": "soft",
+      "reason": "数学5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SX6X025",
+      "prerequisiteId": "ct_SX5X025",
+      "strength": "soft",
+      "reason": "数学6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
       "topicId": "ct_SX2S050",
       "prerequisiteId": "ct_SX1X076",
       "strength": "soft",
@@ -2446,6 +3280,24 @@
       "reason": "数学3年级该领域学习建立在2年级同领域基础之上"
     },
     {
+      "topicId": "ct_SX4X022",
+      "prerequisiteId": "ct_SX3X074",
+      "strength": "soft",
+      "reason": "数学4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SX5X026",
+      "prerequisiteId": "ct_SX4X023",
+      "strength": "soft",
+      "reason": "数学5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SX6X027",
+      "prerequisiteId": "ct_SX5X026",
+      "strength": "soft",
+      "reason": "数学6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
       "topicId": "ct_YW2S001",
       "prerequisiteId": "ct_YW1X031",
       "strength": "soft",
@@ -2456,6 +3308,24 @@
       "prerequisiteId": "ct_YW2X014",
       "strength": "soft",
       "reason": "语文3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YW4S001",
+      "prerequisiteId": "ct_YW3X010",
+      "strength": "soft",
+      "reason": "语文4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YW5S001",
+      "prerequisiteId": "ct_YW4X004",
+      "strength": "soft",
+      "reason": "语文5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YW6S001",
+      "prerequisiteId": "ct_YW5X003",
+      "strength": "soft",
+      "reason": "语文6年级该领域学习建立在5年级同领域基础之上"
     },
     {
       "topicId": "ct_YW2S020",
@@ -2482,6 +3352,24 @@
       "reason": "语文3年级该领域学习建立在2年级同领域基础之上"
     },
     {
+      "topicId": "ct_YW4S013",
+      "prerequisiteId": "ct_YW3X042",
+      "strength": "soft",
+      "reason": "语文4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YW5S011",
+      "prerequisiteId": "ct_YW4X020",
+      "strength": "soft",
+      "reason": "语文5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YW6S010",
+      "prerequisiteId": "ct_YW5X018",
+      "strength": "soft",
+      "reason": "语文6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
       "topicId": "ct_YW2S050",
       "prerequisiteId": "ct_YW1X062",
       "strength": "soft",
@@ -2492,6 +3380,24 @@
       "prerequisiteId": "ct_YW2X056",
       "strength": "soft",
       "reason": "语文3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YW4S021",
+      "prerequisiteId": "ct_YW3X052",
+      "strength": "soft",
+      "reason": "语文4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YW5S019",
+      "prerequisiteId": "ct_YW4X024",
+      "strength": "soft",
+      "reason": "语文5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YW6S018",
+      "prerequisiteId": "ct_YW5X022",
+      "strength": "soft",
+      "reason": "语文6年级该领域学习建立在5年级同领域基础之上"
     },
     {
       "topicId": "ct_YW2S060",
@@ -2510,6 +3416,78 @@
       "prerequisiteId": "ct_YW2X073",
       "strength": "soft",
       "reason": "语文3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YW4X029",
+      "prerequisiteId": "ct_YW3X070",
+      "strength": "soft",
+      "reason": "语文4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YW5X028",
+      "prerequisiteId": "ct_YW4X029",
+      "strength": "soft",
+      "reason": "语文5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YW6X026",
+      "prerequisiteId": "ct_YW5X028",
+      "strength": "soft",
+      "reason": "语文6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YW4S005",
+      "prerequisiteId": "ct_YW3X024",
+      "strength": "soft",
+      "reason": "语文4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YW5S004",
+      "prerequisiteId": "ct_YW4X012",
+      "strength": "soft",
+      "reason": "语文5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YW6S004",
+      "prerequisiteId": "ct_YW5X010",
+      "strength": "soft",
+      "reason": "语文6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YW4S025",
+      "prerequisiteId": "ct_YW3X064",
+      "strength": "soft",
+      "reason": "语文4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YW5S023",
+      "prerequisiteId": "ct_YW4X028",
+      "strength": "soft",
+      "reason": "语文5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YW6S022",
+      "prerequisiteId": "ct_YW5X027",
+      "strength": "soft",
+      "reason": "语文6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YW4X030",
+      "prerequisiteId": "ct_YW3X076",
+      "strength": "soft",
+      "reason": "语文4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YW5X029",
+      "prerequisiteId": "ct_YW4X030",
+      "strength": "soft",
+      "reason": "语文5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YW6X027",
+      "prerequisiteId": "ct_YW5X029",
+      "strength": "soft",
+      "reason": "语文6年级该领域学习建立在5年级同领域基础之上"
     }
   ]
 }

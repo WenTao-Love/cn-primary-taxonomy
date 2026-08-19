@@ -1,0 +1,813 @@
+{
+  "version": "v0.2-expanded",
+  "note": "数学（人教版五年级上+下）知识点",
+  "topicCount": 26,
+  "topics": [
+    {
+      "id": "ct_SX5S001",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "小数的数位和计数单位提升",
+      "description": "理解十分位、百分位、千分位的意义和计数单位关系。",
+      "grade": 5,
+      "term": "上",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能用自己的话说明“小数的数位和计数单位提升”的核心意思",
+        "遇到相关问题时能判断是否理解到位"
+      ],
+      "commonMistakes": [
+        "位值和计数单位混淆",
+        "数位顺序不熟"
+      ],
+      "examTips": "常考：小数读写、数位意义。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“小数的数位和计数单位提升”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:5-6-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX5S002",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "小数乘整数",
+      "description": "掌握小数乘整数的算理和笔算方法。",
+      "grade": 5,
+      "term": "上",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“小数乘整数”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "先点小数点再乘",
+        "小数点位置错误"
+      ],
+      "examTips": "常考：小数乘整数笔算。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“小数乘整数”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:5-6-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX5S003",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "小数乘小数",
+      "description": "掌握小数乘小数的笔算，理解积的小数位数确定方法。",
+      "grade": 5,
+      "term": "上",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“小数乘小数”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "小数位数点错",
+        "末尾0处理不当"
+      ],
+      "examTips": "常考：笔算、改错。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“小数乘小数”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:5-6-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX5S004",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "积的近似值",
+      "description": "能根据需要保留小数位数，求积的近似值。",
+      "grade": 5,
+      "term": "上",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“积的近似值”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "四舍五入位置不准",
+        "保留位和结果单位不一致"
+      ],
+      "examTips": "常考：按要求保留小数。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“积的近似值”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:5-6-syds-3"
+      ]
+    },
+    {
+      "id": "ct_SX5S005",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "小数除以整数",
+      "description": "掌握小数除以整数的笔算方法。",
+      "grade": 5,
+      "term": "上",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“小数除以整数”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "商的小数点位置错",
+        "整数部分不够除时处理不当"
+      ],
+      "examTips": "常考：竖式计算。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“小数除以整数”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:5-6-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX5S006",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "一个数除以小数",
+      "description": "理解把除数变成整数再计算的算理。",
+      "grade": 5,
+      "term": "上",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“一个数除以小数”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "被除数和除数移动位数不一致",
+        "商不变规律应用错误"
+      ],
+      "examTips": "常考：小数除法。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“一个数除以小数”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:5-6-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX5S007",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "商的近似值",
+      "description": "能根据需要保留指定位数求商的近似值。",
+      "grade": 5,
+      "term": "上",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“商的近似值”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "除尽和保留位概念混淆",
+        "四舍五入位置不准"
+      ],
+      "examTips": "常考：求商的近似值。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“商的近似值”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:5-6-syds-3"
+      ]
+    },
+    {
+      "id": "ct_SX5S008",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "循环小数初步认识",
+      "description": "初步认识循环小数，能辨认简单循环节。",
+      "grade": 5,
+      "term": "上",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“循环小数初步认识”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "无限小数和循环小数不分",
+        "循环节判断错误"
+      ],
+      "examTips": "常考：判断和表示循环小数。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“循环小数初步认识”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:5-6-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX5X009",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "分数的意义和单位1",
+      "description": "理解单位“1”和分数表示部分与整体关系。",
+      "grade": 5,
+      "term": "下",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能用自己的话说明“分数的意义和单位1”的核心意思",
+        "遇到相关问题时能判断是否理解到位"
+      ],
+      "commonMistakes": [
+        "单位1变化后分数意义跟不上",
+        "分子分母机械记忆"
+      ],
+      "examTips": "常考：看图写分数、解释单位1。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“分数的意义和单位1”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:5-6-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX5X010",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "真分数假分数带分数",
+      "description": "能辨认真分数、假分数和带分数，并理解它们关系。",
+      "grade": 5,
+      "term": "下",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能用自己的话说明“真分数假分数带分数”的核心意思",
+        "遇到相关问题时能判断是否理解到位"
+      ],
+      "commonMistakes": [
+        "假分数和带分数互化不稳",
+        "大于1的分数理解不清"
+      ],
+      "examTips": "常考：分类、互化。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“真分数假分数带分数”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:5-6-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX5X011",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "分数与除法关系",
+      "description": "理解分数和除法的联系，会用分数表示除法结果。",
+      "grade": 5,
+      "term": "下",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“分数与除法关系”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "被除数除数位置颠倒",
+        "除法意义和分数意义不能贯通"
+      ],
+      "examTips": "常考：分数与除法互化。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“分数与除法关系”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:5-6-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX5X012",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "分数基本性质",
+      "description": "理解分数的分子分母同时乘或除以相同数分数值不变。",
+      "grade": 5,
+      "term": "下",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“分数基本性质”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "只记形式不理解值不变",
+        "乘除0情况混淆"
+      ],
+      "examTips": "常考：填空、约分通分基础。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“分数基本性质”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:5-6-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX5X013",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "约分和通分",
+      "description": "掌握分数约分和通分，为分数比较及运算打基础。",
+      "grade": 5,
+      "term": "下",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“约分和通分”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "最大公因数和最小公倍数不会用",
+        "只会机械算"
+      ],
+      "examTips": "常考：约分、通分、比较大小。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“约分和通分”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:5-6-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX5X014",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "异分母分数大小比较",
+      "description": "能借助通分等方法比较异分母分数大小。",
+      "grade": 5,
+      "term": "下",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“异分母分数大小比较”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "直接比数字大小",
+        "通分目标不合理"
+      ],
+      "examTips": "常考：比较大小、排序。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“异分母分数大小比较”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:5-6-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX5X015",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "分数加减法",
+      "description": "掌握同分母和异分母分数加减法。",
+      "grade": 5,
+      "term": "下",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“分数加减法”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "分母也加减",
+        "结果不化简"
+      ],
+      "examTips": "常考：分数计算。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“分数加减法”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:5-6-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX5S016",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "平行四边形面积",
+      "description": "理解平行四边形面积公式的推导过程。",
+      "grade": 5,
+      "term": "上",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能用自己的话说明“平行四边形面积”的核心意思",
+        "遇到相关问题时能判断是否理解到位"
+      ],
+      "commonMistakes": [
+        "底和高不对应",
+        "把斜边当高"
+      ],
+      "examTips": "常考：面积计算和公式理解。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“平行四边形面积”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:5-6-tx-1"
+      ]
+    },
+    {
+      "id": "ct_SX5S017",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "三角形面积",
+      "description": "理解三角形面积与平行四边形面积的关系。",
+      "grade": 5,
+      "term": "上",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能用自己的话说明“三角形面积”的核心意思",
+        "遇到相关问题时能判断是否理解到位"
+      ],
+      "commonMistakes": [
+        "忘记除以2",
+        "底高不对应"
+      ],
+      "examTips": "常考：面积计算。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“三角形面积”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:5-6-tx-1"
+      ]
+    },
+    {
+      "id": "ct_SX5S018",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "梯形面积",
+      "description": "理解梯形面积公式的推导和应用。",
+      "grade": 5,
+      "term": "上",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能用自己的话说明“梯形面积”的核心意思",
+        "遇到相关问题时能判断是否理解到位"
+      ],
+      "commonMistakes": [
+        "上下底相加后忘记乘高或除以2",
+        "单位漏写"
+      ],
+      "examTips": "常考：面积公式应用。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“梯形面积”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:5-6-tx-1"
+      ]
+    },
+    {
+      "id": "ct_SX5S019",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "组合图形面积",
+      "description": "能把组合图形分割或拼补成基本图形求面积。",
+      "grade": 5,
+      "term": "上",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“组合图形面积”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "分割思路单一",
+        "面积重复算或漏算"
+      ],
+      "examTips": "常考：组合图形面积。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“组合图形面积”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:5-6-tx-1"
+      ]
+    },
+    {
+      "id": "ct_SX5X020",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "长方体和正方体特征",
+      "description": "理解长方体、正方体的面、棱、顶点特征。",
+      "grade": 5,
+      "term": "下",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能用自己的话说明“长方体和正方体特征”的核心意思",
+        "遇到相关问题时能判断是否理解到位"
+      ],
+      "commonMistakes": [
+        "棱长关系记混",
+        "平面图和立体图联系弱"
+      ],
+      "examTips": "常考：图形特征、展开图。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“长方体和正方体特征”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:5-6-tx-1"
+      ]
+    },
+    {
+      "id": "ct_SX5X021",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "长方体和正方体表面积",
+      "description": "掌握表面积计算并理解生活中的包装含义。",
+      "grade": 5,
+      "term": "下",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“长方体和正方体表面积”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "多面少面",
+        "表面积和体积混淆"
+      ],
+      "examTips": "常考：表面积应用题。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“长方体和正方体表面积”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:5-6-tx-1"
+      ]
+    },
+    {
+      "id": "ct_SX5X022",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "体积和容积初步认识",
+      "description": "理解体积和容积的含义及区别。",
+      "grade": 5,
+      "term": "下",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能用自己的话说明“体积和容积初步认识”的核心意思",
+        "遇到相关问题时能判断是否理解到位"
+      ],
+      "commonMistakes": [
+        "体积和表面积混淆",
+        "容积和体积不区分"
+      ],
+      "examTips": "常考：概念辨析。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“体积和容积初步认识”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:5-6-tx-1"
+      ]
+    },
+    {
+      "id": "ct_SX5X023",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "长方体和正方体体积",
+      "description": "掌握体积公式并解决简单实际问题。",
+      "grade": 5,
+      "term": "下",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“长方体和正方体体积”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "长宽高对应错误",
+        "立方单位漏写"
+      ],
+      "examTips": "常考：体积计算。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“长方体和正方体体积”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:5-6-tx-1"
+      ]
+    },
+    {
+      "id": "ct_SX5X024",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "体积单位和容积单位",
+      "description": "认识立方厘米、立方分米、立方米及升、毫升。",
+      "grade": 5,
+      "term": "下",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能用自己的话说明“体积单位和容积单位”的核心意思",
+        "遇到相关问题时能判断是否理解到位"
+      ],
+      "commonMistakes": [
+        "面积单位和体积单位混淆",
+        "升与立方分米关系不清"
+      ],
+      "examTips": "常考：单位选择和换算。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“体积单位和容积单位”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:5-6-cl-1"
+      ]
+    },
+    {
+      "id": "ct_SX5X025",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "统计与概率",
+      "name": "折线统计图",
+      "description": "能读懂并绘制简单折线统计图，体会数据变化趋势。",
+      "grade": 5,
+      "term": "下",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“折线统计图”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "只看点值不看趋势",
+        "连接顺序错误"
+      ],
+      "examTips": "常考：读图分析、画图。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“折线统计图”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:5-6-sjtj-1"
+      ]
+    },
+    {
+      "id": "ct_SX5X026",
+      "type": "META",
+      "typeLabel": "元认知",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "综合与实践",
+      "name": "从现实问题中建立数学模型",
+      "description": "能从生活问题中抽象出数量关系或图形模型。",
+      "grade": 5,
+      "term": "下",
+      "gradeBand": "H",
+      "textbook": "人教版",
+      "ageRangeStart": 10,
+      "ageRangeEnd": 11,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能主动使用“从现实问题中建立数学模型”相关策略完成学习任务",
+        "能在提醒减少后保持较稳定的学习习惯"
+      ],
+      "commonMistakes": [
+        "只会列算式不会建模",
+        "现实条件转化不到位"
+      ],
+      "examTips": "常见任务：综合实践活动。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“从现实问题中建立数学模型”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:5-6-zonghe-1"
+      ]
+    }
+  ]
+}
