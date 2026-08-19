@@ -14,7 +14,7 @@
         "type": "object",
         "required": ["id", "type", "subject", "name", "description", "evidence", "standards", "grade"],
         "properties": {
-          "id": { "type": "string", "pattern": "^ct_[A-Z]{2}[0-6][SXQ][0-9]{3}$", "description": "知识点ID，格式 ct_{学科码}{年级}{学期(上S/下X/全Q)}{序号}" },
+          "id": { "type": "string", "pattern": "^ct_[A-Z]{2,3}[0-6][SXQ][0-9]{3}$", "description": "知识点ID，格式 ct_{学科码}{年级}{学期(上S/下X/全Q)}{序号}" },
           "type": { "type": "string", "enum": ["CONCEPTUAL", "PROCEDURAL", "REPRESENTATIONAL", "LANGUAGE", "META"] },
           "typeLabel": { "type": "string", "enum": ["概念", "技能", "表征", "语言", "元认知"] },
           "subject": { "type": "string", "enum": ["语文", "数学", "英语", "科学", "道德与法治", "劳动", "体育与健康", "美术", "音乐", "信息科技", "AI素养", "综合实践"] },
@@ -34,7 +34,23 @@
           "commonMistakes": { "type": "array", "items": { "type": "string" }, "description": "常见易错点" },
           "examTips": { "type": ["string", "null"], "description": "常见考法/考试提示" },
           "assessmentPrompt": { "type": ["string", "null"], "description": "家长/老师可直接使用的测评话术，含{{name}}占位符" },
-          "standards": { "type": "array", "items": { "type": "string" }, "description": "对齐的课标条目编码" }
+          "standards": { "type": "array", "items": { "type": "string" }, "description": "对齐的课标条目编码" },
+          "resources": {
+            "type": "array",
+            "description": "与知识点关联的典型例题、练习题或教学资源链接",
+            "items": {
+              "type": "object",
+              "required": ["title", "type", "url"],
+              "properties": {
+                "title": { "type": "string" },
+                "type": { "type": "string", "enum": ["example", "exercise", "worksheet", "video", "article"] },
+                "url": { "type": "string" },
+                "source": { "type": ["string", "null"] },
+                "note": { "type": ["string", "null"] }
+              },
+              "additionalProperties": false
+            }
+          }
         },
         "additionalProperties": false
       }

@@ -36,6 +36,7 @@ const GRADES = new Set([1,2,3,4,5,6]);
 const TERMS = new Set(['上','下','全']);
 const GRADE_BANDS = new Set(['L','M','H']);
 const STRENGTHS = new Set(['hard','soft']);
+const RESOURCE_TYPES = new Set(['example','exercise','worksheet','video','article']);
 
 const topicIds = new Set();
 const idDup = new Set();
@@ -55,6 +56,14 @@ for (const t of topics.topics) {
   check(typeof t.description === 'string' && t.description.length >= 5, `description过短: ${t.id}`);
   check(Array.isArray(t.evidence) && t.evidence.length >= 1, `evidence为空: ${t.id}`);
   check(t.difficulty >=1 && t.difficulty <=5, `difficulty超范围: ${t.id}`);
+  if (t.resources !== undefined) {
+    check(Array.isArray(t.resources), `resources不是数组: ${t.id}`);
+    for (const r of t.resources || []) {
+      check(typeof r.title === 'string' && r.title.length >= 1, `resource.title缺失: ${t.id}`);
+      check(RESOURCE_TYPES.has(r.type), `resource.type非法: ${t.id} -> ${r.type}`);
+      check(typeof r.url === 'string' && /^https?:\/\//.test(r.url), `resource.url非法: ${t.id}`);
+    }
+  }
   subjects[t.subject] = (subjects[t.subject]||0)+1;
   typeCounts[t.typeLabel] = (typeCounts[t.typeLabel]||0)+1;
 }

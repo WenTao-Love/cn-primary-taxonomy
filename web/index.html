@@ -21,6 +21,17 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
 .controls button:hover { background:rgba(60,80,120,0.6); color:#fff; border-color:rgba(255,255,255,0.25); }
 .controls button.active { background:rgba(70,130,220,0.3); color:#5dade2; border-color:#5dade2; }
 #sidebar { background:#151d28; border-left:1px solid rgba(255,255,255,0.06); overflow-y:auto; padding:24px; }
+#assistant-panel { margin-bottom:20px; padding:14px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:10px; }
+#assistant-panel h3 { margin-top:0; }
+#assistant-panel input { width:100%; padding:10px 12px; background:#0f1419; border:1px solid rgba(255,255,255,0.12); border-radius:8px; color:#fff; font-size:13px; }
+#assistant-panel button { margin-top:10px; padding:8px 12px; background:rgba(93,173,226,0.18); border:1px solid rgba(93,173,226,0.45); color:#dcefff; border-radius:8px; cursor:pointer; font-size:12px; }
+#assistant-panel button:hover { background:rgba(93,173,226,0.28); }
+#assistant-panel .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+#assistant-panel .chip { padding:4px 8px; border-radius:999px; background:rgba(255,255,255,0.05); color:#a8b4c0; font-size:11px; cursor:pointer; }
+#assistant-result { margin-top:12px; font-size:12px; line-height:1.7; color:#c5cdd6; }
+#assistant-result .path-step { display:block; margin:6px 0; padding:8px 10px; border-radius:8px; background:rgba(255,255,255,0.04); color:#dcefff; text-decoration:none; }
+#assistant-result .path-step:hover { background:rgba(93,173,226,0.12); }
+#assistant-result .assistant-muted { color:#7f8c9a; }
 #sidebar h2 { font-size:16px; color:#fff; margin-bottom:4px; }
 #sidebar .meta { font-size:12px; color:#7f8c9a; margin-bottom:16px; }
 #sidebar .desc { font-size:13px; line-height:1.7; color:#c5cdd6; margin-bottom:16px; padding:12px; background:rgba(255,255,255,0.03); border-radius:6px; border-left:3px solid #5dade2; }
@@ -54,6 +65,9 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
 .search-result-item .srn { color:#5dade2; font-size:10px; }
 .search-result-item .srd { color:#7f8c9a; font-size:11px; margin-top:2px; }
 .hint { color:#7f8c9a; font-size:12px; text-align:center; padding:40px 20px; line-height:1.8; }
+.resource-link { display:block; margin:6px 0; padding:8px 10px; background:rgba(255,255,255,0.04); border-radius:6px; color:#dcefff; text-decoration:none; font-size:12px; }
+.resource-link:hover { background:rgba(93,173,226,0.12); }
+.resource-link small { color:#7f8c9a; display:block; margin-top:2px; }
 </style>
 </head>
 <body>
@@ -61,7 +75,7 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
 <div id="graph">
   <header>
     <h1>🇨🇳 中国小学教育知识图谱</h1>
-    <p>CN-Primary-Taxonomy v0.1 · 二年级 · 155 知识点 · 116 依赖关系 · 基于 Marble Skill Taxonomy 二次开发</p>
+    <p id="subtitle">CN-Primary-Taxonomy 正在加载…</p>
   </header>
   <div class="stats-bar">
     <div><b id="stat-topics">0</b>知识点</div>
@@ -94,13 +108,16 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
   <svg id="canvas"></svg>
 </div>
 <div id="sidebar">
-  <div class="hint">
-    👈 点击左侧图中的圆点查看知识点详情<br><br>
-    每个圆点是一个知识点，颜色代表学科，<br>
-    线条表示"先学什么再学什么"的依赖关系。<br><br>
-    <span style="color:#5dade2">🔴 红线 = 必须先掌握</span><br>
-    <span style="color:#f39c12">🟡 虚线 = 有帮助但非必须</span><br><br>
-    顶部搜索框可快速定位知识点。
+  <div id="assistant-panel"></div>
+  <div id="detail-panel">
+    <div class="hint">
+      👈 点击左侧图中的圆点查看知识点详情<br><br>
+      每个圆点是一个知识点，颜色代表学科，<br>
+      线条表示"先学什么再学什么"的依赖关系。<br><br>
+      <span style="color:#5dade2">🔴 红线 = 必须先掌握</span><br>
+      <span style="color:#f39c12">🟡 虚线 = 有帮助但非必须</span><br><br>
+      顶部搜索框可快速定位知识点，右侧学习助手可直接问"先补什么"。
+    </div>
   </div>
 </div>
 </div>
@@ -129,6 +146,8 @@ async function init() {
   document.getElementById('stat-topics').textContent = topics.topicCount;
   document.getElementById('stat-deps').textContent = deps.edgeCount;
   document.getElementById('stat-subjects').textContent = new Set(topics.topics.map(t=>t.subject)).size;
+  const grades = [...new Set(topics.topics.map(t=>t.grade))].sort((a,b)=>a-b).map(g=>`${g}年级`).join(' / ');
+  document.getElementById('subtitle').textContent = `${topics.version || 'CN-Primary-Taxonomy'} · ${grades} · ${topics.topicCount} 知识点 · ${deps.edgeCount} 依赖关系 · 基于 Marble Skill Taxonomy 二次开发`;
 
   // Build subject buttons
   const subjectCounts = {};
@@ -145,6 +164,7 @@ async function init() {
 
   buildGraph(topics, deps);
   setupSearch(topics);
+  renderAssistantPanel();
 }
 
 function buildGraph(topics, deps) {
@@ -225,7 +245,13 @@ function selectNode(d) {
   function collectSucc(tId, depth, set) {
     data.links.forEach(l=>{
       const src = l.source.id||l.source;
-      if(src===tId){const tgt=l.target.id||l.target; if(!set.has(tgt)){set.add(tgt); if(depth<3) collectSucc(tgt,depth+1,set);}}}
+      if(src===tId){
+        const tgt = l.target.id||l.target;
+        if(!set.has(tgt)){
+          set.add(tgt);
+          if(depth<3) collectSucc(tgt,depth+1,set);
+        }
+      }
     });
   }
   collectPre(d.id,0,preIds);
@@ -245,7 +271,7 @@ function selectNode(d) {
 }
 
 function renderSidebar(d, preIds, succIds) {
-  const sb = document.getElementById('sidebar');
+  const sb = document.getElementById('detail-panel');
   const prereqs = [], succs = [];
   data.links.forEach(l=>{
     const sid=l.source.id||l.source, tid=l.target.id||l.target;
@@ -261,6 +287,13 @@ function renderSidebar(d, preIds, succIds) {
     `<span class="tag" style="background:rgba(255,200,0,0.1);color:#f39c12">难度 ${DIFFICULTY(d.difficulty||3)}</span>`,
   ].join('');
 
+  const resources = (d.resources||[]).map(r=>`
+    <a class="resource-link" href="${r.url}" target="_blank" rel="noopener noreferrer">
+      ${r.title}
+      <small>${r.type} · ${r.source||'外部资源'}${r.note?` · ${r.note}`:''}</small>
+    </a>
+  `).join('');
+
   sb.innerHTML = `
     <h2>${d.name}</h2>
     <div class="meta">${d.id} · ${d.textbook||''}</div>
@@ -273,6 +306,7 @@ function renderSidebar(d, preIds, succIds) {
     ${(d.commonMistakes&&d.commonMistakes.length)?`<h3>⚠️ 常见易错点</h3><ul class="mistakes-list">${d.commonMistakes.map(e=>`<li>${e}</li>`).join('')}</ul>`:''}
     ${d.examTips?`<h3>📝 常见考法</h3><div style="font-size:12px;line-height:1.7;color:#a8b4c0;padding:8px 10px;background:rgba(255,255,255,0.03);border-radius:6px">${d.examTips}</div>`:''}
     ${d.assessmentPrompt?`<h3>💬 家长测评话术</h3><div style="font-size:12px;line-height:1.7;color:#a8b4c0;padding:8px 10px;background:rgba(93,173,226,0.08);border-radius:6px;font-style:italic">${d.assessmentPrompt.replace(/\{\{name\}\}/g,'孩子')}</div>`:''}
+    ${resources?`<h3>🧩 典型例题 / 练习题</h3>${resources}`:''}
 
     <h3>📚 前置依赖（要先学会这些 ↓）</h3>
     ${prereqs.length?prereqs.map(p=>`<div class="chain-item ${p.link.strength}" onclick="selectNodeById('${p.topic.id}')"><span class="chain-arrow">${p.link.strength==='hard'?'🔴':'🟡'}</span><span><b>${p.topic.name}</b><br><span style="color:#7f8c9a;font-size:11px">${p.topic.subject}·${p.link.reason||''}</span></span></div>`).join(''):'<div style="font-size:12px;color:#7f8c9a;padding:8px">（无前置，是起始知识点）</div>'}
@@ -286,6 +320,126 @@ window.selectNodeById = function(id) {
   const node = data.nodes.find(n=>n.id===id);
   if(node) selectNode(node);
 };
+
+function topicScore(topic, query) {
+  const text = `${topic.name} ${topic.domain||''} ${topic.description||''} ${topic.subject}`.toLowerCase();
+  const q = query.toLowerCase();
+  let score = 0;
+  if (topic.name.toLowerCase().includes(q)) score += 8;
+  if (text.includes(q)) score += 4;
+  for (const token of q.split(/[，。；、,\s]+/).filter(Boolean)) {
+    if (token.length >= 2 && text.includes(token)) score += 2;
+  }
+  if (q.includes('不熟') || q.includes('不会') || q.includes('薄弱')) score += topic.type === 'PROCEDURAL' ? 1 : 0;
+  return score;
+}
+
+function getDirectPrereqs(topicId) {
+  return data.links
+    .filter(l => (l.target.id||l.target) === topicId)
+    .map(l => ({ id: l.source.id||l.source, strength: l.strength, reason: l.reason }));
+}
+
+function collectAncestorIds(topicId, set=new Set()) {
+  for (const p of getDirectPrereqs(topicId)) {
+    if (!set.has(p.id)) {
+      set.add(p.id);
+      collectAncestorIds(p.id, set);
+    }
+  }
+  return set;
+}
+
+function topoPathTo(topicId) {
+  const ids = collectAncestorIds(topicId);
+  ids.add(topicId);
+  const subset = new Set(ids);
+  const inDeg = new Map();
+  const graph = new Map();
+  subset.forEach(id => { inDeg.set(id, 0); graph.set(id, []); });
+  data.links.forEach(l => {
+    const sid = l.source.id||l.source;
+    const tid = l.target.id||l.target;
+    if (subset.has(sid) && subset.has(tid)) {
+      graph.get(sid).push(tid);
+      inDeg.set(tid, inDeg.get(tid) + 1);
+    }
+  });
+  const queue = [...subset].filter(id => inDeg.get(id) === 0);
+  const ordered = [];
+  while (queue.length) {
+    const cur = queue.shift();
+    ordered.push(cur);
+    for (const nxt of graph.get(cur)) {
+      inDeg.set(nxt, inDeg.get(nxt) - 1);
+      if (inDeg.get(nxt) === 0) queue.push(nxt);
+    }
+  }
+  return ordered.map(id => data.nodes.find(n => n.id === id)).filter(Boolean);
+}
+
+function runAssistant(query) {
+  const result = document.getElementById('assistant-result');
+  const q = (query || '').trim();
+  if (!q) {
+    result.innerHTML = '<div class="assistant-muted">请输入一个学习问题，比如“孩子乘法口诀不熟，应该先补什么”。</div>';
+    return;
+  }
+  const ranked = data.nodes
+    .map(topic => ({ topic, score: topicScore(topic, q) }))
+    .filter(item => item.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 5);
+
+  if (!ranked.length) {
+    result.innerHTML = '<div class="assistant-muted">暂时没有匹配到足够准确的知识点，建议换成更具体的关键词，例如“有余数除法”“看图写话”“部首查字法”。</div>';
+    return;
+  }
+
+  const target = ranked[0].topic;
+  const path = topoPathTo(target.id);
+  const recommend = path.slice(Math.max(0, path.length - 6));
+  const direct = getDirectPrereqs(target.id).map(item => data.nodes.find(n => n.id === item.id)).filter(Boolean);
+  result.innerHTML = `
+    <div><b>定位到的核心知识点：</b>${target.subject} · ${target.name}</div>
+    <div class="assistant-muted" style="margin-top:4px">${target.description}</div>
+    <div style="margin-top:8px"><b>建议补弱顺序：</b></div>
+    ${recommend.map((topic, idx) => `
+      <a href="javascript:void(0)" class="path-step" onclick="selectNodeById('${topic.id}')">
+        ${idx + 1}. ${topic.name}
+        <span class="assistant-muted"> · ${topic.subject} · ${topic.grade}年级${topic.term}</span>
+      </a>
+    `).join('')}
+    <div style="margin-top:8px"><b>优先先补：</b>${direct.length ? direct.map(t => t.name).join('、') : '这个知识点没有显式前置，可直接从当前节点开始练。'}</div>
+    <div class="assistant-muted" style="margin-top:6px">逻辑说明：学习助手会沿 DAG 前置链回溯，优先推荐能直接支撑当前薄弱点的基础知识。</div>
+  `;
+}
+
+function renderAssistantPanel() {
+  const panel = document.getElementById('assistant-panel');
+  panel.innerHTML = `
+    <h3>🤖 学习助手 Bot</h3>
+    <div style="font-size:12px;color:#a8b4c0;line-height:1.7;margin-bottom:10px">输入孩子当前卡住的问题，系统会沿知识图谱前置链推荐“先补什么”。</div>
+    <input id="assistant-query" placeholder="例如：孩子乘法口诀不熟，应该先补什么" />
+    <button id="assistant-run">生成学习路径</button>
+    <div class="chips">
+      <span class="chip" data-query="孩子乘法口诀不熟，应该先补什么">乘法口诀不熟</span>
+      <span class="chip" data-query="看图写话总写不长，应该先补什么">看图写话写不长</span>
+      <span class="chip" data-query="有余数除法总做错，先补什么">有余数除法总错</span>
+    </div>
+    <div id="assistant-result"><div class="assistant-muted">这里会显示学习路径建议。</div></div>
+  `;
+  document.getElementById('assistant-run').onclick = () => runAssistant(document.getElementById('assistant-query').value);
+  document.getElementById('assistant-query').addEventListener('keydown', e => {
+    if (e.key === 'Enter') runAssistant(e.target.value);
+  });
+  panel.querySelectorAll('.chip').forEach(chip => {
+    chip.onclick = () => {
+      document.getElementById('assistant-query').value = chip.dataset.query;
+      runAssistant(chip.dataset.query);
+    };
+  });
+}
 
 function filterSubject(subject) {
   currentSubject = subject;

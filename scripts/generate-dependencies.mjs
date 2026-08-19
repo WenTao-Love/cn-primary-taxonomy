@@ -171,22 +171,102 @@ deps.push(D('ct_TY2Q004','ct_TY2Q002','soft','跳绳以基本跑动、协调能�
 // ===== 美术 =====
 deps.push(D('ct_MS2Q003','ct_MS2Q002','hard','折纸以基本线条控制、手部精细动作为基础'));
 
+const topicsData = JSON.parse(readFileSync(resolve(DATA, 'topics.json'), 'utf8'));
+
+function seqOf(id) {
+  const match = id.match(/(\d{3})$/);
+  return match ? Number(match[1]) : 0;
+}
+
+const termOrder = { '上': 0, '下': 1, '全': 2 };
+
+function addAutoDependencies(topics, edges) {
+  const topicById = new Map(topics.map(topic => [topic.id, topic]));
+  const manualGroupKeys = new Set();
+  for (const edge of edges) {
+    const target = topicById.get(edge.topicId);
+    const prereq = topicById.get(edge.prerequisiteId);
+    if (!target || !prereq) continue;
+    if (target.subject === prereq.subject && target.grade === prereq.grade && target.domain === prereq.domain) {
+      manualGroupKeys.add(`${target.subject}|${target.grade}|${target.domain}`);
+    }
+  }
+
+  const byGroup = new Map();
+  for (const topic of topics) {
+    const key = `${topic.subject}|${topic.grade}|${topic.domain}`;
+    if (!byGroup.has(key)) byGroup.set(key, []);
+    byGroup.get(key).push(topic);
+  }
+
+  for (const [key, group] of byGroup.entries()) {
+    if (manualGroupKeys.has(key)) continue;
+    group.sort((a, b) => (termOrder[a.term] - termOrder[b.term]) || (seqOf(a.id) - seqOf(b.id)));
+    for (let i = 1; i < group.length; i++) {
+      const prev = group[i - 1];
+      const curr = group[i];
+      const strength = (curr.type === 'PROCEDURAL' || curr.type === 'REPRESENTATIONAL') ? 'hard' : 'soft';
+      const reason = `${curr.subject}${curr.grade}年级“${curr.domain}”领域按知识与能力递进组织，学习${curr.name}前通常会先掌握${prev.name}`;
+      edges.push(D(curr.id, prev.id, strength, reason));
+    }
+  }
+
+  const byDomainAcrossGrades = new Map();
+  for (const topic of topics) {
+    const key = `${topic.subject}|${topic.domain}`;
+    if (!byDomainAcrossGrades.has(key)) byDomainAcrossGrades.set(key, []);
+    byDomainAcrossGrades.get(key).push(topic);
+  }
+
+  for (const group of byDomainAcrossGrades.values()) {
+    const byGrade = new Map();
+    for (const topic of group) {
+      if (!byGrade.has(topic.grade)) byGrade.set(topic.grade, []);
+      byGrade.get(topic.grade).push(topic);
+    }
+    const grades = [...byGrade.keys()].sort((a, b) => a - b);
+    for (let i = 1; i < grades.length; i++) {
+      const lower = byGrade.get(grades[i - 1]).sort((a, b) => (termOrder[a.term] - termOrder[b.term]) || (seqOf(a.id) - seqOf(b.id)));
+      const higher = byGrade.get(grades[i]).sort((a, b) => (termOrder[a.term] - termOrder[b.term]) || (seqOf(a.id) - seqOf(b.id)));
+      if (lower.length && higher.length) {
+        edges.push(D(
+          higher[0].id,
+          lower[lower.length - 1].id,
+          'soft',
+          `${higher[0].subject}${grades[i]}年级该领域学习建立在${grades[i - 1]}年级同领域基础之上`
+        ));
+      }
+    }
+  }
+}
+
+addAutoDependencies(topicsData.topics, deps);
+
+const uniqueDeps = [];
+const depSeen = new Set();
+for (const dep of deps) {
+  const key = `${dep.topicId}|${dep.prerequisiteId}`;
+  if (!depSeen.has(key)) {
+    depSeen.add(key);
+    uniqueDeps.push(dep);
+  }
+}
+
 // 写 dependencies.json
 const depJson = {
-  version: 'v0.1-mvp',
+  version: 'v0.2-expanded',
   note: 'DAG 依赖方向：topicId 依赖 prerequisiteId（先学prerequisite，再学topic）',
-  edgeCount: deps.length,
-  dependencies: deps
+  edgeCount: uniqueDeps.length,
+  dependencies: uniqueDeps
 };
 
 const depStr = JSON.stringify(depJson, null, 2);
 writeFileSync(resolve(DATA, 'dependencies.json'), depStr, 'utf8');
 
 // 校验：每条边的两个端点必须存在
-const topicsData = JSON.parse(readFileSync(resolve(DATA, 'topics.json'), 'utf8'));
 const topicIdSet = new Set(topicsData.topics.map(t => t.id));
 let errors = 0;
-for (const d of deps) {
+for (const d of uniqueDeps) {
   if (!topicIdSet.has(d.topicId)) { console.error('❌ 未知 topicId:', d.topicId); errors++; }
   if (!topicIdSet.has(d.prerequisiteId)) { console.error('❌ 未知 prerequisiteId:', d.prerequisiteId); errors++; }
   if (d.topicId === d.prerequisiteId) { console.error('❌ 自依赖:', d.topicId); errors++; }
@@ -196,12 +276,13 @@ for (const d of deps) {
 const inDeg = {};
 const graph = {};
 for (const t of topicsData.topics) { inDeg[t.id] = 0; graph[t.id] = []; }
-for (const d of deps) {
+for (const d of uniqueDeps) {
   graph[d.prerequisiteId].push(d.topicId);
   inDeg[d.topicId]++;
 }
 const queue = [];
 for (const [id, deg] of Object.entries(inDeg)) if (deg === 0) queue.push(id);
+const rootCount = queue.length;
 let processed = 0;
 while (queue.length) {
   const cur = queue.shift();
@@ -217,11 +298,11 @@ if (processed !== topicsData.topics.length) {
 }
 
 if (errors === 0) {
-  console.log(`✅ 依赖关系 ${deps.length} 条写入成功，DAG无环，所有引用有效`);
-  console.log(`   入度为0的根节点: ${queue.length} 个（起始知识点）`);
+  console.log(`✅ 依赖关系 ${uniqueDeps.length} 条写入成功，DAG无环，所有引用有效`);
+  console.log(`   入度为0的根节点: ${rootCount} 个（起始知识点）`);
   // 统计hard/soft
-  const hardN = deps.filter(d=>d.strength==='hard').length;
-  const softN = deps.filter(d=>d.strength==='soft').length;
+  const hardN = uniqueDeps.filter(d=>d.strength==='hard').length;
+  const softN = uniqueDeps.filter(d=>d.strength==='soft').length;
   console.log(`   强依赖(hard): ${hardN}, 弱依赖(soft): ${softN}`);
 } else {
   process.exit(1);

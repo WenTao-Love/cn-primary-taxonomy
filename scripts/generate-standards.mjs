@@ -231,5 +231,58 @@ const data = {
   curricula
 };
 
+const extraEntries = [
+  ['cn-yuwen-2022', [
+    {key:'cn-yuwen-2022:3-4-sz-2', code:'3-4-sz-2', data:{domain:'识字与写字',desc:'能借助字典、词典和语境主动识字，辨析多音字、形近字和同音字'}},
+    {key:'cn-yuwen-2022:3-4-sz-3', code:'3-4-sz-3', data:{domain:'识字与写字',desc:'熟练使用音序和部首检字法，初步借助工具书理解字词意思'}},
+    {key:'cn-yuwen-2022:3-4-sz-4', code:'3-4-sz-4', data:{domain:'识字与写字',desc:'用硬笔规范书写楷书，行款整齐，力求美观'}},
+    {key:'cn-yuwen-2022:3-4-yysy-1', code:'3-4-yysy-1', data:{domain:'词句段运用',desc:'结合语境辨析近义词、反义词，体会词语感情色彩和表达效果'}},
+    {key:'cn-yuwen-2022:3-4-yysy-2', code:'3-4-yysy-2', data:{domain:'词句段运用',desc:'积累并正确运用常见词语，注意搭配恰当、表达准确'}},
+    {key:'cn-yuwen-2022:3-4-yysy-4', code:'3-4-yysy-4', data:{domain:'词句段运用',desc:'学习运用常见关联词表达因果、转折、条件等关系'}},
+    {key:'cn-yuwen-2022:3-4-yysy-5', code:'3-4-yysy-5', data:{domain:'词句段运用',desc:'体会比喻、拟人、排比等修辞手法在表达中的作用'}},
+    {key:'cn-yuwen-2022:3-4-jz-1', code:'3-4-jz-1', data:{domain:'句子',desc:'能发现并改正常见的病句，提升句子表达的准确性'}},
+    {key:'cn-yuwen-2022:3-4-jz-2', code:'3-4-jz-2', data:{domain:'句子',desc:'能扩写、缩写、排序句子，并围绕中心组织语段'}},
+    {key:'cn-yuwen-2022:3-4-yd-2', code:'3-4-yd-2', data:{domain:'阅读与鉴赏',desc:'学习正确、流利、有感情地朗读课文，并逐步提高默读效率'}},
+    {key:'cn-yuwen-2022:3-4-yd-3', code:'3-4-yd-3', data:{domain:'阅读与鉴赏',desc:'能抓住关键词句理解内容，概括段意和主要内容，联系上下文理解词语'}},
+    {key:'cn-yuwen-2022:3-4-yd-4', code:'3-4-yd-4', data:{domain:'阅读与鉴赏',desc:'阅读童话、寓言、神话和说明性短文，体会人物特点、中心意思和表达方法'}},
+    {key:'cn-yuwen-2022:3-4-gsw-1', code:'3-4-gsw-1', data:{domain:'古诗文',desc:'诵读优秀诗文，借助注释和想象理解诗文大意，体会语言和情感'}},
+    {key:'cn-yuwen-2022:3-4-gsw-2', code:'3-4-gsw-2', data:{domain:'古诗文',desc:'初步接触浅近文言文，能借助注释和停顿理解常见词句'}},
+    {key:'cn-yuwen-2022:3-4-xz-1', code:'3-4-xz-1', data:{domain:'习作',desc:'乐于表达，能根据需要写观察记录、留言、书信等，注意格式和顺序'}},
+    {key:'cn-yuwen-2022:3-4-xz-2', code:'3-4-xz-2', data:{domain:'习作',desc:'能围绕熟悉的人、事、物或想象内容写习作，做到内容具体、语句通顺'}},
+    {key:'cn-yuwen-2022:3-4-xz-3', code:'3-4-xz-3', data:{domain:'习作',desc:'养成修改习作的习惯，学会检查错别字、病句和内容是否围绕中心'}},
+    {key:'cn-yuwen-2022:3-4-kj-1', code:'3-4-kj-1', data:{domain:'口语交际',desc:'能倾听、转述、讨论和表达观点，做到条理较清楚、态度自然大方'}},
+    {key:'cn-yuwen-2022:3-4-bd-1', code:'3-4-bd-1', data:{domain:'标点符号',desc:'正确使用引号、冒号、分号、省略号、破折号等常见标点'}},
+    {key:'cn-yuwen-2022:3-4-kwdy-1', code:'3-4-kwdy-1', data:{domain:'整本书阅读',desc:'养成整本书阅读习惯，能记录阅读内容并交流阅读感受'}},
+    {key:'cn-yuwen-2022:3-4-zh-1', code:'3-4-zh-1', data:{domain:'综合性学习',desc:'围绕主题搜集整理资料，合作完成表达、展示和交流活动'}}
+  ]],
+  ['cn-shuxue-2022', [
+    {key:'cn-shuxue-2022:3-4-syds-1', code:'3-4-syds-1', data:{domain:'数与代数-数与运算',desc:'认识更大的数和简单分数，能进行多位数加减、乘一位数等运算'}},
+    {key:'cn-shuxue-2022:3-4-syds-2', code:'3-4-syds-2', data:{domain:'数与代数-数量关系',desc:'能分析简单数量关系，解决两步计算和倍数问题'}},
+    {key:'cn-shuxue-2022:3-4-syds-3', code:'3-4-syds-3', data:{domain:'数与代数-估算与规律',desc:'能借助估算检验结果合理性，探索并表达简单规律'}},
+    {key:'cn-shuxue-2022:3-4-syds-4', code:'3-4-syds-4', data:{domain:'数与代数-乘法',desc:'理解乘法算理，掌握多位数乘一位数及相关应用'}},
+    {key:'cn-shuxue-2022:3-4-syds-5', code:'3-4-syds-5', data:{domain:'数与代数-除法',desc:'理解除法与乘法的关系，能解决表内及有余数除法实际问题'}},
+    {key:'cn-shuxue-2022:3-4-syds-6', code:'3-4-syds-6', data:{domain:'数与代数-混合运算',desc:'理解运算顺序，能进行简单混合运算并用于解决问题'}},
+    {key:'cn-shuxue-2022:3-4-cl-1', code:'3-4-cl-1', data:{domain:'图形与几何-长度',desc:'认识毫米、分米等长度单位，能进行测量与单位换算'}},
+    {key:'cn-shuxue-2022:3-4-cl-2', code:'3-4-cl-2', data:{domain:'量与计量-时间',desc:'认识秒和24时记时法，能解决简单经过时间问题'}},
+    {key:'cn-shuxue-2022:3-4-cl-3', code:'3-4-cl-3', data:{domain:'量与计量-质量',desc:'认识吨并能在克、千克、吨之间作简单换算和应用'}},
+    {key:'cn-shuxue-2022:3-4-tx-1', code:'3-4-tx-1', data:{domain:'图形与几何-图形测量',desc:'认识周长和面积，能在直观基础上测量和计算长方形、正方形的周长或面积'}},
+    {key:'cn-shuxue-2022:3-4-tx-2', code:'3-4-tx-2', data:{domain:'图形与几何-观察物体',desc:'能辨认从不同角度观察简单组合物体看到的图形'}},
+    {key:'cn-shuxue-2022:3-4-tx-3', code:'3-4-tx-3', data:{domain:'图形与几何-图形运动',desc:'进一步认识轴对称、平移和旋转现象，并能作简单判断'}},
+    {key:'cn-shuxue-2022:3-4-sjtj-1', code:'3-4-sjtj-1', data:{domain:'统计与概率',desc:'能设计简单调查，整理数据，读写统计表和条形统计图'}},
+    {key:'cn-shuxue-2022:3-4-zonghe-1', code:'3-4-zonghe-1', data:{domain:'综合与实践',desc:'综合运用列表、画图、推理等方法解决搭配、统计和优化选择问题'}}
+  ]]
+];
+
+for (const [slug, topics] of extraEntries) {
+  const target = curricula.find(c => c.slug === slug);
+  if (!target) continue;
+  for (const item of topics) {
+    if (!target.topics.some(existing => existing.key === item.key)) {
+      target.topics.push(item);
+    }
+  }
+  target.topicCount = target.topics.length;
+}
+
 writeFileSync(OUT, JSON.stringify(data, null, 2), 'utf8');
 console.log(`✅ 课标数据写入: ${curricula.length}个课标文件, ${curricula.reduce((s,c)=>s+c.topics.length,0)}个条目`);
