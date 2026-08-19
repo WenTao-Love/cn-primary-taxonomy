@@ -1,0 +1,288 @@
+/**
+ * generate-others.mjs
+ * 生成科学/道法/劳动/英语/信息科技/AI素养/体育/美术/音乐 二年级知识点（代表性覆盖）
+ */
+import { writeFileSync } from 'node:fs';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const OUT = resolve(__dirname, '..', 'data', 'topics-others-g2.json');
+
+const SUB = {
+  KX: ['科学','教科版'],
+  DF: ['道德与法治','统编版'],
+  LD: ['劳动','人教版'],
+  YY: ['英语','外研版（一起点）'],
+  XX: ['信息科技','自编内容'],
+  AI: ['AI素养','自编内容'],
+  TY: ['体育与健康','人教版'],
+  MS: ['美术','人教版'],
+  YYP: ['音乐','人教版'],
+};
+
+const T = (code, num, term, rest) => {
+  const [subject, textbook] = SUB[code];
+  const termCode = term==='上'?'S':term==='下'?'X':'Q';
+  return {
+    id: `ct_${code}2${termCode}${String(num).padStart(3,'0')}`,
+    type: rest.type,
+    typeLabel: {CONCEPTUAL:'概念',PROCEDURAL:'技能',REPRESENTATIONAL:'表征',LANGUAGE:'语言',META:'元认知'}[rest.type],
+    subject,
+    subjectCode: code,
+    domain: rest.domain,
+    name: rest.name,
+    description: rest.description,
+    grade: 2,
+    term,
+    gradeBand: 'L',
+    textbook,
+    ageRangeStart: 7,
+    ageRangeEnd: 8,
+    difficulty: rest.difficulty ?? 2,
+    centrality: null,
+    evidence: rest.evidence,
+    commonMistakes: rest.commonMistakes ?? [],
+    examTips: rest.examTips ?? null,
+    assessmentPrompt: rest.assessmentPrompt ?? null,
+    standards: rest.standards ?? []
+  };
+};
+
+const topics = [];
+let n;
+
+// ============ 科学（教科版二年级上+下） ============
+// 上册：我们的地球家园/材料 两个单元；下册：磁铁/我们自己 两个单元
+n=1; topics.push(T('KX',n++,'上',{type:'CONCEPTUAL',domain:'地球与宇宙科学',name:'地球家园中有什么',
+  description:'知道地球是我们的家园，地球家园中有空气、土壤、岩石、水、动物、植物、人等；这些是相互联系的，缺一不可。',
+  difficulty:1, evidence:['能说出地球家园中至少6样东西','知道生物和非生物都是地球家园的一部分'],
+  standards:['cn-kexue-2022:1-2-dq-1']}));
+topics.push(T('KX',n++,'上',{type:'CONCEPTUAL',domain:'地球与宇宙科学',name:'土壤——动植物的乐园',
+  description:'知道土壤上生长着许多植物，土壤表面和土壤里生活着许多动物；土壤是动植物的重要栖息地。',
+  difficulty:2, evidence:['能说出土壤里有什么（蚯蚓、蚂蚁、草根、落叶等)','知道保护土壤的重要性'],
+  standards:['cn-kexue-2022:1-2-dq-1']}));
+topics.push(T('KX',n++,'上',{type:'CONCEPTUAL',domain:'地球与宇宙科学',name:'各种各样的天气',
+  description:'认识阴、晴、雨、雪、风等常见天气现象；知道天气对动植物和人类生活的影响；学会区分不同天气。',
+  difficulty:1, evidence:['能识别常见天气符号','能说出今天是什么天气','知道不同天气该穿什么衣服'],
+  standards:['cn-kexue-2022:1-2-dq-2']}));
+topics.push(T('KX',n++,'上',{type:'CONCEPTUAL',domain:'地球与宇宙科学',name:'不同的季节',
+  description:'知道一年有春、夏、秋、冬四个季节；不同季节有典型的天气、动植物变化和人类活动特点；季节变化对动植物和人类生活有影响。',
+  difficulty:1, evidence:['能说出四季名称和各季节主要特点','能说出不同季节里植物的变化（发芽/茂盛/落叶/光秃）'],
+  standards:['cn-kexue-2022:1-2-dq-2']}));
+topics.push(T('KX',n++,'上',{type:'CONCEPTUAL',domain:'地球与宇宙科学',name:'太阳的位置和方向',
+  description:'知道太阳每天东升西落；早晨太阳在东方，傍晚在西方，中午在南方（北半球）；会利用太阳辨别方向。',
+  difficulty:3, evidence:['知道太阳东升西落','知道早晨面对太阳前面是东后面是西左面是北右面是南'],
+  commonMistakes:['中午太阳在南方容易说成北方','左右方向搞反'],
+  standards:['cn-kexue-2022:1-2-dq-2']}));
+topics.push(T('KX',n++,'上',{type:'CONCEPTUAL',domain:'物质科学',name:'我们生活的世界——材料',
+  description:'认识我们周围常见的材料：金属、木头、塑料、玻璃、陶瓷、橡胶、纸、布等；能按材料对物品分类。',
+  difficulty:2, evidence:['能说出至少5种常见材料','能按材料给物品分类（勺子有金属的、塑料的、木头的）'],
+  standards:['cn-kexue-2022:1-2-wz-1']}));
+topics.push(T('KX',n++,'上',{type:'CONCEPTUAL',domain:'物质科学',name:'不同材料的餐具',
+  description:'通过观察、敲击、摸等方式比较不同材料（金属、陶瓷、塑料、木头）的特点：轻重、软硬、是否反光、敲击声音、表面光滑程度等。',
+  difficulty:2, evidence:['能用看、听、摸等多种感官观察材料特点','能描述不同材料的特征'],
+  standards:['cn-kexue-2022:1-2-wz-1']}));
+topics.push(T('KX',n++,'上',{type:'CONCEPTUAL',domain:'物质科学',name:'书的历史——材料的变化',
+  description:'了解书的演变历史：泥板、甲骨、竹简、帛书、纸书；纸这种材料的优点：轻便、便宜、易书写、可装订；知道纸是中国的蔡伦改进的。',
+  difficulty:2, evidence:['能说出书的几种形式','知道不同材料做书的优缺点','知道蔡伦改进造纸术'],
+  standards:['cn-kexue-2022:1-2-wz-1']}));
+topics.push(T('KX',n++,'下',{type:'CONCEPTUAL',domain:'物质科学',name:'磁铁能吸引什么',
+  description:'认识磁铁：磁铁能吸引铁制的物体，这种性质叫磁性；磁铁不能吸引铜、铝、塑料、木头、纸等；磁铁能隔着一些物体吸铁。',
+  difficulty:2, evidence:['能判断哪些物体能被磁铁吸引','知道磁铁能吸铁但不能吸所有金属（铜、铝不吸）'],
+  commonMistakes:['以为磁铁能吸引所有金属','以为隔着东西就不能吸铁'],
+  standards:['cn-kexue-2022:1-2-wz-2']}));
+topics.push(T('KX',n++,'下',{type:'CONCEPTUAL',domain:'物质科学',name:'磁铁的两极',
+  description:'磁铁上磁力最强的部分叫磁极，磁铁有两个磁极（N极和S极）；两个磁极靠近时，同极相斥、异极相吸；磁铁能指示南北方向。',
+  difficulty:3, evidence:['知道磁铁有两个磁极，两端磁性最强','知道同极相斥异极相吸','知道悬挂的磁铁能指方向（指南针原理）'],
+  standards:['cn-kexue-2022:1-2-wz-2']}));
+topics.push(T('KX',n++,'下',{type:'CONCEPTUAL',domain:'物质科学',name:'指南针',
+  description:'指南针是我国古代四大发明之一，利用磁铁能指示南北的性质制成；指南针由磁针和方位盘组成；学会使用指南针辨别方向。',
+  difficulty:2, evidence:['会使用指南针辨认方向','知道指南针是中国古代四大发明之一'],
+  standards:['cn-kexue-2022:1-2-wz-2']}));
+topics.push(T('KX',n++,'下',{type:'CONCEPTUAL',domain:'生命科学',name:'观察我们的身体',
+  description:'认识我们身体的基本结构：头、颈、躯干、四肢（上肢和下肢）；身体左右对称；身体内部有心、肺、胃、肠、骨骼、肌肉等器官。',
+  difficulty:1, evidence:['能指出身体的主要部位','知道身体左右对称','知道身体内部有哪些主要器官'],
+  standards:['cn-kexue-2022:1-2-sm-1']}));
+topics.push(T('KX',n++,'下',{type:'CONCEPTUAL',domain:'生命科学',name:'通过感官来发现',
+  description:'我们的眼、耳、鼻、舌、皮肤是感觉器官（感官），分别负责看、听、闻、尝、触摸；每个感官有不同的功能，多种感官一起运用才能全面认识事物。',
+  difficulty:2, evidence:['能说出五种感官及其作用','知道只靠一种感官认识事物不全面'],
+  standards:['cn-kexue-2022:1-2-sm-1']}));
+topics.push(T('KX',n++,'下',{type:'CONCEPTUAL',domain:'生命科学',name:'观察与比较',
+  description:'学会用多种感官进行观察和比较：用眼睛看颜色形状大小、用耳朵听声音的高低强弱、用手摸冷热软硬光滑粗糙；通过比较找出事物的不同和相同。',
+  difficulty:2, evidence:['能综合运用多种感官观察物体','能通过比较找出相同点和不同点'],
+  standards:['cn-kexue-2022:1-2-sm-1']}));
+
+// ============ 道德与法治（统编版二年级） ============
+n=1; topics.push(T('DF',n++,'上',{type:'CONCEPTUAL',domain:'我的周末',name:'假期有收获',
+  description:'学会合理安排周末和假期：按时完成作业、帮做家务、户外活动、阅读、和家人在一起；不沉迷电子产品；做事有计划。',
+  difficulty:2, evidence:['能说出周末打算做什么','知道不能长时间看电视玩手机'],
+  standards:['cn-daofa-2022:1-2-sh-1']}));
+topics.push(T('DF',n++,'上',{type:'CONCEPTUAL',domain:'我们的班级',name:'班级生活有规则',
+  description:'班级生活需要规则（课堂纪律、卫生值日、课间文明、排队等）；每个人都要遵守规则，这样班级才有序；可以参与制定班级规则。',
+  difficulty:2, evidence:['能说出3条以上班级规则','知道为什么要守规则'],
+  standards:['cn-daofa-2022:1-2-ji-1']}));
+topics.push(T('DF',n++,'上',{type:'CONCEPTUAL',domain:'我们在公共场所',name:'我们小点儿声',
+  description:'在公共场所（图书馆、医院、电影院、教室）要保持安静，不大声喧哗；什么时候该大声（课堂回答问题、遇到危险喊救命）什么时候该小声，要分辨场合。',
+  difficulty:2, evidence:['知道在哪些公共场所要小声说话','能控制自己的音量'],
+  standards:['cn-daofa-2022:1-2-gg-1']}));
+topics.push(T('DF',n++,'上',{type:'CONCEPTUAL',domain:'我们生活的地方',name:'我爱家乡山和水',
+  description:'了解自己家乡的自然环境（山、河、风景）和人文特点（特产、名胜）；培养热爱家乡的情感；知道自己的家乡在哪里（省、市）。',
+  difficulty:2, evidence:['能说出家乡在哪里（省市）','能介绍家乡一处风景名胜或一种特产'],
+  standards:['cn-daofa-2022:1-2-ax-1']}));
+topics.push(T('DF',n++,'下',{type:'CONCEPTUAL',domain:'让我试试看',name:'挑战第一次',
+  description:'勇于尝试新鲜事物（第一次炒菜、第一次当众发言、第一次游泳）；面对挑战不要怕，想办法解决；遇到困难可以请教大人。',
+  difficulty:2, evidence:['敢于尝试没有做过的事','遇到困难不退缩会想办法'],
+  standards:['cn-daofa-2022:1-2-zt-1']}));
+topics.push(T('DF',n++,'下',{type:'CONCEPTUAL',domain:'绿色小卫士',name:'小水滴的诉说',
+  description:'认识水的重要性，了解水资源是有限的；生活中要节约用水（关紧水龙头、一水多用）；不往水里扔垃圾，保护水源。',
+  difficulty:2, evidence:['能说出3种节约用水的方法','知道为什么要珍惜水'],
+  standards:['cn-daofa-2022:1-2-hj-1']}));
+topics.push(T('DF',n++,'下',{type:'CONCEPTUAL',domain:'绿色小卫士',name:'我是一张纸',
+  description:'纸张来之不易（树木→木材→纸浆→纸张），要节约用纸（双面用纸、废纸回收、少用一次性纸巾）；造纸消耗树木和水。',
+  difficulty:2, evidence:['能说出纸是怎么来的','知道3种节约用纸的方法'],
+  standards:['cn-daofa-2022:1-2-hj-1']}));
+
+// ============ 劳动 ============
+n=1; topics.push(T('LD',n++,'上',{type:'PROCEDURAL',domain:'日常生活劳动',name:'整理书包',
+  description:'学会自己整理书包：前一天晚上按课程表准备第二天要用的课本、文具；书本分类放，大书放后面小书放前面；文具放文具盒；天天自己整理，不依赖家长。',
+  difficulty:1, evidence:['能按课程表独立整理书包','书包里书本整齐不乱','东西都能找到'],
+  standards:['cn-laodong-2022:1-2-sh-1']}));
+topics.push(T('LD',n++,'上',{type:'PROCEDURAL',domain:'日常生活劳动',name:'系鞋带',
+  description:'学会系鞋带：两根鞋带交叉拉紧，折两个"兔耳朵"再交叉，绕一圈穿过拉紧。也可以用"一扣一绕一拉紧"的方法。',
+  difficulty:3, evidence:['能独立系好鞋带','系好后不易松开'],
+  commonMistakes:['结打松了容易散开','蝴蝶结只打了一边'],
+  standards:['cn-laodong-2022:1-2-sh-1']}));
+topics.push(T('LD',n++,'上',{type:'PROCEDURAL',domain:'日常生活劳动',name:'扫地与擦桌子',
+  description:'学会扫地：拿扫帚从屋子角落往中间扫，把垃圾扫到簸箕里，最后倒垃圾桶；擦桌子：先把桌上东西挪开，抹布洗干净拧干，从桌子一端按顺序擦到另一端，最后把抹布洗干净晾干。',
+  difficulty:2, evidence:['能把地扫干净垃圾都进簸箕','能把桌子擦干净没水渍'],
+  standards:['cn-laodong-2022:1-2-sh-1']}));
+topics.push(T('LD',n++,'下',{type:'PROCEDURAL',domain:'日常生活劳动',name:'洗碗',
+  description:'学会洗碗：先把碗里剩饭倒进垃圾桶，用洗碗布沾洗洁精把碗内外都擦洗（注意碗口、碗底和碗外面），再用清水冲干净泡沫，最后把碗碟分类放好或放进碗柜，擦干台面和水池。',
+  difficulty:3, evidence:['能把碗洗干净没有油渍','注意安全不摔碗不乱碰热水','洗完收拾干净台面'],
+  standards:['cn-laodong-2022:1-2-sh-1']}));
+topics.push(T('LD',n++,'下',{type:'PROCEDURAL',domain:'生产劳动',name:'种植小植物',
+  description:'学习种植一种小植物（如绿豆、向日葵、大蒜）：准备花盆和土，播种/栽种，按时浇水、晒太阳、观察记录生长过程；了解植物生长需要水、阳光、空气。',
+  difficulty:3, evidence:['能完成一种植物的种植和日常护理','能观察记录植物的变化（写简单的观察日记）'],
+  standards:['cn-laodong-2022:1-2-sc-1']}));
+topics.push(T('LD',n++,'下',{type:'PROCEDURAL',domain:'日常生活劳动',name:'叠衣服',
+  description:'学会叠衣服：上衣——把衣服平铺，两边袖子折向中间，再从下摆往上对折或三折；裤子——两条裤腿对折，再上下对折；叠好后整齐放好或放进衣柜。',
+  difficulty:2, evidence:['能把上衣和裤子叠整齐','叠好的衣服不皱不乱'],
+  standards:['cn-laodong-2022:1-2-sh-1']}));
+
+// ============ 英语（外研版一起点二年级） ============
+n=1; topics.push(T('YY',n++,'上',{type:'LANGUAGE',domain:'听说',name:'Hello和简单问候',
+  description:'能用Hello/Hi打招呼；能用Good morning/Good afternoon问候；能用How are you? I\'m fine, thank you.问答；能听懂简单课堂指令（Stand up/Sit down/Open your book）。',
+  difficulty:1, evidence:['能正确发音回应问候','能听懂并执行简单课堂指令'],
+  standards:['cn-yingyu-2022:1-2-ts-1']}));
+topics.push(T('YY',n++,'上',{type:'LANGUAGE',domain:'词汇',name:'数字1-20',
+  description:'能听懂、会说、认读英文数字one到twenty；能用英文说年龄、电话号码、数量。',
+  difficulty:2, evidence:['能按顺序背诵1-20','能看到数字读出英文','能听数字做对应动作'],
+  commonMistakes:['thirteen/thirty区分不清','twelve/twenty发音混淆'],
+  standards:['cn-yingyu-2022:1-2-ci-1']}));
+topics.push(T('YY',n++,'上',{type:'LANGUAGE',domain:'词汇',name:'颜色词汇',
+  description:'能说常见颜色red/yellow/blue/green/black/white/pink/orange/purple/brown；能用What color is it? It\'s...问答。',
+  difficulty:1, evidence:['看到颜色能说英文','能听英文指出对应颜色'],
+  standards:['cn-yingyu-2022:1-2-ci-1']}));
+topics.push(T('YY',n++,'下',{type:'LANGUAGE',domain:'词汇',name:'动物词汇',
+  description:'能说常见动物名称cat/dog/bird/fish/rabbit/panda/monkey/elephant/tiger/lion等；能用It\'s a...描述动物；能用big/small/fat/thin形容动物。',
+  difficulty:2, evidence:['能说出10种以上动物英文名称','能模仿动物声音/动作并说出英文'],
+  standards:['cn-yingyu-2022:1-2-ci-1']}));
+topics.push(T('YY',n++,'下',{type:'LANGUAGE',domain:'词汇',name:'家庭成员词汇',
+  description:'能说家庭成员father/mother/brother/sister/grandpa/grandma；能用This is my...介绍家人；能用I love my family表达情感。',
+  difficulty:1, evidence:['能说出主要家庭成员英文称呼','能介绍自己的家庭成员'],
+  standards:['cn-yingyu-2022:1-2-ci-1']}));
+topics.push(T('YY',n++,'下',{type:'LANGUAGE',domain:'听说',name:'26个字母认读',
+  description:'能正确认读、书写26个英文字母（大小写）；能唱字母歌；能按顺序背诵字母表；初步认识字母在单词中的发音。',
+  difficulty:2, evidence:['能按顺序背诵26个字母','能看大写读出字母名','能正确书写大小写字母'],
+  commonMistakes:['b/d、p/q、g/j容易混淆','小写i忘记点、小写t出头方向错'],
+  standards:['cn-yingyu-2022:1-2-zms-1']}));
+
+// ============ 信息科技/AI素养 ============
+n=1; topics.push(T('XX',n++,'全',{type:'CONCEPTUAL',domain:'信息意识',name:'信息和我们的生活',
+  description:'信息无处不在：我们听的、看的、说的都是信息；书本、电视、手机、网络都是信息的来源；信息可以帮助我们学习和生活。',
+  difficulty:1, evidence:['能说出3种获取信息的方式','知道不能轻信网上的所有信息'],
+  standards:['cn-xxkj-2022:1-2-xx-1']}));
+topics.push(T('XX',n++,'全',{type:'PROCEDURAL',domain:'数字设备',name:'计算机基本操作',
+  description:'认识计算机主要部件（显示器、键盘、鼠标、主机）；学会正确开机、关机；会用鼠标点击、拖动；认识键盘主要按键（字母键、数字键、空格键、回车键、退格键）。',
+  difficulty:2, evidence:['能独立开机关机','会用鼠标点击和拖动','能在键盘上找到常用键'],
+  standards:['cn-xxkj-2022:1-2-sb-1']}));
+topics.push(T('XX',n++,'全',{type:'PROCEDURAL',domain:'数字设备',name:'键盘指法入门',
+  description:'认识键盘的基本键位（A S D F J K L ; 是基准键），左右手食指分别放在F和J键上，其余手指依次排列；初步练习正确的打字姿势和指法。',
+  difficulty:2, evidence:['能找到基准键位置（FJ有小凸起）','十指能放在对应位置'],
+  standards:['cn-xxkj-2022:1-2-sb-1']}));
+topics.push(T('AI',n++,'全',{type:'CONCEPTUAL',domain:'AI认知',name:'AI在日常生活中',
+  description:'认识身边的人工智能：语音助手（Siri/小爱同学/小度）、智能推荐（抖音/抖音少儿推荐视频）、人脸识别（门禁/支付）、自动驾驶汽车、翻译软件；知道AI是人类发明的工具。',
+  difficulty:2, evidence:['能说出3个生活中用到AI的例子','知道AI不是真正"思考"而是按照程序工作'],
+  standards:['cn-ai-2024:1-2-rz-1']}));
+topics.push(T('AI',n++,'全',{type:'CONCEPTUAL',domain:'AI认知',name:'智能设备vs非智能设备',
+  description:'区分智能设备和非智能设备：智能设备能感知环境、做出反应、能联网学习（如智能音箱、扫地机器人、智能手机）；非智能设备按固定程序工作（如普通台灯、机械闹钟、传统玩具）。',
+  difficulty:2, evidence:['能判断家里常见电器哪些是智能的','能说出智能设备的"聪明"之处'],
+  standards:['cn-ai-2024:1-2-rz-1']}));
+topics.push(T('AI',n++,'全',{type:'CONCEPTUAL',domain:'AI认知',name:'AI也会犯错',
+  description:'AI不是万能的，会犯错：语音识别会听错、图像识别会认错、翻译会翻错；AI的答案需要人来判断对不对；遇到AI答错要告诉大人。',
+  difficulty:2, evidence:['经历过AI答错的时候能指出来','知道不能全信AI说的话'],
+  standards:['cn-ai-2024:1-2-pl-1']}));
+
+// ============ 体育与健康 ============
+n=1; topics.push(T('TY',n++,'全',{type:'PROCEDURAL',domain:'基本运动',name:'正确的坐立行姿势',
+  description:'坐如钟、立如松、行如风：坐时腰背挺直不驼背；站时抬头挺胸；走路时抬头摆臂自然；正确姿势能保护脊柱和视力。',
+  difficulty:1, evidence:['上课能保持正确坐姿','站和走时姿势端正'],
+  standards:['cn-tiyu-2022:1-2-zs-1']}));
+topics.push(T('TY',n++,'全',{type:'PROCEDURAL',domain:'基本运动',name:'50米快速跑',
+  description:'学会快速跑的动作：前脚掌着地、两臂前后自然摆动、身体前倾、眼看前方；50米跑男生约10-11秒、女生约11-12秒为合格（参考）。',
+  difficulty:2, evidence:['跑步姿势正确（不踮脚跑、不仰头跑）','能全力跑完50米'],
+  standards:['cn-tiyu-2022:1-2-pao-1']}));
+topics.push(T('TY',n++,'全',{type:'PROCEDURAL',domain:'基本运动',name:'广播体操',
+  description:'学会做小学生广播体操（如"希望风帆"或"七彩阳光"）：每节操动作到位、合拍、有力；队形整齐；认真做操锻炼身体。',
+  difficulty:3, evidence:['能跟着音乐完整做一遍广播操','动作基本到位合拍'],
+  standards:['cn-tiyu-2022:1-2-tc-1']}));
+topics.push(T('TY',n++,'全',{type:'PROCEDURAL',domain:'基本运动',name:'跳绳（连续并脚跳）',
+  description:'学会并脚跳绳：绳子从后往前摇过头顶，跳起时脚前掌离地刚好让绳子通过，落地轻；手腕摇绳不是用手臂抡；开始练习连续跳10-30个，逐步增加。',
+  difficulty:3, evidence:['能连续并脚跳绳30个以上','手腕摇绳、落地轻、节奏均匀'],
+  commonMistakes:['跳太高浪费体力','用手臂摇绳而不是手腕','绳子打脚中断'],
+  standards:['cn-tiyu-2022:1-2-tiaosheng-1']}));
+
+// ============ 美术 ============
+n=1; topics.push(T('MS',n++,'全',{type:'PROCEDURAL',domain:'造型表现',name:'认识三原色',
+  description:'认识三原色红、黄、蓝；知道三原色不能由别的颜色调出来；用三原色可以调出其他颜色：红+黄=橙、黄+蓝=绿、红+蓝=紫（三间色）。',
+  difficulty:1, evidence:['能说出三原色名称','能用颜料调出橙、绿、紫三间色'],
+  standards:['cn-meishu-2022:1-2-ys-1']}));
+topics.push(T('MS',n++,'全',{type:'PROCEDURAL',domain:'造型表现',name:'画线条——直线曲线折线',
+  description:'认识不同种类的线：直线、曲线、折线、波浪线、螺旋线、交叉线；不同的线给人不同感觉（直线刚直、曲线柔和、折线尖锐）；用线条可以画各种形状和画面。',
+  difficulty:1, evidence:['能画出各种线条','能用线条组成简单的图案或画面'],
+  standards:['cn-meishu-2022:1-2-xian-1']}));
+topics.push(T('MS',n++,'全',{type:'PROCEDURAL',domain:'手工制作',name:'折纸基础',
+  description:'学习简单折纸：对边折、对角折、集中折、反复折的基本折法；能折简单作品（纸飞机、千纸鹤、小船、东南西北、纸飞机、爱心等）。',
+  difficulty:2, evidence:['会对齐边角折','能按步骤折出2-3种简单折纸作品'],
+  standards:['cn-meishu-2022:1-2-zs-1']}));
+
+// ============ 音乐 ============
+n=1; topics.push(T('YYP',n++,'全',{type:'CONCEPTUAL',domain:'音乐知识',name:'认识do re mi',
+  description:'认识七个基本唱名do re mi fa sol la si，能跟着模唱；知道简谱1234567对应do re mi fa sol la si；柯尔文手势辅助音高记忆。',
+  difficulty:2, evidence:['能跟着钢琴唱准do re mi三个音','认识简谱123'],
+  standards:['cn-yinyue-2022:1-2-yl-1']}));
+topics.push(T('YYP',n++,'全',{type:'PROCEDURAL',domain:'演唱',name:'正确的唱歌姿势和呼吸',
+  description:'唱歌姿势：坐/站端正，双肩放松，头摆正，嘴巴自然张开；呼吸：用肚子（腹式呼吸）吸气时肚子鼓起来，唱的时候慢慢呼气；不要扯着嗓子喊。',
+  difficulty:2, evidence:['唱歌姿势正确不耸肩','能用自然声音唱歌不喊叫'],
+  standards:['cn-yinyue-2022:1-2-ys-1']}));
+topics.push(T('YYP',n++,'全',{type:'CONCEPTUAL',domain:'音乐知识',name:'认识简单打击乐器',
+  description:'认识常见打击乐器：铃鼓、沙锤、三角铁、响板、双响筒、木鱼、鼓；知道它们的音色特点；能用打击乐器为歌曲伴奏。',
+  difficulty:1, evidence:['能叫出3种以上打击乐器名字','能按节奏用打击乐器伴奏'],
+  standards:['cn-yinyue-2022:1-2-yq-1']}));
+
+// 写文件
+const data = {
+  version: 'v0.1-mvp',
+  note: '其他学科（科学/道法/劳动/英语/信息科技/AI素养/体/美/音）二年级知识点',
+  topicCount: topics.length,
+  topics
+};
+
+writeFileSync(OUT, JSON.stringify(data, null, 2), 'utf8');
+console.log(`✅ 其他学科合计：${topics.length} 个知识点写入 ${OUT}`);
+
+// 统计
+const bySub = {};
+topics.forEach(t => { bySub[t.subject] = (bySub[t.subject]||0)+1; });
+console.log('按学科:', JSON.stringify(bySub, null, 2));

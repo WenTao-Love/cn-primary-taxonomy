@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn-primary-taxonomy.cn/schema/topics.schema.json",
+  "title": "CN-Primary-Taxonomy — 知识点 (topics)",
+  "description": "中国小学教育知识图谱 - 知识点节点",
+  "type": "object",
+  "required": ["version", "topicCount", "topics"],
+  "properties": {
+    "version": { "type": "string", "description": "数据版本号，如 v0.1-mvp" },
+    "topicCount": { "type": "integer", "minimum": 0 },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "subject", "name", "description", "evidence", "standards", "grade"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^ct_[A-Z]{2}[0-6][SXQ][0-9]{3}$", "description": "知识点ID，格式 ct_{学科码}{年级}{学期(上S/下X/全Q)}{序号}" },
+          "type": { "type": "string", "enum": ["CONCEPTUAL", "PROCEDURAL", "REPRESENTATIONAL", "LANGUAGE", "META"] },
+          "typeLabel": { "type": "string", "enum": ["概念", "技能", "表征", "语言", "元认知"] },
+          "subject": { "type": "string", "enum": ["语文", "数学", "英语", "科学", "道德与法治", "劳动", "体育与健康", "美术", "音乐", "信息科技", "AI素养", "综合实践"] },
+          "subjectCode": { "type": "string", "enum": ["YW", "SX", "YY", "KX", "DF", "LD", "TY", "MS", "YYP", "XX", "AI", "ZH"] },
+          "domain": { "type": ["string", "null"], "description": "领域/模块，如 识字与写字/数与代数/地球与宇宙科学" },
+          "name": { "type": "string", "description": "知识点名称" },
+          "description": { "type": "string", "description": "简洁清晰的知识点描述，1-3句话" },
+          "grade": { "type": "integer", "minimum": 1, "maximum": 6, "description": "主年级（1-6）" },
+          "term": { "type": "string", "enum": ["上", "下", "全"], "description": "学期：上/下/全一册" },
+          "gradeBand": { "type": "string", "enum": ["L", "M", "H"], "description": "年级段：低段L(1-2)/中段M(3-4)/高段H(5-6)" },
+          "textbook": { "type": ["string", "null"], "description": "教材版本，如 统编版/人教版/北师大版/教科版/外研版一起点" },
+          "ageRangeStart": { "type": ["integer", "null"] },
+          "ageRangeEnd": { "type": ["integer", "null"] },
+          "difficulty": { "type": "integer", "minimum": 1, "maximum": 5, "description": "难度星级1-5" },
+          "centrality": { "type": ["number", "null"], "description": "在图中的中心度，后续计算填充" },
+          "evidence": { "type": "array", "items": { "type": "string" }, "description": "掌握证据：会做什么就算掌握了" },
+          "commonMistakes": { "type": "array", "items": { "type": "string" }, "description": "常见易错点" },
+          "examTips": { "type": ["string", "null"], "description": "常见考法/考试提示" },
+          "assessmentPrompt": { "type": ["string", "null"], "description": "家长/老师可直接使用的测评话术，含{{name}}占位符" },
+          "standards": { "type": "array", "items": { "type": "string" }, "description": "对齐的课标条目编码" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,1654 @@
+{
+  "version": "v0.1-mvp",
+  "note": "数学（人教版二年级上+下）知识点，最终将合并进 topics.json",
+  "topicCount": 52,
+  "topics": [
+    {
+      "id": "ct_SX2S001",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "统一长度单位的必要性",
+      "description": "体会统一长度单位的必要性：用不同物品（如拃、铅笔、橡皮）作标准量同一长度，结果不同，所以需要统一的长度单位。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 1,
+      "centrality": null,
+      "evidence": [
+        "能说出为什么要用尺子量而不是用手拃",
+        "知道不同的测量工具量同一物体结果不一样"
+      ],
+      "commonMistakes": [
+        "觉得用手拃量也挺准",
+        "不理解为什么需要单位"
+      ],
+      "examTips": "选择题：为什么要统一长度单位",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S002",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "认识厘米",
+      "description": "认识长度单位\"厘米\"（cm）：尺子上每相邻两个长刻度线之间的长度是1厘米。食指的宽度大约是1厘米。用厘米量较短物体的长度。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能在尺子上指出1厘米、2厘米、5厘米的长度",
+        "能用尺子正确量物体长度（对准0刻度、尺子放平）"
+      ],
+      "commonMistakes": [
+        "量的时候没对准0刻度从1开始量",
+        "尺子没放平斜着量",
+        "数刻度时把起始0算成1"
+      ],
+      "examTips": "测量物体长度；看尺子读数；填上合适的长度单位（厘米/米）",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S003",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "认识米",
+      "description": "认识长度单位\"米\"（m）：量较长物体用米作单位。1米=100厘米。两臂伸开大约1米。米尺长度是1米。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "知道量教室、大树等长物体用米做单位",
+        "能说出1米=100厘米",
+        "能进行简单的米和厘米换算"
+      ],
+      "commonMistakes": [
+        "1米=10厘米（漏一个0）",
+        "选择单位时混淆厘米和米（铅笔长18米的错误）"
+      ],
+      "examTips": "填合适单位（厘米/米）；1米=（  ）厘米；比较大小",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S004",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "用尺子量物体长度",
+      "description": "用刻度尺量物体长度的方法：①把尺子的\"0\"刻度对准物体的一端；②把尺子放平、紧贴物体；③看物体另一端对着刻度几，物体就是几厘米。如果不是从0刻度开始，就用末端刻度减起始刻度。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能用尺子正确量铅笔、橡皮等物体的长度",
+        "尺子斜着量时能发现不对"
+      ],
+      "commonMistakes": [
+        "没有对准0刻度",
+        "尺子没有放平",
+        "读数时从正面看但没对齐刻度线"
+      ],
+      "examTips": "看图读出物体长度；测量正误判断",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S005",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "画线段",
+      "description": "认识线段：直直的、有两个端点、可以量出长度的线叫线段。学会画线段：①从尺子0刻度开始画起；②需要画几厘米长的线段就画到尺子几厘米的地方；③两端画上端点。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能指出哪些是线段哪些不是（弯的线不是、没有端点的不是）",
+        "能按要求画出指定长度（如3厘米）的线段"
+      ],
+      "commonMistakes": [
+        "线段不画端点",
+        "从1刻度画起但忘了减1",
+        "画出来弯弯曲曲"
+      ],
+      "examTips": "判断哪些是线段；画一条X厘米长的线段；数图形中有几条线段",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S010",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "两位数加两位数（不进位）",
+      "description": "两位数加两位数，相同数位对齐，从个位加起。不进位加法：个位加个位不超过10，直接写得数；十位加十位写得数。如34+25=59。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能列竖式正确计算不进位两位数加法",
+        "知道相同数位对齐"
+      ],
+      "commonMistakes": [
+        "数位不对齐（个位加十位）",
+        "从十位加起（虽然也能算但不符合规范）"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S011",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "两位数加两位数（进位）",
+      "description": "两位数加两位数（进位）：相同数位对齐，从个位加起；个位相加满10，向十位进1；十位相加时要加上进来的1。如36+37=73（6+7=13，写3进1；3+3+1=7）。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能正确列竖式计算进位加法",
+        "记得在十位右下角写小\"1\"表示进位"
+      ],
+      "commonMistakes": [
+        "忘了加进位的1",
+        "进位1写太大当成结果的一部分",
+        "从十位开始加，个位进位后要擦掉重算"
+      ],
+      "examTips": "竖式计算；判断对错（忘记进位是常见错）",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S012",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "两位数减两位数（不退位）",
+      "description": "两位数减两位数，相同数位对齐，从个位减起。不退位减法：个位够减直接减，十位直接减。如58-32=26。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能列竖式正确计算不退位两位数减法"
+      ],
+      "commonMistakes": [
+        "数位不对齐",
+        "大数减小数惯性（个位减数比被减数大时反过来减）"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S013",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "两位数减两位数（退位）",
+      "description": "两位数减两位数（退位）：相同数位对齐，从个位减起；个位不够减，从十位退1，在个位加10再减；十位要先减退走的1再减。如51-36=15（个位1减6不够，从十位5退1变4，个位变11-6=5，十位4-3=1）。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能正确列竖式计算退位减法",
+        "记得在十位数上面点一个点表示退了1"
+      ],
+      "commonMistakes": [
+        "个位不够减时倒过来减（6-1=5）",
+        "十位忘记先减1再减",
+        "点了退位点但十位没减1"
+      ],
+      "examTips": "竖式计算；判断对错；填空（借位后十位变多少）",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S014",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "求比一个数多几或少几的数",
+      "description": "解决比多少的问题：①求比一个数多几的数，用加法。如：二(1)班有15面小红旗，二(2)班比二(1)班多3面，二(2)班有多少面？15+3=18。②求比一个数少几的数，用减法。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能根据题意判断用加法还是减法",
+        "能画出线段图帮助理解"
+      ],
+      "commonMistakes": [
+        "看到\"多\"就加、看到\"少\"就减，不分析谁多谁少（\"比A多3\"和\"A比B多3\"搞混）",
+        "列式后答非所问"
+      ],
+      "examTips": "应用题：比多少；画线段图辅助",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-2"
+      ]
+    },
+    {
+      "id": "ct_SX2S015",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "连加连减和加减混合",
+      "description": "三个数的连加连减、加减混合运算：竖式可以列成一个长竖式简便计算，也可以分开列。运算顺序从左到右。能口算的就口算。有小括号的先算括号里面的。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能列竖式计算连加连减加减混合",
+        "有小括号的知道先算括号里面的",
+        "能口算的步骤用口算简化"
+      ],
+      "commonMistakes": [
+        "抄错数字或运算符号",
+        "忘记小括号先算",
+        "进退位错误在长竖式中更多"
+      ],
+      "examTips": "竖式计算；判断对错；应用题连加连减",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S016",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "100以内加减法的估算",
+      "description": "加减法估算：把两个数看成和它接近的整十数，再口算。如28+43≈30+40=70。判断\"够不够\"\"能不能\"等问题时常用估算。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能把两位数看成接近的整十数",
+        "能用估算解决\"够不够\"问题"
+      ],
+      "commonMistakes": [
+        "估算后又精算一遍",
+        "把数看成最接近的整十数估算但方向错了（该往大估反而往小估）"
+      ],
+      "examTips": "估一估得数大约几十；够不够的问题",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-3"
+      ]
+    },
+    {
+      "id": "ct_SX2S020",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "角的初步认识",
+      "description": "认识角：角有一个顶点和两条直直的边。角的两条边是从顶点出发的。如三角尺上的角、桌子的角、钟面上的角。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能在图形中找出角",
+        "能指出角的顶点和边"
+      ],
+      "commonMistakes": [
+        "把边画弯的图形也当角",
+        "只看到顶点没看到两条边",
+        "数角时漏数"
+      ],
+      "examTips": "判断哪些图形是角；数图形中有几个角",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-tx-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S021",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "直角的认识",
+      "description": "认识直角：三角尺上最大的那个角是直角。可以用三角尺上的直角去比一比，判断一个角是不是直角：顶点对顶点，一边对一边，看另一边是否重合。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能用三角尺判断一个角是不是直角",
+        "能在物体表面找出直角（课桌、书本等）"
+      ],
+      "commonMistakes": [
+        "目测判断直角不准确（锐角看成直角）",
+        "比的时候顶点没对齐"
+      ],
+      "examTips": "用三角尺比一比；找直角；判断直角",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-tx-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S022",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "锐角和钝角",
+      "description": "比直角小的角叫锐角，比直角大的角叫钝角。用三角尺的直角比：另一条边在直角里面是锐角，在直角外面是钝角。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能区分锐角、直角、钝角",
+        "能按大小排序（锐角<直角<钝角）"
+      ],
+      "commonMistakes": [
+        "钝角和锐角分不清楚",
+        "接近直角的锐角/钝角目测容易错"
+      ],
+      "examTips": "连一连：锐角/直角/钝角；按从大到小排",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-tx-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S023",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "画角",
+      "description": "从一个点起，用尺子向不同方向画两条笔直的线，就画成一个角。先点一个顶点，再从顶点出发画两条边。画直角可以用三角尺辅助。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能按要求画一个角（含直角）",
+        "画的角有顶点和两条直边"
+      ],
+      "commonMistakes": [
+        "边画弯了",
+        "没有顶点（两条线分开的）",
+        "画直角时不用三角尺导致角度不准"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-tx-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S030",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "乘法的初步认识",
+      "description": "理解乘法的意义：几个相同加数相加，可以用乘法表示，更简便。如3+3+3+3+3=15，是5个3相加，可以写成3×5=15或5×3=15。乘号\"×\"，相乘的两个数叫乘数（因数），结果叫积。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能把相同加数连加改写成乘法算式",
+        "知道3×5表示5个3相加或3个5相加"
+      ],
+      "commonMistakes": [
+        "把不同加数相加也写成乘法（2+3+4不能写成乘法）",
+        "几个几搞反（3个5写成3+3+3+3+3）"
+      ],
+      "examTips": "加法改乘法；看图写乘法算式；乘法算式读作什么",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-4"
+      ]
+    },
+    {
+      "id": "ct_SX2S031",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "2-6的乘法口诀",
+      "description": "熟记2-6的乘法口诀，共21句。口诀前两个字是两个乘数（较小数在前），后面是积。如\"二三得六\"表示2×3=6和3×2=6。每相邻两句口诀的积相差相应的数。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能顺背、倒背、抽背2-6的乘法口诀",
+        "能根据口诀写乘法算式",
+        "看到两个一位数相乘能口算出积"
+      ],
+      "commonMistakes": [
+        "口诀背错（如\"二六十二\"说成\"二六得十二\"或\"二六十二\"漏字）",
+        "\"三四十二\"和\"二六十二\"混淆",
+        "口诀写成阿拉伯数字"
+      ],
+      "examTips": "补充口诀；口算；根据口诀写算式",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-4"
+      ]
+    },
+    {
+      "id": "ct_SX2S032",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "7-9的乘法口诀",
+      "description": "熟记7、8、9的乘法口诀。7的口诀7句，8的口诀8句，9的口诀9句。9的乘法口诀有规律：积的十位与个位数字之和是9；几乘9积就是几十减几（9×5=45=50-5）。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "熟记7-9的乘法口诀",
+        "能用口诀快速口算",
+        "知道9的口诀规律帮助记忆"
+      ],
+      "commonMistakes": [
+        "7、8、9的口诀容易记错（如\"七八五十六\"记成\"七八五十四\"）",
+        "9的口诀积的十位个位写反"
+      ],
+      "examTips": "补充口诀；口算；括号里最大能填几（如(  )×8<55）",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-4"
+      ]
+    },
+    {
+      "id": "ct_SX2S033",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "乘加乘减",
+      "description": "乘加乘减算式：先看有几个相同的数用乘法，再加上或减去剩下的。如3+3+3+2=3×3+2=11（乘加）；3+3+3+3-1=3×4-1=11（乘减）。运算顺序：先算乘法，再算加法或减法。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能看图写乘加或乘减算式",
+        "知道先乘后加减"
+      ],
+      "commonMistakes": [
+        "先算加减后算乘法（运算顺序错）",
+        "看图时数错相同的个数"
+      ],
+      "examTips": "看图写乘加乘减算式；计算乘加乘减",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-4"
+      ]
+    },
+    {
+      "id": "ct_SX2S034",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "求一个数的几倍是多少",
+      "description": "理解\"倍\"的概念：一个数里面有几个另一个数，就是另一个数的几倍。求一个数的几倍是多少，就是求几个这个数是多少，用乘法。如苹果有3个，梨是苹果的4倍，梨有3×4=12个。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能通过摆小棒、画图理解\"倍\"",
+        "能解决\"求一个数的几倍是多少\"的应用题"
+      ],
+      "commonMistakes": [
+        "\"倍\"和\"几个几\"对应不上",
+        "\"求几倍\"用错运算（做成除法）",
+        "谁是谁的几倍搞反"
+      ],
+      "examTips": "画一画○是△的几倍；应用题求几倍是多少",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-4"
+      ]
+    },
+    {
+      "id": "ct_SX2S040",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "从不同位置观察物体",
+      "description": "从不同位置（前面、后面、侧面、上面）观察同一个物体，看到的形状可能不一样。要判断某个人看到什么形状，要站在那个人的位置去想。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能判断从前面/侧面/上面看到的形状",
+        "能根据看到的形状判断观察者的位置"
+      ],
+      "commonMistakes": [
+        "左右侧面混淆",
+        "看到的形状和位置对应错"
+      ],
+      "examTips": "连线：谁看到什么；判断看到的形状",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-tx-2"
+      ]
+    },
+    {
+      "id": "ct_SX2S045",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "认识钟面和时与分",
+      "description": "钟面上有12个大格，每个大格里有5个小格，共有60个小格。时针走1大格是1小时；分针走1小格是1分钟，走1大格是5分钟，走1圈是60分钟。1时=60分。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能说出钟面上有多少大格、多少小格",
+        "知道1时=60分",
+        "知道时针走1大格、分针走1圈就是1小时"
+      ],
+      "commonMistakes": [
+        "大格小格数错（大格12个、小格60个记混）",
+        "分针走1大格是1分钟（错，是5分钟）"
+      ],
+      "examTips": "钟面上有几个大格/小格；1时=（ ）分；分针走一大格是几分钟",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-2"
+      ]
+    },
+    {
+      "id": "ct_SX2S046",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "认识几时几分",
+      "description": "看钟面读时间：①先看时针（短针），时针走过数字几，就是几时多；②再看分针（长针），分针从12起走了几个小格，就是几分（分针指几就用几乘5，再加上多的小格数）。如时针在7和8之间，分针指6（30小格），就是7时30分（7:30）。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能准确读出钟面上的几时几分",
+        "会用\"几时几分\"和电子表形式（7:30）两种写法"
+      ],
+      "commonMistakes": [
+        "时针在7和8之间读成8时（应该是7时多）",
+        "分针指几就当几分（指6是30分不是6分）",
+        "接近整时读错（7:55容易读成8:55）"
+      ],
+      "examTips": "看钟面写时间；判断时间读法是否正确；按时间画指针",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-2"
+      ]
+    },
+    {
+      "id": "ct_SX2S047",
+      "type": "META",
+      "typeLabel": "元认知",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "合理安排时间",
+      "description": "结合生活实际，判断做某件事大概需要多长时间（如吃饭约20分钟、睡觉约9小时、跳绳20下约10秒），能合理安排时间先后顺序。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能选择合适的时间单位填空",
+        "能说出几件事的先后顺序"
+      ],
+      "commonMistakes": [
+        "时间单位选择不合理（吃饭用了10小时）",
+        "对分钟和小时的长短没有概念"
+      ],
+      "examTips": "填上合适的时间单位；判断时间安排是否合理",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-2"
+      ]
+    },
+    {
+      "id": "ct_SX2S050",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "综合与实践",
+      "name": "简单的排列",
+      "description": "简单的排列问题：用几个数字组数，每个数字不能重复。如用1、2、3组成两位数，可以组成12、13、21、23、31、32，共6个。方法：先确定十位，再换个位，有序思考不重复不遗漏。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能有序列举出所有可能的两位数",
+        "知道0不能在十位（如果有0）"
+      ],
+      "commonMistakes": [
+        "无序列举导致重复或遗漏",
+        "忘记0不能在最高位",
+        "顺序混乱多数或少数"
+      ],
+      "examTips": "组数（能组成几个两位数）；涂颜色（相邻不同色）",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-zonghe-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S051",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "综合与实践",
+      "name": "简单的组合",
+      "description": "简单的组合问题：有3个数5、7、9，任意选取其中2个求和，得数有几种可能？5+7=12、5+9=14、7+9=16，共3种。组合和排列不同：组合不考虑顺序，两个数交换位置和不变，算一种。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "理解组合和排列的区别（排列与顺序有关，组合与顺序无关）",
+        "能有序列举不重复的组合"
+      ],
+      "commonMistakes": [
+        "把组合当成排列算出6种（实际3种）",
+        "握手/穿衣搭配等场景思路不清"
+      ],
+      "examTips": "握手问题、搭配衣服问题、求和/求积有几种可能",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-zonghe-1"
+      ]
+    },
+    {
+      "id": "ct_SX2X060",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "统计与概率",
+      "name": "简单的数据收集与整理",
+      "description": "学习用调查法收集数据：可以用举手、站队、投票等方法；用画\"正\"字的方法记录数据（一个\"正\"字5画代表5个）；将数据填入简单的统计表中；根据统计表回答问题。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能用画\"正\"字的方法记录数据",
+        "能看懂简单的统计表并回答问题",
+        "知道要调查大多数人意见才公平"
+      ],
+      "commonMistakes": [
+        "\"正\"字笔画数错（一个正字5画不是6画）",
+        "统计时漏数或重复数",
+        "看表回答问题时选错列"
+      ],
+      "examTips": "根据统计记录填表；根据统计表回答问题；\"正\"字表示多少",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-sjtj-1"
+      ]
+    },
+    {
+      "id": "ct_SX2X065",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "平均分",
+      "description": "理解\"平均分\"：每份分得同样多，叫平均分。平均分有两种分法：①按指定份数分（把12个苹果平均分成3份，每份几个）；②按每几个一份分（12个苹果每4个一份，可以分几份）。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能判断哪种分法是平均分",
+        "能动手操作进行平均分"
+      ],
+      "commonMistakes": [
+        "每份不一样多以为是平均分",
+        "两种分法的题目分不清楚"
+      ],
+      "examTips": "判断是否平均分；圈一圈分一分",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-5"
+      ]
+    },
+    {
+      "id": "ct_SX2X066",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "除法的初步认识",
+      "description": "理解除法的意义：把一些东西平均分，可以用除法表示。除号\"÷\"。12÷4=3读作\"12除以4等于3\"。12是被除数，4是除数，3是商。两种含义：①把12平均分成4份，每份3个；②12个每4个一份，可以分3份。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能根据平均分情境写出除法算式",
+        "知道除法算式各部分名称",
+        "能正确读出除法算式"
+      ],
+      "commonMistakes": [
+        "把\"除以\"读成\"除\"（12÷4读\"12除以4\"，\"4除12\"也对但二年级不讲）",
+        "被除数和除数位置颠倒",
+        "不分清两种平均分含义"
+      ],
+      "examTips": "看图写除法算式；除法算式各部分名称；读作什么",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-5"
+      ]
+    },
+    {
+      "id": "ct_SX2X067",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "用2-9的乘法口诀求商",
+      "description": "用乘法口诀求商：想\"除数×几=被除数\"，用那句口诀求商。如12÷4=？想：4×(  )=12，口诀\"三四十二\"，商是3。一句口诀可以算两个除法算式（除了两个乘数相同的）：三四十二→12÷3=4，12÷4=3。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "看到除数和被除数能快速想到对应口诀求商",
+        "口算表内除法熟练"
+      ],
+      "commonMistakes": [
+        "口诀记错导致商错",
+        "乘法口诀不熟练求商慢",
+        "除法和乘法关系对应不上"
+      ],
+      "examTips": "口算除法；填空（(  )×4=24）；看图写1乘2除",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-5"
+      ]
+    },
+    {
+      "id": "ct_SX2X068",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "除法应用题",
+      "description": "解决除法的实际问题：①把一个数平均分成几份求每份是多少（平均分问题）；②求一个数里面有几个另一个数（包含问题）。两种都用除法计算。解题时先分析知道什么、求什么。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能根据题意判断用除法",
+        "能正确列出除法算式并写单位名称和答语"
+      ],
+      "commonMistakes": [
+        "单位名称写错（求份数单位是\"份\"或具体单位）",
+        "两种除法应用题列式搞反",
+        "乘除法应用题混淆"
+      ],
+      "examTips": "应用题：平均分/包含问题；两步乘除应用题",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-5"
+      ]
+    },
+    {
+      "id": "ct_SX2X075",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "轴对称图形",
+      "description": "认识轴对称图形：一个图形沿一条直线对折后，两边能够完全重合，这样的图形叫轴对称图形，这条折痕所在的直线叫对称轴。长方形有2条对称轴，正方形有4条，圆有无数条。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能判断一个图形是不是轴对称图形",
+        "能找出轴对称图形的对称轴",
+        "能剪简单的轴对称图形"
+      ],
+      "commonMistakes": [
+        "平行四边形认为是轴对称图形（一般平行四边形不是）",
+        "数对称轴数错（长方形数成4条）",
+        "斜放的轴对称图形认不出"
+      ],
+      "examTips": "判断轴对称图形；数对称轴；画对称轴；选对称轴条数正确的",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-tx-3"
+      ]
+    },
+    {
+      "id": "ct_SX2X076",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "平移",
+      "description": "认识平移现象：物体沿直线移动，本身的方向、大小、形状不变，只是位置变了，这种现象叫平移。如推拉窗户、电梯升降、缆车运行、升国旗、汽车在平直路上行驶。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能识别生活中的平移现象",
+        "能判断图形平移后的位置"
+      ],
+      "commonMistakes": [
+        "把旋转当成平移（方向盘转动不是平移）",
+        "平移后图形方向变了以为错（平移方向不变）"
+      ],
+      "examTips": "判断平移/旋转；平移几格后图形在哪里；涂色",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-tx-3"
+      ]
+    },
+    {
+      "id": "ct_SX2X077",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "旋转",
+      "description": "认识旋转现象：物体绕着一个点或一个轴转动，这种现象叫旋转。如风车转动、方向盘转动、钟表指针转动、摩天轮转动、拧水龙头、旋转门。旋转时物体大小形状不变，但方向在变。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能识别生活中的旋转现象",
+        "能区分平移和旋转"
+      ],
+      "commonMistakes": [
+        "把直线运动当旋转",
+        "不绕固定点的运动以为是旋转"
+      ],
+      "examTips": "判断平移还是旋转；举例说旋转现象",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-tx-3"
+      ]
+    },
+    {
+      "id": "ct_SX2X080",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "同级运算顺序",
+      "description": "在没有括号的算式里，只有加减法或只有乘除法（同级运算），都要从左到右按顺序计算。如23+6-11=18；2×8÷4=4。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能正确判断运算顺序并计算",
+        "能按正确格式脱式计算（等号对齐）"
+      ],
+      "commonMistakes": [
+        "看到好算的就先算（如25-5+5先算5+5）",
+        "脱式计算格式错（等号不对齐或直接写得数）"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-6"
+      ]
+    },
+    {
+      "id": "ct_SX2X081",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "含两级运算顺序",
+      "description": "在没有括号的算式里，如果既有乘除法又有加减法（两级运算），要先算乘除法，后算加减法。如4+5×8=4+40=44；30-12÷6=30-2=28。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能正确判断先算乘除后算加减",
+        "不会被数字位置迷惑（不管乘除在左边还是右边都先算）"
+      ],
+      "commonMistakes": [
+        "按从左到右顺序算（如4+5×8先算4+5=9）",
+        "只记得\"先乘除\"但只算了前面的乘除",
+        "脱式计算时漏抄没算的部分"
+      ],
+      "examTips": "脱式计算；判断对错；填空列综合算式",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-6"
+      ]
+    },
+    {
+      "id": "ct_SX2X082",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "含小括号的混合运算",
+      "description": "算式里有小括号的，要先算小括号里面的，再算小括号外面的。小括号有改变运算顺序的作用。如8×(9-4)=8×5=40；(30+10)÷5=40÷5=8。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "看到小括号知道先算里面",
+        "能正确脱式计算含小括号的算式",
+        "知道什么时候需要加小括号"
+      ],
+      "commonMistakes": [
+        "忽略小括号按没括号算",
+        "分步列式改成综合算式时忘加小括号"
+      ],
+      "examTips": "脱式计算；列综合算式；根据表格列算式",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-6"
+      ]
+    },
+    {
+      "id": "ct_SX2X083",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "两步应用题",
+      "description": "解决需要两步计算的应用题：①先找中间问题——要算出最终答案先算什么；②列分布算式或综合算式解答；③检查答案是否合理。如：面包师傅共烤90个面包，已烤36个，每次烤9个，剩下的还要烤几次？先算剩下90-36=54个，再算54÷9=6次。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能从题中找到需要先算的中间量",
+        "能正确列分步或综合算式解答",
+        "会检查答案合理性"
+      ],
+      "commonMistakes": [
+        "漏算一步直接列一步算式",
+        "分步列对了综合算式漏加小括号",
+        "答语答非所问"
+      ],
+      "examTips": "两步应用题；列综合算式解答",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-6"
+      ]
+    },
+    {
+      "id": "ct_SX2X090",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "有余数除法的意义",
+      "description": "平均分东西时，分到不能再分一份时剩下的数叫余数。如7个草莓每2个摆一盘，摆3盘剩1个，写成7÷2=3……1，读作\"7除以2等于3余1\"。1是余数。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能根据分物情境写出有余数除法算式",
+        "知道余数表示什么（分剩下的）"
+      ],
+      "commonMistakes": [
+        "把商和余数写反",
+        "余数单位名称和商搞混",
+        "余数比除数大（说明还能再分一份）"
+      ],
+      "examTips": "圈一圈填一填；除法算式读作什么；各部分名称",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-7"
+      ]
+    },
+    {
+      "id": "ct_SX2X091",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "余数一定比除数小",
+      "description": "重要规律：在有余数除法中，余数必须比除数小（余数<除数）。如果余数大于或等于除数，说明还能再分一份，商就小了。如除数是5，余数只能是1、2、3、4，不可能是5或更大。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能判断有余数除法算得对不对（看余数是否比除数小）",
+        "知道除数是6时余数最大是5"
+      ],
+      "commonMistakes": [
+        "余数等于或大于除数（错）",
+        "\"余数要比商小\"（记错了，是比除数小）"
+      ],
+      "examTips": "判断对错（余数比除数大的）；除数是几，余数最大/可能是几；填空",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-7"
+      ]
+    },
+    {
+      "id": "ct_SX2X092",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "有余数除法竖式",
+      "description": "学会有余数除法的竖式书写：先写除号\"厂\"，里面写被除数，左边写除数；商写在被除数个位上方；商乘除数的积写在被除数下面，对齐数位；画横线，被除数减积得到余数，余数要比除数小。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能正确书写有余数除法的竖式",
+        "知道竖式中每个数表示什么"
+      ],
+      "commonMistakes": [
+        "商的位置写错（写在十位上）",
+        "余数没和个位对齐",
+        "商和除数相乘算错",
+        "余数≥除数"
+      ],
+      "examTips": "竖式计算；判断竖式对错；竖式中各数含义",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-7"
+      ]
+    },
+    {
+      "id": "ct_SX2X093",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "有余数除法应用题",
+      "description": "用有余数除法解决实际问题，注意两种情况：①\"进一法\"：租车、租船、装东西等，剩下的人/东西也要一份，商要加1。如22人租船，每条船坐4人，22÷4=5……2，至少要6条船；②\"去尾法\"：买东西、做衣服等，剩下的不够一份，商不加1。如10元买3元一个的面包，最多买3个。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 5,
+      "centrality": null,
+      "evidence": [
+        "能根据题意判断商是否要加1",
+        "能正确写答语（\"至少\"\"最多\"关键词）"
+      ],
+      "commonMistakes": [
+        "该进一的没进（剩下2人不租船了？）",
+        "该去尾的进了（10元能买4个面包？）",
+        "周期问题中余数对应错误"
+      ],
+      "examTips": "\"至少需要几条船\"\"最多能买几个\"；按规律摆第几个是什么",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-7"
+      ]
+    },
+    {
+      "id": "ct_SX2X100",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "千以内数的认识",
+      "description": "认识计数单位\"千\"：一个一个地数10个一是十，十个十个地数10个十是一百，一百一百地数10个一百是一千。\"千\"是新的计数单位。三位数的最高位是百位。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能一个一个、十个十个、一百一百地数千以内的数",
+        "知道10个一百是一千"
+      ],
+      "commonMistakes": [
+        "数到接近整百/整千时\"翻坎\"数错（如199后面是200）",
+        "计数单位\"千\"和\"百\"混淆"
+      ],
+      "examTips": "按规律填数；(  )个一百是一千；从某数起数到某数",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-8"
+      ]
+    },
+    {
+      "id": "ct_SX2X101",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "万以内数的读写和组成",
+      "description": "认识\"万\"：10个一千是一万。万以内的数由几个千、几个百、几个十和几个一组成。读数：从高位读起，千位是几读几千；中间有一个0或两个0只读一个\"零\"；末尾不管几个0都不读。写数：从高位写起，哪一位上是几就写几，哪一位没有就写0占位。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能正确读、写万以内的数",
+        "能说出数的组成（如3006由3个千和6个一组成）",
+        "能在算盘上表示万以内的数（上珠表示5）"
+      ],
+      "commonMistakes": [
+        "中间两个0读两个零（错，只读一个）",
+        "写数时少写0占位（如三千零六写成306）",
+        "读数时漏读计数单位"
+      ],
+      "examTips": "读数写数；数的组成；算盘读数",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-8"
+      ]
+    },
+    {
+      "id": "ct_SX2X102",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "万以内数的大小比较",
+      "description": "比较万以内数的大小：①位数不同时，位数多的数大（四位数>三位数>两位数）；②位数相同时，从最高位比起，最高位数字大的数大；最高位相同再比下一位，直到比出大小。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能正确比较多个万以内数的大小",
+        "能用>、<、=符号连接"
+      ],
+      "commonMistakes": [
+        "只看个位数字比较大小",
+        "位数不同时认为数字大的数大（如999>1000错）"
+      ],
+      "examTips": "比较大小；按顺序排列几个数；□里最大/最小填几",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-8"
+      ]
+    },
+    {
+      "id": "ct_SX2X103",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "近似数",
+      "description": "认识近似数：与准确数很接近的整十、整百、整千的数，叫近似数。近似数前面常有\"大约\"\"大概\"\"约\"等词。如一个班有43人，约40人；全校有学生1698人，约1700人。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能找出一个数的近似数（看成接近的整百/整千）",
+        "能区分准确数和近似数"
+      ],
+      "commonMistakes": [
+        "近似数偏离准确数太远（43约100不合适）",
+        "估成非整十整百整千的数（43约42没意义）"
+      ],
+      "examTips": "说一说各数大约是几千/几百；判断准确数和近似数",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-8"
+      ]
+    },
+    {
+      "id": "ct_SX2X104",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "整百整千数加减法",
+      "description": "整百、整千数加减法：把整百整千看成几个百、几个千，然后相加减。如1000+2000=3000（1个千+2个千=3个千）；80+50=130（8个十+5个十=13个十=130）。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能口算整百整千数加减法",
+        "能用估算解决购物\"够不够\"问题"
+      ],
+      "commonMistakes": [
+        "末尾0的个数错（1000+200=3000错）",
+        "进位退位搞错"
+      ],
+      "examTips": "口算；够不够问题（估算解决）",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-8"
+      ]
+    },
+    {
+      "id": "ct_SX2X110",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "认识克",
+      "description": "认识质量单位\"克\"（g）：计量比较轻的物品用\"克\"作单位。一枚2分硬币约重1克。用天平称物品的质量。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "知道1克大约有多重",
+        "知道哪些物品用克作单位（橡皮、铅笔、硬币等）"
+      ],
+      "commonMistakes": [
+        "把较重物品也用克作单位",
+        "对1克有多重没有概念"
+      ],
+      "examTips": "填合适的质量单位；一个鸡蛋约50（  ）",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-3"
+      ]
+    },
+    {
+      "id": "ct_SX2X111",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "认识千克",
+      "description": "认识质量单位\"千克\"（kg）：计量比较重的物品用\"千克\"作单位。1千克=1000克。1袋盐重500克，2袋盐重1千克。用体重秤、电子秤等称较重物品。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "知道1千克=1000克",
+        "知道哪些物品用千克作单位（体重、大米、西瓜等）",
+        "能进行简单的单位换算"
+      ],
+      "commonMistakes": [
+        "1千克=100克（少一个0）",
+        "克和千克选择错误（一个西瓜3克）"
+      ],
+      "examTips": "填合适单位；1千克=（  ）克；比较大小",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-3"
+      ]
+    },
+    {
+      "id": "ct_SX2X112",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "简单的质量计算",
+      "description": "会进行简单的质量计算：相同单位直接相加减，不同单位先统一单位。如1千克-300克=700克。能估计常见物品的质量。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能进行简单的质量计算和换算",
+        "能估计常见物品大约多重"
+      ],
+      "commonMistakes": [
+        "不换算直接计算（1千克+200克=201）",
+        "估计不准"
+      ],
+      "examTips": "计算；在○里填>、<、=；解决问题",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-3"
+      ]
+    },
+    {
+      "id": "ct_SX2X120",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "综合与实践",
+      "name": "简单的逻辑推理",
+      "description": "简单的逻辑推理：根据已知条件逐步推出结论。常用方法：①排除法；②连线法；③列表法。三本书三个人各拿一本，根据两个条件可以推理出结果。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能根据条件用连线法进行简单推理",
+        "知道能确定的先确定，能排除的先排除"
+      ],
+      "commonMistakes": [
+        "条件没用全就下结论",
+        "推理时前后矛盾"
+      ],
+      "examTips": "推理题（连线、填表格、判断名次）；数独（4×4简单）",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-zonghe-1"
+      ]
+    }
+  ]
+}

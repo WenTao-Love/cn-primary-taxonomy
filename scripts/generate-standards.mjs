@@ -1,0 +1,235 @@
+/**
+ * generate-standards.mjs
+ * 生成课标对齐数据 (curriculum-standards.json)
+ * MVP阶段对齐《义务教育课程标准(2022年版)》，先建立二级(学科+学段+领域)的课标条目
+ */
+import { writeFileSync } from 'node:fs';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const OUT = resolve(__dirname, '..', 'data', 'curriculum-standards.json');
+
+const curricula = [
+  {
+    slug: 'cn-yuwen-2022',
+    country: 'CN',
+    name: '义务教育语文课程标准（2022年版）',
+    version: '2022',
+    sourceUrl: 'http://www.moe.gov.cn/srcsite/A26/s8001/202204/t20220420_619921.html',
+    textIncluded: false,
+    license: '政府公开文件，仅引用条目编码和关键术语',
+    topicCount: 0,
+    topics: [
+      // 学段1-2（低年级）识字与写字
+      {key:'cn-yuwen-2022:1-2-sz-1', code:'1-2-sz-1', data:{domain:'识字与写字',desc:'喜欢学习汉字，有主动识字、写字的愿望'}},
+      {key:'cn-yuwen-2022:1-2-sz-2', code:'1-2-sz-2', data:{domain:'识字与写字',desc:'认识常用汉字1600个左右，其中800个左右会写；掌握汉字的基本笔画、偏旁部首、间架结构'}},
+      {key:'cn-yuwen-2022:1-2-sz-3', code:'1-2-sz-3', data:{domain:'识字与写字',desc:'能借助汉语拼音认读汉字，学会用音序检字法和部首检字法查字典'}},
+      {key:'cn-yuwen-2022:1-2-sz-4', code:'1-2-sz-4', data:{domain:'识字与写字',desc:'能按笔顺规则用硬笔写字，注意间架结构，初步感受汉字的形体美'}},
+      // 阅读
+      {key:'cn-yuwen-2022:1-2-yd-1', code:'1-2-yd-1', data:{domain:'阅读与鉴赏',desc:'认识课文中常用的标点符号，学习默读'}},
+      {key:'cn-yuwen-2022:1-2-yd-2', code:'1-2-yd-2', data:{domain:'阅读与鉴赏',desc:'学习用普通话正确、流利、有感情地朗读课文，学习默读'}},
+      {key:'cn-yuwen-2022:1-2-yd-3', code:'1-2-yd-3', data:{domain:'阅读与鉴赏',desc:'结合上下文和生活实际了解课文中词句的意思，能从文本中提取明显信息'}},
+      {key:'cn-yuwen-2022:1-2-yd-4', code:'1-2-yd-4', data:{domain:'阅读与鉴赏',desc:'阅读浅近的童话、寓言、故事，向往美好的情境，关心自然和生命'}},
+      // 古诗文
+      {key:'cn-yuwen-2022:1-2-gsw-1', code:'1-2-gsw-1', data:{domain:'古诗文积累',desc:'积累课文中的优美词语、精彩句段，诵读优秀诗文，注意在诵读中体验情感'}},
+      // 写话
+      {key:'cn-yuwen-2022:1-2-xh-1', code:'1-2-xh-1', data:{domain:'表达与交流-写话',desc:'对写话有兴趣，留心周围事物，写自己想说的话，写想象中的事物；学习使用逗号、句号、问号、感叹号'}},
+      {key:'cn-yuwen-2022:1-2-xh-2', code:'1-2-xh-2', data:{domain:'表达与交流-写话',desc:'能根据图画或简单情境写几句连贯的话'}},
+      // 口语交际
+      {key:'cn-yuwen-2022:1-2-kj-1', code:'1-2-kj-1', data:{domain:'表达与交流-口语交际',desc:'能认真听别人讲话，努力了解讲话的主要内容；能较完整地讲述小故事，能简要讲述自己感兴趣的见闻；与别人交谈，态度自然大方，有礼貌'}},
+      // 语言运用
+      {key:'cn-yuwen-2022:1-2-yysy-1', code:'1-2-yysy-1', data:{domain:'语言运用',desc:'在语境中正确运用近反义词'}},
+      {key:'cn-yuwen-2022:1-2-yysy-2', code:'1-2-yysy-2', data:{domain:'语言运用',desc:'正确使用常用词语（量词、的地得、ABB/AABB等）'}},
+      {key:'cn-yuwen-2022:1-2-yysy-3', code:'1-2-yysy-3', data:{domain:'语言运用',desc:'积累成语和四字词语'}},
+      {key:'cn-yuwen-2022:1-2-yysy-4', code:'1-2-yysy-4', data:{domain:'语言运用',desc:'初步学习使用关联词表达复句关系'}},
+      {key:'cn-yuwen-2022:1-2-yysy-5', code:'1-2-yysy-5', data:{domain:'语言运用',desc:'初步了解比喻、拟人等修辞手法'}},
+      // 句子
+      {key:'cn-yuwen-2022:1-2-jz-1', code:'1-2-jz-1', data:{domain:'句子',desc:'能进行句式转换（把字句被字句等）'}},
+      {key:'cn-yuwen-2022:1-2-jz-2', code:'1-2-jz-2', data:{domain:'句子',desc:'能仿写、扩写句子，使句子更具体'}},
+      // 标点
+      {key:'cn-yuwen-2022:1-2-bd-1', code:'1-2-bd-1', data:{domain:'标点符号',desc:'认识常用标点符号：句号、问号、感叹号、逗号、冒号、引号'}},
+      // 课外阅读
+      {key:'cn-yuwen-2022:1-2-kwdy-1', code:'1-2-kwdy-1', data:{domain:'整本书阅读',desc:'积累课外阅读量不少于5万字，阅读浅近的童话、寓言、儿歌等'}},
+    ]
+  },
+  {
+    slug: 'cn-yuwen-tongbian-2s',
+    country: 'CN',
+    name: '统编版语文·二年级上册（教材单元对照）',
+    version: '2024',
+    textIncluded: false,
+    license: '教材单元参考',
+    topicCount: 0,
+    topics: [
+      {key:'cn-yuwen-tongbian-2s:shizi-u1', code:'shizi-u1', data:{unit:'识字单元一',volume:'二年级上册'}},
+      {key:'cn-yuwen-tongbian-2s:bushou-chazifa', code:'bushou-chazifa', data:{unit:'部首查字法',volume:'二年级上册'}},
+    ]
+  },
+  {
+    slug: 'cn-yuwen-tongbian-2x',
+    country: 'CN',
+    name: '统编版语文·二年级下册（教材单元对照）',
+    version: '2024',
+    textIncluded: false,
+    license: '教材单元参考',
+    topicCount: 0,
+    topics: [
+      {key:'cn-yuwen-tongbian-2x:shizi-u1-x', code:'shizi-u1-x', data:{unit:'形声字形近字',volume:'二年级下册'}},
+    ]
+  },
+  {
+    slug: 'cn-shuxue-2022',
+    country: 'CN',
+    name: '义务教育数学课程标准（2022年版）',
+    version: '2022',
+    sourceUrl: 'http://www.moe.gov.cn/srcsite/A26/s8001/202204/t20220420_619921.html',
+    textIncluded: false,
+    license: '政府公开文件',
+    topicCount: 0,
+    topics: [
+      // 学段1-2
+      {key:'cn-shuxue-2022:1-2-syds-1', code:'1-2-syds-1', data:{domain:'数与代数-数与运算',desc:'在具体情境中认识万以内的数，能进行简单的整数四则运算，形成初步的数感、符号意识和运算能力'}},
+      {key:'cn-shuxue-2022:1-2-syds-2', code:'1-2-syds-2', data:{domain:'数与代数-数量关系',desc:'在实际情境中运用数和数的运算解决问题，能解释结果的实际意义'}},
+      {key:'cn-shuxue-2022:1-2-syds-3', code:'1-2-syds-3', data:{domain:'数与代数-数量关系',desc:'探索简单情境下的变化规律，能进行简单的估算'}},
+      {key:'cn-shuxue-2022:1-2-syds-4', code:'1-2-syds-4', data:{domain:'数与代数-数的运算-乘法',desc:'在具体情境中理解乘法运算的意义，探索乘法的算理和算法，熟练口算表内乘法'}},
+      {key:'cn-shuxue-2022:1-2-syds-5', code:'1-2-syds-5', data:{domain:'数与代数-数的运算-除法',desc:'在具体情境中理解除法运算的意义，能熟练口算表内除法'}},
+      {key:'cn-shuxue-2022:1-2-syds-6', code:'1-2-syds-6', data:{domain:'数与代数-数量关系-运算顺序',desc:'理解运算顺序，能进行简单的整数四则混合运算（两步）'}},
+      {key:'cn-shuxue-2022:1-2-syds-7', code:'1-2-syds-7', data:{domain:'数与代数-数的运算-有余数除法',desc:'理解余数的意义，知道余数一定比除数小，解决简单实际问题'}},
+      {key:'cn-shuxue-2022:1-2-syds-8', code:'1-2-syds-8', data:{domain:'数与代数-数的认识-万以内数',desc:'认识万以内的数，了解十进制计数法，能比较万以内数的大小，认识近似数'}},
+      {key:'cn-shuxue-2022:1-2-cl-1', code:'1-2-cl-1', data:{domain:'图形与几何-长度测量',desc:'认识长度单位千米、米、厘米，能进行简单的单位换算，能估测、测量物体的长度'}},
+      {key:'cn-shuxue-2022:1-2-cl-2', code:'1-2-cl-2', data:{domain:'综合与实践-时间',desc:'认识钟表，了解24时记时法，体验时间的长短，能合理安排时间'}},
+      {key:'cn-shuxue-2022:1-2-cl-3', code:'1-2-cl-3', data:{domain:'综合与实践-质量',desc:'感受并认识克、千克，能进行简单的单位换算，能解决简单实际问题'}},
+      {key:'cn-shuxue-2022:1-2-tx-1', code:'1-2-tx-1', data:{domain:'图形与几何-角与图形',desc:'结合生活情境认识角，了解直角、锐角和钝角'}},
+      {key:'cn-shuxue-2022:1-2-tx-2', code:'1-2-tx-2', data:{domain:'图形与几何-观察物体',desc:'能根据具体事物、照片或直观图辨认从不同角度观察到的简单物体'}},
+      {key:'cn-shuxue-2022:1-2-tx-3', code:'1-2-tx-3', data:{domain:'图形与几何-图形的运动',desc:'通过观察、操作，初步认识轴对称图形、平移和旋转现象'}},
+      {key:'cn-shuxue-2022:1-2-sjtj-1', code:'1-2-sjtj-1', data:{domain:'统计与概率-数据分类',desc:'能根据给定的标准对事物和数据进行分类，感受分类与分类标准的关系，能用简单方法收集整理数据'}},
+      {key:'cn-shuxue-2022:1-2-zonghe-1', code:'1-2-zonghe-1', data:{domain:'综合与实践',desc:'通过实践活动感受数学在日常生活中的作用，体验运用所学知识解决简单问题的过程（搭配、推理等）'}},
+    ]
+  },
+  {
+    slug: 'cn-kexue-2022',
+    country: 'CN',
+    name: '义务教育科学课程标准（2022年版）',
+    version: '2022',
+    textIncluded: false,
+    license: '政府公开文件',
+    topicCount: 0,
+    topics: [
+      {key:'cn-kexue-2022:1-2-dq-1', code:'1-2-dq-1', data:{domain:'地球与宇宙-地球家园',desc:'知道地球是人类和动植物的共同家园，了解地球上的资源'}},
+      {key:'cn-kexue-2022:1-2-dq-2', code:'1-2-dq-2', data:{domain:'地球与宇宙-天气与季节',desc:'了解天气和季节变化，知道四季的特点'}},
+      {key:'cn-kexue-2022:1-2-wz-1', code:'1-2-wz-1', data:{domain:'物质科学-常见材料',desc:'能识别常见材料，描述材料的基本特性'}},
+      {key:'cn-kexue-2022:1-2-wz-2', code:'1-2-wz-2', data:{domain:'物质科学-磁铁',desc:'认识磁铁的性质，知道磁铁能吸铁、磁铁有两极、同极相斥异极相吸'}},
+      {key:'cn-kexue-2022:1-2-sm-1', code:'1-2-sm-1', data:{domain:'生命科学-人体与感官',desc:'认识人体主要感觉器官，会用感官观察'}},
+    ]
+  },
+  {
+    slug: 'cn-daofa-2022',
+    country: 'CN',
+    name: '义务教育道德与法治课程标准（2022年版）',
+    version: '2022',
+    textIncluded: false,
+    license: '政府公开文件',
+    topicCount: 0,
+    topics: [
+      {key:'cn-daofa-2022:1-2-sh-1', code:'1-2-sh-1', data:{domain:'生活习惯-假期生活'}},
+      {key:'cn-daofa-2022:1-2-ji-1', code:'1-2-ji-1', data:{domain:'集体生活-班级规则'}},
+      {key:'cn-daofa-2022:1-2-gg-1', code:'1-2-gg-1', data:{domain:'公共生活-公共秩序'}},
+      {key:'cn-daofa-2022:1-2-ax-1', code:'1-2-ax-1', data:{domain:'爱祖国爱家乡-家乡认知'}},
+      {key:'cn-daofa-2022:1-2-zt-1', code:'1-2-zt-1', data:{domain:'自我成长-勇敢尝试'}},
+      {key:'cn-daofa-2022:1-2-hj-1', code:'1-2-hj-1', data:{domain:'生态环保-节约资源'}},
+    ]
+  },
+  {
+    slug: 'cn-laodong-2022',
+    country: 'CN',
+    name: '义务教育劳动课程标准（2022年版）',
+    version: '2022',
+    textIncluded: false,
+    license: '政府公开文件',
+    topicCount: 0,
+    topics: [
+      {key:'cn-laodong-2022:1-2-sh-1', code:'1-2-sh-1', data:{domain:'日常生活劳动-清洁与卫生、整理与收纳'}},
+      {key:'cn-laodong-2022:1-2-sc-1', code:'1-2-sc-1', data:{domain:'生产劳动-农业生产劳动、简单手工'}},
+    ]
+  },
+  {
+    slug: 'cn-yingyu-2022',
+    country: 'CN',
+    name: '义务教育英语课程标准（2022年版）',
+    version: '2022',
+    textIncluded: false,
+    license: '政府公开文件',
+    topicCount: 0,
+    topics: [
+      {key:'cn-yingyu-2022:1-2-ts-1', code:'1-2-ts-1', data:{domain:'听说-问候指令'}},
+      {key:'cn-yingyu-2022:1-2-ci-1', code:'1-2-ci-1', data:{domain:'词汇-常见话题词汇（数字、颜色、动物、家庭等）'}},
+      {key:'cn-yingyu-2022:1-2-zms-1', code:'1-2-zms-1', data:{domain:'字母-26个字母认读书写'}},
+    ]
+  },
+  {
+    slug: 'cn-xxkj-2022',
+    country: 'CN',
+    name: '义务教育信息科技课程标准（2022年版）',
+    version: '2022',
+    textIncluded: false,
+    license: '政府公开文件',
+    topicCount: 0,
+    topics: [
+      {key:'cn-xxkj-2022:1-2-xx-1', code:'1-2-xx-1', data:{domain:'信息意识-信息与生活'}},
+      {key:'cn-xxkj-2022:1-2-sb-1', code:'1-2-sb-1', data:{domain:'数字设备-计算机操作与输入'}},
+    ]
+  },
+  {
+    slug: 'cn-ai-2024',
+    country: 'CN',
+    name: '中小学人工智能通识教育指南（参考）',
+    version: '2024-draft',
+    textIncluded: false,
+    license: '参考性文件',
+    topicCount: 0,
+    topics: [
+      {key:'cn-ai-2024:1-2-rz-1', code:'1-2-rz-1', data:{domain:'AI认知-身边的AI'}},
+      {key:'cn-ai-2024:1-2-pl-1', code:'1-2-pl-1', data:{domain:'AI局限-AI会犯错'}},
+    ]
+  },
+  // 体育/美术/音乐课标（简化）
+  {
+    slug: 'cn-tiyu-2022', country:'CN', name:'义务教育体育与健康课程标准（2022年版）', version:'2022',
+    textIncluded:false, license:'政府公开文件', topicCount:0, topics:[
+      {key:'cn-tiyu-2022:1-2-zs-1', code:'1-2-zs-1', data:{domain:'基本运动技能-姿势控制'}},
+      {key:'cn-tiyu-2022:1-2-pao-1', code:'1-2-pao-1', data:{domain:'移动性技能-跑'}},
+      {key:'cn-tiyu-2022:1-2-tc-1', code:'1-2-tc-1', data:{domain:'基本运动技能-体操类活动'}},
+      {key:'cn-tiyu-2022:1-2-tiaosheng-1', code:'1-2-tiaosheng-1', data:{domain:'跳跃类活动-跳绳'}},
+    ]
+  },
+  {
+    slug: 'cn-meishu-2022', country:'CN', name:'义务教育艺术课程标准（2022年版）·美术', version:'2022',
+    textIncluded:false, license:'政府公开文件', topicCount:0, topics:[
+      {key:'cn-meishu-2022:1-2-ys-1', code:'1-2-ys-1', data:{domain:'造型·表现-色彩基础知识'}},
+      {key:'cn-meishu-2022:1-2-xian-1', code:'1-2-xian-1', data:{domain:'造型·表现-线条造型'}},
+      {key:'cn-meishu-2022:1-2-zs-1', code:'1-2-zs-1', data:{domain:'设计·应用/造型·表现-折纸等手工'}},
+    ]
+  },
+  {
+    slug: 'cn-yinyue-2022', country:'CN', name:'义务教育艺术课程标准（2022年版）·音乐', version:'2022',
+    textIncluded:false, license:'政府公开文件', topicCount:0, topics:[
+      {key:'cn-yinyue-2022:1-2-yl-1', code:'1-2-yl-1', data:{domain:'乐理基础-唱名音阶'}},
+      {key:'cn-yinyue-2022:1-2-ys-1', code:'1-2-ys-1', data:{domain:'演唱-歌唱方法'}},
+      {key:'cn-yinyue-2022:1-2-yq-1', code:'1-2-yq-1', data:{domain:'演奏/欣赏-打击乐器'}},
+    ]
+  },
+];
+
+// 计算每个curriculum的topicCount
+for (const c of curricula) c.topicCount = c.topics.length;
+
+const data = {
+  note: '中国义务教育课程标准(2022年版)对齐条目。MVP阶段只编码到二级(学科-学段-领域)，后续精细化到具体条目编号。textIncluded=false（不引用课标原文，只存编码和关键术语）。',
+  codesOnlySources: [],
+  curriculumCount: curricula.length,
+  curricula
+};
+
+writeFileSync(OUT, JSON.stringify(data, null, 2), 'utf8');
+console.log(`✅ 课标数据写入: ${curricula.length}个课标文件, ${curricula.reduce((s,c)=>s+c.topics.length,0)}个条目`);

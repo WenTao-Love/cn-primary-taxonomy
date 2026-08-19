@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn-primary-taxonomy.cn/schema/dependencies.schema.json",
+  "title": "CN-Primary-Taxonomy — 依赖关系 (dependencies)",
+  "type": "object",
+  "required": ["version", "edgeCount", "dependencies"],
+  "properties": {
+    "version": { "type": "string" },
+    "note": { "type": "string", "description": "依赖方向说明：topicId 依赖于 prerequisiteId（先有prerequisite，再学topicId）" },
+    "edgeCount": { "type": "integer", "minimum": 0 },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["topicId", "prerequisiteId", "strength"],
+        "properties": {
+          "topicId": { "type": "string", "pattern": "^ct_" },
+          "prerequisiteId": { "type": "string", "pattern": "^ct_" },
+          "strength": { "type": "string", "enum": ["hard", "soft"], "description": "hard=必须先掌握；soft=有帮助但非必须" },
+          "reason": { "type": ["string", "null"], "description": "依赖原因，一句话说明" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

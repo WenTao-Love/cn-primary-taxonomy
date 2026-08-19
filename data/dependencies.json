@@ -1,0 +1,703 @@
+{
+  "version": "v0.1-mvp",
+  "note": "DAG 依赖方向：topicId 依赖 prerequisiteId（先学prerequisite，再学topic）",
+  "edgeCount": 116,
+  "dependencies": [
+    {
+      "topicId": "ct_YW2S001",
+      "prerequisiteId": "ct_YW2S004",
+      "strength": "hard",
+      "reason": "要会部首查字法，必须先理解偏旁能表意、知道部首是什么"
+    },
+    {
+      "topicId": "ct_YW2S001",
+      "prerequisiteId": "ct_YW2S003",
+      "strength": "hard",
+      "reason": "查字典前必须认识字典的结构（部首目录/检字表/正文）"
+    },
+    {
+      "topicId": "ct_YW2S002",
+      "prerequisiteId": "ct_YW2S003",
+      "strength": "hard",
+      "reason": "要会音序查字法，必须先认识字典的音节表结构"
+    },
+    {
+      "topicId": "ct_YW2S005",
+      "prerequisiteId": "ct_YW2S004",
+      "strength": "hard",
+      "reason": "要理解形声字，必须先理解偏旁（形旁）的表意规律"
+    },
+    {
+      "topicId": "ct_YW2X010",
+      "prerequisiteId": "ct_YW2S005",
+      "strength": "hard",
+      "reason": "二年级下册的形旁表义是上册形声字初步的深化"
+    },
+    {
+      "topicId": "ct_YW2X011",
+      "prerequisiteId": "ct_YW2S006",
+      "strength": "soft",
+      "reason": "有一定识字量后更容易理解会意字的组合规律"
+    },
+    {
+      "topicId": "ct_YW2X014",
+      "prerequisiteId": "ct_YW2S007",
+      "strength": "hard",
+      "reason": "要辨析形近字，必须先有上册250个会写字的基础"
+    },
+    {
+      "topicId": "ct_YW2X012",
+      "prerequisiteId": "ct_YW2S006",
+      "strength": "hard",
+      "reason": "下册会认字以上册会认字为基础"
+    },
+    {
+      "topicId": "ct_YW2X013",
+      "prerequisiteId": "ct_YW2S007",
+      "strength": "hard",
+      "reason": "下册会写字以上册会写字为基础"
+    },
+    {
+      "topicId": "ct_YW2S022",
+      "prerequisiteId": "ct_YW2S021",
+      "strength": "hard",
+      "reason": "ABB/AABB/ABAB式词语以基础数量词、形容词积累为前提"
+    },
+    {
+      "topicId": "ct_YW2S023",
+      "prerequisiteId": "ct_YW2S020",
+      "strength": "hard",
+      "reason": "词语搭配以近反义词积累、词义理解为基础"
+    },
+    {
+      "topicId": "ct_YW2X025",
+      "prerequisiteId": "ct_YW2S023",
+      "strength": "hard",
+      "reason": "系统学习\"的地得\"要以上册词语搭配初步感知为基础"
+    },
+    {
+      "topicId": "ct_YW2X025",
+      "prerequisiteId": "ct_YW2X010",
+      "strength": "soft",
+      "reason": "会用\"的地得\"需要形声字/形旁语感辅助（但不是强依赖）"
+    },
+    {
+      "topicId": "ct_YW2S024",
+      "prerequisiteId": "ct_YW2S020",
+      "strength": "hard",
+      "reason": "四字成语积累要在近反义词、词语搭配等基础词汇能力之上"
+    },
+    {
+      "topicId": "ct_YW2X026",
+      "prerequisiteId": "ct_YW2S020",
+      "strength": "soft",
+      "reason": "学习关联词需要一定的词汇积累和句子理解能力"
+    },
+    {
+      "topicId": "ct_YW2X027",
+      "prerequisiteId": "ct_YW2S020",
+      "strength": "hard",
+      "reason": "词语归类需要一定词汇量和词义理解"
+    },
+    {
+      "topicId": "ct_YW2S030",
+      "prerequisiteId": "ct_YW2S032",
+      "strength": "soft",
+      "reason": "把被字句互换需要正确使用标点和理解句子成分"
+    },
+    {
+      "topicId": "ct_YW2S031",
+      "prerequisiteId": "ct_YW2S033",
+      "strength": "soft",
+      "reason": "仿写比喻句前有仿写句子的基础更容易上手"
+    },
+    {
+      "topicId": "ct_YW2S033",
+      "prerequisiteId": "ct_YW2S032",
+      "strength": "hard",
+      "reason": "仿写句子先要能正确使用标点、写出完整句子"
+    },
+    {
+      "topicId": "ct_YW2S034",
+      "prerequisiteId": "ct_YW2S033",
+      "strength": "hard",
+      "reason": "扩写句子要在会仿写句子的基础上"
+    },
+    {
+      "topicId": "ct_YW2S034",
+      "prerequisiteId": "ct_YW2S023",
+      "strength": "hard",
+      "reason": "扩写句子需要\"的/地\"修饰搭配能力"
+    },
+    {
+      "topicId": "ct_YW2X035",
+      "prerequisiteId": "ct_YW2S031",
+      "strength": "soft",
+      "reason": "认识拟人句之前先认识比喻句，修辞学习循序渐进"
+    },
+    {
+      "topicId": "ct_YW2X036",
+      "prerequisiteId": "ct_YW2S032",
+      "strength": "hard",
+      "reason": "学习冒号引号先要掌握基础标点（句号/问号/感叹号/逗号）"
+    },
+    {
+      "topicId": "ct_YW2S041",
+      "prerequisiteId": "ct_YW2S040",
+      "strength": "hard",
+      "reason": "分角色朗读先要能识别自然段、读懂人物对话"
+    },
+    {
+      "topicId": "ct_YW2S042",
+      "prerequisiteId": "ct_YW2S041",
+      "strength": "soft",
+      "reason": "默读能力建立在出声朗读熟练的基础上"
+    },
+    {
+      "topicId": "ct_YW2S043",
+      "prerequisiteId": "ct_YW2S042",
+      "strength": "soft",
+      "reason": "带着问题读以默读能力为前提"
+    },
+    {
+      "topicId": "ct_YW2S044",
+      "prerequisiteId": "ct_YW2S040",
+      "strength": "hard",
+      "reason": "借助图画阅读先要能分清段落、理解图文对应"
+    },
+    {
+      "topicId": "ct_YW2S046",
+      "prerequisiteId": "ct_YW2S043",
+      "strength": "hard",
+      "reason": "提取文章明显信息需要带着问题读的能力"
+    },
+    {
+      "topicId": "ct_YW2X047",
+      "prerequisiteId": "ct_YW2S046",
+      "strength": "hard",
+      "reason": "联系上下文理解词语要先能提取明显信息"
+    },
+    {
+      "topicId": "ct_YW2X048",
+      "prerequisiteId": "ct_YW2S046",
+      "strength": "soft",
+      "reason": "读懂寓言要先有基本阅读理解能力"
+    },
+    {
+      "topicId": "ct_YW2S045",
+      "prerequisiteId": "ct_YW2S042",
+      "strength": "soft",
+      "reason": "课外阅读习惯以课堂默读/朗读能力为基础"
+    },
+    {
+      "topicId": "ct_YW2S051",
+      "prerequisiteId": "ct_YW2S050",
+      "strength": "soft",
+      "reason": "第二首古诗以第一首的古诗阅读经验为基础"
+    },
+    {
+      "topicId": "ct_YW2S052",
+      "prerequisiteId": "ct_YW2S050",
+      "strength": "soft",
+      "reason": "夜宿山寺以登鹳雀楼的古诗学习经验为基础"
+    },
+    {
+      "topicId": "ct_YW2S053",
+      "prerequisiteId": "ct_YW2S050",
+      "strength": "soft",
+      "reason": "敕勒歌作为北朝民歌，以基本古诗朗读能力为前提"
+    },
+    {
+      "topicId": "ct_YW2X054",
+      "prerequisiteId": "ct_YW2S053",
+      "strength": "hard",
+      "reason": "下册古诗以上册古诗学习经验和识字量为基础"
+    },
+    {
+      "topicId": "ct_YW2X055",
+      "prerequisiteId": "ct_YW2X054",
+      "strength": "soft",
+      "reason": "古诗学习循序渐进"
+    },
+    {
+      "topicId": "ct_YW2X056",
+      "prerequisiteId": "ct_YW2X054",
+      "strength": "soft",
+      "reason": "杜甫绝句以白居易诗的理解能力为基础"
+    },
+    {
+      "topicId": "ct_YW2S061",
+      "prerequisiteId": "ct_YW2S032",
+      "strength": "hard",
+      "reason": "看图写话先要能写完整句子、正确使用标点"
+    },
+    {
+      "topicId": "ct_YW2S061",
+      "prerequisiteId": "ct_YW2S044",
+      "strength": "hard",
+      "reason": "看图写话以借助图画阅读、看懂图意为前提"
+    },
+    {
+      "topicId": "ct_YW2S060",
+      "prerequisiteId": "ct_YW2S032",
+      "strength": "hard",
+      "reason": "写留言条以会写完整句子、使用正确标点为基础"
+    },
+    {
+      "topicId": "ct_YW2X062",
+      "prerequisiteId": "ct_YW2S061",
+      "strength": "hard",
+      "reason": "多幅图看图写话以单幅图看图写话能力为基础"
+    },
+    {
+      "topicId": "ct_YW2X063",
+      "prerequisiteId": "ct_YW2S061",
+      "strength": "soft",
+      "reason": "写清楚四要素以单幅图写话经验为基础"
+    },
+    {
+      "topicId": "ct_YW2X064",
+      "prerequisiteId": "ct_YW2S061",
+      "strength": "hard",
+      "reason": "写日记以基本写话能力为基础"
+    },
+    {
+      "topicId": "ct_YW2S072",
+      "prerequisiteId": "ct_YW2S071",
+      "strength": "soft",
+      "reason": "看图讲故事以介绍动物的表达经验为基础"
+    },
+    {
+      "topicId": "ct_YW2X073",
+      "prerequisiteId": "ct_YW2S070",
+      "strength": "hard",
+      "reason": "注意说话语气以上册\"商量\"的礼貌用语经验为基础"
+    },
+    {
+      "topicId": "ct_SX2S002",
+      "prerequisiteId": "ct_SX2S001",
+      "strength": "hard",
+      "reason": "认识厘米前要先理解统一长度单位的必要性"
+    },
+    {
+      "topicId": "ct_SX2S003",
+      "prerequisiteId": "ct_SX2S002",
+      "strength": "hard",
+      "reason": "认识米以认识厘米为基础，1米=100厘米是换算关系"
+    },
+    {
+      "topicId": "ct_SX2S004",
+      "prerequisiteId": "ct_SX2S002",
+      "strength": "hard",
+      "reason": "用尺子量物体要先认识厘米和尺子刻度"
+    },
+    {
+      "topicId": "ct_SX2S005",
+      "prerequisiteId": "ct_SX2S004",
+      "strength": "soft",
+      "reason": "画线段以测量长度能力为基础"
+    },
+    {
+      "topicId": "ct_SX2S011",
+      "prerequisiteId": "ct_SX2S010",
+      "strength": "hard",
+      "reason": "进位加法以不进位加法竖式对齐能力为基础"
+    },
+    {
+      "topicId": "ct_SX2S012",
+      "prerequisiteId": "ct_SX2S011",
+      "strength": "soft",
+      "reason": "不退位减法在加法竖式计算熟练后更容易学习"
+    },
+    {
+      "topicId": "ct_SX2S013",
+      "prerequisiteId": "ct_SX2S012",
+      "strength": "hard",
+      "reason": "退位减法以不退位减法竖式能力为基础"
+    },
+    {
+      "topicId": "ct_SX2S014",
+      "prerequisiteId": "ct_SX2S013",
+      "strength": "hard",
+      "reason": "比多少应用题需要加减法计算能力支撑"
+    },
+    {
+      "topicId": "ct_SX2S015",
+      "prerequisiteId": "ct_SX2S011",
+      "strength": "hard",
+      "reason": "连加连减以进退位加减法为基础"
+    },
+    {
+      "topicId": "ct_SX2S015",
+      "prerequisiteId": "ct_SX2S013",
+      "strength": "hard",
+      "reason": "连加连减加减混合包含退位减法"
+    },
+    {
+      "topicId": "ct_SX2S016",
+      "prerequisiteId": "ct_SX2S015",
+      "strength": "soft",
+      "reason": "估算以精确计算能力为基础"
+    },
+    {
+      "topicId": "ct_SX2S021",
+      "prerequisiteId": "ct_SX2S020",
+      "strength": "hard",
+      "reason": "认识直角先要知道什么是角"
+    },
+    {
+      "topicId": "ct_SX2S022",
+      "prerequisiteId": "ct_SX2S021",
+      "strength": "hard",
+      "reason": "认识锐角钝角以直角为标准"
+    },
+    {
+      "topicId": "ct_SX2S023",
+      "prerequisiteId": "ct_SX2S020",
+      "strength": "hard",
+      "reason": "画角以认识角的构成为基础"
+    },
+    {
+      "topicId": "ct_SX2S031",
+      "prerequisiteId": "ct_SX2S030",
+      "strength": "hard",
+      "reason": "学习2-6乘法口诀前要先理解乘法的意义（几个几）"
+    },
+    {
+      "topicId": "ct_SX2S032",
+      "prerequisiteId": "ct_SX2S031",
+      "strength": "hard",
+      "reason": "7-9乘法口诀在2-6口诀熟记后扩展"
+    },
+    {
+      "topicId": "ct_SX2S033",
+      "prerequisiteId": "ct_SX2S030",
+      "strength": "soft",
+      "reason": "乘加乘减以乘法意义理解为基础"
+    },
+    {
+      "topicId": "ct_SX2S033",
+      "prerequisiteId": "ct_SX2S031",
+      "strength": "hard",
+      "reason": "乘加乘减计算需要熟记2-6乘法口诀"
+    },
+    {
+      "topicId": "ct_SX2S034",
+      "prerequisiteId": "ct_SX2S030",
+      "strength": "hard",
+      "reason": "求几倍是多少要先理解乘法的意义"
+    },
+    {
+      "topicId": "ct_SX2S034",
+      "prerequisiteId": "ct_SX2S032",
+      "strength": "hard",
+      "reason": "倍数问题的计算需要熟记乘法口诀"
+    },
+    {
+      "topicId": "ct_SX2S046",
+      "prerequisiteId": "ct_SX2S045",
+      "strength": "hard",
+      "reason": "读几时几分以认识钟面、知道大格小格为基础"
+    },
+    {
+      "topicId": "ct_SX2S046",
+      "prerequisiteId": "ct_SX2S032",
+      "strength": "soft",
+      "reason": "看分针计算几分要用到5的乘法口诀（每大格5分）"
+    },
+    {
+      "topicId": "ct_SX2S047",
+      "prerequisiteId": "ct_SX2S046",
+      "strength": "soft",
+      "reason": "合理安排时间以认识时间、会读钟面为基础"
+    },
+    {
+      "topicId": "ct_SX2S051",
+      "prerequisiteId": "ct_SX2S050",
+      "strength": "hard",
+      "reason": "组合问题与排列对比学习，先学排列再学组合更清晰"
+    },
+    {
+      "topicId": "ct_SX2X060",
+      "prerequisiteId": "ct_SX2S031",
+      "strength": "soft",
+      "reason": "数据整理统计中\"正\"字记录涉及5的计数，与5的乘法口诀相关"
+    },
+    {
+      "topicId": "ct_SX2X065",
+      "prerequisiteId": "ct_SX2S031",
+      "strength": "hard",
+      "reason": "理解平均分是除法的基础"
+    },
+    {
+      "topicId": "ct_SX2X066",
+      "prerequisiteId": "ct_SX2X065",
+      "strength": "hard",
+      "reason": "认识除法以理解平均分为前提"
+    },
+    {
+      "topicId": "ct_SX2X067",
+      "prerequisiteId": "ct_SX2X066",
+      "strength": "hard",
+      "reason": "用乘法口诀求商需要先认识除法，也需要熟记乘法口诀"
+    },
+    {
+      "topicId": "ct_SX2X067",
+      "prerequisiteId": "ct_SX2S032",
+      "strength": "hard",
+      "reason": "用口诀求商要以熟记乘法口诀（含7-9）为基础"
+    },
+    {
+      "topicId": "ct_SX2X068",
+      "prerequisiteId": "ct_SX2X067",
+      "strength": "hard",
+      "reason": "除法应用题以会用口诀求商为基础"
+    },
+    {
+      "topicId": "ct_SX2X076",
+      "prerequisiteId": "ct_SX2X075",
+      "strength": "hard",
+      "reason": "认识平移前先认识轴对称图形，图形运动从对称开始"
+    },
+    {
+      "topicId": "ct_SX2X077",
+      "prerequisiteId": "ct_SX2X076",
+      "strength": "soft",
+      "reason": "旋转与平移是一对对比概念，先学平移再学旋转更清晰"
+    },
+    {
+      "topicId": "ct_SX2X081",
+      "prerequisiteId": "ct_SX2X080",
+      "strength": "hard",
+      "reason": "两级运算顺序要在同级运算顺序熟练后再学"
+    },
+    {
+      "topicId": "ct_SX2X082",
+      "prerequisiteId": "ct_SX2X081",
+      "strength": "hard",
+      "reason": "有小括号的混合运算以无括号的两级运算为对比基础"
+    },
+    {
+      "topicId": "ct_SX2X083",
+      "prerequisiteId": "ct_SX2X082",
+      "strength": "hard",
+      "reason": "两步应用题需要会列含小括号的综合算式"
+    },
+    {
+      "topicId": "ct_SX2X083",
+      "prerequisiteId": "ct_SX2X068",
+      "strength": "soft",
+      "reason": "两步应用题常涉及乘除法"
+    },
+    {
+      "topicId": "ct_SX2X090",
+      "prerequisiteId": "ct_SX2X066",
+      "strength": "hard",
+      "reason": "有余数除法以整除除法为基础"
+    },
+    {
+      "topicId": "ct_SX2X091",
+      "prerequisiteId": "ct_SX2X090",
+      "strength": "hard",
+      "reason": "余数比除数小的规律在理解有余数除法意义后学习"
+    },
+    {
+      "topicId": "ct_SX2X092",
+      "prerequisiteId": "ct_SX2X090",
+      "strength": "hard",
+      "reason": "有余数除法竖式以有余数除法意义为基础"
+    },
+    {
+      "topicId": "ct_SX2X092",
+      "prerequisiteId": "ct_SX2X091",
+      "strength": "hard",
+      "reason": "竖式计算时要用到余数比除数小来检验"
+    },
+    {
+      "topicId": "ct_SX2X093",
+      "prerequisiteId": "ct_SX2X092",
+      "strength": "hard",
+      "reason": "有余数除法应用题以会竖式计算为基础"
+    },
+    {
+      "topicId": "ct_SX2X101",
+      "prerequisiteId": "ct_SX2X100",
+      "strength": "hard",
+      "reason": "万以内数的读写以千以内数的认识为基础"
+    },
+    {
+      "topicId": "ct_SX2X102",
+      "prerequisiteId": "ct_SX2X101",
+      "strength": "hard",
+      "reason": "比较大小要以会读写万以内数为基础"
+    },
+    {
+      "topicId": "ct_SX2X103",
+      "prerequisiteId": "ct_SX2X102",
+      "strength": "soft",
+      "reason": "认识近似数以数的大小比较为基础"
+    },
+    {
+      "topicId": "ct_SX2X104",
+      "prerequisiteId": "ct_SX2X101",
+      "strength": "hard",
+      "reason": "整百整千加减要以万以内数的组成和读写为基础"
+    },
+    {
+      "topicId": "ct_SX2X104",
+      "prerequisiteId": "ct_SX2S011",
+      "strength": "soft",
+      "reason": "整百整千加减需要进退位加减法基础"
+    },
+    {
+      "topicId": "ct_SX2X111",
+      "prerequisiteId": "ct_SX2X110",
+      "strength": "hard",
+      "reason": "认识千克以认识克为基础（由轻到重）"
+    },
+    {
+      "topicId": "ct_SX2X112",
+      "prerequisiteId": "ct_SX2X111",
+      "strength": "hard",
+      "reason": "质量计算以认识克和千克、知道换算为基础"
+    },
+    {
+      "topicId": "ct_SX2X120",
+      "prerequisiteId": "ct_SX2S050",
+      "strength": "soft",
+      "reason": "逻辑推理与搭配问题的有序思考方法相通"
+    },
+    {
+      "topicId": "ct_KX2S002",
+      "prerequisiteId": "ct_KX2S001",
+      "strength": "hard",
+      "reason": "理解土壤是动植物乐园，要先知道地球家园里有什么"
+    },
+    {
+      "topicId": "ct_KX2S004",
+      "prerequisiteId": "ct_KX2S003",
+      "strength": "soft",
+      "reason": "认识四季以认识天气变化为基础"
+    },
+    {
+      "topicId": "ct_KX2S005",
+      "prerequisiteId": "ct_KX2S003",
+      "strength": "soft",
+      "reason": "太阳位置与方向以观察天气、天空为基础"
+    },
+    {
+      "topicId": "ct_KX2S007",
+      "prerequisiteId": "ct_KX2S006",
+      "strength": "hard",
+      "reason": "比较材料特点需要先认识常见材料"
+    },
+    {
+      "topicId": "ct_KX2S008",
+      "prerequisiteId": "ct_KX2S007",
+      "strength": "soft",
+      "reason": "书的历史以材料特点认识为基础"
+    },
+    {
+      "topicId": "ct_KX2X010",
+      "prerequisiteId": "ct_KX2X009",
+      "strength": "hard",
+      "reason": "磁铁两极要在知道磁铁能吸铁的基础上学习"
+    },
+    {
+      "topicId": "ct_KX2X011",
+      "prerequisiteId": "ct_KX2X010",
+      "strength": "hard",
+      "reason": "指南针原理依赖磁极和磁极相互作用"
+    },
+    {
+      "topicId": "ct_KX2X013",
+      "prerequisiteId": "ct_KX2X012",
+      "strength": "hard",
+      "reason": "用多种感官观察比较，要先知道五感分别是什么"
+    },
+    {
+      "topicId": "ct_LD2S002",
+      "prerequisiteId": "ct_LD2S001",
+      "strength": "soft",
+      "reason": "系鞋带和整理书包同属自我服务劳动，手部精细动作要求递进"
+    },
+    {
+      "topicId": "ct_LD2X004",
+      "prerequisiteId": "ct_LD2S003",
+      "strength": "hard",
+      "reason": "洗碗比扫地擦桌子更复杂（涉及水、清洁剂、安全），以上学期家务为基础"
+    },
+    {
+      "topicId": "ct_LD2X006",
+      "prerequisiteId": "ct_LD2S001",
+      "strength": "soft",
+      "reason": "叠衣服以上学期整理能力（整理书包）为基础"
+    },
+    {
+      "topicId": "ct_YY2S002",
+      "prerequisiteId": "ct_YY2S001",
+      "strength": "soft",
+      "reason": "数字词汇以简单问候和课堂习惯建立为基础"
+    },
+    {
+      "topicId": "ct_YY2S003",
+      "prerequisiteId": "ct_YY2S001",
+      "strength": "soft",
+      "reason": "颜色词以基础听说习惯为基础"
+    },
+    {
+      "topicId": "ct_YY2X004",
+      "prerequisiteId": "ct_YY2S001",
+      "strength": "hard",
+      "reason": "动物词汇以下册学习进度和上册听说基础为前提"
+    },
+    {
+      "topicId": "ct_YY2X005",
+      "prerequisiteId": "ct_YY2X004",
+      "strength": "soft",
+      "reason": "家庭成员词汇与动物词汇同属名词扩展"
+    },
+    {
+      "topicId": "ct_YY2X006",
+      "prerequisiteId": "ct_YY2S002",
+      "strength": "hard",
+      "reason": "学字母要在积累了一定听说词汇后，从听说过渡到读写"
+    },
+    {
+      "topicId": "ct_XX2Q002",
+      "prerequisiteId": "ct_XX2Q001",
+      "strength": "hard",
+      "reason": "计算机操作以了解信息和信息技术为基础"
+    },
+    {
+      "topicId": "ct_XX2Q003",
+      "prerequisiteId": "ct_XX2Q002",
+      "strength": "hard",
+      "reason": "键盘指法以认识计算机、会开机鼠标操作为基础"
+    },
+    {
+      "topicId": "ct_AI2Q005",
+      "prerequisiteId": "ct_AI2Q004",
+      "strength": "hard",
+      "reason": "理解AI会犯错要先认识AI在生活中的应用"
+    },
+    {
+      "topicId": "ct_AI2Q006",
+      "prerequisiteId": "ct_AI2Q005",
+      "strength": "soft",
+      "reason": "知道AI犯错后更容易理解AI的局限"
+    },
+    {
+      "topicId": "ct_TY2Q004",
+      "prerequisiteId": "ct_TY2Q002",
+      "strength": "soft",
+      "reason": "跳绳以基本跑动、协调能力为基础"
+    },
+    {
+      "topicId": "ct_MS2Q003",
+      "prerequisiteId": "ct_MS2Q002",
+      "strength": "hard",
+      "reason": "折纸以基本线条控制、手部精细动作为基础"
+    }
+  ]
+}

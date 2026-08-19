@@ -1,0 +1,4778 @@
+{
+  "version": "v0.1-mvp",
+  "generatedAt": "2026-08-19T03:01:51.640Z",
+  "grade": 2,
+  "note": "MVP版本：二年级全学科代表性知识点",
+  "topicCount": 155,
+  "topics": [
+    {
+      "id": "ct_YW2S001",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "识字与写字",
+      "name": "部首查字法",
+      "description": "知道字典部首目录的用法，能通过部首查字：①确定生字部首，数部首笔画；②在\"部首目录\"找到该部首及对应的页码；③在\"检字表\"中找到部首，数除部首外的笔画数，找到生字及正文页码；④翻到正文页码查到字的读音和意思。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能说出\"海\"字的部首是\"氵\"，并数出部首3画、右边\"每\"7画",
+        "给一个生字（如\"熊\"）能独立用部首查字法在字典中查到"
+      ],
+      "commonMistakes": [
+        "把整个字当作部首",
+        "分不清部首笔画和除部首外的笔画数",
+        "遇到独体字不知道查第一笔或查本身"
+      ],
+      "examTips": "常考题型：问某字的部首是什么、除部首外几画；按部首查字法步骤排序；独体字查字规则",
+      "assessmentPrompt": "给{{name}}一个\"熊\"字，让他/她用部首查字法在字典里查找。观察：是否先找部首\"灬\"？是否会数剩下的10画？能找到吗？",
+      "standards": [
+        "cn-yuwen-2022:1-2-sz-1"
+      ]
+    },
+    {
+      "id": "ct_YW2S002",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "识字与写字",
+      "name": "音序查字法",
+      "description": "知道\"音序查字法\"适用于知道字音、不知道字形/意思的情况：①确定汉字音节的第一个大写字母（音序）；②在\"汉语拼音音节表\"找到这个大写字母，再找音节；③根据音节后面的页码翻到正文查找。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "知道音序是音节的第一个字母大写（如 hǎi 的音序是H）",
+        "给一个认识的字（如\"暖\"）能用音序查字法查到"
+      ],
+      "commonMistakes": [
+        "音序写小写字母",
+        "把整个拼音当成音序",
+        "翻错页码不知道看同音字列表"
+      ],
+      "examTips": "常考：给出字问它的音序是什么；按音序排列几个字；音序查字法步骤排序",
+      "assessmentPrompt": "让{{name}}用音序查字法查\"暖(nuǎn)\"字。看他/她能否先找大写字母N、再找nuan音节？",
+      "standards": [
+        "cn-yuwen-2022:1-2-sz-1"
+      ]
+    },
+    {
+      "id": "ct_YW2S003",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "识字与写字",
+      "name": "字典的基本结构",
+      "description": "认识字典的三大部分：①\"汉语拼音音节表\"（用于音序查字）；②\"部首目录\"和\"检字表\"（用于部首查字）；③正文（按音序排列，每个字有读音、部首、笔画、释义、组词）。知道查字典的两种基本方法。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能在字典里翻到音节表、部首目录、正文三部分",
+        "被问到查一个会读但不会写的字时，知道用音序查字法"
+      ],
+      "commonMistakes": [
+        "两种查字法分不清什么情况用哪种",
+        "只会翻正文按音序找，不会用目录"
+      ],
+      "examTips": "考选择：会读不会写用什么方法？会写不会读用什么方法？",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-sz-1"
+      ]
+    },
+    {
+      "id": "ct_YW2S004",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "识字与写字",
+      "name": "偏旁表意规律",
+      "description": "初步理解汉字偏旁（部首）常常提示意思。例如\"氵\"的字多与水有关（海、浪、河），\"木\"的字多与树木有关（树、林、森），\"口\"的字多与嘴或嘴巴的动作有关（吃、叫、吹）。能用偏旁猜测生字的大致意思。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "看到带\"氵\"的生字能猜跟水有关",
+        "看到带\"扌\"的字能猜跟手的动作有关"
+      ],
+      "commonMistakes": [
+        "机械套用偏旁意思，忽略声旁（如\"海\"不是每+水，而是\"每\"提示读音）",
+        "混淆形近偏旁：氵vs冫，衤vs礻"
+      ],
+      "examTips": "常考：\"下面哪个字与树木有关？A.河 B.树 C.课\"；偏旁与字义连线",
+      "assessmentPrompt": "给{{name}}看生字\"梅、洋、抱\"，问他/她：\"你觉得这三个字分别跟什么有关？怎么猜出来的？\"",
+      "standards": [
+        "cn-yuwen-2022:1-2-sz-2"
+      ]
+    },
+    {
+      "id": "ct_YW2S005",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "识字与写字",
+      "name": "形声字初步",
+      "description": "初步认识\"形声字\"——由两部分组成：一部分提示大致意思（形旁），一部分提示读音（声旁）。例如\"清\"字\"氵\"表示和水有关，\"青\"提示读音；\"请\"字\"讠\"表示和说话有关，\"青\"提示读音。知道\"青字家族\"（清、晴、情、请、睛）一类字的规律。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "看到\"包\"字家族（抱、跑、炮、泡）能说出形旁不同意思不同声旁相同",
+        "能用\"加偏旁\"的方法识字（如\"青\"加偏旁组成新字）"
+      ],
+      "commonMistakes": [
+        "以为声旁读音一定和字完全相同（如\"冶、治\"声旁是\"台\"但读音差别大）",
+        "把所有字都当成形声字，忽略会意字、指事字"
+      ],
+      "examTips": "常考：\"加偏旁组新字再组词\"（如\"青：__（  ），__（  ）\"）；选字填空（请/清/晴/情）",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-sz-2"
+      ]
+    },
+    {
+      "id": "ct_YW2S006",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "识字与写字",
+      "name": "二年级上册要求会认的字（450个）",
+      "description": "能正确认读《语文》二年级上册要求认识的450个生字，包括课文、识字单元、语文园地中出现的生字。只要求认识（能读准字音），不要求会写。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能在课文中读出本册生字",
+        "生字卡片抽查正确率≥90%"
+      ],
+      "commonMistakes": [
+        "平翘舌音混淆（z/c/s vs zh/ch/sh）",
+        "前后鼻音混淆（an/en/in vs ang/eng/ing）",
+        "多音字读错"
+      ],
+      "examTips": "看拼音写词语；给带点字选正确读音；多音字组词",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-sz-3"
+      ]
+    },
+    {
+      "id": "ct_YW2S007",
+      "type": "REPRESENTATIONAL",
+      "typeLabel": "表征",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "识字与写字",
+      "name": "二年级上册要求会写的字（250个）",
+      "description": "能正确书写《语文》二年级上册要求会写的250个字，掌握笔顺、笔画、结构，在田字格中写得端正、整洁，注意间架结构。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "听写本册会写生字正确率≥85%",
+        "写在田字格中大小适中、结构匀称"
+      ],
+      "commonMistakes": [
+        "多笔少画（如\"具\"字少写一横）",
+        "笔画顺序错误",
+        "形近字混淆（如\"爪/瓜\"\"己/已\"）"
+      ],
+      "examTips": "听写；看拼音写词语；辨字组词；数笔画",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-sz-4"
+      ]
+    },
+    {
+      "id": "ct_YW2S008",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "识字与写字",
+      "name": "多音字初步认识",
+      "description": "知道同一个字在不同词语中可以有不同的读音，即多音字。二年级上册常见多音字如：为（wéi/wèi）、得（de/dé/děi）、号（hào/háo）、当（dāng/dàng）、场（chǎng/cháng）等。能根据词语意思选择正确读音。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "给词语中的多音字选读音（如\"为什么\"选wèi，\"成为\"选wéi）",
+        "能用多音字不同读音分别组词"
+      ],
+      "commonMistakes": [],
+      "examTips": "给加点字选择正确读音；用多音字的不同读音组词",
+      "assessmentPrompt": "读句子\"我为（wéi/wèi）什么不能成为（wéi/wèi）一个科学家呢？\"让{{name}}选正确读音。",
+      "standards": [
+        "cn-yuwen-2022:1-2-sz-2"
+      ]
+    },
+    {
+      "id": "ct_YW2S009",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "识字与写字",
+      "name": "正确的铅笔字书写姿势",
+      "description": "保持正确的写字姿势：①头正——头摆正不歪斜；②肩平——两肩齐平；③身直——腰背挺直、胸部离桌沿一拳；④臂开——两臂张开、平放桌面；⑤足安——两脚放平、与肩同宽。握笔姿势：拇指食指捏笔杆，中指托笔，笔杆斜靠虎口，指尖距笔尖约一寸。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "写字时能自然保持\"一尺一拳一寸\"（眼离书一尺、胸离桌一拳、手离笔尖一寸）",
+        "握笔正确，不用错误姿势写字"
+      ],
+      "commonMistakes": [
+        "握笔太低挡住视线导致歪头",
+        "拇指包食指的错误握笔",
+        "趴在桌上写字",
+        "本子放歪"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-sz-4"
+      ]
+    },
+    {
+      "id": "ct_YW2X010",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "识字与写字",
+      "name": "形声字形旁表义规律",
+      "description": "进一步巩固形声字规律，能用\"加一加、减一减、换一换\"的方法大量识字：给一个基本字（如\"青/包/皮/方\"）加不同偏旁变成新字，并根据形旁猜测意思。如：贝+才=财，钱和\"贝\"有关；木+交=校，学校的\"校\"原来和木头有关（最早的\"校\"是刑具）。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能用\"青\"字加不同偏旁组出：清、晴、情、请、睛，并说清形旁的不同意思",
+        "看到不认识的形声字，能尝试根据形旁猜意思、根据声旁猜读音"
+      ],
+      "commonMistakes": [
+        "把形近偏旁混淆：冫(冰)/氵(水)，礻(祭祀)/衤(衣服)",
+        "形声字读半边出错（如\"涸\"读gù错）"
+      ],
+      "examTips": "加偏旁组新字再组词；选字填空（清/晴/情）；根据字形猜字义",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-sz-2"
+      ]
+    },
+    {
+      "id": "ct_YW2X011",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "识字与写字",
+      "name": "会意字初步",
+      "description": "初步认识会意字——由两个或多个字合在一起表示新的意思。例如：\"休\"是人靠在树旁休息；\"看\"是手放在眼睛上方；\"尘\"是小土为尘；\"男\"是田里的劳动力；\"从\"是两人前后相随；\"林\"\"森\"是树木丛生。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "看到\"休、看、尘、男\"等字能说出是怎么\"会意\"出来的",
+        "能用会意字的方法记忆一些生字"
+      ],
+      "commonMistakes": [
+        "把所有字都想成会意字（形声字更多）",
+        "会意的故事编得牵强附会"
+      ],
+      "examTips": "看图猜字（如一个人靠树旁=休）；把两个字组合成新字",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-sz-2"
+      ]
+    },
+    {
+      "id": "ct_YW2X012",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "识字与写字",
+      "name": "二年级下册要求会认的字（450个）",
+      "description": "能正确认读二年级下册要求认识的450个生字。包括两个识字单元（中华传统文化、大自然主题）以及课文中出现的生字。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "生字卡片抽查正确率≥90%",
+        "能在课文中正确读出本册生字"
+      ],
+      "commonMistakes": [
+        "翘舌音、前后鼻音、边鼻音（n/l）混淆",
+        "轻声、儿化音不自然"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-sz-3"
+      ]
+    },
+    {
+      "id": "ct_YW2X013",
+      "type": "REPRESENTATIONAL",
+      "typeLabel": "表征",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "识字与写字",
+      "name": "二年级下册要求会写的字（250个）",
+      "description": "能正确书写二年级下册要求会写的250个字，注意笔顺和结构，在田字格中写得匀称整洁，开始注意横平竖直和字的重心。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "听写下册会写生字正确率≥85%",
+        "书写整齐、不涂涂改改"
+      ],
+      "commonMistakes": [
+        "左右结构写得一边大一边小",
+        "上下结构上下脱节",
+        "写错部首（如\"游\"字右边不是\"攵\"）"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-sz-4"
+      ]
+    },
+    {
+      "id": "ct_YW2X014",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "识字与写字",
+      "name": "形近字辨析",
+      "description": "能区分形近字：字形相近但读音、意思不同的字。常见形近字如\"人/入\"、\"刀/力\"、\"己/已/巳\"、\"拔/拨\"、\"爪/瓜\"、\"乌/鸟\"、\"处/外\"。通过比较笔画、偏旁、位置等差异来区分。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "给形近字组词（如：\"爪\"子、西\"瓜\"；\"己\"自、已\"经\"）",
+        "句子中能正确选用形近字"
+      ],
+      "commonMistakes": [
+        "多一笔少一笔认错字",
+        "偏旁细小差别忽略（\"拨\"比\"拔\"多一短撇）"
+      ],
+      "examTips": "辨字组词；选字填空；改正错别字",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-sz-2"
+      ]
+    },
+    {
+      "id": "ct_YW2S020",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "词语",
+      "name": "近义词和反义词",
+      "description": "认识近义词（意思相近的词，如\"高兴—快乐\"、\"美丽—漂亮\"）和反义词（意思相反的词，如\"大—小\"、\"黑—白\"、\"高兴—难过\"）。能给常用词语找出近义词和反义词。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能说\"大\"的反义词是\"小\"、\"高兴\"的近义词是\"开心\"",
+        "读课文时能找出近反义词"
+      ],
+      "commonMistakes": [
+        "把词组而非词当近反义词（\"长\"对\"不长\"是错的）",
+        "近义词意思差别没体会（\"看\"和\"瞧\"\"盯\"\"瞟\"差别不懂）"
+      ],
+      "examTips": "写近义词/反义词；选词填空；连线题",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-yysy-1"
+      ]
+    },
+    {
+      "id": "ct_YW2S021",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "词语",
+      "name": "数量词搭配",
+      "description": "学习正确使用数量词：数词+量词+名词。常见量词如\"只、个、条、棵、座、把、本、支、匹、头、辆\"等。如：一只鸟、一个人、一条鱼、一棵树、一座桥。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能给名词配上正确量词（鱼说\"条\"不说\"个\"）",
+        "读课文时注意到并积累数量词"
+      ],
+      "commonMistakes": [
+        "什么都用\"个\"（一个鱼、一个车都是错的）",
+        "动物量词混用（马用\"匹\"不用\"头\"，牛用\"头\"不用\"匹\"）"
+      ],
+      "examTips": "填量词；连线（数量词与名词搭配）；改正用错的量词",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-yysy-2"
+      ]
+    },
+    {
+      "id": "ct_YW2S022",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "词语",
+      "name": "ABB/AABB/ABAB式词语",
+      "description": "积累三种特殊结构的词语：①ABB式（后两字相同，表状态）：绿油油、红彤彤、亮晶晶、金灿灿；②AABB式（两字重复两次）：明明白白、快快乐乐、许许多多；③ABAB式（两个字交替）：碧绿碧绿、火红火红、很高很高。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能照样子写词语（如\"绿油油\"仿写出\"白花花\"\"黑乎乎\"）",
+        "能说出自己积累的ABB/AABB/ABAB词语各3个以上"
+      ],
+      "commonMistakes": [
+        "自己生造不规范的ABB词",
+        "字写错（\"红彤彤\"不是\"红通通\"但可通，要按课本标准）"
+      ],
+      "examTips": "照样子写词语；仿写；词语归类",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-yysy-2"
+      ]
+    },
+    {
+      "id": "ct_YW2S023",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "词语",
+      "name": "动词名词形容词搭配",
+      "description": "学习词语之间的正确搭配：①形容词+的+名词（蓝蓝的天空、美丽的花朵）；②副词+地+动词（飞快地跑、认真地写）；③动词+得+补语（跑得快、写得好）。初步感知\"的、地、得\"的不同用法（二年级下册正式系统学习）。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能填\"（  ）的天空\"\"（  ）地跑\"\"跑得（  ）\"",
+        "读课文时能注意到\"的/地/得\"搭配什么词"
+      ],
+      "commonMistakes": [
+        "\"的/地/得\"混用",
+        "搭配不符合语言习惯（\"打球\"不说\"拍球\"——具体搭配要记）"
+      ],
+      "examTips": "词语搭配连线；填\"的/地/得\"；选词搭配",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-yysy-2"
+      ]
+    },
+    {
+      "id": "ct_YW2S024",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "词语",
+      "name": "四字词语和成语积累",
+      "description": "积累课文中的四字词语和简单成语，如\"金光闪闪、秀丽神奇、四海为家、无边无际、一年一度、半信半疑、东张西望、神气活现、摇头摆尾\"等。能在口语和写话中运用。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "本册四字词语能读、懂意思、会用其中5个以上写话",
+        "能说出4个来自寓言/故事的成语"
+      ],
+      "commonMistakes": [
+        "字写错（\"狐假虎威\"的\"假\"容易写错）",
+        "用错场景（\"东张西望\"用于到处看，不能用于听）"
+      ],
+      "examTips": "补充词语；根据意思写成语；词语归类（寓言成语、描写四季的成语）",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-yysy-3"
+      ]
+    },
+    {
+      "id": "ct_YW2X025",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "词语",
+      "name": "\"的、地、得\"的用法",
+      "description": "系统学习结构助词\"的、地、得\"的正确用法：①\"的\"用在名词前，前面加修饰词（什么样的什么东西）：红红的苹果、可爱的小猫；②\"地\"用在动词前，前面加修饰词（怎样地做什么）：认真地写字、高兴地说；③\"得\"用在动词/形容词后，后面补充说明结果或程度：跑得快、红得发紫。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "句子中能正确填写\"的/地/得\"",
+        "自己写话时不会混用"
+      ],
+      "commonMistakes": [
+        "该用\"地\"用了\"的\"（认真的写❌）",
+        "\"得\"后面跟的不是补充说明而是名词（如\"飞得飞机\"❌）"
+      ],
+      "examTips": "选\"的/地/得\"填空；判断句子中哪个用错了",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-yysy-2"
+      ]
+    },
+    {
+      "id": "ct_YW2X026",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "词语",
+      "name": "关联词初步",
+      "description": "学习几个常用关联词：①并列关系\"一边…一边…\"（同时做两件事）；②因果关系\"因为…所以…\"（原因和结果）；③转折关系\"虽然…但是…\"。能在句子和写话中使用。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "会用\"一边…一边…\"造句（两件事能同时做的）",
+        "会用\"因为…所以…\"说清楚原因和结果"
+      ],
+      "commonMistakes": [
+        "\"一边…一边…\"连接不能同时做的事（我一边睡觉一边跑步❌）",
+        "因果颠倒（用\"因为\"接结果、\"所以\"接原因）"
+      ],
+      "examTips": "选关联词填空；用关联词造句；用关联词把两句话合成一句",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-yysy-4"
+      ]
+    },
+    {
+      "id": "ct_YW2X027",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "词语",
+      "name": "词语归类",
+      "description": "学习按类别给词语分组，如按动物/植物/食物/交通工具/学习用品/体育运动/季节/情绪等分类。发现同类词的共同特点。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能从一组词中找出不是同类的一个（如\"苹果、香蕉、白菜、橘子\"——白菜不是水果）",
+        "能按类别写词（写出3种水果）"
+      ],
+      "commonMistakes": [
+        "按个人喜好分类而非按类别分类",
+        "跨类别混淆（\"西瓜\"是水果不是蔬菜）"
+      ],
+      "examTips": "找出不同类的词；按要求写词语；词语分类连线",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-yysy-2"
+      ]
+    },
+    {
+      "id": "ct_YW2S030",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "句子",
+      "name": "把字句和被字句互换",
+      "description": "学会\"把\"字句和\"被\"字句的相互转换。把字句结构：主语+把+宾语+动作（我把作业写完了）；被字句结构：宾语+被+主语+动作（作业被我写完了）。转换时主动者和被动者交换位置，动作不变。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能把\"我把花瓶打破了\"改成\"花瓶被我打破了\"",
+        "能把\"大灰狼被小羊吓跑了\"改成\"小羊把大灰狼吓跑了\""
+      ],
+      "commonMistakes": [
+        "施动者和受动者位置搞反",
+        "动作部分写错字或漏字",
+        "否定词位置放错（\"没\"放在\"把/被\"前面）"
+      ],
+      "examTips": "把被字句互换；改写句子；判断改写是否正确",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-jz-1"
+      ]
+    },
+    {
+      "id": "ct_YW2S031",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "句子",
+      "name": "比喻句认识",
+      "description": "认识比喻句：把一个事物比作另一个相似的事物，常用\"像、好像、仿佛、宛如\"等比喻词连接。比喻句要有本体（被比的）、喻体（用来比的）和相似点。如\"弯弯的月亮像小船\"\"梧桐树叶像手掌\"。能判断比喻句，能仿写简单比喻句。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能从几句话中找出比喻句",
+        "能仿写简单比喻句（\"蓝蓝的天空像____\"）",
+        "能说出把什么比作什么"
+      ],
+      "commonMistakes": [
+        "把比较当成比喻（他长得像他爸爸不是比喻）",
+        "喻体和本体没有相似点",
+        "把想象当比喻"
+      ],
+      "examTips": "判断是不是比喻句；仿写比喻句；指出本体和喻体",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-yysy-5"
+      ]
+    },
+    {
+      "id": "ct_YW2S032",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "句子",
+      "name": "常用标点符号",
+      "description": "正确使用四种常用标点：①句号（。）——一句话说完用；②问号（？）——问问题用；③感叹号（！）——表达强烈感情用；④逗号（，）——句子中间停顿用。初步认识顿号（、）和冒号引号（：\"\"）（对话）。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "给一段没有标点的文字加上正确的句号/问号/感叹号/逗号",
+        "自己写话时标点使用正确"
+      ],
+      "commonMistakes": [
+        "一逗到底，整段话只有最后一个句号",
+        "问句不用问号用句号",
+        "感叹号滥用，每句都用感叹号"
+      ],
+      "examTips": "加标点；选标点填空；判断标点使用对错",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-bd-1"
+      ]
+    },
+    {
+      "id": "ct_YW2S033",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "句子",
+      "name": "仿写句子",
+      "description": "能照例句的样子仿写句子：保持结构一致，替换具体内容。如：\"例：太阳会把浅水洼里的水蒸干。__会把________。\"\"例：小花猫一会儿玩球，一会儿睡大觉。____一会儿____，一会儿____。\"",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能照着例句结构正确仿写",
+        "仿写的句子通顺、意思完整"
+      ],
+      "commonMistakes": [
+        "仿写的句子结构和例句不一致",
+        "句子不通顺",
+        "前后意思不连贯"
+      ],
+      "examTips": "照样子写句子；仿写",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-jz-2"
+      ]
+    },
+    {
+      "id": "ct_YW2S034",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "句子",
+      "name": "句子扩写",
+      "description": "学习在简单句子基础上加修饰成分，使句子更具体生动。基本方法：加形容词（\"的\"字短语）、加副词（\"地\"字短语）、加时间/地点、加比喻。如\"小鸟飞。\"扩成\"美丽的小鸟在蓝天上自由自在地飞。\"",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能把\"弟弟跑。\"扩成\"可爱的弟弟在公园里飞快地跑。\"",
+        "扩写后句子通顺、原意不变、加了修饰"
+      ],
+      "commonMistakes": [
+        "加的修饰与原意不符",
+        "修饰过多句子变得啰嗦",
+        "加错位置"
+      ],
+      "examTips": "扩写句子；把句子写具体",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-jz-2"
+      ]
+    },
+    {
+      "id": "ct_YW2X035",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "句子",
+      "name": "拟人句认识",
+      "description": "认识拟人句：把物（动物、植物、事物）当作人来写，赋予它们人的动作、语言、神态、思想感情。如\"小草从地下探出头来\"\"星星在天空中眨眼睛\"\"小树向我们招手\"。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能找出拟人句（把物当人写的句子）",
+        "能仿写简单拟人句"
+      ],
+      "commonMistakes": [
+        "把比喻句当成拟人句（没有赋予人动作，只是\"像\"）",
+        "拟人不合理（桌子在天上飞——不合常识）"
+      ],
+      "examTips": "判断拟人句；仿写拟人句；写出把事物当人写的句子",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-yysy-5"
+      ]
+    },
+    {
+      "id": "ct_YW2X036",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "句子",
+      "name": "冒号引号的用法（对话）",
+      "description": "初步学会写对话时使用冒号和引号：说话人在前，用冒号引出说的话，说的话用双引号括起来，引号内加标点。如：妈妈说：\"你快去写作业。\"",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能正确写\"XX说：\"……。\"这样的对话句",
+        "引号前后配对正确"
+      ],
+      "commonMistakes": [
+        "冒号写成逗号或漏掉",
+        "引号只有前半没有后半",
+        "引号里的标点放在外面",
+        "说话人在中间的形式混淆（这个二年级不做要求）"
+      ],
+      "examTips": "给对话加标点；判断对话标点是否正确；仿写对话",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-bd-1"
+      ]
+    },
+    {
+      "id": "ct_YW2S040",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "阅读",
+      "name": "认识自然段",
+      "description": "知道自然段（小节）的标志：每段开头空两个字的位置（两个汉字空格）。能数出课文有几个自然段，在每个自然段前标上序号。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "给一篇课文能正确标出自然段序号",
+        "知道每段开头空两格"
+      ],
+      "commonMistakes": [
+        "把对话中换一行当成新自然段",
+        "把插图之间的空行当自然段"
+      ],
+      "examTips": "给短文标出自然段序号；短文共有几个自然段",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-yd-1"
+      ]
+    },
+    {
+      "id": "ct_YW2S041",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "阅读",
+      "name": "分角色朗读",
+      "description": "能根据课文中不同角色的语气朗读对话：如读狐狸的话要读出狡猾的语气，读大官的话要读出傲慢，读小蝌蚪的话要读出着急和礼貌。注意不同人物的语调、语速、语气区别。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "朗读《狐假虎威》时能区分狐狸和老虎的语气",
+        "朗读对话时能通过语气变化体现角色性格"
+      ],
+      "commonMistakes": [
+        "所有角色都用一个语气读",
+        "声音大小、语速没变化",
+        "读旁白和对话没区别"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-yd-2"
+      ]
+    },
+    {
+      "id": "ct_YW2S042",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "阅读",
+      "name": "默读不出声不指读",
+      "description": "学习默读：不出声、不动嘴唇、不手指着读，只用眼睛看、脑子想。初步做到每分钟读80-100字，读后能说出课文主要讲了什么。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "默读时不出声、嘴唇不动",
+        "读后能回答简单问题（谁、在什么地方、做什么）"
+      ],
+      "commonMistakes": [
+        "小声念念有词",
+        "用手指着字一个一个读",
+        "默读速度太快没理解"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-yd-2"
+      ]
+    },
+    {
+      "id": "ct_YW2S043",
+      "type": "META",
+      "typeLabel": "元认知",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "阅读",
+      "name": "带着问题读课文",
+      "description": "养成边读边思考的习惯：读课文前先看课后问题或老师给的问题，带着问题去读，边读边画相关的句子，找到答案。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "读完课文能根据问题找到对应的句子划线",
+        "读的时候会主动思考\"这一段回答了什么问题\""
+      ],
+      "commonMistakes": [
+        "读是读了但没有思考问题",
+        "找错答案位置",
+        "读了后面忘前面"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-yd-3"
+      ]
+    },
+    {
+      "id": "ct_YW2S044",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "阅读",
+      "name": "借助图画阅读",
+      "description": "利用课文插图帮助理解课文内容：看图猜故事、从图中找文字描写的对象、图文对照理解难懂的词语和句子。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能从插图中找到课文描写的细节",
+        "看图能说出故事大致内容"
+      ],
+      "commonMistakes": [
+        "只顾看图不读文字",
+        "图文中对应关系找错"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-yd-3"
+      ]
+    },
+    {
+      "id": "ct_YW2S045",
+      "type": "META",
+      "typeLabel": "元认知",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "阅读",
+      "name": "课外阅读习惯养成",
+      "description": "养成每天课外阅读的习惯（快乐读书吧推荐：《小鲤鱼跳龙门》《\"歪脑袋\"木头桩》《孤独的小螃蟹》《小狗的小房子》《一只想飞的猫》等童话故事），每天至少阅读15-20分钟，乐于和同学分享读过的书。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "本学期至少完整读了2-3本课外书",
+        "能说出最近读的一本课外书的书名和主要内容"
+      ],
+      "commonMistakes": [
+        "只看图不读字",
+        "只挑喜欢的片段读，不能完整读一本书",
+        "只读漫画不读文字书"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-kwdy-1"
+      ]
+    },
+    {
+      "id": "ct_YW2S046",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "阅读",
+      "name": "提取文章明显信息",
+      "description": "能从文章中直接提取明显的信息回答问题，如\"谁\"\"什么地方\"\"什么时候\"\"做什么\"\"什么颜色/样子\"等。答案能在原文中找到对应的句子。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "课后问答题能在原文中找到答案画线",
+        "能用原文的话回答简单问题"
+      ],
+      "commonMistakes": [
+        "用自己的话回答，和原文意思有出入",
+        "漏答要点",
+        "找错段落"
+      ],
+      "examTips": "根据短文内容填空；回答问题（能在原文找到答案的）",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-yd-3"
+      ]
+    },
+    {
+      "id": "ct_YW2X047",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "阅读",
+      "name": "联系上下文理解词语",
+      "description": "当遇到不认识的词语时，学会通过读前后句子猜测意思：看这个词是形容什么的、用在什么场景、前后有没有同义词反义词或解释，从而大致理解词语在文中的意思。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "遇到不认识的词不跳过，会试着读前后文猜意思",
+        "能大致说出生词在文中的意思"
+      ],
+      "commonMistakes": [
+        "遇到生词就跳过不理解",
+        "用现代意思套旧故事（如古诗中的\"走\"是\"跑\"）",
+        "脱离上下文只按字面理解"
+      ],
+      "examTips": "联系上下文解释词语；选择题：某词在文中是什么意思",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-yd-3"
+      ]
+    },
+    {
+      "id": "ct_YW2X048",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "阅读",
+      "name": "寓言故事阅读",
+      "description": "学习阅读寓言故事（下册第二单元）：寓言是用一个小故事告诉我们一个大道理。本册重点寓言：《亡羊补牢》《揠苗助长》《画杨桃》《小马过河》等。读懂故事内容，说出故事告诉我们的道理。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能说出《亡羊补牢》的道理（出了问题及时补救还不算晚）",
+        "能说出《揠苗助长》的道理（急于求成反而坏事）"
+      ],
+      "commonMistakes": [
+        "道理说的是表面事件，没说深层含义（\"这个人不该把羊圈戳破\"不是道理）",
+        "道理和故事不对应"
+      ],
+      "examTips": "这则寓言告诉我们什么道理；填空；判断道理是否正确",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-yd-4"
+      ]
+    },
+    {
+      "id": "ct_YW2S050",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "古诗文",
+      "name": "《登鹳雀楼》",
+      "description": "背诵并理解王之涣《登鹳雀楼》：\"白日依山尽，黄河入海流。欲穷千里目，更上一层楼。\"理解诗意：太阳依傍着西山落下，黄河向东流入大海；想要看到更远的景色，就要再登上一层楼。最后两句告诉人们\"站得高看得远，要不断进取\"的道理。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能流利背诵、正确默写全诗",
+        "能说出\"欲穷千里目，更上一层楼\"的意思"
+      ],
+      "commonMistakes": [
+        "\"依\"写成\"衣\"或\"一\"",
+        "\"入\"写成\"人\"",
+        "\"更\"读成gèng错（这里读gèng，但有些学生读gēng）",
+        "\"楼\"字右边容易写错"
+      ],
+      "examTips": "默写古诗；理解性填空（写\"站得高看得远\"的诗句）；连线诗句与意思",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-gsw-1"
+      ]
+    },
+    {
+      "id": "ct_YW2S051",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "古诗文",
+      "name": "《望庐山瀑布》",
+      "description": "背诵李白《望庐山瀑布》：\"日照香炉生紫烟，遥看瀑布挂前川。飞流直下三千尺，疑是银河落九天。\"理解夸张手法（三千尺、九天是夸张，不是真的），感受瀑布雄伟壮观的景象。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能背诵默写",
+        "能说出诗描写的是庐山瀑布",
+        "知道\"飞流直下三千尺\"用了夸张手法"
+      ],
+      "commonMistakes": [
+        "\"瀑\"字写错",
+        "\"炉\"写成\"庐\"（\"香炉\"是峰名不是庐山）",
+        "\"遥\"少写走之旁里面的部件",
+        "\"疑\"字笔画多容易写错"
+      ],
+      "examTips": "默写；\"疑是银河落九天\"的\"疑\"意思；诗人是谁",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-gsw-1"
+      ]
+    },
+    {
+      "id": "ct_YW2S052",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "古诗文",
+      "name": "《夜宿山寺》",
+      "description": "背诵李白《夜宿山寺》：\"危楼高百尺，手可摘星辰。不敢高声语，恐惊天上人。\"理解夸张手法：楼高百尺（夸张楼高）、伸手能摘星星、不敢大声说话怕惊动天上的人——都是为了表现楼非常高。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能背诵默写",
+        "知道这是李白的诗",
+        "知道诗用了夸张手法表现楼很高"
+      ],
+      "commonMistakes": [
+        "\"辰\"写成\"晨\"",
+        "\"恐\"字写错",
+        "\"危\"理解错（这里是\"高\"的意思，不是\"危险\"）"
+      ],
+      "examTips": "默写；\"危楼\"的\"危\"是什么意思；诗中哪些地方看出楼很高",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-gsw-1"
+      ]
+    },
+    {
+      "id": "ct_YW2S053",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "古诗文",
+      "name": "《敕勒歌》",
+      "description": "背诵北朝民歌《敕勒歌》：\"敕勒川，阴山下。天似穹庐，笼盖四野。天苍苍，野茫茫，风吹草低见牛羊。\"理解：这是一首描写北方草原壮丽风光的民歌，\"风吹草低见牛羊\"的\"见\"读xiàn，同\"现\"，是显露的意思。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能背诵默写",
+        "知道\"见\"在这里读xiàn",
+        "能说出诗描写的是草原景象"
+      ],
+      "commonMistakes": [
+        "\"见\"读成jiàn（正确读xiàn）",
+        "\"穹庐\"写错或不理解（指蒙古包）",
+        "\"野\"读yě不读yǎ（旧读yǎ，现在教材多读yě）",
+        "\"茫\"字草字头下面容易写错"
+      ],
+      "examTips": "默写；\"风吹草低见牛羊\"的\"见\"读音和意思；诗描写哪里的景色",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-gsw-1"
+      ]
+    },
+    {
+      "id": "ct_YW2X054",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "古诗文",
+      "name": "《赋得古原草送别》（节选）",
+      "description": "背诵白居易《赋得古原草送别》前四句：\"离离原上草，一岁一枯荣。野火烧不尽，春风吹又生。\"理解：草原上的草一年枯萎一次茂盛一次；野火烧不完，春风一吹又生长——表现小草顽强的生命力。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能背诵默写",
+        "能说出\"野火烧不尽，春风吹又生\"赞扬了小草顽强的生命力"
+      ],
+      "commonMistakes": [
+        "\"离\"写成\"篱\"或\"梨\"",
+        "\"荣\"字草字头下面容易写错",
+        "\"尽\"字写错"
+      ],
+      "examTips": "默写；赞美小草生命力顽强的诗句；\"岁\"意思（年）",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-gsw-1"
+      ]
+    },
+    {
+      "id": "ct_YW2X055",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "古诗文",
+      "name": "《晓出净慈寺送林子方》",
+      "description": "背诵杨万里《晓出净慈寺送林子方》：\"毕竟西湖六月中，风光不与四时同。接天莲叶无穷碧，映日荷花别样红。\"理解：六月的西湖，莲叶碧绿无边、荷花在阳光下格外红艳——描写西湖夏天荷花盛开的美景。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能背诵默写",
+        "知道是送别诗但重点写西湖景色",
+        "能说出\"接天莲叶无穷碧\"描写什么景象"
+      ],
+      "commonMistakes": [
+        "\"毕\"字比画错",
+        "\"竟\"写成\"竞\"",
+        "\"莲\"字走之旁加\"连\"容易写错",
+        "\"映\"日写成\"应\"日"
+      ],
+      "examTips": "默写；描写西湖荷花的诗句；这首诗写的是什么季节",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-gsw-1"
+      ]
+    },
+    {
+      "id": "ct_YW2X056",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "古诗文",
+      "name": "《绝句》（两个黄鹂鸣翠柳）",
+      "description": "背诵杜甫《绝句》：\"两个黄鹂鸣翠柳，一行白鹭上青天。窗含西岭千秋雪，门泊东吴万里船。\"理解：这是杜甫在成都草堂时写的，四句诗各是一幅画面：黄鹂在翠柳上叫、白鹭飞上青天、窗户对着西岭雪山、门外停着去东吴的船——色彩鲜明，有近有远。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能背诵默写",
+        "能说出诗中描写的四种颜色（黄、翠、白、青）",
+        "知道\"窗含\"的意思是窗户里包含（看到）"
+      ],
+      "commonMistakes": [
+        "\"鹭\"字笔画多写错",
+        "\"含\"字上面是\"今\"不是\"令\"（不要多写一点）",
+        "\"岭\"字右边\"令\"多一点或漏一点",
+        "\"泊\"字写错"
+      ],
+      "examTips": "默写；诗中表示颜色的词；\"千秋雪\"指什么；诗的观察顺序",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-gsw-1"
+      ]
+    },
+    {
+      "id": "ct_YW2S060",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "写话",
+      "name": "留言条",
+      "description": "学写留言条，格式：①第一行顶格写称呼（\"XX：\"）；②另起一行空两格写事情（你要说什么，什么时间、什么事、要对方做什么，简单清楚）；③右下方写自己的名字；④名字下面写日期。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能按照正确格式写出留言条",
+        "事情说清楚（谁、什么时候、什么事）"
+      ],
+      "commonMistakes": [
+        "称呼没空两格或顶格不对",
+        "没有署名或日期",
+        "事情说不清楚，让人看不明白",
+        "写得太长像写信"
+      ],
+      "examTips": "根据情境写一张留言条；判断留言条格式哪里错了",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-xh-1"
+      ]
+    },
+    {
+      "id": "ct_YW2S061",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "写话",
+      "name": "看图写话（单幅图）",
+      "description": "看单幅图写几句话：①看懂图（什么时间、谁、在什么地方、做什么）；②按顺序说（从整体到细节，或从远到近）；③写完整句子（时间+谁+在哪里+干什么+怎么样/心情）；④开头空两格，正确使用标点；⑤能用上积累的好词。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能看单幅图写3-5句通顺的话",
+        "写清楚时间地点人物事情",
+        "标点使用基本正确"
+      ],
+      "commonMistakes": [
+        "只有\"谁干什么\"，没有时间地点和心情",
+        "句子不通顺，缺少主语或谓语",
+        "标点全部用句号，没有句号逗号区分",
+        "图上有的重要内容漏掉"
+      ],
+      "examTips": "看图写话",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-xh-2"
+      ]
+    },
+    {
+      "id": "ct_YW2X062",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "写话",
+      "name": "看图写话（多幅图）",
+      "description": "看多幅图（2-4幅）写一段连贯的话：①先按顺序看每幅图，了解故事的起因、经过、结果；②图与图之间加上过渡的话（\"于是\"\"接着\"\"最后\"等）；③注意人物的动作、表情、对话；④把故事写完整、写通顺，80-150字左右。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能按顺序把4幅图的故事写下来",
+        "有起因经过结果，前后连贯",
+        "能用上连接词"
+      ],
+      "commonMistakes": [
+        "只写每幅图一句话，没有连起来",
+        "漏掉关键情节，故事不完整",
+        "想象太离谱，和图意不符"
+      ],
+      "examTips": "看几幅图写一段话",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-xh-2"
+      ]
+    },
+    {
+      "id": "ct_YW2X063",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "写话",
+      "name": "写清楚四要素",
+      "description": "写话时要写清楚四个要素（四素句）：时间、地点、人物、事情。例如\"星期天早上，小明在公园里开心地放风筝。\"一句话里包含四个要素，就是完整的句子。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "写话中有明确的时间、地点、人物、事情",
+        "能把\"谁干什么\"扩展成\"什么时候谁在什么地方干什么\""
+      ],
+      "commonMistakes": [
+        "缺少时间或地点",
+        "事情写得太笼统（\"在玩\"没说玩什么）"
+      ],
+      "examTips": "把句子写具体；补充句子缺少的要素",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-xh-2"
+      ]
+    },
+    {
+      "id": "ct_YW2X064",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "写话",
+      "name": "日记格式",
+      "description": "初步学写日记：日记格式——①第一行写日期、星期、天气（如\"2月10日 星期一 晴\"）；②第二行空两格写正文，写当天看到的、听到的、做过的、想到的事情。日记可以记录一件事、一个人、一处景物或一次活动。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能按正确格式写一则简单日记",
+        "正文能写清楚一件事"
+      ],
+      "commonMistakes": [
+        "格式错：日期/星期/天气位置不对",
+        "写成流水账（\"早上起床吃早饭上学放学写作业睡觉\"）",
+        "没有具体内容"
+      ],
+      "examTips": "写一则日记；判断日记格式对错",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-xh-1"
+      ]
+    },
+    {
+      "id": "ct_YW2S070",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "口语交际",
+      "name": "商量",
+      "description": "学会商量：和别人商量事情时要有礼貌，用商量的语气（\"好吗？\"\"行不行？\"\"可以吗？\"），把自己的想法说清楚，同时认真听别人的意见。本册情景：向同学调换值日时间。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能模拟场景商量调换值日时间，语气礼貌、说清理由",
+        "被拒绝时不生气，能想其他办法"
+      ],
+      "commonMistakes": [
+        "用命令语气（\"你跟我换！\"）",
+        "不说理由，只提要求",
+        "被拒绝就耍脾气"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-kj-1"
+      ]
+    },
+    {
+      "id": "ct_YW2S071",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "口语交际",
+      "name": "有趣的动物介绍",
+      "description": "能向同学介绍一种有趣的动物：说清楚动物的名字、长什么样、生活在哪里、有什么有趣的地方或习性。说话时吐字清楚、音量适中、看着对方的眼睛。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能在小组里介绍一种有趣的动物1-2分钟",
+        "同学能听清楚并听懂介绍的内容",
+        "能用简单的手势或画图辅助"
+      ],
+      "commonMistakes": [
+        "声音太小别人听不到",
+        "说话没条理，东一句西一句",
+        "只说\"我喜欢小猫\"没说具体有趣在哪里"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-kj-1"
+      ]
+    },
+    {
+      "id": "ct_YW2S072",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "口语交际",
+      "name": "看图讲故事",
+      "description": "能根据多幅图（连环画）完整地讲一个故事：先看清每幅图的内容，注意人物的动作、表情，把故事的起因经过结果讲清楚，加上适当的想象和对话。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能根据课本上的《老鼠嫁女》连环画完整讲故事",
+        "声音洪亮、故事连贯、有趣味"
+      ],
+      "commonMistakes": [
+        "只说每幅图一句话，不像讲故事",
+        "遗漏重要情节",
+        "人物对话没变化，都是一个腔调"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-kj-1"
+      ]
+    },
+    {
+      "id": "ct_YW2X073",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "语文",
+      "subjectCode": "YW",
+      "domain": "口语交际",
+      "name": "注意说话的语气",
+      "description": "说话时注意语气恰当：①请求别人帮忙时用商量、礼貌的语气，不要用命令语气；②对长辈说话更要有礼貌；③同样的意思用不同语气效果不同（如\"我想借你的笔用一下，行吗？\"比\"把笔给我！\"好）。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "需要帮忙时会说\"请\"\"请问\"\"行吗\"\"可以吗\"",
+        "不同场合用不同语气"
+      ],
+      "commonMistakes": [
+        "用命令语气要求同学或长辈",
+        "说话太生硬直接",
+        "用了礼貌词但语气还是不好"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yuwen-2022:1-2-kj-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S001",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "统一长度单位的必要性",
+      "description": "体会统一长度单位的必要性：用不同物品（如拃、铅笔、橡皮）作标准量同一长度，结果不同，所以需要统一的长度单位。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 1,
+      "centrality": null,
+      "evidence": [
+        "能说出为什么要用尺子量而不是用手拃",
+        "知道不同的测量工具量同一物体结果不一样"
+      ],
+      "commonMistakes": [
+        "觉得用手拃量也挺准",
+        "不理解为什么需要单位"
+      ],
+      "examTips": "选择题：为什么要统一长度单位",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S002",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "认识厘米",
+      "description": "认识长度单位\"厘米\"（cm）：尺子上每相邻两个长刻度线之间的长度是1厘米。食指的宽度大约是1厘米。用厘米量较短物体的长度。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能在尺子上指出1厘米、2厘米、5厘米的长度",
+        "能用尺子正确量物体长度（对准0刻度、尺子放平）"
+      ],
+      "commonMistakes": [
+        "量的时候没对准0刻度从1开始量",
+        "尺子没放平斜着量",
+        "数刻度时把起始0算成1"
+      ],
+      "examTips": "测量物体长度；看尺子读数；填上合适的长度单位（厘米/米）",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S003",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "认识米",
+      "description": "认识长度单位\"米\"（m）：量较长物体用米作单位。1米=100厘米。两臂伸开大约1米。米尺长度是1米。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "知道量教室、大树等长物体用米做单位",
+        "能说出1米=100厘米",
+        "能进行简单的米和厘米换算"
+      ],
+      "commonMistakes": [
+        "1米=10厘米（漏一个0）",
+        "选择单位时混淆厘米和米（铅笔长18米的错误）"
+      ],
+      "examTips": "填合适单位（厘米/米）；1米=（  ）厘米；比较大小",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S004",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "用尺子量物体长度",
+      "description": "用刻度尺量物体长度的方法：①把尺子的\"0\"刻度对准物体的一端；②把尺子放平、紧贴物体；③看物体另一端对着刻度几，物体就是几厘米。如果不是从0刻度开始，就用末端刻度减起始刻度。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能用尺子正确量铅笔、橡皮等物体的长度",
+        "尺子斜着量时能发现不对"
+      ],
+      "commonMistakes": [
+        "没有对准0刻度",
+        "尺子没有放平",
+        "读数时从正面看但没对齐刻度线"
+      ],
+      "examTips": "看图读出物体长度；测量正误判断",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S005",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "画线段",
+      "description": "认识线段：直直的、有两个端点、可以量出长度的线叫线段。学会画线段：①从尺子0刻度开始画起；②需要画几厘米长的线段就画到尺子几厘米的地方；③两端画上端点。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能指出哪些是线段哪些不是（弯的线不是、没有端点的不是）",
+        "能按要求画出指定长度（如3厘米）的线段"
+      ],
+      "commonMistakes": [
+        "线段不画端点",
+        "从1刻度画起但忘了减1",
+        "画出来弯弯曲曲"
+      ],
+      "examTips": "判断哪些是线段；画一条X厘米长的线段；数图形中有几条线段",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S010",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "两位数加两位数（不进位）",
+      "description": "两位数加两位数，相同数位对齐，从个位加起。不进位加法：个位加个位不超过10，直接写得数；十位加十位写得数。如34+25=59。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能列竖式正确计算不进位两位数加法",
+        "知道相同数位对齐"
+      ],
+      "commonMistakes": [
+        "数位不对齐（个位加十位）",
+        "从十位加起（虽然也能算但不符合规范）"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S011",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "两位数加两位数（进位）",
+      "description": "两位数加两位数（进位）：相同数位对齐，从个位加起；个位相加满10，向十位进1；十位相加时要加上进来的1。如36+37=73（6+7=13，写3进1；3+3+1=7）。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能正确列竖式计算进位加法",
+        "记得在十位右下角写小\"1\"表示进位"
+      ],
+      "commonMistakes": [
+        "忘了加进位的1",
+        "进位1写太大当成结果的一部分",
+        "从十位开始加，个位进位后要擦掉重算"
+      ],
+      "examTips": "竖式计算；判断对错（忘记进位是常见错）",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S012",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "两位数减两位数（不退位）",
+      "description": "两位数减两位数，相同数位对齐，从个位减起。不退位减法：个位够减直接减，十位直接减。如58-32=26。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能列竖式正确计算不退位两位数减法"
+      ],
+      "commonMistakes": [
+        "数位不对齐",
+        "大数减小数惯性（个位减数比被减数大时反过来减）"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S013",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "两位数减两位数（退位）",
+      "description": "两位数减两位数（退位）：相同数位对齐，从个位减起；个位不够减，从十位退1，在个位加10再减；十位要先减退走的1再减。如51-36=15（个位1减6不够，从十位5退1变4，个位变11-6=5，十位4-3=1）。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能正确列竖式计算退位减法",
+        "记得在十位数上面点一个点表示退了1"
+      ],
+      "commonMistakes": [
+        "个位不够减时倒过来减（6-1=5）",
+        "十位忘记先减1再减",
+        "点了退位点但十位没减1"
+      ],
+      "examTips": "竖式计算；判断对错；填空（借位后十位变多少）",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S014",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "求比一个数多几或少几的数",
+      "description": "解决比多少的问题：①求比一个数多几的数，用加法。如：二(1)班有15面小红旗，二(2)班比二(1)班多3面，二(2)班有多少面？15+3=18。②求比一个数少几的数，用减法。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能根据题意判断用加法还是减法",
+        "能画出线段图帮助理解"
+      ],
+      "commonMistakes": [
+        "看到\"多\"就加、看到\"少\"就减，不分析谁多谁少（\"比A多3\"和\"A比B多3\"搞混）",
+        "列式后答非所问"
+      ],
+      "examTips": "应用题：比多少；画线段图辅助",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-2"
+      ]
+    },
+    {
+      "id": "ct_SX2S015",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "连加连减和加减混合",
+      "description": "三个数的连加连减、加减混合运算：竖式可以列成一个长竖式简便计算，也可以分开列。运算顺序从左到右。能口算的就口算。有小括号的先算括号里面的。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能列竖式计算连加连减加减混合",
+        "有小括号的知道先算括号里面的",
+        "能口算的步骤用口算简化"
+      ],
+      "commonMistakes": [
+        "抄错数字或运算符号",
+        "忘记小括号先算",
+        "进退位错误在长竖式中更多"
+      ],
+      "examTips": "竖式计算；判断对错；应用题连加连减",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S016",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "100以内加减法的估算",
+      "description": "加减法估算：把两个数看成和它接近的整十数，再口算。如28+43≈30+40=70。判断\"够不够\"\"能不能\"等问题时常用估算。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能把两位数看成接近的整十数",
+        "能用估算解决\"够不够\"问题"
+      ],
+      "commonMistakes": [
+        "估算后又精算一遍",
+        "把数看成最接近的整十数估算但方向错了（该往大估反而往小估）"
+      ],
+      "examTips": "估一估得数大约几十；够不够的问题",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-3"
+      ]
+    },
+    {
+      "id": "ct_SX2S020",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "角的初步认识",
+      "description": "认识角：角有一个顶点和两条直直的边。角的两条边是从顶点出发的。如三角尺上的角、桌子的角、钟面上的角。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能在图形中找出角",
+        "能指出角的顶点和边"
+      ],
+      "commonMistakes": [
+        "把边画弯的图形也当角",
+        "只看到顶点没看到两条边",
+        "数角时漏数"
+      ],
+      "examTips": "判断哪些图形是角；数图形中有几个角",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-tx-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S021",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "直角的认识",
+      "description": "认识直角：三角尺上最大的那个角是直角。可以用三角尺上的直角去比一比，判断一个角是不是直角：顶点对顶点，一边对一边，看另一边是否重合。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能用三角尺判断一个角是不是直角",
+        "能在物体表面找出直角（课桌、书本等）"
+      ],
+      "commonMistakes": [
+        "目测判断直角不准确（锐角看成直角）",
+        "比的时候顶点没对齐"
+      ],
+      "examTips": "用三角尺比一比；找直角；判断直角",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-tx-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S022",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "锐角和钝角",
+      "description": "比直角小的角叫锐角，比直角大的角叫钝角。用三角尺的直角比：另一条边在直角里面是锐角，在直角外面是钝角。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能区分锐角、直角、钝角",
+        "能按大小排序（锐角<直角<钝角）"
+      ],
+      "commonMistakes": [
+        "钝角和锐角分不清楚",
+        "接近直角的锐角/钝角目测容易错"
+      ],
+      "examTips": "连一连：锐角/直角/钝角；按从大到小排",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-tx-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S023",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "画角",
+      "description": "从一个点起，用尺子向不同方向画两条笔直的线，就画成一个角。先点一个顶点，再从顶点出发画两条边。画直角可以用三角尺辅助。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能按要求画一个角（含直角）",
+        "画的角有顶点和两条直边"
+      ],
+      "commonMistakes": [
+        "边画弯了",
+        "没有顶点（两条线分开的）",
+        "画直角时不用三角尺导致角度不准"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-tx-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S030",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "乘法的初步认识",
+      "description": "理解乘法的意义：几个相同加数相加，可以用乘法表示，更简便。如3+3+3+3+3=15，是5个3相加，可以写成3×5=15或5×3=15。乘号\"×\"，相乘的两个数叫乘数（因数），结果叫积。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能把相同加数连加改写成乘法算式",
+        "知道3×5表示5个3相加或3个5相加"
+      ],
+      "commonMistakes": [
+        "把不同加数相加也写成乘法（2+3+4不能写成乘法）",
+        "几个几搞反（3个5写成3+3+3+3+3）"
+      ],
+      "examTips": "加法改乘法；看图写乘法算式；乘法算式读作什么",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-4"
+      ]
+    },
+    {
+      "id": "ct_SX2S031",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "2-6的乘法口诀",
+      "description": "熟记2-6的乘法口诀，共21句。口诀前两个字是两个乘数（较小数在前），后面是积。如\"二三得六\"表示2×3=6和3×2=6。每相邻两句口诀的积相差相应的数。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能顺背、倒背、抽背2-6的乘法口诀",
+        "能根据口诀写乘法算式",
+        "看到两个一位数相乘能口算出积"
+      ],
+      "commonMistakes": [
+        "口诀背错（如\"二六十二\"说成\"二六得十二\"或\"二六十二\"漏字）",
+        "\"三四十二\"和\"二六十二\"混淆",
+        "口诀写成阿拉伯数字"
+      ],
+      "examTips": "补充口诀；口算；根据口诀写算式",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-4"
+      ]
+    },
+    {
+      "id": "ct_SX2S032",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "7-9的乘法口诀",
+      "description": "熟记7、8、9的乘法口诀。7的口诀7句，8的口诀8句，9的口诀9句。9的乘法口诀有规律：积的十位与个位数字之和是9；几乘9积就是几十减几（9×5=45=50-5）。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "熟记7-9的乘法口诀",
+        "能用口诀快速口算",
+        "知道9的口诀规律帮助记忆"
+      ],
+      "commonMistakes": [
+        "7、8、9的口诀容易记错（如\"七八五十六\"记成\"七八五十四\"）",
+        "9的口诀积的十位个位写反"
+      ],
+      "examTips": "补充口诀；口算；括号里最大能填几（如(  )×8<55）",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-4"
+      ]
+    },
+    {
+      "id": "ct_SX2S033",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "乘加乘减",
+      "description": "乘加乘减算式：先看有几个相同的数用乘法，再加上或减去剩下的。如3+3+3+2=3×3+2=11（乘加）；3+3+3+3-1=3×4-1=11（乘减）。运算顺序：先算乘法，再算加法或减法。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能看图写乘加或乘减算式",
+        "知道先乘后加减"
+      ],
+      "commonMistakes": [
+        "先算加减后算乘法（运算顺序错）",
+        "看图时数错相同的个数"
+      ],
+      "examTips": "看图写乘加乘减算式；计算乘加乘减",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-4"
+      ]
+    },
+    {
+      "id": "ct_SX2S034",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "求一个数的几倍是多少",
+      "description": "理解\"倍\"的概念：一个数里面有几个另一个数，就是另一个数的几倍。求一个数的几倍是多少，就是求几个这个数是多少，用乘法。如苹果有3个，梨是苹果的4倍，梨有3×4=12个。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能通过摆小棒、画图理解\"倍\"",
+        "能解决\"求一个数的几倍是多少\"的应用题"
+      ],
+      "commonMistakes": [
+        "\"倍\"和\"几个几\"对应不上",
+        "\"求几倍\"用错运算（做成除法）",
+        "谁是谁的几倍搞反"
+      ],
+      "examTips": "画一画○是△的几倍；应用题求几倍是多少",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-4"
+      ]
+    },
+    {
+      "id": "ct_SX2S040",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "从不同位置观察物体",
+      "description": "从不同位置（前面、后面、侧面、上面）观察同一个物体，看到的形状可能不一样。要判断某个人看到什么形状，要站在那个人的位置去想。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能判断从前面/侧面/上面看到的形状",
+        "能根据看到的形状判断观察者的位置"
+      ],
+      "commonMistakes": [
+        "左右侧面混淆",
+        "看到的形状和位置对应错"
+      ],
+      "examTips": "连线：谁看到什么；判断看到的形状",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-tx-2"
+      ]
+    },
+    {
+      "id": "ct_SX2S045",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "认识钟面和时与分",
+      "description": "钟面上有12个大格，每个大格里有5个小格，共有60个小格。时针走1大格是1小时；分针走1小格是1分钟，走1大格是5分钟，走1圈是60分钟。1时=60分。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能说出钟面上有多少大格、多少小格",
+        "知道1时=60分",
+        "知道时针走1大格、分针走1圈就是1小时"
+      ],
+      "commonMistakes": [
+        "大格小格数错（大格12个、小格60个记混）",
+        "分针走1大格是1分钟（错，是5分钟）"
+      ],
+      "examTips": "钟面上有几个大格/小格；1时=（ ）分；分针走一大格是几分钟",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-2"
+      ]
+    },
+    {
+      "id": "ct_SX2S046",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "认识几时几分",
+      "description": "看钟面读时间：①先看时针（短针），时针走过数字几，就是几时多；②再看分针（长针），分针从12起走了几个小格，就是几分（分针指几就用几乘5，再加上多的小格数）。如时针在7和8之间，分针指6（30小格），就是7时30分（7:30）。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能准确读出钟面上的几时几分",
+        "会用\"几时几分\"和电子表形式（7:30）两种写法"
+      ],
+      "commonMistakes": [
+        "时针在7和8之间读成8时（应该是7时多）",
+        "分针指几就当几分（指6是30分不是6分）",
+        "接近整时读错（7:55容易读成8:55）"
+      ],
+      "examTips": "看钟面写时间；判断时间读法是否正确；按时间画指针",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-2"
+      ]
+    },
+    {
+      "id": "ct_SX2S047",
+      "type": "META",
+      "typeLabel": "元认知",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "合理安排时间",
+      "description": "结合生活实际，判断做某件事大概需要多长时间（如吃饭约20分钟、睡觉约9小时、跳绳20下约10秒），能合理安排时间先后顺序。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能选择合适的时间单位填空",
+        "能说出几件事的先后顺序"
+      ],
+      "commonMistakes": [
+        "时间单位选择不合理（吃饭用了10小时）",
+        "对分钟和小时的长短没有概念"
+      ],
+      "examTips": "填上合适的时间单位；判断时间安排是否合理",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-2"
+      ]
+    },
+    {
+      "id": "ct_SX2S050",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "综合与实践",
+      "name": "简单的排列",
+      "description": "简单的排列问题：用几个数字组数，每个数字不能重复。如用1、2、3组成两位数，可以组成12、13、21、23、31、32，共6个。方法：先确定十位，再换个位，有序思考不重复不遗漏。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能有序列举出所有可能的两位数",
+        "知道0不能在十位（如果有0）"
+      ],
+      "commonMistakes": [
+        "无序列举导致重复或遗漏",
+        "忘记0不能在最高位",
+        "顺序混乱多数或少数"
+      ],
+      "examTips": "组数（能组成几个两位数）；涂颜色（相邻不同色）",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-zonghe-1"
+      ]
+    },
+    {
+      "id": "ct_SX2S051",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "综合与实践",
+      "name": "简单的组合",
+      "description": "简单的组合问题：有3个数5、7、9，任意选取其中2个求和，得数有几种可能？5+7=12、5+9=14、7+9=16，共3种。组合和排列不同：组合不考虑顺序，两个数交换位置和不变，算一种。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "理解组合和排列的区别（排列与顺序有关，组合与顺序无关）",
+        "能有序列举不重复的组合"
+      ],
+      "commonMistakes": [
+        "把组合当成排列算出6种（实际3种）",
+        "握手/穿衣搭配等场景思路不清"
+      ],
+      "examTips": "握手问题、搭配衣服问题、求和/求积有几种可能",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-zonghe-1"
+      ]
+    },
+    {
+      "id": "ct_SX2X060",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "统计与概率",
+      "name": "简单的数据收集与整理",
+      "description": "学习用调查法收集数据：可以用举手、站队、投票等方法；用画\"正\"字的方法记录数据（一个\"正\"字5画代表5个）；将数据填入简单的统计表中；根据统计表回答问题。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能用画\"正\"字的方法记录数据",
+        "能看懂简单的统计表并回答问题",
+        "知道要调查大多数人意见才公平"
+      ],
+      "commonMistakes": [
+        "\"正\"字笔画数错（一个正字5画不是6画）",
+        "统计时漏数或重复数",
+        "看表回答问题时选错列"
+      ],
+      "examTips": "根据统计记录填表；根据统计表回答问题；\"正\"字表示多少",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-sjtj-1"
+      ]
+    },
+    {
+      "id": "ct_SX2X065",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "平均分",
+      "description": "理解\"平均分\"：每份分得同样多，叫平均分。平均分有两种分法：①按指定份数分（把12个苹果平均分成3份，每份几个）；②按每几个一份分（12个苹果每4个一份，可以分几份）。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能判断哪种分法是平均分",
+        "能动手操作进行平均分"
+      ],
+      "commonMistakes": [
+        "每份不一样多以为是平均分",
+        "两种分法的题目分不清楚"
+      ],
+      "examTips": "判断是否平均分；圈一圈分一分",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-5"
+      ]
+    },
+    {
+      "id": "ct_SX2X066",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "除法的初步认识",
+      "description": "理解除法的意义：把一些东西平均分，可以用除法表示。除号\"÷\"。12÷4=3读作\"12除以4等于3\"。12是被除数，4是除数，3是商。两种含义：①把12平均分成4份，每份3个；②12个每4个一份，可以分3份。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能根据平均分情境写出除法算式",
+        "知道除法算式各部分名称",
+        "能正确读出除法算式"
+      ],
+      "commonMistakes": [
+        "把\"除以\"读成\"除\"（12÷4读\"12除以4\"，\"4除12\"也对但二年级不讲）",
+        "被除数和除数位置颠倒",
+        "不分清两种平均分含义"
+      ],
+      "examTips": "看图写除法算式；除法算式各部分名称；读作什么",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-5"
+      ]
+    },
+    {
+      "id": "ct_SX2X067",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "用2-9的乘法口诀求商",
+      "description": "用乘法口诀求商：想\"除数×几=被除数\"，用那句口诀求商。如12÷4=？想：4×(  )=12，口诀\"三四十二\"，商是3。一句口诀可以算两个除法算式（除了两个乘数相同的）：三四十二→12÷3=4，12÷4=3。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "看到除数和被除数能快速想到对应口诀求商",
+        "口算表内除法熟练"
+      ],
+      "commonMistakes": [
+        "口诀记错导致商错",
+        "乘法口诀不熟练求商慢",
+        "除法和乘法关系对应不上"
+      ],
+      "examTips": "口算除法；填空（(  )×4=24）；看图写1乘2除",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-5"
+      ]
+    },
+    {
+      "id": "ct_SX2X068",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "除法应用题",
+      "description": "解决除法的实际问题：①把一个数平均分成几份求每份是多少（平均分问题）；②求一个数里面有几个另一个数（包含问题）。两种都用除法计算。解题时先分析知道什么、求什么。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能根据题意判断用除法",
+        "能正确列出除法算式并写单位名称和答语"
+      ],
+      "commonMistakes": [
+        "单位名称写错（求份数单位是\"份\"或具体单位）",
+        "两种除法应用题列式搞反",
+        "乘除法应用题混淆"
+      ],
+      "examTips": "应用题：平均分/包含问题；两步乘除应用题",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-5"
+      ]
+    },
+    {
+      "id": "ct_SX2X075",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "轴对称图形",
+      "description": "认识轴对称图形：一个图形沿一条直线对折后，两边能够完全重合，这样的图形叫轴对称图形，这条折痕所在的直线叫对称轴。长方形有2条对称轴，正方形有4条，圆有无数条。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能判断一个图形是不是轴对称图形",
+        "能找出轴对称图形的对称轴",
+        "能剪简单的轴对称图形"
+      ],
+      "commonMistakes": [
+        "平行四边形认为是轴对称图形（一般平行四边形不是）",
+        "数对称轴数错（长方形数成4条）",
+        "斜放的轴对称图形认不出"
+      ],
+      "examTips": "判断轴对称图形；数对称轴；画对称轴；选对称轴条数正确的",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-tx-3"
+      ]
+    },
+    {
+      "id": "ct_SX2X076",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "平移",
+      "description": "认识平移现象：物体沿直线移动，本身的方向、大小、形状不变，只是位置变了，这种现象叫平移。如推拉窗户、电梯升降、缆车运行、升国旗、汽车在平直路上行驶。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能识别生活中的平移现象",
+        "能判断图形平移后的位置"
+      ],
+      "commonMistakes": [
+        "把旋转当成平移（方向盘转动不是平移）",
+        "平移后图形方向变了以为错（平移方向不变）"
+      ],
+      "examTips": "判断平移/旋转；平移几格后图形在哪里；涂色",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-tx-3"
+      ]
+    },
+    {
+      "id": "ct_SX2X077",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "旋转",
+      "description": "认识旋转现象：物体绕着一个点或一个轴转动，这种现象叫旋转。如风车转动、方向盘转动、钟表指针转动、摩天轮转动、拧水龙头、旋转门。旋转时物体大小形状不变，但方向在变。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能识别生活中的旋转现象",
+        "能区分平移和旋转"
+      ],
+      "commonMistakes": [
+        "把直线运动当旋转",
+        "不绕固定点的运动以为是旋转"
+      ],
+      "examTips": "判断平移还是旋转；举例说旋转现象",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-tx-3"
+      ]
+    },
+    {
+      "id": "ct_SX2X080",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "同级运算顺序",
+      "description": "在没有括号的算式里，只有加减法或只有乘除法（同级运算），都要从左到右按顺序计算。如23+6-11=18；2×8÷4=4。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能正确判断运算顺序并计算",
+        "能按正确格式脱式计算（等号对齐）"
+      ],
+      "commonMistakes": [
+        "看到好算的就先算（如25-5+5先算5+5）",
+        "脱式计算格式错（等号不对齐或直接写得数）"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-6"
+      ]
+    },
+    {
+      "id": "ct_SX2X081",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "含两级运算顺序",
+      "description": "在没有括号的算式里，如果既有乘除法又有加减法（两级运算），要先算乘除法，后算加减法。如4+5×8=4+40=44；30-12÷6=30-2=28。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能正确判断先算乘除后算加减",
+        "不会被数字位置迷惑（不管乘除在左边还是右边都先算）"
+      ],
+      "commonMistakes": [
+        "按从左到右顺序算（如4+5×8先算4+5=9）",
+        "只记得\"先乘除\"但只算了前面的乘除",
+        "脱式计算时漏抄没算的部分"
+      ],
+      "examTips": "脱式计算；判断对错；填空列综合算式",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-6"
+      ]
+    },
+    {
+      "id": "ct_SX2X082",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "含小括号的混合运算",
+      "description": "算式里有小括号的，要先算小括号里面的，再算小括号外面的。小括号有改变运算顺序的作用。如8×(9-4)=8×5=40；(30+10)÷5=40÷5=8。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "看到小括号知道先算里面",
+        "能正确脱式计算含小括号的算式",
+        "知道什么时候需要加小括号"
+      ],
+      "commonMistakes": [
+        "忽略小括号按没括号算",
+        "分步列式改成综合算式时忘加小括号"
+      ],
+      "examTips": "脱式计算；列综合算式；根据表格列算式",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-6"
+      ]
+    },
+    {
+      "id": "ct_SX2X083",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "两步应用题",
+      "description": "解决需要两步计算的应用题：①先找中间问题——要算出最终答案先算什么；②列分布算式或综合算式解答；③检查答案是否合理。如：面包师傅共烤90个面包，已烤36个，每次烤9个，剩下的还要烤几次？先算剩下90-36=54个，再算54÷9=6次。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能从题中找到需要先算的中间量",
+        "能正确列分步或综合算式解答",
+        "会检查答案合理性"
+      ],
+      "commonMistakes": [
+        "漏算一步直接列一步算式",
+        "分步列对了综合算式漏加小括号",
+        "答语答非所问"
+      ],
+      "examTips": "两步应用题；列综合算式解答",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-6"
+      ]
+    },
+    {
+      "id": "ct_SX2X090",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "有余数除法的意义",
+      "description": "平均分东西时，分到不能再分一份时剩下的数叫余数。如7个草莓每2个摆一盘，摆3盘剩1个，写成7÷2=3……1，读作\"7除以2等于3余1\"。1是余数。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能根据分物情境写出有余数除法算式",
+        "知道余数表示什么（分剩下的）"
+      ],
+      "commonMistakes": [
+        "把商和余数写反",
+        "余数单位名称和商搞混",
+        "余数比除数大（说明还能再分一份）"
+      ],
+      "examTips": "圈一圈填一填；除法算式读作什么；各部分名称",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-7"
+      ]
+    },
+    {
+      "id": "ct_SX2X091",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "余数一定比除数小",
+      "description": "重要规律：在有余数除法中，余数必须比除数小（余数<除数）。如果余数大于或等于除数，说明还能再分一份，商就小了。如除数是5，余数只能是1、2、3、4，不可能是5或更大。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能判断有余数除法算得对不对（看余数是否比除数小）",
+        "知道除数是6时余数最大是5"
+      ],
+      "commonMistakes": [
+        "余数等于或大于除数（错）",
+        "\"余数要比商小\"（记错了，是比除数小）"
+      ],
+      "examTips": "判断对错（余数比除数大的）；除数是几，余数最大/可能是几；填空",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-7"
+      ]
+    },
+    {
+      "id": "ct_SX2X092",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "有余数除法竖式",
+      "description": "学会有余数除法的竖式书写：先写除号\"厂\"，里面写被除数，左边写除数；商写在被除数个位上方；商乘除数的积写在被除数下面，对齐数位；画横线，被除数减积得到余数，余数要比除数小。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能正确书写有余数除法的竖式",
+        "知道竖式中每个数表示什么"
+      ],
+      "commonMistakes": [
+        "商的位置写错（写在十位上）",
+        "余数没和个位对齐",
+        "商和除数相乘算错",
+        "余数≥除数"
+      ],
+      "examTips": "竖式计算；判断竖式对错；竖式中各数含义",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-7"
+      ]
+    },
+    {
+      "id": "ct_SX2X093",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "有余数除法应用题",
+      "description": "用有余数除法解决实际问题，注意两种情况：①\"进一法\"：租车、租船、装东西等，剩下的人/东西也要一份，商要加1。如22人租船，每条船坐4人，22÷4=5……2，至少要6条船；②\"去尾法\"：买东西、做衣服等，剩下的不够一份，商不加1。如10元买3元一个的面包，最多买3个。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 5,
+      "centrality": null,
+      "evidence": [
+        "能根据题意判断商是否要加1",
+        "能正确写答语（\"至少\"\"最多\"关键词）"
+      ],
+      "commonMistakes": [
+        "该进一的没进（剩下2人不租船了？）",
+        "该去尾的进了（10元能买4个面包？）",
+        "周期问题中余数对应错误"
+      ],
+      "examTips": "\"至少需要几条船\"\"最多能买几个\"；按规律摆第几个是什么",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-7"
+      ]
+    },
+    {
+      "id": "ct_SX2X100",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "千以内数的认识",
+      "description": "认识计数单位\"千\"：一个一个地数10个一是十，十个十个地数10个十是一百，一百一百地数10个一百是一千。\"千\"是新的计数单位。三位数的最高位是百位。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能一个一个、十个十个、一百一百地数千以内的数",
+        "知道10个一百是一千"
+      ],
+      "commonMistakes": [
+        "数到接近整百/整千时\"翻坎\"数错（如199后面是200）",
+        "计数单位\"千\"和\"百\"混淆"
+      ],
+      "examTips": "按规律填数；(  )个一百是一千；从某数起数到某数",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-8"
+      ]
+    },
+    {
+      "id": "ct_SX2X101",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "万以内数的读写和组成",
+      "description": "认识\"万\"：10个一千是一万。万以内的数由几个千、几个百、几个十和几个一组成。读数：从高位读起，千位是几读几千；中间有一个0或两个0只读一个\"零\"；末尾不管几个0都不读。写数：从高位写起，哪一位上是几就写几，哪一位没有就写0占位。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能正确读、写万以内的数",
+        "能说出数的组成（如3006由3个千和6个一组成）",
+        "能在算盘上表示万以内的数（上珠表示5）"
+      ],
+      "commonMistakes": [
+        "中间两个0读两个零（错，只读一个）",
+        "写数时少写0占位（如三千零六写成306）",
+        "读数时漏读计数单位"
+      ],
+      "examTips": "读数写数；数的组成；算盘读数",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-8"
+      ]
+    },
+    {
+      "id": "ct_SX2X102",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "万以内数的大小比较",
+      "description": "比较万以内数的大小：①位数不同时，位数多的数大（四位数>三位数>两位数）；②位数相同时，从最高位比起，最高位数字大的数大；最高位相同再比下一位，直到比出大小。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能正确比较多个万以内数的大小",
+        "能用>、<、=符号连接"
+      ],
+      "commonMistakes": [
+        "只看个位数字比较大小",
+        "位数不同时认为数字大的数大（如999>1000错）"
+      ],
+      "examTips": "比较大小；按顺序排列几个数；□里最大/最小填几",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-8"
+      ]
+    },
+    {
+      "id": "ct_SX2X103",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "近似数",
+      "description": "认识近似数：与准确数很接近的整十、整百、整千的数，叫近似数。近似数前面常有\"大约\"\"大概\"\"约\"等词。如一个班有43人，约40人；全校有学生1698人，约1700人。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能找出一个数的近似数（看成接近的整百/整千）",
+        "能区分准确数和近似数"
+      ],
+      "commonMistakes": [
+        "近似数偏离准确数太远（43约100不合适）",
+        "估成非整十整百整千的数（43约42没意义）"
+      ],
+      "examTips": "说一说各数大约是几千/几百；判断准确数和近似数",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-8"
+      ]
+    },
+    {
+      "id": "ct_SX2X104",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "整百整千数加减法",
+      "description": "整百、整千数加减法：把整百整千看成几个百、几个千，然后相加减。如1000+2000=3000（1个千+2个千=3个千）；80+50=130（8个十+5个十=13个十=130）。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能口算整百整千数加减法",
+        "能用估算解决购物\"够不够\"问题"
+      ],
+      "commonMistakes": [
+        "末尾0的个数错（1000+200=3000错）",
+        "进位退位搞错"
+      ],
+      "examTips": "口算；够不够问题（估算解决）",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-syds-8"
+      ]
+    },
+    {
+      "id": "ct_SX2X110",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "认识克",
+      "description": "认识质量单位\"克\"（g）：计量比较轻的物品用\"克\"作单位。一枚2分硬币约重1克。用天平称物品的质量。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "知道1克大约有多重",
+        "知道哪些物品用克作单位（橡皮、铅笔、硬币等）"
+      ],
+      "commonMistakes": [
+        "把较重物品也用克作单位",
+        "对1克有多重没有概念"
+      ],
+      "examTips": "填合适的质量单位；一个鸡蛋约50（  ）",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-3"
+      ]
+    },
+    {
+      "id": "ct_SX2X111",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "认识千克",
+      "description": "认识质量单位\"千克\"（kg）：计量比较重的物品用\"千克\"作单位。1千克=1000克。1袋盐重500克，2袋盐重1千克。用体重秤、电子秤等称较重物品。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "知道1千克=1000克",
+        "知道哪些物品用千克作单位（体重、大米、西瓜等）",
+        "能进行简单的单位换算"
+      ],
+      "commonMistakes": [
+        "1千克=100克（少一个0）",
+        "克和千克选择错误（一个西瓜3克）"
+      ],
+      "examTips": "填合适单位；1千克=（  ）克；比较大小",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-3"
+      ]
+    },
+    {
+      "id": "ct_SX2X112",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "简单的质量计算",
+      "description": "会进行简单的质量计算：相同单位直接相加减，不同单位先统一单位。如1千克-300克=700克。能估计常见物品的质量。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能进行简单的质量计算和换算",
+        "能估计常见物品大约多重"
+      ],
+      "commonMistakes": [
+        "不换算直接计算（1千克+200克=201）",
+        "估计不准"
+      ],
+      "examTips": "计算；在○里填>、<、=；解决问题",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-cl-3"
+      ]
+    },
+    {
+      "id": "ct_SX2X120",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "综合与实践",
+      "name": "简单的逻辑推理",
+      "description": "简单的逻辑推理：根据已知条件逐步推出结论。常用方法：①排除法；②连线法；③列表法。三本书三个人各拿一本，根据两个条件可以推理出结果。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能根据条件用连线法进行简单推理",
+        "知道能确定的先确定，能排除的先排除"
+      ],
+      "commonMistakes": [
+        "条件没用全就下结论",
+        "推理时前后矛盾"
+      ],
+      "examTips": "推理题（连线、填表格、判断名次）；数独（4×4简单）",
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-shuxue-2022:1-2-zonghe-1"
+      ]
+    },
+    {
+      "id": "ct_KX2S001",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "科学",
+      "subjectCode": "KX",
+      "domain": "地球与宇宙科学",
+      "name": "地球家园中有什么",
+      "description": "知道地球是我们的家园，地球家园中有空气、土壤、岩石、水、动物、植物、人等；这些是相互联系的，缺一不可。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "教科版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 1,
+      "centrality": null,
+      "evidence": [
+        "能说出地球家园中至少6样东西",
+        "知道生物和非生物都是地球家园的一部分"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-kexue-2022:1-2-dq-1"
+      ]
+    },
+    {
+      "id": "ct_KX2S002",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "科学",
+      "subjectCode": "KX",
+      "domain": "地球与宇宙科学",
+      "name": "土壤——动植物的乐园",
+      "description": "知道土壤上生长着许多植物，土壤表面和土壤里生活着许多动物；土壤是动植物的重要栖息地。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "教科版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能说出土壤里有什么（蚯蚓、蚂蚁、草根、落叶等)",
+        "知道保护土壤的重要性"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-kexue-2022:1-2-dq-1"
+      ]
+    },
+    {
+      "id": "ct_KX2S003",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "科学",
+      "subjectCode": "KX",
+      "domain": "地球与宇宙科学",
+      "name": "各种各样的天气",
+      "description": "认识阴、晴、雨、雪、风等常见天气现象；知道天气对动植物和人类生活的影响；学会区分不同天气。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "教科版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 1,
+      "centrality": null,
+      "evidence": [
+        "能识别常见天气符号",
+        "能说出今天是什么天气",
+        "知道不同天气该穿什么衣服"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-kexue-2022:1-2-dq-2"
+      ]
+    },
+    {
+      "id": "ct_KX2S004",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "科学",
+      "subjectCode": "KX",
+      "domain": "地球与宇宙科学",
+      "name": "不同的季节",
+      "description": "知道一年有春、夏、秋、冬四个季节；不同季节有典型的天气、动植物变化和人类活动特点；季节变化对动植物和人类生活有影响。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "教科版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 1,
+      "centrality": null,
+      "evidence": [
+        "能说出四季名称和各季节主要特点",
+        "能说出不同季节里植物的变化（发芽/茂盛/落叶/光秃）"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-kexue-2022:1-2-dq-2"
+      ]
+    },
+    {
+      "id": "ct_KX2S005",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "科学",
+      "subjectCode": "KX",
+      "domain": "地球与宇宙科学",
+      "name": "太阳的位置和方向",
+      "description": "知道太阳每天东升西落；早晨太阳在东方，傍晚在西方，中午在南方（北半球）；会利用太阳辨别方向。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "教科版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "知道太阳东升西落",
+        "知道早晨面对太阳前面是东后面是西左面是北右面是南"
+      ],
+      "commonMistakes": [
+        "中午太阳在南方容易说成北方",
+        "左右方向搞反"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-kexue-2022:1-2-dq-2"
+      ]
+    },
+    {
+      "id": "ct_KX2S006",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "科学",
+      "subjectCode": "KX",
+      "domain": "物质科学",
+      "name": "我们生活的世界——材料",
+      "description": "认识我们周围常见的材料：金属、木头、塑料、玻璃、陶瓷、橡胶、纸、布等；能按材料对物品分类。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "教科版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能说出至少5种常见材料",
+        "能按材料给物品分类（勺子有金属的、塑料的、木头的）"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-kexue-2022:1-2-wz-1"
+      ]
+    },
+    {
+      "id": "ct_KX2S007",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "科学",
+      "subjectCode": "KX",
+      "domain": "物质科学",
+      "name": "不同材料的餐具",
+      "description": "通过观察、敲击、摸等方式比较不同材料（金属、陶瓷、塑料、木头）的特点：轻重、软硬、是否反光、敲击声音、表面光滑程度等。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "教科版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能用看、听、摸等多种感官观察材料特点",
+        "能描述不同材料的特征"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-kexue-2022:1-2-wz-1"
+      ]
+    },
+    {
+      "id": "ct_KX2S008",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "科学",
+      "subjectCode": "KX",
+      "domain": "物质科学",
+      "name": "书的历史——材料的变化",
+      "description": "了解书的演变历史：泥板、甲骨、竹简、帛书、纸书；纸这种材料的优点：轻便、便宜、易书写、可装订；知道纸是中国的蔡伦改进的。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "教科版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能说出书的几种形式",
+        "知道不同材料做书的优缺点",
+        "知道蔡伦改进造纸术"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-kexue-2022:1-2-wz-1"
+      ]
+    },
+    {
+      "id": "ct_KX2X009",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "科学",
+      "subjectCode": "KX",
+      "domain": "物质科学",
+      "name": "磁铁能吸引什么",
+      "description": "认识磁铁：磁铁能吸引铁制的物体，这种性质叫磁性；磁铁不能吸引铜、铝、塑料、木头、纸等；磁铁能隔着一些物体吸铁。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "教科版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能判断哪些物体能被磁铁吸引",
+        "知道磁铁能吸铁但不能吸所有金属（铜、铝不吸）"
+      ],
+      "commonMistakes": [
+        "以为磁铁能吸引所有金属",
+        "以为隔着东西就不能吸铁"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-kexue-2022:1-2-wz-2"
+      ]
+    },
+    {
+      "id": "ct_KX2X010",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "科学",
+      "subjectCode": "KX",
+      "domain": "物质科学",
+      "name": "磁铁的两极",
+      "description": "磁铁上磁力最强的部分叫磁极，磁铁有两个磁极（N极和S极）；两个磁极靠近时，同极相斥、异极相吸；磁铁能指示南北方向。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "教科版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "知道磁铁有两个磁极，两端磁性最强",
+        "知道同极相斥异极相吸",
+        "知道悬挂的磁铁能指方向（指南针原理）"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-kexue-2022:1-2-wz-2"
+      ]
+    },
+    {
+      "id": "ct_KX2X011",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "科学",
+      "subjectCode": "KX",
+      "domain": "物质科学",
+      "name": "指南针",
+      "description": "指南针是我国古代四大发明之一，利用磁铁能指示南北的性质制成；指南针由磁针和方位盘组成；学会使用指南针辨别方向。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "教科版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "会使用指南针辨认方向",
+        "知道指南针是中国古代四大发明之一"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-kexue-2022:1-2-wz-2"
+      ]
+    },
+    {
+      "id": "ct_KX2X012",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "科学",
+      "subjectCode": "KX",
+      "domain": "生命科学",
+      "name": "观察我们的身体",
+      "description": "认识我们身体的基本结构：头、颈、躯干、四肢（上肢和下肢）；身体左右对称；身体内部有心、肺、胃、肠、骨骼、肌肉等器官。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "教科版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 1,
+      "centrality": null,
+      "evidence": [
+        "能指出身体的主要部位",
+        "知道身体左右对称",
+        "知道身体内部有哪些主要器官"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-kexue-2022:1-2-sm-1"
+      ]
+    },
+    {
+      "id": "ct_KX2X013",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "科学",
+      "subjectCode": "KX",
+      "domain": "生命科学",
+      "name": "通过感官来发现",
+      "description": "我们的眼、耳、鼻、舌、皮肤是感觉器官（感官），分别负责看、听、闻、尝、触摸；每个感官有不同的功能，多种感官一起运用才能全面认识事物。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "教科版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能说出五种感官及其作用",
+        "知道只靠一种感官认识事物不全面"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-kexue-2022:1-2-sm-1"
+      ]
+    },
+    {
+      "id": "ct_KX2X014",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "科学",
+      "subjectCode": "KX",
+      "domain": "生命科学",
+      "name": "观察与比较",
+      "description": "学会用多种感官进行观察和比较：用眼睛看颜色形状大小、用耳朵听声音的高低强弱、用手摸冷热软硬光滑粗糙；通过比较找出事物的不同和相同。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "教科版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能综合运用多种感官观察物体",
+        "能通过比较找出相同点和不同点"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-kexue-2022:1-2-sm-1"
+      ]
+    },
+    {
+      "id": "ct_DF2S001",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "道德与法治",
+      "subjectCode": "DF",
+      "domain": "我的周末",
+      "name": "假期有收获",
+      "description": "学会合理安排周末和假期：按时完成作业、帮做家务、户外活动、阅读、和家人在一起；不沉迷电子产品；做事有计划。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能说出周末打算做什么",
+        "知道不能长时间看电视玩手机"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-daofa-2022:1-2-sh-1"
+      ]
+    },
+    {
+      "id": "ct_DF2S002",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "道德与法治",
+      "subjectCode": "DF",
+      "domain": "我们的班级",
+      "name": "班级生活有规则",
+      "description": "班级生活需要规则（课堂纪律、卫生值日、课间文明、排队等）；每个人都要遵守规则，这样班级才有序；可以参与制定班级规则。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能说出3条以上班级规则",
+        "知道为什么要守规则"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-daofa-2022:1-2-ji-1"
+      ]
+    },
+    {
+      "id": "ct_DF2S003",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "道德与法治",
+      "subjectCode": "DF",
+      "domain": "我们在公共场所",
+      "name": "我们小点儿声",
+      "description": "在公共场所（图书馆、医院、电影院、教室）要保持安静，不大声喧哗；什么时候该大声（课堂回答问题、遇到危险喊救命）什么时候该小声，要分辨场合。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "知道在哪些公共场所要小声说话",
+        "能控制自己的音量"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-daofa-2022:1-2-gg-1"
+      ]
+    },
+    {
+      "id": "ct_DF2S004",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "道德与法治",
+      "subjectCode": "DF",
+      "domain": "我们生活的地方",
+      "name": "我爱家乡山和水",
+      "description": "了解自己家乡的自然环境（山、河、风景）和人文特点（特产、名胜）；培养热爱家乡的情感；知道自己的家乡在哪里（省、市）。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能说出家乡在哪里（省市）",
+        "能介绍家乡一处风景名胜或一种特产"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-daofa-2022:1-2-ax-1"
+      ]
+    },
+    {
+      "id": "ct_DF2X005",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "道德与法治",
+      "subjectCode": "DF",
+      "domain": "让我试试看",
+      "name": "挑战第一次",
+      "description": "勇于尝试新鲜事物（第一次炒菜、第一次当众发言、第一次游泳）；面对挑战不要怕，想办法解决；遇到困难可以请教大人。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "敢于尝试没有做过的事",
+        "遇到困难不退缩会想办法"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-daofa-2022:1-2-zt-1"
+      ]
+    },
+    {
+      "id": "ct_DF2X006",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "道德与法治",
+      "subjectCode": "DF",
+      "domain": "绿色小卫士",
+      "name": "小水滴的诉说",
+      "description": "认识水的重要性，了解水资源是有限的；生活中要节约用水（关紧水龙头、一水多用）；不往水里扔垃圾，保护水源。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能说出3种节约用水的方法",
+        "知道为什么要珍惜水"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-daofa-2022:1-2-hj-1"
+      ]
+    },
+    {
+      "id": "ct_DF2X007",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "道德与法治",
+      "subjectCode": "DF",
+      "domain": "绿色小卫士",
+      "name": "我是一张纸",
+      "description": "纸张来之不易（树木→木材→纸浆→纸张），要节约用纸（双面用纸、废纸回收、少用一次性纸巾）；造纸消耗树木和水。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "统编版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能说出纸是怎么来的",
+        "知道3种节约用纸的方法"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-daofa-2022:1-2-hj-1"
+      ]
+    },
+    {
+      "id": "ct_LD2S001",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "劳动",
+      "subjectCode": "LD",
+      "domain": "日常生活劳动",
+      "name": "整理书包",
+      "description": "学会自己整理书包：前一天晚上按课程表准备第二天要用的课本、文具；书本分类放，大书放后面小书放前面；文具放文具盒；天天自己整理，不依赖家长。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 1,
+      "centrality": null,
+      "evidence": [
+        "能按课程表独立整理书包",
+        "书包里书本整齐不乱",
+        "东西都能找到"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-laodong-2022:1-2-sh-1"
+      ]
+    },
+    {
+      "id": "ct_LD2S002",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "劳动",
+      "subjectCode": "LD",
+      "domain": "日常生活劳动",
+      "name": "系鞋带",
+      "description": "学会系鞋带：两根鞋带交叉拉紧，折两个\"兔耳朵\"再交叉，绕一圈穿过拉紧。也可以用\"一扣一绕一拉紧\"的方法。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能独立系好鞋带",
+        "系好后不易松开"
+      ],
+      "commonMistakes": [
+        "结打松了容易散开",
+        "蝴蝶结只打了一边"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-laodong-2022:1-2-sh-1"
+      ]
+    },
+    {
+      "id": "ct_LD2S003",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "劳动",
+      "subjectCode": "LD",
+      "domain": "日常生活劳动",
+      "name": "扫地与擦桌子",
+      "description": "学会扫地：拿扫帚从屋子角落往中间扫，把垃圾扫到簸箕里，最后倒垃圾桶；擦桌子：先把桌上东西挪开，抹布洗干净拧干，从桌子一端按顺序擦到另一端，最后把抹布洗干净晾干。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能把地扫干净垃圾都进簸箕",
+        "能把桌子擦干净没水渍"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-laodong-2022:1-2-sh-1"
+      ]
+    },
+    {
+      "id": "ct_LD2X004",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "劳动",
+      "subjectCode": "LD",
+      "domain": "日常生活劳动",
+      "name": "洗碗",
+      "description": "学会洗碗：先把碗里剩饭倒进垃圾桶，用洗碗布沾洗洁精把碗内外都擦洗（注意碗口、碗底和碗外面），再用清水冲干净泡沫，最后把碗碟分类放好或放进碗柜，擦干台面和水池。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能把碗洗干净没有油渍",
+        "注意安全不摔碗不乱碰热水",
+        "洗完收拾干净台面"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-laodong-2022:1-2-sh-1"
+      ]
+    },
+    {
+      "id": "ct_LD2X005",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "劳动",
+      "subjectCode": "LD",
+      "domain": "生产劳动",
+      "name": "种植小植物",
+      "description": "学习种植一种小植物（如绿豆、向日葵、大蒜）：准备花盆和土，播种/栽种，按时浇水、晒太阳、观察记录生长过程；了解植物生长需要水、阳光、空气。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能完成一种植物的种植和日常护理",
+        "能观察记录植物的变化（写简单的观察日记）"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-laodong-2022:1-2-sc-1"
+      ]
+    },
+    {
+      "id": "ct_LD2X006",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "劳动",
+      "subjectCode": "LD",
+      "domain": "日常生活劳动",
+      "name": "叠衣服",
+      "description": "学会叠衣服：上衣——把衣服平铺，两边袖子折向中间，再从下摆往上对折或三折；裤子——两条裤腿对折，再上下对折；叠好后整齐放好或放进衣柜。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能把上衣和裤子叠整齐",
+        "叠好的衣服不皱不乱"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-laodong-2022:1-2-sh-1"
+      ]
+    },
+    {
+      "id": "ct_YY2S001",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "英语",
+      "subjectCode": "YY",
+      "domain": "听说",
+      "name": "Hello和简单问候",
+      "description": "能用Hello/Hi打招呼；能用Good morning/Good afternoon问候；能用How are you? I'm fine, thank you.问答；能听懂简单课堂指令（Stand up/Sit down/Open your book）。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "外研版（一起点）",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 1,
+      "centrality": null,
+      "evidence": [
+        "能正确发音回应问候",
+        "能听懂并执行简单课堂指令"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yingyu-2022:1-2-ts-1"
+      ]
+    },
+    {
+      "id": "ct_YY2S002",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "英语",
+      "subjectCode": "YY",
+      "domain": "词汇",
+      "name": "数字1-20",
+      "description": "能听懂、会说、认读英文数字one到twenty；能用英文说年龄、电话号码、数量。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "外研版（一起点）",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能按顺序背诵1-20",
+        "能看到数字读出英文",
+        "能听数字做对应动作"
+      ],
+      "commonMistakes": [
+        "thirteen/thirty区分不清",
+        "twelve/twenty发音混淆"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yingyu-2022:1-2-ci-1"
+      ]
+    },
+    {
+      "id": "ct_YY2S003",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "英语",
+      "subjectCode": "YY",
+      "domain": "词汇",
+      "name": "颜色词汇",
+      "description": "能说常见颜色red/yellow/blue/green/black/white/pink/orange/purple/brown；能用What color is it? It's...问答。",
+      "grade": 2,
+      "term": "上",
+      "gradeBand": "L",
+      "textbook": "外研版（一起点）",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 1,
+      "centrality": null,
+      "evidence": [
+        "看到颜色能说英文",
+        "能听英文指出对应颜色"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yingyu-2022:1-2-ci-1"
+      ]
+    },
+    {
+      "id": "ct_YY2X004",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "英语",
+      "subjectCode": "YY",
+      "domain": "词汇",
+      "name": "动物词汇",
+      "description": "能说常见动物名称cat/dog/bird/fish/rabbit/panda/monkey/elephant/tiger/lion等；能用It's a...描述动物；能用big/small/fat/thin形容动物。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "外研版（一起点）",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能说出10种以上动物英文名称",
+        "能模仿动物声音/动作并说出英文"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yingyu-2022:1-2-ci-1"
+      ]
+    },
+    {
+      "id": "ct_YY2X005",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "英语",
+      "subjectCode": "YY",
+      "domain": "词汇",
+      "name": "家庭成员词汇",
+      "description": "能说家庭成员father/mother/brother/sister/grandpa/grandma；能用This is my...介绍家人；能用I love my family表达情感。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "外研版（一起点）",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 1,
+      "centrality": null,
+      "evidence": [
+        "能说出主要家庭成员英文称呼",
+        "能介绍自己的家庭成员"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yingyu-2022:1-2-ci-1"
+      ]
+    },
+    {
+      "id": "ct_YY2X006",
+      "type": "LANGUAGE",
+      "typeLabel": "语言",
+      "subject": "英语",
+      "subjectCode": "YY",
+      "domain": "听说",
+      "name": "26个字母认读",
+      "description": "能正确认读、书写26个英文字母（大小写）；能唱字母歌；能按顺序背诵字母表；初步认识字母在单词中的发音。",
+      "grade": 2,
+      "term": "下",
+      "gradeBand": "L",
+      "textbook": "外研版（一起点）",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能按顺序背诵26个字母",
+        "能看大写读出字母名",
+        "能正确书写大小写字母"
+      ],
+      "commonMistakes": [
+        "b/d、p/q、g/j容易混淆",
+        "小写i忘记点、小写t出头方向错"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yingyu-2022:1-2-zms-1"
+      ]
+    },
+    {
+      "id": "ct_XX2Q001",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "信息科技",
+      "subjectCode": "XX",
+      "domain": "信息意识",
+      "name": "信息和我们的生活",
+      "description": "信息无处不在：我们听的、看的、说的都是信息；书本、电视、手机、网络都是信息的来源；信息可以帮助我们学习和生活。",
+      "grade": 2,
+      "term": "全",
+      "gradeBand": "L",
+      "textbook": "自编内容",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 1,
+      "centrality": null,
+      "evidence": [
+        "能说出3种获取信息的方式",
+        "知道不能轻信网上的所有信息"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-xxkj-2022:1-2-xx-1"
+      ]
+    },
+    {
+      "id": "ct_XX2Q002",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "信息科技",
+      "subjectCode": "XX",
+      "domain": "数字设备",
+      "name": "计算机基本操作",
+      "description": "认识计算机主要部件（显示器、键盘、鼠标、主机）；学会正确开机、关机；会用鼠标点击、拖动；认识键盘主要按键（字母键、数字键、空格键、回车键、退格键）。",
+      "grade": 2,
+      "term": "全",
+      "gradeBand": "L",
+      "textbook": "自编内容",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能独立开机关机",
+        "会用鼠标点击和拖动",
+        "能在键盘上找到常用键"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-xxkj-2022:1-2-sb-1"
+      ]
+    },
+    {
+      "id": "ct_XX2Q003",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "信息科技",
+      "subjectCode": "XX",
+      "domain": "数字设备",
+      "name": "键盘指法入门",
+      "description": "认识键盘的基本键位（A S D F J K L ; 是基准键），左右手食指分别放在F和J键上，其余手指依次排列；初步练习正确的打字姿势和指法。",
+      "grade": 2,
+      "term": "全",
+      "gradeBand": "L",
+      "textbook": "自编内容",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能找到基准键位置（FJ有小凸起）",
+        "十指能放在对应位置"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-xxkj-2022:1-2-sb-1"
+      ]
+    },
+    {
+      "id": "ct_AI2Q004",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "AI素养",
+      "subjectCode": "AI",
+      "domain": "AI认知",
+      "name": "AI在日常生活中",
+      "description": "认识身边的人工智能：语音助手（Siri/小爱同学/小度）、智能推荐（抖音/抖音少儿推荐视频）、人脸识别（门禁/支付）、自动驾驶汽车、翻译软件；知道AI是人类发明的工具。",
+      "grade": 2,
+      "term": "全",
+      "gradeBand": "L",
+      "textbook": "自编内容",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能说出3个生活中用到AI的例子",
+        "知道AI不是真正\"思考\"而是按照程序工作"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-ai-2024:1-2-rz-1"
+      ]
+    },
+    {
+      "id": "ct_AI2Q005",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "AI素养",
+      "subjectCode": "AI",
+      "domain": "AI认知",
+      "name": "智能设备vs非智能设备",
+      "description": "区分智能设备和非智能设备：智能设备能感知环境、做出反应、能联网学习（如智能音箱、扫地机器人、智能手机）；非智能设备按固定程序工作（如普通台灯、机械闹钟、传统玩具）。",
+      "grade": 2,
+      "term": "全",
+      "gradeBand": "L",
+      "textbook": "自编内容",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能判断家里常见电器哪些是智能的",
+        "能说出智能设备的\"聪明\"之处"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-ai-2024:1-2-rz-1"
+      ]
+    },
+    {
+      "id": "ct_AI2Q006",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "AI素养",
+      "subjectCode": "AI",
+      "domain": "AI认知",
+      "name": "AI也会犯错",
+      "description": "AI不是万能的，会犯错：语音识别会听错、图像识别会认错、翻译会翻错；AI的答案需要人来判断对不对；遇到AI答错要告诉大人。",
+      "grade": 2,
+      "term": "全",
+      "gradeBand": "L",
+      "textbook": "自编内容",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "经历过AI答错的时候能指出来",
+        "知道不能全信AI说的话"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-ai-2024:1-2-pl-1"
+      ]
+    },
+    {
+      "id": "ct_TY2Q001",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "体育与健康",
+      "subjectCode": "TY",
+      "domain": "基本运动",
+      "name": "正确的坐立行姿势",
+      "description": "坐如钟、立如松、行如风：坐时腰背挺直不驼背；站时抬头挺胸；走路时抬头摆臂自然；正确姿势能保护脊柱和视力。",
+      "grade": 2,
+      "term": "全",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 1,
+      "centrality": null,
+      "evidence": [
+        "上课能保持正确坐姿",
+        "站和走时姿势端正"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-tiyu-2022:1-2-zs-1"
+      ]
+    },
+    {
+      "id": "ct_TY2Q002",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "体育与健康",
+      "subjectCode": "TY",
+      "domain": "基本运动",
+      "name": "50米快速跑",
+      "description": "学会快速跑的动作：前脚掌着地、两臂前后自然摆动、身体前倾、眼看前方；50米跑男生约10-11秒、女生约11-12秒为合格（参考）。",
+      "grade": 2,
+      "term": "全",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "跑步姿势正确（不踮脚跑、不仰头跑）",
+        "能全力跑完50米"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-tiyu-2022:1-2-pao-1"
+      ]
+    },
+    {
+      "id": "ct_TY2Q003",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "体育与健康",
+      "subjectCode": "TY",
+      "domain": "基本运动",
+      "name": "广播体操",
+      "description": "学会做小学生广播体操（如\"希望风帆\"或\"七彩阳光\"）：每节操动作到位、合拍、有力；队形整齐；认真做操锻炼身体。",
+      "grade": 2,
+      "term": "全",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能跟着音乐完整做一遍广播操",
+        "动作基本到位合拍"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-tiyu-2022:1-2-tc-1"
+      ]
+    },
+    {
+      "id": "ct_TY2Q004",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "体育与健康",
+      "subjectCode": "TY",
+      "domain": "基本运动",
+      "name": "跳绳（连续并脚跳）",
+      "description": "学会并脚跳绳：绳子从后往前摇过头顶，跳起时脚前掌离地刚好让绳子通过，落地轻；手腕摇绳不是用手臂抡；开始练习连续跳10-30个，逐步增加。",
+      "grade": 2,
+      "term": "全",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能连续并脚跳绳30个以上",
+        "手腕摇绳、落地轻、节奏均匀"
+      ],
+      "commonMistakes": [
+        "跳太高浪费体力",
+        "用手臂摇绳而不是手腕",
+        "绳子打脚中断"
+      ],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-tiyu-2022:1-2-tiaosheng-1"
+      ]
+    },
+    {
+      "id": "ct_MS2Q001",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "美术",
+      "subjectCode": "MS",
+      "domain": "造型表现",
+      "name": "认识三原色",
+      "description": "认识三原色红、黄、蓝；知道三原色不能由别的颜色调出来；用三原色可以调出其他颜色：红+黄=橙、黄+蓝=绿、红+蓝=紫（三间色）。",
+      "grade": 2,
+      "term": "全",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 1,
+      "centrality": null,
+      "evidence": [
+        "能说出三原色名称",
+        "能用颜料调出橙、绿、紫三间色"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-meishu-2022:1-2-ys-1"
+      ]
+    },
+    {
+      "id": "ct_MS2Q002",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "美术",
+      "subjectCode": "MS",
+      "domain": "造型表现",
+      "name": "画线条——直线曲线折线",
+      "description": "认识不同种类的线：直线、曲线、折线、波浪线、螺旋线、交叉线；不同的线给人不同感觉（直线刚直、曲线柔和、折线尖锐）；用线条可以画各种形状和画面。",
+      "grade": 2,
+      "term": "全",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 1,
+      "centrality": null,
+      "evidence": [
+        "能画出各种线条",
+        "能用线条组成简单的图案或画面"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-meishu-2022:1-2-xian-1"
+      ]
+    },
+    {
+      "id": "ct_MS2Q003",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "美术",
+      "subjectCode": "MS",
+      "domain": "手工制作",
+      "name": "折纸基础",
+      "description": "学习简单折纸：对边折、对角折、集中折、反复折的基本折法；能折简单作品（纸飞机、千纸鹤、小船、东南西北、纸飞机、爱心等）。",
+      "grade": 2,
+      "term": "全",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "会对齐边角折",
+        "能按步骤折出2-3种简单折纸作品"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-meishu-2022:1-2-zs-1"
+      ]
+    },
+    {
+      "id": "ct_YYP2Q001",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "音乐",
+      "subjectCode": "YYP",
+      "domain": "音乐知识",
+      "name": "认识do re mi",
+      "description": "认识七个基本唱名do re mi fa sol la si，能跟着模唱；知道简谱1234567对应do re mi fa sol la si；柯尔文手势辅助音高记忆。",
+      "grade": 2,
+      "term": "全",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能跟着钢琴唱准do re mi三个音",
+        "认识简谱123"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yinyue-2022:1-2-yl-1"
+      ]
+    },
+    {
+      "id": "ct_YYP2Q002",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "音乐",
+      "subjectCode": "YYP",
+      "domain": "演唱",
+      "name": "正确的唱歌姿势和呼吸",
+      "description": "唱歌姿势：坐/站端正，双肩放松，头摆正，嘴巴自然张开；呼吸：用肚子（腹式呼吸）吸气时肚子鼓起来，唱的时候慢慢呼气；不要扯着嗓子喊。",
+      "grade": 2,
+      "term": "全",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "唱歌姿势正确不耸肩",
+        "能用自然声音唱歌不喊叫"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yinyue-2022:1-2-ys-1"
+      ]
+    },
+    {
+      "id": "ct_YYP2Q003",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "音乐",
+      "subjectCode": "YYP",
+      "domain": "音乐知识",
+      "name": "认识简单打击乐器",
+      "description": "认识常见打击乐器：铃鼓、沙锤、三角铁、响板、双响筒、木鱼、鼓；知道它们的音色特点；能用打击乐器为歌曲伴奏。",
+      "grade": 2,
+      "term": "全",
+      "gradeBand": "L",
+      "textbook": "人教版",
+      "ageRangeStart": 7,
+      "ageRangeEnd": 8,
+      "difficulty": 1,
+      "centrality": null,
+      "evidence": [
+        "能叫出3种以上打击乐器名字",
+        "能按节奏用打击乐器伴奏"
+      ],
+      "commonMistakes": [],
+      "examTips": null,
+      "assessmentPrompt": null,
+      "standards": [
+        "cn-yinyue-2022:1-2-yq-1"
+      ]
+    }
+  ]
+}
