@@ -10,23 +10,24 @@
 
 - 🎯 **学情诊断**：孩子不会做某道题，沿依赖链找到真正薄弱的前置知识点
 - 🛤️ **学习路径推荐**：根据已掌握的知识点，智能推荐下一个该学什么；支持直接问"孩子乘法口诀不熟，应该先补什么"
-- 📊 **家长辅导地图**：清晰看到 1-6 年级关键知识点、先后顺序、跨年级衔接与教材版本差异，并能看到数学子节点与英语练习/测评信息
+- 📊 **家长辅导地图**：清晰看到 1-6 年级关键知识点、先后顺序、跨年级衔接与教材版本差异，并能看到数学真实题链、英语 rubric 和多学科子节点信息
 - 🏫 **教师备课工具**：知识点关联、课标对接、易错点查询
 - 🤖 **AI 学习助手底层数据**：给 AI 辅导产品提供结构化知识底座
 - 🧩 **题链挂接**：每个知识点都带有典型例题/练习题检索入口，便于快速串联“知识点-练习-讲解”
 - 🧭 **三维筛选**：支持按年级 / 学科 / 教材版本查看知识图谱
 
-## 当前版本 v0.5-Expanded
+## 当前版本 v0.6-Expanded
 
 - **年级范围**：一年级 + 二年级 + 三年级 + 四年级 + 五年级 + 六年级
 - **学科覆盖**：语文、数学、英语、科学、道德与法治、劳动、体育与健康、美术、音乐、信息科技、AI素养 共11学科
 - **教材版本**：
   - 语文：统编版（1-6年级）
-  - 数学：人教版 / 北师大版 / 苏教版，已细化到**册次-单元-课时主题**，并继续拆到**例题型 / 易错型 / 方法型**子节点
-  - 英语：外研版（一起点）1-2年级；人教PEP版 / 外研版 / 译林版（三年级起点）3-6年级，已细化到**模块内词汇 / 句型 / 语篇 / 写作任务**，并挂接**页码 / 练习链 / 测评任务**
+  - 数学：人教版 / 北师大版 / 苏教版，已细化到**册次-单元-课时主题**，并继续拆到**例题型 / 易错型 / 方法型**子节点，同时挂接**真实题链来源站入口**
+  - 英语：外研版（一起点）1-2年级；人教PEP版 / 外研版 / 译林版（三年级起点）3-6年级，已细化到**模块内词汇 / 句型 / 语篇 / 写作任务**，并挂接**页码 / 练习链 / 测评任务 / 分技能 rubric**
+  - 语文 / 科学 / 道德与法治：已推广为**父节点 + 子节点 + 练习链 + 测评任务**模式
   - 其他学科：当前先按一个代表版本铺开 1-6 年级主干
-- **知识点数**：**3129 个**（语文292 / 数学2511 / 英语224 / 其他学科102）
-- **依赖关系**：**3040 条**（强依赖1662 / 弱依赖1378）
+- **知识点数**：**4095 个**（语文1168 / 数学2511 / 英语224 / 科学72 / 道德与法治48 / 其他学科72）
+- **依赖关系**：**4007 条**（强依赖2628 / 弱依赖1379）
 - **课标对齐**：13个课标文件，共197个编码条目
 - **领域概览**：134 个面向家长的领域说明
 - **可视化**：完整交互式知识图谱网页（基于 D3.js 力导向图）
@@ -70,13 +71,13 @@ console.log('学习进位加法前需要先掌握:', pre);
 ```bash
 # 从 scripts/*.mjs 源文件生成所有 JSON 数据
 node scripts/generate-yuwen-g1.mjs
-node scripts/generate-yuwen-g2.mjs
+node scripts/generate-yuwen.mjs
 node scripts/generate-yuwen-g3.mjs
 node scripts/generate-yuwen-g4.mjs
 node scripts/generate-yuwen-g5.mjs
 node scripts/generate-yuwen-g6.mjs
 node scripts/generate-shuxue-g1.mjs
-node scripts/generate-shuxue-g2.mjs
+node scripts/generate-shuxue.mjs
 node scripts/generate-shuxue-g3.mjs
 node scripts/generate-shuxue-g4.mjs
 node scripts/generate-shuxue-g5.mjs
@@ -84,6 +85,7 @@ node scripts/generate-shuxue-g6.mjs
 node scripts/generate-others-all-grades.mjs
 node scripts/generate-shuxue-versions.mjs
 node scripts/generate-english-versions.mjs
+node scripts/generate-subnodes-yw-kx-df.mjs
 node scripts/merge.mjs
 node scripts/generate-dependencies.mjs
 node scripts/generate-standards.mjs
@@ -106,14 +108,15 @@ cn-primary-taxonomy/
 ├── docs/
 │   └── DESIGN.md                ← 详细设计文档
 ├── data/
-│   ├── topics.json              ← 知识点节点（3129个）
-│   ├── dependencies.json        ← 依赖边（3040条，DAG）
+│   ├── topics.json              ← 知识点节点（4095个）
+│   ├── dependencies.json        ← 依赖边（4007条，DAG）
 │   ├── curriculum-standards.json← 课标对齐（2022新课标）
 │   ├── clusters.json            ← 面向家长的领域概览
 │   ├── manifest.json            ← 校验和与统计
 │   ├── shenzhen-g2-teacher-review.csv ← 深圳二年级语数教师审核清单
 │   ├── topics-english-versions.json ← 英语多版本模块增强数据
 │   ├── topics-others-g1-g6.json ← 其他学科1-6年级数据
+│   ├── topics-subnodes-yw-kx-df.json ← 语文/科学/道法子节点扩展数据
 │   ├── topics-yuwen-g1.json     ← 一年级语文源数据
 │   ├── topics-yuwen-g2.json     ← 语文源数据
 │   ├── topics-yuwen-g3.json     ← 三年级语文源数据
@@ -171,6 +174,7 @@ cn-primary-taxonomy/
 | `pageRange` | 页码映射 | 参考P12-P13 |
 | `practiceChain[]` | 建议练习链 | ["跟读并指认本课词汇", ...] |
 | `assessmentTasks[]` | 建议测评任务 | ["根据提示词口头完成问答", ...] |
+| `skillRubric` | 分技能测评rubric | 听力/口语/阅读/写作三档描述 |
 | `difficulty` | 难度星级 | 1-5 |
 | `evidence[]` | 掌握证据（会什么就算掌握了） | ["能列竖式计算进位加法",...] |
 | `commonMistakes[]` | 常见易错点 | ["忘记加进位的1",...] |
@@ -212,10 +216,10 @@ cn-primary-taxonomy/
 
 ## 后续路线图
 
-- **v0.5**：已扩展至 1-6 年级主干，并把数学三版本推进到例题/易错/方法子节点，英语三版本推进到页码/练习链/测评任务增强，达到 3129 个知识点 / 3040 条依赖
-- **v0.6**：继续把科学、道德与法治、劳动、体音美、信息科技等学科从“主干版”加密到“教材章节级版”
-- **v0.7**：教材多版本继续扩展到更多学科，并细化到单元 / 主题 / 章节 / 课时 / 题型级映射
-- **v0.5**：把当前“检索入口型资源链接”升级为教师精选题链、错题模式、教学建议
+- **v0.6**：已扩展至 1-6 年级主干，并把数学三版本推进到真实题链来源、英语三版本推进到分技能 rubric，同时把语文 / 科学 / 道法推广到父子节点模式，达到 4095 个知识点 / 4007 条依赖
+- **v0.7**：继续把劳动、体音美、信息科技等学科从“主干版”加密到“教材章节级 + 子节点版”
+- **v0.8**：教材多版本继续扩展到更多学科，并细化到单元 / 主题 / 章节 / 课时 / 题型级映射
+- **v0.9**：把当前“检索入口型资源链接”升级为教师精选题链、错题模式、教学建议
 - **v1.0**：对标 Marble 完整度（1590知识点/3221依赖），面向商用学习产品
 
 ## 参与贡献
