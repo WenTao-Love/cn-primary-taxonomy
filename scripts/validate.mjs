@@ -31,7 +31,7 @@ check(clusters.clusterCount === clusters.clusters.length, `clusterCount 不匹�
 const TYPES = new Set(['CONCEPTUAL','PROCEDURAL','REPRESENTATIONAL','LANGUAGE','META']);
 const TYPE_LABELS = {CONCEPTUAL:'概念',PROCEDURAL:'技能',REPRESENTATIONAL:'表征',LANGUAGE:'语言',META:'元认知'};
 const SUBJECTS = new Set(['语文','数学','英语','科学','道德与法治','劳动','体育与健康','美术','音乐','信息科技','AI素养','综合实践']);
-const SUB_CODES = {YW:'语文',SX:'数学',YY:'英语',KX:'科学',DF:'道德与法治',LD:'劳动',TY:'体育与健康',MS:'美术',YYP:'音乐',XX:'信息科技',AI:'AI素养',ZH:'综合实践'};
+const SUB_CODES = {YW:'语文',SX:'数学',SXB:'数学',SXS:'数学',YY:'英语',YRP:'英语',YWF:'英语',YYL:'英语',KX:'科学',DF:'道德与法治',LD:'劳动',TY:'体育与健康',MS:'美术',YYP:'音乐',XX:'信息科技',AI:'AI素养',ZH:'综合实践'};
 const GRADES = new Set([1,2,3,4,5,6]);
 const TERMS = new Set(['上','下','全']);
 const GRADE_BANDS = new Set(['L','M','H']);
@@ -45,7 +45,7 @@ const typeCounts = {};
 for (const t of topics.topics) {
   if (topicIds.has(t.id)) idDup.add(t.id);
   topicIds.add(t.id);
-  check(typeof t.id === 'string' && /^ct_[A-Z]{2,3}[0-6][SXQ][0-9]{3}$/.test(t.id), `ID格式错: ${t.id}`);
+  check(typeof t.id === 'string' && /^ct_[A-Z]{2,4}[0-6][SXQ][0-9]{3}$/.test(t.id), `ID格式错: ${t.id}`);
   check(TYPES.has(t.type), `type错: ${t.id} -> ${t.type}`);
   check(TYPE_LABELS[t.type] === t.typeLabel, `typeLabel不匹配: ${t.id} type=${t.type} label=${t.typeLabel}`);
   check(SUBJECTS.has(t.subject), `subject错: ${t.id} -> ${t.subject}`);

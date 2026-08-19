@@ -1,84 +1,7 @@
 {
   "version": "v0.1-mvp",
-  "clusterCount": 58,
+  "clusterCount": 135,
   "clusters": [
-    {
-      "subject": "科学",
-      "domain": "地球与宇宙科学",
-      "gradeBand": "L",
-      "topicCount": 5,
-      "summary": "本学期孩子将认识地球家园的组成、土壤的作用、天气和季节变化、太阳的位置与方向。这些内容和生活密切相关，建议带孩子在户外观察自然现象。"
-    },
-    {
-      "subject": "科学",
-      "domain": "物质科学",
-      "gradeBand": "L",
-      "topicCount": 6,
-      "summary": "认识常见材料（金属、木头、塑料、玻璃、纸等）和它们的特性，了解磁铁的基本性质（能吸铁、有两极、同极相斥异极相吸、指南针原理）。在家可以用冰箱贴、磁铁玩\"寻宝游戏\"。"
-    },
-    {
-      "subject": "科学",
-      "domain": "生命科学",
-      "gradeBand": "L",
-      "topicCount": 3,
-      "summary": "了解我们的身体结构，认识五种感觉器官（眼耳鼻舌皮肤），学会综合运用多种感官观察和比较。可以和孩子玩\"蒙眼猜物\"等感官游戏。"
-    },
-    {
-      "subject": "道德与法治",
-      "domain": "我的周末",
-      "gradeBand": "L",
-      "topicCount": 1,
-      "summary": "引导孩子合理安排假期，学会制定周末计划，做到学玩结合、不沉迷电子产品。"
-    },
-    {
-      "subject": "道德与法治",
-      "domain": "我们的班级",
-      "gradeBand": "L",
-      "topicCount": 1,
-      "summary": "帮助孩子理解班级规则的重要性，学会在集体中遵守规则、参与规则制定。"
-    },
-    {
-      "subject": "道德与法治",
-      "domain": "我们在公共场所",
-      "gradeBand": "L",
-      "topicCount": 1,
-      "summary": "培养孩子在图书馆、医院、公共交通等场所的文明意识，学会在不同场合控制音量、遵守公共秩序。"
-    },
-    {
-      "subject": "道德与法治",
-      "domain": "我们生活的地方",
-      "gradeBand": "L",
-      "topicCount": 1,
-      "summary": "认识自己的家乡，了解家乡的风景名胜和特产，培养热爱家乡的情感。"
-    },
-    {
-      "subject": "道德与法治",
-      "domain": "让我试试看",
-      "gradeBand": "L",
-      "topicCount": 1,
-      "summary": "鼓励孩子勇于尝试新事物，面对第一次不要害怕失败，学会寻求帮助。"
-    },
-    {
-      "subject": "道德与法治",
-      "domain": "绿色小卫士",
-      "gradeBand": "L",
-      "topicCount": 2,
-      "summary": "培养环保意识：节约用水、节约用纸、减少浪费，理解资源来之不易。"
-    },
-    {
-      "subject": "劳动",
-      "domain": "日常生活劳动",
-      "gradeBand": "L",
-      "topicCount": 5,
-      "summary": "二年级劳动重点在生活自理：自己整理书包、系鞋带、叠衣服、扫地擦桌子、洗碗等。这些是最基础的生活能力，建议每天分配一点家务让孩子完成。"
-    },
-    {
-      "subject": "劳动",
-      "domain": "生产劳动",
-      "gradeBand": "L",
-      "topicCount": 1,
-      "summary": "通过种植小植物（绿豆、大蒜等），体验简单的生产劳动，学习观察记录植物生长过程。"
-    },
     {
       "subject": "英语",
       "domain": "听说",
@@ -90,8 +13,169 @@
       "subject": "英语",
       "domain": "词汇",
       "gradeBand": "L",
-      "topicCount": 4,
+      "topicCount": 2,
       "summary": "围绕数字、颜色、动物、家庭成员等话题积累基础词汇，每个话题10-20个词，要求能听、能说、能认。"
+    },
+    {
+      "subject": "英语",
+      "domain": "字母",
+      "gradeBand": "L",
+      "topicCount": 2,
+      "summary": "英语·字母：二年级低段（1-2年级）将学习约2个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "英语",
+      "domain": "听说",
+      "gradeBand": "M",
+      "topicCount": 6,
+      "summary": "英语·听说：二年级低段（1-2年级）将学习约6个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "英语",
+      "domain": "词汇",
+      "gradeBand": "M",
+      "topicCount": 3,
+      "summary": "英语·词汇：二年级低段（1-2年级）将学习约3个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "英语",
+      "domain": "字母与语音",
+      "gradeBand": "M",
+      "topicCount": 3,
+      "summary": "英语·字母与语音：二年级低段（1-2年级）将学习约3个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "英语",
+      "domain": "阅读",
+      "gradeBand": "M",
+      "topicCount": 3,
+      "summary": "英语·阅读：二年级低段（1-2年级）将学习约3个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "英语",
+      "domain": "写作",
+      "gradeBand": "M",
+      "topicCount": 3,
+      "summary": "英语·写作：二年级低段（1-2年级）将学习约3个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "英语",
+      "domain": "词汇与语法",
+      "gradeBand": "H",
+      "topicCount": 3,
+      "summary": "英语·词汇与语法：二年级低段（1-2年级）将学习约3个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "英语",
+      "domain": "阅读",
+      "gradeBand": "H",
+      "topicCount": 6,
+      "summary": "英语·阅读：二年级低段（1-2年级）将学习约6个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "英语",
+      "domain": "写作",
+      "gradeBand": "H",
+      "topicCount": 3,
+      "summary": "英语·写作：二年级低段（1-2年级）将学习约3个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "英语",
+      "domain": "听说",
+      "gradeBand": "H",
+      "topicCount": 3,
+      "summary": "英语·听说：二年级低段（1-2年级）将学习约3个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "英语",
+      "domain": "学习策略",
+      "gradeBand": "H",
+      "topicCount": 3,
+      "summary": "英语·学习策略：二年级低段（1-2年级）将学习约3个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "科学",
+      "domain": "生命科学",
+      "gradeBand": "L",
+      "topicCount": 2,
+      "summary": "了解我们的身体结构，认识五种感觉器官（眼耳鼻舌皮肤），学会综合运用多种感官观察和比较。可以和孩子玩\"蒙眼猜物\"等感官游戏。"
+    },
+    {
+      "subject": "科学",
+      "domain": "地球与宇宙科学",
+      "gradeBand": "L",
+      "topicCount": 2,
+      "summary": "本学期孩子将认识地球家园的组成、土壤的作用、天气和季节变化、太阳的位置与方向。这些内容和生活密切相关，建议带孩子在户外观察自然现象。"
+    },
+    {
+      "subject": "科学",
+      "domain": "物质科学",
+      "gradeBand": "L",
+      "topicCount": 2,
+      "summary": "认识常见材料（金属、木头、塑料、玻璃、纸等）和它们的特性，了解磁铁的基本性质（能吸铁、有两极、同极相斥异极相吸、指南针原理）。在家可以用冰箱贴、磁铁玩\"寻宝游戏\"。"
+    },
+    {
+      "subject": "道德与法治",
+      "domain": "生活适应",
+      "gradeBand": "L",
+      "topicCount": 1,
+      "summary": "道德与法治·生活适应：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "道德与法治",
+      "domain": "自我成长",
+      "gradeBand": "L",
+      "topicCount": 1,
+      "summary": "道德与法治·自我成长：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "劳动",
+      "domain": "日常生活劳动",
+      "gradeBand": "L",
+      "topicCount": 3,
+      "summary": "二年级劳动重点在生活自理：自己整理书包、系鞋带、叠衣服、扫地擦桌子、洗碗等。这些是最基础的生活能力，建议每天分配一点家务让孩子完成。"
+    },
+    {
+      "subject": "体育与健康",
+      "domain": "基本运动技能",
+      "gradeBand": "L",
+      "topicCount": 2,
+      "summary": "体育与健康·基本运动技能：二年级低段（1-2年级）将学习约2个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "体育与健康",
+      "domain": "移动性技能",
+      "gradeBand": "L",
+      "topicCount": 1,
+      "summary": "体育与健康·移动性技能：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "美术",
+      "domain": "造型表现",
+      "gradeBand": "L",
+      "topicCount": 2,
+      "summary": "认识三原色和三间色、学习用不同线条画画，培养基础造型能力和色彩感觉。"
+    },
+    {
+      "subject": "美术",
+      "domain": "设计应用",
+      "gradeBand": "L",
+      "topicCount": 1,
+      "summary": "美术·设计应用：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "音乐",
+      "domain": "音乐基础",
+      "gradeBand": "L",
+      "topicCount": 2,
+      "summary": "音乐·音乐基础：二年级低段（1-2年级）将学习约2个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "音乐",
+      "domain": "演唱",
+      "gradeBand": "L",
+      "topicCount": 1,
+      "summary": "学习正确的唱歌姿势和腹式呼吸，用自然的声音唱歌，不要扯着嗓子喊。"
     },
     {
       "subject": "信息科技",
@@ -111,148 +195,603 @@
       "subject": "AI素养",
       "domain": "AI认知",
       "gradeBand": "L",
-      "topicCount": 3,
+      "topicCount": 2,
       "summary": "带孩子认识身边的人工智能（语音助手、智能推荐、人脸识别等），知道AI是工具也会犯错，不能完全信赖AI的答案。"
     },
     {
-      "subject": "体育与健康",
-      "domain": "基本运动",
+      "subject": "AI素养",
+      "domain": "AI局限",
       "gradeBand": "L",
-      "topicCount": 4,
-      "summary": "重点培养正确的坐立行姿势，练习50米快速跑、广播体操、并脚跳绳等基本运动技能。二年级跳绳是体测项目，建议每天练习。"
+      "topicCount": 1,
+      "summary": "AI素养·AI局限：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "道德与法治",
+      "domain": "集体生活",
+      "gradeBand": "L",
+      "topicCount": 1,
+      "summary": "道德与法治·集体生活：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "道德与法治",
+      "domain": "环境与生活",
+      "gradeBand": "L",
+      "topicCount": 1,
+      "summary": "道德与法治·环境与生活：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "劳动",
+      "domain": "生产劳动",
+      "gradeBand": "L",
+      "topicCount": 1,
+      "summary": "通过种植小植物（绿豆、大蒜等），体验简单的生产劳动，学习观察记录植物生长过程。"
+    },
+    {
+      "subject": "体育与健康",
+      "domain": "健康行为",
+      "gradeBand": "L",
+      "topicCount": 1,
+      "summary": "体育与健康·健康行为：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "美术",
+      "domain": "审美感知",
+      "gradeBand": "L",
+      "topicCount": 1,
+      "summary": "美术·审美感知：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "音乐",
+      "domain": "演奏与表现",
+      "gradeBand": "L",
+      "topicCount": 1,
+      "summary": "音乐·演奏与表现：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "信息科技",
+      "domain": "数字安全",
+      "gradeBand": "L",
+      "topicCount": 1,
+      "summary": "信息科技·数字安全：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "AI素养",
+      "domain": "AI应用",
+      "gradeBand": "L",
+      "topicCount": 1,
+      "summary": "AI素养·AI应用：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "科学",
+      "domain": "生命科学",
+      "gradeBand": "M",
+      "topicCount": 2,
+      "summary": "科学·生命科学：二年级低段（1-2年级）将学习约2个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "科学",
+      "domain": "物质科学",
+      "gradeBand": "M",
+      "topicCount": 2,
+      "summary": "科学·物质科学：二年级低段（1-2年级）将学习约2个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "科学",
+      "domain": "工程与技术实践",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "科学·工程与技术实践：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "道德与法治",
+      "domain": "社会生活",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "道德与法治·社会生活：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "道德与法治",
+      "domain": "法治启蒙",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "道德与法治·法治启蒙：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "劳动",
+      "domain": "日常生活劳动",
+      "gradeBand": "M",
+      "topicCount": 2,
+      "summary": "劳动·日常生活劳动：二年级低段（1-2年级）将学习约2个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "劳动",
+      "domain": "服务性劳动",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "劳动·服务性劳动：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "体育与健康",
+      "domain": "基本运动技能",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "体育与健康·基本运动技能：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "体育与健康",
+      "domain": "健康行为",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "体育与健康·健康行为：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "美术",
       "domain": "造型表现",
-      "gradeBand": "L",
-      "topicCount": 2,
-      "summary": "认识三原色和三间色、学习用不同线条画画，培养基础造型能力和色彩感觉。"
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "美术·造型表现：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "美术",
-      "domain": "手工制作",
-      "gradeBand": "L",
+      "domain": "设计应用",
+      "gradeBand": "M",
       "topicCount": 1,
-      "summary": "通过折纸、彩泥、剪纸等手工活动锻炼手部精细动作和空间想象能力。"
-    },
-    {
-      "subject": "音乐",
-      "domain": "音乐知识",
-      "gradeBand": "L",
-      "topicCount": 2,
-      "summary": "认识常见打击乐器（铃鼓、沙锤、三角铁、响板），学习用打击乐器为歌曲伴奏。"
+      "summary": "美术·设计应用：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "音乐",
       "domain": "演唱",
-      "gradeBand": "L",
+      "gradeBand": "M",
       "topicCount": 1,
-      "summary": "学习正确的唱歌姿势和腹式呼吸，用自然的声音唱歌，不要扯着嗓子喊。"
+      "summary": "音乐·演唱：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "音乐",
+      "domain": "欣赏",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "音乐·欣赏：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "信息科技",
+      "domain": "信息表达",
+      "gradeBand": "M",
+      "topicCount": 2,
+      "summary": "信息科技·信息表达：二年级低段（1-2年级）将学习约2个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "信息科技",
+      "domain": "信息意识",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "信息科技·信息意识：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "AI素养",
+      "domain": "AI认知",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "AI素养·AI认知：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "AI素养",
+      "domain": "AI素养",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "AI素养·AI素养：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "科学",
+      "domain": "地球与宇宙科学",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "科学·地球与宇宙科学：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "道德与法治",
+      "domain": "家国与文化",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "道德与法治·家国与文化：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "道德与法治",
+      "domain": "社会参与",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "道德与法治·社会参与：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "劳动",
+      "domain": "生产劳动",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "劳动·生产劳动：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "体育与健康",
+      "domain": "专项运动技能",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "体育与健康·专项运动技能：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "体育与健康",
+      "domain": "体育品德",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "体育与健康·体育品德：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "美术",
+      "domain": "欣赏评述",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "美术·欣赏评述：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "美术",
+      "domain": "综合探索",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "美术·综合探索：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "音乐",
+      "domain": "演奏与创编",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "音乐·演奏与创编：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "音乐",
+      "domain": "音乐基础",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "音乐·音乐基础：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "信息科技",
+      "domain": "计算思维",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "信息科技·计算思维：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "AI素养",
+      "domain": "AI局限",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "AI素养·AI局限：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "AI素养",
+      "domain": "AI应用",
+      "gradeBand": "M",
+      "topicCount": 1,
+      "summary": "AI素养·AI应用：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "科学",
+      "domain": "生命科学",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "科学·生命科学：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "科学",
+      "domain": "物质科学",
+      "gradeBand": "H",
+      "topicCount": 2,
+      "summary": "科学·物质科学：二年级低段（1-2年级）将学习约2个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "科学",
+      "domain": "工程与技术实践",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "科学·工程与技术实践：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "道德与法治",
+      "domain": "公民意识",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "道德与法治·公民意识：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "道德与法治",
+      "domain": "国家认同",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "道德与法治·国家认同：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "劳动",
+      "domain": "日常生活劳动",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "劳动·日常生活劳动：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "劳动",
+      "domain": "服务性劳动",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "劳动·服务性劳动：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "体育与健康",
+      "domain": "专项运动技能",
+      "gradeBand": "H",
+      "topicCount": 2,
+      "summary": "体育与健康·专项运动技能：二年级低段（1-2年级）将学习约2个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "体育与健康",
+      "domain": "健康行为",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "体育与健康·健康行为：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "美术",
+      "domain": "造型表现",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "美术·造型表现：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "美术",
+      "domain": "欣赏评述",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "美术·欣赏评述：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "音乐",
+      "domain": "演唱",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "音乐·演唱：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "音乐",
+      "domain": "欣赏",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "音乐·欣赏：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "信息科技",
+      "domain": "数据与编码",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "信息科技·数据与编码：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "信息科技",
+      "domain": "数字安全",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "信息科技·数字安全：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "AI素养",
+      "domain": "AI伦理",
+      "gradeBand": "H",
+      "topicCount": 2,
+      "summary": "AI素养·AI伦理：二年级低段（1-2年级）将学习约2个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "AI素养",
+      "domain": "AI应用",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "AI素养·AI应用：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "科学",
+      "domain": "地球与宇宙科学",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "科学·地球与宇宙科学：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "科学",
+      "domain": "科学探究",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "科学·科学探究：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "道德与法治",
+      "domain": "法治观念",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "道德与法治·法治观念：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "道德与法治",
+      "domain": "社会责任",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "道德与法治·社会责任：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "劳动",
+      "domain": "劳动素养",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "劳动·劳动素养：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "劳动",
+      "domain": "生产劳动",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "劳动·生产劳动：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "体育与健康",
+      "domain": "体育品德",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "体育与健康·体育品德：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "美术",
+      "domain": "设计应用",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "美术·设计应用：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "美术",
+      "domain": "综合探索",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "美术·综合探索：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "音乐",
+      "domain": "创编与表现",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "音乐·创编与表现：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "音乐",
+      "domain": "综合艺术实践",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "音乐·综合艺术实践：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "信息科技",
+      "domain": "计算思维",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "信息科技·计算思维：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "信息科技",
+      "domain": "数字创新",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "信息科技·数字创新：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+    },
+    {
+      "subject": "AI素养",
+      "domain": "AI素养",
+      "gradeBand": "H",
+      "topicCount": 1,
+      "summary": "AI素养·AI素养：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "数学",
       "domain": "数与代数",
       "gradeBand": "L",
-      "topicCount": 63,
+      "topicCount": 189,
       "summary": "这是二年级数学的重头戏：上学期100以内进退位加减法、表内乘法（2-9的乘法口诀），下学期表内除法、混合运算（含小括号）、有余数的除法、万以内数的认识。核心是熟练口算和理解运算意义，其中乘法口诀务必滚瓜烂熟。"
     },
     {
       "subject": "数学",
       "domain": "图形与几何",
       "gradeBand": "L",
-      "topicCount": 24,
+      "topicCount": 72,
       "summary": "认识角和直角/锐角/钝角，从不同位置观察物体，初步认识轴对称、平移、旋转等图形运动。这些是空间观念的基础，可以通过折纸、拼图、照镜子等游戏加深理解。"
     },
     {
       "subject": "数学",
       "domain": "量与计量",
       "gradeBand": "L",
-      "topicCount": 21,
+      "topicCount": 63,
       "summary": "二年级将认识长度单位厘米和米，会用尺子测量；认识时间（几时几分，1时=60分）；认识质量单位克和千克（1千克=1000克）。测量知识和日常生活紧密结合，家长可以让孩子多动手量、多掂一掂、多观察钟表。"
     },
     {
       "subject": "数学",
       "domain": "统计与概率",
       "gradeBand": "L",
-      "topicCount": 7,
+      "topicCount": 21,
       "summary": "开始接触简单的数据收集和整理：用画\"正\"字的方法记录数据、填简单的统计表、根据数据回答问题。家长可以和孩子一起做小调查（如\"家里人喜欢什么水果\"）来练习。"
     },
     {
       "subject": "数学",
       "domain": "综合与实践",
       "gradeBand": "L",
-      "topicCount": 13,
+      "topicCount": 39,
       "summary": "数学广角部分安排了简单的排列组合（搭配问题）和逻辑推理。这是思维训练类内容，不需要复杂计算，主要是培养有序思考和推理的习惯。"
     },
     {
       "subject": "数学",
       "domain": "数与代数",
       "gradeBand": "M",
-      "topicCount": 47,
-      "summary": "数学·数与代数：二年级低段（1-2年级）将学习约47个相关知识点，为后续中高段学习打基础。"
+      "topicCount": 141,
+      "summary": "数学·数与代数：二年级低段（1-2年级）将学习约141个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "数学",
       "domain": "图形与几何",
       "gradeBand": "M",
-      "topicCount": 20,
-      "summary": "数学·图形与几何：二年级低段（1-2年级）将学习约20个相关知识点，为后续中高段学习打基础。"
+      "topicCount": 60,
+      "summary": "数学·图形与几何：二年级低段（1-2年级）将学习约60个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "数学",
       "domain": "量与计量",
       "gradeBand": "M",
-      "topicCount": 12,
-      "summary": "数学·量与计量：二年级低段（1-2年级）将学习约12个相关知识点，为后续中高段学习打基础。"
+      "topicCount": 36,
+      "summary": "数学·量与计量：二年级低段（1-2年级）将学习约36个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "数学",
       "domain": "统计与概率",
       "gradeBand": "M",
-      "topicCount": 8,
-      "summary": "数学·统计与概率：二年级低段（1-2年级）将学习约8个相关知识点，为后续中高段学习打基础。"
+      "topicCount": 24,
+      "summary": "数学·统计与概率：二年级低段（1-2年级）将学习约24个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "数学",
       "domain": "综合与实践",
       "gradeBand": "M",
-      "topicCount": 10,
-      "summary": "数学·综合与实践：二年级低段（1-2年级）将学习约10个相关知识点，为后续中高段学习打基础。"
+      "topicCount": 30,
+      "summary": "数学·综合与实践：二年级低段（1-2年级）将学习约30个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "数学",
       "domain": "数与代数",
       "gradeBand": "H",
-      "topicCount": 30,
-      "summary": "数学·数与代数：二年级低段（1-2年级）将学习约30个相关知识点，为后续中高段学习打基础。"
+      "topicCount": 90,
+      "summary": "数学·数与代数：二年级低段（1-2年级）将学习约90个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "数学",
       "domain": "图形与几何",
       "gradeBand": "H",
-      "topicCount": 17,
-      "summary": "数学·图形与几何：二年级低段（1-2年级）将学习约17个相关知识点，为后续中高段学习打基础。"
+      "topicCount": 51,
+      "summary": "数学·图形与几何：二年级低段（1-2年级）将学习约51个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "数学",
       "domain": "量与计量",
       "gradeBand": "H",
-      "topicCount": 1,
-      "summary": "数学·量与计量：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"
+      "topicCount": 3,
+      "summary": "数学·量与计量：二年级低段（1-2年级）将学习约3个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "数学",
       "domain": "统计与概率",
       "gradeBand": "H",
-      "topicCount": 3,
-      "summary": "数学·统计与概率：二年级低段（1-2年级）将学习约3个相关知识点，为后续中高段学习打基础。"
+      "topicCount": 9,
+      "summary": "数学·统计与概率：二年级低段（1-2年级）将学习约9个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "数学",
       "domain": "综合与实践",
       "gradeBand": "H",
-      "topicCount": 3,
-      "summary": "数学·综合与实践：二年级低段（1-2年级）将学习约3个相关知识点，为后续中高段学习打基础。"
+      "topicCount": 9,
+      "summary": "数学·综合与实践：二年级低段（1-2年级）将学习约9个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "语文",

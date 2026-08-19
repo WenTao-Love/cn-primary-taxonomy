@@ -97,6 +97,10 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
       <span class="control-group-label">学科</span>
       <button data-subject="all" class="active">全部学科</button>
     </div>
+    <div class="control-group" id="textbook-controls">
+      <span class="control-group-label">教材/版本</span>
+      <button data-textbook="all" class="active">全部版本</button>
+    </div>
   </div>
   <div class="legend">
     <h3>学科颜色</h3>
@@ -143,6 +147,7 @@ let data = {nodes:[], links:[]};
 let simulation, svg, gLinks, gNodes;
 let currentSubject = 'all';
 let currentGrade = 'all';
+let currentTextbook = 'all';
 let selectedNode = null;
 
 async function init() {
@@ -184,6 +189,22 @@ async function init() {
     controls.appendChild(btn);
   });
   controls.querySelector('button[data-subject=\"all\"]').onclick = ()=>filterSubject('all');
+
+  // Build textbook/version buttons
+  const textbookCounts = {};
+  topics.topics.forEach(t=>{
+    const key = t.textbook || '未标注版本';
+    textbookCounts[key] = (textbookCounts[key] || 0) + 1;
+  });
+  const textbookControls = document.getElementById('textbook-controls');
+  Object.entries(textbookCounts).sort((a,b)=>b[1]-a[1]).forEach(([tb,c])=>{
+    const btn = document.createElement('button');
+    btn.dataset.textbook = tb;
+    btn.textContent = `${tb} (${c})`;
+    btn.onclick = ()=>filterTextbook(tb);
+    textbookControls.appendChild(btn);
+  });
+  textbookControls.querySelector('button[data-textbook=\"all\"]').onclick = ()=>filterTextbook('all');
 
   buildGraph(topics, deps);
   setupSearch(topics);
@@ -476,12 +497,19 @@ function filterGrade(grade) {
   applyFilters();
 }
 
+function filterTextbook(textbook) {
+  currentTextbook = textbook;
+  document.querySelectorAll('#textbook-controls button').forEach(b=>b.classList.toggle('active', b.dataset.textbook===textbook));
+  applyFilters();
+}
+
 function applyFilters() {
   const visibleIds = new Set();
   data.nodes.forEach(n=>{
     const gradeMatched = currentGrade==='all' || String(n.grade)===String(currentGrade);
     const subjectMatched = currentSubject==='all' || n.subject===currentSubject;
-    if(gradeMatched && subjectMatched) visibleIds.add(n.id);
+    const textbookMatched = currentTextbook==='all' || (n.textbook || '未标注版本')===currentTextbook;
+    if(gradeMatched && subjectMatched && textbookMatched) visibleIds.add(n.id);
   });
   // When filtering, also keep dependencies visible
   data.links.forEach(l=>{

@@ -1,7 +1,7 @@
 {
-  "version": "v0.2-expanded",
+  "version": "v0.3-expanded",
   "note": "DAG 依赖方向：topicId 依赖 prerequisiteId（先学prerequisite，再学topic）",
-  "edgeCount": 581,
+  "edgeCount": 1174,
   "dependencies": [
     {
       "topicId": "ct_YW2S001",
@@ -568,160 +568,16 @@
       "reason": "逻辑推理与搭配问题的有序思考方法相通"
     },
     {
-      "topicId": "ct_KX2S002",
-      "prerequisiteId": "ct_KX2S001",
-      "strength": "hard",
-      "reason": "理解土壤是动植物乐园，要先知道地球家园里有什么"
-    },
-    {
-      "topicId": "ct_KX2S004",
-      "prerequisiteId": "ct_KX2S003",
-      "strength": "soft",
-      "reason": "认识四季以认识天气变化为基础"
-    },
-    {
-      "topicId": "ct_KX2S005",
-      "prerequisiteId": "ct_KX2S003",
-      "strength": "soft",
-      "reason": "太阳位置与方向以观察天气、天空为基础"
-    },
-    {
-      "topicId": "ct_KX2S007",
-      "prerequisiteId": "ct_KX2S006",
-      "strength": "hard",
-      "reason": "比较材料特点需要先认识常见材料"
-    },
-    {
-      "topicId": "ct_KX2S008",
-      "prerequisiteId": "ct_KX2S007",
-      "strength": "soft",
-      "reason": "书的历史以材料特点认识为基础"
-    },
-    {
-      "topicId": "ct_KX2X010",
-      "prerequisiteId": "ct_KX2X009",
-      "strength": "hard",
-      "reason": "磁铁两极要在知道磁铁能吸铁的基础上学习"
-    },
-    {
-      "topicId": "ct_KX2X011",
-      "prerequisiteId": "ct_KX2X010",
-      "strength": "hard",
-      "reason": "指南针原理依赖磁极和磁极相互作用"
-    },
-    {
-      "topicId": "ct_KX2X013",
-      "prerequisiteId": "ct_KX2X012",
-      "strength": "hard",
-      "reason": "用多种感官观察比较，要先知道五感分别是什么"
-    },
-    {
-      "topicId": "ct_LD2S002",
-      "prerequisiteId": "ct_LD2S001",
-      "strength": "soft",
-      "reason": "系鞋带和整理书包同属自我服务劳动，手部精细动作要求递进"
-    },
-    {
-      "topicId": "ct_LD2X004",
-      "prerequisiteId": "ct_LD2S003",
-      "strength": "hard",
-      "reason": "洗碗比扫地擦桌子更复杂（涉及水、清洁剂、安全），以上学期家务为基础"
-    },
-    {
-      "topicId": "ct_LD2X006",
-      "prerequisiteId": "ct_LD2S001",
-      "strength": "soft",
-      "reason": "叠衣服以上学期整理能力（整理书包）为基础"
-    },
-    {
-      "topicId": "ct_YY2S002",
-      "prerequisiteId": "ct_YY2S001",
-      "strength": "soft",
-      "reason": "数字词汇以简单问候和课堂习惯建立为基础"
-    },
-    {
-      "topicId": "ct_YY2S003",
-      "prerequisiteId": "ct_YY2S001",
-      "strength": "soft",
-      "reason": "颜色词以基础听说习惯为基础"
-    },
-    {
-      "topicId": "ct_YY2X004",
-      "prerequisiteId": "ct_YY2S001",
-      "strength": "hard",
-      "reason": "动物词汇以下册学习进度和上册听说基础为前提"
-    },
-    {
-      "topicId": "ct_YY2X005",
-      "prerequisiteId": "ct_YY2X004",
-      "strength": "soft",
-      "reason": "家庭成员词汇与动物词汇同属名词扩展"
-    },
-    {
-      "topicId": "ct_YY2X006",
-      "prerequisiteId": "ct_YY2S002",
-      "strength": "hard",
-      "reason": "学字母要在积累了一定听说词汇后，从听说过渡到读写"
-    },
-    {
       "topicId": "ct_XX2Q002",
       "prerequisiteId": "ct_XX2Q001",
       "strength": "hard",
       "reason": "计算机操作以了解信息和信息技术为基础"
     },
     {
-      "topicId": "ct_XX2Q003",
-      "prerequisiteId": "ct_XX2Q002",
+      "topicId": "ct_LD1X002",
+      "prerequisiteId": "ct_LD1S001",
       "strength": "hard",
-      "reason": "键盘指法以认识计算机、会开机鼠标操作为基础"
-    },
-    {
-      "topicId": "ct_AI2Q005",
-      "prerequisiteId": "ct_AI2Q004",
-      "strength": "hard",
-      "reason": "理解AI会犯错要先认识AI在生活中的应用"
-    },
-    {
-      "topicId": "ct_AI2Q006",
-      "prerequisiteId": "ct_AI2Q005",
-      "strength": "soft",
-      "reason": "知道AI犯错后更容易理解AI的局限"
-    },
-    {
-      "topicId": "ct_TY2Q004",
-      "prerequisiteId": "ct_TY2Q002",
-      "strength": "soft",
-      "reason": "跳绳以基本跑动、协调能力为基础"
-    },
-    {
-      "topicId": "ct_MS2Q003",
-      "prerequisiteId": "ct_MS2Q002",
-      "strength": "hard",
-      "reason": "折纸以基本线条控制、手部精细动作为基础"
-    },
-    {
-      "topicId": "ct_DF2X007",
-      "prerequisiteId": "ct_DF2X006",
-      "strength": "soft",
-      "reason": "道德与法治2年级“绿色小卫士”领域按知识与能力递进组织，学习我是一张纸前通常会先掌握小水滴的诉说"
-    },
-    {
-      "topicId": "ct_YY2X006",
-      "prerequisiteId": "ct_YY2S001",
-      "strength": "soft",
-      "reason": "英语2年级“听说”领域按知识与能力递进组织，学习26个字母认读前通常会先掌握Hello和简单问候"
-    },
-    {
-      "topicId": "ct_MS2Q002",
-      "prerequisiteId": "ct_MS2Q001",
-      "strength": "hard",
-      "reason": "美术2年级“造型表现”领域按知识与能力递进组织，学习画线条——直线曲线折线前通常会先掌握认识三原色"
-    },
-    {
-      "topicId": "ct_YYP2Q003",
-      "prerequisiteId": "ct_YYP2Q001",
-      "strength": "soft",
-      "reason": "音乐2年级“音乐知识”领域按知识与能力递进组织，学习认识简单打击乐器前通常会先掌握认识do re mi"
+      "reason": "劳动1年级“日常生活劳动”领域按知识与能力递进组织，学习餐前餐后简单整理前通常会先掌握整理个人物品"
     },
     {
       "topicId": "ct_SX1S002",
@@ -1942,6 +1798,3006 @@
       "reason": "数学6年级“综合与实践”领域按知识与能力递进组织，学习毕业总复习中的知识关联前通常会先掌握综合运用比例和方程解决问题"
     },
     {
+      "topicId": "ct_SXB1S002",
+      "prerequisiteId": "ct_SXB1S001",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习1到5数字的书写前通常会先掌握1到5各数的认识"
+    },
+    {
+      "topicId": "ct_SXB1S003",
+      "prerequisiteId": "ct_SXB1S002",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习0的意义前通常会先掌握1到5数字的书写"
+    },
+    {
+      "topicId": "ct_SXB1S004",
+      "prerequisiteId": "ct_SXB1S003",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习6到10各数的认识前通常会先掌握0的意义"
+    },
+    {
+      "topicId": "ct_SXB1S005",
+      "prerequisiteId": "ct_SXB1S004",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习数的大小规律前通常会先掌握6到10各数的认识"
+    },
+    {
+      "topicId": "ct_SXB1S006",
+      "prerequisiteId": "ct_SXB1S005",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习10以内数的分与合前通常会先掌握数的大小规律"
+    },
+    {
+      "topicId": "ct_SXB1S007",
+      "prerequisiteId": "ct_SXB1S006",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习10以内加法前通常会先掌握10以内数的分与合"
+    },
+    {
+      "topicId": "ct_SXB1S008",
+      "prerequisiteId": "ct_SXB1S007",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习10以内减法前通常会先掌握10以内加法"
+    },
+    {
+      "topicId": "ct_SXB1S009",
+      "prerequisiteId": "ct_SXB1S008",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习一图四式初步前通常会先掌握10以内减法"
+    },
+    {
+      "topicId": "ct_SXB1S010",
+      "prerequisiteId": "ct_SXB1S009",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习认识11到20前通常会先掌握一图四式初步"
+    },
+    {
+      "topicId": "ct_SXB1S011",
+      "prerequisiteId": "ct_SXB1S010",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习十和一的组成前通常会先掌握认识11到20"
+    },
+    {
+      "topicId": "ct_SXB1S012",
+      "prerequisiteId": "ct_SXB1S011",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习20以内不进位加法前通常会先掌握十和一的组成"
+    },
+    {
+      "topicId": "ct_SXB1S013",
+      "prerequisiteId": "ct_SXB1S012",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习20以内不退位减法前通常会先掌握20以内不进位加法"
+    },
+    {
+      "topicId": "ct_SXB1S014",
+      "prerequisiteId": "ct_SXB1S013",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习解决求一共多少的问题前通常会先掌握20以内不退位减法"
+    },
+    {
+      "topicId": "ct_SXB1S015",
+      "prerequisiteId": "ct_SXB1S014",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习解决还剩多少的问题前通常会先掌握解决求一共多少的问题"
+    },
+    {
+      "topicId": "ct_SXB1S016",
+      "prerequisiteId": "ct_SXB1S015",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习有序数数和检查前通常会先掌握解决还剩多少的问题"
+    },
+    {
+      "topicId": "ct_SXB1X017",
+      "prerequisiteId": "ct_SXB1S016",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习认识100以内的数前通常会先掌握有序数数和检查"
+    },
+    {
+      "topicId": "ct_SXB1X018",
+      "prerequisiteId": "ct_SXB1X017",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习整十数的意义前通常会先掌握认识100以内的数"
+    },
+    {
+      "topicId": "ct_SXB1X019",
+      "prerequisiteId": "ct_SXB1X018",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习百数表中的数序规律前通常会先掌握整十数的意义"
+    },
+    {
+      "topicId": "ct_SXB1X020",
+      "prerequisiteId": "ct_SXB1X019",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习整十数加减整十数前通常会先掌握百数表中的数序规律"
+    },
+    {
+      "topicId": "ct_SXB1X021",
+      "prerequisiteId": "ct_SXB1X020",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习两位数加一位数不进位前通常会先掌握整十数加减整十数"
+    },
+    {
+      "topicId": "ct_SXB1X022",
+      "prerequisiteId": "ct_SXB1X021",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习两位数减一位数不退位前通常会先掌握两位数加一位数不进位"
+    },
+    {
+      "topicId": "ct_SXB1X023",
+      "prerequisiteId": "ct_SXB1X022",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习两位数加一位数进位前通常会先掌握两位数减一位数不退位"
+    },
+    {
+      "topicId": "ct_SXB1X024",
+      "prerequisiteId": "ct_SXB1X023",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习两位数减一位数退位前通常会先掌握两位数加一位数进位"
+    },
+    {
+      "topicId": "ct_SXB1X025",
+      "prerequisiteId": "ct_SXB1X024",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习两位数加整十数前通常会先掌握两位数减一位数退位"
+    },
+    {
+      "topicId": "ct_SXB1X026",
+      "prerequisiteId": "ct_SXB1X025",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习两位数减整十数前通常会先掌握两位数加整十数"
+    },
+    {
+      "topicId": "ct_SXB1X027",
+      "prerequisiteId": "ct_SXB1X026",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习求比多少的初步认识前通常会先掌握两位数减整十数"
+    },
+    {
+      "topicId": "ct_SXB1X028",
+      "prerequisiteId": "ct_SXB1X027",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习解决多一些少一些的问题前通常会先掌握求比多少的初步认识"
+    },
+    {
+      "topicId": "ct_SXB1X029",
+      "prerequisiteId": "ct_SXB1X028",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习简单连加连减前通常会先掌握解决多一些少一些的问题"
+    },
+    {
+      "topicId": "ct_SXB1X030",
+      "prerequisiteId": "ct_SXB1X029",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习人民币元角分认识前通常会先掌握简单连加连减"
+    },
+    {
+      "topicId": "ct_SXB1X031",
+      "prerequisiteId": "ct_SXB1X030",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习简单购物计算前通常会先掌握人民币元角分认识"
+    },
+    {
+      "topicId": "ct_SXB1X032",
+      "prerequisiteId": "ct_SXB1X031",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习口算方法选择前通常会先掌握简单购物计算"
+    },
+    {
+      "topicId": "ct_SXB1X033",
+      "prerequisiteId": "ct_SXB1X032",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习20以内加减法熟练化前通常会先掌握口算方法选择"
+    },
+    {
+      "topicId": "ct_SXB1X034",
+      "prerequisiteId": "ct_SXB1X033",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习找规律填数前通常会先掌握20以内加减法熟练化"
+    },
+    {
+      "topicId": "ct_SXB1S036",
+      "prerequisiteId": "ct_SXB1S035",
+      "strength": "soft",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习按标准分类物体前通常会先掌握认识长方体正方体圆柱球"
+    },
+    {
+      "topicId": "ct_SXB1S037",
+      "prerequisiteId": "ct_SXB1S036",
+      "strength": "soft",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习上下前后左右位置前通常会先掌握按标准分类物体"
+    },
+    {
+      "topicId": "ct_SXB1S038",
+      "prerequisiteId": "ct_SXB1S037",
+      "strength": "soft",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习认识平面图形圆三角形正方形长方形前通常会先掌握上下前后左右位置"
+    },
+    {
+      "topicId": "ct_SXB1S039",
+      "prerequisiteId": "ct_SXB1S038",
+      "strength": "hard",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习拼搭简单图形前通常会先掌握认识平面图形圆三角形正方形长方形"
+    },
+    {
+      "topicId": "ct_SXB1X040",
+      "prerequisiteId": "ct_SXB1S039",
+      "strength": "soft",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习图形的拼组与拆分前通常会先掌握拼搭简单图形"
+    },
+    {
+      "topicId": "ct_SXB1X041",
+      "prerequisiteId": "ct_SXB1X040",
+      "strength": "soft",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习对称现象初步前通常会先掌握图形的拼组与拆分"
+    },
+    {
+      "topicId": "ct_SXB1X042",
+      "prerequisiteId": "ct_SXB1X041",
+      "strength": "soft",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习拼图中的旋转和平移感知前通常会先掌握对称现象初步"
+    },
+    {
+      "topicId": "ct_SXB1X043",
+      "prerequisiteId": "ct_SXB1X042",
+      "strength": "hard",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习从不同方向观察积木前通常会先掌握拼图中的旋转和平移感知"
+    },
+    {
+      "topicId": "ct_SXB1X044",
+      "prerequisiteId": "ct_SXB1X043",
+      "strength": "soft",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习路线和方位初步前通常会先掌握从不同方向观察积木"
+    },
+    {
+      "topicId": "ct_SXB1X045",
+      "prerequisiteId": "ct_SXB1X044",
+      "strength": "hard",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习数简单图形个数前通常会先掌握路线和方位初步"
+    },
+    {
+      "topicId": "ct_SXB1X046",
+      "prerequisiteId": "ct_SXB1X045",
+      "strength": "hard",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习用方格纸表示位置前通常会先掌握数简单图形个数"
+    },
+    {
+      "topicId": "ct_SXB1X047",
+      "prerequisiteId": "ct_SXB1X046",
+      "strength": "soft",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习生活中的圆角直线曲线前通常会先掌握用方格纸表示位置"
+    },
+    {
+      "topicId": "ct_SXB1X048",
+      "prerequisiteId": "ct_SXB1X047",
+      "strength": "hard",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习按要求摆图形前通常会先掌握生活中的圆角直线曲线"
+    },
+    {
+      "topicId": "ct_SXB1X049",
+      "prerequisiteId": "ct_SXB1X048",
+      "strength": "soft",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习图形和数量结合的简单模式前通常会先掌握按要求摆图形"
+    },
+    {
+      "topicId": "ct_SXB1X050",
+      "prerequisiteId": "ct_SXB1X049",
+      "strength": "soft",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习动手操作验证图形想法前通常会先掌握图形和数量结合的简单模式"
+    },
+    {
+      "topicId": "ct_SXB1S052",
+      "prerequisiteId": "ct_SXB1S051",
+      "strength": "soft",
+      "reason": "数学1年级“量与计量”领域按知识与能力递进组织，学习比高矮前通常会先掌握比长短"
+    },
+    {
+      "topicId": "ct_SXB1S053",
+      "prerequisiteId": "ct_SXB1S052",
+      "strength": "soft",
+      "reason": "数学1年级“量与计量”领域按知识与能力递进组织，学习比轻重前通常会先掌握比高矮"
+    },
+    {
+      "topicId": "ct_SXB1S054",
+      "prerequisiteId": "ct_SXB1S053",
+      "strength": "soft",
+      "reason": "数学1年级“量与计量”领域按知识与能力递进组织，学习比多少和同样多前通常会先掌握比轻重"
+    },
+    {
+      "topicId": "ct_SXB1X055",
+      "prerequisiteId": "ct_SXB1S054",
+      "strength": "soft",
+      "reason": "数学1年级“量与计量”领域按知识与能力递进组织，学习认识钟面整时前通常会先掌握比多少和同样多"
+    },
+    {
+      "topicId": "ct_SXB1X056",
+      "prerequisiteId": "ct_SXB1X055",
+      "strength": "hard",
+      "reason": "数学1年级“量与计量”领域按知识与能力递进组织，学习半时的认识前通常会先掌握认识钟面整时"
+    },
+    {
+      "topicId": "ct_SXB1X057",
+      "prerequisiteId": "ct_SXB1X056",
+      "strength": "soft",
+      "reason": "数学1年级“量与计量”领域按知识与能力递进组织，学习早上中午晚上时间意识前通常会先掌握半时的认识"
+    },
+    {
+      "topicId": "ct_SXB1X058",
+      "prerequisiteId": "ct_SXB1X057",
+      "strength": "hard",
+      "reason": "数学1年级“量与计量”领域按知识与能力递进组织，学习估计物体长度和数量前通常会先掌握早上中午晚上时间意识"
+    },
+    {
+      "topicId": "ct_SXB1X059",
+      "prerequisiteId": "ct_SXB1X058",
+      "strength": "soft",
+      "reason": "数学1年级“量与计量”领域按知识与能力递进组织，学习认识常见秤和尺前通常会先掌握估计物体长度和数量"
+    },
+    {
+      "topicId": "ct_SXB1X060",
+      "prerequisiteId": "ct_SXB1X059",
+      "strength": "soft",
+      "reason": "数学1年级“量与计量”领域按知识与能力递进组织，学习用生活经验判断是否合理前通常会先掌握认识常见秤和尺"
+    },
+    {
+      "topicId": "ct_SXB1S062",
+      "prerequisiteId": "ct_SXB1S061",
+      "strength": "hard",
+      "reason": "数学1年级“统计与概率”领域按知识与能力递进组织，学习用图形表示分类结果前通常会先掌握按一个标准整理数据"
+    },
+    {
+      "topicId": "ct_SXB1X063",
+      "prerequisiteId": "ct_SXB1S062",
+      "strength": "hard",
+      "reason": "数学1年级“统计与概率”领域按知识与能力递进组织，学习统计最喜欢的事物前通常会先掌握用图形表示分类结果"
+    },
+    {
+      "topicId": "ct_SXB1X064",
+      "prerequisiteId": "ct_SXB1X063",
+      "strength": "soft",
+      "reason": "数学1年级“统计与概率”领域按知识与能力递进组织，学习最多最少和同样多前通常会先掌握统计最喜欢的事物"
+    },
+    {
+      "topicId": "ct_SXB1X065",
+      "prerequisiteId": "ct_SXB1X064",
+      "strength": "hard",
+      "reason": "数学1年级“统计与概率”领域按知识与能力递进组织，学习简单统计表填写前通常会先掌握最多最少和同样多"
+    },
+    {
+      "topicId": "ct_SXB1X066",
+      "prerequisiteId": "ct_SXB1X065",
+      "strength": "soft",
+      "reason": "数学1年级“统计与概率”领域按知识与能力递进组织，学习先整理再回答问题前通常会先掌握简单统计表填写"
+    },
+    {
+      "topicId": "ct_SXB1S068",
+      "prerequisiteId": "ct_SXB1S067",
+      "strength": "hard",
+      "reason": "数学1年级“综合与实践”领域按知识与能力递进组织，学习按规律摆一摆前通常会先掌握排队中的第几个"
+    },
+    {
+      "topicId": "ct_SXB1S069",
+      "prerequisiteId": "ct_SXB1S068",
+      "strength": "hard",
+      "reason": "数学1年级“综合与实践”领域按知识与能力递进组织，学习小棒拼数字和图形前通常会先掌握按规律摆一摆"
+    },
+    {
+      "topicId": "ct_SXB1S070",
+      "prerequisiteId": "ct_SXB1S069",
+      "strength": "hard",
+      "reason": "数学1年级“综合与实践”领域按知识与能力递进组织，学习座位表和编号前通常会先掌握小棒拼数字和图形"
+    },
+    {
+      "topicId": "ct_SXB1S071",
+      "prerequisiteId": "ct_SXB1S070",
+      "strength": "soft",
+      "reason": "数学1年级“综合与实践”领域按知识与能力递进组织，学习从实际情境中找数学信息前通常会先掌握座位表和编号"
+    },
+    {
+      "topicId": "ct_SXB1X072",
+      "prerequisiteId": "ct_SXB1S071",
+      "strength": "hard",
+      "reason": "数学1年级“综合与实践”领域按知识与能力递进组织，学习人民币换购物品组合前通常会先掌握从实际情境中找数学信息"
+    },
+    {
+      "topicId": "ct_SXB1X073",
+      "prerequisiteId": "ct_SXB1X072",
+      "strength": "hard",
+      "reason": "数学1年级“综合与实践”领域按知识与能力递进组织，学习简单日程安排前通常会先掌握人民币换购物品组合"
+    },
+    {
+      "topicId": "ct_SXB1X074",
+      "prerequisiteId": "ct_SXB1X073",
+      "strength": "hard",
+      "reason": "数学1年级“综合与实践”领域按知识与能力递进组织，学习找座位和走迷宫前通常会先掌握简单日程安排"
+    },
+    {
+      "topicId": "ct_SXB1X075",
+      "prerequisiteId": "ct_SXB1X074",
+      "strength": "hard",
+      "reason": "数学1年级“综合与实践”领域按知识与能力递进组织，学习拼摆中的最少和最多前通常会先掌握找座位和走迷宫"
+    },
+    {
+      "topicId": "ct_SXB1X076",
+      "prerequisiteId": "ct_SXB1X075",
+      "strength": "soft",
+      "reason": "数学1年级“综合与实践”领域按知识与能力递进组织，学习先想一想再动手前通常会先掌握拼摆中的最少和最多"
+    },
+    {
+      "topicId": "ct_SXB2S002",
+      "prerequisiteId": "ct_SXB2S001",
+      "strength": "soft",
+      "reason": "数学2年级“量与计量”领域按知识与能力递进组织，学习认识厘米前通常会先掌握统一长度单位的必要性"
+    },
+    {
+      "topicId": "ct_SXB2S003",
+      "prerequisiteId": "ct_SXB2S002",
+      "strength": "soft",
+      "reason": "数学2年级“量与计量”领域按知识与能力递进组织，学习认识米前通常会先掌握认识厘米"
+    },
+    {
+      "topicId": "ct_SXB2S004",
+      "prerequisiteId": "ct_SXB2S003",
+      "strength": "hard",
+      "reason": "数学2年级“量与计量”领域按知识与能力递进组织，学习用尺子量物体长度前通常会先掌握认识米"
+    },
+    {
+      "topicId": "ct_SXB2S005",
+      "prerequisiteId": "ct_SXB2S004",
+      "strength": "hard",
+      "reason": "数学2年级“量与计量”领域按知识与能力递进组织，学习画线段前通常会先掌握用尺子量物体长度"
+    },
+    {
+      "topicId": "ct_SXB2S045",
+      "prerequisiteId": "ct_SXB2S005",
+      "strength": "soft",
+      "reason": "数学2年级“量与计量”领域按知识与能力递进组织，学习认识钟面和时与分前通常会先掌握画线段"
+    },
+    {
+      "topicId": "ct_SXB2S046",
+      "prerequisiteId": "ct_SXB2S045",
+      "strength": "hard",
+      "reason": "数学2年级“量与计量”领域按知识与能力递进组织，学习认识几时几分前通常会先掌握认识钟面和时与分"
+    },
+    {
+      "topicId": "ct_SXB2S047",
+      "prerequisiteId": "ct_SXB2S046",
+      "strength": "soft",
+      "reason": "数学2年级“量与计量”领域按知识与能力递进组织，学习合理安排时间前通常会先掌握认识几时几分"
+    },
+    {
+      "topicId": "ct_SXB2X110",
+      "prerequisiteId": "ct_SXB2S047",
+      "strength": "soft",
+      "reason": "数学2年级“量与计量”领域按知识与能力递进组织，学习认识克前通常会先掌握合理安排时间"
+    },
+    {
+      "topicId": "ct_SXB2X111",
+      "prerequisiteId": "ct_SXB2X110",
+      "strength": "soft",
+      "reason": "数学2年级“量与计量”领域按知识与能力递进组织，学习认识千克前通常会先掌握认识克"
+    },
+    {
+      "topicId": "ct_SXB2X112",
+      "prerequisiteId": "ct_SXB2X111",
+      "strength": "hard",
+      "reason": "数学2年级“量与计量”领域按知识与能力递进组织，学习简单的质量计算前通常会先掌握认识千克"
+    },
+    {
+      "topicId": "ct_SXB2S011",
+      "prerequisiteId": "ct_SXB2S010",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习两位数加两位数（进位）前通常会先掌握两位数加两位数（不进位）"
+    },
+    {
+      "topicId": "ct_SXB2S012",
+      "prerequisiteId": "ct_SXB2S011",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习两位数减两位数（不退位）前通常会先掌握两位数加两位数（进位）"
+    },
+    {
+      "topicId": "ct_SXB2S013",
+      "prerequisiteId": "ct_SXB2S012",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习两位数减两位数（退位）前通常会先掌握两位数减两位数（不退位）"
+    },
+    {
+      "topicId": "ct_SXB2S014",
+      "prerequisiteId": "ct_SXB2S013",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习求比一个数多几或少几的数前通常会先掌握两位数减两位数（退位）"
+    },
+    {
+      "topicId": "ct_SXB2S015",
+      "prerequisiteId": "ct_SXB2S014",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习连加连减和加减混合前通常会先掌握求比一个数多几或少几的数"
+    },
+    {
+      "topicId": "ct_SXB2S016",
+      "prerequisiteId": "ct_SXB2S015",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习100以内加减法的估算前通常会先掌握连加连减和加减混合"
+    },
+    {
+      "topicId": "ct_SXB2S030",
+      "prerequisiteId": "ct_SXB2S016",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习乘法的初步认识前通常会先掌握100以内加减法的估算"
+    },
+    {
+      "topicId": "ct_SXB2S031",
+      "prerequisiteId": "ct_SXB2S030",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习2-6的乘法口诀前通常会先掌握乘法的初步认识"
+    },
+    {
+      "topicId": "ct_SXB2S032",
+      "prerequisiteId": "ct_SXB2S031",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习7-9的乘法口诀前通常会先掌握2-6的乘法口诀"
+    },
+    {
+      "topicId": "ct_SXB2S033",
+      "prerequisiteId": "ct_SXB2S032",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习乘加乘减前通常会先掌握7-9的乘法口诀"
+    },
+    {
+      "topicId": "ct_SXB2S034",
+      "prerequisiteId": "ct_SXB2S033",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习求一个数的几倍是多少前通常会先掌握乘加乘减"
+    },
+    {
+      "topicId": "ct_SXB2X065",
+      "prerequisiteId": "ct_SXB2S034",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习平均分前通常会先掌握求一个数的几倍是多少"
+    },
+    {
+      "topicId": "ct_SXB2X066",
+      "prerequisiteId": "ct_SXB2X065",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习除法的初步认识前通常会先掌握平均分"
+    },
+    {
+      "topicId": "ct_SXB2X067",
+      "prerequisiteId": "ct_SXB2X066",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习用2-9的乘法口诀求商前通常会先掌握除法的初步认识"
+    },
+    {
+      "topicId": "ct_SXB2X068",
+      "prerequisiteId": "ct_SXB2X067",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习除法应用题前通常会先掌握用2-9的乘法口诀求商"
+    },
+    {
+      "topicId": "ct_SXB2X080",
+      "prerequisiteId": "ct_SXB2X068",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习同级运算顺序前通常会先掌握除法应用题"
+    },
+    {
+      "topicId": "ct_SXB2X081",
+      "prerequisiteId": "ct_SXB2X080",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习含两级运算顺序前通常会先掌握同级运算顺序"
+    },
+    {
+      "topicId": "ct_SXB2X082",
+      "prerequisiteId": "ct_SXB2X081",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习含小括号的混合运算前通常会先掌握含两级运算顺序"
+    },
+    {
+      "topicId": "ct_SXB2X083",
+      "prerequisiteId": "ct_SXB2X082",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习两步应用题前通常会先掌握含小括号的混合运算"
+    },
+    {
+      "topicId": "ct_SXB2X090",
+      "prerequisiteId": "ct_SXB2X083",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习有余数除法的意义前通常会先掌握两步应用题"
+    },
+    {
+      "topicId": "ct_SXB2X091",
+      "prerequisiteId": "ct_SXB2X090",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习余数一定比除数小前通常会先掌握有余数除法的意义"
+    },
+    {
+      "topicId": "ct_SXB2X092",
+      "prerequisiteId": "ct_SXB2X091",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习有余数除法竖式前通常会先掌握余数一定比除数小"
+    },
+    {
+      "topicId": "ct_SXB2X093",
+      "prerequisiteId": "ct_SXB2X092",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习有余数除法应用题前通常会先掌握有余数除法竖式"
+    },
+    {
+      "topicId": "ct_SXB2X100",
+      "prerequisiteId": "ct_SXB2X093",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习千以内数的认识前通常会先掌握有余数除法应用题"
+    },
+    {
+      "topicId": "ct_SXB2X101",
+      "prerequisiteId": "ct_SXB2X100",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习万以内数的读写和组成前通常会先掌握千以内数的认识"
+    },
+    {
+      "topicId": "ct_SXB2X102",
+      "prerequisiteId": "ct_SXB2X101",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习万以内数的大小比较前通常会先掌握万以内数的读写和组成"
+    },
+    {
+      "topicId": "ct_SXB2X103",
+      "prerequisiteId": "ct_SXB2X102",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习近似数前通常会先掌握万以内数的大小比较"
+    },
+    {
+      "topicId": "ct_SXB2X104",
+      "prerequisiteId": "ct_SXB2X103",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习整百整千数加减法前通常会先掌握近似数"
+    },
+    {
+      "topicId": "ct_SXB2S021",
+      "prerequisiteId": "ct_SXB2S020",
+      "strength": "soft",
+      "reason": "数学2年级“图形与几何”领域按知识与能力递进组织，学习直角的认识前通常会先掌握角的初步认识"
+    },
+    {
+      "topicId": "ct_SXB2S022",
+      "prerequisiteId": "ct_SXB2S021",
+      "strength": "soft",
+      "reason": "数学2年级“图形与几何”领域按知识与能力递进组织，学习锐角和钝角前通常会先掌握直角的认识"
+    },
+    {
+      "topicId": "ct_SXB2S023",
+      "prerequisiteId": "ct_SXB2S022",
+      "strength": "hard",
+      "reason": "数学2年级“图形与几何”领域按知识与能力递进组织，学习画角前通常会先掌握锐角和钝角"
+    },
+    {
+      "topicId": "ct_SXB2S040",
+      "prerequisiteId": "ct_SXB2S023",
+      "strength": "soft",
+      "reason": "数学2年级“图形与几何”领域按知识与能力递进组织，学习从不同位置观察物体前通常会先掌握画角"
+    },
+    {
+      "topicId": "ct_SXB2X075",
+      "prerequisiteId": "ct_SXB2S040",
+      "strength": "soft",
+      "reason": "数学2年级“图形与几何”领域按知识与能力递进组织，学习轴对称图形前通常会先掌握从不同位置观察物体"
+    },
+    {
+      "topicId": "ct_SXB2X076",
+      "prerequisiteId": "ct_SXB2X075",
+      "strength": "soft",
+      "reason": "数学2年级“图形与几何”领域按知识与能力递进组织，学习平移前通常会先掌握轴对称图形"
+    },
+    {
+      "topicId": "ct_SXB2X077",
+      "prerequisiteId": "ct_SXB2X076",
+      "strength": "soft",
+      "reason": "数学2年级“图形与几何”领域按知识与能力递进组织，学习旋转前通常会先掌握平移"
+    },
+    {
+      "topicId": "ct_SXB2S051",
+      "prerequisiteId": "ct_SXB2S050",
+      "strength": "hard",
+      "reason": "数学2年级“综合与实践”领域按知识与能力递进组织，学习简单的组合前通常会先掌握简单的排列"
+    },
+    {
+      "topicId": "ct_SXB2X120",
+      "prerequisiteId": "ct_SXB2S051",
+      "strength": "hard",
+      "reason": "数学2年级“综合与实践”领域按知识与能力递进组织，学习简单的逻辑推理前通常会先掌握简单的组合"
+    },
+    {
+      "topicId": "ct_SXB3S002",
+      "prerequisiteId": "ct_SXB3S001",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习万以内数的读法前通常会先掌握万以内数的进一步认识"
+    },
+    {
+      "topicId": "ct_SXB3S003",
+      "prerequisiteId": "ct_SXB3S002",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习万以内数的写法前通常会先掌握万以内数的读法"
+    },
+    {
+      "topicId": "ct_SXB3S004",
+      "prerequisiteId": "ct_SXB3S003",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习万以内数大小比较前通常会先掌握万以内数的写法"
+    },
+    {
+      "topicId": "ct_SXB3S005",
+      "prerequisiteId": "ct_SXB3S004",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习近似数与估一估前通常会先掌握万以内数大小比较"
+    },
+    {
+      "topicId": "ct_SXB3S006",
+      "prerequisiteId": "ct_SXB3S005",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习整百整千数加减法前通常会先掌握近似数与估一估"
+    },
+    {
+      "topicId": "ct_SXB3S007",
+      "prerequisiteId": "ct_SXB3S006",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习两位数乘一位数口算前通常会先掌握整百整千数加减法"
+    },
+    {
+      "topicId": "ct_SXB3S008",
+      "prerequisiteId": "ct_SXB3S007",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习倍的进一步认识前通常会先掌握两位数乘一位数口算"
+    },
+    {
+      "topicId": "ct_SXB3S009",
+      "prerequisiteId": "ct_SXB3S008",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习求一个数的几倍是多少前通常会先掌握倍的进一步认识"
+    },
+    {
+      "topicId": "ct_SXB3S010",
+      "prerequisiteId": "ct_SXB3S009",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习求一个数是另一个数的几倍前通常会先掌握求一个数的几倍是多少"
+    },
+    {
+      "topicId": "ct_SXB3S011",
+      "prerequisiteId": "ct_SXB3S010",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习多位数加法笔算前通常会先掌握求一个数是另一个数的几倍"
+    },
+    {
+      "topicId": "ct_SXB3S012",
+      "prerequisiteId": "ct_SXB3S011",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习多位数减法笔算前通常会先掌握多位数加法笔算"
+    },
+    {
+      "topicId": "ct_SXB3S013",
+      "prerequisiteId": "ct_SXB3S012",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习加减法验算初步前通常会先掌握多位数减法笔算"
+    },
+    {
+      "topicId": "ct_SXB3S014",
+      "prerequisiteId": "ct_SXB3S013",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习估算三位数加减法前通常会先掌握加减法验算初步"
+    },
+    {
+      "topicId": "ct_SXB3S015",
+      "prerequisiteId": "ct_SXB3S014",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习含括号的两步运算前通常会先掌握估算三位数加减法"
+    },
+    {
+      "topicId": "ct_SXB3S016",
+      "prerequisiteId": "ct_SXB3S015",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习同级混合运算前通常会先掌握含括号的两步运算"
+    },
+    {
+      "topicId": "ct_SXB3S017",
+      "prerequisiteId": "ct_SXB3S016",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习乘加乘减前通常会先掌握同级混合运算"
+    },
+    {
+      "topicId": "ct_SXB3S018",
+      "prerequisiteId": "ct_SXB3S017",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习根据题目特点选算法前通常会先掌握乘加乘减"
+    },
+    {
+      "topicId": "ct_SXB3X019",
+      "prerequisiteId": "ct_SXB3S018",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习分数的初步认识前通常会先掌握根据题目特点选算法"
+    },
+    {
+      "topicId": "ct_SXB3X020",
+      "prerequisiteId": "ct_SXB3X019",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习几分之一的意义前通常会先掌握分数的初步认识"
+    },
+    {
+      "topicId": "ct_SXB3X021",
+      "prerequisiteId": "ct_SXB3X020",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习几分之几的意义前通常会先掌握几分之一的意义"
+    },
+    {
+      "topicId": "ct_SXB3X022",
+      "prerequisiteId": "ct_SXB3X021",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习同分母分数大小比较前通常会先掌握几分之几的意义"
+    },
+    {
+      "topicId": "ct_SXB3X023",
+      "prerequisiteId": "ct_SXB3X022",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习简单同分母分数加减法前通常会先掌握同分母分数大小比较"
+    },
+    {
+      "topicId": "ct_SXB3X024",
+      "prerequisiteId": "ct_SXB3X023",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习三位数乘一位数笔算前通常会先掌握简单同分母分数加减法"
+    },
+    {
+      "topicId": "ct_SXB3X025",
+      "prerequisiteId": "ct_SXB3X024",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习0和任何数相乘前通常会先掌握三位数乘一位数笔算"
+    },
+    {
+      "topicId": "ct_SXB3X026",
+      "prerequisiteId": "ct_SXB3X025",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习商中间末尾有0的除法初步前通常会先掌握0和任何数相乘"
+    },
+    {
+      "topicId": "ct_SXB3X027",
+      "prerequisiteId": "ct_SXB3X026",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习除法与乘法互逆关系前通常会先掌握商中间末尾有0的除法初步"
+    },
+    {
+      "topicId": "ct_SXB3X028",
+      "prerequisiteId": "ct_SXB3X027",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习有余数除法复习提升前通常会先掌握除法与乘法互逆关系"
+    },
+    {
+      "topicId": "ct_SXB3X029",
+      "prerequisiteId": "ct_SXB3X028",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习两步应用题分析前通常会先掌握有余数除法复习提升"
+    },
+    {
+      "topicId": "ct_SXB3X030",
+      "prerequisiteId": "ct_SXB3X029",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习从条件中提取有效信息前通常会先掌握两步应用题分析"
+    },
+    {
+      "topicId": "ct_SXB3X031",
+      "prerequisiteId": "ct_SXB3X030",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习画图帮助理解数量关系前通常会先掌握从条件中提取有效信息"
+    },
+    {
+      "topicId": "ct_SXB3X032",
+      "prerequisiteId": "ct_SXB3X031",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习探索简单数字规律前通常会先掌握画图帮助理解数量关系"
+    },
+    {
+      "topicId": "ct_SXB3X033",
+      "prerequisiteId": "ct_SXB3X032",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习估算检验结果合理性前通常会先掌握探索简单数字规律"
+    },
+    {
+      "topicId": "ct_SXB3X034",
+      "prerequisiteId": "ct_SXB3X033",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习小数生活经验初识前通常会先掌握估算检验结果合理性"
+    },
+    {
+      "topicId": "ct_SXB3X035",
+      "prerequisiteId": "ct_SXB3X034",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习数轴上的数感提升前通常会先掌握小数生活经验初识"
+    },
+    {
+      "topicId": "ct_SXB3X036",
+      "prerequisiteId": "ct_SXB3X035",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习口算笔算估算协同前通常会先掌握数轴上的数感提升"
+    },
+    {
+      "topicId": "ct_SXB3S038",
+      "prerequisiteId": "ct_SXB3S037",
+      "strength": "soft",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习分米的认识前通常会先掌握毫米的认识"
+    },
+    {
+      "topicId": "ct_SXB3S039",
+      "prerequisiteId": "ct_SXB3S038",
+      "strength": "hard",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习毫米分米厘米米单位换算前通常会先掌握分米的认识"
+    },
+    {
+      "topicId": "ct_SXB3S040",
+      "prerequisiteId": "ct_SXB3S039",
+      "strength": "soft",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习四边形的初步认识前通常会先掌握毫米分米厘米米单位换算"
+    },
+    {
+      "topicId": "ct_SXB3S041",
+      "prerequisiteId": "ct_SXB3S040",
+      "strength": "soft",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习周长的意义前通常会先掌握四边形的初步认识"
+    },
+    {
+      "topicId": "ct_SXB3S042",
+      "prerequisiteId": "ct_SXB3S041",
+      "strength": "hard",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习长方形正方形周长计算前通常会先掌握周长的意义"
+    },
+    {
+      "topicId": "ct_SXB3S043",
+      "prerequisiteId": "ct_SXB3S042",
+      "strength": "hard",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习测量较长物体长度前通常会先掌握长方形正方形周长计算"
+    },
+    {
+      "topicId": "ct_SXB3S044",
+      "prerequisiteId": "ct_SXB3S043",
+      "strength": "soft",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习从不同位置观察组合物体前通常会先掌握测量较长物体长度"
+    },
+    {
+      "topicId": "ct_SXB3X045",
+      "prerequisiteId": "ct_SXB3S044",
+      "strength": "soft",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习面积的初步认识前通常会先掌握从不同位置观察组合物体"
+    },
+    {
+      "topicId": "ct_SXB3X046",
+      "prerequisiteId": "ct_SXB3X045",
+      "strength": "soft",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习平方厘米和平方分米前通常会先掌握面积的初步认识"
+    },
+    {
+      "topicId": "ct_SXB3X047",
+      "prerequisiteId": "ct_SXB3X046",
+      "strength": "hard",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习用方格估计面积前通常会先掌握平方厘米和平方分米"
+    },
+    {
+      "topicId": "ct_SXB3X048",
+      "prerequisiteId": "ct_SXB3X047",
+      "strength": "soft",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习长方形正方形面积计算初步前通常会先掌握用方格估计面积"
+    },
+    {
+      "topicId": "ct_SXB3X049",
+      "prerequisiteId": "ct_SXB3X048",
+      "strength": "soft",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习轴对称图形进一步认识前通常会先掌握长方形正方形面积计算初步"
+    },
+    {
+      "topicId": "ct_SXB3X050",
+      "prerequisiteId": "ct_SXB3X049",
+      "strength": "hard",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习平移和旋转作图初步前通常会先掌握轴对称图形进一步认识"
+    },
+    {
+      "topicId": "ct_SXB3S052",
+      "prerequisiteId": "ct_SXB3S051",
+      "strength": "hard",
+      "reason": "数学3年级“量与计量”领域按知识与能力递进组织，学习千克与克换算提升前通常会先掌握吨的认识初步"
+    },
+    {
+      "topicId": "ct_SXB3S053",
+      "prerequisiteId": "ct_SXB3S052",
+      "strength": "soft",
+      "reason": "数学3年级“量与计量”领域按知识与能力递进组织，学习秒的认识前通常会先掌握千克与克换算提升"
+    },
+    {
+      "topicId": "ct_SXB3S054",
+      "prerequisiteId": "ct_SXB3S053",
+      "strength": "hard",
+      "reason": "数学3年级“量与计量”领域按知识与能力递进组织，学习时分秒简单换算前通常会先掌握秒的认识"
+    },
+    {
+      "topicId": "ct_SXB3S055",
+      "prerequisiteId": "ct_SXB3S054",
+      "strength": "hard",
+      "reason": "数学3年级“量与计量”领域按知识与能力递进组织，学习经过时间初步计算前通常会先掌握时分秒简单换算"
+    },
+    {
+      "topicId": "ct_SXB3X056",
+      "prerequisiteId": "ct_SXB3S055",
+      "strength": "soft",
+      "reason": "数学3年级“量与计量”领域按知识与能力递进组织，学习24时记时法初步前通常会先掌握经过时间初步计算"
+    },
+    {
+      "topicId": "ct_SXB3X057",
+      "prerequisiteId": "ct_SXB3X056",
+      "strength": "hard",
+      "reason": "数学3年级“量与计量”领域按知识与能力递进组织，学习长度单位在生活中选择前通常会先掌握24时记时法初步"
+    },
+    {
+      "topicId": "ct_SXB3X058",
+      "prerequisiteId": "ct_SXB3X057",
+      "strength": "hard",
+      "reason": "数学3年级“量与计量”领域按知识与能力递进组织，学习质量单位在生活中选择前通常会先掌握长度单位在生活中选择"
+    },
+    {
+      "topicId": "ct_SXB3X059",
+      "prerequisiteId": "ct_SXB3X058",
+      "strength": "soft",
+      "reason": "数学3年级“量与计量”领域按知识与能力递进组织，学习先统一单位再计算前通常会先掌握质量单位在生活中选择"
+    },
+    {
+      "topicId": "ct_SXB3X060",
+      "prerequisiteId": "ct_SXB3X059",
+      "strength": "soft",
+      "reason": "数学3年级“量与计量”领域按知识与能力递进组织，学习估测再测量前通常会先掌握先统一单位再计算"
+    },
+    {
+      "topicId": "ct_SXB3S062",
+      "prerequisiteId": "ct_SXB3S061",
+      "strength": "hard",
+      "reason": "数学3年级“统计与概率”领域按知识与能力递进组织，学习统计表和统计图互相转化前通常会先掌握条形统计图初步"
+    },
+    {
+      "topicId": "ct_SXB3S063",
+      "prerequisiteId": "ct_SXB3S062",
+      "strength": "soft",
+      "reason": "数学3年级“统计与概率”领域按知识与能力递进组织，学习平均分布和离散分布直观感受前通常会先掌握统计表和统计图互相转化"
+    },
+    {
+      "topicId": "ct_SXB3X064",
+      "prerequisiteId": "ct_SXB3S063",
+      "strength": "hard",
+      "reason": "数学3年级“统计与概率”领域按知识与能力递进组织，学习根据调查设计记录表前通常会先掌握平均分布和离散分布直观感受"
+    },
+    {
+      "topicId": "ct_SXB3X065",
+      "prerequisiteId": "ct_SXB3X064",
+      "strength": "soft",
+      "reason": "数学3年级“统计与概率”领域按知识与能力递进组织，学习数据支持简单判断前通常会先掌握根据调查设计记录表"
+    },
+    {
+      "topicId": "ct_SXB3X066",
+      "prerequisiteId": "ct_SXB3X065",
+      "strength": "soft",
+      "reason": "数学3年级“统计与概率”领域按知识与能力递进组织，学习先整理后分析数据前通常会先掌握数据支持简单判断"
+    },
+    {
+      "topicId": "ct_SXB3S068",
+      "prerequisiteId": "ct_SXB3S067",
+      "strength": "hard",
+      "reason": "数学3年级“综合与实践”领域按知识与能力递进组织，学习组合问题初步前通常会先掌握排列问题初步"
+    },
+    {
+      "topicId": "ct_SXB3S069",
+      "prerequisiteId": "ct_SXB3S068",
+      "strength": "hard",
+      "reason": "数学3年级“综合与实践”领域按知识与能力递进组织，学习用列表法解决问题前通常会先掌握组合问题初步"
+    },
+    {
+      "topicId": "ct_SXB3S070",
+      "prerequisiteId": "ct_SXB3S069",
+      "strength": "hard",
+      "reason": "数学3年级“综合与实践”领域按知识与能力递进组织，学习用画图法解决问题前通常会先掌握用列表法解决问题"
+    },
+    {
+      "topicId": "ct_SXB3X071",
+      "prerequisiteId": "ct_SXB3S070",
+      "strength": "hard",
+      "reason": "数学3年级“综合与实践”领域按知识与能力递进组织，学习简单逻辑推理前通常会先掌握用画图法解决问题"
+    },
+    {
+      "topicId": "ct_SXB3X072",
+      "prerequisiteId": "ct_SXB3X071",
+      "strength": "hard",
+      "reason": "数学3年级“综合与实践”领域按知识与能力递进组织，学习优化选择的初步感受前通常会先掌握简单逻辑推理"
+    },
+    {
+      "topicId": "ct_SXB3X073",
+      "prerequisiteId": "ct_SXB3X072",
+      "strength": "soft",
+      "reason": "数学3年级“综合与实践”领域按知识与能力递进组织，学习表达解题过程前通常会先掌握优化选择的初步感受"
+    },
+    {
+      "topicId": "ct_SXB3X074",
+      "prerequisiteId": "ct_SXB3X073",
+      "strength": "soft",
+      "reason": "数学3年级“综合与实践”领域按知识与能力递进组织，学习检查结果是否符合情境前通常会先掌握表达解题过程"
+    },
+    {
+      "topicId": "ct_SXB4S002",
+      "prerequisiteId": "ct_SXB4S001",
+      "strength": "soft",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习亿以内数的读写和大小比较前通常会先掌握亿以内数的认识"
+    },
+    {
+      "topicId": "ct_SXB4S003",
+      "prerequisiteId": "ct_SXB4S002",
+      "strength": "hard",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习三位数乘两位数笔算前通常会先掌握亿以内数的读写和大小比较"
+    },
+    {
+      "topicId": "ct_SXB4S004",
+      "prerequisiteId": "ct_SXB4S003",
+      "strength": "hard",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习积的变化规律前通常会先掌握三位数乘两位数笔算"
+    },
+    {
+      "topicId": "ct_SXB4S005",
+      "prerequisiteId": "ct_SXB4S004",
+      "strength": "hard",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习除数是两位数的除法前通常会先掌握积的变化规律"
+    },
+    {
+      "topicId": "ct_SXB4S006",
+      "prerequisiteId": "ct_SXB4S005",
+      "strength": "hard",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习商不变规律前通常会先掌握除数是两位数的除法"
+    },
+    {
+      "topicId": "ct_SXB4X007",
+      "prerequisiteId": "ct_SXB4S006",
+      "strength": "soft",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习小数的意义前通常会先掌握商不变规律"
+    },
+    {
+      "topicId": "ct_SXB4X008",
+      "prerequisiteId": "ct_SXB4X007",
+      "strength": "soft",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习小数大小比较前通常会先掌握小数的意义"
+    },
+    {
+      "topicId": "ct_SXB4X009",
+      "prerequisiteId": "ct_SXB4X008",
+      "strength": "hard",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习小数加减法前通常会先掌握小数大小比较"
+    },
+    {
+      "topicId": "ct_SXB4X010",
+      "prerequisiteId": "ct_SXB4X009",
+      "strength": "hard",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习四则混合运算和运算律应用前通常会先掌握小数加减法"
+    },
+    {
+      "topicId": "ct_SXB4X011",
+      "prerequisiteId": "ct_SXB4X010",
+      "strength": "hard",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习解决较复杂两三步应用题前通常会先掌握四则混合运算和运算律应用"
+    },
+    {
+      "topicId": "ct_SXB4S013",
+      "prerequisiteId": "ct_SXB4S012",
+      "strength": "soft",
+      "reason": "数学4年级“图形与几何”领域按知识与能力递进组织，学习角的意义和角的度量前通常会先掌握直线射线线段的区别"
+    },
+    {
+      "topicId": "ct_SXB4S014",
+      "prerequisiteId": "ct_SXB4S013",
+      "strength": "hard",
+      "reason": "数学4年级“图形与几何”领域按知识与能力递进组织，学习用量角器画指定度数的角前通常会先掌握角的意义和角的度量"
+    },
+    {
+      "topicId": "ct_SXB4S015",
+      "prerequisiteId": "ct_SXB4S014",
+      "strength": "soft",
+      "reason": "数学4年级“图形与几何”领域按知识与能力递进组织，学习平行和垂直前通常会先掌握用量角器画指定度数的角"
+    },
+    {
+      "topicId": "ct_SXB4X016",
+      "prerequisiteId": "ct_SXB4S015",
+      "strength": "hard",
+      "reason": "数学4年级“图形与几何”领域按知识与能力递进组织，学习平行四边形和梯形认识前通常会先掌握平行和垂直"
+    },
+    {
+      "topicId": "ct_SXB4X017",
+      "prerequisiteId": "ct_SXB4X016",
+      "strength": "soft",
+      "reason": "数学4年级“图形与几何”领域按知识与能力递进组织，学习从不同方向观察立体图形提升前通常会先掌握平行四边形和梯形认识"
+    },
+    {
+      "topicId": "ct_SXB4X019",
+      "prerequisiteId": "ct_SXB4S018",
+      "strength": "hard",
+      "reason": "数学4年级“量与计量”领域按知识与能力递进组织，学习用面积单位解决实际问题前通常会先掌握公顷和平方千米初步认识"
+    },
+    {
+      "topicId": "ct_SXB4X021",
+      "prerequisiteId": "ct_SXB4X020",
+      "strength": "hard",
+      "reason": "数学4年级“统计与概率”领域按知识与能力递进组织，学习根据数据绘制统计图前通常会先掌握条形统计图进一步应用"
+    },
+    {
+      "topicId": "ct_SXB4X023",
+      "prerequisiteId": "ct_SXB4X022",
+      "strength": "soft",
+      "reason": "数学4年级“综合与实践”领域按知识与能力递进组织，学习估算检验结果合理性提升前通常会先掌握列表画图分析数量关系"
+    },
+    {
+      "topicId": "ct_SXB5S002",
+      "prerequisiteId": "ct_SXB5S001",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习小数乘整数前通常会先掌握小数的数位和计数单位提升"
+    },
+    {
+      "topicId": "ct_SXB5S003",
+      "prerequisiteId": "ct_SXB5S002",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习小数乘小数前通常会先掌握小数乘整数"
+    },
+    {
+      "topicId": "ct_SXB5S004",
+      "prerequisiteId": "ct_SXB5S003",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习积的近似值前通常会先掌握小数乘小数"
+    },
+    {
+      "topicId": "ct_SXB5S005",
+      "prerequisiteId": "ct_SXB5S004",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习小数除以整数前通常会先掌握积的近似值"
+    },
+    {
+      "topicId": "ct_SXB5S006",
+      "prerequisiteId": "ct_SXB5S005",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习一个数除以小数前通常会先掌握小数除以整数"
+    },
+    {
+      "topicId": "ct_SXB5S007",
+      "prerequisiteId": "ct_SXB5S006",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习商的近似值前通常会先掌握一个数除以小数"
+    },
+    {
+      "topicId": "ct_SXB5S008",
+      "prerequisiteId": "ct_SXB5S007",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习循环小数初步认识前通常会先掌握商的近似值"
+    },
+    {
+      "topicId": "ct_SXB5X009",
+      "prerequisiteId": "ct_SXB5S008",
+      "strength": "soft",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习分数的意义和单位1前通常会先掌握循环小数初步认识"
+    },
+    {
+      "topicId": "ct_SXB5X010",
+      "prerequisiteId": "ct_SXB5X009",
+      "strength": "soft",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习真分数假分数带分数前通常会先掌握分数的意义和单位1"
+    },
+    {
+      "topicId": "ct_SXB5X011",
+      "prerequisiteId": "ct_SXB5X010",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习分数与除法关系前通常会先掌握真分数假分数带分数"
+    },
+    {
+      "topicId": "ct_SXB5X012",
+      "prerequisiteId": "ct_SXB5X011",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习分数基本性质前通常会先掌握分数与除法关系"
+    },
+    {
+      "topicId": "ct_SXB5X013",
+      "prerequisiteId": "ct_SXB5X012",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习约分和通分前通常会先掌握分数基本性质"
+    },
+    {
+      "topicId": "ct_SXB5X014",
+      "prerequisiteId": "ct_SXB5X013",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习异分母分数大小比较前通常会先掌握约分和通分"
+    },
+    {
+      "topicId": "ct_SXB5X015",
+      "prerequisiteId": "ct_SXB5X014",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习分数加减法前通常会先掌握异分母分数大小比较"
+    },
+    {
+      "topicId": "ct_SXB5S017",
+      "prerequisiteId": "ct_SXB5S016",
+      "strength": "soft",
+      "reason": "数学5年级“图形与几何”领域按知识与能力递进组织，学习三角形面积前通常会先掌握平行四边形面积"
+    },
+    {
+      "topicId": "ct_SXB5S018",
+      "prerequisiteId": "ct_SXB5S017",
+      "strength": "soft",
+      "reason": "数学5年级“图形与几何”领域按知识与能力递进组织，学习梯形面积前通常会先掌握三角形面积"
+    },
+    {
+      "topicId": "ct_SXB5S019",
+      "prerequisiteId": "ct_SXB5S018",
+      "strength": "hard",
+      "reason": "数学5年级“图形与几何”领域按知识与能力递进组织，学习组合图形面积前通常会先掌握梯形面积"
+    },
+    {
+      "topicId": "ct_SXB5X020",
+      "prerequisiteId": "ct_SXB5S019",
+      "strength": "soft",
+      "reason": "数学5年级“图形与几何”领域按知识与能力递进组织，学习长方体和正方体特征前通常会先掌握组合图形面积"
+    },
+    {
+      "topicId": "ct_SXB5X021",
+      "prerequisiteId": "ct_SXB5X020",
+      "strength": "hard",
+      "reason": "数学5年级“图形与几何”领域按知识与能力递进组织，学习长方体和正方体表面积前通常会先掌握长方体和正方体特征"
+    },
+    {
+      "topicId": "ct_SXB5X022",
+      "prerequisiteId": "ct_SXB5X021",
+      "strength": "soft",
+      "reason": "数学5年级“图形与几何”领域按知识与能力递进组织，学习体积和容积初步认识前通常会先掌握长方体和正方体表面积"
+    },
+    {
+      "topicId": "ct_SXB5X023",
+      "prerequisiteId": "ct_SXB5X022",
+      "strength": "hard",
+      "reason": "数学5年级“图形与几何”领域按知识与能力递进组织，学习长方体和正方体体积前通常会先掌握体积和容积初步认识"
+    },
+    {
+      "topicId": "ct_SXB6S002",
+      "prerequisiteId": "ct_SXB6S001",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习分数乘法计算前通常会先掌握分数乘法的意义"
+    },
+    {
+      "topicId": "ct_SXB6S003",
+      "prerequisiteId": "ct_SXB6S002",
+      "strength": "soft",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习倒数的意义前通常会先掌握分数乘法计算"
+    },
+    {
+      "topicId": "ct_SXB6S004",
+      "prerequisiteId": "ct_SXB6S003",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习分数除法计算前通常会先掌握倒数的意义"
+    },
+    {
+      "topicId": "ct_SXB6S005",
+      "prerequisiteId": "ct_SXB6S004",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习分数乘除法应用题前通常会先掌握分数除法计算"
+    },
+    {
+      "topicId": "ct_SXB6S006",
+      "prerequisiteId": "ct_SXB6S005",
+      "strength": "soft",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习比的意义前通常会先掌握分数乘除法应用题"
+    },
+    {
+      "topicId": "ct_SXB6S007",
+      "prerequisiteId": "ct_SXB6S006",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习比的基本性质与化简比前通常会先掌握比的意义"
+    },
+    {
+      "topicId": "ct_SXB6S008",
+      "prerequisiteId": "ct_SXB6S007",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习按比例分配前通常会先掌握比的基本性质与化简比"
+    },
+    {
+      "topicId": "ct_SXB6X009",
+      "prerequisiteId": "ct_SXB6S008",
+      "strength": "soft",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习百分数的意义前通常会先掌握按比例分配"
+    },
+    {
+      "topicId": "ct_SXB6X010",
+      "prerequisiteId": "ct_SXB6X009",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习百分数和分数小数互化前通常会先掌握百分数的意义"
+    },
+    {
+      "topicId": "ct_SXB6X011",
+      "prerequisiteId": "ct_SXB6X010",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习百分数应用题前通常会先掌握百分数和分数小数互化"
+    },
+    {
+      "topicId": "ct_SXB6X012",
+      "prerequisiteId": "ct_SXB6X011",
+      "strength": "soft",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习负数初步认识前通常会先掌握百分数应用题"
+    },
+    {
+      "topicId": "ct_SXB6X013",
+      "prerequisiteId": "ct_SXB6X012",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习用方程表示数量关系前通常会先掌握负数初步认识"
+    },
+    {
+      "topicId": "ct_SXB6X014",
+      "prerequisiteId": "ct_SXB6X013",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习解简易方程前通常会先掌握用方程表示数量关系"
+    },
+    {
+      "topicId": "ct_SXB6X015",
+      "prerequisiteId": "ct_SXB6X014",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习列方程解决应用题前通常会先掌握解简易方程"
+    },
+    {
+      "topicId": "ct_SXB6S017",
+      "prerequisiteId": "ct_SXB6S016",
+      "strength": "hard",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习圆的周长前通常会先掌握圆的认识"
+    },
+    {
+      "topicId": "ct_SXB6S018",
+      "prerequisiteId": "ct_SXB6S017",
+      "strength": "hard",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习圆的面积前通常会先掌握圆的周长"
+    },
+    {
+      "topicId": "ct_SXB6S019",
+      "prerequisiteId": "ct_SXB6S018",
+      "strength": "hard",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习扇形和组合图形面积前通常会先掌握圆的面积"
+    },
+    {
+      "topicId": "ct_SXB6X020",
+      "prerequisiteId": "ct_SXB6S019",
+      "strength": "soft",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习比例尺的意义前通常会先掌握扇形和组合图形面积"
+    },
+    {
+      "topicId": "ct_SXB6X021",
+      "prerequisiteId": "ct_SXB6X020",
+      "strength": "hard",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习按比例尺求实际距离和图上距离前通常会先掌握比例尺的意义"
+    },
+    {
+      "topicId": "ct_SXB6X022",
+      "prerequisiteId": "ct_SXB6X021",
+      "strength": "soft",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习圆柱和圆锥初步认识前通常会先掌握按比例尺求实际距离和图上距离"
+    },
+    {
+      "topicId": "ct_SXB6X023",
+      "prerequisiteId": "ct_SXB6X022",
+      "strength": "hard",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习圆柱表面积和体积前通常会先掌握圆柱和圆锥初步认识"
+    },
+    {
+      "topicId": "ct_SXB6X024",
+      "prerequisiteId": "ct_SXB6X023",
+      "strength": "soft",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习圆锥体积公式理解前通常会先掌握圆柱表面积和体积"
+    },
+    {
+      "topicId": "ct_SXB6X026",
+      "prerequisiteId": "ct_SXB6X025",
+      "strength": "soft",
+      "reason": "数学6年级“统计与概率”领域按知识与能力递进组织，学习平均数的意义和应用前通常会先掌握扇形统计图"
+    },
+    {
+      "topicId": "ct_SXB6X028",
+      "prerequisiteId": "ct_SXB6X027",
+      "strength": "soft",
+      "reason": "数学6年级“综合与实践”领域按知识与能力递进组织，学习毕业总复习中的知识关联前通常会先掌握综合运用比例和方程解决问题"
+    },
+    {
+      "topicId": "ct_SXS1S002",
+      "prerequisiteId": "ct_SXS1S001",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习1到5数字的书写前通常会先掌握1到5各数的认识"
+    },
+    {
+      "topicId": "ct_SXS1S003",
+      "prerequisiteId": "ct_SXS1S002",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习0的意义前通常会先掌握1到5数字的书写"
+    },
+    {
+      "topicId": "ct_SXS1S004",
+      "prerequisiteId": "ct_SXS1S003",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习6到10各数的认识前通常会先掌握0的意义"
+    },
+    {
+      "topicId": "ct_SXS1S005",
+      "prerequisiteId": "ct_SXS1S004",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习数的大小规律前通常会先掌握6到10各数的认识"
+    },
+    {
+      "topicId": "ct_SXS1S006",
+      "prerequisiteId": "ct_SXS1S005",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习10以内数的分与合前通常会先掌握数的大小规律"
+    },
+    {
+      "topicId": "ct_SXS1S007",
+      "prerequisiteId": "ct_SXS1S006",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习10以内加法前通常会先掌握10以内数的分与合"
+    },
+    {
+      "topicId": "ct_SXS1S008",
+      "prerequisiteId": "ct_SXS1S007",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习10以内减法前通常会先掌握10以内加法"
+    },
+    {
+      "topicId": "ct_SXS1S009",
+      "prerequisiteId": "ct_SXS1S008",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习一图四式初步前通常会先掌握10以内减法"
+    },
+    {
+      "topicId": "ct_SXS1S010",
+      "prerequisiteId": "ct_SXS1S009",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习认识11到20前通常会先掌握一图四式初步"
+    },
+    {
+      "topicId": "ct_SXS1S011",
+      "prerequisiteId": "ct_SXS1S010",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习十和一的组成前通常会先掌握认识11到20"
+    },
+    {
+      "topicId": "ct_SXS1S012",
+      "prerequisiteId": "ct_SXS1S011",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习20以内不进位加法前通常会先掌握十和一的组成"
+    },
+    {
+      "topicId": "ct_SXS1S013",
+      "prerequisiteId": "ct_SXS1S012",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习20以内不退位减法前通常会先掌握20以内不进位加法"
+    },
+    {
+      "topicId": "ct_SXS1S014",
+      "prerequisiteId": "ct_SXS1S013",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习解决求一共多少的问题前通常会先掌握20以内不退位减法"
+    },
+    {
+      "topicId": "ct_SXS1S015",
+      "prerequisiteId": "ct_SXS1S014",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习解决还剩多少的问题前通常会先掌握解决求一共多少的问题"
+    },
+    {
+      "topicId": "ct_SXS1S016",
+      "prerequisiteId": "ct_SXS1S015",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习有序数数和检查前通常会先掌握解决还剩多少的问题"
+    },
+    {
+      "topicId": "ct_SXS1X017",
+      "prerequisiteId": "ct_SXS1S016",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习认识100以内的数前通常会先掌握有序数数和检查"
+    },
+    {
+      "topicId": "ct_SXS1X018",
+      "prerequisiteId": "ct_SXS1X017",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习整十数的意义前通常会先掌握认识100以内的数"
+    },
+    {
+      "topicId": "ct_SXS1X019",
+      "prerequisiteId": "ct_SXS1X018",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习百数表中的数序规律前通常会先掌握整十数的意义"
+    },
+    {
+      "topicId": "ct_SXS1X020",
+      "prerequisiteId": "ct_SXS1X019",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习整十数加减整十数前通常会先掌握百数表中的数序规律"
+    },
+    {
+      "topicId": "ct_SXS1X021",
+      "prerequisiteId": "ct_SXS1X020",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习两位数加一位数不进位前通常会先掌握整十数加减整十数"
+    },
+    {
+      "topicId": "ct_SXS1X022",
+      "prerequisiteId": "ct_SXS1X021",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习两位数减一位数不退位前通常会先掌握两位数加一位数不进位"
+    },
+    {
+      "topicId": "ct_SXS1X023",
+      "prerequisiteId": "ct_SXS1X022",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习两位数加一位数进位前通常会先掌握两位数减一位数不退位"
+    },
+    {
+      "topicId": "ct_SXS1X024",
+      "prerequisiteId": "ct_SXS1X023",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习两位数减一位数退位前通常会先掌握两位数加一位数进位"
+    },
+    {
+      "topicId": "ct_SXS1X025",
+      "prerequisiteId": "ct_SXS1X024",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习两位数加整十数前通常会先掌握两位数减一位数退位"
+    },
+    {
+      "topicId": "ct_SXS1X026",
+      "prerequisiteId": "ct_SXS1X025",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习两位数减整十数前通常会先掌握两位数加整十数"
+    },
+    {
+      "topicId": "ct_SXS1X027",
+      "prerequisiteId": "ct_SXS1X026",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习求比多少的初步认识前通常会先掌握两位数减整十数"
+    },
+    {
+      "topicId": "ct_SXS1X028",
+      "prerequisiteId": "ct_SXS1X027",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习解决多一些少一些的问题前通常会先掌握求比多少的初步认识"
+    },
+    {
+      "topicId": "ct_SXS1X029",
+      "prerequisiteId": "ct_SXS1X028",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习简单连加连减前通常会先掌握解决多一些少一些的问题"
+    },
+    {
+      "topicId": "ct_SXS1X030",
+      "prerequisiteId": "ct_SXS1X029",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习人民币元角分认识前通常会先掌握简单连加连减"
+    },
+    {
+      "topicId": "ct_SXS1X031",
+      "prerequisiteId": "ct_SXS1X030",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习简单购物计算前通常会先掌握人民币元角分认识"
+    },
+    {
+      "topicId": "ct_SXS1X032",
+      "prerequisiteId": "ct_SXS1X031",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习口算方法选择前通常会先掌握简单购物计算"
+    },
+    {
+      "topicId": "ct_SXS1X033",
+      "prerequisiteId": "ct_SXS1X032",
+      "strength": "hard",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习20以内加减法熟练化前通常会先掌握口算方法选择"
+    },
+    {
+      "topicId": "ct_SXS1X034",
+      "prerequisiteId": "ct_SXS1X033",
+      "strength": "soft",
+      "reason": "数学1年级“数与代数”领域按知识与能力递进组织，学习找规律填数前通常会先掌握20以内加减法熟练化"
+    },
+    {
+      "topicId": "ct_SXS1S036",
+      "prerequisiteId": "ct_SXS1S035",
+      "strength": "soft",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习按标准分类物体前通常会先掌握认识长方体正方体圆柱球"
+    },
+    {
+      "topicId": "ct_SXS1S037",
+      "prerequisiteId": "ct_SXS1S036",
+      "strength": "soft",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习上下前后左右位置前通常会先掌握按标准分类物体"
+    },
+    {
+      "topicId": "ct_SXS1S038",
+      "prerequisiteId": "ct_SXS1S037",
+      "strength": "soft",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习认识平面图形圆三角形正方形长方形前通常会先掌握上下前后左右位置"
+    },
+    {
+      "topicId": "ct_SXS1S039",
+      "prerequisiteId": "ct_SXS1S038",
+      "strength": "hard",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习拼搭简单图形前通常会先掌握认识平面图形圆三角形正方形长方形"
+    },
+    {
+      "topicId": "ct_SXS1X040",
+      "prerequisiteId": "ct_SXS1S039",
+      "strength": "soft",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习图形的拼组与拆分前通常会先掌握拼搭简单图形"
+    },
+    {
+      "topicId": "ct_SXS1X041",
+      "prerequisiteId": "ct_SXS1X040",
+      "strength": "soft",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习对称现象初步前通常会先掌握图形的拼组与拆分"
+    },
+    {
+      "topicId": "ct_SXS1X042",
+      "prerequisiteId": "ct_SXS1X041",
+      "strength": "soft",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习拼图中的旋转和平移感知前通常会先掌握对称现象初步"
+    },
+    {
+      "topicId": "ct_SXS1X043",
+      "prerequisiteId": "ct_SXS1X042",
+      "strength": "hard",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习从不同方向观察积木前通常会先掌握拼图中的旋转和平移感知"
+    },
+    {
+      "topicId": "ct_SXS1X044",
+      "prerequisiteId": "ct_SXS1X043",
+      "strength": "soft",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习路线和方位初步前通常会先掌握从不同方向观察积木"
+    },
+    {
+      "topicId": "ct_SXS1X045",
+      "prerequisiteId": "ct_SXS1X044",
+      "strength": "hard",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习数简单图形个数前通常会先掌握路线和方位初步"
+    },
+    {
+      "topicId": "ct_SXS1X046",
+      "prerequisiteId": "ct_SXS1X045",
+      "strength": "hard",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习用方格纸表示位置前通常会先掌握数简单图形个数"
+    },
+    {
+      "topicId": "ct_SXS1X047",
+      "prerequisiteId": "ct_SXS1X046",
+      "strength": "soft",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习生活中的圆角直线曲线前通常会先掌握用方格纸表示位置"
+    },
+    {
+      "topicId": "ct_SXS1X048",
+      "prerequisiteId": "ct_SXS1X047",
+      "strength": "hard",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习按要求摆图形前通常会先掌握生活中的圆角直线曲线"
+    },
+    {
+      "topicId": "ct_SXS1X049",
+      "prerequisiteId": "ct_SXS1X048",
+      "strength": "soft",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习图形和数量结合的简单模式前通常会先掌握按要求摆图形"
+    },
+    {
+      "topicId": "ct_SXS1X050",
+      "prerequisiteId": "ct_SXS1X049",
+      "strength": "soft",
+      "reason": "数学1年级“图形与几何”领域按知识与能力递进组织，学习动手操作验证图形想法前通常会先掌握图形和数量结合的简单模式"
+    },
+    {
+      "topicId": "ct_SXS1S052",
+      "prerequisiteId": "ct_SXS1S051",
+      "strength": "soft",
+      "reason": "数学1年级“量与计量”领域按知识与能力递进组织，学习比高矮前通常会先掌握比长短"
+    },
+    {
+      "topicId": "ct_SXS1S053",
+      "prerequisiteId": "ct_SXS1S052",
+      "strength": "soft",
+      "reason": "数学1年级“量与计量”领域按知识与能力递进组织，学习比轻重前通常会先掌握比高矮"
+    },
+    {
+      "topicId": "ct_SXS1S054",
+      "prerequisiteId": "ct_SXS1S053",
+      "strength": "soft",
+      "reason": "数学1年级“量与计量”领域按知识与能力递进组织，学习比多少和同样多前通常会先掌握比轻重"
+    },
+    {
+      "topicId": "ct_SXS1X055",
+      "prerequisiteId": "ct_SXS1S054",
+      "strength": "soft",
+      "reason": "数学1年级“量与计量”领域按知识与能力递进组织，学习认识钟面整时前通常会先掌握比多少和同样多"
+    },
+    {
+      "topicId": "ct_SXS1X056",
+      "prerequisiteId": "ct_SXS1X055",
+      "strength": "hard",
+      "reason": "数学1年级“量与计量”领域按知识与能力递进组织，学习半时的认识前通常会先掌握认识钟面整时"
+    },
+    {
+      "topicId": "ct_SXS1X057",
+      "prerequisiteId": "ct_SXS1X056",
+      "strength": "soft",
+      "reason": "数学1年级“量与计量”领域按知识与能力递进组织，学习早上中午晚上时间意识前通常会先掌握半时的认识"
+    },
+    {
+      "topicId": "ct_SXS1X058",
+      "prerequisiteId": "ct_SXS1X057",
+      "strength": "hard",
+      "reason": "数学1年级“量与计量”领域按知识与能力递进组织，学习估计物体长度和数量前通常会先掌握早上中午晚上时间意识"
+    },
+    {
+      "topicId": "ct_SXS1X059",
+      "prerequisiteId": "ct_SXS1X058",
+      "strength": "soft",
+      "reason": "数学1年级“量与计量”领域按知识与能力递进组织，学习认识常见秤和尺前通常会先掌握估计物体长度和数量"
+    },
+    {
+      "topicId": "ct_SXS1X060",
+      "prerequisiteId": "ct_SXS1X059",
+      "strength": "soft",
+      "reason": "数学1年级“量与计量”领域按知识与能力递进组织，学习用生活经验判断是否合理前通常会先掌握认识常见秤和尺"
+    },
+    {
+      "topicId": "ct_SXS1S062",
+      "prerequisiteId": "ct_SXS1S061",
+      "strength": "hard",
+      "reason": "数学1年级“统计与概率”领域按知识与能力递进组织，学习用图形表示分类结果前通常会先掌握按一个标准整理数据"
+    },
+    {
+      "topicId": "ct_SXS1X063",
+      "prerequisiteId": "ct_SXS1S062",
+      "strength": "hard",
+      "reason": "数学1年级“统计与概率”领域按知识与能力递进组织，学习统计最喜欢的事物前通常会先掌握用图形表示分类结果"
+    },
+    {
+      "topicId": "ct_SXS1X064",
+      "prerequisiteId": "ct_SXS1X063",
+      "strength": "soft",
+      "reason": "数学1年级“统计与概率”领域按知识与能力递进组织，学习最多最少和同样多前通常会先掌握统计最喜欢的事物"
+    },
+    {
+      "topicId": "ct_SXS1X065",
+      "prerequisiteId": "ct_SXS1X064",
+      "strength": "hard",
+      "reason": "数学1年级“统计与概率”领域按知识与能力递进组织，学习简单统计表填写前通常会先掌握最多最少和同样多"
+    },
+    {
+      "topicId": "ct_SXS1X066",
+      "prerequisiteId": "ct_SXS1X065",
+      "strength": "soft",
+      "reason": "数学1年级“统计与概率”领域按知识与能力递进组织，学习先整理再回答问题前通常会先掌握简单统计表填写"
+    },
+    {
+      "topicId": "ct_SXS1S068",
+      "prerequisiteId": "ct_SXS1S067",
+      "strength": "hard",
+      "reason": "数学1年级“综合与实践”领域按知识与能力递进组织，学习按规律摆一摆前通常会先掌握排队中的第几个"
+    },
+    {
+      "topicId": "ct_SXS1S069",
+      "prerequisiteId": "ct_SXS1S068",
+      "strength": "hard",
+      "reason": "数学1年级“综合与实践”领域按知识与能力递进组织，学习小棒拼数字和图形前通常会先掌握按规律摆一摆"
+    },
+    {
+      "topicId": "ct_SXS1S070",
+      "prerequisiteId": "ct_SXS1S069",
+      "strength": "hard",
+      "reason": "数学1年级“综合与实践”领域按知识与能力递进组织，学习座位表和编号前通常会先掌握小棒拼数字和图形"
+    },
+    {
+      "topicId": "ct_SXS1S071",
+      "prerequisiteId": "ct_SXS1S070",
+      "strength": "soft",
+      "reason": "数学1年级“综合与实践”领域按知识与能力递进组织，学习从实际情境中找数学信息前通常会先掌握座位表和编号"
+    },
+    {
+      "topicId": "ct_SXS1X072",
+      "prerequisiteId": "ct_SXS1S071",
+      "strength": "hard",
+      "reason": "数学1年级“综合与实践”领域按知识与能力递进组织，学习人民币换购物品组合前通常会先掌握从实际情境中找数学信息"
+    },
+    {
+      "topicId": "ct_SXS1X073",
+      "prerequisiteId": "ct_SXS1X072",
+      "strength": "hard",
+      "reason": "数学1年级“综合与实践”领域按知识与能力递进组织，学习简单日程安排前通常会先掌握人民币换购物品组合"
+    },
+    {
+      "topicId": "ct_SXS1X074",
+      "prerequisiteId": "ct_SXS1X073",
+      "strength": "hard",
+      "reason": "数学1年级“综合与实践”领域按知识与能力递进组织，学习找座位和走迷宫前通常会先掌握简单日程安排"
+    },
+    {
+      "topicId": "ct_SXS1X075",
+      "prerequisiteId": "ct_SXS1X074",
+      "strength": "hard",
+      "reason": "数学1年级“综合与实践”领域按知识与能力递进组织，学习拼摆中的最少和最多前通常会先掌握找座位和走迷宫"
+    },
+    {
+      "topicId": "ct_SXS1X076",
+      "prerequisiteId": "ct_SXS1X075",
+      "strength": "soft",
+      "reason": "数学1年级“综合与实践”领域按知识与能力递进组织，学习先想一想再动手前通常会先掌握拼摆中的最少和最多"
+    },
+    {
+      "topicId": "ct_SXS2S002",
+      "prerequisiteId": "ct_SXS2S001",
+      "strength": "soft",
+      "reason": "数学2年级“量与计量”领域按知识与能力递进组织，学习认识厘米前通常会先掌握统一长度单位的必要性"
+    },
+    {
+      "topicId": "ct_SXS2S003",
+      "prerequisiteId": "ct_SXS2S002",
+      "strength": "soft",
+      "reason": "数学2年级“量与计量”领域按知识与能力递进组织，学习认识米前通常会先掌握认识厘米"
+    },
+    {
+      "topicId": "ct_SXS2S004",
+      "prerequisiteId": "ct_SXS2S003",
+      "strength": "hard",
+      "reason": "数学2年级“量与计量”领域按知识与能力递进组织，学习用尺子量物体长度前通常会先掌握认识米"
+    },
+    {
+      "topicId": "ct_SXS2S005",
+      "prerequisiteId": "ct_SXS2S004",
+      "strength": "hard",
+      "reason": "数学2年级“量与计量”领域按知识与能力递进组织，学习画线段前通常会先掌握用尺子量物体长度"
+    },
+    {
+      "topicId": "ct_SXS2S045",
+      "prerequisiteId": "ct_SXS2S005",
+      "strength": "soft",
+      "reason": "数学2年级“量与计量”领域按知识与能力递进组织，学习认识钟面和时与分前通常会先掌握画线段"
+    },
+    {
+      "topicId": "ct_SXS2S046",
+      "prerequisiteId": "ct_SXS2S045",
+      "strength": "hard",
+      "reason": "数学2年级“量与计量”领域按知识与能力递进组织，学习认识几时几分前通常会先掌握认识钟面和时与分"
+    },
+    {
+      "topicId": "ct_SXS2S047",
+      "prerequisiteId": "ct_SXS2S046",
+      "strength": "soft",
+      "reason": "数学2年级“量与计量”领域按知识与能力递进组织，学习合理安排时间前通常会先掌握认识几时几分"
+    },
+    {
+      "topicId": "ct_SXS2X110",
+      "prerequisiteId": "ct_SXS2S047",
+      "strength": "soft",
+      "reason": "数学2年级“量与计量”领域按知识与能力递进组织，学习认识克前通常会先掌握合理安排时间"
+    },
+    {
+      "topicId": "ct_SXS2X111",
+      "prerequisiteId": "ct_SXS2X110",
+      "strength": "soft",
+      "reason": "数学2年级“量与计量”领域按知识与能力递进组织，学习认识千克前通常会先掌握认识克"
+    },
+    {
+      "topicId": "ct_SXS2X112",
+      "prerequisiteId": "ct_SXS2X111",
+      "strength": "hard",
+      "reason": "数学2年级“量与计量”领域按知识与能力递进组织，学习简单的质量计算前通常会先掌握认识千克"
+    },
+    {
+      "topicId": "ct_SXS2S011",
+      "prerequisiteId": "ct_SXS2S010",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习两位数加两位数（进位）前通常会先掌握两位数加两位数（不进位）"
+    },
+    {
+      "topicId": "ct_SXS2S012",
+      "prerequisiteId": "ct_SXS2S011",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习两位数减两位数（不退位）前通常会先掌握两位数加两位数（进位）"
+    },
+    {
+      "topicId": "ct_SXS2S013",
+      "prerequisiteId": "ct_SXS2S012",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习两位数减两位数（退位）前通常会先掌握两位数减两位数（不退位）"
+    },
+    {
+      "topicId": "ct_SXS2S014",
+      "prerequisiteId": "ct_SXS2S013",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习求比一个数多几或少几的数前通常会先掌握两位数减两位数（退位）"
+    },
+    {
+      "topicId": "ct_SXS2S015",
+      "prerequisiteId": "ct_SXS2S014",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习连加连减和加减混合前通常会先掌握求比一个数多几或少几的数"
+    },
+    {
+      "topicId": "ct_SXS2S016",
+      "prerequisiteId": "ct_SXS2S015",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习100以内加减法的估算前通常会先掌握连加连减和加减混合"
+    },
+    {
+      "topicId": "ct_SXS2S030",
+      "prerequisiteId": "ct_SXS2S016",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习乘法的初步认识前通常会先掌握100以内加减法的估算"
+    },
+    {
+      "topicId": "ct_SXS2S031",
+      "prerequisiteId": "ct_SXS2S030",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习2-6的乘法口诀前通常会先掌握乘法的初步认识"
+    },
+    {
+      "topicId": "ct_SXS2S032",
+      "prerequisiteId": "ct_SXS2S031",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习7-9的乘法口诀前通常会先掌握2-6的乘法口诀"
+    },
+    {
+      "topicId": "ct_SXS2S033",
+      "prerequisiteId": "ct_SXS2S032",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习乘加乘减前通常会先掌握7-9的乘法口诀"
+    },
+    {
+      "topicId": "ct_SXS2S034",
+      "prerequisiteId": "ct_SXS2S033",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习求一个数的几倍是多少前通常会先掌握乘加乘减"
+    },
+    {
+      "topicId": "ct_SXS2X065",
+      "prerequisiteId": "ct_SXS2S034",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习平均分前通常会先掌握求一个数的几倍是多少"
+    },
+    {
+      "topicId": "ct_SXS2X066",
+      "prerequisiteId": "ct_SXS2X065",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习除法的初步认识前通常会先掌握平均分"
+    },
+    {
+      "topicId": "ct_SXS2X067",
+      "prerequisiteId": "ct_SXS2X066",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习用2-9的乘法口诀求商前通常会先掌握除法的初步认识"
+    },
+    {
+      "topicId": "ct_SXS2X068",
+      "prerequisiteId": "ct_SXS2X067",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习除法应用题前通常会先掌握用2-9的乘法口诀求商"
+    },
+    {
+      "topicId": "ct_SXS2X080",
+      "prerequisiteId": "ct_SXS2X068",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习同级运算顺序前通常会先掌握除法应用题"
+    },
+    {
+      "topicId": "ct_SXS2X081",
+      "prerequisiteId": "ct_SXS2X080",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习含两级运算顺序前通常会先掌握同级运算顺序"
+    },
+    {
+      "topicId": "ct_SXS2X082",
+      "prerequisiteId": "ct_SXS2X081",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习含小括号的混合运算前通常会先掌握含两级运算顺序"
+    },
+    {
+      "topicId": "ct_SXS2X083",
+      "prerequisiteId": "ct_SXS2X082",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习两步应用题前通常会先掌握含小括号的混合运算"
+    },
+    {
+      "topicId": "ct_SXS2X090",
+      "prerequisiteId": "ct_SXS2X083",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习有余数除法的意义前通常会先掌握两步应用题"
+    },
+    {
+      "topicId": "ct_SXS2X091",
+      "prerequisiteId": "ct_SXS2X090",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习余数一定比除数小前通常会先掌握有余数除法的意义"
+    },
+    {
+      "topicId": "ct_SXS2X092",
+      "prerequisiteId": "ct_SXS2X091",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习有余数除法竖式前通常会先掌握余数一定比除数小"
+    },
+    {
+      "topicId": "ct_SXS2X093",
+      "prerequisiteId": "ct_SXS2X092",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习有余数除法应用题前通常会先掌握有余数除法竖式"
+    },
+    {
+      "topicId": "ct_SXS2X100",
+      "prerequisiteId": "ct_SXS2X093",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习千以内数的认识前通常会先掌握有余数除法应用题"
+    },
+    {
+      "topicId": "ct_SXS2X101",
+      "prerequisiteId": "ct_SXS2X100",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习万以内数的读写和组成前通常会先掌握千以内数的认识"
+    },
+    {
+      "topicId": "ct_SXS2X102",
+      "prerequisiteId": "ct_SXS2X101",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习万以内数的大小比较前通常会先掌握万以内数的读写和组成"
+    },
+    {
+      "topicId": "ct_SXS2X103",
+      "prerequisiteId": "ct_SXS2X102",
+      "strength": "soft",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习近似数前通常会先掌握万以内数的大小比较"
+    },
+    {
+      "topicId": "ct_SXS2X104",
+      "prerequisiteId": "ct_SXS2X103",
+      "strength": "hard",
+      "reason": "数学2年级“数与代数”领域按知识与能力递进组织，学习整百整千数加减法前通常会先掌握近似数"
+    },
+    {
+      "topicId": "ct_SXS2S021",
+      "prerequisiteId": "ct_SXS2S020",
+      "strength": "soft",
+      "reason": "数学2年级“图形与几何”领域按知识与能力递进组织，学习直角的认识前通常会先掌握角的初步认识"
+    },
+    {
+      "topicId": "ct_SXS2S022",
+      "prerequisiteId": "ct_SXS2S021",
+      "strength": "soft",
+      "reason": "数学2年级“图形与几何”领域按知识与能力递进组织，学习锐角和钝角前通常会先掌握直角的认识"
+    },
+    {
+      "topicId": "ct_SXS2S023",
+      "prerequisiteId": "ct_SXS2S022",
+      "strength": "hard",
+      "reason": "数学2年级“图形与几何”领域按知识与能力递进组织，学习画角前通常会先掌握锐角和钝角"
+    },
+    {
+      "topicId": "ct_SXS2S040",
+      "prerequisiteId": "ct_SXS2S023",
+      "strength": "soft",
+      "reason": "数学2年级“图形与几何”领域按知识与能力递进组织，学习从不同位置观察物体前通常会先掌握画角"
+    },
+    {
+      "topicId": "ct_SXS2X075",
+      "prerequisiteId": "ct_SXS2S040",
+      "strength": "soft",
+      "reason": "数学2年级“图形与几何”领域按知识与能力递进组织，学习轴对称图形前通常会先掌握从不同位置观察物体"
+    },
+    {
+      "topicId": "ct_SXS2X076",
+      "prerequisiteId": "ct_SXS2X075",
+      "strength": "soft",
+      "reason": "数学2年级“图形与几何”领域按知识与能力递进组织，学习平移前通常会先掌握轴对称图形"
+    },
+    {
+      "topicId": "ct_SXS2X077",
+      "prerequisiteId": "ct_SXS2X076",
+      "strength": "soft",
+      "reason": "数学2年级“图形与几何”领域按知识与能力递进组织，学习旋转前通常会先掌握平移"
+    },
+    {
+      "topicId": "ct_SXS2S051",
+      "prerequisiteId": "ct_SXS2S050",
+      "strength": "hard",
+      "reason": "数学2年级“综合与实践”领域按知识与能力递进组织，学习简单的组合前通常会先掌握简单的排列"
+    },
+    {
+      "topicId": "ct_SXS2X120",
+      "prerequisiteId": "ct_SXS2S051",
+      "strength": "hard",
+      "reason": "数学2年级“综合与实践”领域按知识与能力递进组织，学习简单的逻辑推理前通常会先掌握简单的组合"
+    },
+    {
+      "topicId": "ct_SXS3S002",
+      "prerequisiteId": "ct_SXS3S001",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习万以内数的读法前通常会先掌握万以内数的进一步认识"
+    },
+    {
+      "topicId": "ct_SXS3S003",
+      "prerequisiteId": "ct_SXS3S002",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习万以内数的写法前通常会先掌握万以内数的读法"
+    },
+    {
+      "topicId": "ct_SXS3S004",
+      "prerequisiteId": "ct_SXS3S003",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习万以内数大小比较前通常会先掌握万以内数的写法"
+    },
+    {
+      "topicId": "ct_SXS3S005",
+      "prerequisiteId": "ct_SXS3S004",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习近似数与估一估前通常会先掌握万以内数大小比较"
+    },
+    {
+      "topicId": "ct_SXS3S006",
+      "prerequisiteId": "ct_SXS3S005",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习整百整千数加减法前通常会先掌握近似数与估一估"
+    },
+    {
+      "topicId": "ct_SXS3S007",
+      "prerequisiteId": "ct_SXS3S006",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习两位数乘一位数口算前通常会先掌握整百整千数加减法"
+    },
+    {
+      "topicId": "ct_SXS3S008",
+      "prerequisiteId": "ct_SXS3S007",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习倍的进一步认识前通常会先掌握两位数乘一位数口算"
+    },
+    {
+      "topicId": "ct_SXS3S009",
+      "prerequisiteId": "ct_SXS3S008",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习求一个数的几倍是多少前通常会先掌握倍的进一步认识"
+    },
+    {
+      "topicId": "ct_SXS3S010",
+      "prerequisiteId": "ct_SXS3S009",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习求一个数是另一个数的几倍前通常会先掌握求一个数的几倍是多少"
+    },
+    {
+      "topicId": "ct_SXS3S011",
+      "prerequisiteId": "ct_SXS3S010",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习多位数加法笔算前通常会先掌握求一个数是另一个数的几倍"
+    },
+    {
+      "topicId": "ct_SXS3S012",
+      "prerequisiteId": "ct_SXS3S011",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习多位数减法笔算前通常会先掌握多位数加法笔算"
+    },
+    {
+      "topicId": "ct_SXS3S013",
+      "prerequisiteId": "ct_SXS3S012",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习加减法验算初步前通常会先掌握多位数减法笔算"
+    },
+    {
+      "topicId": "ct_SXS3S014",
+      "prerequisiteId": "ct_SXS3S013",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习估算三位数加减法前通常会先掌握加减法验算初步"
+    },
+    {
+      "topicId": "ct_SXS3S015",
+      "prerequisiteId": "ct_SXS3S014",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习含括号的两步运算前通常会先掌握估算三位数加减法"
+    },
+    {
+      "topicId": "ct_SXS3S016",
+      "prerequisiteId": "ct_SXS3S015",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习同级混合运算前通常会先掌握含括号的两步运算"
+    },
+    {
+      "topicId": "ct_SXS3S017",
+      "prerequisiteId": "ct_SXS3S016",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习乘加乘减前通常会先掌握同级混合运算"
+    },
+    {
+      "topicId": "ct_SXS3S018",
+      "prerequisiteId": "ct_SXS3S017",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习根据题目特点选算法前通常会先掌握乘加乘减"
+    },
+    {
+      "topicId": "ct_SXS3X019",
+      "prerequisiteId": "ct_SXS3S018",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习分数的初步认识前通常会先掌握根据题目特点选算法"
+    },
+    {
+      "topicId": "ct_SXS3X020",
+      "prerequisiteId": "ct_SXS3X019",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习几分之一的意义前通常会先掌握分数的初步认识"
+    },
+    {
+      "topicId": "ct_SXS3X021",
+      "prerequisiteId": "ct_SXS3X020",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习几分之几的意义前通常会先掌握几分之一的意义"
+    },
+    {
+      "topicId": "ct_SXS3X022",
+      "prerequisiteId": "ct_SXS3X021",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习同分母分数大小比较前通常会先掌握几分之几的意义"
+    },
+    {
+      "topicId": "ct_SXS3X023",
+      "prerequisiteId": "ct_SXS3X022",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习简单同分母分数加减法前通常会先掌握同分母分数大小比较"
+    },
+    {
+      "topicId": "ct_SXS3X024",
+      "prerequisiteId": "ct_SXS3X023",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习三位数乘一位数笔算前通常会先掌握简单同分母分数加减法"
+    },
+    {
+      "topicId": "ct_SXS3X025",
+      "prerequisiteId": "ct_SXS3X024",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习0和任何数相乘前通常会先掌握三位数乘一位数笔算"
+    },
+    {
+      "topicId": "ct_SXS3X026",
+      "prerequisiteId": "ct_SXS3X025",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习商中间末尾有0的除法初步前通常会先掌握0和任何数相乘"
+    },
+    {
+      "topicId": "ct_SXS3X027",
+      "prerequisiteId": "ct_SXS3X026",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习除法与乘法互逆关系前通常会先掌握商中间末尾有0的除法初步"
+    },
+    {
+      "topicId": "ct_SXS3X028",
+      "prerequisiteId": "ct_SXS3X027",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习有余数除法复习提升前通常会先掌握除法与乘法互逆关系"
+    },
+    {
+      "topicId": "ct_SXS3X029",
+      "prerequisiteId": "ct_SXS3X028",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习两步应用题分析前通常会先掌握有余数除法复习提升"
+    },
+    {
+      "topicId": "ct_SXS3X030",
+      "prerequisiteId": "ct_SXS3X029",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习从条件中提取有效信息前通常会先掌握两步应用题分析"
+    },
+    {
+      "topicId": "ct_SXS3X031",
+      "prerequisiteId": "ct_SXS3X030",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习画图帮助理解数量关系前通常会先掌握从条件中提取有效信息"
+    },
+    {
+      "topicId": "ct_SXS3X032",
+      "prerequisiteId": "ct_SXS3X031",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习探索简单数字规律前通常会先掌握画图帮助理解数量关系"
+    },
+    {
+      "topicId": "ct_SXS3X033",
+      "prerequisiteId": "ct_SXS3X032",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习估算检验结果合理性前通常会先掌握探索简单数字规律"
+    },
+    {
+      "topicId": "ct_SXS3X034",
+      "prerequisiteId": "ct_SXS3X033",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习小数生活经验初识前通常会先掌握估算检验结果合理性"
+    },
+    {
+      "topicId": "ct_SXS3X035",
+      "prerequisiteId": "ct_SXS3X034",
+      "strength": "hard",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习数轴上的数感提升前通常会先掌握小数生活经验初识"
+    },
+    {
+      "topicId": "ct_SXS3X036",
+      "prerequisiteId": "ct_SXS3X035",
+      "strength": "soft",
+      "reason": "数学3年级“数与代数”领域按知识与能力递进组织，学习口算笔算估算协同前通常会先掌握数轴上的数感提升"
+    },
+    {
+      "topicId": "ct_SXS3S038",
+      "prerequisiteId": "ct_SXS3S037",
+      "strength": "soft",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习分米的认识前通常会先掌握毫米的认识"
+    },
+    {
+      "topicId": "ct_SXS3S039",
+      "prerequisiteId": "ct_SXS3S038",
+      "strength": "hard",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习毫米分米厘米米单位换算前通常会先掌握分米的认识"
+    },
+    {
+      "topicId": "ct_SXS3S040",
+      "prerequisiteId": "ct_SXS3S039",
+      "strength": "soft",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习四边形的初步认识前通常会先掌握毫米分米厘米米单位换算"
+    },
+    {
+      "topicId": "ct_SXS3S041",
+      "prerequisiteId": "ct_SXS3S040",
+      "strength": "soft",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习周长的意义前通常会先掌握四边形的初步认识"
+    },
+    {
+      "topicId": "ct_SXS3S042",
+      "prerequisiteId": "ct_SXS3S041",
+      "strength": "hard",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习长方形正方形周长计算前通常会先掌握周长的意义"
+    },
+    {
+      "topicId": "ct_SXS3S043",
+      "prerequisiteId": "ct_SXS3S042",
+      "strength": "hard",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习测量较长物体长度前通常会先掌握长方形正方形周长计算"
+    },
+    {
+      "topicId": "ct_SXS3S044",
+      "prerequisiteId": "ct_SXS3S043",
+      "strength": "soft",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习从不同位置观察组合物体前通常会先掌握测量较长物体长度"
+    },
+    {
+      "topicId": "ct_SXS3X045",
+      "prerequisiteId": "ct_SXS3S044",
+      "strength": "soft",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习面积的初步认识前通常会先掌握从不同位置观察组合物体"
+    },
+    {
+      "topicId": "ct_SXS3X046",
+      "prerequisiteId": "ct_SXS3X045",
+      "strength": "soft",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习平方厘米和平方分米前通常会先掌握面积的初步认识"
+    },
+    {
+      "topicId": "ct_SXS3X047",
+      "prerequisiteId": "ct_SXS3X046",
+      "strength": "hard",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习用方格估计面积前通常会先掌握平方厘米和平方分米"
+    },
+    {
+      "topicId": "ct_SXS3X048",
+      "prerequisiteId": "ct_SXS3X047",
+      "strength": "soft",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习长方形正方形面积计算初步前通常会先掌握用方格估计面积"
+    },
+    {
+      "topicId": "ct_SXS3X049",
+      "prerequisiteId": "ct_SXS3X048",
+      "strength": "soft",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习轴对称图形进一步认识前通常会先掌握长方形正方形面积计算初步"
+    },
+    {
+      "topicId": "ct_SXS3X050",
+      "prerequisiteId": "ct_SXS3X049",
+      "strength": "hard",
+      "reason": "数学3年级“图形与几何”领域按知识与能力递进组织，学习平移和旋转作图初步前通常会先掌握轴对称图形进一步认识"
+    },
+    {
+      "topicId": "ct_SXS3S052",
+      "prerequisiteId": "ct_SXS3S051",
+      "strength": "hard",
+      "reason": "数学3年级“量与计量”领域按知识与能力递进组织，学习千克与克换算提升前通常会先掌握吨的认识初步"
+    },
+    {
+      "topicId": "ct_SXS3S053",
+      "prerequisiteId": "ct_SXS3S052",
+      "strength": "soft",
+      "reason": "数学3年级“量与计量”领域按知识与能力递进组织，学习秒的认识前通常会先掌握千克与克换算提升"
+    },
+    {
+      "topicId": "ct_SXS3S054",
+      "prerequisiteId": "ct_SXS3S053",
+      "strength": "hard",
+      "reason": "数学3年级“量与计量”领域按知识与能力递进组织，学习时分秒简单换算前通常会先掌握秒的认识"
+    },
+    {
+      "topicId": "ct_SXS3S055",
+      "prerequisiteId": "ct_SXS3S054",
+      "strength": "hard",
+      "reason": "数学3年级“量与计量”领域按知识与能力递进组织，学习经过时间初步计算前通常会先掌握时分秒简单换算"
+    },
+    {
+      "topicId": "ct_SXS3X056",
+      "prerequisiteId": "ct_SXS3S055",
+      "strength": "soft",
+      "reason": "数学3年级“量与计量”领域按知识与能力递进组织，学习24时记时法初步前通常会先掌握经过时间初步计算"
+    },
+    {
+      "topicId": "ct_SXS3X057",
+      "prerequisiteId": "ct_SXS3X056",
+      "strength": "hard",
+      "reason": "数学3年级“量与计量”领域按知识与能力递进组织，学习长度单位在生活中选择前通常会先掌握24时记时法初步"
+    },
+    {
+      "topicId": "ct_SXS3X058",
+      "prerequisiteId": "ct_SXS3X057",
+      "strength": "hard",
+      "reason": "数学3年级“量与计量”领域按知识与能力递进组织，学习质量单位在生活中选择前通常会先掌握长度单位在生活中选择"
+    },
+    {
+      "topicId": "ct_SXS3X059",
+      "prerequisiteId": "ct_SXS3X058",
+      "strength": "soft",
+      "reason": "数学3年级“量与计量”领域按知识与能力递进组织，学习先统一单位再计算前通常会先掌握质量单位在生活中选择"
+    },
+    {
+      "topicId": "ct_SXS3X060",
+      "prerequisiteId": "ct_SXS3X059",
+      "strength": "soft",
+      "reason": "数学3年级“量与计量”领域按知识与能力递进组织，学习估测再测量前通常会先掌握先统一单位再计算"
+    },
+    {
+      "topicId": "ct_SXS3S062",
+      "prerequisiteId": "ct_SXS3S061",
+      "strength": "hard",
+      "reason": "数学3年级“统计与概率”领域按知识与能力递进组织，学习统计表和统计图互相转化前通常会先掌握条形统计图初步"
+    },
+    {
+      "topicId": "ct_SXS3S063",
+      "prerequisiteId": "ct_SXS3S062",
+      "strength": "soft",
+      "reason": "数学3年级“统计与概率”领域按知识与能力递进组织，学习平均分布和离散分布直观感受前通常会先掌握统计表和统计图互相转化"
+    },
+    {
+      "topicId": "ct_SXS3X064",
+      "prerequisiteId": "ct_SXS3S063",
+      "strength": "hard",
+      "reason": "数学3年级“统计与概率”领域按知识与能力递进组织，学习根据调查设计记录表前通常会先掌握平均分布和离散分布直观感受"
+    },
+    {
+      "topicId": "ct_SXS3X065",
+      "prerequisiteId": "ct_SXS3X064",
+      "strength": "soft",
+      "reason": "数学3年级“统计与概率”领域按知识与能力递进组织，学习数据支持简单判断前通常会先掌握根据调查设计记录表"
+    },
+    {
+      "topicId": "ct_SXS3X066",
+      "prerequisiteId": "ct_SXS3X065",
+      "strength": "soft",
+      "reason": "数学3年级“统计与概率”领域按知识与能力递进组织，学习先整理后分析数据前通常会先掌握数据支持简单判断"
+    },
+    {
+      "topicId": "ct_SXS3S068",
+      "prerequisiteId": "ct_SXS3S067",
+      "strength": "hard",
+      "reason": "数学3年级“综合与实践”领域按知识与能力递进组织，学习组合问题初步前通常会先掌握排列问题初步"
+    },
+    {
+      "topicId": "ct_SXS3S069",
+      "prerequisiteId": "ct_SXS3S068",
+      "strength": "hard",
+      "reason": "数学3年级“综合与实践”领域按知识与能力递进组织，学习用列表法解决问题前通常会先掌握组合问题初步"
+    },
+    {
+      "topicId": "ct_SXS3S070",
+      "prerequisiteId": "ct_SXS3S069",
+      "strength": "hard",
+      "reason": "数学3年级“综合与实践”领域按知识与能力递进组织，学习用画图法解决问题前通常会先掌握用列表法解决问题"
+    },
+    {
+      "topicId": "ct_SXS3X071",
+      "prerequisiteId": "ct_SXS3S070",
+      "strength": "hard",
+      "reason": "数学3年级“综合与实践”领域按知识与能力递进组织，学习简单逻辑推理前通常会先掌握用画图法解决问题"
+    },
+    {
+      "topicId": "ct_SXS3X072",
+      "prerequisiteId": "ct_SXS3X071",
+      "strength": "hard",
+      "reason": "数学3年级“综合与实践”领域按知识与能力递进组织，学习优化选择的初步感受前通常会先掌握简单逻辑推理"
+    },
+    {
+      "topicId": "ct_SXS3X073",
+      "prerequisiteId": "ct_SXS3X072",
+      "strength": "soft",
+      "reason": "数学3年级“综合与实践”领域按知识与能力递进组织，学习表达解题过程前通常会先掌握优化选择的初步感受"
+    },
+    {
+      "topicId": "ct_SXS3X074",
+      "prerequisiteId": "ct_SXS3X073",
+      "strength": "soft",
+      "reason": "数学3年级“综合与实践”领域按知识与能力递进组织，学习检查结果是否符合情境前通常会先掌握表达解题过程"
+    },
+    {
+      "topicId": "ct_SXS4S002",
+      "prerequisiteId": "ct_SXS4S001",
+      "strength": "soft",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习亿以内数的读写和大小比较前通常会先掌握亿以内数的认识"
+    },
+    {
+      "topicId": "ct_SXS4S003",
+      "prerequisiteId": "ct_SXS4S002",
+      "strength": "hard",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习三位数乘两位数笔算前通常会先掌握亿以内数的读写和大小比较"
+    },
+    {
+      "topicId": "ct_SXS4S004",
+      "prerequisiteId": "ct_SXS4S003",
+      "strength": "hard",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习积的变化规律前通常会先掌握三位数乘两位数笔算"
+    },
+    {
+      "topicId": "ct_SXS4S005",
+      "prerequisiteId": "ct_SXS4S004",
+      "strength": "hard",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习除数是两位数的除法前通常会先掌握积的变化规律"
+    },
+    {
+      "topicId": "ct_SXS4S006",
+      "prerequisiteId": "ct_SXS4S005",
+      "strength": "hard",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习商不变规律前通常会先掌握除数是两位数的除法"
+    },
+    {
+      "topicId": "ct_SXS4X007",
+      "prerequisiteId": "ct_SXS4S006",
+      "strength": "soft",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习小数的意义前通常会先掌握商不变规律"
+    },
+    {
+      "topicId": "ct_SXS4X008",
+      "prerequisiteId": "ct_SXS4X007",
+      "strength": "soft",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习小数大小比较前通常会先掌握小数的意义"
+    },
+    {
+      "topicId": "ct_SXS4X009",
+      "prerequisiteId": "ct_SXS4X008",
+      "strength": "hard",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习小数加减法前通常会先掌握小数大小比较"
+    },
+    {
+      "topicId": "ct_SXS4X010",
+      "prerequisiteId": "ct_SXS4X009",
+      "strength": "hard",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习四则混合运算和运算律应用前通常会先掌握小数加减法"
+    },
+    {
+      "topicId": "ct_SXS4X011",
+      "prerequisiteId": "ct_SXS4X010",
+      "strength": "hard",
+      "reason": "数学4年级“数与代数”领域按知识与能力递进组织，学习解决较复杂两三步应用题前通常会先掌握四则混合运算和运算律应用"
+    },
+    {
+      "topicId": "ct_SXS4S013",
+      "prerequisiteId": "ct_SXS4S012",
+      "strength": "soft",
+      "reason": "数学4年级“图形与几何”领域按知识与能力递进组织，学习角的意义和角的度量前通常会先掌握直线射线线段的区别"
+    },
+    {
+      "topicId": "ct_SXS4S014",
+      "prerequisiteId": "ct_SXS4S013",
+      "strength": "hard",
+      "reason": "数学4年级“图形与几何”领域按知识与能力递进组织，学习用量角器画指定度数的角前通常会先掌握角的意义和角的度量"
+    },
+    {
+      "topicId": "ct_SXS4S015",
+      "prerequisiteId": "ct_SXS4S014",
+      "strength": "soft",
+      "reason": "数学4年级“图形与几何”领域按知识与能力递进组织，学习平行和垂直前通常会先掌握用量角器画指定度数的角"
+    },
+    {
+      "topicId": "ct_SXS4X016",
+      "prerequisiteId": "ct_SXS4S015",
+      "strength": "hard",
+      "reason": "数学4年级“图形与几何”领域按知识与能力递进组织，学习平行四边形和梯形认识前通常会先掌握平行和垂直"
+    },
+    {
+      "topicId": "ct_SXS4X017",
+      "prerequisiteId": "ct_SXS4X016",
+      "strength": "soft",
+      "reason": "数学4年级“图形与几何”领域按知识与能力递进组织，学习从不同方向观察立体图形提升前通常会先掌握平行四边形和梯形认识"
+    },
+    {
+      "topicId": "ct_SXS4X019",
+      "prerequisiteId": "ct_SXS4S018",
+      "strength": "hard",
+      "reason": "数学4年级“量与计量”领域按知识与能力递进组织，学习用面积单位解决实际问题前通常会先掌握公顷和平方千米初步认识"
+    },
+    {
+      "topicId": "ct_SXS4X021",
+      "prerequisiteId": "ct_SXS4X020",
+      "strength": "hard",
+      "reason": "数学4年级“统计与概率”领域按知识与能力递进组织，学习根据数据绘制统计图前通常会先掌握条形统计图进一步应用"
+    },
+    {
+      "topicId": "ct_SXS4X023",
+      "prerequisiteId": "ct_SXS4X022",
+      "strength": "soft",
+      "reason": "数学4年级“综合与实践”领域按知识与能力递进组织，学习估算检验结果合理性提升前通常会先掌握列表画图分析数量关系"
+    },
+    {
+      "topicId": "ct_SXS5S002",
+      "prerequisiteId": "ct_SXS5S001",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习小数乘整数前通常会先掌握小数的数位和计数单位提升"
+    },
+    {
+      "topicId": "ct_SXS5S003",
+      "prerequisiteId": "ct_SXS5S002",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习小数乘小数前通常会先掌握小数乘整数"
+    },
+    {
+      "topicId": "ct_SXS5S004",
+      "prerequisiteId": "ct_SXS5S003",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习积的近似值前通常会先掌握小数乘小数"
+    },
+    {
+      "topicId": "ct_SXS5S005",
+      "prerequisiteId": "ct_SXS5S004",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习小数除以整数前通常会先掌握积的近似值"
+    },
+    {
+      "topicId": "ct_SXS5S006",
+      "prerequisiteId": "ct_SXS5S005",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习一个数除以小数前通常会先掌握小数除以整数"
+    },
+    {
+      "topicId": "ct_SXS5S007",
+      "prerequisiteId": "ct_SXS5S006",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习商的近似值前通常会先掌握一个数除以小数"
+    },
+    {
+      "topicId": "ct_SXS5S008",
+      "prerequisiteId": "ct_SXS5S007",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习循环小数初步认识前通常会先掌握商的近似值"
+    },
+    {
+      "topicId": "ct_SXS5X009",
+      "prerequisiteId": "ct_SXS5S008",
+      "strength": "soft",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习分数的意义和单位1前通常会先掌握循环小数初步认识"
+    },
+    {
+      "topicId": "ct_SXS5X010",
+      "prerequisiteId": "ct_SXS5X009",
+      "strength": "soft",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习真分数假分数带分数前通常会先掌握分数的意义和单位1"
+    },
+    {
+      "topicId": "ct_SXS5X011",
+      "prerequisiteId": "ct_SXS5X010",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习分数与除法关系前通常会先掌握真分数假分数带分数"
+    },
+    {
+      "topicId": "ct_SXS5X012",
+      "prerequisiteId": "ct_SXS5X011",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习分数基本性质前通常会先掌握分数与除法关系"
+    },
+    {
+      "topicId": "ct_SXS5X013",
+      "prerequisiteId": "ct_SXS5X012",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习约分和通分前通常会先掌握分数基本性质"
+    },
+    {
+      "topicId": "ct_SXS5X014",
+      "prerequisiteId": "ct_SXS5X013",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习异分母分数大小比较前通常会先掌握约分和通分"
+    },
+    {
+      "topicId": "ct_SXS5X015",
+      "prerequisiteId": "ct_SXS5X014",
+      "strength": "hard",
+      "reason": "数学5年级“数与代数”领域按知识与能力递进组织，学习分数加减法前通常会先掌握异分母分数大小比较"
+    },
+    {
+      "topicId": "ct_SXS5S017",
+      "prerequisiteId": "ct_SXS5S016",
+      "strength": "soft",
+      "reason": "数学5年级“图形与几何”领域按知识与能力递进组织，学习三角形面积前通常会先掌握平行四边形面积"
+    },
+    {
+      "topicId": "ct_SXS5S018",
+      "prerequisiteId": "ct_SXS5S017",
+      "strength": "soft",
+      "reason": "数学5年级“图形与几何”领域按知识与能力递进组织，学习梯形面积前通常会先掌握三角形面积"
+    },
+    {
+      "topicId": "ct_SXS5S019",
+      "prerequisiteId": "ct_SXS5S018",
+      "strength": "hard",
+      "reason": "数学5年级“图形与几何”领域按知识与能力递进组织，学习组合图形面积前通常会先掌握梯形面积"
+    },
+    {
+      "topicId": "ct_SXS5X020",
+      "prerequisiteId": "ct_SXS5S019",
+      "strength": "soft",
+      "reason": "数学5年级“图形与几何”领域按知识与能力递进组织，学习长方体和正方体特征前通常会先掌握组合图形面积"
+    },
+    {
+      "topicId": "ct_SXS5X021",
+      "prerequisiteId": "ct_SXS5X020",
+      "strength": "hard",
+      "reason": "数学5年级“图形与几何”领域按知识与能力递进组织，学习长方体和正方体表面积前通常会先掌握长方体和正方体特征"
+    },
+    {
+      "topicId": "ct_SXS5X022",
+      "prerequisiteId": "ct_SXS5X021",
+      "strength": "soft",
+      "reason": "数学5年级“图形与几何”领域按知识与能力递进组织，学习体积和容积初步认识前通常会先掌握长方体和正方体表面积"
+    },
+    {
+      "topicId": "ct_SXS5X023",
+      "prerequisiteId": "ct_SXS5X022",
+      "strength": "hard",
+      "reason": "数学5年级“图形与几何”领域按知识与能力递进组织，学习长方体和正方体体积前通常会先掌握体积和容积初步认识"
+    },
+    {
+      "topicId": "ct_SXS6S002",
+      "prerequisiteId": "ct_SXS6S001",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习分数乘法计算前通常会先掌握分数乘法的意义"
+    },
+    {
+      "topicId": "ct_SXS6S003",
+      "prerequisiteId": "ct_SXS6S002",
+      "strength": "soft",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习倒数的意义前通常会先掌握分数乘法计算"
+    },
+    {
+      "topicId": "ct_SXS6S004",
+      "prerequisiteId": "ct_SXS6S003",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习分数除法计算前通常会先掌握倒数的意义"
+    },
+    {
+      "topicId": "ct_SXS6S005",
+      "prerequisiteId": "ct_SXS6S004",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习分数乘除法应用题前通常会先掌握分数除法计算"
+    },
+    {
+      "topicId": "ct_SXS6S006",
+      "prerequisiteId": "ct_SXS6S005",
+      "strength": "soft",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习比的意义前通常会先掌握分数乘除法应用题"
+    },
+    {
+      "topicId": "ct_SXS6S007",
+      "prerequisiteId": "ct_SXS6S006",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习比的基本性质与化简比前通常会先掌握比的意义"
+    },
+    {
+      "topicId": "ct_SXS6S008",
+      "prerequisiteId": "ct_SXS6S007",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习按比例分配前通常会先掌握比的基本性质与化简比"
+    },
+    {
+      "topicId": "ct_SXS6X009",
+      "prerequisiteId": "ct_SXS6S008",
+      "strength": "soft",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习百分数的意义前通常会先掌握按比例分配"
+    },
+    {
+      "topicId": "ct_SXS6X010",
+      "prerequisiteId": "ct_SXS6X009",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习百分数和分数小数互化前通常会先掌握百分数的意义"
+    },
+    {
+      "topicId": "ct_SXS6X011",
+      "prerequisiteId": "ct_SXS6X010",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习百分数应用题前通常会先掌握百分数和分数小数互化"
+    },
+    {
+      "topicId": "ct_SXS6X012",
+      "prerequisiteId": "ct_SXS6X011",
+      "strength": "soft",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习负数初步认识前通常会先掌握百分数应用题"
+    },
+    {
+      "topicId": "ct_SXS6X013",
+      "prerequisiteId": "ct_SXS6X012",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习用方程表示数量关系前通常会先掌握负数初步认识"
+    },
+    {
+      "topicId": "ct_SXS6X014",
+      "prerequisiteId": "ct_SXS6X013",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习解简易方程前通常会先掌握用方程表示数量关系"
+    },
+    {
+      "topicId": "ct_SXS6X015",
+      "prerequisiteId": "ct_SXS6X014",
+      "strength": "hard",
+      "reason": "数学6年级“数与代数”领域按知识与能力递进组织，学习列方程解决应用题前通常会先掌握解简易方程"
+    },
+    {
+      "topicId": "ct_SXS6S017",
+      "prerequisiteId": "ct_SXS6S016",
+      "strength": "hard",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习圆的周长前通常会先掌握圆的认识"
+    },
+    {
+      "topicId": "ct_SXS6S018",
+      "prerequisiteId": "ct_SXS6S017",
+      "strength": "hard",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习圆的面积前通常会先掌握圆的周长"
+    },
+    {
+      "topicId": "ct_SXS6S019",
+      "prerequisiteId": "ct_SXS6S018",
+      "strength": "hard",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习扇形和组合图形面积前通常会先掌握圆的面积"
+    },
+    {
+      "topicId": "ct_SXS6X020",
+      "prerequisiteId": "ct_SXS6S019",
+      "strength": "soft",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习比例尺的意义前通常会先掌握扇形和组合图形面积"
+    },
+    {
+      "topicId": "ct_SXS6X021",
+      "prerequisiteId": "ct_SXS6X020",
+      "strength": "hard",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习按比例尺求实际距离和图上距离前通常会先掌握比例尺的意义"
+    },
+    {
+      "topicId": "ct_SXS6X022",
+      "prerequisiteId": "ct_SXS6X021",
+      "strength": "soft",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习圆柱和圆锥初步认识前通常会先掌握按比例尺求实际距离和图上距离"
+    },
+    {
+      "topicId": "ct_SXS6X023",
+      "prerequisiteId": "ct_SXS6X022",
+      "strength": "hard",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习圆柱表面积和体积前通常会先掌握圆柱和圆锥初步认识"
+    },
+    {
+      "topicId": "ct_SXS6X024",
+      "prerequisiteId": "ct_SXS6X023",
+      "strength": "soft",
+      "reason": "数学6年级“图形与几何”领域按知识与能力递进组织，学习圆锥体积公式理解前通常会先掌握圆柱表面积和体积"
+    },
+    {
+      "topicId": "ct_SXS6X026",
+      "prerequisiteId": "ct_SXS6X025",
+      "strength": "soft",
+      "reason": "数学6年级“统计与概率”领域按知识与能力递进组织，学习平均数的意义和应用前通常会先掌握扇形统计图"
+    },
+    {
+      "topicId": "ct_SXS6X028",
+      "prerequisiteId": "ct_SXS6X027",
+      "strength": "soft",
+      "reason": "数学6年级“综合与实践”领域按知识与能力递进组织，学习毕业总复习中的知识关联前通常会先掌握综合运用比例和方程解决问题"
+    },
+    {
       "topicId": "ct_YW1S002",
       "prerequisiteId": "ct_YW1S001",
       "strength": "soft",
@@ -3154,6 +6010,420 @@
       "reason": "语文6年级“习作”领域按知识与能力递进组织，学习独立修改习作并说明修改理由前通常会先掌握写简单演讲稿或毕业发言"
     },
     {
+      "topicId": "ct_YY2S001",
+      "prerequisiteId": "ct_YY1S001",
+      "strength": "soft",
+      "reason": "英语2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YY2X002",
+      "prerequisiteId": "ct_YY1X002",
+      "strength": "soft",
+      "reason": "英语2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YY2X003",
+      "prerequisiteId": "ct_YY1X003",
+      "strength": "soft",
+      "reason": "英语2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YRP4S001",
+      "prerequisiteId": "ct_YRP3S001",
+      "strength": "soft",
+      "reason": "英语4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YRP6S001",
+      "prerequisiteId": "ct_YRP4S001",
+      "strength": "soft",
+      "reason": "英语6年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YRP5X002",
+      "prerequisiteId": "ct_YRP4X002",
+      "strength": "soft",
+      "reason": "英语5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YRP6X002",
+      "prerequisiteId": "ct_YRP5X002",
+      "strength": "soft",
+      "reason": "英语6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YRP5X003",
+      "prerequisiteId": "ct_YRP4X003",
+      "strength": "soft",
+      "reason": "英语5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YWF4S001",
+      "prerequisiteId": "ct_YWF3S001",
+      "strength": "soft",
+      "reason": "英语4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YWF6S001",
+      "prerequisiteId": "ct_YWF4S001",
+      "strength": "soft",
+      "reason": "英语6年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YWF5X002",
+      "prerequisiteId": "ct_YWF4X002",
+      "strength": "soft",
+      "reason": "英语5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YWF6X002",
+      "prerequisiteId": "ct_YWF5X002",
+      "strength": "soft",
+      "reason": "英语6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YWF5X003",
+      "prerequisiteId": "ct_YWF4X003",
+      "strength": "soft",
+      "reason": "英语5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YYL4S001",
+      "prerequisiteId": "ct_YYL3S001",
+      "strength": "soft",
+      "reason": "英语4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YYL6S001",
+      "prerequisiteId": "ct_YYL4S001",
+      "strength": "soft",
+      "reason": "英语6年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YYL5X002",
+      "prerequisiteId": "ct_YYL4X002",
+      "strength": "soft",
+      "reason": "英语5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YYL6X002",
+      "prerequisiteId": "ct_YYL5X002",
+      "strength": "soft",
+      "reason": "英语6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YYL5X003",
+      "prerequisiteId": "ct_YYL4X003",
+      "strength": "soft",
+      "reason": "英语5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_KX2X003",
+      "prerequisiteId": "ct_KX1S001",
+      "strength": "soft",
+      "reason": "科学2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_KX3S001",
+      "prerequisiteId": "ct_KX2X003",
+      "strength": "soft",
+      "reason": "科学3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_KX4X003",
+      "prerequisiteId": "ct_KX3S001",
+      "strength": "soft",
+      "reason": "科学4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_KX5S001",
+      "prerequisiteId": "ct_KX4X003",
+      "strength": "soft",
+      "reason": "科学5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_KX2S001",
+      "prerequisiteId": "ct_KX1S002",
+      "strength": "soft",
+      "reason": "科学2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_KX4S001",
+      "prerequisiteId": "ct_KX2S001",
+      "strength": "soft",
+      "reason": "科学4年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_KX6S001",
+      "prerequisiteId": "ct_KX4S001",
+      "strength": "soft",
+      "reason": "科学6年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_KX2X002",
+      "prerequisiteId": "ct_KX1X003",
+      "strength": "soft",
+      "reason": "科学2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_KX3S002",
+      "prerequisiteId": "ct_KX2X002",
+      "strength": "soft",
+      "reason": "科学3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_KX4S002",
+      "prerequisiteId": "ct_KX3S002",
+      "strength": "soft",
+      "reason": "科学4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_KX5S002",
+      "prerequisiteId": "ct_KX4S002",
+      "strength": "soft",
+      "reason": "科学5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_KX6S002",
+      "prerequisiteId": "ct_KX5S002",
+      "strength": "soft",
+      "reason": "科学6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_LD2S001",
+      "prerequisiteId": "ct_LD1X002",
+      "strength": "soft",
+      "reason": "劳动2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_LD3S001",
+      "prerequisiteId": "ct_LD2S001",
+      "strength": "soft",
+      "reason": "劳动3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_LD4S001",
+      "prerequisiteId": "ct_LD3S001",
+      "strength": "soft",
+      "reason": "劳动4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_LD5S001",
+      "prerequisiteId": "ct_LD4S001",
+      "strength": "soft",
+      "reason": "劳动5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_TY2Q001",
+      "prerequisiteId": "ct_TY1Q001",
+      "strength": "soft",
+      "reason": "体育与健康2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_TY3Q001",
+      "prerequisiteId": "ct_TY2Q001",
+      "strength": "soft",
+      "reason": "体育与健康3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_MS2Q001",
+      "prerequisiteId": "ct_MS1Q001",
+      "strength": "soft",
+      "reason": "美术2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_MS3Q001",
+      "prerequisiteId": "ct_MS2Q001",
+      "strength": "soft",
+      "reason": "美术3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_MS5Q001",
+      "prerequisiteId": "ct_MS3Q001",
+      "strength": "soft",
+      "reason": "美术5年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_MS3Q002",
+      "prerequisiteId": "ct_MS1Q002",
+      "strength": "soft",
+      "reason": "美术3年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_MS6Q001",
+      "prerequisiteId": "ct_MS3Q002",
+      "strength": "soft",
+      "reason": "美术6年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YYP2Q002",
+      "prerequisiteId": "ct_YYP1Q001",
+      "strength": "soft",
+      "reason": "音乐2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YYP4Q002",
+      "prerequisiteId": "ct_YYP2Q002",
+      "strength": "soft",
+      "reason": "音乐4年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YYP3Q001",
+      "prerequisiteId": "ct_YYP1Q002",
+      "strength": "soft",
+      "reason": "音乐3年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YYP5Q001",
+      "prerequisiteId": "ct_YYP3Q001",
+      "strength": "soft",
+      "reason": "音乐5年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_XX3Q002",
+      "prerequisiteId": "ct_XX1Q001",
+      "strength": "soft",
+      "reason": "信息科技3年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_XX2Q001",
+      "prerequisiteId": "ct_XX1Q002",
+      "strength": "soft",
+      "reason": "信息科技2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_AI2Q001",
+      "prerequisiteId": "ct_AI1Q001",
+      "strength": "soft",
+      "reason": "AI素养2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_AI3Q001",
+      "prerequisiteId": "ct_AI2Q001",
+      "strength": "soft",
+      "reason": "AI素养3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_AI4Q001",
+      "prerequisiteId": "ct_AI1Q002",
+      "strength": "soft",
+      "reason": "AI素养4年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_LD4X002",
+      "prerequisiteId": "ct_LD2X002",
+      "strength": "soft",
+      "reason": "劳动4年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_LD6X002",
+      "prerequisiteId": "ct_LD4X002",
+      "strength": "soft",
+      "reason": "劳动6年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_TY3Q002",
+      "prerequisiteId": "ct_TY2Q002",
+      "strength": "soft",
+      "reason": "体育与健康3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_TY5Q002",
+      "prerequisiteId": "ct_TY3Q002",
+      "strength": "soft",
+      "reason": "体育与健康5年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_XX5Q002",
+      "prerequisiteId": "ct_XX2Q002",
+      "strength": "soft",
+      "reason": "信息科技5年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_AI4Q002",
+      "prerequisiteId": "ct_AI2Q002",
+      "strength": "soft",
+      "reason": "AI素养4年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_AI5Q002",
+      "prerequisiteId": "ct_AI4Q002",
+      "strength": "soft",
+      "reason": "AI素养5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_KX5X003",
+      "prerequisiteId": "ct_KX3X003",
+      "strength": "soft",
+      "reason": "科学5年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_LD5X002",
+      "prerequisiteId": "ct_LD3X002",
+      "strength": "soft",
+      "reason": "劳动5年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YYP5Q002",
+      "prerequisiteId": "ct_YYP3Q002",
+      "strength": "soft",
+      "reason": "音乐5年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_XX4Q001",
+      "prerequisiteId": "ct_XX3Q001",
+      "strength": "soft",
+      "reason": "信息科技4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_AI6Q001",
+      "prerequisiteId": "ct_AI3Q002",
+      "strength": "soft",
+      "reason": "AI素养6年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_TY5Q001",
+      "prerequisiteId": "ct_TY4Q001",
+      "strength": "soft",
+      "reason": "体育与健康5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_TY6Q001",
+      "prerequisiteId": "ct_TY5Q001",
+      "strength": "soft",
+      "reason": "体育与健康6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_TY6Q002",
+      "prerequisiteId": "ct_TY4Q002",
+      "strength": "soft",
+      "reason": "体育与健康6年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_MS5Q002",
+      "prerequisiteId": "ct_MS4Q001",
+      "strength": "soft",
+      "reason": "美术5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_MS6Q002",
+      "prerequisiteId": "ct_MS4Q002",
+      "strength": "soft",
+      "reason": "美术6年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_XX6Q001",
+      "prerequisiteId": "ct_XX4Q002",
+      "strength": "soft",
+      "reason": "信息科技6年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_AI6Q002",
+      "prerequisiteId": "ct_AI5Q001",
+      "strength": "soft",
+      "reason": "AI素养6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
       "topicId": "ct_SX2S010",
       "prerequisiteId": "ct_SX1X034",
       "strength": "soft",
@@ -3294,6 +6564,294 @@
     {
       "topicId": "ct_SX6X027",
       "prerequisiteId": "ct_SX5X026",
+      "strength": "soft",
+      "reason": "数学6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB2S010",
+      "prerequisiteId": "ct_SXB1X034",
+      "strength": "soft",
+      "reason": "数学2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB3S001",
+      "prerequisiteId": "ct_SXB2X104",
+      "strength": "soft",
+      "reason": "数学3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB4S001",
+      "prerequisiteId": "ct_SXB3X036",
+      "strength": "soft",
+      "reason": "数学4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB5S001",
+      "prerequisiteId": "ct_SXB4X011",
+      "strength": "soft",
+      "reason": "数学5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB6S001",
+      "prerequisiteId": "ct_SXB5X015",
+      "strength": "soft",
+      "reason": "数学6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB2S020",
+      "prerequisiteId": "ct_SXB1X050",
+      "strength": "soft",
+      "reason": "数学2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB3S037",
+      "prerequisiteId": "ct_SXB2X077",
+      "strength": "soft",
+      "reason": "数学3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB4S012",
+      "prerequisiteId": "ct_SXB3X050",
+      "strength": "soft",
+      "reason": "数学4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB5S016",
+      "prerequisiteId": "ct_SXB4X017",
+      "strength": "soft",
+      "reason": "数学5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB6S016",
+      "prerequisiteId": "ct_SXB5X023",
+      "strength": "soft",
+      "reason": "数学6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB2S001",
+      "prerequisiteId": "ct_SXB1X060",
+      "strength": "soft",
+      "reason": "数学2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB3S051",
+      "prerequisiteId": "ct_SXB2X112",
+      "strength": "soft",
+      "reason": "数学3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB4S018",
+      "prerequisiteId": "ct_SXB3X060",
+      "strength": "soft",
+      "reason": "数学4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB5X024",
+      "prerequisiteId": "ct_SXB4X019",
+      "strength": "soft",
+      "reason": "数学5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB2X060",
+      "prerequisiteId": "ct_SXB1X066",
+      "strength": "soft",
+      "reason": "数学2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB3S061",
+      "prerequisiteId": "ct_SXB2X060",
+      "strength": "soft",
+      "reason": "数学3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB4X020",
+      "prerequisiteId": "ct_SXB3X066",
+      "strength": "soft",
+      "reason": "数学4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB5X025",
+      "prerequisiteId": "ct_SXB4X021",
+      "strength": "soft",
+      "reason": "数学5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB6X025",
+      "prerequisiteId": "ct_SXB5X025",
+      "strength": "soft",
+      "reason": "数学6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB2S050",
+      "prerequisiteId": "ct_SXB1X076",
+      "strength": "soft",
+      "reason": "数学2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB3S067",
+      "prerequisiteId": "ct_SXB2X120",
+      "strength": "soft",
+      "reason": "数学3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB4X022",
+      "prerequisiteId": "ct_SXB3X074",
+      "strength": "soft",
+      "reason": "数学4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB5X026",
+      "prerequisiteId": "ct_SXB4X023",
+      "strength": "soft",
+      "reason": "数学5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXB6X027",
+      "prerequisiteId": "ct_SXB5X026",
+      "strength": "soft",
+      "reason": "数学6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS2S010",
+      "prerequisiteId": "ct_SXS1X034",
+      "strength": "soft",
+      "reason": "数学2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS3S001",
+      "prerequisiteId": "ct_SXS2X104",
+      "strength": "soft",
+      "reason": "数学3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS4S001",
+      "prerequisiteId": "ct_SXS3X036",
+      "strength": "soft",
+      "reason": "数学4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS5S001",
+      "prerequisiteId": "ct_SXS4X011",
+      "strength": "soft",
+      "reason": "数学5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS6S001",
+      "prerequisiteId": "ct_SXS5X015",
+      "strength": "soft",
+      "reason": "数学6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS2S020",
+      "prerequisiteId": "ct_SXS1X050",
+      "strength": "soft",
+      "reason": "数学2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS3S037",
+      "prerequisiteId": "ct_SXS2X077",
+      "strength": "soft",
+      "reason": "数学3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS4S012",
+      "prerequisiteId": "ct_SXS3X050",
+      "strength": "soft",
+      "reason": "数学4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS5S016",
+      "prerequisiteId": "ct_SXS4X017",
+      "strength": "soft",
+      "reason": "数学5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS6S016",
+      "prerequisiteId": "ct_SXS5X023",
+      "strength": "soft",
+      "reason": "数学6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS2S001",
+      "prerequisiteId": "ct_SXS1X060",
+      "strength": "soft",
+      "reason": "数学2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS3S051",
+      "prerequisiteId": "ct_SXS2X112",
+      "strength": "soft",
+      "reason": "数学3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS4S018",
+      "prerequisiteId": "ct_SXS3X060",
+      "strength": "soft",
+      "reason": "数学4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS5X024",
+      "prerequisiteId": "ct_SXS4X019",
+      "strength": "soft",
+      "reason": "数学5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS2X060",
+      "prerequisiteId": "ct_SXS1X066",
+      "strength": "soft",
+      "reason": "数学2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS3S061",
+      "prerequisiteId": "ct_SXS2X060",
+      "strength": "soft",
+      "reason": "数学3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS4X020",
+      "prerequisiteId": "ct_SXS3X066",
+      "strength": "soft",
+      "reason": "数学4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS5X025",
+      "prerequisiteId": "ct_SXS4X021",
+      "strength": "soft",
+      "reason": "数学5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS6X025",
+      "prerequisiteId": "ct_SXS5X025",
+      "strength": "soft",
+      "reason": "数学6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS2S050",
+      "prerequisiteId": "ct_SXS1X076",
+      "strength": "soft",
+      "reason": "数学2年级该领域学习建立在1年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS3S067",
+      "prerequisiteId": "ct_SXS2X120",
+      "strength": "soft",
+      "reason": "数学3年级该领域学习建立在2年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS4X022",
+      "prerequisiteId": "ct_SXS3X074",
+      "strength": "soft",
+      "reason": "数学4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS5X026",
+      "prerequisiteId": "ct_SXS4X023",
+      "strength": "soft",
+      "reason": "数学5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_SXS6X027",
+      "prerequisiteId": "ct_SXS5X026",
       "strength": "soft",
       "reason": "数学6年级该领域学习建立在5年级同领域基础之上"
     },

@@ -14,12 +14,13 @@ const files = ['topics.json','dependencies.json','curriculum-standards.json','cl
 const manifest = {
   dataset: 'CN-Primary-Taxonomy',
   datasetNameCn: '中国小学教育知识图谱',
-  taxonomyVersion: 'v0.2-expanded',
+  taxonomyVersion: 'v0.3-expanded',
   generatedAt: new Date().toISOString(),
   basedOn: 'Marble Skill Taxonomy v1 (https://github.com/withmarbleapp/os-taxonomy)',
   country: 'CN',
   grades: [],
   gradeBands: [],
+  textbooks: {},
   counts: {},
   files: {}
 };
@@ -39,6 +40,13 @@ for (const f of files) {
     manifest.gradeBands = [...new Set(j.topics.map(t => t.gradeBand))]
       .sort()
       .map(code => ({ L: 'L（低年级1-2年级）', M: 'M（中年级3-4年级）', H: 'H（高年级5-6年级）' }[code]));
+    manifest.textbooks = Object.fromEntries(
+      [...j.topics.reduce((map, topic) => {
+        const key = topic.textbook || '未标注版本';
+        map.set(key, (map.get(key) || 0) + 1);
+        return map;
+      }, new Map()).entries()].sort((a, b) => b[1] - a[1])
+    );
   }
 }
 

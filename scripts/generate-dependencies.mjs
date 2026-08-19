@@ -172,6 +172,9 @@ deps.push(D('ct_TY2Q004','ct_TY2Q002','soft','跳绳以基本跑动、协调能�
 deps.push(D('ct_MS2Q003','ct_MS2Q002','hard','折纸以基本线条控制、手部精细动作为基础'));
 
 const topicsData = JSON.parse(readFileSync(resolve(DATA, 'topics.json'), 'utf8'));
+const existingTopicIds = new Set(topicsData.topics.map(t => t.id));
+const seededDeps = deps.filter(dep => existingTopicIds.has(dep.topicId) && existingTopicIds.has(dep.prerequisiteId));
+const skippedManualEdges = deps.length - seededDeps.length;
 
 function seqOf(id) {
   const match = id.match(/(\d{3})$/);
@@ -187,14 +190,14 @@ function addAutoDependencies(topics, edges) {
     const target = topicById.get(edge.topicId);
     const prereq = topicById.get(edge.prerequisiteId);
     if (!target || !prereq) continue;
-    if (target.subject === prereq.subject && target.grade === prereq.grade && target.domain === prereq.domain) {
-      manualGroupKeys.add(`${target.subject}|${target.grade}|${target.domain}`);
+    if (target.subject === prereq.subject && target.grade === prereq.grade && target.domain === prereq.domain && (target.textbook || '') === (prereq.textbook || '')) {
+      manualGroupKeys.add(`${target.subject}|${target.grade}|${target.domain}|${target.textbook || ''}`);
     }
   }
 
   const byGroup = new Map();
   for (const topic of topics) {
-    const key = `${topic.subject}|${topic.grade}|${topic.domain}`;
+    const key = `${topic.subject}|${topic.grade}|${topic.domain}|${topic.textbook || ''}`;
     if (!byGroup.has(key)) byGroup.set(key, []);
     byGroup.get(key).push(topic);
   }
@@ -213,7 +216,7 @@ function addAutoDependencies(topics, edges) {
 
   const byDomainAcrossGrades = new Map();
   for (const topic of topics) {
-    const key = `${topic.subject}|${topic.domain}`;
+    const key = `${topic.subject}|${topic.domain}|${topic.textbook || ''}`;
     if (!byDomainAcrossGrades.has(key)) byDomainAcrossGrades.set(key, []);
     byDomainAcrossGrades.get(key).push(topic);
   }
@@ -240,11 +243,11 @@ function addAutoDependencies(topics, edges) {
   }
 }
 
-addAutoDependencies(topicsData.topics, deps);
+addAutoDependencies(topicsData.topics, seededDeps);
 
 const uniqueDeps = [];
 const depSeen = new Set();
-for (const dep of deps) {
+for (const dep of seededDeps) {
   const key = `${dep.topicId}|${dep.prerequisiteId}`;
   if (!depSeen.has(key)) {
     depSeen.add(key);
@@ -254,7 +257,7 @@ for (const dep of deps) {
 
 // 写 dependencies.json
 const depJson = {
-  version: 'v0.2-expanded',
+  version: 'v0.3-expanded',
   note: 'DAG 依赖方向：topicId 依赖 prerequisiteId（先学prerequisite，再学topic）',
   edgeCount: uniqueDeps.length,
   dependencies: uniqueDeps
@@ -300,6 +303,7 @@ if (processed !== topicsData.topics.length) {
 if (errors === 0) {
   console.log(`✅ 依赖关系 ${uniqueDeps.length} 条写入成功，DAG无环，所有引用有效`);
   console.log(`   入度为0的根节点: ${rootCount} 个（起始知识点）`);
+  if (skippedManualEdges > 0) console.log(`   已跳过 ${skippedManualEdges} 条不再存在的旧手工依赖`);
   // 统计hard/soft
   const hardN = uniqueDeps.filter(d=>d.strength==='hard').length;
   const softN = uniqueDeps.filter(d=>d.strength==='soft').length;

@@ -864,7 +864,7 @@
       "version": "2022",
       "textIncluded": false,
       "license": "政府公开文件",
-      "topicCount": 5,
+      "topicCount": 13,
       "topics": [
         {
           "key": "cn-kexue-2022:1-2-dq-1",
@@ -905,6 +905,70 @@
             "domain": "生命科学-人体与感官",
             "desc": "认识人体主要感觉器官，会用感官观察"
           }
+        },
+        {
+          "key": "cn-kexue-2022:3-4-sm-1",
+          "code": "3-4-sm-1",
+          "data": {
+            "domain": "生命科学",
+            "desc": "观察常见动植物的结构、变化和生存条件，理解生命活动的基本特征"
+          }
+        },
+        {
+          "key": "cn-kexue-2022:3-4-wz-1",
+          "code": "3-4-wz-1",
+          "data": {
+            "domain": "物质科学",
+            "desc": "观察和解释空气、水、声音、热等常见物质与现象"
+          }
+        },
+        {
+          "key": "cn-kexue-2022:3-4-dq-1",
+          "code": "3-4-dq-1",
+          "data": {
+            "domain": "地球与宇宙科学",
+            "desc": "认识地球、太阳、月亮以及季节、昼夜等自然现象"
+          }
+        },
+        {
+          "key": "cn-kexue-2022:3-4-js-1",
+          "code": "3-4-js-1",
+          "data": {
+            "domain": "科学探究与工程实践",
+            "desc": "围绕问题开展简单实验、记录和解释，形成初步证据意识"
+          }
+        },
+        {
+          "key": "cn-kexue-2022:5-6-sm-1",
+          "code": "5-6-sm-1",
+          "data": {
+            "domain": "生命科学",
+            "desc": "理解生物结构与功能、环境与生物之间的关系"
+          }
+        },
+        {
+          "key": "cn-kexue-2022:5-6-wz-1",
+          "code": "5-6-wz-1",
+          "data": {
+            "domain": "物质科学",
+            "desc": "认识光、电、热、能量等常见现象及其在生活中的应用"
+          }
+        },
+        {
+          "key": "cn-kexue-2022:5-6-dq-1",
+          "code": "5-6-dq-1",
+          "data": {
+            "domain": "地球与宇宙科学",
+            "desc": "关注生态环境、资源利用和地球系统中的基本关系"
+          }
+        },
+        {
+          "key": "cn-kexue-2022:5-6-js-1",
+          "code": "5-6-js-1",
+          "data": {
+            "domain": "科学探究与工程实践",
+            "desc": "能提出问题、设计探究方案并根据证据改进解释"
+          }
         }
       ]
     },
@@ -915,7 +979,7 @@
       "version": "2022",
       "textIncluded": false,
       "license": "政府公开文件",
-      "topicCount": 6,
+      "topicCount": 12,
       "topics": [
         {
           "key": "cn-daofa-2022:1-2-sh-1",
@@ -958,6 +1022,54 @@
           "data": {
             "domain": "生态环保-节约资源"
           }
+        },
+        {
+          "key": "cn-daofa-2022:3-4-sh-1",
+          "code": "3-4-sh-1",
+          "data": {
+            "domain": "社会生活",
+            "desc": "理解家庭、学校、社区中的角色、责任与合作"
+          }
+        },
+        {
+          "key": "cn-daofa-2022:3-4-fz-1",
+          "code": "3-4-fz-1",
+          "data": {
+            "domain": "法治启蒙",
+            "desc": "理解规则与秩序在公共生活中的意义，形成初步法治意识"
+          }
+        },
+        {
+          "key": "cn-daofa-2022:3-4-wh-1",
+          "code": "3-4-wh-1",
+          "data": {
+            "domain": "文化认同",
+            "desc": "了解家乡文化和中华优秀传统文化，增强认同感"
+          }
+        },
+        {
+          "key": "cn-daofa-2022:5-6-gm-1",
+          "code": "5-6-gm-1",
+          "data": {
+            "domain": "公民意识",
+            "desc": "理解权利义务、责任担当和公共参与的基本要求"
+          }
+        },
+        {
+          "key": "cn-daofa-2022:5-6-gj-1",
+          "code": "5-6-gj-1",
+          "data": {
+            "domain": "国家认同",
+            "desc": "理解个人成长与国家发展之间的关系，增强家国情怀"
+          }
+        },
+        {
+          "key": "cn-daofa-2022:5-6-fz-1",
+          "code": "5-6-fz-1",
+          "data": {
+            "domain": "法治观念",
+            "desc": "认识法律与生活的联系，增强规则意识和自我保护意识"
+          }
         }
       ]
     },
@@ -968,7 +1080,7 @@
       "version": "2022",
       "textIncluded": false,
       "license": "政府公开文件",
-      "topicCount": 2,
+      "topicCount": 8,
       "topics": [
         {
           "key": "cn-laodong-2022:1-2-sh-1",
@@ -983,6 +1095,54 @@
           "data": {
             "domain": "生产劳动-农业生产劳动、简单手工"
           }
+        },
+        {
+          "key": "cn-laodong-2022:3-4-sh-1",
+          "code": "3-4-sh-1",
+          "data": {
+            "domain": "日常生活劳动",
+            "desc": "能较独立地整理、烹饪、清洁，养成良好劳动习惯"
+          }
+        },
+        {
+          "key": "cn-laodong-2022:3-4-fw-1",
+          "code": "3-4-fw-1",
+          "data": {
+            "domain": "服务性劳动",
+            "desc": "能在班级、校园等集体生活中完成分工明确的服务劳动"
+          }
+        },
+        {
+          "key": "cn-laodong-2022:3-4-sc-1",
+          "code": "3-4-sc-1",
+          "data": {
+            "domain": "生产劳动",
+            "desc": "参与简单种植、养护、制作等劳动实践，感受劳动过程"
+          }
+        },
+        {
+          "key": "cn-laodong-2022:5-6-sh-1",
+          "code": "5-6-sh-1",
+          "data": {
+            "domain": "日常生活劳动",
+            "desc": "能有计划地完成家务劳动并进行过程改进"
+          }
+        },
+        {
+          "key": "cn-laodong-2022:5-6-fw-1",
+          "code": "5-6-fw-1",
+          "data": {
+            "domain": "服务性劳动",
+            "desc": "围绕集体或社区需求参与持续性的服务劳动"
+          }
+        },
+        {
+          "key": "cn-laodong-2022:5-6-sc-1",
+          "code": "5-6-sc-1",
+          "data": {
+            "domain": "生产劳动",
+            "desc": "在指导下完成较完整的生产或制作劳动项目"
+          }
         }
       ]
     },
@@ -993,7 +1153,7 @@
       "version": "2022",
       "textIncluded": false,
       "license": "政府公开文件",
-      "topicCount": 3,
+      "topicCount": 13,
       "topics": [
         {
           "key": "cn-yingyu-2022:1-2-ts-1",
@@ -1015,6 +1175,86 @@
           "data": {
             "domain": "字母-26个字母认读书写"
           }
+        },
+        {
+          "key": "cn-yingyu-2022:3-4-ts-1",
+          "code": "3-4-ts-1",
+          "data": {
+            "domain": "听说",
+            "desc": "能围绕熟悉话题进行简单问答、介绍和课堂交流"
+          }
+        },
+        {
+          "key": "cn-yingyu-2022:3-4-ci-1",
+          "code": "3-4-ci-1",
+          "data": {
+            "domain": "词汇",
+            "desc": "积累与生活、学校、家庭等主题相关的基础词汇"
+          }
+        },
+        {
+          "key": "cn-yingyu-2022:3-4-yy-1",
+          "code": "3-4-yy-1",
+          "data": {
+            "domain": "语音",
+            "desc": "初步掌握字母名称、基本字母音和简单拼读规律"
+          }
+        },
+        {
+          "key": "cn-yingyu-2022:3-4-yd-1",
+          "code": "3-4-yd-1",
+          "data": {
+            "domain": "阅读",
+            "desc": "借助图片、关键词和语境理解简单语篇大意"
+          }
+        },
+        {
+          "key": "cn-yingyu-2022:3-4-xz-1",
+          "code": "3-4-xz-1",
+          "data": {
+            "domain": "写作",
+            "desc": "能模仿例句书写简单句和简短文本"
+          }
+        },
+        {
+          "key": "cn-yingyu-2022:5-6-ts-1",
+          "code": "5-6-ts-1",
+          "data": {
+            "domain": "听说",
+            "desc": "能围绕熟悉主题进行较完整的口头表达与互动"
+          }
+        },
+        {
+          "key": "cn-yingyu-2022:5-6-yy-1",
+          "code": "5-6-yy-1",
+          "data": {
+            "domain": "词汇与语法",
+            "desc": "在熟悉语境中运用基础时态、句型和主题词汇"
+          }
+        },
+        {
+          "key": "cn-yingyu-2022:5-6-yd-1",
+          "code": "5-6-yd-1",
+          "data": {
+            "domain": "阅读",
+            "desc": "能获取和整合短文中的关键信息，理解语篇大意"
+          }
+        },
+        {
+          "key": "cn-yingyu-2022:5-6-xz-1",
+          "code": "5-6-xz-1",
+          "data": {
+            "domain": "写作",
+            "desc": "能根据提示完成简短书面表达"
+          }
+        },
+        {
+          "key": "cn-yingyu-2022:5-6-cl-1",
+          "code": "5-6-cl-1",
+          "data": {
+            "domain": "学习策略",
+            "desc": "能借助拼读、上下文和已有经验自主认读、猜测和学习"
+          }
         }
       ]
     },
@@ -1025,7 +1265,7 @@
       "version": "2022",
       "textIncluded": false,
       "license": "政府公开文件",
-      "topicCount": 2,
+      "topicCount": 10,
       "topics": [
         {
           "key": "cn-xxkj-2022:1-2-xx-1",
@@ -1040,6 +1280,70 @@
           "data": {
             "domain": "数字设备-计算机操作与输入"
           }
+        },
+        {
+          "key": "cn-xxkj-2022:1-2-aq-1",
+          "code": "1-2-aq-1",
+          "data": {
+            "domain": "数字安全",
+            "desc": "认识文明用机、设备保护和健康使用数字设备的基本要求"
+          }
+        },
+        {
+          "key": "cn-xxkj-2022:3-4-xx-1",
+          "code": "3-4-xx-1",
+          "data": {
+            "domain": "信息意识",
+            "desc": "能在任务情境中辨别有用信息并理解信息价值"
+          }
+        },
+        {
+          "key": "cn-xxkj-2022:3-4-bd-1",
+          "code": "3-4-bd-1",
+          "data": {
+            "domain": "数字表达",
+            "desc": "能使用常见工具进行文字、图片和演示表达"
+          }
+        },
+        {
+          "key": "cn-xxkj-2022:3-4-jsw-1",
+          "code": "3-4-jsw-1",
+          "data": {
+            "domain": "计算思维",
+            "desc": "能把数字任务拆解成步骤并按规则完成"
+          }
+        },
+        {
+          "key": "cn-xxkj-2022:5-6-sj-1",
+          "code": "5-6-sj-1",
+          "data": {
+            "domain": "数据意识",
+            "desc": "能用表格整理、分析数据并据此表达结论"
+          }
+        },
+        {
+          "key": "cn-xxkj-2022:5-6-aq-1",
+          "code": "5-6-aq-1",
+          "data": {
+            "domain": "数字安全",
+            "desc": "认识网络安全、个人信息保护和数字身份意识"
+          }
+        },
+        {
+          "key": "cn-xxkj-2022:5-6-jsw-1",
+          "code": "5-6-jsw-1",
+          "data": {
+            "domain": "计算思维",
+            "desc": "能用流程和规则描述解决数字问题的思路"
+          }
+        },
+        {
+          "key": "cn-xxkj-2022:5-6-bd-1",
+          "code": "5-6-bd-1",
+          "data": {
+            "domain": "数字创新与表达",
+            "desc": "能围绕真实任务综合运用数字工具完成作品"
+          }
         }
       ]
     },
@@ -1050,7 +1354,7 @@
       "version": "2024-draft",
       "textIncluded": false,
       "license": "参考性文件",
-      "topicCount": 2,
+      "topicCount": 8,
       "topics": [
         {
           "key": "cn-ai-2024:1-2-rz-1",
@@ -1065,6 +1369,54 @@
           "data": {
             "domain": "AI局限-AI会犯错"
           }
+        },
+        {
+          "key": "cn-ai-2024:3-4-rz-1",
+          "code": "3-4-rz-1",
+          "data": {
+            "domain": "AI认知",
+            "desc": "理解AI依赖数据、规则和模型完成识别、分类和推荐"
+          }
+        },
+        {
+          "key": "cn-ai-2024:3-4-yy-1",
+          "code": "3-4-yy-1",
+          "data": {
+            "domain": "AI应用",
+            "desc": "能用清晰指令与智能工具交互并比较结果"
+          }
+        },
+        {
+          "key": "cn-ai-2024:3-4-pl-1",
+          "code": "3-4-pl-1",
+          "data": {
+            "domain": "AI局限",
+            "desc": "认识AI可能出现误判、偏差和不稳定输出"
+          }
+        },
+        {
+          "key": "cn-ai-2024:5-6-yy-1",
+          "code": "5-6-yy-1",
+          "data": {
+            "domain": "AI应用",
+            "desc": "能把AI作为学习辅助工具并在任务中合理使用"
+          }
+        },
+        {
+          "key": "cn-ai-2024:5-6-pl-1",
+          "code": "5-6-pl-1",
+          "data": {
+            "domain": "AI评估",
+            "desc": "能从事实、逻辑和来源角度评估AI输出的可信度"
+          }
+        },
+        {
+          "key": "cn-ai-2024:5-6-ll-1",
+          "code": "5-6-ll-1",
+          "data": {
+            "domain": "AI伦理",
+            "desc": "理解负责任使用AI、保护隐私和避免误导的重要性"
+          }
         }
       ]
     },
@@ -1075,7 +1427,7 @@
       "version": "2022",
       "textIncluded": false,
       "license": "政府公开文件",
-      "topicCount": 4,
+      "topicCount": 10,
       "topics": [
         {
           "key": "cn-tiyu-2022:1-2-zs-1",
@@ -1104,6 +1456,54 @@
           "data": {
             "domain": "跳跃类活动-跳绳"
           }
+        },
+        {
+          "key": "cn-tiyu-2022:3-4-jn-1",
+          "code": "3-4-jn-1",
+          "data": {
+            "domain": "运动技能",
+            "desc": "发展跑、跳、投、球类等基本和专项运动技能"
+          }
+        },
+        {
+          "key": "cn-tiyu-2022:3-4-jk-1",
+          "code": "3-4-jk-1",
+          "data": {
+            "domain": "健康行为",
+            "desc": "理解坚持锻炼、科学活动和自我保护的重要性"
+          }
+        },
+        {
+          "key": "cn-tiyu-2022:3-4-pd-1",
+          "code": "3-4-pd-1",
+          "data": {
+            "domain": "体育品德",
+            "desc": "在体育活动中形成规则意识、合作意识和集体观念"
+          }
+        },
+        {
+          "key": "cn-tiyu-2022:5-6-jn-1",
+          "code": "5-6-jn-1",
+          "data": {
+            "domain": "运动技能",
+            "desc": "综合运用专项运动技能参加竞赛和锻炼活动"
+          }
+        },
+        {
+          "key": "cn-tiyu-2022:5-6-jk-1",
+          "code": "5-6-jk-1",
+          "data": {
+            "domain": "健康行为",
+            "desc": "理解运动负荷、锻炼习惯和健康管理的关系"
+          }
+        },
+        {
+          "key": "cn-tiyu-2022:5-6-pd-1",
+          "code": "5-6-pd-1",
+          "data": {
+            "domain": "体育品德",
+            "desc": "在体育实践中体现公平竞争、坚持和责任担当"
+          }
         }
       ]
     },
@@ -1114,7 +1514,7 @@
       "version": "2022",
       "textIncluded": false,
       "license": "政府公开文件",
-      "topicCount": 3,
+      "topicCount": 11,
       "topics": [
         {
           "key": "cn-meishu-2022:1-2-ys-1",
@@ -1136,6 +1536,70 @@
           "data": {
             "domain": "设计·应用/造型·表现-折纸等手工"
           }
+        },
+        {
+          "key": "cn-meishu-2022:3-4-zx-1",
+          "code": "3-4-zx-1",
+          "data": {
+            "domain": "造型·表现",
+            "desc": "运用构图、色彩和材料表现熟悉主题与感受"
+          }
+        },
+        {
+          "key": "cn-meishu-2022:3-4-sj-1",
+          "code": "3-4-sj-1",
+          "data": {
+            "domain": "设计·应用",
+            "desc": "围绕生活物品和情境进行简单设计与装饰"
+          }
+        },
+        {
+          "key": "cn-meishu-2022:3-4-xs-1",
+          "code": "3-4-xs-1",
+          "data": {
+            "domain": "欣赏·评述",
+            "desc": "能从内容、色彩和构图角度欣赏并表达感受"
+          }
+        },
+        {
+          "key": "cn-meishu-2022:3-4-zh-1",
+          "code": "3-4-zh-1",
+          "data": {
+            "domain": "综合·探索",
+            "desc": "在主题活动中综合运用多种材料和方法进行创作"
+          }
+        },
+        {
+          "key": "cn-meishu-2022:5-6-zx-1",
+          "code": "5-6-zx-1",
+          "data": {
+            "domain": "造型·表现",
+            "desc": "围绕主题较深入地表现人物、景物和想象内容"
+          }
+        },
+        {
+          "key": "cn-meishu-2022:5-6-sj-1",
+          "code": "5-6-sj-1",
+          "data": {
+            "domain": "设计·应用",
+            "desc": "围绕真实需要开展简单设计和视觉表达"
+          }
+        },
+        {
+          "key": "cn-meishu-2022:5-6-xs-1",
+          "code": "5-6-xs-1",
+          "data": {
+            "domain": "欣赏·评述",
+            "desc": "能联系文化背景和表现方式欣赏与评述作品"
+          }
+        },
+        {
+          "key": "cn-meishu-2022:5-6-zh-1",
+          "code": "5-6-zh-1",
+          "data": {
+            "domain": "综合·探索",
+            "desc": "能说明创作思路并在主题探究中改进作品"
+          }
         }
       ]
     },
@@ -1146,7 +1610,7 @@
       "version": "2022",
       "textIncluded": false,
       "license": "政府公开文件",
-      "topicCount": 3,
+      "topicCount": 11,
       "topics": [
         {
           "key": "cn-yinyue-2022:1-2-yl-1",
@@ -1167,6 +1631,70 @@
           "code": "1-2-yq-1",
           "data": {
             "domain": "演奏/欣赏-打击乐器"
+          }
+        },
+        {
+          "key": "cn-yinyue-2022:3-4-yl-1",
+          "code": "3-4-yl-1",
+          "data": {
+            "domain": "乐理基础",
+            "desc": "认识较丰富的节奏、速度和力度记号，提升音乐基础感知"
+          }
+        },
+        {
+          "key": "cn-yinyue-2022:3-4-ys-1",
+          "code": "3-4-ys-1",
+          "data": {
+            "domain": "演唱",
+            "desc": "较完整地演唱歌曲，注意音准、节奏和情绪表达"
+          }
+        },
+        {
+          "key": "cn-yinyue-2022:3-4-xs-1",
+          "code": "3-4-xs-1",
+          "data": {
+            "domain": "欣赏",
+            "desc": "能感受并表达音乐中的情绪、形象和变化"
+          }
+        },
+        {
+          "key": "cn-yinyue-2022:3-4-cb-1",
+          "code": "3-4-cb-1",
+          "data": {
+            "domain": "创编",
+            "desc": "能围绕节奏和旋律进行简单创编或器乐表现"
+          }
+        },
+        {
+          "key": "cn-yinyue-2022:5-6-ys-1",
+          "code": "5-6-ys-1",
+          "data": {
+            "domain": "演唱",
+            "desc": "能较有表现力地歌唱并参与较完整的音乐实践"
+          }
+        },
+        {
+          "key": "cn-yinyue-2022:5-6-xs-1",
+          "code": "5-6-xs-1",
+          "data": {
+            "domain": "欣赏",
+            "desc": "能联系文化与情境理解音乐作品的内容和风格"
+          }
+        },
+        {
+          "key": "cn-yinyue-2022:5-6-cb-1",
+          "code": "5-6-cb-1",
+          "data": {
+            "domain": "创编",
+            "desc": "能围绕主题开展简单音乐创编和合作表演"
+          }
+        },
+        {
+          "key": "cn-yinyue-2022:5-6-zh-1",
+          "code": "5-6-zh-1",
+          "data": {
+            "domain": "综合艺术实践",
+            "desc": "能说明音乐表现思路、合作过程和改进方向"
           }
         }
       ]
