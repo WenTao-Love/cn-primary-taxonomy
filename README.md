@@ -16,15 +16,15 @@
 - 🧩 **题链挂接**：每个知识点都带有典型例题/练习题检索入口，便于快速串联“知识点-练习-讲解”
 - 🧭 **三维筛选**：支持按年级 / 学科 / 教材版本查看知识图谱
 
-## 当前版本 v0.6-Expanded
+## 当前版本 v0.7-Expanded
 
 - **年级范围**：一年级 + 二年级 + 三年级 + 四年级 + 五年级 + 六年级
 - **学科覆盖**：语文、数学、英语、科学、道德与法治、劳动、体育与健康、美术、音乐、信息科技、AI素养 共11学科
 - **教材版本**：
   - 语文：统编版（1-6年级）
-  - 数学：人教版 / 北师大版 / 苏教版，已细化到**册次-单元-课时主题**，并继续拆到**例题型 / 易错型 / 方法型**子节点，同时挂接**真实题链来源站入口**
+  - 数学：人教版 / 北师大版 / 苏教版，已细化到**册次-单元-课时主题**，并继续拆到**例题型 / 易错型 / 方法型**子节点，同时挂接**更细的题链直达页**
   - 英语：外研版（一起点）1-2年级；人教PEP版 / 外研版 / 译林版（三年级起点）3-6年级，已细化到**模块内词汇 / 句型 / 语篇 / 写作任务**，并挂接**页码 / 练习链 / 测评任务 / 分技能 rubric**
-  - 语文 / 科学 / 道德与法治：已推广为**父节点 + 子节点 + 练习链 + 测评任务**模式
+  - 语文 / 科学 / 道德与法治：已推广为**父节点 + 子节点 + 练习链 + 测评任务 + 结构化评价框架**模式
   - 其他学科：当前先按一个代表版本铺开 1-6 年级主干
 - **知识点数**：**4095 个**（语文1168 / 数学2511 / 英语224 / 科学72 / 道德与法治48 / 其他学科72）
 - **依赖关系**：**4007 条**（强依赖2628 / 弱依赖1379）
@@ -32,6 +32,7 @@
 - **领域概览**：134 个面向家长的领域说明
 - **可视化**：完整交互式知识图谱网页（基于 D3.js 力导向图）
 - **学习助手**：右侧内置 DAG Bot，可按薄弱点自动回溯前置知识
+- **性能优化**：默认以轻量模式只渲染当前筛选子图，拖拽后自动停止布局；另提供拆分版离线页面
 - **教师校准包**：已生成深圳二年级语文/数学待审清单 `data/shenzhen-g2-teacher-review.csv`
 
 ## 快速开始
@@ -46,8 +47,13 @@
 - **点击任一圆点**查看详情：描述、掌握标准、易错点、考法、家长测评话术、前置依赖链、后续解锁
 - 顶部搜索框按名称/学科/领域快速定位
 - 右侧 **学习助手 Bot** 可直接输入薄弱点，生成个性化补弱路径
-- 右上角支持按 **年级 / 学科 / 教材版本** 筛选
+- 右上角支持按 **视图 / 年级 / 学科 / 教材版本** 筛选
 - 每个知识点详情中都带有 **典型例题 / 练习题链接**
+
+如果更看重打开速度，可以优先使用拆分版：
+
+- `cn-primary-taxonomy-split.html`
+- `standalone-data/`（拆分后的离线数据包）
 
 ### 方法二：使用数据
 
@@ -71,13 +77,13 @@ console.log('学习进位加法前需要先掌握:', pre);
 ```bash
 # 从 scripts/*.mjs 源文件生成所有 JSON 数据
 node scripts/generate-yuwen-g1.mjs
-node scripts/generate-yuwen.mjs
+node scripts/generate-yuwen-g2.mjs
 node scripts/generate-yuwen-g3.mjs
 node scripts/generate-yuwen-g4.mjs
 node scripts/generate-yuwen-g5.mjs
 node scripts/generate-yuwen-g6.mjs
 node scripts/generate-shuxue-g1.mjs
-node scripts/generate-shuxue.mjs
+node scripts/generate-shuxue-g2.mjs
 node scripts/generate-shuxue-g3.mjs
 node scripts/generate-shuxue-g4.mjs
 node scripts/generate-shuxue-g5.mjs
@@ -97,6 +103,9 @@ node scripts/validate.mjs
 
 # 生成内嵌数据的独立 HTML
 node scripts/build-standalone.mjs
+
+# 生成拆分版离线 HTML + 分包数据
+node scripts/build-split-standalone.mjs
 ```
 
 ## 文件结构
@@ -104,7 +113,8 @@ node scripts/build-standalone.mjs
 ```
 cn-primary-taxonomy/
 ├── README.md                    ← 本文件
-├── cn-primary-taxonomy.html     ← 🔥 独立可视化网页（双击直接打开）
+├── cn-primary-taxonomy.html     ← 🔥 单文件独立可视化网页（双击直接打开）
+├── cn-primary-taxonomy-split.html ← ⚡ 拆分版离线网页（更适合长期浏览）
 ├── docs/
 │   └── DESIGN.md                ← 详细设计文档
 ├── data/
@@ -118,32 +128,40 @@ cn-primary-taxonomy/
 │   ├── topics-others-g1-g6.json ← 其他学科1-6年级数据
 │   ├── topics-subnodes-yw-kx-df.json ← 语文/科学/道法子节点扩展数据
 │   ├── topics-yuwen-g1.json     ← 一年级语文源数据
-│   ├── topics-yuwen-g2.json     ← 语文源数据
+│   ├── topics-yuwen-g2.json     ← 二年级语文源数据
 │   ├── topics-yuwen-g3.json     ← 三年级语文源数据
+│   ├── topics-yuwen-g4.json     ← 四年级语文源数据
+│   ├── topics-yuwen-g5.json     ← 五年级语文源数据
+│   ├── topics-yuwen-g6.json     ← 六年级语文源数据
 │   ├── topics-shuxue-g1.json    ← 一年级数学源数据
-│   ├── topics-shuxue-g2.json    ← 数学源数据
+│   ├── topics-shuxue-g2.json    ← 二年级数学源数据
 │   ├── topics-shuxue-g3.json    ← 三年级数学源数据
 │   ├── topics-shuxue-g4.json    ← 四年级数学源数据
 │   ├── topics-shuxue-g5.json    ← 五年级数学源数据
 │   ├── topics-shuxue-g6.json    ← 六年级数学源数据
 │   └── topics-shuxue-versions.json ← 数学多版本子节点化数据
-│   ├── topics-yuwen-g4.json     ← 四年级语文源数据
-│   ├── topics-yuwen-g5.json     ← 五年级语文源数据
-│   └── topics-yuwen-g6.json     ← 六年级语文源数据
 ├── schema/
 │   ├── topics.schema.json       ← 知识点JSON Schema
 │   └── dependencies.schema.json ← 依赖JSON Schema
 ├── scripts/
-│   ├── generate-yuwen.mjs       ← 语文知识点生成
-│   ├── generate-shuxue.mjs      ← 数学知识点生成
-│   ├── generate-others.mjs      ← 其他学科生成
+│   ├── generate-yuwen-g1.mjs ~ generate-yuwen-g6.mjs ← 语文分年级生成
+│   ├── generate-shuxue-g1.mjs ~ generate-shuxue-g6.mjs ← 数学分年级生成
+│   ├── generate-others-all-grades.mjs ← 其他学科生成
+│   ├── generate-shuxue-versions.mjs ← 数学多版本与题链直达页生成
+│   ├── generate-english-versions.mjs ← 英语多版本与rubric生成
+│   ├── generate-subnodes-yw-kx-df.mjs ← 语文/科学/道法子节点与评价框架生成
 │   ├── generate-dependencies.mjs← 依赖关系生成
 │   ├── generate-standards.mjs   ← 课标对齐生成
 │   ├── generate-clusters.mjs    ← 领域概览生成
 │   ├── generate-manifest.mjs    ← 清单生成
-│   ├── merge.mjs                ← 三科合并
+│   ├── merge.mjs                ← 全量主题合并
 │   ├── build-standalone.mjs     ← 打包独立HTML
+│   ├── build-split-standalone.mjs ← 打包拆分版离线HTML
 │   └── validate.mjs             ← 数据完整性校验
+├── standalone-data/
+│   ├── topics.js                ← 拆分版离线知识点数据
+│   ├── dependencies.js          ← 拆分版离线依赖数据
+│   └── clusters.js              ← 拆分版离线领域概览
 └── web/
     └── index.html               ← 可视化网页源文件
 ```
@@ -175,6 +193,7 @@ cn-primary-taxonomy/
 | `practiceChain[]` | 建议练习链 | ["跟读并指认本课词汇", ...] |
 | `assessmentTasks[]` | 建议测评任务 | ["根据提示词口头完成问答", ...] |
 | `skillRubric` | 分技能测评rubric | 听力/口语/阅读/写作三档描述 |
+| `evaluationRubric[]` | 通用结构化评价框架 | 维度 + 三档指标描述 |
 | `difficulty` | 难度星级 | 1-5 |
 | `evidence[]` | 掌握证据（会什么就算掌握了） | ["能列竖式计算进位加法",...] |
 | `commonMistakes[]` | 常见易错点 | ["忘记加进位的1",...] |
@@ -216,11 +235,11 @@ cn-primary-taxonomy/
 
 ## 后续路线图
 
-- **v0.6**：已扩展至 1-6 年级主干，并把数学三版本推进到真实题链来源、英语三版本推进到分技能 rubric，同时把语文 / 科学 / 道法推广到父子节点模式，达到 4095 个知识点 / 4007 条依赖
-- **v0.7**：继续把劳动、体音美、信息科技等学科从“主干版”加密到“教材章节级 + 子节点版”
-- **v0.8**：教材多版本继续扩展到更多学科，并细化到单元 / 主题 / 章节 / 课时 / 题型级映射
-- **v0.9**：把当前“检索入口型资源链接”升级为教师精选题链、错题模式、教学建议
-- **v1.0**：对标 Marble 完整度（1590知识点/3221依赖），面向商用学习产品
+- **v0.7**：已扩展至 1-6 年级主干，并把数学三版本推进到更细题链直达页、英语三版本推进到分技能 rubric，同时把语文 / 科学 / 道法推广到结构化评价框架，并完成页面轻量化与拆分版离线页，达到 4095 个知识点 / 4007 条依赖
+- **v0.8**：继续把劳动、体音美、信息科技等学科从“主干版”加密到“教材章节级 + 子节点版”
+- **v0.9**：教材多版本继续扩展到更多学科，并细化到单元 / 主题 / 章节 / 课时 / 题型级映射
+- **v1.0**：把当前“检索入口型资源链接”升级为教师精选题链、错题模式、教学建议
+- **v1.1**：对标 Marble 完整度并面向商用学习产品进一步收口
 
 ## 参与贡献
 

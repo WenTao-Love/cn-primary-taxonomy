@@ -238,7 +238,7 @@ for (const meta of [pep, waiyan, yilin]) {
 }
 
 const data = {
-  version: 'v0.6-english-rubric',
+  version: 'v0.7-english-rubric',
   note: '英语扩展：外研版（一起点）1-2年级启蒙模块；人教PEP版/外研版/译林版（三年级起点）3-6年级按模块拆成词汇、句型、语篇、写作任务子节点，并补充页码、练习链、测评任务与分技能rubric',
   topicCount: topics.length,
   topics

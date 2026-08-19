@@ -15,11 +15,17 @@ const clusters = JSON.parse(readFileSync(resolve(ROOT,'data/clusters.json'),'utf
 
 const tpl = readFileSync(resolve(ROOT,'web/index.html'),'utf8');
 
-// Replace fetch calls with embedded data
-const embedded = tpl
-  .replace("fetch('../data/topics.json').then(r=>r.json())", `Promise.resolve(${JSON.stringify(topics)})`)
-  .replace("fetch('../data/dependencies.json').then(r=>r.json())", `Promise.resolve(${JSON.stringify(deps)})`)
-  .replace("fetch('../data/clusters.json').then(r=>r.json())", `Promise.resolve(${JSON.stringify(clusters)})`);
+function jsonScript(id, data) {
+  return `<script id="${id}" type="application/json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
+}
+
+const payload = [
+  jsonScript('embedded-topics', topics),
+  jsonScript('embedded-dependencies', deps),
+  jsonScript('embedded-clusters', clusters)
+].join('\n');
+
+const embedded = tpl.replace('<script>', `${payload}\n<script>`);
 
 const outPath = resolve(ROOT,'cn-primary-taxonomy.html');
 writeFileSync(outPath, embedded, 'utf8');

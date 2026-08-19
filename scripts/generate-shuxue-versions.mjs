@@ -139,49 +139,53 @@ function volumeLabel(grade, term) {
   return `${grade}年级${term === '上' ? '上册' : term === '下' ? '下册' : '全册'}`;
 }
 
+function zxxkAlbumUrl(grade, typeCode) {
+  return `https://www.zxxk.com/zj/p-channel2-type${typeCode}-g${grade}/s24615/?level=1203`;
+}
+
 function makeMathChild(baseTopic, parentId, seq, subnodeType, nameSuffix, description, evidence, commonMistakes, practiceChain, assessmentTasks) {
   const resourceKeyword = `${baseTopic.volume} ${baseTopic.unit} ${baseTopic.lesson} ${baseTopic.name}`;
   const resourcePack = subnodeType === '例题型'
     ? [
         {
-          title: `${baseTopic.name}·学科网同步资源`,
+          title: `${baseTopic.name}·学科网同步讲义专辑`,
           type: 'example',
-          url: 'https://sx.zxxk.com/p/',
+          url: zxxkAlbumUrl(baseTopic.grade, '3102'),
           source: '学科网',
-          note: `进入小学数学同步教学后按“${resourceKeyword}”定位例题讲练资源`
+          note: `已直达“小学数学 + ${baseTopic.grade}年级 + 教案/讲义 + 同步教学”专辑页，可按“${resourceKeyword}”继续定位典例讲练`
         },
         {
-          title: `${baseTopic.name}·智慧中小学课程资源`,
-          type: 'video',
-          url: 'https://basic.smartedu.cn/',
-          source: '国家中小学智慧教育平台',
-          note: `按学段/年级/学科检索“${resourceKeyword}”，可定位同步微课与基础作业`
+          title: `${baseTopic.name}·学科网同步题集专辑`,
+          type: 'worksheet',
+          url: zxxkAlbumUrl(baseTopic.grade, '3105'),
+          source: '学科网',
+          note: `已直达“小学数学 + ${baseTopic.grade}年级 + 学案/导学案 + 同步教学”页，适合找与“${resourceKeyword}”对应的题单`
         }
       ]
     : subnodeType === '易错型'
       ? [
           {
-            title: `${baseTopic.name}·菁优网作业中心`,
+          title: `${baseTopic.name}·学科网同步试题专辑`,
+          type: 'exercise',
+          url: zxxkAlbumUrl(baseTopic.grade, '3103'),
+          source: '学科网',
+          note: `已直达“小学数学 + ${baseTopic.grade}年级 + 试题试卷 + 同步教学”专辑页，可继续定位“${resourceKeyword} 易错”训练`
+        },
+        {
+          title: `${baseTopic.name}·菁优网小学试卷中心`,
             type: 'exercise',
-            url: 'https://www.jyeoo.com/math/homework',
+          url: 'https://www.jyeoo.com/math3/report/index?ai=0',
             source: '菁优网',
-            note: `在数学作业中心按“${resourceKeyword} 易错”筛选同类纠错训练`
-          },
-          {
-            title: `${baseTopic.name}·学科网专项训练`,
-            type: 'worksheet',
-            url: 'https://www.zxxk.com/student',
-            source: '学科网',
-            note: `在学生专区按年级/版本进入数学学科，定位“${resourceKeyword}”专项或错题训练`
+          note: `已直达小学数学试卷中心，建议用“${resourceKeyword} 易错”作为定位词筛同类纠错卷`
           }
         ]
       : [
           {
-            title: `${baseTopic.name}·菁优网试卷中心`,
+          title: `${baseTopic.name}·学科网备课综合专辑`,
             type: 'worksheet',
-            url: 'https://www.jyeoo.com/math/report',
-            source: '菁优网',
-            note: `在试卷中心按“${resourceKeyword} 方法”筛选变式题与阶段测评卷`
+          url: zxxkAlbumUrl(baseTopic.grade, '3108'),
+          source: '学科网',
+          note: `已直达“小学数学 + ${baseTopic.grade}年级 + 备课综合 + 同步教学”专辑页，适合找“${resourceKeyword} 方法”类资料`
           },
           {
             title: `${baseTopic.name}·智慧中小学拓展资源`,
@@ -294,8 +298,8 @@ for (const version of versions) {
 }
 
 const data = {
-  version: 'v0.6-math-real-sources',
-  note: '数学多版本扩展：在册次-单元-课时主题基础上，继续拆分为例题型/易错型/方法型子节点，并挂接真实题链来源站入口',
+  version: 'v0.7-math-direct-links',
+  note: '数学多版本扩展：在册次-单元-课时主题基础上，继续拆分为例题型/易错型/方法型子节点，并挂接更细的题链直达页',
   topicCount: topics.length,
   topics
 };

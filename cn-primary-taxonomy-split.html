@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>中国小学教育知识图谱 · CN-Primary-Taxonomy</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background:#0f1419; color:#e6e6e6; overflow:hidden; }
+#app { display:grid; grid-template-columns: 1fr 380px; height:100vh; }
+#graph { position:relative; background: radial-gradient(ellipse at center, #1a2332 0%, #0f1419 100%); }
+#graph svg { width:100%; height:100%; }
+header { position:absolute; top:20px; left:20px; z-index:10; }
+header h1 { font-size:20px; color:#fff; font-weight:600; letter-spacing:1px; }
+header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
+.legend { position:absolute; bottom:20px; left:20px; z-index:10; background:rgba(20,28,40,0.85); padding:12px 16px; border-radius:8px; border:1px solid rgba(255,255,255,0.08); backdrop-filter:blur(8px); }
+.legend h3 { font-size:12px; color:#7f8c9a; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px; }
+.legend-item { display:flex; align-items:center; gap:8px; margin:4px 0; font-size:12px; }
+.legend-dot { width:10px; height:10px; border-radius:50%; }
+.controls { position:absolute; top:20px; right:20px; z-index:10; display:flex; flex-direction:column; gap:8px; align-items:flex-end; max-width:460px; }
+.control-group { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+.control-group-label { font-size:11px; color:#7f8c9a; align-self:center; margin-right:4px; }
+.controls button { background:rgba(20,28,40,0.85); color:#ccc; border:1px solid rgba(255,255,255,0.12); padding:6px 12px; border-radius:6px; cursor:pointer; font-size:12px; backdrop-filter:blur(8px); transition:all 0.2s;}
+.controls button:hover { background:rgba(60,80,120,0.6); color:#fff; border-color:rgba(255,255,255,0.25); }
+.controls button.active { background:rgba(70,130,220,0.3); color:#5dade2; border-color:#5dade2; }
+#sidebar { background:#151d28; border-left:1px solid rgba(255,255,255,0.06); overflow-y:auto; padding:24px; }
+#assistant-panel { margin-bottom:20px; padding:14px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:10px; }
+#assistant-panel h3 { margin-top:0; }
+#assistant-panel input { width:100%; padding:10px 12px; background:#0f1419; border:1px solid rgba(255,255,255,0.12); border-radius:8px; color:#fff; font-size:13px; }
+#assistant-panel button { margin-top:10px; padding:8px 12px; background:rgba(93,173,226,0.18); border:1px solid rgba(93,173,226,0.45); color:#dcefff; border-radius:8px; cursor:pointer; font-size:12px; }
+#assistant-panel button:hover { background:rgba(93,173,226,0.28); }
+#assistant-panel .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+#assistant-panel .chip { padding:4px 8px; border-radius:999px; background:rgba(255,255,255,0.05); color:#a8b4c0; font-size:11px; cursor:pointer; }
+#assistant-result { margin-top:12px; font-size:12px; line-height:1.7; color:#c5cdd6; }
+#assistant-result .path-step { display:block; margin:6px 0; padding:8px 10px; border-radius:8px; background:rgba(255,255,255,0.04); color:#dcefff; text-decoration:none; }
+#assistant-result .path-step:hover { background:rgba(93,173,226,0.12); }
+#assistant-result .assistant-muted { color:#7f8c9a; }
+#sidebar h2 { font-size:16px; color:#fff; margin-bottom:4px; }
+#sidebar .meta { font-size:12px; color:#7f8c9a; margin-bottom:16px; }
+#sidebar .desc { font-size:13px; line-height:1.7; color:#c5cdd6; margin-bottom:16px; padding:12px; background:rgba(255,255,255,0.03); border-radius:6px; border-left:3px solid #5dade2; }
+#sidebar h3 { font-size:12px; color:#7f8c9a; text-transform:uppercase; letter-spacing:1px; margin:16px 0 8px; }
+#sidebar .tag { display:inline-block; padding:3px 8px; border-radius:4px; font-size:11px; margin:2px; }
+.evidence-list li, .mistakes-list li { font-size:12px; line-height:1.7; color:#a8b4c0; margin:4px 0 4px 16px; }
+.chain-item { display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(255,255,255,0.04); border-radius:6px; margin:4px 0; font-size:12px; cursor:pointer; transition:background 0.2s; }
+.chain-item:hover { background:rgba(93,173,226,0.15); }
+.chain-item.hard { border-left:2px solid #e74c3c; }
+.chain-item.soft { border-left:2px solid #f39c12; }
+.chain-arrow { font-size:10px; color:#7f8c9a; }
+.stats-bar { position:absolute; top:70px; left:20px; z-index:10; display:flex; gap:16px; font-size:12px; color:#7f8c9a; }
+.stats-bar b { color:#fff; font-size:16px; font-weight:600; margin-right:4px; }
+/* graph styles */
+.node { cursor:pointer; transition:opacity 0.2s; }
+.node:hover { stroke-width:3px; }
+.node-label { font-size:10px; fill:#c5cdd6; pointer-events:none; text-anchor:middle; font-weight:500; }
+.link { stroke-opacity:0.3; }
+.link.hard { stroke-opacity:0.4; }
+.link.soft { stroke-opacity:0.2; stroke-dasharray:4,3; }
+.node.dimmed, .link.dimmed { opacity:0.08; }
+.node.highlighted { stroke-width:3px; }
+.search-box { position:absolute; top:20px; left:50%; transform:translateX(-50%); z-index:10; width:300px; }
+.search-box input { width:100%; padding:8px 14px; background:rgba(20,28,40,0.85); border:1px solid rgba(255,255,255,0.12); border-radius:6px; color:#fff; font-size:13px; backdrop-filter:blur(8px); }
+.search-box input::placeholder { color:#5a6878; }
+.search-box input:focus { outline:none; border-color:#5dade2; }
+.search-results { position:absolute; top:40px; left:0; right:0; background:rgba(20,28,40,0.98); border:1px solid rgba(255,255,255,0.12); border-radius:6px; max-height:300px; overflow-y:auto; display:none; }
+.search-results.show { display:block; }
+.search-result-item { padding:8px 12px; cursor:pointer; font-size:12px; border-bottom:1px solid rgba(255,255,255,0.05); }
+.search-result-item:hover { background:rgba(93,173,226,0.15); }
+.search-result-item .srn { color:#5dade2; font-size:10px; }
+.search-result-item .srd { color:#7f8c9a; font-size:11px; margin-top:2px; }
+.hint { color:#7f8c9a; font-size:12px; text-align:center; padding:40px 20px; line-height:1.8; }
+.resource-link { display:block; margin:6px 0; padding:8px 10px; background:rgba(255,255,255,0.04); border-radius:6px; color:#dcefff; text-decoration:none; font-size:12px; }
+.resource-link:hover { background:rgba(93,173,226,0.12); }
+.resource-link small { color:#7f8c9a; display:block; margin-top:2px; }
+.graph-status { position:absolute; top:118px; left:20px; z-index:10; max-width:620px; padding:10px 12px; border-radius:8px; background:rgba(20,28,40,0.82); border:1px solid rgba(255,255,255,0.08); color:#a8b4c0; font-size:12px; line-height:1.6; backdrop-filter:blur(8px); }
+.graph-status strong { color:#fff; }
+.graph-status.warn { border-color:rgba(243,156,18,0.4); }
+.graph-status.info { border-color:rgba(93,173,226,0.35); }
+</style>
+</head>
+<body>
+<div id="app">
+<div id="graph">
+  <header>
+    <h1>🇨🇳 中国小学教育知识图谱</h1>
+    <p id="subtitle">CN-Primary-Taxonomy 正在加载…</p>
+  </header>
+  <div class="stats-bar">
+    <div><b id="stat-topics">0</b>知识点</div>
+    <div><b id="stat-deps">0</b>依赖</div>
+    <div><b id="stat-subjects">0</b>学科</div>
+  </div>
+  <div class="search-box">
+    <input type="text" id="search" placeholder="🔍 搜索知识点（如：乘法、部首、时间、跳绳）" />
+    <div class="search-results" id="search-results"></div>
+  </div>
+  <div class="controls">
+    <div class="control-group" id="layer-controls">
+      <span class="control-group-label">视图</span>
+      <button data-layer="core" class="active">核心骨架</button>
+      <button data-layer="detail">详细节点</button>
+    </div>
+    <div class="control-group" id="grade-controls">
+      <span class="control-group-label">年级</span>
+      <button data-grade="all" class="active">全部年级</button>
+    </div>
+    <div class="control-group" id="subject-controls">
+      <span class="control-group-label">学科</span>
+      <button data-subject="all" class="active">全部学科</button>
+    </div>
+    <div class="control-group" id="textbook-controls">
+      <span class="control-group-label">教材/版本</span>
+      <button data-textbook="all" class="active">全部版本</button>
+    </div>
+  </div>
+  <div id="graph-status" class="graph-status info">正在准备轻量视图…</div>
+  <div class="legend">
+    <h3>学科颜色</h3>
+    <div class="legend-item"><span class="legend-dot" style="background:#e74c3c"></span>语文</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#3498db"></span>数学</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#2ecc71"></span>科学</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#f39c12"></span>道法</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#9b59b6"></span>劳动</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#1abc9c"></span>英语</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#e67e22"></span>体育</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#fd79a8"></span>美术</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#a29bfe"></span>音乐</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#00cec9"></span>信息/AI</div>
+    <h3 style="margin-top:12px">依赖线</h3>
+    <div class="legend-item"><span style="width:24px;height:2px;background:#e74c3c;display:inline-block"></span> 强依赖（必须先掌握）</div>
+    <div class="legend-item"><span style="width:24px;height:2px;background:#f39c12;background-image:linear-gradient(to right,#f39c12 50%,transparent 50%);background-size:6px 2px;display:inline-block"></span> 弱依赖（有帮助）</div>
+  </div>
+  <svg id="canvas"></svg>
+</div>
+<div id="sidebar">
+  <div id="assistant-panel"></div>
+  <div id="detail-panel">
+    <div class="hint">
+      👈 点击左侧图中的圆点查看知识点详情<br><br>
+      每个圆点是一个知识点，颜色代表学科，<br>
+      线条表示"先学什么再学什么"的依赖关系。<br><br>
+      <span style="color:#5dade2">🔴 红线 = 必须先掌握</span><br>
+      <span style="color:#f39c12">🟡 虚线 = 有帮助但非必须</span><br><br>
+      顶部搜索框可快速定位知识点，右侧学习助手可直接问"先补什么"。
+    </div>
+  </div>
+</div>
+</div>
+<script src="./standalone-data/topics.js"></script>
+<script src="./standalone-data/dependencies.js"></script>
+<script src="./standalone-data/clusters.js"></script>
+<script>
+const COLORS = {
+  '语文':'#e74c3c','数学':'#3498db','科学':'#2ecc71','道德与法治':'#f39c12',
+  '劳动':'#9b59b6','英语':'#1abc9c','体育与健康':'#e67e22','美术':'#fd79a8',
+  '音乐':'#a29bfe','信息科技':'#00cec9','AI素养':'#00cec9'
+};
+const DIFFICULTY = n => '★'.repeat(n)+'☆'.repeat(5-n);
+const RUBRIC_LABELS = {listening:'听力',speaking:'口语',reading:'阅读',writing:'写作'};
+const MAX_RENDER_NODES = { core: 1300, detail: 900 };
+
+let fullData = { topics:null, deps:null, clusters:null };
+let topicMap = new Map();
+let incomingMap = new Map();
+let outgoingMap = new Map();
+let data = { nodes:[], links:[], nodeMap:new Map() };
+let simulation = null;
+let svg = null;
+let graphGroup = null;
+let gLinks = null;
+let gNodes = null;
+let currentSubject = 'all';
+let currentGrade = 'all';
+let currentTextbook = 'all';
+let currentLayer = 'core';
+let selectedNodeId = null;
+
+function loadDataset(name, url) {
+  if (window.__CNPT_EMBEDDED && window.__CNPT_EMBEDDED[name]) {
+    return Promise.resolve(window.__CNPT_EMBEDDED[name]);
+  }
+  const embedded = document.getElementById(`embedded-${name}`);
+  if (embedded) return Promise.resolve(JSON.parse(embedded.textContent));
+  return fetch(url).then(r => r.json());
+}
+
+async function init() {
+  const [topics, deps, clusters] = await Promise.all([
+    loadDataset('topics', '../data/topics.json'),
+    loadDataset('dependencies', '../data/dependencies.json'),
+    loadDataset('clusters', '../data/clusters.json')
+  ]);
+  fullData = { topics, deps, clusters };
+  buildIndices();
+
+  document.getElementById('stat-topics').textContent = topics.topicCount;
+  document.getElementById('stat-deps').textContent = deps.edgeCount;
+  document.getElementById('stat-subjects').textContent = new Set(topics.topics.map(t=>t.subject)).size;
+  const grades = [...new Set(topics.topics.map(t => t.grade))].sort((a,b)=>a-b);
+  currentGrade = String(grades[0] || 'all');
+  document.getElementById('subtitle').textContent = `${topics.version || 'CN-Primary-Taxonomy'} · 默认以轻量模式展示，可切换到详细节点 · ${topics.topicCount} 知识点 · ${deps.edgeCount} 依赖关系`;
+
+  buildControls();
+  renderAssistantPanel();
+  setupSearch();
+  setupCanvas();
+  applyFilters();
+}
+
+function buildIndices() {
+  topicMap = new Map(fullData.topics.topics.map(topic => [topic.id, topic]));
+  incomingMap = new Map();
+  outgoingMap = new Map();
+  fullData.topics.topics.forEach(topic => {
+    incomingMap.set(topic.id, []);
+    outgoingMap.set(topic.id, []);
+  });
+  fullData.deps.dependencies.forEach(dep => {
+    const edge = { source: dep.prerequisiteId, target: dep.topicId, strength: dep.strength, reason: dep.reason };
+    if (incomingMap.has(dep.topicId)) incomingMap.get(dep.topicId).push(edge);
+    if (outgoingMap.has(dep.prerequisiteId)) outgoingMap.get(dep.prerequisiteId).push(edge);
+  });
+}
+
+function buildControls() {
+  bindStaticButtonGroup('#layer-controls', 'layer', value => {
+    currentLayer = value;
+    applyFilters();
+  });
+
+  const gradeCounts = {};
+  fullData.topics.topics.forEach(topic => { gradeCounts[topic.grade] = (gradeCounts[topic.grade] || 0) + 1; });
+  appendButtons('#grade-controls', 'grade', Object.entries(gradeCounts).sort((a,b)=>Number(a[0])-Number(b[0])).map(([grade, count]) => ({
+    value: grade,
+    label: `${grade}年级 (${count})`,
+    onClick: () => { currentGrade = grade; applyFilters(); }
+  })));
+  bindStaticButtonGroup('#grade-controls', 'grade', value => {
+    currentGrade = value;
+    applyFilters();
+  });
+
+  const subjectCounts = {};
+  fullData.topics.topics.forEach(topic => { subjectCounts[topic.subject] = (subjectCounts[topic.subject] || 0) + 1; });
+  appendButtons('#subject-controls', 'subject', Object.entries(subjectCounts).sort((a,b)=>b[1]-a[1]).map(([subject, count]) => ({
+    value: subject,
+    label: `${subject} (${count})`,
+    onClick: () => { currentSubject = subject; applyFilters(); }
+  })));
+  bindStaticButtonGroup('#subject-controls', 'subject', value => {
+    currentSubject = value;
+    applyFilters();
+  });
+
+  const textbookCounts = {};
+  fullData.topics.topics.forEach(topic => {
+    const key = topic.textbook || '未标注版本';
+    textbookCounts[key] = (textbookCounts[key] || 0) + 1;
+  });
+  appendButtons('#textbook-controls', 'textbook', Object.entries(textbookCounts).sort((a,b)=>b[1]-a[1]).map(([textbook, count]) => ({
+    value: textbook,
+    label: `${textbook} (${count})`,
+    onClick: () => { currentTextbook = textbook; applyFilters(); }
+  })));
+  bindStaticButtonGroup('#textbook-controls', 'textbook', value => {
+    currentTextbook = value;
+    applyFilters();
+  });
+}
+
+function appendButtons(selector, key, items) {
+  const container = document.querySelector(selector);
+  items.forEach(item => {
+    const btn = document.createElement('button');
+    btn.dataset[key] = item.value;
+    btn.textContent = item.label;
+    btn.onclick = item.onClick;
+    container.appendChild(btn);
+  });
+}
+
+function bindStaticButtonGroup(selector, key, handler) {
+  document.querySelectorAll(`${selector} button`).forEach(button => {
+    button.onclick = () => handler(button.dataset[key]);
+  });
+}
+
+function setupCanvas() {
+  const graph = document.getElementById('graph');
+  const width = graph.clientWidth;
+  const height = graph.clientHeight;
+  svg = d3.select('#canvas').attr('viewBox', `0 0 ${width} ${height}`);
+  svg.selectAll('*').remove();
+  graphGroup = svg.append('g');
+  svg.call(d3.zoom().scaleExtent([0.35, 3]).on('zoom', event => graphGroup.attr('transform', event.transform)));
+}
+
+function getFilteredTopics() {
+  return fullData.topics.topics.filter(topic => {
+    const gradeMatched = currentGrade === 'all' || String(topic.grade) === String(currentGrade);
+    const subjectMatched = currentSubject === 'all' || topic.subject === currentSubject;
+    const textbookMatched = currentTextbook === 'all' || (topic.textbook || '未标注版本') === currentTextbook;
+    const layerMatched = currentLayer === 'detail' || !topic.parentTopicId;
+    return gradeMatched && subjectMatched && textbookMatched && layerMatched;
+  });
+}
+
+function applyFilters(options = {}) {
+  const topics = getFilteredTopics();
+  updateButtonStates();
+  renderGraph(topics, options.keepSelection !== false);
+}
+
+function updateButtonStates() {
+  document.querySelectorAll('#layer-controls button').forEach(button => button.classList.toggle('active', button.dataset.layer === currentLayer));
+  document.querySelectorAll('#grade-controls button').forEach(button => button.classList.toggle('active', button.dataset.grade === currentGrade));
+  document.querySelectorAll('#subject-controls button').forEach(button => button.classList.toggle('active', button.dataset.subject === currentSubject));
+  document.querySelectorAll('#textbook-controls button').forEach(button => button.classList.toggle('active', button.dataset.textbook === currentTextbook));
+}
+
+function renderGraph(filteredTopics, keepSelection = true) {
+  if (simulation) simulation.stop();
+  graphGroup.selectAll('*').remove();
+  data = { nodes:[], links:[], nodeMap:new Map() };
+
+  const limit = MAX_RENDER_NODES[currentLayer] || 900;
+  if (filteredTopics.length > limit) {
+    updateGraphStatus(`当前筛选命中 <strong>${filteredTopics.length}</strong> 个节点，超过轻量渲染阈值。请继续按年级 / 学科 / 版本收窄，或先切回“核心骨架”。`, 'warn');
+    if (!keepSelection) selectedNodeId = null;
+    return;
+  }
+
+  const visibleIds = new Set(filteredTopics.map(topic => topic.id));
+  const links = fullData.deps.dependencies
+    .filter(dep => visibleIds.has(dep.topicId) && visibleIds.has(dep.prerequisiteId))
+    .map(dep => ({ source: dep.prerequisiteId, target: dep.topicId, strength: dep.strength, reason: dep.reason }));
+
+  data.nodes = filteredTopics.map(topic => ({ ...topic }));
+  data.links = links;
+  data.nodeMap = new Map(data.nodes.map(node => [node.id, node]));
+
+  const width = document.getElementById('graph').clientWidth;
+  const height = document.getElementById('graph').clientHeight;
+
+  gLinks = graphGroup.append('g').attr('class', 'links').selectAll('line')
+    .data(data.links)
+    .join('line')
+    .attr('class', d => `link ${d.strength}`)
+    .attr('stroke', d => d.strength === 'hard' ? '#e74c3c' : '#f39c12')
+    .attr('stroke-width', d => d.strength === 'hard' ? 1.3 : 0.9);
+
+  gNodes = graphGroup.append('g').attr('class', 'nodes').selectAll('g')
+    .data(data.nodes)
+    .join('g')
+    .attr('class', 'node')
+    .call(d3.drag()
+      .on('start', (event, node) => {
+        if (!event.active && simulation) simulation.alphaTarget(0.18).restart();
+        node.fx = node.x;
+        node.fy = node.y;
+      })
+      .on('drag', (event, node) => {
+        node.fx = event.x;
+        node.fy = event.y;
+      })
+      .on('end', (event, node) => {
+        if (!event.active && simulation) simulation.alphaTarget(0);
+        node.fx = null;
+        node.fy = null;
+      }))
+    .on('click', (_, node) => selectNode(node));
+
+  gNodes.append('circle')
+    .attr('r', node => 4 + (node.difficulty || 3) * 0.55)
+    .attr('fill', node => COLORS[node.subject] || '#888')
+    .attr('stroke', '#fff')
+    .attr('stroke-width', 1.1)
+    .attr('stroke-opacity', 0.18);
+
+  gNodes.append('title').text(node => `${node.name}\n[${node.subject}·${node.domain}·${node.grade}年级${node.term}]`);
+
+  if (data.nodes.length <= 380) {
+    gNodes.append('text')
+      .attr('class', 'node-label')
+      .attr('dy', node => -(5 + (node.difficulty || 3) * 0.55))
+      .text(node => node.name.length > 8 ? `${node.name.slice(0, 7)}…` : node.name)
+      .style('opacity', 0);
+  }
+
+  simulation = d3.forceSimulation(data.nodes)
+    .force('link', d3.forceLink(data.links).id(node => node.id).distance(link => link.strength === 'hard' ? 56 : 90).strength(link => link.strength === 'hard' ? 0.55 : 0.18))
+    .force('charge', d3.forceManyBody().strength(-85))
+    .force('center', d3.forceCenter(width / 2, height / 2))
+    .force('collide', d3.forceCollide().radius(node => 10 + (node.difficulty || 3) * 0.8))
+    .alphaDecay(0.045)
+    .velocityDecay(0.32);
+
+  simulation.on('tick', () => {
+    gLinks
+      .attr('x1', link => link.source.x)
+      .attr('y1', link => link.source.y)
+      .attr('x2', link => link.target.x)
+      .attr('y2', link => link.target.y);
+    gNodes.attr('transform', node => `translate(${node.x},${node.y})`);
+  });
+
+  setTimeout(() => {
+    if (simulation) simulation.stop();
+  }, 2400);
+
+  updateGraphStatus(`当前渲染 <strong>${data.nodes.length}</strong> / ${fullData.topics.topicCount} 个节点、<strong>${data.links.length}</strong> 条边。默认只渲染当前筛选子图，拖拽完成后会自动停止布局以降低 CPU 占用。`, 'info');
+
+  if (keepSelection && selectedNodeId && data.nodeMap.has(selectedNodeId)) {
+    selectNode(data.nodeMap.get(selectedNodeId));
+  } else if (!keepSelection || !data.nodeMap.has(selectedNodeId)) {
+    selectedNodeId = null;
+  }
+}
+
+function updateGraphStatus(message, tone = 'info') {
+  const status = document.getElementById('graph-status');
+  status.className = `graph-status ${tone}`;
+  status.innerHTML = message;
+}
+
+function collectRelatedIds(topicId, direction, depthLimit = 3, visited = new Set(), depth = 0) {
+  const edges = direction === 'pre' ? (incomingMap.get(topicId) || []) : (outgoingMap.get(topicId) || []);
+  edges.forEach(edge => {
+    const nextId = direction === 'pre' ? edge.source : edge.target;
+    if (visited.has(nextId)) return;
+    visited.add(nextId);
+    if (depth < depthLimit) collectRelatedIds(nextId, direction, depthLimit, visited, depth + 1);
+  });
+  return visited;
+}
+
+function selectNode(node) {
+  selectedNodeId = node.id;
+  const preIds = collectRelatedIds(node.id, 'pre');
+  const succIds = collectRelatedIds(node.id, 'succ');
+  const keepIds = new Set([node.id, ...preIds, ...succIds]);
+
+  if (gNodes) {
+    gNodes.classed('dimmed', item => !keepIds.has(item.id))
+      .classed('highlighted', item => item.id === node.id)
+      .select('circle')
+      .attr('stroke-width', item => item.id === node.id ? 2.8 : 1.1);
+  }
+  if (gLinks) {
+    gLinks.classed('dimmed', link => {
+      const sourceId = link.source.id || link.source;
+      const targetId = link.target.id || link.target;
+      return !(keepIds.has(sourceId) && keepIds.has(targetId));
+    });
+  }
+  if (gNodes) gNodes.select('text.node-label').style('opacity', item => keepIds.has(item.id) ? 1 : 0);
+  renderSidebar(node);
+}
+
+function renderSidebar(topic) {
+  const parentTopic = topic.parentTopicId ? topicMap.get(topic.parentTopicId) : null;
+  const prereqs = (incomingMap.get(topic.id) || []).map(edge => ({ topic: topicMap.get(edge.source), link: edge })).filter(item => item.topic);
+  const succs = (outgoingMap.get(topic.id) || []).map(edge => ({ topic: topicMap.get(edge.target), link: edge })).filter(item => item.topic);
+
+  const tags = [
+    `<span class="tag" style="background:${COLORS[topic.subject]}30;color:${COLORS[topic.subject]};border:1px solid ${COLORS[topic.subject]}60">${topic.subject}</span>`,
+    `<span class="tag" style="background:rgba(255,255,255,0.06);color:#a8b4c0">${topic.domain || ''}</span>`,
+    `<span class="tag" style="background:rgba(255,255,255,0.06);color:#a8b4c0">${topic.grade}年级${topic.term}</span>`,
+    `<span class="tag" style="background:rgba(255,255,255,0.06);color:#a8b4c0">${topic.typeLabel || topic.type}</span>`,
+    topic.subnodeType ? `<span class="tag" style="background:rgba(93,173,226,0.12);color:#5dade2">${topic.subnodeType}</span>` : '',
+    `<span class="tag" style="background:rgba(255,200,0,0.1);color:#f39c12">难度 ${DIFFICULTY(topic.difficulty || 3)}</span>`
+  ].join('');
+
+  const resources = (topic.resources || []).map(resource => `
+    <a class="resource-link" href="${resource.url}" target="_blank" rel="noopener noreferrer">
+      ${resource.title}
+      <small>${resource.type} · ${resource.source || '外部资源'}${resource.note ? ` · ${resource.note}` : ''}</small>
+    </a>
+  `).join('');
+
+  const skillRubricHtml = topic.skillRubric ? Object.entries(topic.skillRubric)
+    .filter(([, items]) => Array.isArray(items) && items.length)
+    .map(([skill, items]) => `
+      <div style="margin:10px 0 12px">
+        <div style="font-size:12px;color:#5dade2;margin-bottom:6px">${RUBRIC_LABELS[skill] || skill}</div>
+        <ul class="evidence-list">${items.map(item => `<li>${item}</li>`).join('')}</ul>
+      </div>
+    `).join('') : '';
+
+  const evalRubricHtml = Array.isArray(topic.evaluationRubric) && topic.evaluationRubric.length
+    ? topic.evaluationRubric.map(item => `
+      <div style="margin:10px 0 12px">
+        <div style="font-size:12px;color:#5dade2;margin-bottom:6px">${item.dimension}</div>
+        <ul class="evidence-list">${(item.indicators || []).map(indicator => `<li>${indicator}</li>`).join('')}</ul>
+      </div>
+    `).join('')
+    : '';
+
+  const unitMeta = [...new Set([topic.volume, topic.unit, topic.chapter, topic.lesson, topic.module].filter(Boolean))].join(' · ');
+  document.getElementById('detail-panel').innerHTML = `
+    <h2>${topic.name}</h2>
+    <div class="meta">${topic.id} · ${topic.textbook || ''}${unitMeta ? ` · ${unitMeta}` : ''}</div>
+    <div style="margin-bottom:12px">${tags}</div>
+    ${parentTopic ? `<div style="font-size:12px;color:#7f8c9a;margin:4px 0 10px">父节点：<a href="javascript:void(0)" onclick="selectNodeById('${parentTopic.id}')" style="color:#5dade2;text-decoration:none">${parentTopic.name}</a></div>` : ''}
+    <div class="desc">${topic.description}</div>
+    ${topic.pageRange ? `<div style="font-size:12px;color:#7f8c9a;margin:8px 0 12px">教材页码：${topic.pageRange}</div>` : ''}
+
+    <h3>✓ 掌握的证据（会什么就算掌握了）</h3>
+    <ul class="evidence-list">${(topic.evidence || []).map(item => `<li>${item}</li>`).join('')}</ul>
+    ${(topic.practiceChain && topic.practiceChain.length) ? `<h3>🔗 建议练习链</h3><ul class="evidence-list">${topic.practiceChain.map(item => `<li>${item}</li>`).join('')}</ul>` : ''}
+    ${(topic.assessmentTasks && topic.assessmentTasks.length) ? `<h3>🎯 建议测评任务</h3><ul class="evidence-list">${topic.assessmentTasks.map(item => `<li>${item}</li>`).join('')}</ul>` : ''}
+    ${skillRubricHtml ? `<h3>📏 分技能测评 Rubric</h3>${skillRubricHtml}` : ''}
+    ${evalRubricHtml ? `<h3>📐 学科评价框架</h3>${evalRubricHtml}` : ''}
+
+    ${(topic.commonMistakes && topic.commonMistakes.length) ? `<h3>⚠️ 常见易错点</h3><ul class="mistakes-list">${topic.commonMistakes.map(item => `<li>${item}</li>`).join('')}</ul>` : ''}
+    ${topic.examTips ? `<h3>📝 常见考法</h3><div style="font-size:12px;line-height:1.7;color:#a8b4c0;padding:8px 10px;background:rgba(255,255,255,0.03);border-radius:6px">${topic.examTips}</div>` : ''}
+    ${topic.assessmentPrompt ? `<h3>💬 家长测评话术</h3><div style="font-size:12px;line-height:1.7;color:#a8b4c0;padding:8px 10px;background:rgba(93,173,226,0.08);border-radius:6px;font-style:italic">${topic.assessmentPrompt.replace(/\{\{name\}\}/g, '孩子')}</div>` : ''}
+    ${resources ? `<h3>🧩 典型例题 / 练习题</h3>${resources}` : ''}
+
+    <h3>📚 前置依赖（要先学会这些 ↓）</h3>
+    ${prereqs.length ? prereqs.map(item => `<div class="chain-item ${item.link.strength}" onclick="selectNodeById('${item.topic.id}')"><span class="chain-arrow">${item.link.strength === 'hard' ? '🔴' : '🟡'}</span><span><b>${item.topic.name}</b><br><span style="color:#7f8c9a;font-size:11px">${item.topic.subject} · ${item.link.reason || ''}</span></span></div>`).join('') : '<div style="font-size:12px;color:#7f8c9a;padding:8px">（无前置，是起始知识点）</div>'}
+
+    <h3>🚀 解锁后续（学完后可以学这些 ↑）</h3>
+    ${succs.length ? succs.map(item => `<div class="chain-item ${item.link.strength}" onclick="selectNodeById('${item.topic.id}')"><span class="chain-arrow">→</span><span><b>${item.topic.name}</b><br><span style="color:#7f8c9a;font-size:11px">${item.topic.subject} · ${item.link.reason || ''}</span></span></div>`).join('') : '<div style="font-size:12px;color:#7f8c9a;padding:8px">（无后续，是终点知识点）</div>'}
+  `;
+}
+
+function topicScore(topic, query) {
+  const rubricText = topic.skillRubric ? Object.values(topic.skillRubric).flat().join(' ') : '';
+  const evalText = Array.isArray(topic.evaluationRubric) ? topic.evaluationRubric.flatMap(item => [item.dimension, ...(item.indicators || [])]).join(' ') : '';
+  const text = `${topic.name} ${topic.domain || ''} ${topic.description || ''} ${topic.subject} ${topic.textbook || ''} ${topic.volume || ''} ${topic.unit || ''} ${topic.chapter || ''} ${topic.lesson || ''} ${topic.module || ''} ${topic.subnodeType || ''} ${topic.pageRange || ''} ${(topic.practiceChain || []).join(' ')} ${(topic.assessmentTasks || []).join(' ')} ${rubricText} ${evalText}`.toLowerCase();
+  const q = query.toLowerCase();
+  let score = 0;
+  if (topic.name.toLowerCase().includes(q)) score += 8;
+  if (text.includes(q)) score += 4;
+  q.split(/[，。；、,\s]+/).filter(Boolean).forEach(token => {
+    if (token.length >= 2 && text.includes(token)) score += 2;
+  });
+  if (q.includes('不熟') || q.includes('不会') || q.includes('薄弱')) score += topic.type === 'PROCEDURAL' ? 1 : 0;
+  return score;
+}
+
+function getDirectPrereqs(topicId) {
+  return (incomingMap.get(topicId) || []).map(edge => ({ id: edge.source, strength: edge.strength, reason: edge.reason }));
+}
+
+function collectAncestorIds(topicId, visited = new Set()) {
+  getDirectPrereqs(topicId).forEach(prereq => {
+    if (!visited.has(prereq.id)) {
+      visited.add(prereq.id);
+      collectAncestorIds(prereq.id, visited);
+    }
+  });
+  return visited;
+}
+
+function topoPathTo(topicId) {
+  const ids = collectAncestorIds(topicId);
+  ids.add(topicId);
+  const inDegree = new Map();
+  const graph = new Map();
+  ids.forEach(id => {
+    inDegree.set(id, 0);
+    graph.set(id, []);
+  });
+  fullData.deps.dependencies.forEach(dep => {
+    if (ids.has(dep.prerequisiteId) && ids.has(dep.topicId)) {
+      graph.get(dep.prerequisiteId).push(dep.topicId);
+      inDegree.set(dep.topicId, inDegree.get(dep.topicId) + 1);
+    }
+  });
+  const queue = [...ids].filter(id => inDegree.get(id) === 0);
+  const ordered = [];
+  while (queue.length) {
+    const current = queue.shift();
+    ordered.push(current);
+    graph.get(current).forEach(next => {
+      inDegree.set(next, inDegree.get(next) - 1);
+      if (inDegree.get(next) === 0) queue.push(next);
+    });
+  }
+  return ordered.map(id => topicMap.get(id)).filter(Boolean);
+}
+
+function runAssistant(query) {
+  const result = document.getElementById('assistant-result');
+  const q = (query || '').trim();
+  if (!q) {
+    result.innerHTML = '<div class="assistant-muted">请输入一个学习问题，比如“孩子乘法口诀不熟，应该先补什么”。</div>';
+    return;
+  }
+
+  const ranked = fullData.topics.topics
+    .map(topic => ({ topic, score: topicScore(topic, q) }))
+    .filter(item => item.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 5);
+
+  if (!ranked.length) {
+    result.innerHTML = '<div class="assistant-muted">暂时没有匹配到足够准确的知识点，建议换成更具体的关键词，例如“有余数除法”“看图写话”“部首查字法”。</div>';
+    return;
+  }
+
+  const target = ranked[0].topic;
+  const path = topoPathTo(target.id).slice(-6);
+  const direct = getDirectPrereqs(target.id).map(item => topicMap.get(item.id)).filter(Boolean);
+  result.innerHTML = `
+    <div><b>定位到的核心知识点：</b>${target.subject} · ${target.name}</div>
+    <div class="assistant-muted" style="margin-top:4px">${target.description}</div>
+    <div style="margin-top:8px"><b>建议补弱顺序：</b></div>
+    ${path.map((topic, idx) => `
+      <a href="javascript:void(0)" class="path-step" onclick="selectNodeById('${topic.id}')">
+        ${idx + 1}. ${topic.name}
+        <span class="assistant-muted"> · ${topic.subject} · ${topic.grade}年级${topic.term}</span>
+      </a>
+    `).join('')}
+    <div style="margin-top:8px"><b>优先先补：</b>${direct.length ? direct.map(topic => topic.name).join('、') : '这个知识点没有显式前置，可直接从当前节点开始练。'}</div>
+    <div class="assistant-muted" style="margin-top:6px">逻辑说明：学习助手会沿 DAG 前置链回溯，优先推荐能直接支撑当前薄弱点的基础知识。</div>
+  `;
+}
+
+function renderAssistantPanel() {
+  const panel = document.getElementById('assistant-panel');
+  panel.innerHTML = `
+    <h3>🤖 学习助手 Bot</h3>
+    <div style="font-size:12px;color:#a8b4c0;line-height:1.7;margin-bottom:10px">输入孩子当前卡住的问题，系统会沿知识图谱前置链推荐“先补什么”。</div>
+    <input id="assistant-query" placeholder="例如：孩子乘法口诀不熟，应该先补什么" />
+    <button id="assistant-run">生成学习路径</button>
+    <div class="chips">
+      <span class="chip" data-query="孩子乘法口诀不熟，应该先补什么">乘法口诀不熟</span>
+      <span class="chip" data-query="看图写话总写不长，应该先补什么">看图写话写不长</span>
+      <span class="chip" data-query="有余数除法总做错，先补什么">有余数除法总错</span>
+    </div>
+    <div id="assistant-result"><div class="assistant-muted">这里会显示学习路径建议。</div></div>
+  `;
+  document.getElementById('assistant-run').onclick = () => runAssistant(document.getElementById('assistant-query').value);
+  document.getElementById('assistant-query').addEventListener('keydown', event => {
+    if (event.key === 'Enter') runAssistant(event.target.value);
+  });
+  panel.querySelectorAll('.chip').forEach(chip => {
+    chip.onclick = () => {
+      document.getElementById('assistant-query').value = chip.dataset.query;
+      runAssistant(chip.dataset.query);
+    };
+  });
+}
+
+function focusTopic(topic) {
+  currentGrade = String(topic.grade);
+  currentSubject = topic.subject;
+  currentTextbook = topic.textbook || '未标注版本';
+  currentLayer = topic.parentTopicId ? 'detail' : currentLayer;
+  applyFilters({ keepSelection: false });
+  if (data.nodeMap.has(topic.id)) selectNode(data.nodeMap.get(topic.id));
+}
+
+function setupSearch() {
+  const input = document.getElementById('search');
+  const results = document.getElementById('search-results');
+  input.addEventListener('input', () => {
+    const query = input.value.trim().toLowerCase();
+    if (!query) {
+      results.classList.remove('show');
+      return;
+    }
+    const matches = fullData.topics.topics
+      .map(topic => ({ topic, score: topicScore(topic, query) }))
+      .filter(item => item.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 15)
+      .map(item => item.topic);
+    results.innerHTML = matches.map(topic => `
+      <div class="search-result-item" onclick="focusTopicById('${topic.id}')">
+        <div><span class="srn">${topic.subject}</span> · ${topic.name}</div>
+        <div class="srd">${topic.domain || ''} · ${topic.grade}年级${topic.term}${topic.subnodeType ? ` · ${topic.subnodeType}` : ''}</div>
+      </div>
+    `).join('');
+    results.classList.toggle('show', matches.length > 0);
+  });
+  document.addEventListener('click', event => {
+    if (!event.target.closest('.search-box')) results.classList.remove('show');
+  });
+}
+
+window.focusTopicById = function(id) {
+  const topic = topicMap.get(id);
+  if (!topic) return;
+  document.getElementById('search').value = '';
+  document.getElementById('search-results').classList.remove('show');
+  focusTopic(topic);
+};
+
+window.selectNodeById = function(id) {
+  const topic = topicMap.get(id);
+  if (!topic) return;
+  if (!data.nodeMap.has(id)) {
+    focusTopic(topic);
+    return;
+  }
+  selectNode(data.nodeMap.get(id));
+};
+
+const script = document.createElement('script');
+script.src = 'https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js';
+script.onload = init;
+document.head.appendChild(script);
+</script>
+</body>
+</html>

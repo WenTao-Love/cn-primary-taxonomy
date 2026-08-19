@@ -270,7 +270,7 @@ for (const dep of seededDeps) {
 
 // 写 dependencies.json
 const depJson = {
-  version: 'v0.6-expanded',
+  version: 'v0.7-expanded',
   note: 'DAG 依赖方向：topicId 依赖 prerequisiteId（先学prerequisite，再学topic）',
   edgeCount: uniqueDeps.length,
   dependencies: uniqueDeps

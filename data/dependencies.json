@@ -1,5 +1,5 @@
 {
-  "version": "v0.6-expanded",
+  "version": "v0.7-expanded",
   "note": "DAG 依赖方向：topicId 依赖 prerequisiteId（先学prerequisite，再学topic）",
   "edgeCount": 4007,
   "dependencies": [

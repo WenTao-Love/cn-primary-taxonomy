@@ -64,6 +64,19 @@
             },
             "additionalProperties": false
           },
+          "evaluationRubric": {
+            "type": "array",
+            "description": "通用结构化评价框架，适用于语文/科学/道法等学科",
+            "items": {
+              "type": "object",
+              "properties": {
+                "dimension": { "type": "string" },
+                "indicators": { "type": "array", "items": { "type": "string" } }
+              },
+              "required": ["dimension", "indicators"],
+              "additionalProperties": false
+            }
+          },
           "resources": {
             "type": "array",
             "description": "与知识点关联的典型例题、练习题或教学资源链接",

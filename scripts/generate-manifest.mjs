@@ -14,7 +14,7 @@ const files = ['topics.json','dependencies.json','curriculum-standards.json','cl
 const manifest = {
   dataset: 'CN-Primary-Taxonomy',
   datasetNameCn: '中国小学教育知识图谱',
-  taxonomyVersion: 'v0.6-expanded',
+  taxonomyVersion: 'v0.7-expanded',
   generatedAt: new Date().toISOString(),
   basedOn: 'Marble Skill Taxonomy v1 (https://github.com/withmarbleapp/os-taxonomy)',
   country: 'CN',

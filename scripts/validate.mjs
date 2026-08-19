@@ -79,6 +79,13 @@ for (const t of topics.topics) {
       }
     }
   }
+  if (t.evaluationRubric !== undefined) {
+    check(Array.isArray(t.evaluationRubric), `evaluationRubric不是数组: ${t.id}`);
+    for (const item of t.evaluationRubric) {
+      check(item && typeof item.dimension === 'string', `evaluationRubric.dimension非法: ${t.id}`);
+      check(Array.isArray(item.indicators), `evaluationRubric.indicators不是数组: ${t.id}`);
+    }
+  }
   if (t.resources !== undefined) {
     check(Array.isArray(t.resources), `resources不是数组: ${t.id}`);
     for (const r of t.resources || []) {
