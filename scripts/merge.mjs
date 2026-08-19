@@ -108,10 +108,10 @@ topicFiles.forEach(name => console.log(' ', name));
 
 // 写 topics.json
 const topicsJson = {
-  version: 'v0.3-expanded',
+  version: 'v0.6-expanded',
   generatedAt: new Date().toISOString(),
   grades: [...new Set(all.map(t => t.grade))].sort((a,b)=>a-b),
-  note: '扩展版本：1-6年级主干 + 其他学科全年级主干 + 数学/英语多版本映射知识点',
+  note: '扩展版本：1-6年级主干 + 其他学科全年级主干 + 数学真实题链来源 + 英语分技能rubric + 语文/科学/道法父子节点扩展',
   topicCount: all.length,
   topics: all
 };

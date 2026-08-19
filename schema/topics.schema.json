@@ -26,8 +26,14 @@
           "term": { "type": "string", "enum": ["上", "下", "全"], "description": "学期：上/下/全一册" },
           "gradeBand": { "type": "string", "enum": ["L", "M", "H"], "description": "年级段：低段L(1-2)/中段M(3-4)/高段H(5-6)" },
           "textbook": { "type": ["string", "null"], "description": "教材版本，如 统编版/人教版/北师大版/教科版/外研版一起点" },
+          "parentTopicId": { "type": ["string", "null"], "description": "父知识点ID，用于表达课时/模块下的子节点结构" },
+          "subnodeType": { "type": ["string", "null"], "description": "子节点类型，如 例题型/易错型/方法型/词汇/句型/语篇/写作任务" },
+          "volume": { "type": ["string", "null"], "description": "教材册次，如 四年级上册/六下" },
           "unit": { "type": ["string", "null"], "description": "教材单元，如 四上 第1单元 大数认识" },
+          "chapter": { "type": ["string", "null"], "description": "教材章节或模块名称，如 三上 Unit 1 Hello" },
+          "lesson": { "type": ["string", "null"], "description": "课时主题或模块内子任务，如 第1课时 认识更大的数 / Lesson 1 Vocabulary" },
           "module": { "type": ["string", "null"], "description": "教材模块，如 三上 Module 1 Greetings" },
+          "pageRange": { "type": ["string", "null"], "description": "教材页码映射，如 参考P12-P13" },
           "ageRangeStart": { "type": ["integer", "null"] },
           "ageRangeEnd": { "type": ["integer", "null"] },
           "difficulty": { "type": "integer", "minimum": 1, "maximum": 5, "description": "难度星级1-5" },
@@ -37,6 +43,27 @@
           "examTips": { "type": ["string", "null"], "description": "常见考法/考试提示" },
           "assessmentPrompt": { "type": ["string", "null"], "description": "家长/老师可直接使用的测评话术，含{{name}}占位符" },
           "standards": { "type": "array", "items": { "type": "string" }, "description": "对齐的课标条目编码" },
+          "practiceChain": {
+            "type": "array",
+            "description": "建议练习链，如 从词汇跟读 -> 句型替换 -> 情境表达",
+            "items": { "type": "string" }
+          },
+          "assessmentTasks": {
+            "type": "array",
+            "description": "建议测评任务",
+            "items": { "type": "string" }
+          },
+          "skillRubric": {
+            "type": ["object", "null"],
+            "description": "分技能测评rubric，常用于英语等学科",
+            "properties": {
+              "listening": { "type": "array", "items": { "type": "string" } },
+              "speaking": { "type": "array", "items": { "type": "string" } },
+              "reading": { "type": "array", "items": { "type": "string" } },
+              "writing": { "type": "array", "items": { "type": "string" } }
+            },
+            "additionalProperties": false
+          },
           "resources": {
             "type": "array",
             "description": "与知识点关联的典型例题、练习题或教学资源链接",

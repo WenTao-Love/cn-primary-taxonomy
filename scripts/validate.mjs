@@ -56,6 +56,29 @@ for (const t of topics.topics) {
   check(typeof t.description === 'string' && t.description.length >= 5, `description过短: ${t.id}`);
   check(Array.isArray(t.evidence) && t.evidence.length >= 1, `evidence为空: ${t.id}`);
   check(t.difficulty >=1 && t.difficulty <=5, `difficulty超范围: ${t.id}`);
+  if (t.parentTopicId !== undefined && t.parentTopicId !== null) {
+    check(typeof t.parentTopicId === 'string', `parentTopicId类型错误: ${t.id}`);
+  }
+  if (t.subnodeType !== undefined && t.subnodeType !== null) {
+    check(typeof t.subnodeType === 'string' && t.subnodeType.length >= 1, `subnodeType非法: ${t.id}`);
+  }
+  if (t.pageRange !== undefined && t.pageRange !== null) {
+    check(typeof t.pageRange === 'string' && t.pageRange.length >= 2, `pageRange非法: ${t.id}`);
+  }
+  if (t.practiceChain !== undefined) {
+    check(Array.isArray(t.practiceChain), `practiceChain不是数组: ${t.id}`);
+  }
+  if (t.assessmentTasks !== undefined) {
+    check(Array.isArray(t.assessmentTasks), `assessmentTasks不是数组: ${t.id}`);
+  }
+  if (t.skillRubric !== undefined && t.skillRubric !== null) {
+    check(typeof t.skillRubric === 'object' && !Array.isArray(t.skillRubric), `skillRubric不是对象: ${t.id}`);
+    for (const key of ['listening','speaking','reading','writing']) {
+      if (t.skillRubric[key] !== undefined) {
+        check(Array.isArray(t.skillRubric[key]), `skillRubric.${key}不是数组: ${t.id}`);
+      }
+    }
+  }
   if (t.resources !== undefined) {
     check(Array.isArray(t.resources), `resources不是数组: ${t.id}`);
     for (const r of t.resources || []) {
@@ -68,6 +91,9 @@ for (const t of topics.topics) {
   typeCounts[t.typeLabel] = (typeCounts[t.typeLabel]||0)+1;
 }
 check(idDup.size === 0, `重复ID: ${[...idDup].join(',')}`);
+for (const t of topics.topics) {
+  if (t.parentTopicId) check(topicIds.has(t.parentTopicId), `parentTopicId不存在: ${t.id} -> ${t.parentTopicId}`);
+}
 
 // 引用完整性
 const stdKeys = new Set();

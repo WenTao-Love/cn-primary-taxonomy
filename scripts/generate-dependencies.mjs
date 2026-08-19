@@ -185,18 +185,31 @@ const termOrder = { '上': 0, '下': 1, '全': 2 };
 
 function addAutoDependencies(topics, edges) {
   const topicById = new Map(topics.map(topic => [topic.id, topic]));
+  const topLevelTopics = topics.filter(topic => !topic.parentTopicId);
+
+  for (const topic of topics) {
+    if (!topic.parentTopicId) continue;
+    if (!topicById.has(topic.parentTopicId)) continue;
+    const strength = topic.subnodeType === '易错型' ? 'soft' : 'hard';
+    const reason = topic.subnodeType
+      ? `${topic.name}是“${topicById.get(topic.parentTopicId).name}”下的${topic.subnodeType}子节点，通常建立在父知识点理解之后`
+      : `${topic.name}是“${topicById.get(topic.parentTopicId).name}”下的子节点，通常建立在父知识点理解之后`;
+    edges.push(D(topic.id, topic.parentTopicId, strength, reason));
+  }
+
   const manualGroupKeys = new Set();
   for (const edge of edges) {
     const target = topicById.get(edge.topicId);
     const prereq = topicById.get(edge.prerequisiteId);
     if (!target || !prereq) continue;
+    if (target.parentTopicId || prereq.parentTopicId) continue;
     if (target.subject === prereq.subject && target.grade === prereq.grade && target.domain === prereq.domain && (target.textbook || '') === (prereq.textbook || '')) {
       manualGroupKeys.add(`${target.subject}|${target.grade}|${target.domain}|${target.textbook || ''}`);
     }
   }
 
   const byGroup = new Map();
-  for (const topic of topics) {
+  for (const topic of topLevelTopics) {
     const key = `${topic.subject}|${topic.grade}|${topic.domain}|${topic.textbook || ''}`;
     if (!byGroup.has(key)) byGroup.set(key, []);
     byGroup.get(key).push(topic);
@@ -215,7 +228,7 @@ function addAutoDependencies(topics, edges) {
   }
 
   const byDomainAcrossGrades = new Map();
-  for (const topic of topics) {
+  for (const topic of topLevelTopics) {
     const key = `${topic.subject}|${topic.domain}|${topic.textbook || ''}`;
     if (!byDomainAcrossGrades.has(key)) byDomainAcrossGrades.set(key, []);
     byDomainAcrossGrades.get(key).push(topic);
@@ -257,7 +270,7 @@ for (const dep of seededDeps) {
 
 // 写 dependencies.json
 const depJson = {
-  version: 'v0.3-expanded',
+  version: 'v0.6-expanded',
   note: 'DAG 依赖方向：topicId 依赖 prerequisiteId（先学prerequisite，再学topic）',
   edgeCount: uniqueDeps.length,
   dependencies: uniqueDeps

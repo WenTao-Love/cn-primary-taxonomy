@@ -317,6 +317,7 @@ function selectNode(d) {
 function renderSidebar(d, preIds, succIds) {
   const sb = document.getElementById('detail-panel');
   const prereqs = [], succs = [];
+  const parentTopic = d.parentTopicId ? data.nodes.find(n=>n.id===d.parentTopicId) : null;
   data.links.forEach(l=>{
     const sid=l.source.id||l.source, tid=l.target.id||l.target;
     if(tid===d.id) prereqs.push({topic:data.nodes.find(n=>n.id===sid),link:l});
@@ -328,6 +329,7 @@ function renderSidebar(d, preIds, succIds) {
     `<span class="tag" style="background:rgba(255,255,255,0.06);color:#a8b4c0">${d.domain||''}</span>`,
     `<span class="tag" style="background:rgba(255,255,255,0.06);color:#a8b4c0">${d.grade}年级${d.term}</span>`,
     `<span class="tag" style="background:rgba(255,255,255,0.06);color:#a8b4c0">${d.typeLabel||d.type}</span>`,
+    `${d.subnodeType ? `<span class="tag" style="background:rgba(93,173,226,0.12);color:#5dade2">${d.subnodeType}</span>` : ''}`,
     `<span class="tag" style="background:rgba(255,200,0,0.1);color:#f39c12">难度 ${DIFFICULTY(d.difficulty||3)}</span>`,
   ].join('');
 
@@ -337,17 +339,30 @@ function renderSidebar(d, preIds, succIds) {
       <small>${r.type} · ${r.source||'外部资源'}${r.note?` · ${r.note}`:''}</small>
     </a>
   `).join('');
+  const rubric = d.skillRubric ? Object.entries(d.skillRubric)
+    .filter(([,items])=>Array.isArray(items) && items.length)
+    .map(([skill, items])=>`
+      <div style="margin:10px 0 12px">
+        <div style="font-size:12px;color:#5dade2;margin-bottom:6px">${({listening:'听力',speaking:'口语',reading:'阅读',writing:'写作'})[skill]||skill}</div>
+        <ul class="evidence-list">${items.map(i=>`<li>${i}</li>`).join('')}</ul>
+      </div>
+    `).join('') : '';
 
-  const unitMeta = [d.unit, d.module].filter(Boolean).join(' · ');
+  const unitMeta = [...new Set([d.volume, d.unit, d.chapter, d.lesson, d.module].filter(Boolean))].join(' · ');
 
   sb.innerHTML = `
     <h2>${d.name}</h2>
     <div class="meta">${d.id} · ${d.textbook||''}${unitMeta ? ` · ${unitMeta}` : ''}</div>
     <div style="margin-bottom:12px">${tags}</div>
+    ${parentTopic ? `<div style="font-size:12px;color:#7f8c9a;margin:4px 0 10px">父节点：<a href="javascript:void(0)" onclick="selectNodeById('${parentTopic.id}')" style="color:#5dade2;text-decoration:none">${parentTopic.name}</a></div>` : ''}
     <div class="desc">${d.description}</div>
+    ${d.pageRange ? `<div style="font-size:12px;color:#7f8c9a;margin:8px 0 12px">教材页码：${d.pageRange}</div>` : ''}
 
     <h3>✓ 掌握的证据（会什么就算掌握了）</h3>
     <ul class="evidence-list">${(d.evidence||[]).map(e=>`<li>${e}</li>`).join('')}</ul>
+    ${(d.practiceChain&&d.practiceChain.length)?`<h3>🔗 建议练习链</h3><ul class="evidence-list">${d.practiceChain.map(e=>`<li>${e}</li>`).join('')}</ul>`:''}
+    ${(d.assessmentTasks&&d.assessmentTasks.length)?`<h3>🎯 建议测评任务</h3><ul class="evidence-list">${d.assessmentTasks.map(e=>`<li>${e}</li>`).join('')}</ul>`:''}
+    ${rubric?`<h3>📏 分技能测评 Rubric</h3>${rubric}`:''}
 
     ${(d.commonMistakes&&d.commonMistakes.length)?`<h3>⚠️ 常见易错点</h3><ul class="mistakes-list">${d.commonMistakes.map(e=>`<li>${e}</li>`).join('')}</ul>`:''}
     ${d.examTips?`<h3>📝 常见考法</h3><div style="font-size:12px;line-height:1.7;color:#a8b4c0;padding:8px 10px;background:rgba(255,255,255,0.03);border-radius:6px">${d.examTips}</div>`:''}
@@ -368,7 +383,8 @@ window.selectNodeById = function(id) {
 };
 
 function topicScore(topic, query) {
-  const text = `${topic.name} ${topic.domain||''} ${topic.description||''} ${topic.subject} ${topic.textbook||''} ${topic.unit||''} ${topic.module||''}`.toLowerCase();
+  const rubricText = topic.skillRubric ? Object.values(topic.skillRubric).flat().join(' ') : '';
+  const text = `${topic.name} ${topic.domain||''} ${topic.description||''} ${topic.subject} ${topic.textbook||''} ${topic.volume||''} ${topic.unit||''} ${topic.chapter||''} ${topic.lesson||''} ${topic.module||''} ${topic.subnodeType||''} ${topic.pageRange||''} ${(topic.practiceChain||[]).join(' ')} ${(topic.assessmentTasks||[]).join(' ')} ${rubricText}`.toLowerCase();
   const q = query.toLowerCase();
   let score = 0;
   if (topic.name.toLowerCase().includes(q)) score += 8;
