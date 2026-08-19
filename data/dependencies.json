@@ -1,7 +1,7 @@
 {
   "version": "v0.3-expanded",
   "note": "DAG 依赖方向：topicId 依赖 prerequisiteId（先学prerequisite，再学topic）",
-  "edgeCount": 1174,
+  "edgeCount": 1248,
   "dependencies": [
     {
       "topicId": "ct_YW2S001",
@@ -568,10 +568,370 @@
       "reason": "逻辑推理与搭配问题的有序思考方法相通"
     },
     {
+      "topicId": "ct_YY2S002",
+      "prerequisiteId": "ct_YY2S001",
+      "strength": "soft",
+      "reason": "数字词汇以简单问候和课堂习惯建立为基础"
+    },
+    {
+      "topicId": "ct_YY2S003",
+      "prerequisiteId": "ct_YY2S001",
+      "strength": "soft",
+      "reason": "颜色词以基础听说习惯为基础"
+    },
+    {
+      "topicId": "ct_YY2X006",
+      "prerequisiteId": "ct_YY2S002",
+      "strength": "hard",
+      "reason": "学字母要在积累了一定听说词汇后，从听说过渡到读写"
+    },
+    {
       "topicId": "ct_XX2Q002",
       "prerequisiteId": "ct_XX2Q001",
       "strength": "hard",
       "reason": "计算机操作以了解信息和信息技术为基础"
+    },
+    {
+      "topicId": "ct_YY1S003",
+      "prerequisiteId": "ct_YY1S001",
+      "strength": "soft",
+      "reason": "英语1年级“听说”领域按知识与能力递进组织，学习颜色和数字基础表达前通常会先掌握问候与礼貌表达基础表达"
+    },
+    {
+      "topicId": "ct_YY1X005",
+      "prerequisiteId": "ct_YY1S003",
+      "strength": "soft",
+      "reason": "英语1年级“听说”领域按知识与能力递进组织，学习家庭和动物基础表达前通常会先掌握颜色和数字基础表达"
+    },
+    {
+      "topicId": "ct_YY1X007",
+      "prerequisiteId": "ct_YY1X005",
+      "strength": "soft",
+      "reason": "英语1年级“听说”领域按知识与能力递进组织，学习课堂指令基础表达前通常会先掌握家庭和动物基础表达"
+    },
+    {
+      "topicId": "ct_YY1S004",
+      "prerequisiteId": "ct_YY1S002",
+      "strength": "soft",
+      "reason": "英语1年级“词汇与字母”领域按知识与能力递进组织，学习颜色词与1-10数字词汇与认读前通常会先掌握问候语和姓名表达词汇与认读"
+    },
+    {
+      "topicId": "ct_YY1X006",
+      "prerequisiteId": "ct_YY1S004",
+      "strength": "soft",
+      "reason": "英语1年级“词汇与字母”领域按知识与能力递进组织，学习家庭成员与动物词汇词汇与认读前通常会先掌握颜色词与1-10数字词汇与认读"
+    },
+    {
+      "topicId": "ct_YY1X008",
+      "prerequisiteId": "ct_YY1X006",
+      "strength": "soft",
+      "reason": "英语1年级“词汇与字母”领域按知识与能力递进组织，学习课堂常用语词汇与认读前通常会先掌握家庭成员与动物词汇词汇与认读"
+    },
+    {
+      "topicId": "ct_YRP3S003",
+      "prerequisiteId": "ct_YRP3S001",
+      "strength": "soft",
+      "reason": "英语3年级“听说与词汇”领域按知识与能力递进组织，学习颜色数字与课堂物品核心表达前通常会先掌握问候与结交朋友核心表达"
+    },
+    {
+      "topicId": "ct_YRP3X005",
+      "prerequisiteId": "ct_YRP3S003",
+      "strength": "soft",
+      "reason": "英语3年级“听说与词汇”领域按知识与能力递进组织，学习家庭成员与动物核心表达前通常会先掌握颜色数字与课堂物品核心表达"
+    },
+    {
+      "topicId": "ct_YRP3X007",
+      "prerequisiteId": "ct_YRP3X005",
+      "strength": "soft",
+      "reason": "英语3年级“听说与词汇”领域按知识与能力递进组织，学习食物和兴趣爱好核心表达前通常会先掌握家庭成员与动物核心表达"
+    },
+    {
+      "topicId": "ct_YRP3X008",
+      "prerequisiteId": "ct_YRP3S004",
+      "strength": "soft",
+      "reason": "英语3年级“阅读”领域按知识与能力递进组织，学习食物和兴趣爱好关键词理解前通常会先掌握颜色数字与课堂物品图文对应阅读"
+    },
+    {
+      "topicId": "ct_YRP4S003",
+      "prerequisiteId": "ct_YRP4S001",
+      "strength": "soft",
+      "reason": "英语4年级“听说与词汇”领域按知识与能力递进组织，学习时间和天气核心表达前通常会先掌握学校生活与课程核心表达"
+    },
+    {
+      "topicId": "ct_YRP4X005",
+      "prerequisiteId": "ct_YRP4S003",
+      "strength": "soft",
+      "reason": "英语4年级“听说与词汇”领域按知识与能力递进组织，学习家和城市生活核心表达前通常会先掌握时间和天气核心表达"
+    },
+    {
+      "topicId": "ct_YRP4X007",
+      "prerequisiteId": "ct_YRP4X005",
+      "strength": "soft",
+      "reason": "英语4年级“听说与词汇”领域按知识与能力递进组织，学习日常作息与行为核心表达前通常会先掌握家和城市生活核心表达"
+    },
+    {
+      "topicId": "ct_YRP4X006",
+      "prerequisiteId": "ct_YRP4S002",
+      "strength": "soft",
+      "reason": "英语4年级“阅读”领域按知识与能力递进组织，学习家和城市生活信息提取前通常会先掌握学校生活与课程短文理解"
+    },
+    {
+      "topicId": "ct_YRP4X008",
+      "prerequisiteId": "ct_YRP4S004",
+      "strength": "soft",
+      "reason": "英语4年级“写作”领域按知识与能力递进组织，学习日常作息与行为看图写句前通常会先掌握时间和天气句子书写"
+    },
+    {
+      "topicId": "ct_YRP5S003",
+      "prerequisiteId": "ct_YRP5S001",
+      "strength": "soft",
+      "reason": "英语5年级“听说与词汇”领域按知识与能力递进组织，学习周末和出行计划核心表达前通常会先掌握个人信息与人物介绍核心表达"
+    },
+    {
+      "topicId": "ct_YRP5X005",
+      "prerequisiteId": "ct_YRP5S003",
+      "strength": "soft",
+      "reason": "英语5年级“听说与词汇”领域按知识与能力递进组织，学习健康与饮食核心表达前通常会先掌握周末和出行计划核心表达"
+    },
+    {
+      "topicId": "ct_YRP5X007",
+      "prerequisiteId": "ct_YRP5X005",
+      "strength": "soft",
+      "reason": "英语5年级“听说与词汇”领域按知识与能力递进组织，学习节日与文化核心表达前通常会先掌握健康与饮食核心表达"
+    },
+    {
+      "topicId": "ct_YRP5X006",
+      "prerequisiteId": "ct_YRP5S002",
+      "strength": "soft",
+      "reason": "英语5年级“阅读”领域按知识与能力递进组织，学习健康与饮食关键信息提取前通常会先掌握个人信息与人物介绍语篇理解"
+    },
+    {
+      "topicId": "ct_YRP6S003",
+      "prerequisiteId": "ct_YRP6S001",
+      "strength": "soft",
+      "reason": "英语6年级“听说与词汇”领域按知识与能力递进组织，学习计划与理想核心表达前通常会先掌握过去经历和事件核心表达"
+    },
+    {
+      "topicId": "ct_YRP6X005",
+      "prerequisiteId": "ct_YRP6S003",
+      "strength": "soft",
+      "reason": "英语6年级“听说与词汇”领域按知识与能力递进组织，学习环境与科技核心表达前通常会先掌握计划与理想核心表达"
+    },
+    {
+      "topicId": "ct_YRP6X007",
+      "prerequisiteId": "ct_YRP6X005",
+      "strength": "soft",
+      "reason": "英语6年级“听说与词汇”领域按知识与能力递进组织，学习毕业表达与交流核心表达前通常会先掌握环境与科技核心表达"
+    },
+    {
+      "topicId": "ct_YRP6X008",
+      "prerequisiteId": "ct_YRP6S002",
+      "strength": "soft",
+      "reason": "英语6年级“阅读”领域按知识与能力递进组织，学习毕业表达与交流综合理解前通常会先掌握过去经历和事件语篇概括"
+    },
+    {
+      "topicId": "ct_YWF3S003",
+      "prerequisiteId": "ct_YWF3S001",
+      "strength": "soft",
+      "reason": "英语3年级“听说与词汇”领域按知识与能力递进组织，学习颜色数字与课堂物品核心表达前通常会先掌握问候与结交朋友核心表达"
+    },
+    {
+      "topicId": "ct_YWF3X005",
+      "prerequisiteId": "ct_YWF3S003",
+      "strength": "soft",
+      "reason": "英语3年级“听说与词汇”领域按知识与能力递进组织，学习家庭成员与动物核心表达前通常会先掌握颜色数字与课堂物品核心表达"
+    },
+    {
+      "topicId": "ct_YWF3X007",
+      "prerequisiteId": "ct_YWF3X005",
+      "strength": "soft",
+      "reason": "英语3年级“听说与词汇”领域按知识与能力递进组织，学习食物和兴趣爱好核心表达前通常会先掌握家庭成员与动物核心表达"
+    },
+    {
+      "topicId": "ct_YWF3X008",
+      "prerequisiteId": "ct_YWF3S004",
+      "strength": "soft",
+      "reason": "英语3年级“阅读”领域按知识与能力递进组织，学习食物和兴趣爱好关键词理解前通常会先掌握颜色数字与课堂物品图文对应阅读"
+    },
+    {
+      "topicId": "ct_YWF4S003",
+      "prerequisiteId": "ct_YWF4S001",
+      "strength": "soft",
+      "reason": "英语4年级“听说与词汇”领域按知识与能力递进组织，学习时间和天气核心表达前通常会先掌握学校生活与课程核心表达"
+    },
+    {
+      "topicId": "ct_YWF4X005",
+      "prerequisiteId": "ct_YWF4S003",
+      "strength": "soft",
+      "reason": "英语4年级“听说与词汇”领域按知识与能力递进组织，学习家和城市生活核心表达前通常会先掌握时间和天气核心表达"
+    },
+    {
+      "topicId": "ct_YWF4X007",
+      "prerequisiteId": "ct_YWF4X005",
+      "strength": "soft",
+      "reason": "英语4年级“听说与词汇”领域按知识与能力递进组织，学习日常作息与行为核心表达前通常会先掌握家和城市生活核心表达"
+    },
+    {
+      "topicId": "ct_YWF4X006",
+      "prerequisiteId": "ct_YWF4S002",
+      "strength": "soft",
+      "reason": "英语4年级“阅读”领域按知识与能力递进组织，学习家和城市生活信息提取前通常会先掌握学校生活与课程短文理解"
+    },
+    {
+      "topicId": "ct_YWF4X008",
+      "prerequisiteId": "ct_YWF4S004",
+      "strength": "soft",
+      "reason": "英语4年级“写作”领域按知识与能力递进组织，学习日常作息与行为看图写句前通常会先掌握时间和天气句子书写"
+    },
+    {
+      "topicId": "ct_YWF5S003",
+      "prerequisiteId": "ct_YWF5S001",
+      "strength": "soft",
+      "reason": "英语5年级“听说与词汇”领域按知识与能力递进组织，学习周末和出行计划核心表达前通常会先掌握个人信息与人物介绍核心表达"
+    },
+    {
+      "topicId": "ct_YWF5X005",
+      "prerequisiteId": "ct_YWF5S003",
+      "strength": "soft",
+      "reason": "英语5年级“听说与词汇”领域按知识与能力递进组织，学习健康与饮食核心表达前通常会先掌握周末和出行计划核心表达"
+    },
+    {
+      "topicId": "ct_YWF5X007",
+      "prerequisiteId": "ct_YWF5X005",
+      "strength": "soft",
+      "reason": "英语5年级“听说与词汇”领域按知识与能力递进组织，学习节日与文化核心表达前通常会先掌握健康与饮食核心表达"
+    },
+    {
+      "topicId": "ct_YWF5X006",
+      "prerequisiteId": "ct_YWF5S002",
+      "strength": "soft",
+      "reason": "英语5年级“阅读”领域按知识与能力递进组织，学习健康与饮食关键信息提取前通常会先掌握个人信息与人物介绍语篇理解"
+    },
+    {
+      "topicId": "ct_YWF6S003",
+      "prerequisiteId": "ct_YWF6S001",
+      "strength": "soft",
+      "reason": "英语6年级“听说与词汇”领域按知识与能力递进组织，学习计划与理想核心表达前通常会先掌握过去经历和事件核心表达"
+    },
+    {
+      "topicId": "ct_YWF6X005",
+      "prerequisiteId": "ct_YWF6S003",
+      "strength": "soft",
+      "reason": "英语6年级“听说与词汇”领域按知识与能力递进组织，学习环境与科技核心表达前通常会先掌握计划与理想核心表达"
+    },
+    {
+      "topicId": "ct_YWF6X007",
+      "prerequisiteId": "ct_YWF6X005",
+      "strength": "soft",
+      "reason": "英语6年级“听说与词汇”领域按知识与能力递进组织，学习毕业表达与交流核心表达前通常会先掌握环境与科技核心表达"
+    },
+    {
+      "topicId": "ct_YWF6X008",
+      "prerequisiteId": "ct_YWF6S002",
+      "strength": "soft",
+      "reason": "英语6年级“阅读”领域按知识与能力递进组织，学习毕业表达与交流综合理解前通常会先掌握过去经历和事件语篇概括"
+    },
+    {
+      "topicId": "ct_YYL3S003",
+      "prerequisiteId": "ct_YYL3S001",
+      "strength": "soft",
+      "reason": "英语3年级“听说与词汇”领域按知识与能力递进组织，学习颜色数字与课堂物品核心表达前通常会先掌握问候与结交朋友核心表达"
+    },
+    {
+      "topicId": "ct_YYL3X005",
+      "prerequisiteId": "ct_YYL3S003",
+      "strength": "soft",
+      "reason": "英语3年级“听说与词汇”领域按知识与能力递进组织，学习家庭成员与动物核心表达前通常会先掌握颜色数字与课堂物品核心表达"
+    },
+    {
+      "topicId": "ct_YYL3X007",
+      "prerequisiteId": "ct_YYL3X005",
+      "strength": "soft",
+      "reason": "英语3年级“听说与词汇”领域按知识与能力递进组织，学习食物和兴趣爱好核心表达前通常会先掌握家庭成员与动物核心表达"
+    },
+    {
+      "topicId": "ct_YYL3X008",
+      "prerequisiteId": "ct_YYL3S004",
+      "strength": "soft",
+      "reason": "英语3年级“阅读”领域按知识与能力递进组织，学习食物和兴趣爱好关键词理解前通常会先掌握颜色数字与课堂物品图文对应阅读"
+    },
+    {
+      "topicId": "ct_YYL4S003",
+      "prerequisiteId": "ct_YYL4S001",
+      "strength": "soft",
+      "reason": "英语4年级“听说与词汇”领域按知识与能力递进组织，学习时间和天气核心表达前通常会先掌握学校生活与课程核心表达"
+    },
+    {
+      "topicId": "ct_YYL4X005",
+      "prerequisiteId": "ct_YYL4S003",
+      "strength": "soft",
+      "reason": "英语4年级“听说与词汇”领域按知识与能力递进组织，学习家和城市生活核心表达前通常会先掌握时间和天气核心表达"
+    },
+    {
+      "topicId": "ct_YYL4X007",
+      "prerequisiteId": "ct_YYL4X005",
+      "strength": "soft",
+      "reason": "英语4年级“听说与词汇”领域按知识与能力递进组织，学习日常作息与行为核心表达前通常会先掌握家和城市生活核心表达"
+    },
+    {
+      "topicId": "ct_YYL4X006",
+      "prerequisiteId": "ct_YYL4S002",
+      "strength": "soft",
+      "reason": "英语4年级“阅读”领域按知识与能力递进组织，学习家和城市生活信息提取前通常会先掌握学校生活与课程短文理解"
+    },
+    {
+      "topicId": "ct_YYL4X008",
+      "prerequisiteId": "ct_YYL4S004",
+      "strength": "soft",
+      "reason": "英语4年级“写作”领域按知识与能力递进组织，学习日常作息与行为看图写句前通常会先掌握时间和天气句子书写"
+    },
+    {
+      "topicId": "ct_YYL5S003",
+      "prerequisiteId": "ct_YYL5S001",
+      "strength": "soft",
+      "reason": "英语5年级“听说与词汇”领域按知识与能力递进组织，学习周末和出行计划核心表达前通常会先掌握个人信息与人物介绍核心表达"
+    },
+    {
+      "topicId": "ct_YYL5X005",
+      "prerequisiteId": "ct_YYL5S003",
+      "strength": "soft",
+      "reason": "英语5年级“听说与词汇”领域按知识与能力递进组织，学习健康与饮食核心表达前通常会先掌握周末和出行计划核心表达"
+    },
+    {
+      "topicId": "ct_YYL5X007",
+      "prerequisiteId": "ct_YYL5X005",
+      "strength": "soft",
+      "reason": "英语5年级“听说与词汇”领域按知识与能力递进组织，学习节日与文化核心表达前通常会先掌握健康与饮食核心表达"
+    },
+    {
+      "topicId": "ct_YYL5X006",
+      "prerequisiteId": "ct_YYL5S002",
+      "strength": "soft",
+      "reason": "英语5年级“阅读”领域按知识与能力递进组织，学习健康与饮食关键信息提取前通常会先掌握个人信息与人物介绍语篇理解"
+    },
+    {
+      "topicId": "ct_YYL6S003",
+      "prerequisiteId": "ct_YYL6S001",
+      "strength": "soft",
+      "reason": "英语6年级“听说与词汇”领域按知识与能力递进组织，学习计划与理想核心表达前通常会先掌握过去经历和事件核心表达"
+    },
+    {
+      "topicId": "ct_YYL6X005",
+      "prerequisiteId": "ct_YYL6S003",
+      "strength": "soft",
+      "reason": "英语6年级“听说与词汇”领域按知识与能力递进组织，学习环境与科技核心表达前通常会先掌握计划与理想核心表达"
+    },
+    {
+      "topicId": "ct_YYL6X007",
+      "prerequisiteId": "ct_YYL6X005",
+      "strength": "soft",
+      "reason": "英语6年级“听说与词汇”领域按知识与能力递进组织，学习毕业表达与交流核心表达前通常会先掌握环境与科技核心表达"
+    },
+    {
+      "topicId": "ct_YYL6X008",
+      "prerequisiteId": "ct_YYL6S002",
+      "strength": "soft",
+      "reason": "英语6年级“阅读”领域按知识与能力递进组织，学习毕业表达与交流综合理解前通常会先掌握过去经历和事件语篇概括"
     },
     {
       "topicId": "ct_LD1X002",
@@ -6011,111 +6371,195 @@
     },
     {
       "topicId": "ct_YY2S001",
-      "prerequisiteId": "ct_YY1S001",
+      "prerequisiteId": "ct_YY1X007",
       "strength": "soft",
       "reason": "英语2年级该领域学习建立在1年级同领域基础之上"
     },
     {
-      "topicId": "ct_YY2X002",
-      "prerequisiteId": "ct_YY1X002",
-      "strength": "soft",
-      "reason": "英语2年级该领域学习建立在1年级同领域基础之上"
-    },
-    {
-      "topicId": "ct_YY2X003",
-      "prerequisiteId": "ct_YY1X003",
+      "topicId": "ct_YY2S002",
+      "prerequisiteId": "ct_YY1X008",
       "strength": "soft",
       "reason": "英语2年级该领域学习建立在1年级同领域基础之上"
     },
     {
       "topicId": "ct_YRP4S001",
-      "prerequisiteId": "ct_YRP3S001",
+      "prerequisiteId": "ct_YRP3X007",
       "strength": "soft",
       "reason": "英语4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YRP5S001",
+      "prerequisiteId": "ct_YRP4X007",
+      "strength": "soft",
+      "reason": "英语5年级该领域学习建立在4年级同领域基础之上"
     },
     {
       "topicId": "ct_YRP6S001",
-      "prerequisiteId": "ct_YRP4S001",
-      "strength": "soft",
-      "reason": "英语6年级该领域学习建立在4年级同领域基础之上"
-    },
-    {
-      "topicId": "ct_YRP5X002",
-      "prerequisiteId": "ct_YRP4X002",
-      "strength": "soft",
-      "reason": "英语5年级该领域学习建立在4年级同领域基础之上"
-    },
-    {
-      "topicId": "ct_YRP6X002",
-      "prerequisiteId": "ct_YRP5X002",
+      "prerequisiteId": "ct_YRP5X007",
       "strength": "soft",
       "reason": "英语6年级该领域学习建立在5年级同领域基础之上"
     },
     {
-      "topicId": "ct_YRP5X003",
-      "prerequisiteId": "ct_YRP4X003",
+      "topicId": "ct_YRP4S002",
+      "prerequisiteId": "ct_YRP3X008",
+      "strength": "soft",
+      "reason": "英语4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YRP5S002",
+      "prerequisiteId": "ct_YRP4X006",
       "strength": "soft",
       "reason": "英语5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YRP6S002",
+      "prerequisiteId": "ct_YRP5X006",
+      "strength": "soft",
+      "reason": "英语6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YRP4S004",
+      "prerequisiteId": "ct_YRP3X006",
+      "strength": "soft",
+      "reason": "英语4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YRP5S004",
+      "prerequisiteId": "ct_YRP4X008",
+      "strength": "soft",
+      "reason": "英语5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YRP6S004",
+      "prerequisiteId": "ct_YRP5S004",
+      "strength": "soft",
+      "reason": "英语6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YRP6X006",
+      "prerequisiteId": "ct_YRP5X008",
+      "strength": "soft",
+      "reason": "英语6年级该领域学习建立在5年级同领域基础之上"
     },
     {
       "topicId": "ct_YWF4S001",
-      "prerequisiteId": "ct_YWF3S001",
+      "prerequisiteId": "ct_YWF3X007",
       "strength": "soft",
       "reason": "英语4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YWF5S001",
+      "prerequisiteId": "ct_YWF4X007",
+      "strength": "soft",
+      "reason": "英语5年级该领域学习建立在4年级同领域基础之上"
     },
     {
       "topicId": "ct_YWF6S001",
-      "prerequisiteId": "ct_YWF4S001",
-      "strength": "soft",
-      "reason": "英语6年级该领域学习建立在4年级同领域基础之上"
-    },
-    {
-      "topicId": "ct_YWF5X002",
-      "prerequisiteId": "ct_YWF4X002",
-      "strength": "soft",
-      "reason": "英语5年级该领域学习建立在4年级同领域基础之上"
-    },
-    {
-      "topicId": "ct_YWF6X002",
-      "prerequisiteId": "ct_YWF5X002",
+      "prerequisiteId": "ct_YWF5X007",
       "strength": "soft",
       "reason": "英语6年级该领域学习建立在5年级同领域基础之上"
     },
     {
-      "topicId": "ct_YWF5X003",
-      "prerequisiteId": "ct_YWF4X003",
-      "strength": "soft",
-      "reason": "英语5年级该领域学习建立在4年级同领域基础之上"
-    },
-    {
-      "topicId": "ct_YYL4S001",
-      "prerequisiteId": "ct_YYL3S001",
+      "topicId": "ct_YWF4S002",
+      "prerequisiteId": "ct_YWF3X008",
       "strength": "soft",
       "reason": "英语4年级该领域学习建立在3年级同领域基础之上"
     },
     {
-      "topicId": "ct_YYL6S001",
-      "prerequisiteId": "ct_YYL4S001",
-      "strength": "soft",
-      "reason": "英语6年级该领域学习建立在4年级同领域基础之上"
-    },
-    {
-      "topicId": "ct_YYL5X002",
-      "prerequisiteId": "ct_YYL4X002",
+      "topicId": "ct_YWF5S002",
+      "prerequisiteId": "ct_YWF4X006",
       "strength": "soft",
       "reason": "英语5年级该领域学习建立在4年级同领域基础之上"
     },
     {
-      "topicId": "ct_YYL6X002",
-      "prerequisiteId": "ct_YYL5X002",
+      "topicId": "ct_YWF6S002",
+      "prerequisiteId": "ct_YWF5X006",
       "strength": "soft",
       "reason": "英语6年级该领域学习建立在5年级同领域基础之上"
     },
     {
-      "topicId": "ct_YYL5X003",
-      "prerequisiteId": "ct_YYL4X003",
+      "topicId": "ct_YWF4S004",
+      "prerequisiteId": "ct_YWF3X006",
+      "strength": "soft",
+      "reason": "英语4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YWF5S004",
+      "prerequisiteId": "ct_YWF4X008",
       "strength": "soft",
       "reason": "英语5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YWF6S004",
+      "prerequisiteId": "ct_YWF5S004",
+      "strength": "soft",
+      "reason": "英语6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YWF6X006",
+      "prerequisiteId": "ct_YWF5X008",
+      "strength": "soft",
+      "reason": "英语6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YYL4S001",
+      "prerequisiteId": "ct_YYL3X007",
+      "strength": "soft",
+      "reason": "英语4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YYL5S001",
+      "prerequisiteId": "ct_YYL4X007",
+      "strength": "soft",
+      "reason": "英语5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YYL6S001",
+      "prerequisiteId": "ct_YYL5X007",
+      "strength": "soft",
+      "reason": "英语6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YYL4S002",
+      "prerequisiteId": "ct_YYL3X008",
+      "strength": "soft",
+      "reason": "英语4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YYL5S002",
+      "prerequisiteId": "ct_YYL4X006",
+      "strength": "soft",
+      "reason": "英语5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YYL6S002",
+      "prerequisiteId": "ct_YYL5X006",
+      "strength": "soft",
+      "reason": "英语6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YYL4S004",
+      "prerequisiteId": "ct_YYL3X006",
+      "strength": "soft",
+      "reason": "英语4年级该领域学习建立在3年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YYL5S004",
+      "prerequisiteId": "ct_YYL4X008",
+      "strength": "soft",
+      "reason": "英语5年级该领域学习建立在4年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YYL6S004",
+      "prerequisiteId": "ct_YYL5S004",
+      "strength": "soft",
+      "reason": "英语6年级该领域学习建立在5年级同领域基础之上"
+    },
+    {
+      "topicId": "ct_YYL6X006",
+      "prerequisiteId": "ct_YYL5X008",
+      "strength": "soft",
+      "reason": "英语6年级该领域学习建立在5年级同领域基础之上"
     },
     {
       "topicId": "ct_KX2X003",

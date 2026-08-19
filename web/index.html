@@ -338,9 +338,11 @@ function renderSidebar(d, preIds, succIds) {
     </a>
   `).join('');
 
+  const unitMeta = [d.unit, d.module].filter(Boolean).join(' · ');
+
   sb.innerHTML = `
     <h2>${d.name}</h2>
-    <div class="meta">${d.id} · ${d.textbook||''}</div>
+    <div class="meta">${d.id} · ${d.textbook||''}${unitMeta ? ` · ${unitMeta}` : ''}</div>
     <div style="margin-bottom:12px">${tags}</div>
     <div class="desc">${d.description}</div>
 
@@ -366,7 +368,7 @@ window.selectNodeById = function(id) {
 };
 
 function topicScore(topic, query) {
-  const text = `${topic.name} ${topic.domain||''} ${topic.description||''} ${topic.subject}`.toLowerCase();
+  const text = `${topic.name} ${topic.domain||''} ${topic.description||''} ${topic.subject} ${topic.textbook||''} ${topic.unit||''} ${topic.module||''}`.toLowerCase();
   const q = query.toLowerCase();
   let score = 0;
   if (topic.name.toLowerCase().includes(q)) score += 8;

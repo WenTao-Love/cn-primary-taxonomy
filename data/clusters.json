@@ -1,41 +1,27 @@
 {
   "version": "v0.1-mvp",
-  "clusterCount": 135,
+  "clusterCount": 132,
   "clusters": [
     {
       "subject": "英语",
       "domain": "听说",
       "gradeBand": "L",
-      "topicCount": 2,
+      "topicCount": 8,
       "summary": "继续培养英语学习兴趣，重点是听说能力：简单问候、课堂指令、日常对话。不急于背单词拼写，以听说为主。"
     },
     {
       "subject": "英语",
-      "domain": "词汇",
+      "domain": "词汇与字母",
       "gradeBand": "L",
-      "topicCount": 2,
-      "summary": "围绕数字、颜色、动物、家庭成员等话题积累基础词汇，每个话题10-20个词，要求能听、能说、能认。"
+      "topicCount": 8,
+      "summary": "英语·词汇与字母：二年级低段（1-2年级）将学习约8个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "英语",
-      "domain": "字母",
-      "gradeBand": "L",
-      "topicCount": 2,
-      "summary": "英语·字母：二年级低段（1-2年级）将学习约2个相关知识点，为后续中高段学习打基础。"
-    },
-    {
-      "subject": "英语",
-      "domain": "听说",
+      "domain": "听说与词汇",
       "gradeBand": "M",
-      "topicCount": 6,
-      "summary": "英语·听说：二年级低段（1-2年级）将学习约6个相关知识点，为后续中高段学习打基础。"
-    },
-    {
-      "subject": "英语",
-      "domain": "词汇",
-      "gradeBand": "M",
-      "topicCount": 3,
-      "summary": "英语·词汇：二年级低段（1-2年级）将学习约3个相关知识点，为后续中高段学习打基础。"
+      "topicCount": 24,
+      "summary": "英语·听说与词汇：二年级低段（1-2年级）将学习约24个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "英语",
@@ -48,50 +34,43 @@
       "subject": "英语",
       "domain": "阅读",
       "gradeBand": "M",
-      "topicCount": 3,
-      "summary": "英语·阅读：二年级低段（1-2年级）将学习约3个相关知识点，为后续中高段学习打基础。"
+      "topicCount": 12,
+      "summary": "英语·阅读：二年级低段（1-2年级）将学习约12个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "英语",
       "domain": "写作",
       "gradeBand": "M",
-      "topicCount": 3,
-      "summary": "英语·写作：二年级低段（1-2年级）将学习约3个相关知识点，为后续中高段学习打基础。"
+      "topicCount": 9,
+      "summary": "英语·写作：二年级低段（1-2年级）将学习约9个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "英语",
-      "domain": "词汇与语法",
+      "domain": "听说与词汇",
       "gradeBand": "H",
-      "topicCount": 3,
-      "summary": "英语·词汇与语法：二年级低段（1-2年级）将学习约3个相关知识点，为后续中高段学习打基础。"
+      "topicCount": 24,
+      "summary": "英语·听说与词汇：二年级低段（1-2年级）将学习约24个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "英语",
       "domain": "阅读",
       "gradeBand": "H",
-      "topicCount": 6,
-      "summary": "英语·阅读：二年级低段（1-2年级）将学习约6个相关知识点，为后续中高段学习打基础。"
+      "topicCount": 12,
+      "summary": "英语·阅读：二年级低段（1-2年级）将学习约12个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "英语",
       "domain": "写作",
       "gradeBand": "H",
-      "topicCount": 3,
-      "summary": "英语·写作：二年级低段（1-2年级）将学习约3个相关知识点，为后续中高段学习打基础。"
-    },
-    {
-      "subject": "英语",
-      "domain": "听说",
-      "gradeBand": "H",
-      "topicCount": 3,
-      "summary": "英语·听说：二年级低段（1-2年级）将学习约3个相关知识点，为后续中高段学习打基础。"
+      "topicCount": 6,
+      "summary": "英语·写作：二年级低段（1-2年级）将学习约6个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "英语",
       "domain": "学习策略",
       "gradeBand": "H",
-      "topicCount": 3,
-      "summary": "英语·学习策略：二年级低段（1-2年级）将学习约3个相关知识点，为后续中高段学习打基础。"
+      "topicCount": 6,
+      "summary": "英语·学习策略：二年级低段（1-2年级）将学习约6个相关知识点，为后续中高段学习打基础。"
     },
     {
       "subject": "科学",

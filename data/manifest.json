@@ -2,7 +2,7 @@
   "dataset": "CN-Primary-Taxonomy",
   "datasetNameCn": "中国小学教育知识图谱",
   "taxonomyVersion": "v0.3-expanded",
-  "generatedAt": "2026-08-19T08:57:11.207Z",
+  "generatedAt": "2026-08-19T09:09:30.537Z",
   "basedOn": "Marble Skill Taxonomy v1 (https://github.com/withmarbleapp/os-taxonomy)",
   "country": "CN",
   "grades": [
@@ -23,36 +23,36 @@
     "统编版": 304,
     "北师大版": 279,
     "苏教版": 279,
+    "人教PEP版（三年级起点）": 32,
+    "外研版（三年级起点）": 32,
+    "译林版（三年级起点）": 32,
     "教科版": 18,
-    "人教PEP版（三年级起点）": 12,
-    "外研版（三年级起点）": 12,
-    "译林版（三年级起点）": 12,
+    "外研版（一起点）": 16,
     "教科版（参考）": 12,
-    "自编内容": 12,
-    "外研版（一起点）": 6
+    "自编内容": 12
   },
   "counts": {
-    "topics": 1273,
-    "dependencies": 1174,
+    "topics": 1343,
+    "dependencies": 1248,
     "curricula": 13,
-    "clusters": 135
+    "clusters": 132
   },
   "files": {
     "topics.json": {
-      "bytes": 2522090,
-      "sha256": "8da32011f35183002538e0d12dbcfd5c744745af2e46ff814e4b6e4d1c7399ca"
+      "bytes": 2702149,
+      "sha256": "25c92f423e5443dbdc6afdea1364bf0b8d1264846f5d77b8182ad395463f2a30"
     },
     "dependencies.json": {
-      "bytes": 297508,
-      "sha256": "695de108cdba9cd845a551a3f755bf10fc64c8563b10c4ae344d90c2ee6b5243"
+      "bytes": 317322,
+      "sha256": "c474954ffffdf7f72bbb74c00aa4f031438e762a375c37859b55ab671194d269"
     },
     "curriculum-standards.json": {
       "bytes": 53840,
       "sha256": "fcc18f773151c6abbe6762016a5b4b7bb1d2a3b0fe038fcbfc70334fb6cb5290"
     },
     "clusters.json": {
-      "bytes": 37967,
-      "sha256": "208a48cebb9277b3c9b488b25eb0ba99957880266a15fc688a999bfadb0a6282"
+      "bytes": 37244,
+      "sha256": "15c1af42134636e5dcbf1e310654d9887a120ed85ae4ff2d68207946b69dd69d"
     }
   }
 }

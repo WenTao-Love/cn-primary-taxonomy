@@ -24,11 +24,12 @@ function makeTopic(meta, grade, index, spec) {
     term: spec.term,
     gradeBand: BAND(grade),
     textbook: meta.textbook,
+    module: spec.module,
     ageRangeStart,
     ageRangeEnd,
     difficulty: spec.difficulty ?? 2,
     centrality: null,
-    evidence: spec.evidence ?? [`能完成“${spec.name}”对应的基础英语学习任务`, `能在相应课堂情境中较稳定地表现出来`],
+    evidence: spec.evidence ?? [`能完成“${spec.name}”所在模块的基础英语任务`, `能在对应模块情境中较稳定地理解或表达`],
     commonMistakes: spec.commonMistakes ?? [],
     examTips: spec.examTips ?? null,
     assessmentPrompt: spec.assessmentPrompt ?? null,
@@ -41,67 +42,115 @@ function pushTopics(meta, grade, specs) {
   specs.forEach((spec, idx) => topics.push(makeTopic(meta, grade, idx + 1, spec)));
 }
 
+function starterModule(module, term, theme, vocab, skill) {
+  return [
+    {
+      type: 'LANGUAGE',
+      term,
+      module,
+      domain: '听说',
+      name: `${theme}基础表达`,
+      description: `围绕“${theme}”模块，能听懂并说出基础课堂交流和情境表达。`,
+      standards: ['cn-yingyu-2022:1-2-ts-1']
+    },
+    {
+      type: 'LANGUAGE',
+      term,
+      module,
+      domain: '词汇与字母',
+      name: `${vocab}词汇与认读`,
+      description: `能认读并使用与“${theme}”模块相关的${vocab}，并配合${skill}开展学习。`,
+      standards: ['cn-yingyu-2022:1-2-ci-1', 'cn-yingyu-2022:1-2-zms-1']
+    }
+  ];
+}
+
 const starterMeta = { code: 'YY', textbook: '外研版（一起点）' };
-const starterGrades = {
+const starterModules = {
   1: [
-    { type:'LANGUAGE', term:'上', domain:'听说', name:'问候和课堂礼貌用语', description:'能听懂并说出 Hello、Hi、Good morning、Thank you 等基础礼貌用语。', standards:['cn-yingyu-2022:1-2-ts-1'] },
-    { type:'LANGUAGE', term:'下', domain:'词汇', name:'颜色和数字1-10', description:'能认读并口头表达基础颜色词和数字1-10。', standards:['cn-yingyu-2022:1-2-ci-1'] },
-    { type:'LANGUAGE', term:'下', domain:'字母', name:'26个字母初步认读', description:'能认读26个字母大小写，跟唱字母歌。', standards:['cn-yingyu-2022:1-2-zms-1'] }
+    ...starterModule('一年级上 Module 1 Hello', '上', '问候与礼貌表达', '问候语和姓名表达', '字母初识'),
+    ...starterModule('一年级上 Module 2 Colours and Numbers', '上', '颜色和数字', '颜色词与1-10数字', '听指令认词'),
+    ...starterModule('一年级下 Module 1 Family and Animals', '下', '家庭和动物', '家庭成员与动物词汇', '看图说词'),
+    ...starterModule('一年级下 Module 2 Classroom English', '下', '课堂指令', '课堂常用语', '字母跟读')
   ],
   2: [
-    { type:'LANGUAGE', term:'上', domain:'听说', name:'自我介绍和简单问答', description:'能进行简单自我介绍，并回答姓名、年龄等基础问题。', standards:['cn-yingyu-2022:1-2-ts-1'] },
-    { type:'LANGUAGE', term:'下', domain:'词汇', name:'家庭动物和日常物品词汇', description:'能认读并使用家庭成员、动物、学习用品等基础词汇。', standards:['cn-yingyu-2022:1-2-ci-1'] },
-    { type:'LANGUAGE', term:'下', domain:'字母', name:'字母规范书写', description:'能较规范地书写26个字母大小写。', standards:['cn-yingyu-2022:1-2-zms-1'] }
+    ...starterModule('二年级上 Module 1 Self-introduction', '上', '自我介绍', '姓名年龄相关表达', '字母规范书写'),
+    ...starterModule('二年级上 Module 2 School Things', '上', '学习用品与学校生活', '学习用品词汇', '看图问答'),
+    ...starterModule('二年级下 Module 1 Family and Friends', '下', '家庭和朋友', '人物称谓词汇', '简单对话'),
+    ...starterModule('二年级下 Module 2 Daily Life', '下', '日常生活', '动作与物品词汇', '听说配对')
   ]
 };
 
-for (const grade of [1,2]) pushTopics(starterMeta, grade, starterGrades[grade]);
+for (const grade of [1,2]) pushTopics(starterMeta, grade, starterModules[grade]);
 
-const versionMetas = [
-  { code: 'YRP', textbook: '人教PEP版（三年级起点）' },
-  { code: 'YWF', textbook: '外研版（三年级起点）' },
-  { code: 'YYL', textbook: '译林版（三年级起点）' }
-];
+function buildVersionModules(meta, grade, items) {
+  const specs = [];
+  for (const item of items) {
+    specs.push({
+      type: 'LANGUAGE',
+      term: item.term,
+      module: item.module,
+      domain: '听说与词汇',
+      name: `${item.theme}核心表达`,
+      description: `围绕${meta.textbook}${item.module}，能就“${item.theme}”进行基础问答和词汇表达。`,
+      standards: grade <= 4 ? ['cn-yingyu-2022:3-4-ts-1', 'cn-yingyu-2022:3-4-ci-1'] : ['cn-yingyu-2022:5-6-ts-1', 'cn-yingyu-2022:5-6-yy-1']
+    });
+    specs.push({
+      type: 'LANGUAGE',
+      term: item.term,
+      module: item.module,
+      domain: item.readingDomain,
+      name: `${item.theme}${item.skillLabel}`,
+      description: `围绕${meta.textbook}${item.module}，能完成与“${item.theme}”相关的${item.skillLabel}任务。`,
+      standards: item.skillStandards
+    });
+  }
+  return specs;
+}
 
-const coreGrades = {
+const pep = { code: 'YRP', textbook: '人教PEP版（三年级起点）' };
+const waiyan = { code: 'YWF', textbook: '外研版（三年级起点）' };
+const yilin = { code: 'YYL', textbook: '译林版（三年级起点）' };
+
+const versionModules = {
   3: [
-    { type:'LANGUAGE', term:'上', domain:'听说', name:'基础课堂交流和日常问候', description:'能在课堂和生活中进行基础问候、介绍和简单应答。', standards:['cn-yingyu-2022:3-4-ts-1'] },
-    { type:'LANGUAGE', term:'上', domain:'词汇', name:'颜色数字家庭学校词汇', description:'能认读并使用与颜色、数字、家庭、学校相关的核心词汇。', standards:['cn-yingyu-2022:3-4-ci-1'] },
-    { type:'LANGUAGE', term:'下', domain:'字母与语音', name:'字母音和自然拼读启蒙', description:'能结合字母名称和基础字母音进行简单认读。', standards:['cn-yingyu-2022:3-4-yy-1'] }
+    { term:'上', module:'三上 Unit 1 Hello', theme:'问候与结交朋友', readingDomain:'字母与语音', skillLabel:'字母音认读', skillStandards:['cn-yingyu-2022:3-4-yy-1'] },
+    { term:'上', module:'三上 Unit 2 Colours and Numbers', theme:'颜色数字与课堂物品', readingDomain:'阅读', skillLabel:'图文对应阅读', skillStandards:['cn-yingyu-2022:3-4-yd-1'] },
+    { term:'下', module:'三下 Unit 3 Family and Animals', theme:'家庭成员与动物', readingDomain:'写作', skillLabel:'句型仿写', skillStandards:['cn-yingyu-2022:3-4-xz-1'] },
+    { term:'下', module:'三下 Unit 4 Food and Hobbies', theme:'食物和兴趣爱好', readingDomain:'阅读', skillLabel:'关键词理解', skillStandards:['cn-yingyu-2022:3-4-yd-1'] }
   ],
   4: [
-    { type:'LANGUAGE', term:'上', domain:'听说', name:'围绕日常话题进行简短对话', description:'能围绕时间、地点、喜好、天气等日常话题进行简短交流。', standards:['cn-yingyu-2022:3-4-ts-1'] },
-    { type:'LANGUAGE', term:'下', domain:'阅读', name:'借助图片和关键词理解短文', description:'能借助插图和关键词理解简单英语短文大意。', standards:['cn-yingyu-2022:3-4-yd-1'] },
-    { type:'LANGUAGE', term:'下', domain:'写作', name:'仿写简单句和小短文', description:'能模仿例句书写简单句子和非常短的小短文。', standards:['cn-yingyu-2022:3-4-xz-1'] }
+    { term:'上', module:'四上 Unit 1 School Life', theme:'学校生活与课程', readingDomain:'阅读', skillLabel:'短文理解', skillStandards:['cn-yingyu-2022:3-4-yd-1'] },
+    { term:'上', module:'四上 Unit 2 Time and Weather', theme:'时间和天气', readingDomain:'写作', skillLabel:'句子书写', skillStandards:['cn-yingyu-2022:3-4-xz-1'] },
+    { term:'下', module:'四下 Unit 3 Home and City', theme:'家和城市生活', readingDomain:'阅读', skillLabel:'信息提取', skillStandards:['cn-yingyu-2022:3-4-yd-1'] },
+    { term:'下', module:'四下 Unit 4 Daily Routines', theme:'日常作息与行为', readingDomain:'写作', skillLabel:'看图写句', skillStandards:['cn-yingyu-2022:3-4-xz-1'] }
   ],
   5: [
-    { type:'LANGUAGE', term:'上', domain:'词汇与语法', name:'在句子中运用时态和核心句型', description:'能在熟悉语境中运用一般现在时等基础时态和核心句型。', standards:['cn-yingyu-2022:5-6-yy-1'] },
-    { type:'LANGUAGE', term:'下', domain:'阅读', name:'提取语篇关键信息', description:'能从短文中提取人物、时间、地点、事件等关键信息。', standards:['cn-yingyu-2022:5-6-yd-1'] },
-    { type:'LANGUAGE', term:'下', domain:'写作', name:'根据提示完成简短书面表达', description:'能根据图片、表格或提示完成简短英语书面表达。', standards:['cn-yingyu-2022:5-6-xz-1'] }
+    { term:'上', module:'五上 Unit 1 Personal Information', theme:'个人信息与人物介绍', readingDomain:'阅读', skillLabel:'语篇理解', skillStandards:['cn-yingyu-2022:5-6-yd-1'] },
+    { term:'上', module:'五上 Unit 2 Weekend and Travel', theme:'周末和出行计划', readingDomain:'写作', skillLabel:'书面表达', skillStandards:['cn-yingyu-2022:5-6-xz-1'] },
+    { term:'下', module:'五下 Unit 3 Health and Food', theme:'健康与饮食', readingDomain:'阅读', skillLabel:'关键信息提取', skillStandards:['cn-yingyu-2022:5-6-yd-1'] },
+    { term:'下', module:'五下 Unit 4 Festivals and Culture', theme:'节日与文化', readingDomain:'学习策略', skillLabel:'拼读与猜词', skillStandards:['cn-yingyu-2022:5-6-cl-1'] }
   ],
   6: [
-    { type:'LANGUAGE', term:'上', domain:'听说', name:'围绕熟悉主题进行较完整表达', description:'能围绕自我、家庭、学校、旅行等主题进行较完整口头表达。', standards:['cn-yingyu-2022:5-6-ts-1'] },
-    { type:'LANGUAGE', term:'下', domain:'阅读', name:'理解并概括短文大意', description:'能理解较完整语篇并概括主要内容或作者意图。', standards:['cn-yingyu-2022:5-6-yd-1'] },
-    { type:'META', term:'下', domain:'学习策略', name:'使用拼读和上下文策略自主认读', description:'能结合自然拼读、上下文和已有词汇经验自主认读与猜测词义。', standards:['cn-yingyu-2022:5-6-cl-1'] }
+    { term:'上', module:'六上 Unit 1 Past Experiences', theme:'过去经历和事件', readingDomain:'阅读', skillLabel:'语篇概括', skillStandards:['cn-yingyu-2022:5-6-yd-1'] },
+    { term:'上', module:'六上 Unit 2 Plans and Dreams', theme:'计划与理想', readingDomain:'写作', skillLabel:'主题写作', skillStandards:['cn-yingyu-2022:5-6-xz-1'] },
+    { term:'下', module:'六下 Unit 3 Environment and Technology', theme:'环境与科技', readingDomain:'学习策略', skillLabel:'上下文推断', skillStandards:['cn-yingyu-2022:5-6-cl-1'] },
+    { term:'下', module:'六下 Unit 4 Graduation and Communication', theme:'毕业表达与交流', readingDomain:'阅读', skillLabel:'综合理解', skillStandards:['cn-yingyu-2022:5-6-yd-1'] }
   ]
 };
 
-for (const meta of versionMetas) {
+for (const meta of [pep, waiyan, yilin]) {
   for (const grade of [3,4,5,6]) {
-    const specs = coreGrades[grade].map(item => ({
-      ...item,
-      description: `${item.description}（按${meta.textbook}核心内容口径映射）`
-    }));
-    pushTopics(meta, grade, specs);
+    pushTopics(meta, grade, buildVersionModules(meta, grade, versionModules[grade]));
   }
 }
 
 const data = {
-  version: 'v0.3-english-versions',
-  note: '英语扩展：外研版（一起点）覆盖1-2年级；人教PEP版/外研版/译林版（三年级起点）覆盖3-6年级',
+  version: 'v0.3-english-modules',
+  note: '英语扩展：外研版（一起点）1-2年级启蒙模块；人教PEP版/外研版/译林版（三年级起点）3-6年级按教材模块组织',
   topicCount: topics.length,
   topics
 };
 
 writeFileSync(OUT, JSON.stringify(data, null, 2), 'utf8');
-console.log(`✅ 英语扩展与多版本：${topics.length} 个知识点写入 ${OUT}`);
+console.log(`✅ 英语扩展与多版本模块化：${topics.length} 个知识点写入 ${OUT}`);

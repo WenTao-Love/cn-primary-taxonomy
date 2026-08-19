@@ -26,6 +26,8 @@
           "term": { "type": "string", "enum": ["上", "下", "全"], "description": "学期：上/下/全一册" },
           "gradeBand": { "type": "string", "enum": ["L", "M", "H"], "description": "年级段：低段L(1-2)/中段M(3-4)/高段H(5-6)" },
           "textbook": { "type": ["string", "null"], "description": "教材版本，如 统编版/人教版/北师大版/教科版/外研版一起点" },
+          "unit": { "type": ["string", "null"], "description": "教材单元，如 四上 第1单元 大数认识" },
+          "module": { "type": ["string", "null"], "description": "教材模块，如 三上 Module 1 Greetings" },
           "ageRangeStart": { "type": ["integer", "null"] },
           "ageRangeEnd": { "type": ["integer", "null"] },
           "difficulty": { "type": "integer", "minimum": 1, "maximum": 5, "description": "难度星级1-5" },
