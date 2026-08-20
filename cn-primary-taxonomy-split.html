@@ -212,6 +212,7 @@ async function init() {
   applyFilters();
   window.addEventListener('resize', handleResize, { passive: true });
   document.addEventListener('visibilitychange', handleVisibilityChange, { passive: true });
+  window.addEventListener('pagehide', cleanupRuntime, { once: true });
   window.addEventListener('beforeunload', cleanupRuntime, { once: true });
 }
 
@@ -225,13 +226,22 @@ function handleResize() {
 }
 
 function handleVisibilityChange() {
-  if (document.hidden) destroyGraphRuntime({ keepSvg: true });
+  if (document.hidden) {
+    destroyGraphRuntime();
+    return;
+  }
+  setupCanvas();
+  applyFilters();
 }
 
 function cleanupRuntime() {
-  destroyGraphRuntime({ keepSvg: true });
+  destroyGraphRuntime();
   if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
   if (resizeDebounceTimer) clearTimeout(resizeDebounceTimer);
+  if (svg) svg.on('.zoom', null);
+  zoomBehavior = null;
+  filteredGraphCache = new Map();
+  filteredTopicCache = new Map();
 }
 
 function destroyGraphRuntime(options = {}) {
@@ -245,6 +255,10 @@ function destroyGraphRuntime(options = {}) {
     simulation.stop();
     simulation = null;
   }
+  if (svg && !keepSvg) {
+    svg.on('.zoom', null);
+  }
+  zoomBehavior = null;
   gLinks = null;
   gNodes = null;
   data = { nodes:[], links:[], nodeMap:new Map() };
