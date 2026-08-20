@@ -6,23 +6,31 @@
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background:#0f1419; color:#e6e6e6; overflow:hidden; }
-#app { display:grid; grid-template-columns: 1fr 380px; height:100vh; }
+#app { display:grid; grid-template-columns: 1fr 380px; height:100vh; transition:grid-template-columns 0.24s ease; }
+#app.sidebar-collapsed { grid-template-columns:1fr 0; }
 #graph { position:relative; background: radial-gradient(ellipse at center, #1a2332 0%, #0f1419 100%); }
 #graph svg { width:100%; height:100%; }
-header { position:absolute; top:20px; left:20px; z-index:10; }
-header h1 { font-size:20px; color:#fff; font-weight:600; letter-spacing:1px; }
-header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
+.sidebar-toggle { position:absolute; top:16px; right:16px; z-index:15; width:36px; height:36px; border-radius:999px; border:1px solid rgba(255,255,255,0.12); background:rgba(20,28,40,0.88); color:#dcefff; cursor:pointer; font-size:16px; backdrop-filter:blur(8px); transition:all 0.2s ease; }
+.sidebar-toggle:hover { background:rgba(93,173,226,0.2); border-color:rgba(93,173,226,0.5); }
 .legend { position:absolute; bottom:20px; left:20px; z-index:10; background:rgba(20,28,40,0.85); padding:12px 16px; border-radius:8px; border:1px solid rgba(255,255,255,0.08); backdrop-filter:blur(8px); }
 .legend h3 { font-size:12px; color:#7f8c9a; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px; }
 .legend-item { display:flex; align-items:center; gap:8px; margin:4px 0; font-size:12px; }
 .legend-dot { width:10px; height:10px; border-radius:50%; }
-#sidebar { background:#151d28; border-left:1px solid rgba(255,255,255,0.06); overflow-y:auto; padding:24px; }
-#search-panel, #filter-panel, #assistant-panel, #graph-status { margin-bottom:20px; padding:14px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:10px; }
+#sidebar { background:#151d28; border-left:1px solid rgba(255,255,255,0.06); overflow:hidden; min-width:0; transition:opacity 0.2s ease, border-color 0.2s ease; }
+#app.sidebar-collapsed #sidebar { opacity:0; border-left-color:transparent; pointer-events:none; }
+#sidebar-content { height:100%; overflow-y:auto; padding:24px; }
+#overview-panel, #search-panel, #filter-panel, #assistant-panel, #graph-status { margin-bottom:20px; padding:14px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:10px; }
+#overview-panel h1 { font-size:20px; color:#fff; font-weight:600; letter-spacing:1px; }
+#overview-panel p { font-size:12px; color:#7f8c9a; margin-top:6px; line-height:1.6; }
+.stats-bar { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:10px; margin-top:14px; }
+.stats-bar div { padding:12px 10px; border-radius:8px; background:rgba(255,255,255,0.04); color:#7f8c9a; font-size:12px; text-align:center; }
+.stats-bar b { display:block; color:#fff; font-size:18px; font-weight:600; margin-bottom:4px; }
 #search-panel h3, #filter-panel h3, #assistant-panel h3 { margin-top:0; }
 #search-panel p { margin-top:10px; font-size:11px; color:#7f8c9a; line-height:1.6; }
 #filter-panel p { margin-top:10px; font-size:11px; color:#7f8c9a; line-height:1.6; }
 #filter-panel .filter-field { margin-top:12px; }
 #filter-panel .filter-label-row { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:6px; }
+#filter-panel .filter-actions { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
 #filter-panel label { display:block; font-size:12px; color:#a8b4c0; }
 #filter-panel .filter-action { background:none; border:none; color:#5dade2; cursor:pointer; font-size:11px; padding:0; }
 #filter-panel .filter-action:hover { color:#dcefff; }
@@ -62,8 +70,6 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
 .chain-item.hard { border-left:2px solid #e74c3c; }
 .chain-item.soft { border-left:2px solid #f39c12; }
 .chain-arrow { font-size:10px; color:#7f8c9a; }
-.stats-bar { position:absolute; top:70px; left:20px; z-index:10; display:flex; gap:16px; font-size:12px; color:#7f8c9a; }
-.stats-bar b { color:#fff; font-size:16px; font-weight:600; margin-right:4px; }
 /* graph styles */
 .node { cursor:pointer; transition:opacity 0.2s; }
 .node:hover { stroke-width:3px; }
@@ -91,20 +97,15 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
 .graph-status strong { color:#fff; }
 .graph-status.warn { border-color:rgba(243,156,18,0.4); }
 .graph-status.info { border-color:rgba(93,173,226,0.35); }
+@media (max-width: 1180px) {
+  #app { grid-template-columns: 1fr 340px; }
+}
 </style>
 </head>
 <body>
 <div id="app">
 <div id="graph">
-  <header>
-    <h1>🇨🇳 中国小学教育知识图谱</h1>
-    <p id="subtitle">CN-Primary-Taxonomy 正在加载…</p>
-  </header>
-  <div class="stats-bar">
-    <div><b id="stat-topics">0</b>知识点</div>
-    <div><b id="stat-deps">0</b>依赖</div>
-    <div><b id="stat-subjects">0</b>学科</div>
-  </div>
+  <button id="sidebar-toggle" class="sidebar-toggle" type="button" title="折叠右侧面板" aria-expanded="true">→</button>
   <div class="legend">
     <h3>学科颜色</h3>
     <div class="legend-item"><span class="legend-dot" style="background:#e74c3c"></span>语文</div>
@@ -124,6 +125,16 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
   <svg id="canvas"></svg>
 </div>
 <div id="sidebar">
+  <div id="sidebar-content">
+  <div id="overview-panel">
+    <h1>🇨🇳 中国小学教育知识图谱</h1>
+    <p id="subtitle">CN-Primary-Taxonomy 正在加载…</p>
+    <div class="stats-bar">
+      <div><b id="stat-topics">0</b>知识点</div>
+      <div><b id="stat-deps">0</b>依赖</div>
+      <div><b id="stat-subjects">0</b>学科</div>
+    </div>
+  </div>
   <div id="search-panel">
     <h3>知识点搜索</h3>
     <div class="search-box">
@@ -145,7 +156,11 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
     <div class="filter-field">
       <div class="filter-label-row">
         <label>年级</label>
-        <button type="button" class="filter-action" data-filter-target="grade">全选</button>
+        <div class="filter-actions">
+          <button type="button" class="filter-action" data-filter-target="grade" data-filter-action="select-all">全选</button>
+          <button type="button" class="filter-action" data-filter-target="grade" data-filter-action="invert">反选</button>
+          <button type="button" class="filter-action" data-filter-target="grade" data-filter-action="clear">清空</button>
+        </div>
       </div>
       <details class="multi-select">
         <summary><span>年级</span><span class="summary-value" id="grade-summary">未加载</span></summary>
@@ -155,7 +170,11 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
     <div class="filter-field">
       <div class="filter-label-row">
         <label>学科</label>
-        <button type="button" class="filter-action" data-filter-target="subject">全选</button>
+        <div class="filter-actions">
+          <button type="button" class="filter-action" data-filter-target="subject" data-filter-action="select-all">全选</button>
+          <button type="button" class="filter-action" data-filter-target="subject" data-filter-action="invert">反选</button>
+          <button type="button" class="filter-action" data-filter-target="subject" data-filter-action="clear">清空</button>
+        </div>
       </div>
       <details class="multi-select">
         <summary><span>学科</span><span class="summary-value" id="subject-summary">未加载</span></summary>
@@ -165,7 +184,11 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
     <div class="filter-field">
       <div class="filter-label-row">
         <label>教材/版本</label>
-        <button type="button" class="filter-action" data-filter-target="textbook">全选</button>
+        <div class="filter-actions">
+          <button type="button" class="filter-action" data-filter-target="textbook" data-filter-action="select-all">全选</button>
+          <button type="button" class="filter-action" data-filter-target="textbook" data-filter-action="invert">反选</button>
+          <button type="button" class="filter-action" data-filter-target="textbook" data-filter-action="clear">清空</button>
+        </div>
       </div>
       <details class="multi-select">
         <summary><span>教材/版本</span><span class="summary-value" id="textbook-summary">未加载</span></summary>
@@ -182,8 +205,9 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
       线条表示"先学什么再学什么"的依赖关系。<br><br>
       <span style="color:#5dade2">🔴 红线 = 必须先掌握</span><br>
       <span style="color:#f39c12">🟡 虚线 = 有帮助但非必须</span><br><br>
-      顶部搜索框可快速定位知识点，右侧学习助手可直接问"先补什么"。
+      右侧搜索框可快速定位知识点，右侧学习助手可直接问"先补什么"。
     </div>
+  </div>
   </div>
 </div>
 </div>
@@ -226,6 +250,7 @@ let filteredGraphCache = new Map();
 let gradeFilterItems = [];
 let subjectFilterItems = [];
 let textbookFilterItems = [];
+let sidebarCollapsed = false;
 
 function loadDataset(name, url) {
   if (window.__CNPT_EMBEDDED && window.__CNPT_EMBEDDED[name]) {
@@ -255,6 +280,7 @@ async function init() {
   buildControls();
   renderAssistantPanel();
   setupSearch();
+  setupSidebarToggle();
   setupCanvas();
   applyFilters();
   window.addEventListener('resize', handleResize, { passive: true });
@@ -289,6 +315,29 @@ function cleanupRuntime() {
   zoomBehavior = null;
   filteredGraphCache = new Map();
   filteredTopicCache = new Map();
+}
+
+function setupSidebarToggle() {
+  const toggle = document.getElementById('sidebar-toggle');
+  toggle.addEventListener('click', () => {
+    setSidebarCollapsed(!sidebarCollapsed);
+  });
+}
+
+function setSidebarCollapsed(collapsed) {
+  sidebarCollapsed = collapsed;
+  const app = document.getElementById('app');
+  const toggle = document.getElementById('sidebar-toggle');
+  app.classList.toggle('sidebar-collapsed', collapsed);
+  toggle.textContent = collapsed ? '←' : '→';
+  toggle.title = collapsed ? '展开右侧面板' : '折叠右侧面板';
+  toggle.setAttribute('aria-expanded', String(!collapsed));
+  if (resizeDebounceTimer) clearTimeout(resizeDebounceTimer);
+  resizeDebounceTimer = setTimeout(() => {
+    destroyGraphRuntime();
+    setupCanvas();
+    applyFilters();
+  }, 120);
 }
 
 function destroyGraphRuntime(options = {}) {
@@ -387,19 +436,56 @@ function buildControls() {
   document.querySelectorAll('.filter-action').forEach(button => {
     button.addEventListener('click', () => {
       const target = button.dataset.filterTarget;
+      const action = button.dataset.filterAction;
+      const config = getFilterConfig(target);
+      if (!config) return;
+      const { items, setter } = config;
+      const allValues = items.map(item => item.value);
+      const currentSet = new Set(config.selectedSet());
+      let nextSet = currentSet;
+      if (action === 'select-all') {
+        nextSet = new Set(allValues);
+      } else if (action === 'invert') {
+        nextSet = new Set(allValues.filter(value => !currentSet.has(value)));
+      } else if (action === 'clear') {
+        nextSet = new Set();
+      }
+      setter(nextSet);
       if (target === 'grade') {
-        currentGrades = new Set(gradeFilterItems.map(item => item.value));
         renderMultiSelectOptions('grade', gradeFilterItems, currentGrades);
       } else if (target === 'subject') {
-        currentSubjects = new Set(subjectFilterItems.map(item => item.value));
         renderMultiSelectOptions('subject', subjectFilterItems, currentSubjects);
       } else if (target === 'textbook') {
-        currentTextbooks = new Set(textbookFilterItems.map(item => item.value));
         renderMultiSelectOptions('textbook', textbookFilterItems, currentTextbooks);
       }
       applyFilters();
     });
   });
+}
+
+function getFilterConfig(target) {
+  if (target === 'grade') {
+    return {
+      items: gradeFilterItems,
+      selectedSet: () => currentGrades,
+      setter: value => { currentGrades = value; }
+    };
+  }
+  if (target === 'subject') {
+    return {
+      items: subjectFilterItems,
+      selectedSet: () => currentSubjects,
+      setter: value => { currentSubjects = value; }
+    };
+  }
+  if (target === 'textbook') {
+    return {
+      items: textbookFilterItems,
+      selectedSet: () => currentTextbooks,
+      setter: value => { currentTextbooks = value; }
+    };
+  }
+  return null;
 }
 
 function renderMultiSelectOptions(kind, items, selectedSet) {
@@ -424,10 +510,6 @@ function renderMultiSelectOptions(kind, items, selectedSet) {
         selectedSet.add(item.value);
       } else {
         selectedSet.delete(item.value);
-        if (!selectedSet.size) {
-          selectedSet.add(item.value);
-          checkbox.checked = true;
-        }
       }
       updateFilterSummaries();
       applyFilters();
@@ -492,6 +574,7 @@ function applyFilters(options = {}) {
 
 function summarizeSelection(items, selectedSet) {
   if (!items.length) return '未加载';
+  if (!selectedSet.size) return '未选择';
   if (selectedSet.size === items.length) return `全部 (${items.length})`;
   const chosen = items.filter(item => selectedSet.has(item.value));
   if (chosen.length <= 2) return chosen.map(item => item.label).join('、');
@@ -516,6 +599,11 @@ function renderGraph(filteredTopics, keepSelection = true) {
   const limit = MAX_RENDER_NODES[currentLayer] || 900;
   if (filteredTopics.length > limit) {
     updateGraphStatus(`当前筛选命中 <strong>${filteredTopics.length}</strong> 个节点，超过轻量渲染阈值。请继续按年级 / 学科 / 版本收窄，或先切回“核心骨架”。`, 'warn');
+    if (!keepSelection) selectedNodeId = null;
+    return;
+  }
+  if (!filteredTopics.length) {
+    updateGraphStatus('当前筛选结果为空。你可以使用“反选”“清空”或重新勾选年级 / 学科 / 版本来恢复图谱。', 'warn');
     if (!keepSelection) selectedNodeId = null;
     return;
   }
