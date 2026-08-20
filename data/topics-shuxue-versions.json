@@ -70571,6 +70571,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXB6X033_例题型_direct-57427880",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57427880",
+          "title": "百分数的意义·百分数与方程·数与代数讲义直链",
+          "type": "example",
+          "url": "https://www.zxxk.com/soft/57427880.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57427880，覆盖百分数、式与方程、比和比例等数与代数复习讲练"
+        },
+        {
+          "resourceId": "res_ct_SXB6X033_例题型_direct-57508464",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57508464",
+          "title": "百分数的意义·百分数与方程·式与方程课件直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/57508464.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57508464，适合补列方程、解方程与数量关系表达"
+        },
+        {
           "resourceId": "res_ct_SXB6X033_例题型_album-lecture",
           "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
           "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
@@ -70589,16 +70611,6 @@
           "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
           "source": "学科网",
           "note": "已直达“小学数学 + 6年级 + 学案/导学案 + 同步教学”页，适合找与“6年级下册 六下 第2单元 百分数与方程 百分数方程 · 课时主题：百分数的意义 百分数的意义”对应的逐单元精选题单"
-        },
-        {
-          "resourceId": "res_ct_SXB6X033_例题型_unit-pack",
-          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
-          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
-          "title": "百分数的意义·单元精选题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 北师大版-6年级下册-六下第2单元百分数与方程-例题型，用于承载“六下 第2单元 百分数与方程”下的精选题单映射；后续可继续补充具体作品ID直链"
         }
       ]
     },
@@ -70649,6 +70661,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXB6X033_易错型_direct-46882136",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "46882136",
+          "title": "百分数的意义·百分数与方程·式与方程专项直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/46882136.html",
+          "source": "学科网",
+          "note": "学科网作品ID 46882136，适合回练列方程、解方程和文字题转化"
+        },
+        {
+          "resourceId": "res_ct_SXB6X033_易错型_direct-39208563",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "39208563",
+          "title": "百分数的意义·百分数与方程·式与方程教案直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/39208563.html",
+          "source": "学科网",
+          "note": "学科网作品ID 39208563，适合梳理总复习中方程模块的常见错因和步骤规范"
+        },
+        {
           "resourceId": "res_ct_SXB6X033_易错型_album-paper",
           "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
           "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
@@ -70667,16 +70701,6 @@
           "url": "https://www.jyeoo.com/math3/report/index?ai=0",
           "source": "菁优网",
           "note": "已直达小学数学试卷中心，建议用“6年级下册 六下 第2单元 百分数与方程 百分数方程 · 课时主题：百分数的意义 百分数的意义 易错”作为定位词筛同类纠错卷"
-        },
-        {
-          "resourceId": "res_ct_SXB6X033_易错型_unit-pack",
-          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
-          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
-          "title": "百分数的意义·错因题单映射",
-          "type": "exercise",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3103-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 北师大版-6年级下册-六下第2单元百分数与方程-易错型，用于沉淀“六下 第2单元 百分数与方程”的易错型精选题单和后续作品ID"
         }
       ]
     },
@@ -70727,6 +70751,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXB6X033_方法型_direct-57508464-method",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57508464",
+          "title": "百分数的意义·百分数与方程·列方程方法支架直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/57508464.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57508464，适合沉淀列方程的等量关系建模步骤"
+        },
+        {
+          "resourceId": "res_ct_SXB6X033_方法型_direct-57427880-method",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57427880",
+          "title": "百分数的意义·百分数与方程·数与代数复盘直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/57427880.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57427880，适合连接百分数、方程、比与比例的综合方法复盘"
+        },
+        {
           "resourceId": "res_ct_SXB6X033_方法型_album-method",
           "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
           "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
@@ -70745,16 +70791,6 @@
           "url": "https://basic.smartedu.cn/",
           "source": "国家中小学智慧教育平台",
           "note": "检索“6年级下册 六下 第2单元 百分数与方程 百分数方程 · 课时主题：百分数的意义 百分数的意义”，优先调用同步课、作业活动和方法讲解资源"
-        },
-        {
-          "resourceId": "res_ct_SXB6X033_方法型_unit-pack",
-          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
-          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
-          "title": "百分数的意义·方法策略题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3108-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 北师大版-6年级下册-六下第2单元百分数与方程-方法型，用于沉淀“六下 第2单元 百分数与方程”的方法型精选题单和后续作品ID"
         }
       ]
     },
@@ -70842,6 +70878,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXB6X037_例题型_direct-57427880",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57427880",
+          "title": "百分数和分数小数互化·百分数与方程·数与代数讲义直链",
+          "type": "example",
+          "url": "https://www.zxxk.com/soft/57427880.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57427880，覆盖百分数、式与方程、比和比例等数与代数复习讲练"
+        },
+        {
+          "resourceId": "res_ct_SXB6X037_例题型_direct-57508464",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57508464",
+          "title": "百分数和分数小数互化·百分数与方程·式与方程课件直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/57508464.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57508464，适合补列方程、解方程与数量关系表达"
+        },
+        {
           "resourceId": "res_ct_SXB6X037_例题型_album-lecture",
           "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
           "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
@@ -70860,16 +70918,6 @@
           "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
           "source": "学科网",
           "note": "已直达“小学数学 + 6年级 + 学案/导学案 + 同步教学”页，适合找与“6年级下册 六下 第2单元 百分数与方程 百分数方程 · 课时主题：百分数和分数小数互化 百分数和分数小数互化”对应的逐单元精选题单"
-        },
-        {
-          "resourceId": "res_ct_SXB6X037_例题型_unit-pack",
-          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
-          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
-          "title": "百分数和分数小数互化·单元精选题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 北师大版-6年级下册-六下第2单元百分数与方程-例题型，用于承载“六下 第2单元 百分数与方程”下的精选题单映射；后续可继续补充具体作品ID直链"
         }
       ]
     },
@@ -70920,6 +70968,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXB6X037_易错型_direct-46882136",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "46882136",
+          "title": "百分数和分数小数互化·百分数与方程·式与方程专项直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/46882136.html",
+          "source": "学科网",
+          "note": "学科网作品ID 46882136，适合回练列方程、解方程和文字题转化"
+        },
+        {
+          "resourceId": "res_ct_SXB6X037_易错型_direct-39208563",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "39208563",
+          "title": "百分数和分数小数互化·百分数与方程·式与方程教案直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/39208563.html",
+          "source": "学科网",
+          "note": "学科网作品ID 39208563，适合梳理总复习中方程模块的常见错因和步骤规范"
+        },
+        {
           "resourceId": "res_ct_SXB6X037_易错型_album-paper",
           "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
           "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
@@ -70938,16 +71008,6 @@
           "url": "https://www.jyeoo.com/math3/report/index?ai=0",
           "source": "菁优网",
           "note": "已直达小学数学试卷中心，建议用“6年级下册 六下 第2单元 百分数与方程 百分数方程 · 课时主题：百分数和分数小数互化 百分数和分数小数互化 易错”作为定位词筛同类纠错卷"
-        },
-        {
-          "resourceId": "res_ct_SXB6X037_易错型_unit-pack",
-          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
-          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
-          "title": "百分数和分数小数互化·错因题单映射",
-          "type": "exercise",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3103-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 北师大版-6年级下册-六下第2单元百分数与方程-易错型，用于沉淀“六下 第2单元 百分数与方程”的易错型精选题单和后续作品ID"
         }
       ]
     },
@@ -70998,6 +71058,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXB6X037_方法型_direct-57508464-method",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57508464",
+          "title": "百分数和分数小数互化·百分数与方程·列方程方法支架直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/57508464.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57508464，适合沉淀列方程的等量关系建模步骤"
+        },
+        {
+          "resourceId": "res_ct_SXB6X037_方法型_direct-57427880-method",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57427880",
+          "title": "百分数和分数小数互化·百分数与方程·数与代数复盘直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/57427880.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57427880，适合连接百分数、方程、比与比例的综合方法复盘"
+        },
+        {
           "resourceId": "res_ct_SXB6X037_方法型_album-method",
           "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
           "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
@@ -71016,16 +71098,6 @@
           "url": "https://basic.smartedu.cn/",
           "source": "国家中小学智慧教育平台",
           "note": "检索“6年级下册 六下 第2单元 百分数与方程 百分数方程 · 课时主题：百分数和分数小数互化 百分数和分数小数互化”，优先调用同步课、作业活动和方法讲解资源"
-        },
-        {
-          "resourceId": "res_ct_SXB6X037_方法型_unit-pack",
-          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
-          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
-          "title": "百分数和分数小数互化·方法策略题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3108-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 北师大版-6年级下册-六下第2单元百分数与方程-方法型，用于沉淀“六下 第2单元 百分数与方程”的方法型精选题单和后续作品ID"
         }
       ]
     },
@@ -71113,6 +71185,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXB6X041_例题型_direct-57427880",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57427880",
+          "title": "百分数应用题·百分数与方程·数与代数讲义直链",
+          "type": "example",
+          "url": "https://www.zxxk.com/soft/57427880.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57427880，覆盖百分数、式与方程、比和比例等数与代数复习讲练"
+        },
+        {
+          "resourceId": "res_ct_SXB6X041_例题型_direct-57508464",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57508464",
+          "title": "百分数应用题·百分数与方程·式与方程课件直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/57508464.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57508464，适合补列方程、解方程与数量关系表达"
+        },
+        {
           "resourceId": "res_ct_SXB6X041_例题型_album-lecture",
           "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
           "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
@@ -71131,16 +71225,6 @@
           "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
           "source": "学科网",
           "note": "已直达“小学数学 + 6年级 + 学案/导学案 + 同步教学”页，适合找与“6年级下册 六下 第2单元 百分数与方程 百分数方程 · 课时主题：百分数应用题 百分数应用题”对应的逐单元精选题单"
-        },
-        {
-          "resourceId": "res_ct_SXB6X041_例题型_unit-pack",
-          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
-          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
-          "title": "百分数应用题·单元精选题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 北师大版-6年级下册-六下第2单元百分数与方程-例题型，用于承载“六下 第2单元 百分数与方程”下的精选题单映射；后续可继续补充具体作品ID直链"
         }
       ]
     },
@@ -71191,6 +71275,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXB6X041_易错型_direct-46882136",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "46882136",
+          "title": "百分数应用题·百分数与方程·式与方程专项直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/46882136.html",
+          "source": "学科网",
+          "note": "学科网作品ID 46882136，适合回练列方程、解方程和文字题转化"
+        },
+        {
+          "resourceId": "res_ct_SXB6X041_易错型_direct-39208563",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "39208563",
+          "title": "百分数应用题·百分数与方程·式与方程教案直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/39208563.html",
+          "source": "学科网",
+          "note": "学科网作品ID 39208563，适合梳理总复习中方程模块的常见错因和步骤规范"
+        },
+        {
           "resourceId": "res_ct_SXB6X041_易错型_album-paper",
           "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
           "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
@@ -71209,16 +71315,6 @@
           "url": "https://www.jyeoo.com/math3/report/index?ai=0",
           "source": "菁优网",
           "note": "已直达小学数学试卷中心，建议用“6年级下册 六下 第2单元 百分数与方程 百分数方程 · 课时主题：百分数应用题 百分数应用题 易错”作为定位词筛同类纠错卷"
-        },
-        {
-          "resourceId": "res_ct_SXB6X041_易错型_unit-pack",
-          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
-          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
-          "title": "百分数应用题·错因题单映射",
-          "type": "exercise",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3103-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 北师大版-6年级下册-六下第2单元百分数与方程-易错型，用于沉淀“六下 第2单元 百分数与方程”的易错型精选题单和后续作品ID"
         }
       ]
     },
@@ -71269,6 +71365,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXB6X041_方法型_direct-57508464-method",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57508464",
+          "title": "百分数应用题·百分数与方程·列方程方法支架直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/57508464.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57508464，适合沉淀列方程的等量关系建模步骤"
+        },
+        {
+          "resourceId": "res_ct_SXB6X041_方法型_direct-57427880-method",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57427880",
+          "title": "百分数应用题·百分数与方程·数与代数复盘直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/57427880.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57427880，适合连接百分数、方程、比与比例的综合方法复盘"
+        },
+        {
           "resourceId": "res_ct_SXB6X041_方法型_album-method",
           "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
           "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
@@ -71287,16 +71405,6 @@
           "url": "https://basic.smartedu.cn/",
           "source": "国家中小学智慧教育平台",
           "note": "检索“6年级下册 六下 第2单元 百分数与方程 百分数方程 · 课时主题：百分数应用题 百分数应用题”，优先调用同步课、作业活动和方法讲解资源"
-        },
-        {
-          "resourceId": "res_ct_SXB6X041_方法型_unit-pack",
-          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
-          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
-          "title": "百分数应用题·方法策略题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3108-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 北师大版-6年级下册-六下第2单元百分数与方程-方法型，用于沉淀“六下 第2单元 百分数与方程”的方法型精选题单和后续作品ID"
         }
       ]
     },
@@ -71384,6 +71492,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXB6X045_例题型_direct-57427880",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57427880",
+          "title": "负数初步认识·百分数与方程·数与代数讲义直链",
+          "type": "example",
+          "url": "https://www.zxxk.com/soft/57427880.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57427880，覆盖百分数、式与方程、比和比例等数与代数复习讲练"
+        },
+        {
+          "resourceId": "res_ct_SXB6X045_例题型_direct-57508464",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57508464",
+          "title": "负数初步认识·百分数与方程·式与方程课件直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/57508464.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57508464，适合补列方程、解方程与数量关系表达"
+        },
+        {
           "resourceId": "res_ct_SXB6X045_例题型_album-lecture",
           "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
           "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
@@ -71402,16 +71532,6 @@
           "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
           "source": "学科网",
           "note": "已直达“小学数学 + 6年级 + 学案/导学案 + 同步教学”页，适合找与“6年级下册 六下 第2单元 百分数与方程 百分数方程 · 课时主题：负数初步认识 负数初步认识”对应的逐单元精选题单"
-        },
-        {
-          "resourceId": "res_ct_SXB6X045_例题型_unit-pack",
-          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
-          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
-          "title": "负数初步认识·单元精选题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 北师大版-6年级下册-六下第2单元百分数与方程-例题型，用于承载“六下 第2单元 百分数与方程”下的精选题单映射；后续可继续补充具体作品ID直链"
         }
       ]
     },
@@ -71462,6 +71582,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXB6X045_易错型_direct-46882136",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "46882136",
+          "title": "负数初步认识·百分数与方程·式与方程专项直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/46882136.html",
+          "source": "学科网",
+          "note": "学科网作品ID 46882136，适合回练列方程、解方程和文字题转化"
+        },
+        {
+          "resourceId": "res_ct_SXB6X045_易错型_direct-39208563",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "39208563",
+          "title": "负数初步认识·百分数与方程·式与方程教案直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/39208563.html",
+          "source": "学科网",
+          "note": "学科网作品ID 39208563，适合梳理总复习中方程模块的常见错因和步骤规范"
+        },
+        {
           "resourceId": "res_ct_SXB6X045_易错型_album-paper",
           "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
           "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
@@ -71480,16 +71622,6 @@
           "url": "https://www.jyeoo.com/math3/report/index?ai=0",
           "source": "菁优网",
           "note": "已直达小学数学试卷中心，建议用“6年级下册 六下 第2单元 百分数与方程 百分数方程 · 课时主题：负数初步认识 负数初步认识 易错”作为定位词筛同类纠错卷"
-        },
-        {
-          "resourceId": "res_ct_SXB6X045_易错型_unit-pack",
-          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
-          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
-          "title": "负数初步认识·错因题单映射",
-          "type": "exercise",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3103-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 北师大版-6年级下册-六下第2单元百分数与方程-易错型，用于沉淀“六下 第2单元 百分数与方程”的易错型精选题单和后续作品ID"
         }
       ]
     },
@@ -71540,6 +71672,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXB6X045_方法型_direct-57508464-method",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57508464",
+          "title": "负数初步认识·百分数与方程·列方程方法支架直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/57508464.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57508464，适合沉淀列方程的等量关系建模步骤"
+        },
+        {
+          "resourceId": "res_ct_SXB6X045_方法型_direct-57427880-method",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57427880",
+          "title": "负数初步认识·百分数与方程·数与代数复盘直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/57427880.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57427880，适合连接百分数、方程、比与比例的综合方法复盘"
+        },
+        {
           "resourceId": "res_ct_SXB6X045_方法型_album-method",
           "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
           "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
@@ -71558,16 +71712,6 @@
           "url": "https://basic.smartedu.cn/",
           "source": "国家中小学智慧教育平台",
           "note": "检索“6年级下册 六下 第2单元 百分数与方程 百分数方程 · 课时主题：负数初步认识 负数初步认识”，优先调用同步课、作业活动和方法讲解资源"
-        },
-        {
-          "resourceId": "res_ct_SXB6X045_方法型_unit-pack",
-          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
-          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
-          "title": "负数初步认识·方法策略题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3108-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 北师大版-6年级下册-六下第2单元百分数与方程-方法型，用于沉淀“六下 第2单元 百分数与方程”的方法型精选题单和后续作品ID"
         }
       ]
     },
@@ -71655,6 +71799,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXB6X049_例题型_direct-57427880",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57427880",
+          "title": "用方程表示数量关系·百分数与方程·数与代数讲义直链",
+          "type": "example",
+          "url": "https://www.zxxk.com/soft/57427880.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57427880，覆盖百分数、式与方程、比和比例等数与代数复习讲练"
+        },
+        {
+          "resourceId": "res_ct_SXB6X049_例题型_direct-57508464",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57508464",
+          "title": "用方程表示数量关系·百分数与方程·式与方程课件直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/57508464.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57508464，适合补列方程、解方程与数量关系表达"
+        },
+        {
           "resourceId": "res_ct_SXB6X049_例题型_album-lecture",
           "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
           "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
@@ -71673,16 +71839,6 @@
           "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
           "source": "学科网",
           "note": "已直达“小学数学 + 6年级 + 学案/导学案 + 同步教学”页，适合找与“6年级下册 六下 第2单元 百分数与方程 百分数方程 · 课时主题：用方程表示数量关系 用方程表示数量关系”对应的逐单元精选题单"
-        },
-        {
-          "resourceId": "res_ct_SXB6X049_例题型_unit-pack",
-          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
-          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
-          "title": "用方程表示数量关系·单元精选题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 北师大版-6年级下册-六下第2单元百分数与方程-例题型，用于承载“六下 第2单元 百分数与方程”下的精选题单映射；后续可继续补充具体作品ID直链"
         }
       ]
     },
@@ -71733,6 +71889,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXB6X049_易错型_direct-46882136",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "46882136",
+          "title": "用方程表示数量关系·百分数与方程·式与方程专项直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/46882136.html",
+          "source": "学科网",
+          "note": "学科网作品ID 46882136，适合回练列方程、解方程和文字题转化"
+        },
+        {
+          "resourceId": "res_ct_SXB6X049_易错型_direct-39208563",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "39208563",
+          "title": "用方程表示数量关系·百分数与方程·式与方程教案直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/39208563.html",
+          "source": "学科网",
+          "note": "学科网作品ID 39208563，适合梳理总复习中方程模块的常见错因和步骤规范"
+        },
+        {
           "resourceId": "res_ct_SXB6X049_易错型_album-paper",
           "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
           "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
@@ -71751,16 +71929,6 @@
           "url": "https://www.jyeoo.com/math3/report/index?ai=0",
           "source": "菁优网",
           "note": "已直达小学数学试卷中心，建议用“6年级下册 六下 第2单元 百分数与方程 百分数方程 · 课时主题：用方程表示数量关系 用方程表示数量关系 易错”作为定位词筛同类纠错卷"
-        },
-        {
-          "resourceId": "res_ct_SXB6X049_易错型_unit-pack",
-          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
-          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
-          "title": "用方程表示数量关系·错因题单映射",
-          "type": "exercise",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3103-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 北师大版-6年级下册-六下第2单元百分数与方程-易错型，用于沉淀“六下 第2单元 百分数与方程”的易错型精选题单和后续作品ID"
         }
       ]
     },
@@ -71811,6 +71979,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXB6X049_方法型_direct-57508464-method",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57508464",
+          "title": "用方程表示数量关系·百分数与方程·列方程方法支架直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/57508464.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57508464，适合沉淀列方程的等量关系建模步骤"
+        },
+        {
+          "resourceId": "res_ct_SXB6X049_方法型_direct-57427880-method",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57427880",
+          "title": "用方程表示数量关系·百分数与方程·数与代数复盘直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/57427880.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57427880，适合连接百分数、方程、比与比例的综合方法复盘"
+        },
+        {
           "resourceId": "res_ct_SXB6X049_方法型_album-method",
           "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
           "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
@@ -71829,16 +72019,6 @@
           "url": "https://basic.smartedu.cn/",
           "source": "国家中小学智慧教育平台",
           "note": "检索“6年级下册 六下 第2单元 百分数与方程 百分数方程 · 课时主题：用方程表示数量关系 用方程表示数量关系”，优先调用同步课、作业活动和方法讲解资源"
-        },
-        {
-          "resourceId": "res_ct_SXB6X049_方法型_unit-pack",
-          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
-          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
-          "title": "用方程表示数量关系·方法策略题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3108-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 北师大版-6年级下册-六下第2单元百分数与方程-方法型，用于沉淀“六下 第2单元 百分数与方程”的方法型精选题单和后续作品ID"
         }
       ]
     },
@@ -71926,6 +72106,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXB6X053_例题型_direct-57427880",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57427880",
+          "title": "解简易方程·百分数与方程·数与代数讲义直链",
+          "type": "example",
+          "url": "https://www.zxxk.com/soft/57427880.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57427880，覆盖百分数、式与方程、比和比例等数与代数复习讲练"
+        },
+        {
+          "resourceId": "res_ct_SXB6X053_例题型_direct-57508464",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57508464",
+          "title": "解简易方程·百分数与方程·式与方程课件直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/57508464.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57508464，适合补列方程、解方程与数量关系表达"
+        },
+        {
           "resourceId": "res_ct_SXB6X053_例题型_album-lecture",
           "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
           "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
@@ -71944,16 +72146,6 @@
           "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
           "source": "学科网",
           "note": "已直达“小学数学 + 6年级 + 学案/导学案 + 同步教学”页，适合找与“6年级下册 六下 第2单元 百分数与方程 百分数方程 · 课时主题：解简易方程 解简易方程”对应的逐单元精选题单"
-        },
-        {
-          "resourceId": "res_ct_SXB6X053_例题型_unit-pack",
-          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
-          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
-          "title": "解简易方程·单元精选题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 北师大版-6年级下册-六下第2单元百分数与方程-例题型，用于承载“六下 第2单元 百分数与方程”下的精选题单映射；后续可继续补充具体作品ID直链"
         }
       ]
     },
@@ -72004,6 +72196,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXB6X053_易错型_direct-46882136",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "46882136",
+          "title": "解简易方程·百分数与方程·式与方程专项直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/46882136.html",
+          "source": "学科网",
+          "note": "学科网作品ID 46882136，适合回练列方程、解方程和文字题转化"
+        },
+        {
+          "resourceId": "res_ct_SXB6X053_易错型_direct-39208563",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "39208563",
+          "title": "解简易方程·百分数与方程·式与方程教案直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/39208563.html",
+          "source": "学科网",
+          "note": "学科网作品ID 39208563，适合梳理总复习中方程模块的常见错因和步骤规范"
+        },
+        {
           "resourceId": "res_ct_SXB6X053_易错型_album-paper",
           "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
           "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
@@ -72022,16 +72236,6 @@
           "url": "https://www.jyeoo.com/math3/report/index?ai=0",
           "source": "菁优网",
           "note": "已直达小学数学试卷中心，建议用“6年级下册 六下 第2单元 百分数与方程 百分数方程 · 课时主题：解简易方程 解简易方程 易错”作为定位词筛同类纠错卷"
-        },
-        {
-          "resourceId": "res_ct_SXB6X053_易错型_unit-pack",
-          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
-          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
-          "title": "解简易方程·错因题单映射",
-          "type": "exercise",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3103-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 北师大版-6年级下册-六下第2单元百分数与方程-易错型，用于沉淀“六下 第2单元 百分数与方程”的易错型精选题单和后续作品ID"
         }
       ]
     },
@@ -72082,6 +72286,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXB6X053_方法型_direct-57508464-method",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57508464",
+          "title": "解简易方程·百分数与方程·列方程方法支架直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/57508464.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57508464，适合沉淀列方程的等量关系建模步骤"
+        },
+        {
+          "resourceId": "res_ct_SXB6X053_方法型_direct-57427880-method",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57427880",
+          "title": "解简易方程·百分数与方程·数与代数复盘直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/57427880.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57427880，适合连接百分数、方程、比与比例的综合方法复盘"
+        },
+        {
           "resourceId": "res_ct_SXB6X053_方法型_album-method",
           "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
           "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
@@ -72100,16 +72326,6 @@
           "url": "https://basic.smartedu.cn/",
           "source": "国家中小学智慧教育平台",
           "note": "检索“6年级下册 六下 第2单元 百分数与方程 百分数方程 · 课时主题：解简易方程 解简易方程”，优先调用同步课、作业活动和方法讲解资源"
-        },
-        {
-          "resourceId": "res_ct_SXB6X053_方法型_unit-pack",
-          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
-          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
-          "title": "解简易方程·方法策略题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3108-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 北师大版-6年级下册-六下第2单元百分数与方程-方法型，用于沉淀“六下 第2单元 百分数与方程”的方法型精选题单和后续作品ID"
         }
       ]
     },
@@ -72197,6 +72413,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXB6X057_例题型_direct-57427880",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57427880",
+          "title": "列方程解决应用题·百分数与方程·数与代数讲义直链",
+          "type": "example",
+          "url": "https://www.zxxk.com/soft/57427880.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57427880，覆盖百分数、式与方程、比和比例等数与代数复习讲练"
+        },
+        {
+          "resourceId": "res_ct_SXB6X057_例题型_direct-57508464",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57508464",
+          "title": "列方程解决应用题·百分数与方程·式与方程课件直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/57508464.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57508464，适合补列方程、解方程与数量关系表达"
+        },
+        {
           "resourceId": "res_ct_SXB6X057_例题型_album-lecture",
           "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
           "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
@@ -72215,16 +72453,6 @@
           "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
           "source": "学科网",
           "note": "已直达“小学数学 + 6年级 + 学案/导学案 + 同步教学”页，适合找与“6年级下册 六下 第2单元 百分数与方程 百分数方程 · 课时主题：列方程解决应用题 列方程解决应用题”对应的逐单元精选题单"
-        },
-        {
-          "resourceId": "res_ct_SXB6X057_例题型_unit-pack",
-          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-例题型",
-          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
-          "title": "列方程解决应用题·单元精选题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 北师大版-6年级下册-六下第2单元百分数与方程-例题型，用于承载“六下 第2单元 百分数与方程”下的精选题单映射；后续可继续补充具体作品ID直链"
         }
       ]
     },
@@ -72275,6 +72503,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXB6X057_易错型_direct-46882136",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "46882136",
+          "title": "列方程解决应用题·百分数与方程·式与方程专项直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/46882136.html",
+          "source": "学科网",
+          "note": "学科网作品ID 46882136，适合回练列方程、解方程和文字题转化"
+        },
+        {
+          "resourceId": "res_ct_SXB6X057_易错型_direct-39208563",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "39208563",
+          "title": "列方程解决应用题·百分数与方程·式与方程教案直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/39208563.html",
+          "source": "学科网",
+          "note": "学科网作品ID 39208563，适合梳理总复习中方程模块的常见错因和步骤规范"
+        },
+        {
           "resourceId": "res_ct_SXB6X057_易错型_album-paper",
           "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
           "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
@@ -72293,16 +72543,6 @@
           "url": "https://www.jyeoo.com/math3/report/index?ai=0",
           "source": "菁优网",
           "note": "已直达小学数学试卷中心，建议用“6年级下册 六下 第2单元 百分数与方程 百分数方程 · 课时主题：列方程解决应用题 列方程解决应用题 易错”作为定位词筛同类纠错卷"
-        },
-        {
-          "resourceId": "res_ct_SXB6X057_易错型_unit-pack",
-          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-易错型",
-          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
-          "title": "列方程解决应用题·错因题单映射",
-          "type": "exercise",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3103-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 北师大版-6年级下册-六下第2单元百分数与方程-易错型，用于沉淀“六下 第2单元 百分数与方程”的易错型精选题单和后续作品ID"
         }
       ]
     },
@@ -72353,6 +72593,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXB6X057_方法型_direct-57508464-method",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57508464",
+          "title": "列方程解决应用题·百分数与方程·列方程方法支架直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/57508464.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57508464，适合沉淀列方程的等量关系建模步骤"
+        },
+        {
+          "resourceId": "res_ct_SXB6X057_方法型_direct-57427880-method",
+          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
+          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
+          "externalWorkId": "57427880",
+          "title": "列方程解决应用题·百分数与方程·数与代数复盘直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/57427880.html",
+          "source": "学科网",
+          "note": "学科网作品ID 57427880，适合连接百分数、方程、比与比例的综合方法复盘"
+        },
+        {
           "resourceId": "res_ct_SXB6X057_方法型_album-method",
           "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
           "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
@@ -72371,16 +72633,6 @@
           "url": "https://basic.smartedu.cn/",
           "source": "国家中小学智慧教育平台",
           "note": "检索“6年级下册 六下 第2单元 百分数与方程 百分数方程 · 课时主题：列方程解决应用题 列方程解决应用题”，优先调用同步课、作业活动和方法讲解资源"
-        },
-        {
-          "resourceId": "res_ct_SXB6X057_方法型_unit-pack",
-          "resourceGroupKey": "北师大版-6年级下册-六下第2单元百分数与方程-方法型",
-          "resourceUnitKey": "北师大版-6年级下册-六下第2单元百分数与方程",
-          "title": "列方程解决应用题·方法策略题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3108-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 北师大版-6年级下册-六下第2单元百分数与方程-方法型，用于沉淀“六下 第2单元 百分数与方程”的方法型精选题单和后续作品ID"
         }
       ]
     },
@@ -146623,6 +146875,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXS6X033_例题型_direct-59058061",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "59058061",
+          "title": "百分数的意义·百分数和方程·百分数综合直链",
+          "type": "example",
+          "url": "https://www.zxxk.com/soft/59058061.html",
+          "source": "学科网",
+          "note": "学科网作品ID 59058061，适合补百分数意义、互化和应用题的综合训练"
+        },
+        {
+          "resourceId": "res_ct_SXS6X033_例题型_direct-59058062",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "59058062",
+          "title": "百分数的意义·百分数和方程·方程应用直链",
+          "type": "example",
+          "url": "https://www.zxxk.com/soft/59058062.html",
+          "source": "学科网",
+          "note": "学科网作品ID 59058062，适合承接用方程解决应用题与综合建模"
+        },
+        {
           "resourceId": "res_ct_SXS6X033_例题型_album-lecture",
           "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
           "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
@@ -146641,16 +146915,6 @@
           "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
           "source": "学科网",
           "note": "已直达“小学数学 + 6年级 + 学案/导学案 + 同步教学”页，适合找与“6年级下册 六下 第2单元 百分数和方程 百分数方程 · 课时主题：百分数的意义 百分数的意义”对应的逐单元精选题单"
-        },
-        {
-          "resourceId": "res_ct_SXS6X033_例题型_unit-pack",
-          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
-          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
-          "title": "百分数的意义·单元精选题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 苏教版-6年级下册-六下第2单元百分数和方程-例题型，用于承载“六下 第2单元 百分数和方程”下的精选题单映射；后续可继续补充具体作品ID直链"
         }
       ]
     },
@@ -146701,6 +146965,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXS6X033_易错型_direct-46446940",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "46446940",
+          "title": "百分数的意义·百分数和方程·百分数专题直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/46446940.html",
+          "source": "学科网",
+          "note": "学科网作品ID 46446940，适合补百分数综合错因与典型易错题"
+        },
+        {
+          "resourceId": "res_ct_SXS6X033_易错型_direct-51140543",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "51140543",
+          "title": "百分数的意义·百分数和方程·式与方程讲义直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/51140543.html",
+          "source": "学科网",
+          "note": "学科网作品ID 51140543，适合补列方程、解方程与数量关系转化的常见错因"
+        },
+        {
           "resourceId": "res_ct_SXS6X033_易错型_album-paper",
           "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
           "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
@@ -146719,16 +147005,6 @@
           "url": "https://www.jyeoo.com/math3/report/index?ai=0",
           "source": "菁优网",
           "note": "已直达小学数学试卷中心，建议用“6年级下册 六下 第2单元 百分数和方程 百分数方程 · 课时主题：百分数的意义 百分数的意义 易错”作为定位词筛同类纠错卷"
-        },
-        {
-          "resourceId": "res_ct_SXS6X033_易错型_unit-pack",
-          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
-          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
-          "title": "百分数的意义·错因题单映射",
-          "type": "exercise",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3103-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 苏教版-6年级下册-六下第2单元百分数和方程-易错型，用于沉淀“六下 第2单元 百分数和方程”的易错型精选题单和后续作品ID"
         }
       ]
     },
@@ -146779,6 +147055,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXS6X033_方法型_direct-51140543-method",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "51140543",
+          "title": "百分数的意义·百分数和方程·式与方程方法支架直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/51140543.html",
+          "source": "学科网",
+          "note": "学科网作品ID 51140543，适合沉淀方程建模步骤、字母表示和等量关系整理"
+        },
+        {
+          "resourceId": "res_ct_SXS6X033_方法型_direct-59058062-method",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "59058062",
+          "title": "百分数的意义·百分数和方程·应用题建模直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/59058062.html",
+          "source": "学科网",
+          "note": "学科网作品ID 59058062，适合沉淀百分数与方程结合的应用题路径"
+        },
+        {
           "resourceId": "res_ct_SXS6X033_方法型_album-method",
           "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
           "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
@@ -146797,16 +147095,6 @@
           "url": "https://basic.smartedu.cn/",
           "source": "国家中小学智慧教育平台",
           "note": "检索“6年级下册 六下 第2单元 百分数和方程 百分数方程 · 课时主题：百分数的意义 百分数的意义”，优先调用同步课、作业活动和方法讲解资源"
-        },
-        {
-          "resourceId": "res_ct_SXS6X033_方法型_unit-pack",
-          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
-          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
-          "title": "百分数的意义·方法策略题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3108-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 苏教版-6年级下册-六下第2单元百分数和方程-方法型，用于沉淀“六下 第2单元 百分数和方程”的方法型精选题单和后续作品ID"
         }
       ]
     },
@@ -146894,6 +147182,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXS6X037_例题型_direct-59058061",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "59058061",
+          "title": "百分数和分数小数互化·百分数和方程·百分数综合直链",
+          "type": "example",
+          "url": "https://www.zxxk.com/soft/59058061.html",
+          "source": "学科网",
+          "note": "学科网作品ID 59058061，适合补百分数意义、互化和应用题的综合训练"
+        },
+        {
+          "resourceId": "res_ct_SXS6X037_例题型_direct-59058062",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "59058062",
+          "title": "百分数和分数小数互化·百分数和方程·方程应用直链",
+          "type": "example",
+          "url": "https://www.zxxk.com/soft/59058062.html",
+          "source": "学科网",
+          "note": "学科网作品ID 59058062，适合承接用方程解决应用题与综合建模"
+        },
+        {
           "resourceId": "res_ct_SXS6X037_例题型_album-lecture",
           "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
           "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
@@ -146912,16 +147222,6 @@
           "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
           "source": "学科网",
           "note": "已直达“小学数学 + 6年级 + 学案/导学案 + 同步教学”页，适合找与“6年级下册 六下 第2单元 百分数和方程 百分数方程 · 课时主题：百分数和分数小数互化 百分数和分数小数互化”对应的逐单元精选题单"
-        },
-        {
-          "resourceId": "res_ct_SXS6X037_例题型_unit-pack",
-          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
-          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
-          "title": "百分数和分数小数互化·单元精选题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 苏教版-6年级下册-六下第2单元百分数和方程-例题型，用于承载“六下 第2单元 百分数和方程”下的精选题单映射；后续可继续补充具体作品ID直链"
         }
       ]
     },
@@ -146972,6 +147272,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXS6X037_易错型_direct-46446940",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "46446940",
+          "title": "百分数和分数小数互化·百分数和方程·百分数专题直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/46446940.html",
+          "source": "学科网",
+          "note": "学科网作品ID 46446940，适合补百分数综合错因与典型易错题"
+        },
+        {
+          "resourceId": "res_ct_SXS6X037_易错型_direct-51140543",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "51140543",
+          "title": "百分数和分数小数互化·百分数和方程·式与方程讲义直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/51140543.html",
+          "source": "学科网",
+          "note": "学科网作品ID 51140543，适合补列方程、解方程与数量关系转化的常见错因"
+        },
+        {
           "resourceId": "res_ct_SXS6X037_易错型_album-paper",
           "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
           "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
@@ -146990,16 +147312,6 @@
           "url": "https://www.jyeoo.com/math3/report/index?ai=0",
           "source": "菁优网",
           "note": "已直达小学数学试卷中心，建议用“6年级下册 六下 第2单元 百分数和方程 百分数方程 · 课时主题：百分数和分数小数互化 百分数和分数小数互化 易错”作为定位词筛同类纠错卷"
-        },
-        {
-          "resourceId": "res_ct_SXS6X037_易错型_unit-pack",
-          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
-          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
-          "title": "百分数和分数小数互化·错因题单映射",
-          "type": "exercise",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3103-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 苏教版-6年级下册-六下第2单元百分数和方程-易错型，用于沉淀“六下 第2单元 百分数和方程”的易错型精选题单和后续作品ID"
         }
       ]
     },
@@ -147050,6 +147362,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXS6X037_方法型_direct-51140543-method",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "51140543",
+          "title": "百分数和分数小数互化·百分数和方程·式与方程方法支架直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/51140543.html",
+          "source": "学科网",
+          "note": "学科网作品ID 51140543，适合沉淀方程建模步骤、字母表示和等量关系整理"
+        },
+        {
+          "resourceId": "res_ct_SXS6X037_方法型_direct-59058062-method",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "59058062",
+          "title": "百分数和分数小数互化·百分数和方程·应用题建模直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/59058062.html",
+          "source": "学科网",
+          "note": "学科网作品ID 59058062，适合沉淀百分数与方程结合的应用题路径"
+        },
+        {
           "resourceId": "res_ct_SXS6X037_方法型_album-method",
           "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
           "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
@@ -147068,16 +147402,6 @@
           "url": "https://basic.smartedu.cn/",
           "source": "国家中小学智慧教育平台",
           "note": "检索“6年级下册 六下 第2单元 百分数和方程 百分数方程 · 课时主题：百分数和分数小数互化 百分数和分数小数互化”，优先调用同步课、作业活动和方法讲解资源"
-        },
-        {
-          "resourceId": "res_ct_SXS6X037_方法型_unit-pack",
-          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
-          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
-          "title": "百分数和分数小数互化·方法策略题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3108-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 苏教版-6年级下册-六下第2单元百分数和方程-方法型，用于沉淀“六下 第2单元 百分数和方程”的方法型精选题单和后续作品ID"
         }
       ]
     },
@@ -147165,6 +147489,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXS6X041_例题型_direct-59058061",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "59058061",
+          "title": "百分数应用题·百分数和方程·百分数综合直链",
+          "type": "example",
+          "url": "https://www.zxxk.com/soft/59058061.html",
+          "source": "学科网",
+          "note": "学科网作品ID 59058061，适合补百分数意义、互化和应用题的综合训练"
+        },
+        {
+          "resourceId": "res_ct_SXS6X041_例题型_direct-59058062",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "59058062",
+          "title": "百分数应用题·百分数和方程·方程应用直链",
+          "type": "example",
+          "url": "https://www.zxxk.com/soft/59058062.html",
+          "source": "学科网",
+          "note": "学科网作品ID 59058062，适合承接用方程解决应用题与综合建模"
+        },
+        {
           "resourceId": "res_ct_SXS6X041_例题型_album-lecture",
           "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
           "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
@@ -147183,16 +147529,6 @@
           "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
           "source": "学科网",
           "note": "已直达“小学数学 + 6年级 + 学案/导学案 + 同步教学”页，适合找与“6年级下册 六下 第2单元 百分数和方程 百分数方程 · 课时主题：百分数应用题 百分数应用题”对应的逐单元精选题单"
-        },
-        {
-          "resourceId": "res_ct_SXS6X041_例题型_unit-pack",
-          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
-          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
-          "title": "百分数应用题·单元精选题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 苏教版-6年级下册-六下第2单元百分数和方程-例题型，用于承载“六下 第2单元 百分数和方程”下的精选题单映射；后续可继续补充具体作品ID直链"
         }
       ]
     },
@@ -147243,6 +147579,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXS6X041_易错型_direct-46446940",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "46446940",
+          "title": "百分数应用题·百分数和方程·百分数专题直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/46446940.html",
+          "source": "学科网",
+          "note": "学科网作品ID 46446940，适合补百分数综合错因与典型易错题"
+        },
+        {
+          "resourceId": "res_ct_SXS6X041_易错型_direct-51140543",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "51140543",
+          "title": "百分数应用题·百分数和方程·式与方程讲义直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/51140543.html",
+          "source": "学科网",
+          "note": "学科网作品ID 51140543，适合补列方程、解方程与数量关系转化的常见错因"
+        },
+        {
           "resourceId": "res_ct_SXS6X041_易错型_album-paper",
           "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
           "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
@@ -147261,16 +147619,6 @@
           "url": "https://www.jyeoo.com/math3/report/index?ai=0",
           "source": "菁优网",
           "note": "已直达小学数学试卷中心，建议用“6年级下册 六下 第2单元 百分数和方程 百分数方程 · 课时主题：百分数应用题 百分数应用题 易错”作为定位词筛同类纠错卷"
-        },
-        {
-          "resourceId": "res_ct_SXS6X041_易错型_unit-pack",
-          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
-          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
-          "title": "百分数应用题·错因题单映射",
-          "type": "exercise",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3103-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 苏教版-6年级下册-六下第2单元百分数和方程-易错型，用于沉淀“六下 第2单元 百分数和方程”的易错型精选题单和后续作品ID"
         }
       ]
     },
@@ -147321,6 +147669,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXS6X041_方法型_direct-51140543-method",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "51140543",
+          "title": "百分数应用题·百分数和方程·式与方程方法支架直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/51140543.html",
+          "source": "学科网",
+          "note": "学科网作品ID 51140543，适合沉淀方程建模步骤、字母表示和等量关系整理"
+        },
+        {
+          "resourceId": "res_ct_SXS6X041_方法型_direct-59058062-method",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "59058062",
+          "title": "百分数应用题·百分数和方程·应用题建模直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/59058062.html",
+          "source": "学科网",
+          "note": "学科网作品ID 59058062，适合沉淀百分数与方程结合的应用题路径"
+        },
+        {
           "resourceId": "res_ct_SXS6X041_方法型_album-method",
           "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
           "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
@@ -147339,16 +147709,6 @@
           "url": "https://basic.smartedu.cn/",
           "source": "国家中小学智慧教育平台",
           "note": "检索“6年级下册 六下 第2单元 百分数和方程 百分数方程 · 课时主题：百分数应用题 百分数应用题”，优先调用同步课、作业活动和方法讲解资源"
-        },
-        {
-          "resourceId": "res_ct_SXS6X041_方法型_unit-pack",
-          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
-          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
-          "title": "百分数应用题·方法策略题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3108-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 苏教版-6年级下册-六下第2单元百分数和方程-方法型，用于沉淀“六下 第2单元 百分数和方程”的方法型精选题单和后续作品ID"
         }
       ]
     },
@@ -147436,6 +147796,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXS6X045_例题型_direct-59058061",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "59058061",
+          "title": "负数初步认识·百分数和方程·百分数综合直链",
+          "type": "example",
+          "url": "https://www.zxxk.com/soft/59058061.html",
+          "source": "学科网",
+          "note": "学科网作品ID 59058061，适合补百分数意义、互化和应用题的综合训练"
+        },
+        {
+          "resourceId": "res_ct_SXS6X045_例题型_direct-59058062",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "59058062",
+          "title": "负数初步认识·百分数和方程·方程应用直链",
+          "type": "example",
+          "url": "https://www.zxxk.com/soft/59058062.html",
+          "source": "学科网",
+          "note": "学科网作品ID 59058062，适合承接用方程解决应用题与综合建模"
+        },
+        {
           "resourceId": "res_ct_SXS6X045_例题型_album-lecture",
           "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
           "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
@@ -147454,16 +147836,6 @@
           "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
           "source": "学科网",
           "note": "已直达“小学数学 + 6年级 + 学案/导学案 + 同步教学”页，适合找与“6年级下册 六下 第2单元 百分数和方程 百分数方程 · 课时主题：负数初步认识 负数初步认识”对应的逐单元精选题单"
-        },
-        {
-          "resourceId": "res_ct_SXS6X045_例题型_unit-pack",
-          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
-          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
-          "title": "负数初步认识·单元精选题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 苏教版-6年级下册-六下第2单元百分数和方程-例题型，用于承载“六下 第2单元 百分数和方程”下的精选题单映射；后续可继续补充具体作品ID直链"
         }
       ]
     },
@@ -147514,6 +147886,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXS6X045_易错型_direct-46446940",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "46446940",
+          "title": "负数初步认识·百分数和方程·百分数专题直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/46446940.html",
+          "source": "学科网",
+          "note": "学科网作品ID 46446940，适合补百分数综合错因与典型易错题"
+        },
+        {
+          "resourceId": "res_ct_SXS6X045_易错型_direct-51140543",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "51140543",
+          "title": "负数初步认识·百分数和方程·式与方程讲义直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/51140543.html",
+          "source": "学科网",
+          "note": "学科网作品ID 51140543，适合补列方程、解方程与数量关系转化的常见错因"
+        },
+        {
           "resourceId": "res_ct_SXS6X045_易错型_album-paper",
           "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
           "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
@@ -147532,16 +147926,6 @@
           "url": "https://www.jyeoo.com/math3/report/index?ai=0",
           "source": "菁优网",
           "note": "已直达小学数学试卷中心，建议用“6年级下册 六下 第2单元 百分数和方程 百分数方程 · 课时主题：负数初步认识 负数初步认识 易错”作为定位词筛同类纠错卷"
-        },
-        {
-          "resourceId": "res_ct_SXS6X045_易错型_unit-pack",
-          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
-          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
-          "title": "负数初步认识·错因题单映射",
-          "type": "exercise",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3103-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 苏教版-6年级下册-六下第2单元百分数和方程-易错型，用于沉淀“六下 第2单元 百分数和方程”的易错型精选题单和后续作品ID"
         }
       ]
     },
@@ -147592,6 +147976,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXS6X045_方法型_direct-51140543-method",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "51140543",
+          "title": "负数初步认识·百分数和方程·式与方程方法支架直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/51140543.html",
+          "source": "学科网",
+          "note": "学科网作品ID 51140543，适合沉淀方程建模步骤、字母表示和等量关系整理"
+        },
+        {
+          "resourceId": "res_ct_SXS6X045_方法型_direct-59058062-method",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "59058062",
+          "title": "负数初步认识·百分数和方程·应用题建模直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/59058062.html",
+          "source": "学科网",
+          "note": "学科网作品ID 59058062，适合沉淀百分数与方程结合的应用题路径"
+        },
+        {
           "resourceId": "res_ct_SXS6X045_方法型_album-method",
           "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
           "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
@@ -147610,16 +148016,6 @@
           "url": "https://basic.smartedu.cn/",
           "source": "国家中小学智慧教育平台",
           "note": "检索“6年级下册 六下 第2单元 百分数和方程 百分数方程 · 课时主题：负数初步认识 负数初步认识”，优先调用同步课、作业活动和方法讲解资源"
-        },
-        {
-          "resourceId": "res_ct_SXS6X045_方法型_unit-pack",
-          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
-          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
-          "title": "负数初步认识·方法策略题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3108-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 苏教版-6年级下册-六下第2单元百分数和方程-方法型，用于沉淀“六下 第2单元 百分数和方程”的方法型精选题单和后续作品ID"
         }
       ]
     },
@@ -147707,6 +148103,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXS6X049_例题型_direct-59058061",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "59058061",
+          "title": "用方程表示数量关系·百分数和方程·百分数综合直链",
+          "type": "example",
+          "url": "https://www.zxxk.com/soft/59058061.html",
+          "source": "学科网",
+          "note": "学科网作品ID 59058061，适合补百分数意义、互化和应用题的综合训练"
+        },
+        {
+          "resourceId": "res_ct_SXS6X049_例题型_direct-59058062",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "59058062",
+          "title": "用方程表示数量关系·百分数和方程·方程应用直链",
+          "type": "example",
+          "url": "https://www.zxxk.com/soft/59058062.html",
+          "source": "学科网",
+          "note": "学科网作品ID 59058062，适合承接用方程解决应用题与综合建模"
+        },
+        {
           "resourceId": "res_ct_SXS6X049_例题型_album-lecture",
           "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
           "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
@@ -147725,16 +148143,6 @@
           "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
           "source": "学科网",
           "note": "已直达“小学数学 + 6年级 + 学案/导学案 + 同步教学”页，适合找与“6年级下册 六下 第2单元 百分数和方程 百分数方程 · 课时主题：用方程表示数量关系 用方程表示数量关系”对应的逐单元精选题单"
-        },
-        {
-          "resourceId": "res_ct_SXS6X049_例题型_unit-pack",
-          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
-          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
-          "title": "用方程表示数量关系·单元精选题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 苏教版-6年级下册-六下第2单元百分数和方程-例题型，用于承载“六下 第2单元 百分数和方程”下的精选题单映射；后续可继续补充具体作品ID直链"
         }
       ]
     },
@@ -147785,6 +148193,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXS6X049_易错型_direct-46446940",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "46446940",
+          "title": "用方程表示数量关系·百分数和方程·百分数专题直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/46446940.html",
+          "source": "学科网",
+          "note": "学科网作品ID 46446940，适合补百分数综合错因与典型易错题"
+        },
+        {
+          "resourceId": "res_ct_SXS6X049_易错型_direct-51140543",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "51140543",
+          "title": "用方程表示数量关系·百分数和方程·式与方程讲义直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/51140543.html",
+          "source": "学科网",
+          "note": "学科网作品ID 51140543，适合补列方程、解方程与数量关系转化的常见错因"
+        },
+        {
           "resourceId": "res_ct_SXS6X049_易错型_album-paper",
           "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
           "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
@@ -147803,16 +148233,6 @@
           "url": "https://www.jyeoo.com/math3/report/index?ai=0",
           "source": "菁优网",
           "note": "已直达小学数学试卷中心，建议用“6年级下册 六下 第2单元 百分数和方程 百分数方程 · 课时主题：用方程表示数量关系 用方程表示数量关系 易错”作为定位词筛同类纠错卷"
-        },
-        {
-          "resourceId": "res_ct_SXS6X049_易错型_unit-pack",
-          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
-          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
-          "title": "用方程表示数量关系·错因题单映射",
-          "type": "exercise",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3103-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 苏教版-6年级下册-六下第2单元百分数和方程-易错型，用于沉淀“六下 第2单元 百分数和方程”的易错型精选题单和后续作品ID"
         }
       ]
     },
@@ -147863,6 +148283,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXS6X049_方法型_direct-51140543-method",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "51140543",
+          "title": "用方程表示数量关系·百分数和方程·式与方程方法支架直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/51140543.html",
+          "source": "学科网",
+          "note": "学科网作品ID 51140543，适合沉淀方程建模步骤、字母表示和等量关系整理"
+        },
+        {
+          "resourceId": "res_ct_SXS6X049_方法型_direct-59058062-method",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "59058062",
+          "title": "用方程表示数量关系·百分数和方程·应用题建模直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/59058062.html",
+          "source": "学科网",
+          "note": "学科网作品ID 59058062，适合沉淀百分数与方程结合的应用题路径"
+        },
+        {
           "resourceId": "res_ct_SXS6X049_方法型_album-method",
           "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
           "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
@@ -147881,16 +148323,6 @@
           "url": "https://basic.smartedu.cn/",
           "source": "国家中小学智慧教育平台",
           "note": "检索“6年级下册 六下 第2单元 百分数和方程 百分数方程 · 课时主题：用方程表示数量关系 用方程表示数量关系”，优先调用同步课、作业活动和方法讲解资源"
-        },
-        {
-          "resourceId": "res_ct_SXS6X049_方法型_unit-pack",
-          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
-          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
-          "title": "用方程表示数量关系·方法策略题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3108-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 苏教版-6年级下册-六下第2单元百分数和方程-方法型，用于沉淀“六下 第2单元 百分数和方程”的方法型精选题单和后续作品ID"
         }
       ]
     },
@@ -147978,6 +148410,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXS6X053_例题型_direct-59058061",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "59058061",
+          "title": "解简易方程·百分数和方程·百分数综合直链",
+          "type": "example",
+          "url": "https://www.zxxk.com/soft/59058061.html",
+          "source": "学科网",
+          "note": "学科网作品ID 59058061，适合补百分数意义、互化和应用题的综合训练"
+        },
+        {
+          "resourceId": "res_ct_SXS6X053_例题型_direct-59058062",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "59058062",
+          "title": "解简易方程·百分数和方程·方程应用直链",
+          "type": "example",
+          "url": "https://www.zxxk.com/soft/59058062.html",
+          "source": "学科网",
+          "note": "学科网作品ID 59058062，适合承接用方程解决应用题与综合建模"
+        },
+        {
           "resourceId": "res_ct_SXS6X053_例题型_album-lecture",
           "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
           "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
@@ -147996,16 +148450,6 @@
           "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
           "source": "学科网",
           "note": "已直达“小学数学 + 6年级 + 学案/导学案 + 同步教学”页，适合找与“6年级下册 六下 第2单元 百分数和方程 百分数方程 · 课时主题：解简易方程 解简易方程”对应的逐单元精选题单"
-        },
-        {
-          "resourceId": "res_ct_SXS6X053_例题型_unit-pack",
-          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
-          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
-          "title": "解简易方程·单元精选题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 苏教版-6年级下册-六下第2单元百分数和方程-例题型，用于承载“六下 第2单元 百分数和方程”下的精选题单映射；后续可继续补充具体作品ID直链"
         }
       ]
     },
@@ -148056,6 +148500,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXS6X053_易错型_direct-46446940",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "46446940",
+          "title": "解简易方程·百分数和方程·百分数专题直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/46446940.html",
+          "source": "学科网",
+          "note": "学科网作品ID 46446940，适合补百分数综合错因与典型易错题"
+        },
+        {
+          "resourceId": "res_ct_SXS6X053_易错型_direct-51140543",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "51140543",
+          "title": "解简易方程·百分数和方程·式与方程讲义直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/51140543.html",
+          "source": "学科网",
+          "note": "学科网作品ID 51140543，适合补列方程、解方程与数量关系转化的常见错因"
+        },
+        {
           "resourceId": "res_ct_SXS6X053_易错型_album-paper",
           "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
           "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
@@ -148074,16 +148540,6 @@
           "url": "https://www.jyeoo.com/math3/report/index?ai=0",
           "source": "菁优网",
           "note": "已直达小学数学试卷中心，建议用“6年级下册 六下 第2单元 百分数和方程 百分数方程 · 课时主题：解简易方程 解简易方程 易错”作为定位词筛同类纠错卷"
-        },
-        {
-          "resourceId": "res_ct_SXS6X053_易错型_unit-pack",
-          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
-          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
-          "title": "解简易方程·错因题单映射",
-          "type": "exercise",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3103-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 苏教版-6年级下册-六下第2单元百分数和方程-易错型，用于沉淀“六下 第2单元 百分数和方程”的易错型精选题单和后续作品ID"
         }
       ]
     },
@@ -148134,6 +148590,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXS6X053_方法型_direct-51140543-method",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "51140543",
+          "title": "解简易方程·百分数和方程·式与方程方法支架直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/51140543.html",
+          "source": "学科网",
+          "note": "学科网作品ID 51140543，适合沉淀方程建模步骤、字母表示和等量关系整理"
+        },
+        {
+          "resourceId": "res_ct_SXS6X053_方法型_direct-59058062-method",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "59058062",
+          "title": "解简易方程·百分数和方程·应用题建模直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/59058062.html",
+          "source": "学科网",
+          "note": "学科网作品ID 59058062，适合沉淀百分数与方程结合的应用题路径"
+        },
+        {
           "resourceId": "res_ct_SXS6X053_方法型_album-method",
           "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
           "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
@@ -148152,16 +148630,6 @@
           "url": "https://basic.smartedu.cn/",
           "source": "国家中小学智慧教育平台",
           "note": "检索“6年级下册 六下 第2单元 百分数和方程 百分数方程 · 课时主题：解简易方程 解简易方程”，优先调用同步课、作业活动和方法讲解资源"
-        },
-        {
-          "resourceId": "res_ct_SXS6X053_方法型_unit-pack",
-          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
-          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
-          "title": "解简易方程·方法策略题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3108-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 苏教版-6年级下册-六下第2单元百分数和方程-方法型，用于沉淀“六下 第2单元 百分数和方程”的方法型精选题单和后续作品ID"
         }
       ]
     },
@@ -148249,6 +148717,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXS6X057_例题型_direct-59058061",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "59058061",
+          "title": "列方程解决应用题·百分数和方程·百分数综合直链",
+          "type": "example",
+          "url": "https://www.zxxk.com/soft/59058061.html",
+          "source": "学科网",
+          "note": "学科网作品ID 59058061，适合补百分数意义、互化和应用题的综合训练"
+        },
+        {
+          "resourceId": "res_ct_SXS6X057_例题型_direct-59058062",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "59058062",
+          "title": "列方程解决应用题·百分数和方程·方程应用直链",
+          "type": "example",
+          "url": "https://www.zxxk.com/soft/59058062.html",
+          "source": "学科网",
+          "note": "学科网作品ID 59058062，适合承接用方程解决应用题与综合建模"
+        },
+        {
           "resourceId": "res_ct_SXS6X057_例题型_album-lecture",
           "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
           "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
@@ -148267,16 +148757,6 @@
           "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
           "source": "学科网",
           "note": "已直达“小学数学 + 6年级 + 学案/导学案 + 同步教学”页，适合找与“6年级下册 六下 第2单元 百分数和方程 百分数方程 · 课时主题：列方程解决应用题 列方程解决应用题”对应的逐单元精选题单"
-        },
-        {
-          "resourceId": "res_ct_SXS6X057_例题型_unit-pack",
-          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-例题型",
-          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
-          "title": "列方程解决应用题·单元精选题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3105-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 苏教版-6年级下册-六下第2单元百分数和方程-例题型，用于承载“六下 第2单元 百分数和方程”下的精选题单映射；后续可继续补充具体作品ID直链"
         }
       ]
     },
@@ -148327,6 +148807,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXS6X057_易错型_direct-46446940",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "46446940",
+          "title": "列方程解决应用题·百分数和方程·百分数专题直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/46446940.html",
+          "source": "学科网",
+          "note": "学科网作品ID 46446940，适合补百分数综合错因与典型易错题"
+        },
+        {
+          "resourceId": "res_ct_SXS6X057_易错型_direct-51140543",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "51140543",
+          "title": "列方程解决应用题·百分数和方程·式与方程讲义直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/51140543.html",
+          "source": "学科网",
+          "note": "学科网作品ID 51140543，适合补列方程、解方程与数量关系转化的常见错因"
+        },
+        {
           "resourceId": "res_ct_SXS6X057_易错型_album-paper",
           "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
           "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
@@ -148345,16 +148847,6 @@
           "url": "https://www.jyeoo.com/math3/report/index?ai=0",
           "source": "菁优网",
           "note": "已直达小学数学试卷中心，建议用“6年级下册 六下 第2单元 百分数和方程 百分数方程 · 课时主题：列方程解决应用题 列方程解决应用题 易错”作为定位词筛同类纠错卷"
-        },
-        {
-          "resourceId": "res_ct_SXS6X057_易错型_unit-pack",
-          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-易错型",
-          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
-          "title": "列方程解决应用题·错因题单映射",
-          "type": "exercise",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3103-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 苏教版-6年级下册-六下第2单元百分数和方程-易错型，用于沉淀“六下 第2单元 百分数和方程”的易错型精选题单和后续作品ID"
         }
       ]
     },
@@ -148405,6 +148897,28 @@
       ],
       "resources": [
         {
+          "resourceId": "res_ct_SXS6X057_方法型_direct-51140543-method",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "51140543",
+          "title": "列方程解决应用题·百分数和方程·式与方程方法支架直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/51140543.html",
+          "source": "学科网",
+          "note": "学科网作品ID 51140543，适合沉淀方程建模步骤、字母表示和等量关系整理"
+        },
+        {
+          "resourceId": "res_ct_SXS6X057_方法型_direct-59058062-method",
+          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
+          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
+          "externalWorkId": "59058062",
+          "title": "列方程解决应用题·百分数和方程·应用题建模直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/59058062.html",
+          "source": "学科网",
+          "note": "学科网作品ID 59058062，适合沉淀百分数与方程结合的应用题路径"
+        },
+        {
           "resourceId": "res_ct_SXS6X057_方法型_album-method",
           "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
           "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
@@ -148423,16 +148937,6 @@
           "url": "https://basic.smartedu.cn/",
           "source": "国家中小学智慧教育平台",
           "note": "检索“6年级下册 六下 第2单元 百分数和方程 百分数方程 · 课时主题：列方程解决应用题 列方程解决应用题”，优先调用同步课、作业活动和方法讲解资源"
-        },
-        {
-          "resourceId": "res_ct_SXS6X057_方法型_unit-pack",
-          "resourceGroupKey": "苏教版-6年级下册-六下第2单元百分数和方程-方法型",
-          "resourceUnitKey": "苏教版-6年级下册-六下第2单元百分数和方程",
-          "title": "列方程解决应用题·方法策略题单映射",
-          "type": "worksheet",
-          "url": "https://www.zxxk.com/zj/p-channel2-type3108-g6/s24615/?level=1203",
-          "source": "学科网",
-          "note": "资源组键 苏教版-6年级下册-六下第2单元百分数和方程-方法型，用于沉淀“六下 第2单元 百分数和方程”的方法型精选题单和后续作品ID"
         }
       ]
     },

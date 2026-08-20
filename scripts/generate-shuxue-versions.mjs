@@ -164,6 +164,36 @@ const DIRECT_RESOURCE_CATALOG = [
   {
     textbook: '北师大版',
     grade: 6,
+    unitIncludes: '第2单元 百分数与方程',
+    subnodeType: '例题型',
+    items: [
+      { slot: 'direct-57427880', externalWorkId: '57427880', title: '百分数与方程·数与代数讲义直链', type: 'example', url: 'https://www.zxxk.com/soft/57427880.html', note: '学科网作品ID 57427880，覆盖百分数、式与方程、比和比例等数与代数复习讲练' },
+      { slot: 'direct-57508464', externalWorkId: '57508464', title: '百分数与方程·式与方程课件直链', type: 'article', url: 'https://www.zxxk.com/soft/57508464.html', note: '学科网作品ID 57508464，适合补列方程、解方程与数量关系表达' }
+    ]
+  },
+  {
+    textbook: '北师大版',
+    grade: 6,
+    unitIncludes: '第2单元 百分数与方程',
+    subnodeType: '易错型',
+    items: [
+      { slot: 'direct-46882136', externalWorkId: '46882136', title: '百分数与方程·式与方程专项直链', type: 'exercise', url: 'https://www.zxxk.com/soft/46882136.html', note: '学科网作品ID 46882136，适合回练列方程、解方程和文字题转化' },
+      { slot: 'direct-39208563', externalWorkId: '39208563', title: '百分数与方程·式与方程教案直链', type: 'article', url: 'https://www.zxxk.com/soft/39208563.html', note: '学科网作品ID 39208563，适合梳理总复习中方程模块的常见错因和步骤规范' }
+    ]
+  },
+  {
+    textbook: '北师大版',
+    grade: 6,
+    unitIncludes: '第2单元 百分数与方程',
+    subnodeType: '方法型',
+    items: [
+      { slot: 'direct-57508464-method', externalWorkId: '57508464', title: '百分数与方程·列方程方法支架直链', type: 'article', url: 'https://www.zxxk.com/soft/57508464.html', note: '学科网作品ID 57508464，适合沉淀列方程的等量关系建模步骤' },
+      { slot: 'direct-57427880-method', externalWorkId: '57427880', title: '百分数与方程·数与代数复盘直链', type: 'article', url: 'https://www.zxxk.com/soft/57427880.html', note: '学科网作品ID 57427880，适合连接百分数、方程、比与比例的综合方法复盘' }
+    ]
+  },
+  {
+    textbook: '北师大版',
+    grade: 6,
     unitIncludes: '第3单元 圆',
     subnodeType: '例题型',
     items: [
@@ -216,6 +246,36 @@ const DIRECT_RESOURCE_CATALOG = [
     subnodeType: '例题型',
     items: [
       { slot: 'direct-58803083', externalWorkId: '58803083', title: '多边形面积·典例专项直链', type: 'example', url: 'https://www.zxxk.com/soft/58803083.html', note: '学科网作品ID 58803083，直达苏教版五上多边形面积知识梳理、典型例题与综合训练' }
+    ]
+  },
+  {
+    textbook: '苏教版',
+    grade: 6,
+    unitIncludes: '第2单元 百分数和方程',
+    subnodeType: '例题型',
+    items: [
+      { slot: 'direct-59058061', externalWorkId: '59058061', title: '百分数和方程·百分数综合直链', type: 'example', url: 'https://www.zxxk.com/soft/59058061.html', note: '学科网作品ID 59058061，适合补百分数意义、互化和应用题的综合训练' },
+      { slot: 'direct-59058062', externalWorkId: '59058062', title: '百分数和方程·方程应用直链', type: 'example', url: 'https://www.zxxk.com/soft/59058062.html', note: '学科网作品ID 59058062，适合承接用方程解决应用题与综合建模' }
+    ]
+  },
+  {
+    textbook: '苏教版',
+    grade: 6,
+    unitIncludes: '第2单元 百分数和方程',
+    subnodeType: '易错型',
+    items: [
+      { slot: 'direct-46446940', externalWorkId: '46446940', title: '百分数和方程·百分数专题直链', type: 'exercise', url: 'https://www.zxxk.com/soft/46446940.html', note: '学科网作品ID 46446940，适合补百分数综合错因与典型易错题' },
+      { slot: 'direct-51140543', externalWorkId: '51140543', title: '百分数和方程·式与方程讲义直链', type: 'exercise', url: 'https://www.zxxk.com/soft/51140543.html', note: '学科网作品ID 51140543，适合补列方程、解方程与数量关系转化的常见错因' }
+    ]
+  },
+  {
+    textbook: '苏教版',
+    grade: 6,
+    unitIncludes: '第2单元 百分数和方程',
+    subnodeType: '方法型',
+    items: [
+      { slot: 'direct-51140543-method', externalWorkId: '51140543', title: '百分数和方程·式与方程方法支架直链', type: 'article', url: 'https://www.zxxk.com/soft/51140543.html', note: '学科网作品ID 51140543，适合沉淀方程建模步骤、字母表示和等量关系整理' },
+      { slot: 'direct-59058062-method', externalWorkId: '59058062', title: '百分数和方程·应用题建模直链', type: 'article', url: 'https://www.zxxk.com/soft/59058062.html', note: '学科网作品ID 59058062，适合沉淀百分数与方程结合的应用题路径' }
     ]
   },
   {

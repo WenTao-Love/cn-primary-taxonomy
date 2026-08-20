@@ -164,6 +164,7 @@ let outgoingMap = new Map();
 let data = { nodes:[], links:[], nodeMap:new Map() };
 let simulation = null;
 let svg = null;
+let zoomBehavior = null;
 let graphGroup = null;
 let gLinks = null;
 let gNodes = null;
@@ -177,6 +178,7 @@ let resizeDebounceTimer = null;
 let layoutStopTimer = null;
 let topicSearchTextMap = new Map();
 let filteredTopicCache = new Map();
+let filteredGraphCache = new Map();
 
 function loadDataset(name, url) {
   if (window.__CNPT_EMBEDDED && window.__CNPT_EMBEDDED[name]) {
@@ -216,21 +218,40 @@ async function init() {
 function handleResize() {
   if (resizeDebounceTimer) clearTimeout(resizeDebounceTimer);
   resizeDebounceTimer = setTimeout(() => {
-    if (simulation) simulation.stop();
+    destroyGraphRuntime();
     setupCanvas();
     applyFilters();
   }, 120);
 }
 
 function handleVisibilityChange() {
-  if (document.hidden && simulation) simulation.stop();
+  if (document.hidden) destroyGraphRuntime({ keepSvg: true });
 }
 
 function cleanupRuntime() {
-  if (simulation) simulation.stop();
+  destroyGraphRuntime({ keepSvg: true });
   if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
   if (resizeDebounceTimer) clearTimeout(resizeDebounceTimer);
-  if (layoutStopTimer) clearTimeout(layoutStopTimer);
+}
+
+function destroyGraphRuntime(options = {}) {
+  const { keepSvg = false } = options;
+  if (layoutStopTimer) {
+    clearTimeout(layoutStopTimer);
+    layoutStopTimer = null;
+  }
+  if (simulation) {
+    simulation.on('tick', null);
+    simulation.stop();
+    simulation = null;
+  }
+  gLinks = null;
+  gNodes = null;
+  data = { nodes:[], links:[], nodeMap:new Map() };
+  if (!keepSvg && graphGroup) {
+    graphGroup.remove();
+    graphGroup = null;
+  }
 }
 
 function buildIndices() {
@@ -239,6 +260,7 @@ function buildIndices() {
   outgoingMap = new Map();
   topicSearchTextMap = new Map();
   filteredTopicCache = new Map();
+  filteredGraphCache = new Map();
   fullData.topics.topics.forEach(topic => {
     incomingMap.set(topic.id, []);
     outgoingMap.set(topic.id, []);
@@ -325,9 +347,13 @@ function setupCanvas() {
   const width = graph.clientWidth;
   const height = graph.clientHeight;
   svg = d3.select('#canvas').attr('viewBox', `0 0 ${width} ${height}`);
+  svg.on('.zoom', null);
+  svg.interrupt();
   svg.selectAll('*').remove();
   graphGroup = svg.append('g');
-  svg.call(d3.zoom().scaleExtent([0.35, 3]).on('zoom', event => graphGroup.attr('transform', event.transform)));
+  zoomBehavior = d3.zoom().scaleExtent([0.35, 3]).on('zoom', event => graphGroup.attr('transform', event.transform));
+  svg.call(zoomBehavior);
+  svg.call(zoomBehavior.transform, d3.zoomIdentity);
 }
 
 function getFilteredTopics() {
@@ -344,6 +370,14 @@ function getFilteredTopics() {
   return topics;
 }
 
+function getFilteredLinks(cacheKey, topicIds) {
+  if (filteredGraphCache.has(cacheKey)) return filteredGraphCache.get(cacheKey);
+  const visibleIds = new Set(topicIds);
+  const links = fullData.deps.dependencies.filter(dep => visibleIds.has(dep.topicId) && visibleIds.has(dep.prerequisiteId));
+  filteredGraphCache.set(cacheKey, links);
+  return links;
+}
+
 function applyFilters(options = {}) {
   const topics = getFilteredTopics();
   updateButtonStates();
@@ -358,10 +392,12 @@ function updateButtonStates() {
 }
 
 function renderGraph(filteredTopics, keepSelection = true) {
-  if (simulation) simulation.stop();
-  if (layoutStopTimer) clearTimeout(layoutStopTimer);
-  graphGroup.selectAll('*').remove();
-  data = { nodes:[], links:[], nodeMap:new Map() };
+  destroyGraphRuntime({ keepSvg: true });
+  if (!graphGroup) {
+    setupCanvas();
+  } else {
+    graphGroup.selectAll('*').remove();
+  }
 
   const limit = MAX_RENDER_NODES[currentLayer] || 900;
   if (filteredTopics.length > limit) {
@@ -370,9 +406,8 @@ function renderGraph(filteredTopics, keepSelection = true) {
     return;
   }
 
-  const visibleIds = new Set(filteredTopics.map(topic => topic.id));
-  const links = fullData.deps.dependencies
-    .filter(dep => visibleIds.has(dep.topicId) && visibleIds.has(dep.prerequisiteId))
+  const graphCacheKey = `${currentGrade}|${currentSubject}|${currentTextbook}|${currentLayer}`;
+  const links = getFilteredLinks(graphCacheKey, filteredTopics.map(topic => topic.id))
     .map(dep => ({ source: dep.prerequisiteId, target: dep.topicId, strength: dep.strength, reason: dep.reason }));
 
   data.nodes = filteredTopics.map(topic => ({ ...topic }));
