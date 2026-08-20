@@ -17,8 +17,9 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
 .legend-item { display:flex; align-items:center; gap:8px; margin:4px 0; font-size:12px; }
 .legend-dot { width:10px; height:10px; border-radius:50%; }
 #sidebar { background:#151d28; border-left:1px solid rgba(255,255,255,0.06); overflow-y:auto; padding:24px; }
-#filter-panel, #assistant-panel { margin-bottom:20px; padding:14px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:10px; }
-#filter-panel h3, #assistant-panel h3 { margin-top:0; }
+#search-panel, #filter-panel, #assistant-panel, #graph-status { margin-bottom:20px; padding:14px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:10px; }
+#search-panel h3, #filter-panel h3, #assistant-panel h3 { margin-top:0; }
+#search-panel p { margin-top:10px; font-size:11px; color:#7f8c9a; line-height:1.6; }
 #filter-panel p { margin-top:10px; font-size:11px; color:#7f8c9a; line-height:1.6; }
 #filter-panel .filter-field { margin-top:12px; }
 #filter-panel .filter-label-row { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:6px; }
@@ -35,6 +36,8 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
 .multi-select[open] summary::after { transform:rotate(180deg); }
 .multi-select .summary-value { color:#a8b4c0; font-size:12px; text-align:right; flex:1; }
 .multi-select-menu { max-height:220px; overflow-y:auto; border-top:1px solid rgba(255,255,255,0.08); padding:8px; display:grid; gap:6px; }
+.multi-select-search { width:100%; padding:8px 10px; background:#111923; border:1px solid rgba(255,255,255,0.1); border-radius:6px; color:#fff; font-size:12px; margin-bottom:8px; }
+.multi-select-search:focus { outline:none; border-color:#5dade2; }
 .multi-select-option { display:flex; align-items:flex-start; gap:8px; padding:6px 8px; border-radius:6px; color:#c5cdd6; font-size:12px; cursor:pointer; }
 .multi-select-option:hover { background:rgba(93,173,226,0.12); }
 .multi-select-option input { margin-top:2px; accent-color:#5dade2; }
@@ -70,11 +73,11 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
 .link.soft { stroke-opacity:0.2; stroke-dasharray:4,3; }
 .node.dimmed, .link.dimmed { opacity:0.08; }
 .node.highlighted { stroke-width:3px; }
-.search-box { position:absolute; top:20px; left:50%; transform:translateX(-50%); z-index:10; width:300px; }
-.search-box input { width:100%; padding:8px 14px; background:rgba(20,28,40,0.85); border:1px solid rgba(255,255,255,0.12); border-radius:6px; color:#fff; font-size:13px; backdrop-filter:blur(8px); }
+.search-box { position:relative; width:100%; }
+.search-box input { width:100%; padding:10px 12px; background:#0f1419; border:1px solid rgba(255,255,255,0.12); border-radius:8px; color:#fff; font-size:13px; }
 .search-box input::placeholder { color:#5a6878; }
 .search-box input:focus { outline:none; border-color:#5dade2; }
-.search-results { position:absolute; top:40px; left:0; right:0; background:rgba(20,28,40,0.98); border:1px solid rgba(255,255,255,0.12); border-radius:6px; max-height:300px; overflow-y:auto; display:none; }
+.search-results { position:absolute; top:44px; left:0; right:0; background:rgba(20,28,40,0.98); border:1px solid rgba(255,255,255,0.12); border-radius:8px; max-height:300px; overflow-y:auto; display:none; z-index:20; }
 .search-results.show { display:block; }
 .search-result-item { padding:8px 12px; cursor:pointer; font-size:12px; border-bottom:1px solid rgba(255,255,255,0.05); }
 .search-result-item:hover { background:rgba(93,173,226,0.15); }
@@ -84,7 +87,7 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
 .resource-link { display:block; margin:6px 0; padding:8px 10px; background:rgba(255,255,255,0.04); border-radius:6px; color:#dcefff; text-decoration:none; font-size:12px; }
 .resource-link:hover { background:rgba(93,173,226,0.12); }
 .resource-link small { color:#7f8c9a; display:block; margin-top:2px; }
-.graph-status { position:absolute; top:118px; left:20px; z-index:10; max-width:620px; padding:10px 12px; border-radius:8px; background:rgba(20,28,40,0.82); border:1px solid rgba(255,255,255,0.08); color:#a8b4c0; font-size:12px; line-height:1.6; backdrop-filter:blur(8px); }
+.graph-status { color:#a8b4c0; font-size:12px; line-height:1.6; }
 .graph-status strong { color:#fff; }
 .graph-status.warn { border-color:rgba(243,156,18,0.4); }
 .graph-status.info { border-color:rgba(93,173,226,0.35); }
@@ -102,11 +105,6 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
     <div><b id="stat-deps">0</b>依赖</div>
     <div><b id="stat-subjects">0</b>学科</div>
   </div>
-  <div class="search-box">
-    <input type="text" id="search" placeholder="🔍 搜索知识点（如：乘法、部首、时间、跳绳）" />
-    <div class="search-results" id="search-results"></div>
-  </div>
-  <div id="graph-status" class="graph-status info">正在准备轻量视图…</div>
   <div class="legend">
     <h3>学科颜色</h3>
     <div class="legend-item"><span class="legend-dot" style="background:#e74c3c"></span>语文</div>
@@ -126,6 +124,15 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
   <svg id="canvas"></svg>
 </div>
 <div id="sidebar">
+  <div id="search-panel">
+    <h3>知识点搜索</h3>
+    <div class="search-box">
+      <input type="text" id="search" placeholder="🔍 搜索知识点（如：乘法、部首、时间、跳绳）" />
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <p>搜索框已移到右侧，不再遮挡知识图谱。支持直接定位节点，并自动同步筛选条件。</p>
+  </div>
+  <div id="graph-status" class="graph-status info">正在准备轻量视图…</div>
   <div id="filter-panel">
     <h3>图谱筛选</h3>
     <div class="filter-field">
@@ -396,9 +403,16 @@ function renderMultiSelectOptions(kind, items, selectedSet) {
   const container = document.getElementById(`${kind}-options`);
   const summary = document.getElementById(`${kind}-summary`);
   container.innerHTML = '';
+  const search = document.createElement('input');
+  search.type = 'text';
+  search.className = 'multi-select-search';
+  search.placeholder = `搜索${kind === 'grade' ? '年级' : kind === 'subject' ? '学科' : '教材/版本'}...`;
+  container.appendChild(search);
+  const optionNodes = [];
   items.forEach(item => {
     const label = document.createElement('label');
     label.className = 'multi-select-option';
+    label.dataset.filterText = `${item.label} ${item.count}`.toLowerCase();
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.checked = selectedSet.has(item.value);
@@ -420,6 +434,13 @@ function renderMultiSelectOptions(kind, items, selectedSet) {
     label.appendChild(checkbox);
     label.appendChild(text);
     container.appendChild(label);
+    optionNodes.push(label);
+  });
+  search.addEventListener('input', () => {
+    const query = search.value.trim().toLowerCase();
+    optionNodes.forEach(node => {
+      node.style.display = !query || node.dataset.filterText.includes(query) ? 'flex' : 'none';
+    });
   });
   summary.textContent = summarizeSelection(items, selectedSet);
 }
