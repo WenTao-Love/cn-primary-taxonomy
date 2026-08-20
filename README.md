@@ -56,6 +56,29 @@
 - `cn-primary-taxonomy-split.html`
 - `standalone-data/`（拆分后的离线数据包）
 
+### 方法一补充：零服务器 GitHub 托管
+
+本仓库已补入 GitHub Pages 自动部署工作流：
+
+- 工作流文件：`.github/workflows/deploy-pages.yml`
+- 触发方式：推送到 `cn-primary-taxonomy` / `main` / `master` 分支，或手动触发 `workflow_dispatch`
+- Pages 默认首页：`cn-primary-taxonomy.html` 会作为站点根路径的 `index.html`
+- 拆分版页面：`/cn-primary-taxonomy-split.html`
+
+若当前 GitHub 仓库地址为：
+
+- `https://github.com/WenTao-Love/cn-primary-taxonomy`
+
+则 Pages 常见访问地址为：
+
+- `https://WenTao-Love.github.io/cn-primary-taxonomy/`
+- `https://WenTao-Love.github.io/cn-primary-taxonomy/cn-primary-taxonomy-split.html`
+
+说明：
+
+- 这是零服务器静态托管方案，适合直接公开访问知识图谱
+- 工作流会在 GitHub 上自动重建独立版与拆分版 HTML，再发布到 Pages
+
 ### 方法二：使用数据
 
 所有数据在 `data/` 目录下，纯 JSON，零运行时依赖：
