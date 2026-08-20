@@ -16,15 +16,29 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
 .legend h3 { font-size:12px; color:#7f8c9a; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px; }
 .legend-item { display:flex; align-items:center; gap:8px; margin:4px 0; font-size:12px; }
 .legend-dot { width:10px; height:10px; border-radius:50%; }
-.controls { position:absolute; top:20px; right:20px; z-index:10; display:flex; flex-direction:column; gap:8px; align-items:flex-end; max-width:460px; }
-.control-group { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
-.control-group-label { font-size:11px; color:#7f8c9a; align-self:center; margin-right:4px; }
-.controls button { background:rgba(20,28,40,0.85); color:#ccc; border:1px solid rgba(255,255,255,0.12); padding:6px 12px; border-radius:6px; cursor:pointer; font-size:12px; backdrop-filter:blur(8px); transition:all 0.2s;}
-.controls button:hover { background:rgba(60,80,120,0.6); color:#fff; border-color:rgba(255,255,255,0.25); }
-.controls button.active { background:rgba(70,130,220,0.3); color:#5dade2; border-color:#5dade2; }
 #sidebar { background:#151d28; border-left:1px solid rgba(255,255,255,0.06); overflow-y:auto; padding:24px; }
+#filter-panel, #assistant-panel { margin-bottom:20px; padding:14px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:10px; }
+#filter-panel h3, #assistant-panel h3 { margin-top:0; }
+#filter-panel p { margin-top:10px; font-size:11px; color:#7f8c9a; line-height:1.6; }
+#filter-panel .filter-field { margin-top:12px; }
+#filter-panel .filter-label-row { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:6px; }
+#filter-panel label { display:block; font-size:12px; color:#a8b4c0; }
+#filter-panel .filter-action { background:none; border:none; color:#5dade2; cursor:pointer; font-size:11px; padding:0; }
+#filter-panel .filter-action:hover { color:#dcefff; }
+#filter-panel .single-select { width:100%; padding:10px 12px; background:#0f1419; border:1px solid rgba(255,255,255,0.12); border-radius:8px; color:#fff; font-size:13px; }
+#filter-panel .single-select:focus { outline:none; border-color:#5dade2; }
+.multi-select { border:1px solid rgba(255,255,255,0.12); border-radius:8px; background:#0f1419; overflow:hidden; }
+.multi-select[open] { border-color:rgba(93,173,226,0.55); }
+.multi-select summary { list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 12px; font-size:13px; color:#fff; }
+.multi-select summary::-webkit-details-marker { display:none; }
+.multi-select summary::after { content:'▾'; color:#7f8c9a; font-size:12px; transition:transform 0.2s ease; }
+.multi-select[open] summary::after { transform:rotate(180deg); }
+.multi-select .summary-value { color:#a8b4c0; font-size:12px; text-align:right; flex:1; }
+.multi-select-menu { max-height:220px; overflow-y:auto; border-top:1px solid rgba(255,255,255,0.08); padding:8px; display:grid; gap:6px; }
+.multi-select-option { display:flex; align-items:flex-start; gap:8px; padding:6px 8px; border-radius:6px; color:#c5cdd6; font-size:12px; cursor:pointer; }
+.multi-select-option:hover { background:rgba(93,173,226,0.12); }
+.multi-select-option input { margin-top:2px; accent-color:#5dade2; }
 #assistant-panel { margin-bottom:20px; padding:14px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:10px; }
-#assistant-panel h3 { margin-top:0; }
 #assistant-panel input { width:100%; padding:10px 12px; background:#0f1419; border:1px solid rgba(255,255,255,0.12); border-radius:8px; color:#fff; font-size:13px; }
 #assistant-panel button { margin-top:10px; padding:8px 12px; background:rgba(93,173,226,0.18); border:1px solid rgba(93,173,226,0.45); color:#dcefff; border-radius:8px; cursor:pointer; font-size:12px; }
 #assistant-panel button:hover { background:rgba(93,173,226,0.28); }
@@ -92,25 +106,6 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
     <input type="text" id="search" placeholder="🔍 搜索知识点（如：乘法、部首、时间、跳绳）" />
     <div class="search-results" id="search-results"></div>
   </div>
-  <div class="controls">
-    <div class="control-group" id="layer-controls">
-      <span class="control-group-label">视图</span>
-      <button data-layer="core" class="active">核心骨架</button>
-      <button data-layer="detail">详细节点</button>
-    </div>
-    <div class="control-group" id="grade-controls">
-      <span class="control-group-label">年级</span>
-      <button data-grade="all" class="active">全部年级</button>
-    </div>
-    <div class="control-group" id="subject-controls">
-      <span class="control-group-label">学科</span>
-      <button data-subject="all" class="active">全部学科</button>
-    </div>
-    <div class="control-group" id="textbook-controls">
-      <span class="control-group-label">教材/版本</span>
-      <button data-textbook="all" class="active">全部版本</button>
-    </div>
-  </div>
   <div id="graph-status" class="graph-status info">正在准备轻量视图…</div>
   <div class="legend">
     <h3>学科颜色</h3>
@@ -131,6 +126,47 @@ header p { font-size:12px; color:#7f8c9a; margin-top:4px; }
   <svg id="canvas"></svg>
 </div>
 <div id="sidebar">
+  <div id="filter-panel">
+    <h3>图谱筛选</h3>
+    <div class="filter-field">
+      <label for="layer-select">视图</label>
+      <select id="layer-select" class="single-select">
+        <option value="core">核心骨架</option>
+        <option value="detail">详细节点</option>
+      </select>
+    </div>
+    <div class="filter-field">
+      <div class="filter-label-row">
+        <label>年级</label>
+        <button type="button" class="filter-action" data-filter-target="grade">全选</button>
+      </div>
+      <details class="multi-select">
+        <summary><span>年级</span><span class="summary-value" id="grade-summary">未加载</span></summary>
+        <div class="multi-select-menu" id="grade-options"></div>
+      </details>
+    </div>
+    <div class="filter-field">
+      <div class="filter-label-row">
+        <label>学科</label>
+        <button type="button" class="filter-action" data-filter-target="subject">全选</button>
+      </div>
+      <details class="multi-select">
+        <summary><span>学科</span><span class="summary-value" id="subject-summary">未加载</span></summary>
+        <div class="multi-select-menu" id="subject-options"></div>
+      </details>
+    </div>
+    <div class="filter-field">
+      <div class="filter-label-row">
+        <label>教材/版本</label>
+        <button type="button" class="filter-action" data-filter-target="textbook">全选</button>
+      </div>
+      <details class="multi-select">
+        <summary><span>教材/版本</span><span class="summary-value" id="textbook-summary">未加载</span></summary>
+        <div class="multi-select-menu" id="textbook-options"></div>
+      </details>
+    </div>
+    <p>筛选器已移到右侧，不再遮挡知识图谱。年级、学科、版本支持组合多选，适合逐步收窄查看。</p>
+  </div>
   <div id="assistant-panel"></div>
   <div id="detail-panel">
     <div class="hint">
@@ -168,10 +204,10 @@ let zoomBehavior = null;
 let graphGroup = null;
 let gLinks = null;
 let gNodes = null;
-let currentSubject = 'all';
-let currentGrade = 'all';
-let currentTextbook = 'all';
 let currentLayer = 'core';
+let currentGrades = new Set();
+let currentSubjects = new Set();
+let currentTextbooks = new Set();
 let selectedNodeId = null;
 let searchDebounceTimer = null;
 let resizeDebounceTimer = null;
@@ -180,6 +216,9 @@ let tickFrameTimer = null;
 let topicSearchTextMap = new Map();
 let filteredTopicCache = new Map();
 let filteredGraphCache = new Map();
+let gradeFilterItems = [];
+let subjectFilterItems = [];
+let textbookFilterItems = [];
 
 function loadDataset(name, url) {
   if (window.__CNPT_EMBEDDED && window.__CNPT_EMBEDDED[name]) {
@@ -202,8 +241,8 @@ async function init() {
   document.getElementById('stat-topics').textContent = topics.topicCount;
   document.getElementById('stat-deps').textContent = deps.edgeCount;
   document.getElementById('stat-subjects').textContent = new Set(topics.topics.map(t=>t.subject)).size;
-  const grades = [...new Set(topics.topics.map(t => t.grade))].sort((a,b)=>a-b);
-  currentGrade = String(grades[0] || 'all');
+  const grades = [...new Set(topics.topics.map(t => t.grade))].sort((a,b)=>a-b).map(String);
+  currentGrades = new Set(grades.length ? [grades[0]] : []);
   document.getElementById('subtitle').textContent = `${topics.version || 'CN-Primary-Taxonomy'} · 默认以轻量模式展示，可切换到详细节点 · ${topics.topicCount} 知识点 · ${deps.edgeCount} 依赖关系`;
 
   buildControls();
@@ -299,66 +338,93 @@ function buildIndices() {
 }
 
 function buildControls() {
-  bindStaticButtonGroup('#layer-controls', 'layer', value => {
-    currentLayer = value;
+  const layerSelect = document.getElementById('layer-select');
+  layerSelect.value = currentLayer;
+  layerSelect.addEventListener('change', event => {
+    currentLayer = event.target.value;
     applyFilters();
   });
 
   const gradeCounts = {};
   fullData.topics.topics.forEach(topic => { gradeCounts[topic.grade] = (gradeCounts[topic.grade] || 0) + 1; });
-  appendButtons('#grade-controls', 'grade', Object.entries(gradeCounts).sort((a,b)=>Number(a[0])-Number(b[0])).map(([grade, count]) => ({
-    value: grade,
-    label: `${grade}年级 (${count})`,
-    onClick: () => { currentGrade = grade; applyFilters(); }
-  })));
-  bindStaticButtonGroup('#grade-controls', 'grade', value => {
-    currentGrade = value;
-    applyFilters();
-  });
+  gradeFilterItems = Object.entries(gradeCounts).sort((a,b)=>Number(a[0])-Number(b[0])).map(([grade, count]) => ({
+    value: String(grade),
+    label: `${grade}年级`,
+    count
+  }));
+  renderMultiSelectOptions('grade', gradeFilterItems, currentGrades);
 
   const subjectCounts = {};
   fullData.topics.topics.forEach(topic => { subjectCounts[topic.subject] = (subjectCounts[topic.subject] || 0) + 1; });
-  appendButtons('#subject-controls', 'subject', Object.entries(subjectCounts).sort((a,b)=>b[1]-a[1]).map(([subject, count]) => ({
+  subjectFilterItems = Object.entries(subjectCounts).sort((a,b)=>b[1]-a[1]).map(([subject, count]) => ({
     value: subject,
-    label: `${subject} (${count})`,
-    onClick: () => { currentSubject = subject; applyFilters(); }
-  })));
-  bindStaticButtonGroup('#subject-controls', 'subject', value => {
-    currentSubject = value;
-    applyFilters();
-  });
+    label: subject,
+    count
+  }));
+  currentSubjects = new Set(subjectFilterItems.map(item => item.value));
+  renderMultiSelectOptions('subject', subjectFilterItems, currentSubjects);
 
   const textbookCounts = {};
   fullData.topics.topics.forEach(topic => {
     const key = topic.textbook || '未标注版本';
     textbookCounts[key] = (textbookCounts[key] || 0) + 1;
   });
-  appendButtons('#textbook-controls', 'textbook', Object.entries(textbookCounts).sort((a,b)=>b[1]-a[1]).map(([textbook, count]) => ({
+  textbookFilterItems = Object.entries(textbookCounts).sort((a,b)=>b[1]-a[1]).map(([textbook, count]) => ({
     value: textbook,
-    label: `${textbook} (${count})`,
-    onClick: () => { currentTextbook = textbook; applyFilters(); }
-  })));
-  bindStaticButtonGroup('#textbook-controls', 'textbook', value => {
-    currentTextbook = value;
-    applyFilters();
+    label: textbook,
+    count
+  }));
+  currentTextbooks = new Set(textbookFilterItems.map(item => item.value));
+  renderMultiSelectOptions('textbook', textbookFilterItems, currentTextbooks);
+
+  document.querySelectorAll('.filter-action').forEach(button => {
+    button.addEventListener('click', () => {
+      const target = button.dataset.filterTarget;
+      if (target === 'grade') {
+        currentGrades = new Set(gradeFilterItems.map(item => item.value));
+        renderMultiSelectOptions('grade', gradeFilterItems, currentGrades);
+      } else if (target === 'subject') {
+        currentSubjects = new Set(subjectFilterItems.map(item => item.value));
+        renderMultiSelectOptions('subject', subjectFilterItems, currentSubjects);
+      } else if (target === 'textbook') {
+        currentTextbooks = new Set(textbookFilterItems.map(item => item.value));
+        renderMultiSelectOptions('textbook', textbookFilterItems, currentTextbooks);
+      }
+      applyFilters();
+    });
   });
 }
 
-function appendButtons(selector, key, items) {
-  const container = document.querySelector(selector);
+function renderMultiSelectOptions(kind, items, selectedSet) {
+  const container = document.getElementById(`${kind}-options`);
+  const summary = document.getElementById(`${kind}-summary`);
+  container.innerHTML = '';
   items.forEach(item => {
-    const btn = document.createElement('button');
-    btn.dataset[key] = item.value;
-    btn.textContent = item.label;
-    btn.onclick = item.onClick;
-    container.appendChild(btn);
+    const label = document.createElement('label');
+    label.className = 'multi-select-option';
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.checked = selectedSet.has(item.value);
+    checkbox.addEventListener('change', () => {
+      if (checkbox.checked) {
+        selectedSet.add(item.value);
+      } else {
+        selectedSet.delete(item.value);
+        if (!selectedSet.size) {
+          selectedSet.add(item.value);
+          checkbox.checked = true;
+        }
+      }
+      updateFilterSummaries();
+      applyFilters();
+    });
+    const text = document.createElement('span');
+    text.textContent = `${item.label} (${item.count})`;
+    label.appendChild(checkbox);
+    label.appendChild(text);
+    container.appendChild(label);
   });
-}
-
-function bindStaticButtonGroup(selector, key, handler) {
-  document.querySelectorAll(`${selector} button`).forEach(button => {
-    button.onclick = () => handler(button.dataset[key]);
-  });
+  summary.textContent = summarizeSelection(items, selectedSet);
 }
 
 function setupCanvas() {
@@ -376,12 +442,12 @@ function setupCanvas() {
 }
 
 function getFilteredTopics() {
-  const cacheKey = `${currentGrade}|${currentSubject}|${currentTextbook}|${currentLayer}`;
+  const cacheKey = `${[...currentGrades].sort().join(',')}|${[...currentSubjects].sort().join(',')}|${[...currentTextbooks].sort().join(',')}|${currentLayer}`;
   if (filteredTopicCache.has(cacheKey)) return filteredTopicCache.get(cacheKey);
   const topics = fullData.topics.topics.filter(topic => {
-    const gradeMatched = currentGrade === 'all' || String(topic.grade) === String(currentGrade);
-    const subjectMatched = currentSubject === 'all' || topic.subject === currentSubject;
-    const textbookMatched = currentTextbook === 'all' || (topic.textbook || '未标注版本') === currentTextbook;
+    const gradeMatched = currentGrades.has(String(topic.grade));
+    const subjectMatched = currentSubjects.has(topic.subject);
+    const textbookMatched = currentTextbooks.has(topic.textbook || '未标注版本');
     const layerMatched = currentLayer === 'detail' || !topic.parentTopicId;
     return gradeMatched && subjectMatched && textbookMatched && layerMatched;
   });
@@ -399,15 +465,23 @@ function getFilteredLinks(cacheKey, topicIds) {
 
 function applyFilters(options = {}) {
   const topics = getFilteredTopics();
-  updateButtonStates();
+  updateFilterSummaries();
   renderGraph(topics, options.keepSelection !== false);
 }
 
-function updateButtonStates() {
-  document.querySelectorAll('#layer-controls button').forEach(button => button.classList.toggle('active', button.dataset.layer === currentLayer));
-  document.querySelectorAll('#grade-controls button').forEach(button => button.classList.toggle('active', button.dataset.grade === currentGrade));
-  document.querySelectorAll('#subject-controls button').forEach(button => button.classList.toggle('active', button.dataset.subject === currentSubject));
-  document.querySelectorAll('#textbook-controls button').forEach(button => button.classList.toggle('active', button.dataset.textbook === currentTextbook));
+function summarizeSelection(items, selectedSet) {
+  if (!items.length) return '未加载';
+  if (selectedSet.size === items.length) return `全部 (${items.length})`;
+  const chosen = items.filter(item => selectedSet.has(item.value));
+  if (chosen.length <= 2) return chosen.map(item => item.label).join('、');
+  return `${chosen.slice(0, 2).map(item => item.label).join('、')} 等 ${chosen.length} 项`;
+}
+
+function updateFilterSummaries() {
+  document.getElementById('layer-select').value = currentLayer;
+  document.getElementById('grade-summary').textContent = summarizeSelection(gradeFilterItems, currentGrades);
+  document.getElementById('subject-summary').textContent = summarizeSelection(subjectFilterItems, currentSubjects);
+  document.getElementById('textbook-summary').textContent = summarizeSelection(textbookFilterItems, currentTextbooks);
 }
 
 function renderGraph(filteredTopics, keepSelection = true) {
@@ -425,7 +499,7 @@ function renderGraph(filteredTopics, keepSelection = true) {
     return;
   }
 
-  const graphCacheKey = `${currentGrade}|${currentSubject}|${currentTextbook}|${currentLayer}`;
+  const graphCacheKey = `${[...currentGrades].sort().join(',')}|${[...currentSubjects].sort().join(',')}|${[...currentTextbooks].sort().join(',')}|${currentLayer}`;
   const links = getFilteredLinks(graphCacheKey, filteredTopics.map(topic => topic.id))
     .map(dep => ({ source: dep.prerequisiteId, target: dep.topicId, strength: dep.strength, reason: dep.reason }));
 
@@ -758,10 +832,13 @@ function renderAssistantPanel() {
 }
 
 function focusTopic(topic) {
-  currentGrade = String(topic.grade);
-  currentSubject = topic.subject;
-  currentTextbook = topic.textbook || '未标注版本';
+  currentGrades = new Set([String(topic.grade)]);
+  currentSubjects = new Set([topic.subject]);
+  currentTextbooks = new Set([topic.textbook || '未标注版本']);
   currentLayer = topic.parentTopicId ? 'detail' : currentLayer;
+  renderMultiSelectOptions('grade', gradeFilterItems, currentGrades);
+  renderMultiSelectOptions('subject', subjectFilterItems, currentSubjects);
+  renderMultiSelectOptions('textbook', textbookFilterItems, currentTextbooks);
   applyFilters({ keepSelection: false });
   if (data.nodeMap.has(topic.id)) selectNode(data.nodeMap.get(topic.id));
 }
