@@ -33,6 +33,9 @@ function buildResources(topic) {
   const subject = SUBJECT_SEARCH_LABELS[topic.subject] || topic.subject;
   return [
     {
+      resourceId: `res_${topic.id}_fallback_example`,
+      resourceGroupKey: `fallback-${topic.subjectCode || topic.subject}-${topic.grade}`,
+      resourceUnitKey: null,
       title: `${topic.name}典型例题`,
       type: 'example',
       url: buildSearchUrl(`${grade} ${subject} ${topic.name} 典型例题 讲解`),
@@ -40,6 +43,9 @@ function buildResources(topic) {
       note: '聚合检索入口，可快速定位同主题典型例题'
     },
     {
+      resourceId: `res_${topic.id}_fallback_exercise`,
+      resourceGroupKey: `fallback-${topic.subjectCode || topic.subject}-${topic.grade}`,
+      resourceUnitKey: null,
       title: `${topic.name}练习题`,
       type: 'exercise',
       url: buildSearchUrl(`${grade} ${subject} ${topic.name} 练习题 下载`),
@@ -47,6 +53,25 @@ function buildResources(topic) {
       note: '聚合检索入口，可快速定位同步练习与题单'
     }
   ];
+}
+
+function normalizeResources(topic) {
+  const seen = new Set();
+  const resources = Array.isArray(topic.resources) && topic.resources.length ? topic.resources : buildResources(topic);
+  const normalized = [];
+  for (const resource of resources) {
+    const resourceId = resource.resourceId || `res_${topic.id}_${normalized.length + 1}`;
+    const dedupeKey = `${resourceId}|${resource.url}`;
+    if (seen.has(dedupeKey)) continue;
+    seen.add(dedupeKey);
+    normalized.push({
+      ...resource,
+      resourceId,
+      resourceGroupKey: resource.resourceGroupKey || null,
+      resourceUnitKey: resource.resourceUnitKey || null
+    });
+  }
+  return normalized;
 }
 
 const topicFiles = readdirSync(DATA)
@@ -69,7 +94,7 @@ const datasets = topicFiles.map(name => ({
 
 const all = datasets.flatMap(item => item.data.topics).map(topic => ({
   ...topic,
-  resources: Array.isArray(topic.resources) && topic.resources.length ? topic.resources : buildResources(topic)
+  resources: normalizeResources(topic)
 }));
 
 // 检查ID唯一性
@@ -111,7 +136,7 @@ const topicsJson = {
   version: 'v0.7-expanded',
   generatedAt: new Date().toISOString(),
   grades: [...new Set(all.map(t => t.grade))].sort((a,b)=>a-b),
-  note: '扩展版本：1-6年级主干 + 数学细粒度题链直达页 + 英语分技能rubric + 语文/科学/道法结构化评价 + 可视化性能优化',
+  note: '扩展版本：1-6年级主干 + 数学逐单元资源组键/资源ID + 英语分技能rubric + 多学科结构化评价 + 可视化性能优化',
   topicCount: all.length,
   topics: all
 };

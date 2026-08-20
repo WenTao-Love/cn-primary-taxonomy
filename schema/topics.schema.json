@@ -84,6 +84,9 @@
               "type": "object",
               "required": ["title", "type", "url"],
               "properties": {
+                "resourceId": { "type": ["string", "null"], "description": "资源槽位ID，用于逐资源级治理、去重与追踪" },
+                "resourceGroupKey": { "type": ["string", "null"], "description": "资源分组键，用于标识同一单元或同一题单组" },
+                "resourceUnitKey": { "type": ["string", "null"], "description": "资源所属册次/单元键" },
                 "title": { "type": "string" },
                 "type": { "type": "string", "enum": ["example", "exercise", "worksheet", "video", "article"] },
                 "url": { "type": "string" },

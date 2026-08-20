@@ -172,6 +172,7 @@ let currentGrade = 'all';
 let currentTextbook = 'all';
 let currentLayer = 'core';
 let selectedNodeId = null;
+let searchTimer = null;
 
 function loadDataset(name, url) {
   if (window.__CNPT_EMBEDDED && window.__CNPT_EMBEDDED[name]) {
@@ -203,6 +204,16 @@ async function init() {
   setupSearch();
   setupCanvas();
   applyFilters();
+  window.addEventListener('resize', handleResize, { passive: true });
+}
+
+function handleResize() {
+  if (searchTimer) clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    if (simulation) simulation.stop();
+    setupCanvas();
+    applyFilters();
+  }, 120);
 }
 
 function buildIndices() {
@@ -472,7 +483,7 @@ function renderSidebar(topic) {
   const resources = (topic.resources || []).map(resource => `
     <a class="resource-link" href="${resource.url}" target="_blank" rel="noopener noreferrer">
       ${resource.title}
-      <small>${resource.type} · ${resource.source || '外部资源'}${resource.note ? ` · ${resource.note}` : ''}</small>
+      <small>${resource.type} · ${resource.source || '外部资源'}${resource.resourceId ? ` · ID ${resource.resourceId}` : ''}${resource.resourceUnitKey ? ` · 单元键 ${resource.resourceUnitKey}` : ''}${resource.note ? ` · ${resource.note}` : ''}</small>
     </a>
   `).join('');
 
@@ -656,24 +667,28 @@ function setupSearch() {
   const input = document.getElementById('search');
   const results = document.getElementById('search-results');
   input.addEventListener('input', () => {
-    const query = input.value.trim().toLowerCase();
-    if (!query) {
-      results.classList.remove('show');
-      return;
-    }
-    const matches = fullData.topics.topics
-      .map(topic => ({ topic, score: topicScore(topic, query) }))
-      .filter(item => item.score > 0)
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 15)
-      .map(item => item.topic);
-    results.innerHTML = matches.map(topic => `
-      <div class="search-result-item" onclick="focusTopicById('${topic.id}')">
-        <div><span class="srn">${topic.subject}</span> · ${topic.name}</div>
-        <div class="srd">${topic.domain || ''} · ${topic.grade}年级${topic.term}${topic.subnodeType ? ` · ${topic.subnodeType}` : ''}</div>
-      </div>
-    `).join('');
-    results.classList.toggle('show', matches.length > 0);
+    if (searchTimer) clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => {
+      const query = input.value.trim().toLowerCase();
+      if (!query) {
+        results.classList.remove('show');
+        results.innerHTML = '';
+        return;
+      }
+      const matches = fullData.topics.topics
+        .map(topic => ({ topic, score: topicScore(topic, query) }))
+        .filter(item => item.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 15)
+        .map(item => item.topic);
+      results.innerHTML = matches.map(topic => `
+        <div class="search-result-item" onclick="focusTopicById('${topic.id}')">
+          <div><span class="srn">${topic.subject}</span> · ${topic.name}</div>
+          <div class="srd">${topic.domain || ''} · ${topic.grade}年级${topic.term}${topic.subnodeType ? ` · ${topic.subnodeType}` : ''}</div>
+        </div>
+      `).join('');
+      results.classList.toggle('show', matches.length > 0);
+    }, 100);
   });
   document.addEventListener('click', event => {
     if (!event.target.closest('.search-box')) results.classList.remove('show');

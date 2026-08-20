@@ -143,11 +143,33 @@ function zxxkAlbumUrl(grade, typeCode) {
   return `https://www.zxxk.com/zj/p-channel2-type${typeCode}-g${grade}/s24615/?level=1203`;
 }
 
+function slugify(text) {
+  return String(text || '')
+    .replace(/\s+/g, '')
+    .replace(/[·：:（）()]/g, '-')
+    .replace(/[^\u4e00-\u9fa5A-Za-z0-9_-]/g, '')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+function unitKeyOf(topic) {
+  return slugify([topic.textbook, topic.volume, topic.unit].filter(Boolean).join('-'));
+}
+
+function resourceIdOf(topic, subnodeType, slot) {
+  return `res_${topic.id}_${slugify(subnodeType)}_${slot}`;
+}
+
 function makeMathChild(baseTopic, parentId, seq, subnodeType, nameSuffix, description, evidence, commonMistakes, practiceChain, assessmentTasks) {
   const resourceKeyword = `${baseTopic.volume} ${baseTopic.unit} ${baseTopic.lesson} ${baseTopic.name}`;
+  const resourceUnitKey = unitKeyOf(baseTopic);
+  const resourceGroupKey = `${resourceUnitKey}-${slugify(subnodeType)}`;
   const resourcePack = subnodeType === '例题型'
     ? [
         {
+          resourceId: resourceIdOf(baseTopic, subnodeType, 'album-lecture'),
+          resourceGroupKey,
+          resourceUnitKey,
           title: `${baseTopic.name}·学科网同步讲义专辑`,
           type: 'example',
           url: zxxkAlbumUrl(baseTopic.grade, '3102'),
@@ -155,16 +177,32 @@ function makeMathChild(baseTopic, parentId, seq, subnodeType, nameSuffix, descri
           note: `已直达“小学数学 + ${baseTopic.grade}年级 + 教案/讲义 + 同步教学”专辑页，可按“${resourceKeyword}”继续定位典例讲练`
         },
         {
+          resourceId: resourceIdOf(baseTopic, subnodeType, 'album-sheet'),
+          resourceGroupKey,
+          resourceUnitKey,
           title: `${baseTopic.name}·学科网同步题集专辑`,
           type: 'worksheet',
           url: zxxkAlbumUrl(baseTopic.grade, '3105'),
           source: '学科网',
-          note: `已直达“小学数学 + ${baseTopic.grade}年级 + 学案/导学案 + 同步教学”页，适合找与“${resourceKeyword}”对应的题单`
+          note: `已直达“小学数学 + ${baseTopic.grade}年级 + 学案/导学案 + 同步教学”页，适合找与“${resourceKeyword}”对应的逐单元精选题单`
+        },
+        {
+          resourceId: resourceIdOf(baseTopic, subnodeType, 'unit-pack'),
+          resourceGroupKey,
+          resourceUnitKey,
+          title: `${baseTopic.name}·单元精选题单映射`,
+          type: 'worksheet',
+          url: zxxkAlbumUrl(baseTopic.grade, '3105'),
+          source: '学科网',
+          note: `资源组键 ${resourceGroupKey}，用于承载“${baseTopic.unit}”下的精选题单映射；后续可继续补充具体作品ID直链`
         }
       ]
     : subnodeType === '易错型'
       ? [
           {
+          resourceId: resourceIdOf(baseTopic, subnodeType, 'album-paper'),
+          resourceGroupKey,
+          resourceUnitKey,
           title: `${baseTopic.name}·学科网同步试题专辑`,
           type: 'exercise',
           url: zxxkAlbumUrl(baseTopic.grade, '3103'),
@@ -172,15 +210,31 @@ function makeMathChild(baseTopic, parentId, seq, subnodeType, nameSuffix, descri
           note: `已直达“小学数学 + ${baseTopic.grade}年级 + 试题试卷 + 同步教学”专辑页，可继续定位“${resourceKeyword} 易错”训练`
         },
         {
+          resourceId: resourceIdOf(baseTopic, subnodeType, 'jyeoo-center'),
+          resourceGroupKey,
+          resourceUnitKey,
           title: `${baseTopic.name}·菁优网小学试卷中心`,
             type: 'exercise',
           url: 'https://www.jyeoo.com/math3/report/index?ai=0',
             source: '菁优网',
           note: `已直达小学数学试卷中心，建议用“${resourceKeyword} 易错”作为定位词筛同类纠错卷`
+          },
+          {
+          resourceId: resourceIdOf(baseTopic, subnodeType, 'unit-pack'),
+          resourceGroupKey,
+          resourceUnitKey,
+          title: `${baseTopic.name}·错因题单映射`,
+          type: 'exercise',
+          url: zxxkAlbumUrl(baseTopic.grade, '3103'),
+          source: '学科网',
+          note: `资源组键 ${resourceGroupKey}，用于沉淀“${baseTopic.unit}”的易错型精选题单和后续作品ID`
           }
         ]
       : [
           {
+          resourceId: resourceIdOf(baseTopic, subnodeType, 'album-method'),
+          resourceGroupKey,
+          resourceUnitKey,
           title: `${baseTopic.name}·学科网备课综合专辑`,
             type: 'worksheet',
           url: zxxkAlbumUrl(baseTopic.grade, '3108'),
@@ -188,11 +242,24 @@ function makeMathChild(baseTopic, parentId, seq, subnodeType, nameSuffix, descri
           note: `已直达“小学数学 + ${baseTopic.grade}年级 + 备课综合 + 同步教学”专辑页，适合找“${resourceKeyword} 方法”类资料`
           },
           {
+            resourceId: resourceIdOf(baseTopic, subnodeType, 'smartedu'),
+            resourceGroupKey,
+            resourceUnitKey,
             title: `${baseTopic.name}·智慧中小学拓展资源`,
             type: 'article',
             url: 'https://basic.smartedu.cn/',
             source: '国家中小学智慧教育平台',
             note: `检索“${resourceKeyword}”，优先调用同步课、作业活动和方法讲解资源`
+          },
+          {
+            resourceId: resourceIdOf(baseTopic, subnodeType, 'unit-pack'),
+            resourceGroupKey,
+            resourceUnitKey,
+            title: `${baseTopic.name}·方法策略题单映射`,
+            type: 'worksheet',
+            url: zxxkAlbumUrl(baseTopic.grade, '3108'),
+            source: '学科网',
+            note: `资源组键 ${resourceGroupKey}，用于沉淀“${baseTopic.unit}”的方法型精选题单和后续作品ID`
           }
         ];
   return {

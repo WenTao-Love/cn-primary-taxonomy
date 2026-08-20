@@ -22,10 +22,10 @@
 - **学科覆盖**：语文、数学、英语、科学、道德与法治、劳动、体育与健康、美术、音乐、信息科技、AI素养 共11学科
 - **教材版本**：
   - 语文：统编版（1-6年级）
-  - 数学：人教版 / 北师大版 / 苏教版，已细化到**册次-单元-课时主题**，并继续拆到**例题型 / 易错型 / 方法型**子节点，同时挂接**更细的题链直达页**
+  - 数学：人教版 / 北师大版 / 苏教版，已细化到**册次-单元-课时主题**，并继续拆到**例题型 / 易错型 / 方法型**子节点，同时挂接**逐单元精选题单映射、资源组键与资源 ID**
   - 英语：外研版（一起点）1-2年级；人教PEP版 / 外研版 / 译林版（三年级起点）3-6年级，已细化到**模块内词汇 / 句型 / 语篇 / 写作任务**，并挂接**页码 / 练习链 / 测评任务 / 分技能 rubric**
   - 语文 / 科学 / 道德与法治：已推广为**父节点 + 子节点 + 练习链 + 测评任务 + 结构化评价框架**模式
-  - 其他学科：当前先按一个代表版本铺开 1-6 年级主干
+  - 劳动 / 体育与健康 / 美术 / 音乐 / 信息科技：已推广为**父节点 + 子节点 + 练习链 + 测评任务 + 结构化评价框架**模式
 - **知识点数**：**4095 个**（语文1168 / 数学2511 / 英语224 / 科学72 / 道德与法治48 / 其他学科72）
 - **依赖关系**：**4007 条**（强依赖2628 / 弱依赖1379）
 - **课标对齐**：13个课标文件，共197个编码条目
@@ -92,6 +92,7 @@ node scripts/generate-others-all-grades.mjs
 node scripts/generate-shuxue-versions.mjs
 node scripts/generate-english-versions.mjs
 node scripts/generate-subnodes-yw-kx-df.mjs
+node scripts/generate-subnodes-others.mjs
 node scripts/merge.mjs
 node scripts/generate-dependencies.mjs
 node scripts/generate-standards.mjs
@@ -150,6 +151,7 @@ cn-primary-taxonomy/
 │   ├── generate-shuxue-versions.mjs ← 数学多版本与题链直达页生成
 │   ├── generate-english-versions.mjs ← 英语多版本与rubric生成
 │   ├── generate-subnodes-yw-kx-df.mjs ← 语文/科学/道法子节点与评价框架生成
+│   ├── generate-subnodes-others.mjs ← 劳动/体音美/信息科技子节点与评价框架生成
 │   ├── generate-dependencies.mjs← 依赖关系生成
 │   ├── generate-standards.mjs   ← 课标对齐生成
 │   ├── generate-clusters.mjs    ← 领域概览生成
@@ -194,6 +196,9 @@ cn-primary-taxonomy/
 | `assessmentTasks[]` | 建议测评任务 | ["根据提示词口头完成问答", ...] |
 | `skillRubric` | 分技能测评rubric | 听力/口语/阅读/写作三档描述 |
 | `evaluationRubric[]` | 通用结构化评价框架 | 维度 + 三档指标描述 |
+| `resources[].resourceId` | 资源槽位ID | `res_ct_SXB4S001_例题型_album-lecture` |
+| `resources[].resourceGroupKey` | 资源分组键 | `北师大版-四年级上册-四上-第1单元-认识更大的数与乘除法-例题型` |
+| `resources[].resourceUnitKey` | 资源单元键 | `北师大版-四年级上册-四上-第1单元-认识更大的数与乘除法` |
 | `difficulty` | 难度星级 | 1-5 |
 | `evidence[]` | 掌握证据（会什么就算掌握了） | ["能列竖式计算进位加法",...] |
 | `commonMistakes[]` | 常见易错点 | ["忘记加进位的1",...] |
@@ -236,7 +241,7 @@ cn-primary-taxonomy/
 ## 后续路线图
 
 - **v0.7**：已扩展至 1-6 年级主干，并把数学三版本推进到更细题链直达页、英语三版本推进到分技能 rubric，同时把语文 / 科学 / 道法推广到结构化评价框架，并完成页面轻量化与拆分版离线页，达到 4095 个知识点 / 4007 条依赖
-- **v0.8**：继续把劳动、体音美、信息科技等学科从“主干版”加密到“教材章节级 + 子节点版”
+- **v0.8**：继续把劳动、体音美、信息科技等学科从“主干版”加密到“教材章节级 + 子节点版”，并把数学资源从“题链入口”推进到“逐单元精选题单 / 逐资源 ID”治理
 - **v0.9**：教材多版本继续扩展到更多学科，并细化到单元 / 主题 / 章节 / 课时 / 题型级映射
 - **v1.0**：把当前“检索入口型资源链接”升级为教师精选题链、错题模式、教学建议
 - **v1.1**：对标 Marble 完整度并面向商用学习产品进一步收口

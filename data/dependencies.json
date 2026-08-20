@@ -1,7 +1,7 @@
 {
   "version": "v0.7-expanded",
   "note": "DAG 依赖方向：topicId 依赖 prerequisiteId（先学prerequisite，再学topic）",
-  "edgeCount": 4007,
+  "edgeCount": 4191,
   "dependencies": [
     {
       "topicId": "ct_YW2S001",
@@ -580,6 +580,18 @@
       "reason": "认识四季以认识天气变化为基础"
     },
     {
+      "topicId": "ct_LD2S002",
+      "prerequisiteId": "ct_LD2S001",
+      "strength": "soft",
+      "reason": "系鞋带和整理书包同属自我服务劳动，手部精细动作要求递进"
+    },
+    {
+      "topicId": "ct_LD2X004",
+      "prerequisiteId": "ct_LD2S003",
+      "strength": "hard",
+      "reason": "洗碗比扫地擦桌子更复杂（涉及水、清洁剂、安全），以上学期家务为基础"
+    },
+    {
       "topicId": "ct_YY2S002",
       "prerequisiteId": "ct_YY2S001",
       "strength": "soft",
@@ -596,6 +608,24 @@
       "prerequisiteId": "ct_XX2Q001",
       "strength": "hard",
       "reason": "计算机操作以了解信息和信息技术为基础"
+    },
+    {
+      "topicId": "ct_XX2Q003",
+      "prerequisiteId": "ct_XX2Q002",
+      "strength": "hard",
+      "reason": "键盘指法以认识计算机、会开机鼠标操作为基础"
+    },
+    {
+      "topicId": "ct_TY2Q004",
+      "prerequisiteId": "ct_TY2Q002",
+      "strength": "soft",
+      "reason": "跳绳以基本跑动、协调能力为基础"
+    },
+    {
+      "topicId": "ct_MS2Q003",
+      "prerequisiteId": "ct_MS2Q002",
+      "strength": "hard",
+      "reason": "折纸以基本线条控制、手部精细动作为基础"
     },
     {
       "topicId": "ct_SXB1S002",
@@ -10640,6 +10670,1080 @@
       "prerequisiteId": "ct_SXS6X109",
       "strength": "hard",
       "reason": "毕业总复习中的知识关联·方法策略是“毕业总复习中的知识关联”下的方法型子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD1S002",
+      "prerequisiteId": "ct_LD1S001",
+      "strength": "hard",
+      "reason": "整理个人物品·准备与分工任务是“整理个人物品”下的劳动准备子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD1S003",
+      "prerequisiteId": "ct_LD1S001",
+      "strength": "hard",
+      "reason": "整理个人物品·操作实践任务是“整理个人物品”下的操作实践子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD1S004",
+      "prerequisiteId": "ct_LD1S001",
+      "strength": "hard",
+      "reason": "整理个人物品·复盘改进任务是“整理个人物品”下的复盘改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD1X003",
+      "prerequisiteId": "ct_LD1X002",
+      "strength": "hard",
+      "reason": "餐前餐后简单整理·准备与分工任务是“餐前餐后简单整理”下的劳动准备子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD1X004",
+      "prerequisiteId": "ct_LD1X002",
+      "strength": "hard",
+      "reason": "餐前餐后简单整理·操作实践任务是“餐前餐后简单整理”下的操作实践子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD1X005",
+      "prerequisiteId": "ct_LD1X002",
+      "strength": "hard",
+      "reason": "餐前餐后简单整理·复盘改进任务是“餐前餐后简单整理”下的复盘改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY1Q003",
+      "prerequisiteId": "ct_TY1Q001",
+      "strength": "hard",
+      "reason": "正确坐立行姿和队列意识·动作训练任务是“正确坐立行姿和队列意识”下的动作训练子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY1Q004",
+      "prerequisiteId": "ct_TY1Q001",
+      "strength": "hard",
+      "reason": "正确坐立行姿和队列意识·规则合作任务是“正确坐立行姿和队列意识”下的规则合作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY1Q005",
+      "prerequisiteId": "ct_TY1Q001",
+      "strength": "hard",
+      "reason": "正确坐立行姿和队列意识·健康反思任务是“正确坐立行姿和队列意识”下的健康反思子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY1Q006",
+      "prerequisiteId": "ct_TY1Q002",
+      "strength": "hard",
+      "reason": "跑跳投基础动作·动作训练任务是“跑跳投基础动作”下的动作训练子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY1Q007",
+      "prerequisiteId": "ct_TY1Q002",
+      "strength": "hard",
+      "reason": "跑跳投基础动作·规则合作任务是“跑跳投基础动作”下的规则合作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY1Q008",
+      "prerequisiteId": "ct_TY1Q002",
+      "strength": "hard",
+      "reason": "跑跳投基础动作·健康反思任务是“跑跳投基础动作”下的健康反思子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS1Q003",
+      "prerequisiteId": "ct_MS1Q001",
+      "strength": "hard",
+      "reason": "色彩和线条基础表现·造型表现任务是“色彩和线条基础表现”下的造型表现子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS1Q004",
+      "prerequisiteId": "ct_MS1Q001",
+      "strength": "hard",
+      "reason": "色彩和线条基础表现·欣赏评述任务是“色彩和线条基础表现”下的欣赏评述子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS1Q005",
+      "prerequisiteId": "ct_MS1Q001",
+      "strength": "hard",
+      "reason": "色彩和线条基础表现·创作改进任务是“色彩和线条基础表现”下的创作改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS1Q006",
+      "prerequisiteId": "ct_MS1Q002",
+      "strength": "hard",
+      "reason": "简单折剪和手工制作·造型表现任务是“简单折剪和手工制作”下的造型表现子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS1Q007",
+      "prerequisiteId": "ct_MS1Q002",
+      "strength": "hard",
+      "reason": "简单折剪和手工制作·欣赏评述任务是“简单折剪和手工制作”下的欣赏评述子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS1Q008",
+      "prerequisiteId": "ct_MS1Q002",
+      "strength": "hard",
+      "reason": "简单折剪和手工制作·创作改进任务是“简单折剪和手工制作”下的创作改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP1Q003",
+      "prerequisiteId": "ct_YYP1Q001",
+      "strength": "hard",
+      "reason": "唱名节拍和简单节奏感知·节奏演唱任务是“唱名节拍和简单节奏感知”下的节奏演唱子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP1Q004",
+      "prerequisiteId": "ct_YYP1Q001",
+      "strength": "hard",
+      "reason": "唱名节拍和简单节奏感知·欣赏表达任务是“唱名节拍和简单节奏感知”下的欣赏表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP1Q005",
+      "prerequisiteId": "ct_YYP1Q001",
+      "strength": "hard",
+      "reason": "唱名节拍和简单节奏感知·合作展示任务是“唱名节拍和简单节奏感知”下的合作展示子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP1Q006",
+      "prerequisiteId": "ct_YYP1Q002",
+      "strength": "hard",
+      "reason": "自然声音歌唱和简单律动·节奏演唱任务是“自然声音歌唱和简单律动”下的节奏演唱子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP1Q007",
+      "prerequisiteId": "ct_YYP1Q002",
+      "strength": "hard",
+      "reason": "自然声音歌唱和简单律动·欣赏表达任务是“自然声音歌唱和简单律动”下的欣赏表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP1Q008",
+      "prerequisiteId": "ct_YYP1Q002",
+      "strength": "hard",
+      "reason": "自然声音歌唱和简单律动·合作展示任务是“自然声音歌唱和简单律动”下的合作展示子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX1Q003",
+      "prerequisiteId": "ct_XX1Q001",
+      "strength": "hard",
+      "reason": "信息来自多种渠道·工具操作任务是“信息来自多种渠道”下的工具操作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX1Q004",
+      "prerequisiteId": "ct_XX1Q001",
+      "strength": "hard",
+      "reason": "信息来自多种渠道·信息表达任务是“信息来自多种渠道”下的信息表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX1Q005",
+      "prerequisiteId": "ct_XX1Q001",
+      "strength": "hard",
+      "reason": "信息来自多种渠道·安全规范任务是“信息来自多种渠道”下的安全规范子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX1Q006",
+      "prerequisiteId": "ct_XX1Q002",
+      "strength": "hard",
+      "reason": "认识电脑和平板基本操作·工具操作任务是“认识电脑和平板基本操作”下的工具操作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX1Q007",
+      "prerequisiteId": "ct_XX1Q002",
+      "strength": "hard",
+      "reason": "认识电脑和平板基本操作·信息表达任务是“认识电脑和平板基本操作”下的信息表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX1Q008",
+      "prerequisiteId": "ct_XX1Q002",
+      "strength": "hard",
+      "reason": "认识电脑和平板基本操作·安全规范任务是“认识电脑和平板基本操作”下的安全规范子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD2S003",
+      "prerequisiteId": "ct_LD2S001",
+      "strength": "hard",
+      "reason": "扫地擦桌和叠衣服·操作实践任务是“扫地擦桌和叠衣服”下的操作实践子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD2S004",
+      "prerequisiteId": "ct_LD2S001",
+      "strength": "hard",
+      "reason": "扫地擦桌和叠衣服·复盘改进任务是“扫地擦桌和叠衣服”下的复盘改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD2X003",
+      "prerequisiteId": "ct_LD2X002",
+      "strength": "hard",
+      "reason": "种植和照料小植物·准备与分工任务是“种植和照料小植物”下的劳动准备子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD2X004",
+      "prerequisiteId": "ct_LD2X002",
+      "strength": "hard",
+      "reason": "种植和照料小植物·操作实践任务是“种植和照料小植物”下的操作实践子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD2X005",
+      "prerequisiteId": "ct_LD2X002",
+      "strength": "hard",
+      "reason": "种植和照料小植物·复盘改进任务是“种植和照料小植物”下的复盘改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY2Q003",
+      "prerequisiteId": "ct_TY2Q001",
+      "strength": "hard",
+      "reason": "广播体操和跳绳入门·动作训练任务是“广播体操和跳绳入门”下的动作训练子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY2Q004",
+      "prerequisiteId": "ct_TY2Q001",
+      "strength": "hard",
+      "reason": "广播体操和跳绳入门·规则合作任务是“广播体操和跳绳入门”下的规则合作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY2Q005",
+      "prerequisiteId": "ct_TY2Q001",
+      "strength": "hard",
+      "reason": "广播体操和跳绳入门·健康反思任务是“广播体操和跳绳入门”下的健康反思子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY2Q006",
+      "prerequisiteId": "ct_TY2Q002",
+      "strength": "hard",
+      "reason": "运动中的安全和合作意识·动作训练任务是“运动中的安全和合作意识”下的动作训练子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY2Q007",
+      "prerequisiteId": "ct_TY2Q002",
+      "strength": "hard",
+      "reason": "运动中的安全和合作意识·规则合作任务是“运动中的安全和合作意识”下的规则合作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY2Q008",
+      "prerequisiteId": "ct_TY2Q002",
+      "strength": "hard",
+      "reason": "运动中的安全和合作意识·健康反思任务是“运动中的安全和合作意识”下的健康反思子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS2Q003",
+      "prerequisiteId": "ct_MS2Q001",
+      "strength": "hard",
+      "reason": "观察后进行简单造型表现·造型表现任务是“观察后进行简单造型表现”下的造型表现子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS2Q004",
+      "prerequisiteId": "ct_MS2Q001",
+      "strength": "hard",
+      "reason": "观察后进行简单造型表现·欣赏评述任务是“观察后进行简单造型表现”下的欣赏评述子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS2Q005",
+      "prerequisiteId": "ct_MS2Q001",
+      "strength": "hard",
+      "reason": "观察后进行简单造型表现·创作改进任务是“观察后进行简单造型表现”下的创作改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS2Q006",
+      "prerequisiteId": "ct_MS2Q002",
+      "strength": "hard",
+      "reason": "感受色彩和图形带来的美感·造型表现任务是“感受色彩和图形带来的美感”下的造型表现子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS2Q007",
+      "prerequisiteId": "ct_MS2Q002",
+      "strength": "hard",
+      "reason": "感受色彩和图形带来的美感·欣赏评述任务是“感受色彩和图形带来的美感”下的欣赏评述子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS2Q008",
+      "prerequisiteId": "ct_MS2Q002",
+      "strength": "hard",
+      "reason": "感受色彩和图形带来的美感·创作改进任务是“感受色彩和图形带来的美感”下的创作改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP2Q003",
+      "prerequisiteId": "ct_YYP2Q001",
+      "strength": "hard",
+      "reason": "使用简单打击乐器伴奏·节奏演唱任务是“使用简单打击乐器伴奏”下的节奏演唱子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP2Q004",
+      "prerequisiteId": "ct_YYP2Q001",
+      "strength": "hard",
+      "reason": "使用简单打击乐器伴奏·欣赏表达任务是“使用简单打击乐器伴奏”下的欣赏表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP2Q005",
+      "prerequisiteId": "ct_YYP2Q001",
+      "strength": "hard",
+      "reason": "使用简单打击乐器伴奏·合作展示任务是“使用简单打击乐器伴奏”下的合作展示子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP2Q006",
+      "prerequisiteId": "ct_YYP2Q002",
+      "strength": "hard",
+      "reason": "辨别音高和节奏变化·节奏演唱任务是“辨别音高和节奏变化”下的节奏演唱子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP2Q007",
+      "prerequisiteId": "ct_YYP2Q002",
+      "strength": "hard",
+      "reason": "辨别音高和节奏变化·欣赏表达任务是“辨别音高和节奏变化”下的欣赏表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP2Q008",
+      "prerequisiteId": "ct_YYP2Q002",
+      "strength": "hard",
+      "reason": "辨别音高和节奏变化·合作展示任务是“辨别音高和节奏变化”下的合作展示子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX2Q003",
+      "prerequisiteId": "ct_XX2Q001",
+      "strength": "hard",
+      "reason": "键盘鼠标基础操作·工具操作任务是“键盘鼠标基础操作”下的工具操作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX2Q004",
+      "prerequisiteId": "ct_XX2Q001",
+      "strength": "hard",
+      "reason": "键盘鼠标基础操作·信息表达任务是“键盘鼠标基础操作”下的信息表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX2Q005",
+      "prerequisiteId": "ct_XX2Q001",
+      "strength": "hard",
+      "reason": "键盘鼠标基础操作·安全规范任务是“键盘鼠标基础操作”下的安全规范子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX2Q006",
+      "prerequisiteId": "ct_XX2Q002",
+      "strength": "hard",
+      "reason": "爱护设备和文明用机·工具操作任务是“爱护设备和文明用机”下的工具操作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX2Q007",
+      "prerequisiteId": "ct_XX2Q002",
+      "strength": "hard",
+      "reason": "爱护设备和文明用机·信息表达任务是“爱护设备和文明用机”下的信息表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX2Q008",
+      "prerequisiteId": "ct_XX2Q002",
+      "strength": "hard",
+      "reason": "爱护设备和文明用机·安全规范任务是“爱护设备和文明用机”下的安全规范子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD3S002",
+      "prerequisiteId": "ct_LD3S001",
+      "strength": "hard",
+      "reason": "整理学习与生活空间·准备与分工任务是“整理学习与生活空间”下的劳动准备子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD3S003",
+      "prerequisiteId": "ct_LD3S001",
+      "strength": "hard",
+      "reason": "整理学习与生活空间·操作实践任务是“整理学习与生活空间”下的操作实践子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD3S004",
+      "prerequisiteId": "ct_LD3S001",
+      "strength": "hard",
+      "reason": "整理学习与生活空间·复盘改进任务是“整理学习与生活空间”下的复盘改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD3X003",
+      "prerequisiteId": "ct_LD3X002",
+      "strength": "hard",
+      "reason": "参与班级值日和协作劳动·准备与分工任务是“参与班级值日和协作劳动”下的劳动准备子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD3X004",
+      "prerequisiteId": "ct_LD3X002",
+      "strength": "hard",
+      "reason": "参与班级值日和协作劳动·操作实践任务是“参与班级值日和协作劳动”下的操作实践子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD3X005",
+      "prerequisiteId": "ct_LD3X002",
+      "strength": "hard",
+      "reason": "参与班级值日和协作劳动·复盘改进任务是“参与班级值日和协作劳动”下的复盘改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY3Q003",
+      "prerequisiteId": "ct_TY3Q001",
+      "strength": "hard",
+      "reason": "灵敏协调与球类入门·动作训练任务是“灵敏协调与球类入门”下的动作训练子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY3Q004",
+      "prerequisiteId": "ct_TY3Q001",
+      "strength": "hard",
+      "reason": "灵敏协调与球类入门·规则合作任务是“灵敏协调与球类入门”下的规则合作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY3Q005",
+      "prerequisiteId": "ct_TY3Q001",
+      "strength": "hard",
+      "reason": "灵敏协调与球类入门·健康反思任务是“灵敏协调与球类入门”下的健康反思子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY3Q006",
+      "prerequisiteId": "ct_TY3Q002",
+      "strength": "hard",
+      "reason": "理解锻炼习惯的重要性·动作训练任务是“理解锻炼习惯的重要性”下的动作训练子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY3Q007",
+      "prerequisiteId": "ct_TY3Q002",
+      "strength": "hard",
+      "reason": "理解锻炼习惯的重要性·规则合作任务是“理解锻炼习惯的重要性”下的规则合作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY3Q008",
+      "prerequisiteId": "ct_TY3Q002",
+      "strength": "hard",
+      "reason": "理解锻炼习惯的重要性·健康反思任务是“理解锻炼习惯的重要性”下的健康反思子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS3Q003",
+      "prerequisiteId": "ct_MS3Q001",
+      "strength": "hard",
+      "reason": "运用构图和综合色彩表现主题·造型表现任务是“运用构图和综合色彩表现主题”下的造型表现子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS3Q004",
+      "prerequisiteId": "ct_MS3Q001",
+      "strength": "hard",
+      "reason": "运用构图和综合色彩表现主题·欣赏评述任务是“运用构图和综合色彩表现主题”下的欣赏评述子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS3Q005",
+      "prerequisiteId": "ct_MS3Q001",
+      "strength": "hard",
+      "reason": "运用构图和综合色彩表现主题·创作改进任务是“运用构图和综合色彩表现主题”下的创作改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS3Q006",
+      "prerequisiteId": "ct_MS3Q002",
+      "strength": "hard",
+      "reason": "生活物品美化与简单设计·造型表现任务是“生活物品美化与简单设计”下的造型表现子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS3Q007",
+      "prerequisiteId": "ct_MS3Q002",
+      "strength": "hard",
+      "reason": "生活物品美化与简单设计·欣赏评述任务是“生活物品美化与简单设计”下的欣赏评述子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS3Q008",
+      "prerequisiteId": "ct_MS3Q002",
+      "strength": "hard",
+      "reason": "生活物品美化与简单设计·创作改进任务是“生活物品美化与简单设计”下的创作改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP3Q003",
+      "prerequisiteId": "ct_YYP3Q001",
+      "strength": "hard",
+      "reason": "较完整地演唱歌曲并表达情绪·节奏演唱任务是“较完整地演唱歌曲并表达情绪”下的节奏演唱子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP3Q004",
+      "prerequisiteId": "ct_YYP3Q001",
+      "strength": "hard",
+      "reason": "较完整地演唱歌曲并表达情绪·欣赏表达任务是“较完整地演唱歌曲并表达情绪”下的欣赏表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP3Q005",
+      "prerequisiteId": "ct_YYP3Q001",
+      "strength": "hard",
+      "reason": "较完整地演唱歌曲并表达情绪·合作展示任务是“较完整地演唱歌曲并表达情绪”下的合作展示子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP3Q006",
+      "prerequisiteId": "ct_YYP3Q002",
+      "strength": "hard",
+      "reason": "感受不同音乐形象和情绪·节奏演唱任务是“感受不同音乐形象和情绪”下的节奏演唱子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP3Q007",
+      "prerequisiteId": "ct_YYP3Q002",
+      "strength": "hard",
+      "reason": "感受不同音乐形象和情绪·欣赏表达任务是“感受不同音乐形象和情绪”下的欣赏表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP3Q008",
+      "prerequisiteId": "ct_YYP3Q002",
+      "strength": "hard",
+      "reason": "感受不同音乐形象和情绪·合作展示任务是“感受不同音乐形象和情绪”下的合作展示子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX3Q003",
+      "prerequisiteId": "ct_XX3Q001",
+      "strength": "hard",
+      "reason": "输入和整理简单数字作品·工具操作任务是“输入和整理简单数字作品”下的工具操作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX3Q004",
+      "prerequisiteId": "ct_XX3Q001",
+      "strength": "hard",
+      "reason": "输入和整理简单数字作品·信息表达任务是“输入和整理简单数字作品”下的信息表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX3Q005",
+      "prerequisiteId": "ct_XX3Q001",
+      "strength": "hard",
+      "reason": "输入和整理简单数字作品·安全规范任务是“输入和整理简单数字作品”下的安全规范子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX3Q006",
+      "prerequisiteId": "ct_XX3Q002",
+      "strength": "hard",
+      "reason": "辨别有用信息和无关信息·工具操作任务是“辨别有用信息和无关信息”下的工具操作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX3Q007",
+      "prerequisiteId": "ct_XX3Q002",
+      "strength": "hard",
+      "reason": "辨别有用信息和无关信息·信息表达任务是“辨别有用信息和无关信息”下的信息表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX3Q008",
+      "prerequisiteId": "ct_XX3Q002",
+      "strength": "hard",
+      "reason": "辨别有用信息和无关信息·安全规范任务是“辨别有用信息和无关信息”下的安全规范子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD4S002",
+      "prerequisiteId": "ct_LD4S001",
+      "strength": "hard",
+      "reason": "制作简单营养早餐或点心·准备与分工任务是“制作简单营养早餐或点心”下的劳动准备子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD4S003",
+      "prerequisiteId": "ct_LD4S001",
+      "strength": "hard",
+      "reason": "制作简单营养早餐或点心·操作实践任务是“制作简单营养早餐或点心”下的操作实践子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD4S004",
+      "prerequisiteId": "ct_LD4S001",
+      "strength": "hard",
+      "reason": "制作简单营养早餐或点心·复盘改进任务是“制作简单营养早餐或点心”下的复盘改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD4X003",
+      "prerequisiteId": "ct_LD4X002",
+      "strength": "hard",
+      "reason": "参与种植或养护劳动记录·准备与分工任务是“参与种植或养护劳动记录”下的劳动准备子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD4X004",
+      "prerequisiteId": "ct_LD4X002",
+      "strength": "hard",
+      "reason": "参与种植或养护劳动记录·操作实践任务是“参与种植或养护劳动记录”下的操作实践子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD4X005",
+      "prerequisiteId": "ct_LD4X002",
+      "strength": "hard",
+      "reason": "参与种植或养护劳动记录·复盘改进任务是“参与种植或养护劳动记录”下的复盘改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY4Q003",
+      "prerequisiteId": "ct_TY4Q001",
+      "strength": "hard",
+      "reason": "跑跳投和游戏规则运用·动作训练任务是“跑跳投和游戏规则运用”下的动作训练子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY4Q004",
+      "prerequisiteId": "ct_TY4Q001",
+      "strength": "hard",
+      "reason": "跑跳投和游戏规则运用·规则合作任务是“跑跳投和游戏规则运用”下的规则合作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY4Q005",
+      "prerequisiteId": "ct_TY4Q001",
+      "strength": "hard",
+      "reason": "跑跳投和游戏规则运用·健康反思任务是“跑跳投和游戏规则运用”下的健康反思子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY4Q006",
+      "prerequisiteId": "ct_TY4Q002",
+      "strength": "hard",
+      "reason": "比赛中的规则意识和团队合作·动作训练任务是“比赛中的规则意识和团队合作”下的动作训练子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY4Q007",
+      "prerequisiteId": "ct_TY4Q002",
+      "strength": "hard",
+      "reason": "比赛中的规则意识和团队合作·规则合作任务是“比赛中的规则意识和团队合作”下的规则合作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY4Q008",
+      "prerequisiteId": "ct_TY4Q002",
+      "strength": "hard",
+      "reason": "比赛中的规则意识和团队合作·健康反思任务是“比赛中的规则意识和团队合作”下的健康反思子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS4Q003",
+      "prerequisiteId": "ct_MS4Q001",
+      "strength": "hard",
+      "reason": "初步理解作品内容和表现方法·造型表现任务是“初步理解作品内容和表现方法”下的造型表现子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS4Q004",
+      "prerequisiteId": "ct_MS4Q001",
+      "strength": "hard",
+      "reason": "初步理解作品内容和表现方法·欣赏评述任务是“初步理解作品内容和表现方法”下的欣赏评述子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS4Q005",
+      "prerequisiteId": "ct_MS4Q001",
+      "strength": "hard",
+      "reason": "初步理解作品内容和表现方法·创作改进任务是“初步理解作品内容和表现方法”下的创作改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS4Q006",
+      "prerequisiteId": "ct_MS4Q002",
+      "strength": "hard",
+      "reason": "在主题活动中综合运用材料创作·造型表现任务是“在主题活动中综合运用材料创作”下的造型表现子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS4Q007",
+      "prerequisiteId": "ct_MS4Q002",
+      "strength": "hard",
+      "reason": "在主题活动中综合运用材料创作·欣赏评述任务是“在主题活动中综合运用材料创作”下的欣赏评述子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS4Q008",
+      "prerequisiteId": "ct_MS4Q002",
+      "strength": "hard",
+      "reason": "在主题活动中综合运用材料创作·创作改进任务是“在主题活动中综合运用材料创作”下的创作改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP4Q003",
+      "prerequisiteId": "ct_YYP4Q001",
+      "strength": "hard",
+      "reason": "进行简单节奏创编或器乐表现·节奏演唱任务是“进行简单节奏创编或器乐表现”下的节奏演唱子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP4Q004",
+      "prerequisiteId": "ct_YYP4Q001",
+      "strength": "hard",
+      "reason": "进行简单节奏创编或器乐表现·欣赏表达任务是“进行简单节奏创编或器乐表现”下的欣赏表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP4Q005",
+      "prerequisiteId": "ct_YYP4Q001",
+      "strength": "hard",
+      "reason": "进行简单节奏创编或器乐表现·合作展示任务是“进行简单节奏创编或器乐表现”下的合作展示子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP4Q006",
+      "prerequisiteId": "ct_YYP4Q002",
+      "strength": "hard",
+      "reason": "识读更丰富的节奏和力度记号·节奏演唱任务是“识读更丰富的节奏和力度记号”下的节奏演唱子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP4Q007",
+      "prerequisiteId": "ct_YYP4Q002",
+      "strength": "hard",
+      "reason": "识读更丰富的节奏和力度记号·欣赏表达任务是“识读更丰富的节奏和力度记号”下的欣赏表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP4Q008",
+      "prerequisiteId": "ct_YYP4Q002",
+      "strength": "hard",
+      "reason": "识读更丰富的节奏和力度记号·合作展示任务是“识读更丰富的节奏和力度记号”下的合作展示子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX4Q003",
+      "prerequisiteId": "ct_XX4Q001",
+      "strength": "hard",
+      "reason": "制作简单演示或图文作品·工具操作任务是“制作简单演示或图文作品”下的工具操作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX4Q004",
+      "prerequisiteId": "ct_XX4Q001",
+      "strength": "hard",
+      "reason": "制作简单演示或图文作品·信息表达任务是“制作简单演示或图文作品”下的信息表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX4Q005",
+      "prerequisiteId": "ct_XX4Q001",
+      "strength": "hard",
+      "reason": "制作简单演示或图文作品·安全规范任务是“制作简单演示或图文作品”下的安全规范子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX4Q006",
+      "prerequisiteId": "ct_XX4Q002",
+      "strength": "hard",
+      "reason": "按步骤解决数字任务·工具操作任务是“按步骤解决数字任务”下的工具操作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX4Q007",
+      "prerequisiteId": "ct_XX4Q002",
+      "strength": "hard",
+      "reason": "按步骤解决数字任务·信息表达任务是“按步骤解决数字任务”下的信息表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX4Q008",
+      "prerequisiteId": "ct_XX4Q002",
+      "strength": "hard",
+      "reason": "按步骤解决数字任务·安全规范任务是“按步骤解决数字任务”下的安全规范子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD5S002",
+      "prerequisiteId": "ct_LD5S001",
+      "strength": "hard",
+      "reason": "计划和分工完成家务任务·准备与分工任务是“计划和分工完成家务任务”下的劳动准备子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD5S003",
+      "prerequisiteId": "ct_LD5S001",
+      "strength": "hard",
+      "reason": "计划和分工完成家务任务·操作实践任务是“计划和分工完成家务任务”下的操作实践子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD5S004",
+      "prerequisiteId": "ct_LD5S001",
+      "strength": "hard",
+      "reason": "计划和分工完成家务任务·复盘改进任务是“计划和分工完成家务任务”下的复盘改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD5X003",
+      "prerequisiteId": "ct_LD5X002",
+      "strength": "hard",
+      "reason": "面向集体开展服务劳动·准备与分工任务是“面向集体开展服务劳动”下的劳动准备子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD5X004",
+      "prerequisiteId": "ct_LD5X002",
+      "strength": "hard",
+      "reason": "面向集体开展服务劳动·操作实践任务是“面向集体开展服务劳动”下的操作实践子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD5X005",
+      "prerequisiteId": "ct_LD5X002",
+      "strength": "hard",
+      "reason": "面向集体开展服务劳动·复盘改进任务是“面向集体开展服务劳动”下的复盘改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY5Q003",
+      "prerequisiteId": "ct_TY5Q001",
+      "strength": "hard",
+      "reason": "发展耐力速度和球类基础·动作训练任务是“发展耐力速度和球类基础”下的动作训练子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY5Q004",
+      "prerequisiteId": "ct_TY5Q001",
+      "strength": "hard",
+      "reason": "发展耐力速度和球类基础·规则合作任务是“发展耐力速度和球类基础”下的规则合作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY5Q005",
+      "prerequisiteId": "ct_TY5Q001",
+      "strength": "hard",
+      "reason": "发展耐力速度和球类基础·健康反思任务是“发展耐力速度和球类基础”下的健康反思子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY5Q006",
+      "prerequisiteId": "ct_TY5Q002",
+      "strength": "hard",
+      "reason": "理解运动负荷和自我调节·动作训练任务是“理解运动负荷和自我调节”下的动作训练子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY5Q007",
+      "prerequisiteId": "ct_TY5Q002",
+      "strength": "hard",
+      "reason": "理解运动负荷和自我调节·规则合作任务是“理解运动负荷和自我调节”下的规则合作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY5Q008",
+      "prerequisiteId": "ct_TY5Q002",
+      "strength": "hard",
+      "reason": "理解运动负荷和自我调节·健康反思任务是“理解运动负荷和自我调节”下的健康反思子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS5Q003",
+      "prerequisiteId": "ct_MS5Q001",
+      "strength": "hard",
+      "reason": "较深入地表现人物景物和想象内容·造型表现任务是“较深入地表现人物景物和想象内容”下的造型表现子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS5Q004",
+      "prerequisiteId": "ct_MS5Q001",
+      "strength": "hard",
+      "reason": "较深入地表现人物景物和想象内容·欣赏评述任务是“较深入地表现人物景物和想象内容”下的欣赏评述子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS5Q005",
+      "prerequisiteId": "ct_MS5Q001",
+      "strength": "hard",
+      "reason": "较深入地表现人物景物和想象内容·创作改进任务是“较深入地表现人物景物和想象内容”下的创作改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS5Q006",
+      "prerequisiteId": "ct_MS5Q002",
+      "strength": "hard",
+      "reason": "联系文化背景欣赏作品·造型表现任务是“联系文化背景欣赏作品”下的造型表现子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS5Q007",
+      "prerequisiteId": "ct_MS5Q002",
+      "strength": "hard",
+      "reason": "联系文化背景欣赏作品·欣赏评述任务是“联系文化背景欣赏作品”下的欣赏评述子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS5Q008",
+      "prerequisiteId": "ct_MS5Q002",
+      "strength": "hard",
+      "reason": "联系文化背景欣赏作品·创作改进任务是“联系文化背景欣赏作品”下的创作改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP5Q003",
+      "prerequisiteId": "ct_YYP5Q001",
+      "strength": "hard",
+      "reason": "较有表现力地歌唱·节奏演唱任务是“较有表现力地歌唱”下的节奏演唱子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP5Q004",
+      "prerequisiteId": "ct_YYP5Q001",
+      "strength": "hard",
+      "reason": "较有表现力地歌唱·欣赏表达任务是“较有表现力地歌唱”下的欣赏表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP5Q005",
+      "prerequisiteId": "ct_YYP5Q001",
+      "strength": "hard",
+      "reason": "较有表现力地歌唱·合作展示任务是“较有表现力地歌唱”下的合作展示子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP5Q006",
+      "prerequisiteId": "ct_YYP5Q002",
+      "strength": "hard",
+      "reason": "联系文化和情境欣赏音乐·节奏演唱任务是“联系文化和情境欣赏音乐”下的节奏演唱子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP5Q007",
+      "prerequisiteId": "ct_YYP5Q002",
+      "strength": "hard",
+      "reason": "联系文化和情境欣赏音乐·欣赏表达任务是“联系文化和情境欣赏音乐”下的欣赏表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP5Q008",
+      "prerequisiteId": "ct_YYP5Q002",
+      "strength": "hard",
+      "reason": "联系文化和情境欣赏音乐·合作展示任务是“联系文化和情境欣赏音乐”下的合作展示子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX5Q003",
+      "prerequisiteId": "ct_XX5Q001",
+      "strength": "hard",
+      "reason": "表格整理和简单数据分析·工具操作任务是“表格整理和简单数据分析”下的工具操作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX5Q004",
+      "prerequisiteId": "ct_XX5Q001",
+      "strength": "hard",
+      "reason": "表格整理和简单数据分析·信息表达任务是“表格整理和简单数据分析”下的信息表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX5Q005",
+      "prerequisiteId": "ct_XX5Q001",
+      "strength": "hard",
+      "reason": "表格整理和简单数据分析·安全规范任务是“表格整理和简单数据分析”下的安全规范子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX5Q006",
+      "prerequisiteId": "ct_XX5Q002",
+      "strength": "hard",
+      "reason": "网络信息辨别和安全意识·工具操作任务是“网络信息辨别和安全意识”下的工具操作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX5Q007",
+      "prerequisiteId": "ct_XX5Q002",
+      "strength": "hard",
+      "reason": "网络信息辨别和安全意识·信息表达任务是“网络信息辨别和安全意识”下的信息表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX5Q008",
+      "prerequisiteId": "ct_XX5Q002",
+      "strength": "hard",
+      "reason": "网络信息辨别和安全意识·安全规范任务是“网络信息辨别和安全意识”下的安全规范子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD6S002",
+      "prerequisiteId": "ct_LD6S001",
+      "strength": "hard",
+      "reason": "劳动计划与过程改进·准备与分工任务是“劳动计划与过程改进”下的劳动准备子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD6S003",
+      "prerequisiteId": "ct_LD6S001",
+      "strength": "hard",
+      "reason": "劳动计划与过程改进·操作实践任务是“劳动计划与过程改进”下的操作实践子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD6S004",
+      "prerequisiteId": "ct_LD6S001",
+      "strength": "hard",
+      "reason": "劳动计划与过程改进·复盘改进任务是“劳动计划与过程改进”下的复盘改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD6X003",
+      "prerequisiteId": "ct_LD6X002",
+      "strength": "hard",
+      "reason": "完成较完整项目化劳动任务·准备与分工任务是“完成较完整项目化劳动任务”下的劳动准备子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD6X004",
+      "prerequisiteId": "ct_LD6X002",
+      "strength": "hard",
+      "reason": "完成较完整项目化劳动任务·操作实践任务是“完成较完整项目化劳动任务”下的操作实践子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_LD6X005",
+      "prerequisiteId": "ct_LD6X002",
+      "strength": "hard",
+      "reason": "完成较完整项目化劳动任务·复盘改进任务是“完成较完整项目化劳动任务”下的复盘改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY6Q003",
+      "prerequisiteId": "ct_TY6Q001",
+      "strength": "hard",
+      "reason": "在竞赛活动中综合运用运动技能·动作训练任务是“在竞赛活动中综合运用运动技能”下的动作训练子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY6Q004",
+      "prerequisiteId": "ct_TY6Q001",
+      "strength": "hard",
+      "reason": "在竞赛活动中综合运用运动技能·规则合作任务是“在竞赛活动中综合运用运动技能”下的规则合作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY6Q005",
+      "prerequisiteId": "ct_TY6Q001",
+      "strength": "hard",
+      "reason": "在竞赛活动中综合运用运动技能·健康反思任务是“在竞赛活动中综合运用运动技能”下的健康反思子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY6Q006",
+      "prerequisiteId": "ct_TY6Q002",
+      "strength": "hard",
+      "reason": "公平竞争与责任担当·动作训练任务是“公平竞争与责任担当”下的动作训练子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY6Q007",
+      "prerequisiteId": "ct_TY6Q002",
+      "strength": "hard",
+      "reason": "公平竞争与责任担当·规则合作任务是“公平竞争与责任担当”下的规则合作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_TY6Q008",
+      "prerequisiteId": "ct_TY6Q002",
+      "strength": "hard",
+      "reason": "公平竞争与责任担当·健康反思任务是“公平竞争与责任担当”下的健康反思子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS6Q003",
+      "prerequisiteId": "ct_MS6Q001",
+      "strength": "hard",
+      "reason": "围绕需求完成简单设计表达·造型表现任务是“围绕需求完成简单设计表达”下的造型表现子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS6Q004",
+      "prerequisiteId": "ct_MS6Q001",
+      "strength": "hard",
+      "reason": "围绕需求完成简单设计表达·欣赏评述任务是“围绕需求完成简单设计表达”下的欣赏评述子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS6Q005",
+      "prerequisiteId": "ct_MS6Q001",
+      "strength": "hard",
+      "reason": "围绕需求完成简单设计表达·创作改进任务是“围绕需求完成简单设计表达”下的创作改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS6Q006",
+      "prerequisiteId": "ct_MS6Q002",
+      "strength": "hard",
+      "reason": "说明自己的创作思路和改进·造型表现任务是“说明自己的创作思路和改进”下的造型表现子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS6Q007",
+      "prerequisiteId": "ct_MS6Q002",
+      "strength": "hard",
+      "reason": "说明自己的创作思路和改进·欣赏评述任务是“说明自己的创作思路和改进”下的欣赏评述子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_MS6Q008",
+      "prerequisiteId": "ct_MS6Q002",
+      "strength": "hard",
+      "reason": "说明自己的创作思路和改进·创作改进任务是“说明自己的创作思路和改进”下的创作改进子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP6Q003",
+      "prerequisiteId": "ct_YYP6Q001",
+      "strength": "hard",
+      "reason": "围绕主题进行简单音乐创编·节奏演唱任务是“围绕主题进行简单音乐创编”下的节奏演唱子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP6Q004",
+      "prerequisiteId": "ct_YYP6Q001",
+      "strength": "hard",
+      "reason": "围绕主题进行简单音乐创编·欣赏表达任务是“围绕主题进行简单音乐创编”下的欣赏表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP6Q005",
+      "prerequisiteId": "ct_YYP6Q001",
+      "strength": "hard",
+      "reason": "围绕主题进行简单音乐创编·合作展示任务是“围绕主题进行简单音乐创编”下的合作展示子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP6Q006",
+      "prerequisiteId": "ct_YYP6Q002",
+      "strength": "hard",
+      "reason": "说明音乐表现思路和合作过程·节奏演唱任务是“说明音乐表现思路和合作过程”下的节奏演唱子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP6Q007",
+      "prerequisiteId": "ct_YYP6Q002",
+      "strength": "hard",
+      "reason": "说明音乐表现思路和合作过程·欣赏表达任务是“说明音乐表现思路和合作过程”下的欣赏表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_YYP6Q008",
+      "prerequisiteId": "ct_YYP6Q002",
+      "strength": "hard",
+      "reason": "说明音乐表现思路和合作过程·合作展示任务是“说明音乐表现思路和合作过程”下的合作展示子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX6Q003",
+      "prerequisiteId": "ct_XX6Q001",
+      "strength": "hard",
+      "reason": "用流程和规则描述数字问题·工具操作任务是“用流程和规则描述数字问题”下的工具操作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX6Q004",
+      "prerequisiteId": "ct_XX6Q001",
+      "strength": "hard",
+      "reason": "用流程和规则描述数字问题·信息表达任务是“用流程和规则描述数字问题”下的信息表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX6Q005",
+      "prerequisiteId": "ct_XX6Q001",
+      "strength": "hard",
+      "reason": "用流程和规则描述数字问题·安全规范任务是“用流程和规则描述数字问题”下的安全规范子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX6Q006",
+      "prerequisiteId": "ct_XX6Q002",
+      "strength": "hard",
+      "reason": "围绕真实任务完成综合数字作品·工具操作任务是“围绕真实任务完成综合数字作品”下的工具操作子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX6Q007",
+      "prerequisiteId": "ct_XX6Q002",
+      "strength": "hard",
+      "reason": "围绕真实任务完成综合数字作品·信息表达任务是“围绕真实任务完成综合数字作品”下的信息表达子节点，通常建立在父知识点理解之后"
+    },
+    {
+      "topicId": "ct_XX6Q008",
+      "prerequisiteId": "ct_XX6Q002",
+      "strength": "hard",
+      "reason": "围绕真实任务完成综合数字作品·安全规范任务是“围绕真实任务完成综合数字作品”下的安全规范子节点，通常建立在父知识点理解之后"
     },
     {
       "topicId": "ct_YW1S073",

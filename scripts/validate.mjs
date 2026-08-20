@@ -89,6 +89,15 @@ for (const t of topics.topics) {
   if (t.resources !== undefined) {
     check(Array.isArray(t.resources), `resources不是数组: ${t.id}`);
     for (const r of t.resources || []) {
+      if (r.resourceId !== undefined && r.resourceId !== null) {
+        check(typeof r.resourceId === 'string' && r.resourceId.length >= 6, `resource.resourceId非法: ${t.id}`);
+      }
+      if (r.resourceGroupKey !== undefined && r.resourceGroupKey !== null) {
+        check(typeof r.resourceGroupKey === 'string' && r.resourceGroupKey.length >= 4, `resource.resourceGroupKey非法: ${t.id}`);
+      }
+      if (r.resourceUnitKey !== undefined && r.resourceUnitKey !== null) {
+        check(typeof r.resourceUnitKey === 'string' && r.resourceUnitKey.length >= 4, `resource.resourceUnitKey非法: ${t.id}`);
+      }
       check(typeof r.title === 'string' && r.title.length >= 1, `resource.title缺失: ${t.id}`);
       check(RESOURCE_TYPES.has(r.type), `resource.type非法: ${t.id} -> ${r.type}`);
       check(typeof r.url === 'string' && /^https?:\/\//.test(r.url), `resource.url非法: ${t.id}`);
