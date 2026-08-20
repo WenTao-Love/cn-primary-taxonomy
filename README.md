@@ -78,6 +78,9 @@
 
 - 这是零服务器静态托管方案，适合直接公开访问知识图谱
 - 工作流会在 GitHub 上自动重建独立版与拆分版 HTML，再发布到 Pages
+- **首次启用时需要手动完成一次仓库设置**：进入 GitHub 仓库 `Settings -> Pages -> Build and deployment -> Source`，选择 `GitHub Actions`
+- 若仓库尚未开启 Pages，`actions/configure-pages` 可能报 `Get Pages site failed / Not Found`
+- 若仓库是私有仓库，还需要确认当前 GitHub 账号方案支持 Pages，或先改为公开仓库
 
 ### 方法二：使用数据
 
