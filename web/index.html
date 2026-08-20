@@ -19,13 +19,18 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
 #sidebar { background:#151d28; border-left:1px solid rgba(255,255,255,0.06); overflow:hidden; min-width:0; transition:opacity 0.2s ease, border-color 0.2s ease; }
 #app.sidebar-collapsed #sidebar { opacity:0; border-left-color:transparent; pointer-events:none; }
 #sidebar-content { height:100%; overflow-y:auto; padding:24px; }
-#overview-panel, #search-panel, #filter-panel, #assistant-panel, #graph-status { margin-bottom:20px; padding:14px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:10px; }
+#overview-panel, #guide-panel, #search-panel, #filter-panel, #assistant-panel, #graph-status { margin-bottom:20px; padding:14px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:10px; }
 #overview-panel h1 { font-size:20px; color:#fff; font-weight:600; letter-spacing:1px; }
 #overview-panel p { font-size:12px; color:#7f8c9a; margin-top:6px; line-height:1.6; }
 .stats-bar { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:10px; margin-top:14px; }
 .stats-bar div { padding:12px 10px; border-radius:8px; background:rgba(255,255,255,0.04); color:#7f8c9a; font-size:12px; text-align:center; }
 .stats-bar b { display:block; color:#fff; font-size:18px; font-weight:600; margin-bottom:4px; }
-#search-panel h3, #filter-panel h3, #assistant-panel h3 { margin-top:0; }
+#search-panel h3, #filter-panel h3, #assistant-panel h3, #guide-panel h3 { margin-top:0; }
+#guide-panel p { margin-top:8px; font-size:12px; color:#a8b4c0; line-height:1.7; }
+#guide-panel .guide-steps { display:grid; gap:8px; margin-top:12px; }
+#guide-panel .guide-step { padding:10px 12px; border-radius:8px; background:rgba(255,255,255,0.04); font-size:12px; line-height:1.7; color:#c5cdd6; }
+#guide-panel .guide-step b { color:#fff; }
+#guide-panel .guide-note { margin-top:12px; padding:10px 12px; border-radius:8px; background:rgba(93,173,226,0.08); color:#dcefff; font-size:12px; line-height:1.7; }
 #search-panel p { margin-top:10px; font-size:11px; color:#7f8c9a; line-height:1.6; }
 #filter-panel p { margin-top:10px; font-size:11px; color:#7f8c9a; line-height:1.6; }
 #filter-panel .filter-field { margin-top:12px; }
@@ -59,6 +64,16 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
 #assistant-result .path-step { display:block; margin:6px 0; padding:8px 10px; border-radius:8px; background:rgba(255,255,255,0.04); color:#dcefff; text-decoration:none; }
 #assistant-result .path-step:hover { background:rgba(93,173,226,0.12); }
 #assistant-result .assistant-muted { color:#7f8c9a; }
+#assistant-result .assistant-card { margin-top:10px; padding:10px 12px; border-radius:8px; background:rgba(255,255,255,0.04); }
+#assistant-result .assistant-card strong { color:#fff; }
+#assistant-result .assistant-list { margin:8px 0 0 16px; color:#c5cdd6; }
+#assistant-result .assistant-list li { margin:4px 0; }
+#assistant-result .assistant-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+#assistant-result .assistant-action { display:inline-flex; align-items:center; padding:6px 10px; border-radius:999px; background:rgba(93,173,226,0.12); color:#dcefff; text-decoration:none; font-size:11px; }
+#assistant-result .assistant-action:hover { background:rgba(93,173,226,0.2); }
+#assistant-result .assistant-candidates { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+#assistant-result .assistant-candidate { padding:4px 8px; border-radius:999px; background:rgba(255,255,255,0.05); color:#a8b4c0; font-size:11px; cursor:pointer; }
+#assistant-result .assistant-candidate:hover { background:rgba(93,173,226,0.14); color:#dcefff; }
 #sidebar h2 { font-size:16px; color:#fff; margin-bottom:4px; }
 #sidebar .meta { font-size:12px; color:#7f8c9a; margin-bottom:16px; }
 #sidebar .desc { font-size:13px; line-height:1.7; color:#c5cdd6; margin-bottom:16px; padding:12px; background:rgba(255,255,255,0.03); border-radius:6px; border-left:3px solid #5dade2; }
@@ -70,6 +85,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
 .chain-item.hard { border-left:2px solid #e74c3c; }
 .chain-item.soft { border-left:2px solid #f39c12; }
 .chain-arrow { font-size:10px; color:#7f8c9a; }
+.relation-summary { display:grid; gap:8px; margin:12px 0 16px; }
+.relation-card { padding:10px 12px; border-radius:8px; background:rgba(255,255,255,0.04); font-size:12px; line-height:1.7; color:#c5cdd6; }
+.relation-card b { color:#fff; }
+.parent-coach-box { margin:12px 0 16px; padding:12px; border-radius:8px; background:rgba(93,173,226,0.08); border:1px solid rgba(93,173,226,0.22); }
+.parent-coach-box .coach-title { font-size:12px; color:#dcefff; margin-bottom:6px; }
+.parent-coach-box .coach-text { font-size:12px; line-height:1.8; color:#cfe6ff; }
 /* graph styles */
 .node { cursor:pointer; transition:opacity 0.2s; }
 .node:hover { stroke-width:3px; }
@@ -134,6 +155,16 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
       <div><b id="stat-deps">0</b>依赖</div>
       <div><b id="stat-subjects">0</b>学科</div>
     </div>
+  </div>
+  <div id="guide-panel">
+    <h3>家长阅读指引</h3>
+    <p>先别急着看全图。这个图谱更适合按“孩子眼下卡在哪个点”来读，而不是一次把所有关系都看完。</p>
+    <div class="guide-steps">
+      <div class="guide-step"><b>第一步：</b>先用右侧搜索或学习助手，找到孩子当前最不会的知识点。</div>
+      <div class="guide-step"><b>第二步：</b>点开该节点后，重点看“先补什么”“为什么卡在这里”“家长先怎么练”。</div>
+      <div class="guide-step"><b>第三步：</b>只沿前置链补 1-3 个基础点，不要一口气把整张图都学一遍。</div>
+    </div>
+    <div class="guide-note">建议默认先按一个年级 + 一个学科查看，再逐步放大范围，这样最容易看懂，也最适合家长实际辅导。</div>
   </div>
   <div id="search-panel">
     <h3>知识点搜索</h3>
@@ -200,12 +231,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
   <div id="assistant-panel"></div>
   <div id="detail-panel">
     <div class="hint">
-      👈 点击左侧图中的圆点查看知识点详情<br><br>
-      每个圆点是一个知识点，颜色代表学科，<br>
-      线条表示"先学什么再学什么"的依赖关系。<br><br>
-      <span style="color:#5dade2">🔴 红线 = 必须先掌握</span><br>
-      <span style="color:#f39c12">🟡 虚线 = 有帮助但非必须</span><br><br>
-      右侧搜索框可快速定位知识点，右侧学习助手可直接问"先补什么"。
+      先用右侧搜索或学习助手，找到孩子当前不会的知识点。<br><br>
+      点开一个节点后，页面会帮你回答三件事：<br>
+      1. 这个点为什么重要<br>
+      2. 卡住前通常要先补什么<br>
+      3. 家长现在可以怎么带着孩子练<br><br>
+      <span style="color:#5dade2">建议先只看一个年级、一个学科。</span>
     </div>
   </div>
   </div>
@@ -702,7 +733,7 @@ function renderGraph(filteredTopics, keepSelection = true) {
     layoutStopTimer = null;
   }, 2400);
 
-  updateGraphStatus(`当前渲染 <strong>${data.nodes.length}</strong> / ${fullData.topics.topicCount} 个节点、<strong>${data.links.length}</strong> 条边。默认只渲染当前筛选子图，拖拽完成后会自动停止布局以降低 CPU 占用。`, 'info');
+  updateGraphStatus(`当前渲染 <strong>${data.nodes.length}</strong> / ${fullData.topics.topicCount} 个节点、<strong>${data.links.length}</strong> 条边。${filterSummaryForHumans()}。建议先点一个节点，只沿它的“先补什么”往前看 1-3 步。`, 'info');
 
   if (keepSelection && selectedNodeId && data.nodeMap.has(selectedNodeId)) {
     selectNode(data.nodeMap.get(selectedNodeId));
@@ -717,6 +748,13 @@ function updateGraphStatus(message, tone = 'info') {
   status.innerHTML = message;
 }
 
+function filterSummaryForHumans() {
+  const gradeText = summarizeSelection(gradeFilterItems, currentGrades);
+  const subjectText = summarizeSelection(subjectFilterItems, currentSubjects);
+  const textbookText = summarizeSelection(textbookFilterItems, currentTextbooks);
+  return `当前建议你先看：${gradeText} · ${subjectText} · ${textbookText}`;
+}
+
 function collectRelatedIds(topicId, direction, depthLimit = 3, visited = new Set(), depth = 0) {
   const edges = direction === 'pre' ? (incomingMap.get(topicId) || []) : (outgoingMap.get(topicId) || []);
   edges.forEach(edge => {
@@ -726,6 +764,26 @@ function collectRelatedIds(topicId, direction, depthLimit = 3, visited = new Set
     if (depth < depthLimit) collectRelatedIds(nextId, direction, depthLimit, visited, depth + 1);
   });
   return visited;
+}
+
+function relationTone(strength) {
+  return strength === 'hard' ? '必须先补' : '建议先补';
+}
+
+function buildParentCoachText(topic, prereqs, succs) {
+  const firstPrereq = prereqs[0]?.topic?.name;
+  const firstSucc = succs[0]?.topic?.name;
+  const evidenceTip = (topic.evidence || [])[0];
+  const mistakeTip = (topic.commonMistakes || [])[0];
+  const actionTip = (topic.practiceChain || [])[0] || (topic.assessmentTasks || [])[0] || evidenceTip;
+  return [
+    `如果孩子在“${topic.name}”这里总卡住，先别急着反复刷题。`,
+    firstPrereq ? `优先先补“${firstPrereq}”，因为它直接支撑当前知识点。` : '这个点没有显式前置，可以直接从当前点开始练。',
+    actionTip ? `家长现在最适合先做的，是带孩子完成“${actionTip}”。` : '建议先做一轮口头解释 + 一轮基础练习，先确认孩子到底卡在哪一步。',
+    evidenceTip ? `当孩子已经能做到“${evidenceTip}”，就说明这一步开始稳了。` : '',
+    mistakeTip ? `辅导时尤其注意这个常见问题：“${mistakeTip}”。` : '',
+    firstSucc ? `这一步稳住后，再往“${firstSucc}”推进会更顺。` : ''
+  ].filter(Boolean).join('');
 }
 
 function selectNode(node) {
@@ -755,6 +813,10 @@ function renderSidebar(topic) {
   const parentTopic = topic.parentTopicId ? topicMap.get(topic.parentTopicId) : null;
   const prereqs = (incomingMap.get(topic.id) || []).map(edge => ({ topic: topicMap.get(edge.source), link: edge })).filter(item => item.topic);
   const succs = (outgoingMap.get(topic.id) || []).map(edge => ({ topic: topicMap.get(edge.target), link: edge })).filter(item => item.topic);
+  const hardPrereqs = prereqs.filter(item => item.link.strength === 'hard');
+  const softPrereqs = prereqs.filter(item => item.link.strength === 'soft');
+  const nextUnlocks = succs.slice(0, 3);
+  const coachText = buildParentCoachText(topic, prereqs, succs);
 
   const tags = [
     `<span class="tag" style="background:${COLORS[topic.subject]}30;color:${COLORS[topic.subject]};border:1px solid ${COLORS[topic.subject]}60">${topic.subject}</span>`,
@@ -797,6 +859,15 @@ function renderSidebar(topic) {
     <div style="margin-bottom:12px">${tags}</div>
     ${parentTopic ? `<div style="font-size:12px;color:#7f8c9a;margin:4px 0 10px">父节点：<a href="javascript:void(0)" onclick="selectNodeById('${parentTopic.id}')" style="color:#5dade2;text-decoration:none">${parentTopic.name}</a></div>` : ''}
     <div class="desc">${topic.description}</div>
+    <div class="relation-summary">
+      <div class="relation-card"><b>先补什么：</b>${hardPrereqs.length ? hardPrereqs.map(item => item.topic.name).join('、') : '当前没有“必须先补”的显式前置，可直接从本节点练起。'}</div>
+      <div class="relation-card"><b>建议补什么：</b>${softPrereqs.length ? softPrereqs.map(item => item.topic.name).join('、') : '当前没有额外“建议先补”的辅助前置。'}</div>
+      <div class="relation-card"><b>这一步学稳后能带动什么：</b>${nextUnlocks.length ? nextUnlocks.map(item => item.topic.name).join('、') : '当前节点后续解锁范围较小，可以先把本点练扎实。'}</div>
+    </div>
+    <div class="parent-coach-box">
+      <div class="coach-title">家长辅导建议</div>
+      <div class="coach-text">${coachText}</div>
+    </div>
     ${topic.pageRange ? `<div style="font-size:12px;color:#7f8c9a;margin:8px 0 12px">教材页码：${topic.pageRange}</div>` : ''}
 
     <h3>✓ 掌握的证据（会什么就算掌握了）</h3>
@@ -812,7 +883,7 @@ function renderSidebar(topic) {
     ${resources ? `<h3>🧩 典型例题 / 练习题</h3>${resources}` : ''}
 
     <h3>📚 前置依赖（要先学会这些 ↓）</h3>
-    ${prereqs.length ? prereqs.map(item => `<div class="chain-item ${item.link.strength}" onclick="selectNodeById('${item.topic.id}')"><span class="chain-arrow">${item.link.strength === 'hard' ? '🔴' : '🟡'}</span><span><b>${item.topic.name}</b><br><span style="color:#7f8c9a;font-size:11px">${item.topic.subject} · ${item.link.reason || ''}</span></span></div>`).join('') : '<div style="font-size:12px;color:#7f8c9a;padding:8px">（无前置，是起始知识点）</div>'}
+    ${prereqs.length ? prereqs.map(item => `<div class="chain-item ${item.link.strength}" onclick="selectNodeById('${item.topic.id}')"><span class="chain-arrow">${item.link.strength === 'hard' ? '🔴' : '🟡'}</span><span><b>${item.topic.name}</b><br><span style="color:#7f8c9a;font-size:11px">${item.topic.subject} · ${relationTone(item.link.strength)} · ${item.link.reason || ''}</span></span></div>`).join('') : '<div style="font-size:12px;color:#7f8c9a;padding:8px">（无前置，是起始知识点）</div>'}
 
     <h3>🚀 解锁后续（学完后可以学这些 ↑）</h3>
     ${succs.length ? succs.map(item => `<div class="chain-item ${item.link.strength}" onclick="selectNodeById('${item.topic.id}')"><span class="chain-arrow">→</span><span><b>${item.topic.name}</b><br><span style="color:#7f8c9a;font-size:11px">${item.topic.subject} · ${item.link.reason || ''}</span></span></div>`).join('') : '<div style="font-size:12px;color:#7f8c9a;padding:8px">（无后续，是终点知识点）</div>'}
@@ -834,6 +905,31 @@ function topicScore(topic, query) {
 
 function getDirectPrereqs(topicId) {
   return (incomingMap.get(topicId) || []).map(edge => ({ id: edge.source, strength: edge.strength, reason: edge.reason }));
+}
+
+function getHumanSupportActions(topic) {
+  return [
+    ...(topic.practiceChain || []),
+    ...(topic.assessmentTasks || []),
+    ...(topic.evidence || [])
+  ].filter(Boolean).slice(0, 3);
+}
+
+function explainWhyMatched(topic, direct) {
+  if (direct.length) {
+    return `之所以先定位到“${topic.name}”，是因为它下面直接连着 ${direct.slice(0, 2).map(item => `“${item.name}”`).join('、')} 这些基础点，适合作为当前薄弱点的入口。`;
+  }
+  return `之所以先定位到“${topic.name}”，是因为它和你的问题关键词最接近，而且没有更明显的显式前置门槛，可以直接开始补。`;
+}
+
+function buildWeeklyPlan(topic, direct) {
+  const actions = getHumanSupportActions(topic);
+  return [
+    direct[0] ? `先用 5-10 分钟带孩子回顾“${direct[0].name}”，确认基础是否真的稳。` : `先花 5-10 分钟让孩子口头说一遍“${topic.name}”在做什么、难在哪里。`,
+    actions[0] ? `当天先做一项最轻的练习：${actions[0]}` : `当天先做一组基础题，重点观察孩子卡在理解、方法还是计算。`,
+    actions[1] ? `第二步继续跟进：${actions[1]}` : `第二步让孩子把做题过程讲出来，看看是否只是会做不会说。`,
+    (topic.commonMistakes || [])[0] ? `辅导时重点盯住这个常见问题：${topic.commonMistakes[0]}` : `辅导时重点记录“孩子到底错在哪一步”，比盲目加题更有价值。`
+  ].slice(0, 3);
 }
 
 function collectAncestorIds(topicId, visited = new Set()) {
@@ -878,7 +974,7 @@ function runAssistant(query) {
   const result = document.getElementById('assistant-result');
   const q = (query || '').trim();
   if (!q) {
-    result.innerHTML = '<div class="assistant-muted">请输入一个学习问题，比如“孩子乘法口诀不熟，应该先补什么”。</div>';
+    result.innerHTML = '<div class="assistant-muted">请输入一个孩子当前真实卡住的问题，比如“孩子乘法口诀不熟，应该先补什么”。</div>';
     return;
   }
 
@@ -896,9 +992,18 @@ function runAssistant(query) {
   const target = ranked[0].topic;
   const path = topoPathTo(target.id).slice(-6);
   const direct = getDirectPrereqs(target.id).map(item => topicMap.get(item.id)).filter(Boolean);
+  const actions = getHumanSupportActions(target);
+  const weeklyPlan = buildWeeklyPlan(target, direct);
+  const candidates = ranked.slice(1, 4).map(item => item.topic);
+  const masterySignal = (target.evidence || [])[0] || '孩子能比较稳定地解释并完成这一类题。';
   result.innerHTML = `
     <div><b>定位到的核心知识点：</b>${target.subject} · ${target.name}</div>
     <div class="assistant-muted" style="margin-top:4px">${target.description}</div>
+    <div class="assistant-card"><strong>为什么先看这里：</strong>${explainWhyMatched(target, direct)}</div>
+    <div class="assistant-card"><strong>优先先补：</strong>${direct.length ? direct.map(topic => topic.name).join('、') : '这个知识点没有显式前置，可直接从当前节点开始练。'}</div>
+    <div class="assistant-card"><strong>这周家长可以先这样带：</strong><ul class="assistant-list">${weeklyPlan.map(item => `<li>${item}</li>`).join('')}</ul></div>
+    <div class="assistant-card"><strong>补到什么程度算有起色：</strong>${masterySignal}</div>
+    ${actions.length ? `<div class="assistant-card"><strong>可直接开练的动作：</strong><ul class="assistant-list">${actions.map(item => `<li>${item}</li>`).join('')}</ul></div>` : ''}
     <div style="margin-top:8px"><b>建议补弱顺序：</b></div>
     ${path.map((topic, idx) => `
       <a href="javascript:void(0)" class="path-step" onclick="selectNodeById('${topic.id}')">
@@ -906,8 +1011,12 @@ function runAssistant(query) {
         <span class="assistant-muted"> · ${topic.subject} · ${topic.grade}年级${topic.term}</span>
       </a>
     `).join('')}
-    <div style="margin-top:8px"><b>优先先补：</b>${direct.length ? direct.map(topic => topic.name).join('、') : '这个知识点没有显式前置，可直接从当前节点开始练。'}</div>
-    <div class="assistant-muted" style="margin-top:6px">逻辑说明：学习助手会沿 DAG 前置链回溯，优先推荐能直接支撑当前薄弱点的基础知识。</div>
+    <div class="assistant-actions">
+      <a href="javascript:void(0)" class="assistant-action" onclick="focusTopicById('${target.id}')">在图上打开这个点</a>
+      ${direct[0] ? `<a href="javascript:void(0)" class="assistant-action" onclick="selectNodeById('${direct[0].id}')">先看最关键前置</a>` : ''}
+    </div>
+    ${candidates.length ? `<div class="assistant-muted" style="margin-top:8px">如果你想换个更贴近的入口，也可以试试：</div><div class="assistant-candidates">${candidates.map(topic => `<span class="assistant-candidate" onclick="focusTopicById('${topic.id}')">${topic.name}</span>`).join('')}</div>` : ''}
+    <div class="assistant-muted" style="margin-top:8px">逻辑说明：学习助手会沿 DAG 前置链回溯，并尽量把结果翻译成“家长现在先做什么”的行动建议。</div>
   `;
 }
 
@@ -915,15 +1024,16 @@ function renderAssistantPanel() {
   const panel = document.getElementById('assistant-panel');
   panel.innerHTML = `
     <h3>🤖 学习助手 Bot</h3>
-    <div style="font-size:12px;color:#a8b4c0;line-height:1.7;margin-bottom:10px">输入孩子当前卡住的问题，系统会沿知识图谱前置链推荐“先补什么”。</div>
+    <div style="font-size:12px;color:#a8b4c0;line-height:1.7;margin-bottom:10px">把孩子当前最真实的卡点直接说出来，系统会给出“为什么先看这里、先补哪一步、家长这周怎么带”的可执行建议。</div>
     <input id="assistant-query" placeholder="例如：孩子乘法口诀不熟，应该先补什么" />
-    <button id="assistant-run">生成学习路径</button>
+    <button id="assistant-run">生成辅导建议</button>
     <div class="chips">
       <span class="chip" data-query="孩子乘法口诀不熟，应该先补什么">乘法口诀不熟</span>
       <span class="chip" data-query="看图写话总写不长，应该先补什么">看图写话写不长</span>
       <span class="chip" data-query="有余数除法总做错，先补什么">有余数除法总错</span>
+      <span class="chip" data-query="分不清分数和除法的关系，先补什么">分数和除法混淆</span>
     </div>
-    <div id="assistant-result"><div class="assistant-muted">这里会显示学习路径建议。</div></div>
+    <div id="assistant-result"><div class="assistant-muted">这里会显示更适合家长直接拿去用的辅导建议。</div></div>
   `;
   document.getElementById('assistant-run').onclick = () => runAssistant(document.getElementById('assistant-query').value);
   document.getElementById('assistant-query').addEventListener('keydown', event => {
