@@ -45,9 +45,9 @@
 - 🔴 红色实线 = 强依赖（必须先掌握）
 - 🟡 橙色虚线 = 弱依赖（有帮助但非必须）
 - **点击任一圆点**查看详情：描述、掌握标准、易错点、考法、家长测评话术、前置依赖链、后续解锁
-- 顶部搜索框按名称/学科/领域快速定位
+- 右侧边栏支持**知识点搜索**，可按名称/学科/领域快速定位
 - 右侧 **学习助手 Bot** 可直接输入薄弱点，生成个性化补弱路径
-- 右上角支持按 **视图 / 年级 / 学科 / 教材版本** 筛选
+- 右侧边栏支持按 **视图 / 年级 / 学科 / 教材版本** 进行可搜索的组合筛选
 - 每个知识点详情中都带有 **典型例题 / 练习题链接**
 
 如果更看重打开速度，可以优先使用拆分版：
@@ -117,7 +117,11 @@ cn-primary-taxonomy/
 ├── cn-primary-taxonomy.html     ← 🔥 单文件独立可视化网页（双击直接打开）
 ├── cn-primary-taxonomy-split.html ← ⚡ 拆分版离线网页（更适合长期浏览）
 ├── docs/
-│   └── DESIGN.md                ← 详细设计文档
+│   ├── DESIGN.md                ← 详细设计文档
+│   ├── PROJECT_RULES.md         ← 项目硬约束与协作规则
+│   ├── PROJECT_SKILL_PLAYBOOK.md← 团队常见任务操作手册
+│   ├── PROJECT_MEMORY.md        ← 项目长期记忆镜像
+│   └── SHENZHEN_G2_TEACHER_CALIBRATION.md ← 教师校准专项文档
 ├── data/
 │   ├── topics.json              ← 知识点节点（4275个）
 │   ├── dependencies.json        ← 依赖边（4191条，DAG）
@@ -167,6 +171,16 @@ cn-primary-taxonomy/
 └── web/
     └── index.html               ← 可视化网页源文件
 ```
+
+## 文档阅读顺序
+
+推荐按以下顺序了解项目：
+
+1. `README.md`
+2. `docs/PROJECT_RULES.md`
+3. `docs/PROJECT_SKILL_PLAYBOOK.md`
+4. `docs/PROJECT_MEMORY.md`
+5. `docs/DESIGN.md`
 
 ## 数据模型
 
