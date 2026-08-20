@@ -160,10 +160,228 @@ function resourceIdOf(topic, subnodeType, slot) {
   return `res_${topic.id}_${slugify(subnodeType)}_${slot}`;
 }
 
+const DIRECT_RESOURCE_CATALOG = [
+  {
+    textbook: '北师大版',
+    grade: 6,
+    unitIncludes: '第3单元 圆',
+    subnodeType: '例题型',
+    items: [
+      { slot: 'direct-53996087', externalWorkId: '53996087', title: '圆·单元考点梳理直链', type: 'example', url: 'https://www.zxxk.com/soft/53996087.html', note: '学科网作品ID 53996087，直达北师大版六上“圆”单元考点梳理与典例讲练' },
+      { slot: 'direct-54002141', externalWorkId: '54002141', title: '圆·周长与面积专项直链', type: 'exercise', url: 'https://www.zxxk.com/soft/54002141.html', note: '学科网作品ID 54002141，聚焦圆的周长、面积与典型题型训练' }
+    ]
+  },
+  {
+    textbook: '北师大版',
+    grade: 6,
+    unitIncludes: '第3单元 圆',
+    subnodeType: '方法型',
+    items: [
+      { slot: 'direct-59084990', externalWorkId: '59084990', title: '圆·单元复习课件直链', type: 'article', url: 'https://www.zxxk.com/soft/59084990.html', note: '学科网作品ID 59084990，适合沉淀圆单元的知识框架与方法策略' }
+    ]
+  },
+  {
+    textbook: '北师大版',
+    grade: 5,
+    unitIncludes: '小数乘除法',
+    subnodeType: '例题型',
+    items: [
+      { slot: 'direct-54021883', externalWorkId: '54021883', title: '小数乘除法·小数除法专项直链', type: 'example', url: 'https://www.zxxk.com/soft/54021883.html', note: '学科网作品ID 54021883，适合对接小数除法例题与专项训练' },
+      { slot: 'direct-58904826', externalWorkId: '58904826', title: '小数乘除法·小数乘法专项直链', type: 'example', url: 'https://www.zxxk.com/soft/58904826.html', note: '学科网作品ID 58904826，适合补齐小数乘法基础例题与计算训练' }
+    ]
+  },
+  {
+    textbook: '北师大版',
+    grade: 5,
+    unitIncludes: '多边形面积',
+    subnodeType: '易错型',
+    items: [
+      { slot: 'direct-53854068', externalWorkId: '53854068', title: '多边形面积·易错冲刺直链', type: 'exercise', url: 'https://www.zxxk.com/soft/53854068.html', note: '学科网作品ID 53854068，聚焦多边形面积易错真题与满分冲刺' },
+      { slot: 'direct-49709311', externalWorkId: '49709311', title: '多边形面积·单元测试直链', type: 'exercise', url: 'https://www.zxxk.com/soft/49709311.html', note: '学科网作品ID 49709311，适合做单元纠错与检测回练' }
+    ]
+  },
+  {
+    textbook: '北师大版',
+    grade: 5,
+    unitIncludes: '多边形面积',
+    subnodeType: '方法型',
+    items: [
+      { slot: 'direct-53641192', externalWorkId: '53641192', title: '多边形面积·复习课件直链', type: 'article', url: 'https://www.zxxk.com/soft/53641192.html', note: '学科网作品ID 53641192，适合梳理转化法、公式推导和组合图形方法' }
+    ]
+  },
+  {
+    textbook: '苏教版',
+    grade: 5,
+    unitIncludes: '多边形面积',
+    subnodeType: '例题型',
+    items: [
+      { slot: 'direct-58803083', externalWorkId: '58803083', title: '多边形面积·典例专项直链', type: 'example', url: 'https://www.zxxk.com/soft/58803083.html', note: '学科网作品ID 58803083，直达苏教版五上多边形面积知识梳理、典型例题与综合训练' }
+    ]
+  },
+  {
+    textbook: '苏教版',
+    grade: 6,
+    unitIncludes: '分数运算与比',
+    subnodeType: '例题型',
+    items: [
+      { slot: 'direct-53556851', externalWorkId: '53556851', title: '分数运算与比·单元复习讲义直链', type: 'example', url: 'https://www.zxxk.com/soft/53556851.html', note: '学科网作品ID 53556851，覆盖分数除法与比的核心考点讲解' }
+    ]
+  },
+  {
+    textbook: '苏教版',
+    grade: 6,
+    unitIncludes: '分数运算与比',
+    subnodeType: '易错型',
+    items: [
+      { slot: 'direct-54478919', externalWorkId: '54478919', title: '分数运算与比·易错导航直链', type: 'exercise', url: 'https://www.zxxk.com/soft/54478919.html', note: '学科网作品ID 54478919，适合补错因、辨析与单元精练' },
+      { slot: 'direct-54075646', externalWorkId: '54075646', title: '分数运算与比·比的计算专项直链', type: 'exercise', url: 'https://www.zxxk.com/soft/54075646.html', note: '学科网作品ID 54075646，适合对接“比”的计算与化简比专项回练' }
+    ]
+  },
+  {
+    textbook: '北师大版',
+    grade: 5,
+    unitIncludes: '长方体和正方体',
+    subnodeType: '例题型',
+    items: [
+      { slot: 'direct-51098375', externalWorkId: '51098375', title: '长方体和正方体·体积篇直链', type: 'example', url: 'https://www.zxxk.com/soft/51098375.html', note: '学科网作品ID 51098375，覆盖体积、容积、切拼、排水法等高频例题' },
+      { slot: 'direct-51098382', externalWorkId: '51098382', title: '长方体和正方体·体积容积问题直链', type: 'exercise', url: 'https://www.zxxk.com/soft/51098382.html', note: '学科网作品ID 51098382，适合承接单元典型应用题与分层回练' }
+    ]
+  },
+  {
+    textbook: '北师大版',
+    grade: 5,
+    unitIncludes: '长方体和正方体',
+    subnodeType: '方法型',
+    items: [
+      { slot: 'direct-51801320', externalWorkId: '51801320', title: '长方体和正方体·作业本方法直链', type: 'article', url: 'https://www.zxxk.com/soft/51801320.html', note: '学科网作品ID 51801320，适合补体积、容积单位和公式应用的课时方法梳理' },
+      { slot: 'direct-51098396', externalWorkId: '51098396', title: '长方体和正方体·思维素养直链', type: 'article', url: 'https://www.zxxk.com/soft/51098396.html', note: '学科网作品ID 51098396，适合沉淀切拼、等积变形、折叠与表面积最值方法' }
+    ]
+  },
+  {
+    textbook: '北师大版',
+    grade: 6,
+    unitIncludes: '第4单元 比例尺与圆柱圆锥',
+    subnodeType: '例题型',
+    items: [
+      { slot: 'direct-56729249', externalWorkId: '56729249', title: '比例尺与圆柱圆锥·单元培优讲义直链', type: 'example', url: 'https://www.zxxk.com/soft/56729249.html', note: '学科网作品ID 56729249，覆盖圆柱圆锥核心知识与综合例题讲解' },
+      { slot: 'direct-50410418', externalWorkId: '50410418', title: '比例尺与圆柱圆锥·比例知识梳理直链', type: 'example', url: 'https://www.zxxk.com/soft/50410418.html', note: '学科网作品ID 50410418，适合补比例、比例尺和图形缩放类高频题型' }
+    ]
+  },
+  {
+    textbook: '北师大版',
+    grade: 6,
+    unitIncludes: '第4单元 比例尺与圆柱圆锥',
+    subnodeType: '易错型',
+    items: [
+      { slot: 'direct-50370297', externalWorkId: '50370297', title: '比例尺与圆柱圆锥·解比例易错直链', type: 'exercise', url: 'https://www.zxxk.com/soft/50370297.html', note: '学科网作品ID 50370297，适合补解比例或解方程类常见错因' },
+      { slot: 'direct-57899785', externalWorkId: '57899785', title: '比例尺与圆柱圆锥·圆柱圆锥单元卷直链', type: 'exercise', url: 'https://www.zxxk.com/soft/57899785.html', note: '学科网作品ID 57899785，适合承接圆柱圆锥单元复习与错题回练' }
+    ]
+  },
+  {
+    textbook: '北师大版',
+    grade: 6,
+    unitIncludes: '第4单元 比例尺与圆柱圆锥',
+    subnodeType: '方法型',
+    items: [
+      { slot: 'direct-56307100', externalWorkId: '56307100', title: '比例尺与圆柱圆锥·单元复习课件直链', type: 'article', url: 'https://www.zxxk.com/soft/56307100.html', note: '学科网作品ID 56307100，适合做圆柱圆锥与比例尺的知识框架整理' },
+      { slot: 'direct-49429584', externalWorkId: '49429584', title: '比例尺与圆柱圆锥·比例尺教案直链', type: 'article', url: 'https://www.zxxk.com/soft/49429584.html', note: '学科网作品ID 49429584，适合沉淀比例尺应用步骤与作图方法' }
+    ]
+  },
+  {
+    textbook: '苏教版',
+    grade: 5,
+    unitIncludes: '长方体和正方体',
+    subnodeType: '例题型',
+    items: [
+      { slot: 'direct-56314786', externalWorkId: '56314786', title: '长方体和正方体·知识梳理讲练直链', type: 'example', url: 'https://www.zxxk.com/soft/56314786.html', note: '学科网作品ID 56314786，适合承接表面积、体积、容积与单位进率的系统讲练' },
+      { slot: 'direct-57849357', externalWorkId: '57849357', title: '长方体和正方体·应用题专项直链', type: 'exercise', url: 'https://www.zxxk.com/soft/57849357.html', note: '学科网作品ID 57849357，覆盖无盖表面积、排水法、切割增面积等高频应用题' }
+    ]
+  },
+  {
+    textbook: '苏教版',
+    grade: 5,
+    unitIncludes: '长方体和正方体',
+    subnodeType: '易错型',
+    items: [
+      { slot: 'direct-57805918', externalWorkId: '57805918', title: '长方体和正方体·单元自测直链', type: 'exercise', url: 'https://www.zxxk.com/soft/57805918.html', note: '学科网作品ID 57805918，适合补面棱顶点、表面积、体积等基础错因' }
+    ]
+  },
+  {
+    textbook: '苏教版',
+    grade: 6,
+    unitIncludes: '第4单元 比例尺与立体图形',
+    subnodeType: '例题型',
+    items: [
+      { slot: 'direct-56690864', externalWorkId: '56690864', title: '比例尺与立体图形·圆柱圆锥培优直链', type: 'example', url: 'https://www.zxxk.com/soft/56690864.html', note: '学科网作品ID 56690864，适合补圆柱圆锥知识框架与综合例题' },
+      { slot: 'direct-50687617', externalWorkId: '50687617', title: '比例尺与立体图形·比例知识全梳理直链', type: 'example', url: 'https://www.zxxk.com/soft/50687617.html', note: '学科网作品ID 50687617，适合补比例、比例尺与图形放缩类核心题型' }
+    ]
+  },
+  {
+    textbook: '苏教版',
+    grade: 6,
+    unitIncludes: '第4单元 比例尺与立体图形',
+    subnodeType: '易错型',
+    items: [
+      { slot: 'direct-50908281', externalWorkId: '50908281', title: '比例尺与立体图形·解方程或比例计算直链', type: 'exercise', url: 'https://www.zxxk.com/soft/50908281.html', note: '学科网作品ID 50908281，适合补比例计算、解比例与综合运算错因' },
+      { slot: 'direct-56997057', externalWorkId: '56997057', title: '比例尺与立体图形·比例知识清单直链', type: 'exercise', url: 'https://www.zxxk.com/soft/56997057.html', note: '学科网作品ID 56997057，适合做比例尺与放缩题的错因回练' }
+    ]
+  },
+  {
+    textbook: '苏教版',
+    grade: 6,
+    unitIncludes: '第4单元 比例尺与立体图形',
+    subnodeType: '方法型',
+    items: [
+      { slot: 'direct-51134920', externalWorkId: '51134920', title: '比例尺与立体图形·比例尺讲练测直链', type: 'article', url: 'https://www.zxxk.com/soft/51134920.html', note: '学科网作品ID 51134920，适合沉淀比例尺应用步骤、作图法和讲练测闭环' },
+      { slot: 'direct-55414679', externalWorkId: '55414679', title: '比例尺与立体图形·圆柱圆锥操作题直链', type: 'article', url: 'https://www.zxxk.com/soft/55414679.html', note: '学科网作品ID 55414679，适合沉淀展开图、操作题和空间想象方法' }
+    ]
+  }
+];
+
+const directResourceMatchCache = new Map();
+
+function unitMatches(unit, matcher) {
+  const value = String(unit || '');
+  if (!matcher) return false;
+  if (Array.isArray(matcher)) return matcher.some(item => value.includes(item));
+  return value.includes(matcher);
+}
+
+function matchedDirectItems(baseTopic, subnodeType) {
+  const cacheKey = `${baseTopic.textbook}|${baseTopic.grade}|${baseTopic.unit}|${subnodeType}`;
+  if (directResourceMatchCache.has(cacheKey)) return directResourceMatchCache.get(cacheKey);
+  const matched = DIRECT_RESOURCE_CATALOG
+    .filter(item =>
+      item.textbook === baseTopic.textbook &&
+      item.grade === baseTopic.grade &&
+      item.subnodeType === subnodeType &&
+      unitMatches(baseTopic.unit, item.unitIncludes)
+    )
+    .flatMap(item => item.items);
+  directResourceMatchCache.set(cacheKey, matched);
+  return matched;
+}
+
+function buildDirectResources(baseTopic, subnodeType, resourceGroupKey, resourceUnitKey) {
+  const matched = matchedDirectItems(baseTopic, subnodeType);
+  return matched.map(item => ({
+    resourceId: resourceIdOf(baseTopic, subnodeType, item.slot),
+    resourceGroupKey,
+    resourceUnitKey,
+    externalWorkId: item.externalWorkId,
+    title: `${baseTopic.name}·${item.title}`,
+    type: item.type,
+    url: item.url,
+    source: '学科网',
+    note: item.note
+  }));
+}
+
 function makeMathChild(baseTopic, parentId, seq, subnodeType, nameSuffix, description, evidence, commonMistakes, practiceChain, assessmentTasks) {
   const resourceKeyword = `${baseTopic.volume} ${baseTopic.unit} ${baseTopic.lesson} ${baseTopic.name}`;
   const resourceUnitKey = unitKeyOf(baseTopic);
   const resourceGroupKey = `${resourceUnitKey}-${slugify(subnodeType)}`;
+  const directResources = buildDirectResources(baseTopic, subnodeType, resourceGroupKey, resourceUnitKey);
   const resourcePack = subnodeType === '例题型'
     ? [
         {
@@ -262,6 +480,9 @@ function makeMathChild(baseTopic, parentId, seq, subnodeType, nameSuffix, descri
             note: `资源组键 ${resourceGroupKey}，用于沉淀“${baseTopic.unit}”的方法型精选题单和后续作品ID`
           }
         ];
+  const finalResources = directResources.length
+    ? [...directResources, ...resourcePack.filter(resource => !String(resource.resourceId).endsWith('unit-pack'))]
+    : resourcePack;
   return {
     ...baseTopic,
     id: seq,
@@ -273,7 +494,7 @@ function makeMathChild(baseTopic, parentId, seq, subnodeType, nameSuffix, descri
     commonMistakes,
     practiceChain,
     assessmentTasks,
-    resources: resourcePack
+    resources: finalResources
   };
 }
 
@@ -365,8 +586,8 @@ for (const version of versions) {
 }
 
 const data = {
-  version: 'v0.7-math-direct-links',
-  note: '数学多版本扩展：在册次-单元-课时主题基础上，继续拆分为例题型/易错型/方法型子节点，并挂接更细的题链直达页',
+  version: 'v0.8-math-direct-links',
+  note: '数学多版本扩展：在册次-单元-课时主题基础上，继续拆分为例题型/易错型/方法型子节点，并补入逐单元精选题单的外部作品ID直链',
   topicCount: topics.length,
   topics
 };

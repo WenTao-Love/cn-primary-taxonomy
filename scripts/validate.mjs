@@ -98,6 +98,9 @@ for (const t of topics.topics) {
       if (r.resourceUnitKey !== undefined && r.resourceUnitKey !== null) {
         check(typeof r.resourceUnitKey === 'string' && r.resourceUnitKey.length >= 4, `resource.resourceUnitKey非法: ${t.id}`);
       }
+      if (r.externalWorkId !== undefined && r.externalWorkId !== null) {
+        check(typeof r.externalWorkId === 'string' && /^[0-9]{6,}$/.test(r.externalWorkId), `resource.externalWorkId非法: ${t.id}`);
+      }
       check(typeof r.title === 'string' && r.title.length >= 1, `resource.title缺失: ${t.id}`);
       check(RESOURCE_TYPES.has(r.type), `resource.type非法: ${t.id} -> ${r.type}`);
       check(typeof r.url === 'string' && /^https?:\/\//.test(r.url), `resource.url非法: ${t.id}`);

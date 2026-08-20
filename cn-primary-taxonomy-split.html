@@ -172,7 +172,11 @@ let currentGrade = 'all';
 let currentTextbook = 'all';
 let currentLayer = 'core';
 let selectedNodeId = null;
-let searchTimer = null;
+let searchDebounceTimer = null;
+let resizeDebounceTimer = null;
+let layoutStopTimer = null;
+let topicSearchTextMap = new Map();
+let filteredTopicCache = new Map();
 
 function loadDataset(name, url) {
   if (window.__CNPT_EMBEDDED && window.__CNPT_EMBEDDED[name]) {
@@ -205,24 +209,46 @@ async function init() {
   setupCanvas();
   applyFilters();
   window.addEventListener('resize', handleResize, { passive: true });
+  document.addEventListener('visibilitychange', handleVisibilityChange, { passive: true });
+  window.addEventListener('beforeunload', cleanupRuntime, { once: true });
 }
 
 function handleResize() {
-  if (searchTimer) clearTimeout(searchTimer);
-  searchTimer = setTimeout(() => {
+  if (resizeDebounceTimer) clearTimeout(resizeDebounceTimer);
+  resizeDebounceTimer = setTimeout(() => {
     if (simulation) simulation.stop();
     setupCanvas();
     applyFilters();
   }, 120);
 }
 
+function handleVisibilityChange() {
+  if (document.hidden && simulation) simulation.stop();
+}
+
+function cleanupRuntime() {
+  if (simulation) simulation.stop();
+  if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
+  if (resizeDebounceTimer) clearTimeout(resizeDebounceTimer);
+  if (layoutStopTimer) clearTimeout(layoutStopTimer);
+}
+
 function buildIndices() {
   topicMap = new Map(fullData.topics.topics.map(topic => [topic.id, topic]));
   incomingMap = new Map();
   outgoingMap = new Map();
+  topicSearchTextMap = new Map();
+  filteredTopicCache = new Map();
   fullData.topics.topics.forEach(topic => {
     incomingMap.set(topic.id, []);
     outgoingMap.set(topic.id, []);
+    const rubricText = topic.skillRubric ? Object.values(topic.skillRubric).flat().join(' ') : '';
+    const evalText = Array.isArray(topic.evaluationRubric) ? topic.evaluationRubric.flatMap(item => [item.dimension, ...(item.indicators || [])]).join(' ') : '';
+    const resourceText = (topic.resources || []).flatMap(resource => [resource.title, resource.note, resource.externalWorkId, resource.resourceUnitKey]).filter(Boolean).join(' ');
+    topicSearchTextMap.set(
+      topic.id,
+      `${topic.name} ${topic.domain || ''} ${topic.description || ''} ${topic.subject} ${topic.textbook || ''} ${topic.volume || ''} ${topic.unit || ''} ${topic.chapter || ''} ${topic.lesson || ''} ${topic.module || ''} ${topic.subnodeType || ''} ${topic.pageRange || ''} ${(topic.practiceChain || []).join(' ')} ${(topic.assessmentTasks || []).join(' ')} ${rubricText} ${evalText} ${resourceText}`.toLowerCase()
+    );
   });
   fullData.deps.dependencies.forEach(dep => {
     const edge = { source: dep.prerequisiteId, target: dep.topicId, strength: dep.strength, reason: dep.reason };
@@ -305,13 +331,17 @@ function setupCanvas() {
 }
 
 function getFilteredTopics() {
-  return fullData.topics.topics.filter(topic => {
+  const cacheKey = `${currentGrade}|${currentSubject}|${currentTextbook}|${currentLayer}`;
+  if (filteredTopicCache.has(cacheKey)) return filteredTopicCache.get(cacheKey);
+  const topics = fullData.topics.topics.filter(topic => {
     const gradeMatched = currentGrade === 'all' || String(topic.grade) === String(currentGrade);
     const subjectMatched = currentSubject === 'all' || topic.subject === currentSubject;
     const textbookMatched = currentTextbook === 'all' || (topic.textbook || '未标注版本') === currentTextbook;
     const layerMatched = currentLayer === 'detail' || !topic.parentTopicId;
     return gradeMatched && subjectMatched && textbookMatched && layerMatched;
   });
+  filteredTopicCache.set(cacheKey, topics);
+  return topics;
 }
 
 function applyFilters(options = {}) {
@@ -329,6 +359,7 @@ function updateButtonStates() {
 
 function renderGraph(filteredTopics, keepSelection = true) {
   if (simulation) simulation.stop();
+  if (layoutStopTimer) clearTimeout(layoutStopTimer);
   graphGroup.selectAll('*').remove();
   data = { nodes:[], links:[], nodeMap:new Map() };
 
@@ -413,7 +444,7 @@ function renderGraph(filteredTopics, keepSelection = true) {
     gNodes.attr('transform', node => `translate(${node.x},${node.y})`);
   });
 
-  setTimeout(() => {
+  layoutStopTimer = setTimeout(() => {
     if (simulation) simulation.stop();
   }, 2400);
 
@@ -483,7 +514,7 @@ function renderSidebar(topic) {
   const resources = (topic.resources || []).map(resource => `
     <a class="resource-link" href="${resource.url}" target="_blank" rel="noopener noreferrer">
       ${resource.title}
-      <small>${resource.type} · ${resource.source || '外部资源'}${resource.resourceId ? ` · ID ${resource.resourceId}` : ''}${resource.resourceUnitKey ? ` · 单元键 ${resource.resourceUnitKey}` : ''}${resource.note ? ` · ${resource.note}` : ''}</small>
+      <small>${resource.type} · ${resource.source || '外部资源'}${resource.resourceId ? ` · ID ${resource.resourceId}` : ''}${resource.externalWorkId ? ` · 作品ID ${resource.externalWorkId}` : ''}${resource.resourceUnitKey ? ` · 单元键 ${resource.resourceUnitKey}` : ''}${resource.note ? ` · ${resource.note}` : ''}</small>
     </a>
   `).join('');
 
@@ -535,9 +566,7 @@ function renderSidebar(topic) {
 }
 
 function topicScore(topic, query) {
-  const rubricText = topic.skillRubric ? Object.values(topic.skillRubric).flat().join(' ') : '';
-  const evalText = Array.isArray(topic.evaluationRubric) ? topic.evaluationRubric.flatMap(item => [item.dimension, ...(item.indicators || [])]).join(' ') : '';
-  const text = `${topic.name} ${topic.domain || ''} ${topic.description || ''} ${topic.subject} ${topic.textbook || ''} ${topic.volume || ''} ${topic.unit || ''} ${topic.chapter || ''} ${topic.lesson || ''} ${topic.module || ''} ${topic.subnodeType || ''} ${topic.pageRange || ''} ${(topic.practiceChain || []).join(' ')} ${(topic.assessmentTasks || []).join(' ')} ${rubricText} ${evalText}`.toLowerCase();
+  const text = topicSearchTextMap.get(topic.id) || '';
   const q = query.toLowerCase();
   let score = 0;
   if (topic.name.toLowerCase().includes(q)) score += 8;
@@ -667,8 +696,8 @@ function setupSearch() {
   const input = document.getElementById('search');
   const results = document.getElementById('search-results');
   input.addEventListener('input', () => {
-    if (searchTimer) clearTimeout(searchTimer);
-    searchTimer = setTimeout(() => {
+    if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
+    searchDebounceTimer = setTimeout(() => {
       const query = input.value.trim().toLowerCase();
       if (!query) {
         results.classList.remove('show');

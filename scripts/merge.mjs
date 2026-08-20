@@ -68,7 +68,8 @@ function normalizeResources(topic) {
       ...resource,
       resourceId,
       resourceGroupKey: resource.resourceGroupKey || null,
-      resourceUnitKey: resource.resourceUnitKey || null
+      resourceUnitKey: resource.resourceUnitKey || null,
+      externalWorkId: resource.externalWorkId || null
     });
   }
   return normalized;
@@ -133,10 +134,10 @@ topicFiles.forEach(name => console.log(' ', name));
 
 // 写 topics.json
 const topicsJson = {
-  version: 'v0.7-expanded',
+  version: 'v0.8-expanded',
   generatedAt: new Date().toISOString(),
   grades: [...new Set(all.map(t => t.grade))].sort((a,b)=>a-b),
-  note: '扩展版本：1-6年级主干 + 数学逐单元资源组键/资源ID + 英语分技能rubric + 多学科结构化评价 + 可视化性能优化',
+  note: '扩展版本：1-6年级主干 + 数学逐单元资源组键/资源ID/外部作品ID直链 + 英语分技能rubric + 多学科结构化评价 + 可视化性能优化',
   topicCount: all.length,
   topics: all
 };
