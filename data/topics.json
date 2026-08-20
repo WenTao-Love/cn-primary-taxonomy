@@ -1,6 +1,6 @@
 {
   "version": "v0.8-expanded",
-  "generatedAt": "2026-08-20T00:50:21.556Z",
+  "generatedAt": "2026-08-20T01:10:40.736Z",
   "grades": [
     1,
     2,
@@ -40522,26 +40522,37 @@
       ],
       "resources": [
         {
-          "resourceId": "res_ct_SX6X009_fallback_example",
-          "resourceGroupKey": "fallback-SX-6",
-          "resourceUnitKey": null,
-          "title": "百分数的意义典型例题",
-          "type": "example",
-          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E7%99%BE%E5%88%86%E6%95%B0%E7%9A%84%E6%84%8F%E4%B9%89%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
-          "source": "Bing",
-          "note": "聚合检索入口，可快速定位同主题典型例题",
-          "externalWorkId": null
+          "resourceId": "res_ct_SX6X009_curated_1_unit-note-51213600",
+          "resourceGroupKey": "curated-SX-6",
+          "resourceUnitKey": "人教版-6年级-下-百分数的意义",
+          "externalWorkId": "51213600",
+          "title": "百分数的意义·百分数的意义·复习讲义直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/51213600.html",
+          "source": "学科网",
+          "note": "作品ID 51213600，覆盖百分数（二）知识清单、折扣成数税率利率与意义辨析"
         },
         {
-          "resourceId": "res_ct_SX6X009_fallback_exercise",
-          "resourceGroupKey": "fallback-SX-6",
-          "resourceUnitKey": null,
-          "title": "百分数的意义练习题",
+          "resourceId": "res_ct_SX6X009_curated_2_unit-paper-56297027",
+          "resourceGroupKey": "curated-SX-6",
+          "resourceUnitKey": "人教版-6年级-下-百分数的意义",
+          "externalWorkId": "56297027",
+          "title": "百分数的意义·百分数的意义·单元测试直链",
           "type": "exercise",
-          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E7%99%BE%E5%88%86%E6%95%B0%E7%9A%84%E6%84%8F%E4%B9%89%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
-          "source": "Bing",
-          "note": "聚合检索入口，可快速定位同步练习与题单",
-          "externalWorkId": null
+          "url": "https://www.zxxk.com/soft/56297027.html",
+          "source": "学科网",
+          "note": "作品ID 56297027，适合回练百分数意义、折扣与成数基础辨析"
+        },
+        {
+          "resourceId": "res_ct_SX6X009_curated_3_life-courseware-51798818",
+          "resourceGroupKey": "curated-SX-6",
+          "resourceUnitKey": "人教版-6年级-下-百分数的意义",
+          "externalWorkId": "51798818",
+          "title": "百分数的意义·百分数的意义·生活与百分数课件直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/51798818.html",
+          "source": "学科网",
+          "note": "作品ID 51798818，适合把百分数意义迁移到储蓄、利率、合格率等生活情境"
         }
       ]
     },
@@ -40577,26 +40588,26 @@
       ],
       "resources": [
         {
-          "resourceId": "res_ct_SX6X010_fallback_example",
-          "resourceGroupKey": "fallback-SX-6",
-          "resourceUnitKey": null,
-          "title": "百分数和分数小数互化典型例题",
+          "resourceId": "res_ct_SX6X010_curated_1_calc-pack-50064857",
+          "resourceGroupKey": "curated-SX-6",
+          "resourceUnitKey": "人教版-6年级-下-百分数和分数小数互化",
+          "externalWorkId": "50064857",
+          "title": "百分数和分数小数互化·百分数和分数小数互化·计算专题直链",
           "type": "example",
-          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E7%99%BE%E5%88%86%E6%95%B0%E5%92%8C%E5%88%86%E6%95%B0%E5%B0%8F%E6%95%B0%E4%BA%92%E5%8C%96%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
-          "source": "Bing",
-          "note": "聚合检索入口，可快速定位同主题典型例题",
-          "externalWorkId": null
+          "url": "https://www.zxxk.com/soft/50064857.html",
+          "source": "学科网",
+          "note": "作品ID 50064857，聚焦百分数、分数、小数、比之间的互化与计算题型"
         },
         {
-          "resourceId": "res_ct_SX6X010_fallback_exercise",
-          "resourceGroupKey": "fallback-SX-6",
-          "resourceUnitKey": null,
-          "title": "百分数和分数小数互化练习题",
-          "type": "exercise",
-          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E7%99%BE%E5%88%86%E6%95%B0%E5%92%8C%E5%88%86%E6%95%B0%E5%B0%8F%E6%95%B0%E4%BA%92%E5%8C%96%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
-          "source": "Bing",
-          "note": "聚合检索入口，可快速定位同步练习与题单",
-          "externalWorkId": null
+          "resourceId": "res_ct_SX6X010_curated_2_guide-52233174",
+          "resourceGroupKey": "curated-SX-6",
+          "resourceUnitKey": "人教版-6年级-下-百分数和分数小数互化",
+          "externalWorkId": "52233174",
+          "title": "百分数和分数小数互化·百分数和分数小数互化·专题讲义直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/52233174.html",
+          "source": "学科网",
+          "note": "作品ID 52233174，适合梳理百分数概念、互化规则和常见易错点"
         }
       ]
     },
@@ -40632,26 +40643,59 @@
       ],
       "resources": [
         {
-          "resourceId": "res_ct_SX6X011_fallback_example",
-          "resourceGroupKey": "fallback-SX-6",
-          "resourceUnitKey": null,
-          "title": "百分数应用题典型例题",
+          "resourceId": "res_ct_SX6X011_curated_1_sync-work-56493130",
+          "resourceGroupKey": "curated-SX-6",
+          "resourceUnitKey": "人教版-6年级-下-百分数应用题",
+          "externalWorkId": "56493130",
+          "title": "百分数应用题·百分数应用题·同步练直链",
           "type": "example",
-          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E7%99%BE%E5%88%86%E6%95%B0%E5%BA%94%E7%94%A8%E9%A2%98%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
-          "source": "Bing",
-          "note": "聚合检索入口，可快速定位同主题典型例题",
-          "externalWorkId": null
+          "url": "https://www.zxxk.com/soft/56493130.html",
+          "source": "学科网",
+          "note": "作品ID 56493130，覆盖折扣、成数、税率、利率等百分数（二）核心应用题"
         },
         {
-          "resourceId": "res_ct_SX6X011_fallback_exercise",
-          "resourceGroupKey": "fallback-SX-6",
-          "resourceUnitKey": null,
-          "title": "百分数应用题练习题",
+          "resourceId": "res_ct_SX6X011_curated_2_error-pack-49968341",
+          "resourceGroupKey": "curated-SX-6",
+          "resourceUnitKey": "人教版-6年级-下-百分数应用题",
+          "externalWorkId": "49968341",
+          "title": "百分数应用题·百分数应用题·高频易错讲义直链",
           "type": "exercise",
-          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E7%99%BE%E5%88%86%E6%95%B0%E5%BA%94%E7%94%A8%E9%A2%98%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
-          "source": "Bing",
-          "note": "聚合检索入口，可快速定位同步练习与题单",
-          "externalWorkId": null
+          "url": "https://www.zxxk.com/soft/49968341.html",
+          "source": "学科网",
+          "note": "作品ID 49968341，适合补单位1判断、利润税率和折扣问题的常见错因"
+        },
+        {
+          "resourceId": "res_ct_SX6X011_curated_3_unit-paper-56093464",
+          "resourceGroupKey": "curated-SX-6",
+          "resourceUnitKey": "人教版-6年级-下-百分数应用题",
+          "externalWorkId": "56093464",
+          "title": "百分数应用题·百分数应用题·单元闯关卷直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/56093464.html",
+          "source": "学科网",
+          "note": "作品ID 56093464，适合承接百分数（二）整单元的分层自测与回练"
+        },
+        {
+          "resourceId": "res_ct_SX6X011_curated_4_life-homework-56026914",
+          "resourceGroupKey": "curated-SX-6",
+          "resourceUnitKey": "人教版-6年级-下-百分数应用题",
+          "externalWorkId": "56026914",
+          "title": "百分数应用题·百分数应用题·生活与百分数分层作业直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/56026914.html",
+          "source": "学科网",
+          "note": "作品ID 56026914，聚焦购物促销、税率、利率等生活与百分数高频题型"
+        },
+        {
+          "resourceId": "res_ct_SX6X011_curated_5_life-unit-test-56440421",
+          "resourceGroupKey": "curated-SX-6",
+          "resourceUnitKey": "人教版-6年级-下-百分数应用题",
+          "externalWorkId": "56440421",
+          "title": "百分数应用题·百分数应用题·生活与百分数单元测试直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/56440421.html",
+          "source": "学科网",
+          "note": "作品ID 56440421，适合对生活与百分数专题做整块闭环检测"
         }
       ]
     },
@@ -41312,6 +41356,17 @@
           "url": "https://www.zxxk.com/soft/51270586.html",
           "source": "学科网",
           "note": "作品ID 51270586，适合做圆柱圆锥期中复习讲练测"
+        },
+        {
+          "resourceId": "res_ct_SX6X023_curated_3_application-56589825",
+          "resourceGroupKey": "curated-SX-6",
+          "resourceUnitKey": "人教版-6年级-下-圆柱表面积和体积",
+          "externalWorkId": "56589825",
+          "title": "圆柱表面积和体积·圆柱表面积和体积·应用题专项直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/56589825.html",
+          "source": "学科网",
+          "note": "作品ID 56589825，聚焦无盖容器、排水法、包装等圆柱实际应用题"
         }
       ]
     },
@@ -41367,6 +41422,17 @@
           "url": "https://www.zxxk.com/soft/50549129.html",
           "source": "学科网",
           "note": "作品ID 50549129，适合回练圆锥体积和等底等高圆柱对比问题"
+        },
+        {
+          "resourceId": "res_ct_SX6X024_curated_3_application-57665491",
+          "resourceGroupKey": "curated-SX-6",
+          "resourceUnitKey": "人教版-6年级-下-圆锥体积公式理解",
+          "externalWorkId": "57665491",
+          "title": "圆锥体积公式理解·圆锥体积公式理解·综合应用直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/57665491.html",
+          "source": "学科网",
+          "note": "作品ID 57665491，适合承接圆柱圆锥综合应用和跨情境建模题"
         }
       ]
     },
@@ -41532,6 +41598,28 @@
           "url": "https://www.zxxk.com/soft/56370339.html",
           "source": "学科网",
           "note": "作品ID 56370339，适合做比例单元综合方法复盘和错因回顾"
+        },
+        {
+          "resourceId": "res_ct_SX6X027_curated_3_unit-sheet-50806222",
+          "resourceGroupKey": "curated-SX-6",
+          "resourceUnitKey": "人教版-6年级-下-综合运用比例和方程解决问题",
+          "externalWorkId": "50806222",
+          "title": "综合运用比例和方程解决问题·综合运用比例和方程·单元总结讲义直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/50806222.html",
+          "source": "学科网",
+          "note": "作品ID 50806222，适合补比例意义、解比例、正反比例和比例尺的综合复盘"
+        },
+        {
+          "resourceId": "res_ct_SX6X027_curated_4_unit-test-57223845",
+          "resourceGroupKey": "curated-SX-6",
+          "resourceUnitKey": "人教版-6年级-下-综合运用比例和方程解决问题",
+          "externalWorkId": "57223845",
+          "title": "综合运用比例和方程解决问题·综合运用比例和方程·单元自测直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/57223845.html",
+          "source": "学科网",
+          "note": "作品ID 57223845，适合承接比例综合复习后的闭环检测"
         }
       ]
     },
@@ -41567,26 +41655,37 @@
       ],
       "resources": [
         {
-          "resourceId": "res_ct_SX6X028_fallback_example",
-          "resourceGroupKey": "fallback-SX-6",
-          "resourceUnitKey": null,
-          "title": "毕业总复习中的知识关联典型例题",
-          "type": "example",
-          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E6%AF%95%E4%B8%9A%E6%80%BB%E5%A4%8D%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%9F%A5%E8%AF%86%E5%85%B3%E8%81%94%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
-          "source": "Bing",
-          "note": "聚合检索入口，可快速定位同主题典型例题",
-          "externalWorkId": null
+          "resourceId": "res_ct_SX6X028_curated_1_review-selftest-58945270",
+          "resourceGroupKey": "curated-SX-6",
+          "resourceUnitKey": "人教版-6年级-下-毕业总复习中的知识关联",
+          "externalWorkId": "58945270",
+          "title": "毕业总复习中的知识关联·毕业总复习中的知识关联·毕业学业水平自测直链",
+          "type": "exercise",
+          "url": "https://www.zxxk.com/soft/58945270.html",
+          "source": "学科网",
+          "note": "作品ID 58945270，适合做毕业总复习综合串联和整册知识迁移检测"
         },
         {
-          "resourceId": "res_ct_SX6X028_fallback_exercise",
-          "resourceGroupKey": "fallback-SX-6",
-          "resourceUnitKey": null,
-          "title": "毕业总复习中的知识关联练习题",
+          "resourceId": "res_ct_SX6X028_curated_2_review-paper-57845571",
+          "resourceGroupKey": "curated-SX-6",
+          "resourceUnitKey": "人教版-6年级-下-毕业总复习中的知识关联",
+          "externalWorkId": "57845571",
+          "title": "毕业总复习中的知识关联·毕业总复习中的知识关联·期末质量检测直链",
           "type": "exercise",
-          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E6%AF%95%E4%B8%9A%E6%80%BB%E5%A4%8D%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%9F%A5%E8%AF%86%E5%85%B3%E8%81%94%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
-          "source": "Bing",
-          "note": "聚合检索入口，可快速定位同步练习与题单",
-          "externalWorkId": null
+          "url": "https://www.zxxk.com/soft/57845571.html",
+          "source": "学科网",
+          "note": "作品ID 57845571，覆盖比例尺、百分数、圆柱圆锥等跨模块综合问题"
+        },
+        {
+          "resourceId": "res_ct_SX6X028_curated_3_review-thinking-58412380",
+          "resourceGroupKey": "curated-SX-6",
+          "resourceUnitKey": "人教版-6年级-下-毕业总复习中的知识关联",
+          "externalWorkId": "58412380",
+          "title": "毕业总复习中的知识关联·毕业总复习中的知识关联·数学思想方法专项直链",
+          "type": "article",
+          "url": "https://www.zxxk.com/soft/58412380.html",
+          "source": "学科网",
+          "note": "作品ID 58412380，适合沉淀总复习阶段的知识联结、方法迁移和综合实践策略"
         }
       ]
     },
@@ -115987,26 +116086,26 @@
       "parentTopicId": null,
       "resources": [
         {
-          "resourceId": "res_ct_SXB5X077_curated_1_lecture-51270589",
-          "resourceGroupKey": "curated-SXB-5",
-          "resourceUnitKey": "北师大版-5年级-下-长方体和正方体特征",
-          "externalWorkId": "51270589",
-          "title": "长方体和正方体特征·长方体和正方体特征·复习讲义直链",
+          "resourceId": "res_ct_SXB5X077_fallback_example",
+          "resourceGroupKey": "fallback-SXB-5",
+          "resourceUnitKey": null,
+          "title": "长方体和正方体特征典型例题",
           "type": "example",
-          "url": "https://www.zxxk.com/soft/51270589.html",
-          "source": "学科网",
-          "note": "作品ID 51270589，覆盖长方体与正方体特征、展开图、棱长关系等核心考点"
+          "url": "https://www.bing.com/search?q=5%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E9%95%BF%E6%96%B9%E4%BD%93%E5%92%8C%E6%AD%A3%E6%96%B9%E4%BD%93%E7%89%B9%E5%BE%81%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同主题典型例题",
+          "externalWorkId": null
         },
         {
-          "resourceId": "res_ct_SXB5X077_curated_2_test-56451772",
-          "resourceGroupKey": "curated-SXB-5",
-          "resourceUnitKey": "北师大版-5年级-下-长方体和正方体特征",
-          "externalWorkId": "56451772",
-          "title": "长方体和正方体特征·长方体和正方体特征·单元测试直链",
+          "resourceId": "res_ct_SXB5X077_fallback_exercise",
+          "resourceGroupKey": "fallback-SXB-5",
+          "resourceUnitKey": null,
+          "title": "长方体和正方体特征练习题",
           "type": "exercise",
-          "url": "https://www.zxxk.com/soft/56451772.html",
-          "source": "学科网",
-          "note": "作品ID 56451772，适合回练面、棱、顶点、展开图等高频题"
+          "url": "https://www.bing.com/search?q=5%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E9%95%BF%E6%96%B9%E4%BD%93%E5%92%8C%E6%AD%A3%E6%96%B9%E4%BD%93%E7%89%B9%E5%BE%81%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同步练习与题单",
+          "externalWorkId": null
         }
       ]
     },
@@ -116313,26 +116412,26 @@
       "parentTopicId": null,
       "resources": [
         {
-          "resourceId": "res_ct_SXB5X081_curated_1_courseware-51386292",
-          "resourceGroupKey": "curated-SXB-5",
-          "resourceUnitKey": "北师大版-5年级-下-长方体和正方体表面积",
-          "externalWorkId": "51386292",
-          "title": "长方体和正方体表面积·长方体和正方体表面积·课件直链",
-          "type": "article",
-          "url": "https://www.zxxk.com/soft/51386292.html",
-          "source": "学科网",
-          "note": "作品ID 51386292，适合梳理表面积概念、展开图和求法"
+          "resourceId": "res_ct_SXB5X081_fallback_example",
+          "resourceGroupKey": "fallback-SXB-5",
+          "resourceUnitKey": null,
+          "title": "长方体和正方体表面积典型例题",
+          "type": "example",
+          "url": "https://www.bing.com/search?q=5%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E9%95%BF%E6%96%B9%E4%BD%93%E5%92%8C%E6%AD%A3%E6%96%B9%E4%BD%93%E8%A1%A8%E9%9D%A2%E7%A7%AF%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同主题典型例题",
+          "externalWorkId": null
         },
         {
-          "resourceId": "res_ct_SXB5X081_curated_2_drill-50885813",
-          "resourceGroupKey": "curated-SXB-5",
-          "resourceUnitKey": "北师大版-5年级-下-长方体和正方体表面积",
-          "externalWorkId": "50885813",
-          "title": "长方体和正方体表面积·长方体和正方体表面积·分层精练直链",
+          "resourceId": "res_ct_SXB5X081_fallback_exercise",
+          "resourceGroupKey": "fallback-SXB-5",
+          "resourceUnitKey": null,
+          "title": "长方体和正方体表面积练习题",
           "type": "exercise",
-          "url": "https://www.zxxk.com/soft/50885813.html",
-          "source": "学科网",
-          "note": "作品ID 50885813，聚焦表面积综合计算、切拼与包装类题型"
+          "url": "https://www.bing.com/search?q=5%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E9%95%BF%E6%96%B9%E4%BD%93%E5%92%8C%E6%AD%A3%E6%96%B9%E4%BD%93%E8%A1%A8%E9%9D%A2%E7%A7%AF%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同步练习与题单",
+          "externalWorkId": null
         }
       ]
     },
@@ -116965,26 +117064,26 @@
       "parentTopicId": null,
       "resources": [
         {
-          "resourceId": "res_ct_SXB5X089_curated_1_worksheet-50548802",
-          "resourceGroupKey": "curated-SXB-5",
-          "resourceUnitKey": "北师大版-5年级-下-长方体和正方体体积",
-          "externalWorkId": "50548802",
-          "title": "长方体和正方体体积·长方体和正方体体积·同步作业直链",
+          "resourceId": "res_ct_SXB5X089_fallback_example",
+          "resourceGroupKey": "fallback-SXB-5",
+          "resourceUnitKey": null,
+          "title": "长方体和正方体体积典型例题",
           "type": "example",
-          "url": "https://www.zxxk.com/soft/50548802.html",
-          "source": "学科网",
-          "note": "作品ID 50548802，覆盖体积公式、体积单位、底面积乘高和实际应用"
+          "url": "https://www.bing.com/search?q=5%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E9%95%BF%E6%96%B9%E4%BD%93%E5%92%8C%E6%AD%A3%E6%96%B9%E4%BD%93%E4%BD%93%E7%A7%AF%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同主题典型例题",
+          "externalWorkId": null
         },
         {
-          "resourceId": "res_ct_SXB5X089_curated_2_unit-test-56451772",
-          "resourceGroupKey": "curated-SXB-5",
-          "resourceUnitKey": "北师大版-5年级-下-长方体和正方体体积",
-          "externalWorkId": "56451772",
-          "title": "长方体和正方体体积·长方体和正方体体积·单元卷直链",
+          "resourceId": "res_ct_SXB5X089_fallback_exercise",
+          "resourceGroupKey": "fallback-SXB-5",
+          "resourceUnitKey": null,
+          "title": "长方体和正方体体积练习题",
           "type": "exercise",
-          "url": "https://www.zxxk.com/soft/56451772.html",
-          "source": "学科网",
-          "note": "作品ID 56451772，适合承接体积、容积、排水法和综合应用训练"
+          "url": "https://www.bing.com/search?q=5%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E9%95%BF%E6%96%B9%E4%BD%93%E5%92%8C%E6%AD%A3%E6%96%B9%E4%BD%93%E4%BD%93%E7%A7%AF%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同步练习与题单",
+          "externalWorkId": null
         }
       ]
     },
@@ -120331,26 +120430,26 @@
       "parentTopicId": null,
       "resources": [
         {
-          "resourceId": "res_ct_SXB6S029_curated_1_ratio-53981627",
-          "resourceGroupKey": "curated-SXB-6",
-          "resourceUnitKey": "北师大版-6年级-上-按比例分配",
-          "externalWorkId": "53981627",
-          "title": "按比例分配·按比例分配·比专题讲义直链",
+          "resourceId": "res_ct_SXB6S029_fallback_example",
+          "resourceGroupKey": "fallback-SXB-6",
+          "resourceUnitKey": null,
+          "title": "按比例分配典型例题",
           "type": "example",
-          "url": "https://www.zxxk.com/soft/53981627.html",
-          "source": "学科网",
-          "note": "作品ID 53981627，覆盖比的意义、化简比与按比分配的核心题型"
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E6%8C%89%E6%AF%94%E4%BE%8B%E5%88%86%E9%85%8D%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同主题典型例题",
+          "externalWorkId": null
         },
         {
-          "resourceId": "res_ct_SXB6S029_curated_2_proportion-50577805",
-          "resourceGroupKey": "curated-SXB-6",
-          "resourceUnitKey": "北师大版-6年级-上-按比例分配",
-          "externalWorkId": "50577805",
-          "title": "按比例分配·按比例分配·比例考点题集直链",
+          "resourceId": "res_ct_SXB6S029_fallback_exercise",
+          "resourceGroupKey": "fallback-SXB-6",
+          "resourceUnitKey": null,
+          "title": "按比例分配练习题",
           "type": "exercise",
-          "url": "https://www.zxxk.com/soft/50577805.html",
-          "source": "学科网",
-          "note": "作品ID 50577805，含按比例分配与比例实际应用类高频考点"
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E6%8C%89%E6%AF%94%E4%BE%8B%E5%88%86%E9%85%8D%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同步练习与题单",
+          "externalWorkId": null
         }
       ]
     },
@@ -124254,26 +124353,26 @@
       "parentTopicId": null,
       "resources": [
         {
-          "resourceId": "res_ct_SXB6X077_curated_1_lesson-50350358",
-          "resourceGroupKey": "curated-SXB-6",
-          "resourceUnitKey": "北师大版-6年级-下-比例尺的意义",
-          "externalWorkId": "50350358",
-          "title": "比例尺的意义·比例尺的意义·教案直链",
-          "type": "article",
-          "url": "https://www.zxxk.com/soft/50350358.html",
-          "source": "学科网",
-          "note": "作品ID 50350358，适合梳理图上距离、实际距离和比例尺的关系"
+          "resourceId": "res_ct_SXB6X077_fallback_example",
+          "resourceGroupKey": "fallback-SXB-6",
+          "resourceUnitKey": null,
+          "title": "比例尺的意义典型例题",
+          "type": "example",
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E6%AF%94%E4%BE%8B%E5%B0%BA%E7%9A%84%E6%84%8F%E4%B9%89%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同主题典型例题",
+          "externalWorkId": null
         },
         {
-          "resourceId": "res_ct_SXB6X077_curated_2_examples-50577805",
-          "resourceGroupKey": "curated-SXB-6",
-          "resourceUnitKey": "北师大版-6年级-下-比例尺的意义",
-          "externalWorkId": "50577805",
-          "title": "比例尺的意义·比例尺的意义·十三考点题集直链",
-          "type": "example",
-          "url": "https://www.zxxk.com/soft/50577805.html",
-          "source": "学科网",
-          "note": "作品ID 50577805，覆盖比例尺认识、改写、求图上距离和求实际距离"
+          "resourceId": "res_ct_SXB6X077_fallback_exercise",
+          "resourceGroupKey": "fallback-SXB-6",
+          "resourceUnitKey": null,
+          "title": "比例尺的意义练习题",
+          "type": "exercise",
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E6%AF%94%E4%BE%8B%E5%B0%BA%E7%9A%84%E6%84%8F%E4%B9%89%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同步练习与题单",
+          "externalWorkId": null
         }
       ]
     },
@@ -124591,26 +124690,26 @@
       "parentTopicId": null,
       "resources": [
         {
-          "resourceId": "res_ct_SXB6X081_curated_1_review-50787758",
-          "resourceGroupKey": "curated-SXB-6",
-          "resourceUnitKey": "北师大版-6年级-下-按比例尺求实际距离和图上距离",
-          "externalWorkId": "50787758",
-          "title": "按比例尺求实际距离和图上距离·比例尺应用·考点突破直链",
+          "resourceId": "res_ct_SXB6X081_fallback_example",
+          "resourceGroupKey": "fallback-SXB-6",
+          "resourceUnitKey": null,
+          "title": "按比例尺求实际距离和图上距离典型例题",
           "type": "example",
-          "url": "https://www.zxxk.com/soft/50787758.html",
-          "source": "学科网",
-          "note": "作品ID 50787758，适合补比例尺三类基本关系式和应用题"
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E6%8C%89%E6%AF%94%E4%BE%8B%E5%B0%BA%E6%B1%82%E5%AE%9E%E9%99%85%E8%B7%9D%E7%A6%BB%E5%92%8C%E5%9B%BE%E4%B8%8A%E8%B7%9D%E7%A6%BB%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同主题典型例题",
+          "externalWorkId": null
         },
         {
-          "resourceId": "res_ct_SXB6X081_curated_2_workbook-51763041",
-          "resourceGroupKey": "curated-SXB-6",
-          "resourceUnitKey": "北师大版-6年级-下-按比例尺求实际距离和图上距离",
-          "externalWorkId": "51763041",
-          "title": "按比例尺求实际距离和图上距离·比例尺应用·作业本直链",
+          "resourceId": "res_ct_SXB6X081_fallback_exercise",
+          "resourceGroupKey": "fallback-SXB-6",
+          "resourceUnitKey": null,
+          "title": "按比例尺求实际距离和图上距离练习题",
           "type": "exercise",
-          "url": "https://www.zxxk.com/soft/51763041.html",
-          "source": "学科网",
-          "note": "作品ID 51763041，适合回练比例尺求实际距离、图上距离与图形放缩"
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E6%8C%89%E6%AF%94%E4%BE%8B%E5%B0%BA%E6%B1%82%E5%AE%9E%E9%99%85%E8%B7%9D%E7%A6%BB%E5%92%8C%E5%9B%BE%E4%B8%8A%E8%B7%9D%E7%A6%BB%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同步练习与题单",
+          "externalWorkId": null
         }
       ]
     },
@@ -124928,26 +125027,26 @@
       "parentTopicId": null,
       "resources": [
         {
-          "resourceId": "res_ct_SXB6X085_curated_1_unit-paper-57393213",
-          "resourceGroupKey": "curated-SXB-6",
-          "resourceUnitKey": "北师大版-6年级-下-圆柱和圆锥初步认识",
-          "externalWorkId": "57393213",
-          "title": "圆柱和圆锥初步认识·圆柱与圆锥·单元自测直链",
-          "type": "exercise",
-          "url": "https://www.zxxk.com/soft/57393213.html",
-          "source": "学科网",
-          "note": "作品ID 57393213，覆盖圆柱圆锥特征、辨析和单元综合检测"
+          "resourceId": "res_ct_SXB6X085_fallback_example",
+          "resourceGroupKey": "fallback-SXB-6",
+          "resourceUnitKey": null,
+          "title": "圆柱和圆锥初步认识典型例题",
+          "type": "example",
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E5%9C%86%E6%9F%B1%E5%92%8C%E5%9C%86%E9%94%A5%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同主题典型例题",
+          "externalWorkId": null
         },
         {
-          "resourceId": "res_ct_SXB6X085_curated_2_cone-56012738",
-          "resourceGroupKey": "curated-SXB-6",
-          "resourceUnitKey": "北师大版-6年级-下-圆柱和圆锥初步认识",
-          "externalWorkId": "56012738",
-          "title": "圆柱和圆锥初步认识·圆柱和圆锥·圆锥讲义直链",
-          "type": "article",
-          "url": "https://www.zxxk.com/soft/56012738.html",
-          "source": "学科网",
-          "note": "作品ID 56012738，适合补圆锥特征、各部分名称和与圆柱对比认知"
+          "resourceId": "res_ct_SXB6X085_fallback_exercise",
+          "resourceGroupKey": "fallback-SXB-6",
+          "resourceUnitKey": null,
+          "title": "圆柱和圆锥初步认识练习题",
+          "type": "exercise",
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E5%9C%86%E6%9F%B1%E5%92%8C%E5%9C%86%E9%94%A5%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同步练习与题单",
+          "externalWorkId": null
         }
       ]
     },
@@ -125265,26 +125364,26 @@
       "parentTopicId": null,
       "resources": [
         {
-          "resourceId": "res_ct_SXB6X089_curated_1_unit-review-50549129",
-          "resourceGroupKey": "curated-SXB-6",
-          "resourceUnitKey": "北师大版-6年级-下-圆柱表面积和体积",
-          "externalWorkId": "50549129",
-          "title": "圆柱表面积和体积·圆柱表面积和体积·单元梳理直链",
+          "resourceId": "res_ct_SXB6X089_fallback_example",
+          "resourceGroupKey": "fallback-SXB-6",
+          "resourceUnitKey": null,
+          "title": "圆柱表面积和体积典型例题",
           "type": "example",
-          "url": "https://www.zxxk.com/soft/50549129.html",
-          "source": "学科网",
-          "note": "作品ID 50549129，覆盖圆柱表面积、体积和圆锥综合运用"
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E5%9C%86%E6%9F%B1%E8%A1%A8%E9%9D%A2%E7%A7%AF%E5%92%8C%E4%BD%93%E7%A7%AF%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同主题典型例题",
+          "externalWorkId": null
         },
         {
-          "resourceId": "res_ct_SXB6X089_curated_2_drill-51270586",
-          "resourceGroupKey": "curated-SXB-6",
-          "resourceUnitKey": "北师大版-6年级-下-圆柱表面积和体积",
-          "externalWorkId": "51270586",
-          "title": "圆柱表面积和体积·圆柱表面积和体积·专项训练直链",
+          "resourceId": "res_ct_SXB6X089_fallback_exercise",
+          "resourceGroupKey": "fallback-SXB-6",
+          "resourceUnitKey": null,
+          "title": "圆柱表面积和体积练习题",
           "type": "exercise",
-          "url": "https://www.zxxk.com/soft/51270586.html",
-          "source": "学科网",
-          "note": "作品ID 51270586，适合做圆柱圆锥期中复习讲练测"
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E5%9C%86%E6%9F%B1%E8%A1%A8%E9%9D%A2%E7%A7%AF%E5%92%8C%E4%BD%93%E7%A7%AF%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同步练习与题单",
+          "externalWorkId": null
         }
       ]
     },
@@ -125602,26 +125701,26 @@
       "parentTopicId": null,
       "resources": [
         {
-          "resourceId": "res_ct_SXB6X093_curated_1_cone-56012738",
-          "resourceGroupKey": "curated-SXB-6",
-          "resourceUnitKey": "北师大版-6年级-下-圆锥体积公式理解",
-          "externalWorkId": "56012738",
-          "title": "圆锥体积公式理解·圆锥体积公式理解·讲义直链",
-          "type": "article",
-          "url": "https://www.zxxk.com/soft/56012738.html",
-          "source": "学科网",
-          "note": "作品ID 56012738，聚焦圆锥体积公式推导、等底等高关系与变形应用"
+          "resourceId": "res_ct_SXB6X093_fallback_example",
+          "resourceGroupKey": "fallback-SXB-6",
+          "resourceUnitKey": null,
+          "title": "圆锥体积公式理解典型例题",
+          "type": "example",
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E5%9C%86%E9%94%A5%E4%BD%93%E7%A7%AF%E5%85%AC%E5%BC%8F%E7%90%86%E8%A7%A3%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同主题典型例题",
+          "externalWorkId": null
         },
         {
-          "resourceId": "res_ct_SXB6X093_curated_2_unit-review-50549129",
-          "resourceGroupKey": "curated-SXB-6",
-          "resourceUnitKey": "北师大版-6年级-下-圆锥体积公式理解",
-          "externalWorkId": "50549129",
-          "title": "圆锥体积公式理解·圆锥体积公式理解·单元作业直链",
+          "resourceId": "res_ct_SXB6X093_fallback_exercise",
+          "resourceGroupKey": "fallback-SXB-6",
+          "resourceUnitKey": null,
+          "title": "圆锥体积公式理解练习题",
           "type": "exercise",
-          "url": "https://www.zxxk.com/soft/50549129.html",
-          "source": "学科网",
-          "note": "作品ID 50549129，适合回练圆锥体积和等底等高圆柱对比问题"
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E5%9C%86%E9%94%A5%E4%BD%93%E7%A7%AF%E5%85%AC%E5%BC%8F%E7%90%86%E8%A7%A3%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同步练习与题单",
+          "externalWorkId": null
         }
       ]
     },
@@ -126547,26 +126646,26 @@
       "parentTopicId": null,
       "resources": [
         {
-          "resourceId": "res_ct_SXB6X105_curated_1_ratio-sheet-50787758",
-          "resourceGroupKey": "curated-SXB-6",
-          "resourceUnitKey": "北师大版-6年级-下-综合运用比例和方程解决问题",
-          "externalWorkId": "50787758",
-          "title": "综合运用比例和方程解决问题·综合运用比例和方程·考点突破直链",
+          "resourceId": "res_ct_SXB6X105_fallback_example",
+          "resourceGroupKey": "fallback-SXB-6",
+          "resourceUnitKey": null,
+          "title": "综合运用比例和方程解决问题典型例题",
           "type": "example",
-          "url": "https://www.zxxk.com/soft/50787758.html",
-          "source": "学科网",
-          "note": "作品ID 50787758，适合连接比例、解比例、按比例分配与应用题建模"
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E7%BB%BC%E5%90%88%E8%BF%90%E7%94%A8%E6%AF%94%E4%BE%8B%E5%92%8C%E6%96%B9%E7%A8%8B%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同主题典型例题",
+          "externalWorkId": null
         },
         {
-          "resourceId": "res_ct_SXB6X105_curated_2_unit-review-56370339",
-          "resourceGroupKey": "curated-SXB-6",
-          "resourceUnitKey": "北师大版-6年级-下-综合运用比例和方程解决问题",
-          "externalWorkId": "56370339",
-          "title": "综合运用比例和方程解决问题·综合运用比例和方程·单元复习课件直链",
-          "type": "article",
-          "url": "https://www.zxxk.com/soft/56370339.html",
-          "source": "学科网",
-          "note": "作品ID 56370339，适合做比例单元综合方法复盘和错因回顾"
+          "resourceId": "res_ct_SXB6X105_fallback_exercise",
+          "resourceGroupKey": "fallback-SXB-6",
+          "resourceUnitKey": null,
+          "title": "综合运用比例和方程解决问题练习题",
+          "type": "exercise",
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E7%BB%BC%E5%90%88%E8%BF%90%E7%94%A8%E6%AF%94%E4%BE%8B%E5%92%8C%E6%96%B9%E7%A8%8B%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同步练习与题单",
+          "externalWorkId": null
         }
       ]
     },
@@ -201382,26 +201481,26 @@
       "parentTopicId": null,
       "resources": [
         {
-          "resourceId": "res_ct_SXS5X077_curated_1_lecture-51270589",
-          "resourceGroupKey": "curated-SXS-5",
-          "resourceUnitKey": "苏教版-5年级-下-长方体和正方体特征",
-          "externalWorkId": "51270589",
-          "title": "长方体和正方体特征·长方体和正方体特征·复习讲义直链",
+          "resourceId": "res_ct_SXS5X077_fallback_example",
+          "resourceGroupKey": "fallback-SXS-5",
+          "resourceUnitKey": null,
+          "title": "长方体和正方体特征典型例题",
           "type": "example",
-          "url": "https://www.zxxk.com/soft/51270589.html",
-          "source": "学科网",
-          "note": "作品ID 51270589，覆盖长方体与正方体特征、展开图、棱长关系等核心考点"
+          "url": "https://www.bing.com/search?q=5%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E9%95%BF%E6%96%B9%E4%BD%93%E5%92%8C%E6%AD%A3%E6%96%B9%E4%BD%93%E7%89%B9%E5%BE%81%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同主题典型例题",
+          "externalWorkId": null
         },
         {
-          "resourceId": "res_ct_SXS5X077_curated_2_test-56451772",
-          "resourceGroupKey": "curated-SXS-5",
-          "resourceUnitKey": "苏教版-5年级-下-长方体和正方体特征",
-          "externalWorkId": "56451772",
-          "title": "长方体和正方体特征·长方体和正方体特征·单元测试直链",
+          "resourceId": "res_ct_SXS5X077_fallback_exercise",
+          "resourceGroupKey": "fallback-SXS-5",
+          "resourceUnitKey": null,
+          "title": "长方体和正方体特征练习题",
           "type": "exercise",
-          "url": "https://www.zxxk.com/soft/56451772.html",
-          "source": "学科网",
-          "note": "作品ID 56451772，适合回练面、棱、顶点、展开图等高频题"
+          "url": "https://www.bing.com/search?q=5%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E9%95%BF%E6%96%B9%E4%BD%93%E5%92%8C%E6%AD%A3%E6%96%B9%E4%BD%93%E7%89%B9%E5%BE%81%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同步练习与题单",
+          "externalWorkId": null
         }
       ]
     },
@@ -201697,26 +201796,26 @@
       "parentTopicId": null,
       "resources": [
         {
-          "resourceId": "res_ct_SXS5X081_curated_1_courseware-51386292",
-          "resourceGroupKey": "curated-SXS-5",
-          "resourceUnitKey": "苏教版-5年级-下-长方体和正方体表面积",
-          "externalWorkId": "51386292",
-          "title": "长方体和正方体表面积·长方体和正方体表面积·课件直链",
-          "type": "article",
-          "url": "https://www.zxxk.com/soft/51386292.html",
-          "source": "学科网",
-          "note": "作品ID 51386292，适合梳理表面积概念、展开图和求法"
+          "resourceId": "res_ct_SXS5X081_fallback_example",
+          "resourceGroupKey": "fallback-SXS-5",
+          "resourceUnitKey": null,
+          "title": "长方体和正方体表面积典型例题",
+          "type": "example",
+          "url": "https://www.bing.com/search?q=5%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E9%95%BF%E6%96%B9%E4%BD%93%E5%92%8C%E6%AD%A3%E6%96%B9%E4%BD%93%E8%A1%A8%E9%9D%A2%E7%A7%AF%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同主题典型例题",
+          "externalWorkId": null
         },
         {
-          "resourceId": "res_ct_SXS5X081_curated_2_drill-50885813",
-          "resourceGroupKey": "curated-SXS-5",
-          "resourceUnitKey": "苏教版-5年级-下-长方体和正方体表面积",
-          "externalWorkId": "50885813",
-          "title": "长方体和正方体表面积·长方体和正方体表面积·分层精练直链",
+          "resourceId": "res_ct_SXS5X081_fallback_exercise",
+          "resourceGroupKey": "fallback-SXS-5",
+          "resourceUnitKey": null,
+          "title": "长方体和正方体表面积练习题",
           "type": "exercise",
-          "url": "https://www.zxxk.com/soft/50885813.html",
-          "source": "学科网",
-          "note": "作品ID 50885813，聚焦表面积综合计算、切拼与包装类题型"
+          "url": "https://www.bing.com/search?q=5%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E9%95%BF%E6%96%B9%E4%BD%93%E5%92%8C%E6%AD%A3%E6%96%B9%E4%BD%93%E8%A1%A8%E9%9D%A2%E7%A7%AF%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同步练习与题单",
+          "externalWorkId": null
         }
       ]
     },
@@ -202327,26 +202426,26 @@
       "parentTopicId": null,
       "resources": [
         {
-          "resourceId": "res_ct_SXS5X089_curated_1_worksheet-50548802",
-          "resourceGroupKey": "curated-SXS-5",
-          "resourceUnitKey": "苏教版-5年级-下-长方体和正方体体积",
-          "externalWorkId": "50548802",
-          "title": "长方体和正方体体积·长方体和正方体体积·同步作业直链",
+          "resourceId": "res_ct_SXS5X089_fallback_example",
+          "resourceGroupKey": "fallback-SXS-5",
+          "resourceUnitKey": null,
+          "title": "长方体和正方体体积典型例题",
           "type": "example",
-          "url": "https://www.zxxk.com/soft/50548802.html",
-          "source": "学科网",
-          "note": "作品ID 50548802，覆盖体积公式、体积单位、底面积乘高和实际应用"
+          "url": "https://www.bing.com/search?q=5%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E9%95%BF%E6%96%B9%E4%BD%93%E5%92%8C%E6%AD%A3%E6%96%B9%E4%BD%93%E4%BD%93%E7%A7%AF%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同主题典型例题",
+          "externalWorkId": null
         },
         {
-          "resourceId": "res_ct_SXS5X089_curated_2_unit-test-56451772",
-          "resourceGroupKey": "curated-SXS-5",
-          "resourceUnitKey": "苏教版-5年级-下-长方体和正方体体积",
-          "externalWorkId": "56451772",
-          "title": "长方体和正方体体积·长方体和正方体体积·单元卷直链",
+          "resourceId": "res_ct_SXS5X089_fallback_exercise",
+          "resourceGroupKey": "fallback-SXS-5",
+          "resourceUnitKey": null,
+          "title": "长方体和正方体体积练习题",
           "type": "exercise",
-          "url": "https://www.zxxk.com/soft/56451772.html",
-          "source": "学科网",
-          "note": "作品ID 56451772，适合承接体积、容积、排水法和综合应用训练"
+          "url": "https://www.bing.com/search?q=5%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E9%95%BF%E6%96%B9%E4%BD%93%E5%92%8C%E6%AD%A3%E6%96%B9%E4%BD%93%E4%BD%93%E7%A7%AF%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同步练习与题单",
+          "externalWorkId": null
         }
       ]
     },
@@ -205759,26 +205858,26 @@
       "parentTopicId": null,
       "resources": [
         {
-          "resourceId": "res_ct_SXS6S029_curated_1_ratio-53981627",
-          "resourceGroupKey": "curated-SXS-6",
-          "resourceUnitKey": "苏教版-6年级-上-按比例分配",
-          "externalWorkId": "53981627",
-          "title": "按比例分配·按比例分配·比专题讲义直链",
+          "resourceId": "res_ct_SXS6S029_fallback_example",
+          "resourceGroupKey": "fallback-SXS-6",
+          "resourceUnitKey": null,
+          "title": "按比例分配典型例题",
           "type": "example",
-          "url": "https://www.zxxk.com/soft/53981627.html",
-          "source": "学科网",
-          "note": "作品ID 53981627，覆盖比的意义、化简比与按比分配的核心题型"
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E6%8C%89%E6%AF%94%E4%BE%8B%E5%88%86%E9%85%8D%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同主题典型例题",
+          "externalWorkId": null
         },
         {
-          "resourceId": "res_ct_SXS6S029_curated_2_proportion-50577805",
-          "resourceGroupKey": "curated-SXS-6",
-          "resourceUnitKey": "苏教版-6年级-上-按比例分配",
-          "externalWorkId": "50577805",
-          "title": "按比例分配·按比例分配·比例考点题集直链",
+          "resourceId": "res_ct_SXS6S029_fallback_exercise",
+          "resourceGroupKey": "fallback-SXS-6",
+          "resourceUnitKey": null,
+          "title": "按比例分配练习题",
           "type": "exercise",
-          "url": "https://www.zxxk.com/soft/50577805.html",
-          "source": "学科网",
-          "note": "作品ID 50577805，含按比例分配与比例实际应用类高频考点"
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E6%8C%89%E6%AF%94%E4%BE%8B%E5%88%86%E9%85%8D%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同步练习与题单",
+          "externalWorkId": null
         }
       ]
     },
@@ -209649,26 +209748,26 @@
       "parentTopicId": null,
       "resources": [
         {
-          "resourceId": "res_ct_SXS6X077_curated_1_lesson-50350358",
-          "resourceGroupKey": "curated-SXS-6",
-          "resourceUnitKey": "苏教版-6年级-下-比例尺的意义",
-          "externalWorkId": "50350358",
-          "title": "比例尺的意义·比例尺的意义·教案直链",
-          "type": "article",
-          "url": "https://www.zxxk.com/soft/50350358.html",
-          "source": "学科网",
-          "note": "作品ID 50350358，适合梳理图上距离、实际距离和比例尺的关系"
+          "resourceId": "res_ct_SXS6X077_fallback_example",
+          "resourceGroupKey": "fallback-SXS-6",
+          "resourceUnitKey": null,
+          "title": "比例尺的意义典型例题",
+          "type": "example",
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E6%AF%94%E4%BE%8B%E5%B0%BA%E7%9A%84%E6%84%8F%E4%B9%89%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同主题典型例题",
+          "externalWorkId": null
         },
         {
-          "resourceId": "res_ct_SXS6X077_curated_2_examples-50577805",
-          "resourceGroupKey": "curated-SXS-6",
-          "resourceUnitKey": "苏教版-6年级-下-比例尺的意义",
-          "externalWorkId": "50577805",
-          "title": "比例尺的意义·比例尺的意义·十三考点题集直链",
-          "type": "example",
-          "url": "https://www.zxxk.com/soft/50577805.html",
-          "source": "学科网",
-          "note": "作品ID 50577805，覆盖比例尺认识、改写、求图上距离和求实际距离"
+          "resourceId": "res_ct_SXS6X077_fallback_exercise",
+          "resourceGroupKey": "fallback-SXS-6",
+          "resourceUnitKey": null,
+          "title": "比例尺的意义练习题",
+          "type": "exercise",
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E6%AF%94%E4%BE%8B%E5%B0%BA%E7%9A%84%E6%84%8F%E4%B9%89%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同步练习与题单",
+          "externalWorkId": null
         }
       ]
     },
@@ -209986,26 +210085,26 @@
       "parentTopicId": null,
       "resources": [
         {
-          "resourceId": "res_ct_SXS6X081_curated_1_review-50787758",
-          "resourceGroupKey": "curated-SXS-6",
-          "resourceUnitKey": "苏教版-6年级-下-按比例尺求实际距离和图上距离",
-          "externalWorkId": "50787758",
-          "title": "按比例尺求实际距离和图上距离·比例尺应用·考点突破直链",
+          "resourceId": "res_ct_SXS6X081_fallback_example",
+          "resourceGroupKey": "fallback-SXS-6",
+          "resourceUnitKey": null,
+          "title": "按比例尺求实际距离和图上距离典型例题",
           "type": "example",
-          "url": "https://www.zxxk.com/soft/50787758.html",
-          "source": "学科网",
-          "note": "作品ID 50787758，适合补比例尺三类基本关系式和应用题"
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E6%8C%89%E6%AF%94%E4%BE%8B%E5%B0%BA%E6%B1%82%E5%AE%9E%E9%99%85%E8%B7%9D%E7%A6%BB%E5%92%8C%E5%9B%BE%E4%B8%8A%E8%B7%9D%E7%A6%BB%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同主题典型例题",
+          "externalWorkId": null
         },
         {
-          "resourceId": "res_ct_SXS6X081_curated_2_workbook-51763041",
-          "resourceGroupKey": "curated-SXS-6",
-          "resourceUnitKey": "苏教版-6年级-下-按比例尺求实际距离和图上距离",
-          "externalWorkId": "51763041",
-          "title": "按比例尺求实际距离和图上距离·比例尺应用·作业本直链",
+          "resourceId": "res_ct_SXS6X081_fallback_exercise",
+          "resourceGroupKey": "fallback-SXS-6",
+          "resourceUnitKey": null,
+          "title": "按比例尺求实际距离和图上距离练习题",
           "type": "exercise",
-          "url": "https://www.zxxk.com/soft/51763041.html",
-          "source": "学科网",
-          "note": "作品ID 51763041，适合回练比例尺求实际距离、图上距离与图形放缩"
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E6%8C%89%E6%AF%94%E4%BE%8B%E5%B0%BA%E6%B1%82%E5%AE%9E%E9%99%85%E8%B7%9D%E7%A6%BB%E5%92%8C%E5%9B%BE%E4%B8%8A%E8%B7%9D%E7%A6%BB%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同步练习与题单",
+          "externalWorkId": null
         }
       ]
     },
@@ -210323,26 +210422,26 @@
       "parentTopicId": null,
       "resources": [
         {
-          "resourceId": "res_ct_SXS6X085_curated_1_unit-paper-57393213",
-          "resourceGroupKey": "curated-SXS-6",
-          "resourceUnitKey": "苏教版-6年级-下-圆柱和圆锥初步认识",
-          "externalWorkId": "57393213",
-          "title": "圆柱和圆锥初步认识·圆柱与圆锥·单元自测直链",
-          "type": "exercise",
-          "url": "https://www.zxxk.com/soft/57393213.html",
-          "source": "学科网",
-          "note": "作品ID 57393213，覆盖圆柱圆锥特征、辨析和单元综合检测"
+          "resourceId": "res_ct_SXS6X085_fallback_example",
+          "resourceGroupKey": "fallback-SXS-6",
+          "resourceUnitKey": null,
+          "title": "圆柱和圆锥初步认识典型例题",
+          "type": "example",
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E5%9C%86%E6%9F%B1%E5%92%8C%E5%9C%86%E9%94%A5%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同主题典型例题",
+          "externalWorkId": null
         },
         {
-          "resourceId": "res_ct_SXS6X085_curated_2_cone-56012738",
-          "resourceGroupKey": "curated-SXS-6",
-          "resourceUnitKey": "苏教版-6年级-下-圆柱和圆锥初步认识",
-          "externalWorkId": "56012738",
-          "title": "圆柱和圆锥初步认识·圆柱和圆锥·圆锥讲义直链",
-          "type": "article",
-          "url": "https://www.zxxk.com/soft/56012738.html",
-          "source": "学科网",
-          "note": "作品ID 56012738，适合补圆锥特征、各部分名称和与圆柱对比认知"
+          "resourceId": "res_ct_SXS6X085_fallback_exercise",
+          "resourceGroupKey": "fallback-SXS-6",
+          "resourceUnitKey": null,
+          "title": "圆柱和圆锥初步认识练习题",
+          "type": "exercise",
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E5%9C%86%E6%9F%B1%E5%92%8C%E5%9C%86%E9%94%A5%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同步练习与题单",
+          "externalWorkId": null
         }
       ]
     },
@@ -210660,26 +210759,26 @@
       "parentTopicId": null,
       "resources": [
         {
-          "resourceId": "res_ct_SXS6X089_curated_1_unit-review-50549129",
-          "resourceGroupKey": "curated-SXS-6",
-          "resourceUnitKey": "苏教版-6年级-下-圆柱表面积和体积",
-          "externalWorkId": "50549129",
-          "title": "圆柱表面积和体积·圆柱表面积和体积·单元梳理直链",
+          "resourceId": "res_ct_SXS6X089_fallback_example",
+          "resourceGroupKey": "fallback-SXS-6",
+          "resourceUnitKey": null,
+          "title": "圆柱表面积和体积典型例题",
           "type": "example",
-          "url": "https://www.zxxk.com/soft/50549129.html",
-          "source": "学科网",
-          "note": "作品ID 50549129，覆盖圆柱表面积、体积和圆锥综合运用"
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E5%9C%86%E6%9F%B1%E8%A1%A8%E9%9D%A2%E7%A7%AF%E5%92%8C%E4%BD%93%E7%A7%AF%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同主题典型例题",
+          "externalWorkId": null
         },
         {
-          "resourceId": "res_ct_SXS6X089_curated_2_drill-51270586",
-          "resourceGroupKey": "curated-SXS-6",
-          "resourceUnitKey": "苏教版-6年级-下-圆柱表面积和体积",
-          "externalWorkId": "51270586",
-          "title": "圆柱表面积和体积·圆柱表面积和体积·专项训练直链",
+          "resourceId": "res_ct_SXS6X089_fallback_exercise",
+          "resourceGroupKey": "fallback-SXS-6",
+          "resourceUnitKey": null,
+          "title": "圆柱表面积和体积练习题",
           "type": "exercise",
-          "url": "https://www.zxxk.com/soft/51270586.html",
-          "source": "学科网",
-          "note": "作品ID 51270586，适合做圆柱圆锥期中复习讲练测"
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E5%9C%86%E6%9F%B1%E8%A1%A8%E9%9D%A2%E7%A7%AF%E5%92%8C%E4%BD%93%E7%A7%AF%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同步练习与题单",
+          "externalWorkId": null
         }
       ]
     },
@@ -210997,26 +211096,26 @@
       "parentTopicId": null,
       "resources": [
         {
-          "resourceId": "res_ct_SXS6X093_curated_1_cone-56012738",
-          "resourceGroupKey": "curated-SXS-6",
-          "resourceUnitKey": "苏教版-6年级-下-圆锥体积公式理解",
-          "externalWorkId": "56012738",
-          "title": "圆锥体积公式理解·圆锥体积公式理解·讲义直链",
-          "type": "article",
-          "url": "https://www.zxxk.com/soft/56012738.html",
-          "source": "学科网",
-          "note": "作品ID 56012738，聚焦圆锥体积公式推导、等底等高关系与变形应用"
+          "resourceId": "res_ct_SXS6X093_fallback_example",
+          "resourceGroupKey": "fallback-SXS-6",
+          "resourceUnitKey": null,
+          "title": "圆锥体积公式理解典型例题",
+          "type": "example",
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E5%9C%86%E9%94%A5%E4%BD%93%E7%A7%AF%E5%85%AC%E5%BC%8F%E7%90%86%E8%A7%A3%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同主题典型例题",
+          "externalWorkId": null
         },
         {
-          "resourceId": "res_ct_SXS6X093_curated_2_unit-review-50549129",
-          "resourceGroupKey": "curated-SXS-6",
-          "resourceUnitKey": "苏教版-6年级-下-圆锥体积公式理解",
-          "externalWorkId": "50549129",
-          "title": "圆锥体积公式理解·圆锥体积公式理解·单元作业直链",
+          "resourceId": "res_ct_SXS6X093_fallback_exercise",
+          "resourceGroupKey": "fallback-SXS-6",
+          "resourceUnitKey": null,
+          "title": "圆锥体积公式理解练习题",
           "type": "exercise",
-          "url": "https://www.zxxk.com/soft/50549129.html",
-          "source": "学科网",
-          "note": "作品ID 50549129，适合回练圆锥体积和等底等高圆柱对比问题"
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E5%9C%86%E9%94%A5%E4%BD%93%E7%A7%AF%E5%85%AC%E5%BC%8F%E7%90%86%E8%A7%A3%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同步练习与题单",
+          "externalWorkId": null
         }
       ]
     },
@@ -211942,26 +212041,26 @@
       "parentTopicId": null,
       "resources": [
         {
-          "resourceId": "res_ct_SXS6X105_curated_1_ratio-sheet-50787758",
-          "resourceGroupKey": "curated-SXS-6",
-          "resourceUnitKey": "苏教版-6年级-下-综合运用比例和方程解决问题",
-          "externalWorkId": "50787758",
-          "title": "综合运用比例和方程解决问题·综合运用比例和方程·考点突破直链",
+          "resourceId": "res_ct_SXS6X105_fallback_example",
+          "resourceGroupKey": "fallback-SXS-6",
+          "resourceUnitKey": null,
+          "title": "综合运用比例和方程解决问题典型例题",
           "type": "example",
-          "url": "https://www.zxxk.com/soft/50787758.html",
-          "source": "学科网",
-          "note": "作品ID 50787758，适合连接比例、解比例、按比例分配与应用题建模"
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E7%BB%BC%E5%90%88%E8%BF%90%E7%94%A8%E6%AF%94%E4%BE%8B%E5%92%8C%E6%96%B9%E7%A8%8B%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%20%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98%20%E8%AE%B2%E8%A7%A3",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同主题典型例题",
+          "externalWorkId": null
         },
         {
-          "resourceId": "res_ct_SXS6X105_curated_2_unit-review-56370339",
-          "resourceGroupKey": "curated-SXS-6",
-          "resourceUnitKey": "苏教版-6年级-下-综合运用比例和方程解决问题",
-          "externalWorkId": "56370339",
-          "title": "综合运用比例和方程解决问题·综合运用比例和方程·单元复习课件直链",
-          "type": "article",
-          "url": "https://www.zxxk.com/soft/56370339.html",
-          "source": "学科网",
-          "note": "作品ID 56370339，适合做比例单元综合方法复盘和错因回顾"
+          "resourceId": "res_ct_SXS6X105_fallback_exercise",
+          "resourceGroupKey": "fallback-SXS-6",
+          "resourceUnitKey": null,
+          "title": "综合运用比例和方程解决问题练习题",
+          "type": "exercise",
+          "url": "https://www.bing.com/search?q=6%E5%B9%B4%E7%BA%A7%20%E6%95%B0%E5%AD%A6%20%E7%BB%BC%E5%90%88%E8%BF%90%E7%94%A8%E6%AF%94%E4%BE%8B%E5%92%8C%E6%96%B9%E7%A8%8B%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%20%E7%BB%83%E4%B9%A0%E9%A2%98%20%E4%B8%8B%E8%BD%BD",
+          "source": "Bing",
+          "note": "聚合检索入口，可快速定位同步练习与题单",
+          "externalWorkId": null
         }
       ]
     },

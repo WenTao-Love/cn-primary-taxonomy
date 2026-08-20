@@ -176,6 +176,7 @@ let selectedNodeId = null;
 let searchDebounceTimer = null;
 let resizeDebounceTimer = null;
 let layoutStopTimer = null;
+let tickFrameTimer = null;
 let topicSearchTextMap = new Map();
 let filteredTopicCache = new Map();
 let filteredGraphCache = new Map();
@@ -249,6 +250,10 @@ function destroyGraphRuntime(options = {}) {
   if (layoutStopTimer) {
     clearTimeout(layoutStopTimer);
     layoutStopTimer = null;
+  }
+  if (tickFrameTimer) {
+    cancelAnimationFrame(tickFrameTimer);
+    tickFrameTimer = null;
   }
   if (simulation) {
     simulation.on('tick', null);
@@ -484,17 +489,37 @@ function renderGraph(filteredTopics, keepSelection = true) {
     .alphaDecay(0.045)
     .velocityDecay(0.32);
 
-  simulation.on('tick', () => {
+  const flushTick = () => {
+    tickFrameTimer = null;
+    if (!gLinks || !gNodes) return;
     gLinks
       .attr('x1', link => link.source.x)
       .attr('y1', link => link.source.y)
       .attr('x2', link => link.target.x)
       .attr('y2', link => link.target.y);
     gNodes.attr('transform', node => `translate(${node.x},${node.y})`);
+  };
+
+  const settleSimulation = () => {
+    if (tickFrameTimer) {
+      cancelAnimationFrame(tickFrameTimer);
+      tickFrameTimer = null;
+    }
+    flushTick();
+    if (!simulation) return;
+    simulation.on('tick', null);
+    simulation.stop();
+    simulation = null;
+  };
+
+  simulation.on('tick', () => {
+    if (tickFrameTimer) return;
+    tickFrameTimer = requestAnimationFrame(flushTick);
   });
 
   layoutStopTimer = setTimeout(() => {
-    if (simulation) simulation.stop();
+    settleSimulation();
+    layoutStopTimer = null;
   }, 2400);
 
   updateGraphStatus(`当前渲染 <strong>${data.nodes.length}</strong> / ${fullData.topics.topicCount} 个节点、<strong>${data.links.length}</strong> 条边。默认只渲染当前筛选子图，拖拽完成后会自动停止布局以降低 CPU 占用。`, 'info');
