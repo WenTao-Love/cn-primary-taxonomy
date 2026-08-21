@@ -473,6 +473,7 @@ async function init() {
   document.addEventListener('visibilitychange', handleVisibilityChange, { passive: true });
   window.addEventListener('pagehide', cleanupRuntime, { once: true });
   window.addEventListener('beforeunload', cleanupRuntime, { once: true });
+  updateQuickStartActive();
 }
 
 function handleResize() {
