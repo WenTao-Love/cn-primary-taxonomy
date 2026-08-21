@@ -693,10 +693,19 @@ function quickSelect(grade, subject) {
 
 function updateQuickStartActive() {
   const buttons = document.querySelectorAll('.quick-start-btn');
+  const pathPanel = document.getElementById('path-panel');
+  let pathGrade = null, pathSubject = null;
+  if (pathPanel) {
+    const match = pathPanel.textContent.match(/(\d+)年级\s*·\s*([^·]+)/);
+    if (match) {
+      pathGrade = match[1];
+      pathSubject = match[2].trim();
+    }
+  }
   buttons.forEach(btn => {
     const btnGrade = btn.dataset.grade;
     const btnSubject = btn.dataset.subject;
-    if (currentGrades.has(btnGrade) && currentSubjects.has(btnSubject) && currentGrades.size === 1 && currentSubjects.size === 1) {
+    if (pathGrade && pathSubject && btnGrade === pathGrade && btnSubject === pathSubject) {
       btn.classList.add('active');
     } else {
       btn.classList.remove('active');
