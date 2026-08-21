@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -139,10 +139,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
 .progress-stat.remaining b { color:#95a5a6; }
 .reset-mastery-btn { background:none; border:1px solid rgba(231,76,60,0.3); color:#e74c3c; padding:4px 10px; border-radius:6px; font-size:10px; cursor:pointer; margin-top:8px; }
 .reset-mastery-btn:hover { background:rgba(231,76,60,0.1); }
-.view-toggle { position:absolute; top:16px; left:16px; z-index:15; display:flex; gap:4px; background:rgba(20,28,40,0.88); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:4px; backdrop-filter:blur(8px); }
-.view-toggle-btn { padding:6px 12px; border:none; background:transparent; color:#a8b4c0; cursor:pointer; border-radius:7px; font-size:11px; font-weight:500; transition:all 0.2s; }
-.view-toggle-btn:hover { background:rgba(255,255,255,0.08); color:#fff; }
-.view-toggle-btn.active { background:rgba(93,173,226,0.2); color:#dcefff; font-weight:600; }
+.view-toggle { position:absolute; top:16px; left:16px; z-index:20; display:flex; gap:4px; background:rgba(20,28,40,0.92); border:1px solid rgba(255,255,255,0.15); border-radius:10px; padding:4px; backdrop-filter:blur(8px); box-shadow:0 4px 20px rgba(0,0,0,0.4); }
+.kid-mode-toggle { position:absolute; top:16px; left:260px; z-index:20; padding:6px 14px; border-radius:20px; border:2px solid #ffcc33; background:#fff; color:#e67e22; font-size:12px; font-weight:600; cursor:pointer; box-shadow:0 2px 8px rgba(255,153,0,0.2); transition:all 0.2s; }
+.kid-mode-toggle:hover { background:#fff8e7; transform:scale(1.05); }
+.kid-mode-toggle.active { background:linear-gradient(135deg,#ffcc33,#ff9900); color:#fff; border-color:#ff9900; }
+.view-toggle-btn { padding:6px 12px; border:none; background:transparent; color:#a8b4c0; cursor:pointer; border-radius:7px; font-size:11px; font-weight:500; transition:all 0.2s; position:relative; z-index:1; }
+.view-toggle-btn:hover { background:rgba(255,255,255,0.1); color:#fff; transform:scale(1.02); }
+.view-toggle-btn.active { background:linear-gradient(135deg, rgba(93,173,226,0.3), rgba(93,173,226,0.2)); color:#dcefff; font-weight:600; box-shadow:0 2px 8px rgba(93,173,226,0.2); }
 .tree-node circle { cursor:pointer; transition:all 0.2s; }
 .tree-node circle:hover { stroke-width:3px; }
 .tree-node text { font-size:11px; fill:#c5cdd6; }
@@ -159,8 +162,29 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
 .exercise-feedback { padding:10px 12px; border-radius:8px; font-size:12px; line-height:1.6; margin-top:8px; }
 .exercise-feedback.correct { background:rgba(46,204,113,0.1); color:#2ecc71; border:1px solid rgba(46,204,113,0.3); }
 .exercise-feedback.wrong { background:rgba(231,76,60,0.1); color:#e74c3c; border:1px solid rgba(231,76,60,0.3); }
+.exercise-input { width:100%;padding:10px 12px;background:#0f1419;border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;font-size:13px;transition:border-color 0.2s;box-sizing:border-box; }
+.exercise-input:focus { outline:none;border-color:#5dade2; }
 .exercise-next { margin-top:10px; padding:8px 16px; background:rgba(93,173,226,0.18); border:1px solid rgba(93,173,226,0.45); color:#dcefff; border-radius:8px; cursor:pointer; font-size:12px; }
 .exercise-next:hover { background:rgba(93,173,226,0.28); }
+.path-panel { margin-bottom:20px;padding:14px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:10px; }
+.path-panel h3 { margin-top:0;font-size:12px;color:#7f8c9a;text-transform:uppercase;letter-spacing:1px; }
+.path-step { display:flex;align-items:center;gap:8px;padding:8px 10px;margin:4px 0;border-radius:6px;background:rgba(255,255,255,0.04);font-size:12px;cursor:pointer;transition:background 0.2s; }
+.path-step:hover { background:rgba(93,173,226,0.15); }
+.path-step .step-num { width:20px;height:20px;border-radius:50%;background:rgba(93,173,226,0.2);color:#dcefff;font-size:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0; }
+.path-step .step-name { color:#c5cdd6;flex:1; }
+.path-step .step-status { font-size:10px;padding:2px 6px;border-radius:4px; }
+.path-step .step-status.mastered { background:rgba(46,204,113,0.2);color:#2ecc71; }
+.path-step .step-status.learning { background:rgba(243,156,18,0.2);color:#f39c12; }
+.path-step .step-status.not-started { background:rgba(149,165,166,0.15);color:#95a5a6; }
+.grade-badge { display:inline-flex;align-items:center;justify-content:center;min-width:28px;padding:3px 8px;border-radius:6px;font-size:10px;font-weight:600;margin-right:6px; }
+.grade-badge.g1 { background:rgba(46,204,113,0.15);color:#2ecc71; }
+.grade-badge.g2 { background:rgba(52,152,219,0.15);color:#3498db; }
+.grade-badge.g3 { background:rgba(155,89,182,0.15);color:#9b59b6; }
+.grade-badge.g4 { background:rgba(243,156,18,0.15);color:#f39c12; }
+.grade-badge.g5 { background:rgba(231,76,60,0.15);color:#e74c3c; }
+.grade-badge.g6 { background:rgba(26,188,156,0.15);color:#1abc9c; }
+.parent-tip { margin-top:10px;padding:10px 12px;border-radius:8px;background:rgba(46,204,113,0.06);border:1px solid rgba(46,204,113,0.2);font-size:11px;line-height:1.6;color:#2ecc71; }
+.parent-tip::before { content:'💡 家长小贴士：';font-weight:600; }
 .wrongbook-panel { margin-bottom:20px; padding:14px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:10px; }
 .wrongbook-panel h3 { margin-top:0; font-size:12px; color:#7f8c9a; text-transform:uppercase; letter-spacing:1px; }
 .wrongbook-item { padding:8px 10px; border-radius:6px; background:rgba(231,76,60,0.06); border:1px solid rgba(231,76,60,0.15); margin:6px 0; cursor:pointer; transition:background 0.2s; }
@@ -168,6 +192,45 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
 .wrongbook-topic { font-size:11px; color:#e74c3c; margin-top:4px; }
 .wrongbook-empty { font-size:11px; color:#5a6878; text-align:center; padding:16px; }
 .weakness-tag { display:inline-block; padding:3px 8px; border-radius:4px; font-size:10px; margin:2px; background:rgba(231,76,60,0.12); color:#e74c3c; border:1px solid rgba(231,76,60,0.25); }
+/* ===== 小伙伴模式 (Kid-Friendly Mode) ===== */
+.kid-mode { background:#fefcf6 !important; }
+.kid-mode #graph { background: radial-gradient(ellipse at center, #fff8e7 0%, #fef3d4 100%) !important; }
+.kid-mode #sidebar { background:#fff9ee !important; border-left-color:rgba(255,180,50,0.25) !important; }
+.kid-mode #overview-panel h1 { color:#e67e22; }
+.kid-mode .node-label { fill:#5d4037; }
+.kid-mode #sidebar h2 { color:#e67e22; }
+.kid-mode #guide-panel p { color:#795548; }
+.kid-mode #guide-panel .guide-step { color:#6d4c41; }
+
+/* Mascot character */
+.mascot { position:fixed; bottom:20px; left:20px; z-index:30; width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,#ffcc33,#ff9900); box-shadow:0 4px 16px rgba(255,153,0,0.3); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:transform 0.3s; font-size:32px; }
+.mascot:hover { transform:scale(1.1) rotate(-5deg); }
+.mascot-bubble { position:absolute; bottom:72px; left:0; background:#fff; border:2px solid #ffcc33; border-radius:16px; padding:10px 14px; font-size:13px; color:#5d4037; width:200px; box-shadow:0 4px 12px rgba(0,0,0,0.1); display:none; line-height:1.5; }
+.mascot-bubble:after { content:''; position:absolute; bottom:-8px; left:24px; width:0; height:0; border-left:8px solid transparent; border-right:8px solid transparent; border-top:8px solid #ffcc33; }
+.mascot-bubble.show { display:block; animation: bubblePop 0.3s ease; }
+
+/* Star celebration */
+.star-burst { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); z-index:100; pointer-events:none; animation: starBurst 1.2s ease-out forwards; font-size:48px; }
+@keyframes starBurst { 0%{opacity:1;transform:translate(-50%,-50%) scale(0.3) rotate(0deg);} 50%{opacity:1;transform:translate(-50%,-50%) scale(1.5) rotate(180deg);} 100%{opacity:0;transform:translate(-50%,-80%) scale(0.8) rotate(360deg);} }
+@keyframes bubblePop { 0%{opacity:0;transform:scale(0.8);} 100%{opacity:1;transform:scale(1);} }
+
+/* Kid-mode welcome */
+.kid-welcome { position:absolute; top:60px; left:50%; transform:translateX(-50%); background:#fff; border:3px solid #ffcc33; border-radius:20px; padding:16px 24px; box-shadow:0 6px 20px rgba(255,153,0,0.2); z-index:12; max-width:480px; width:90%; display:none; }
+.kid-welcome.show { display:block; animation: bubblePop 0.4s ease; }
+.kid-welcome h3 { margin:0 0 8px; color:#e67e22; font-size:16px; }
+.kid-welcome p { font-size:13px; color:#6d4c41; line-height:1.6; margin:0; }
+.kid-welcome .kid-welcome-close { position:absolute; top:8px; right:12px; background:none; border:none; color:#bbb; font-size:16px; cursor:pointer; }
+
+/* Encouragement bar */
+.encourage-bar { position:fixed; top:0; left:0; right:0; z-index:50; background:linear-gradient(90deg,#2ecc71,#27ae60); color:#fff; text-align:center; padding:8px; font-size:14px; font-weight:600; transform:translateY(-100%); transition:transform 0.4s ease; }
+.encourage-bar.show { transform:translateY(0); }
+
+/* Kid-friendly button sizing */
+.kid-mode .mastery-btn { padding:8px 16px; font-size:12px; }
+.kid-mode .exercise-option { padding:12px 16px; font-size:14px; }
+.kid-mode .exercise-question { font-size:15px; }
+.kid-mode .path-step { padding:10px 14px; font-size:13px; }
+
 @media (max-width: 1180px) {
   #app { grid-template-columns: 1fr 340px; }
 }
@@ -181,7 +244,18 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
     <button class="view-toggle-btn active" data-view="graph" title="力导向图谱视图">🔵 知识图谱</button>
     <button class="view-toggle-btn" data-view="tree" title="层级树状学习路径">🌳 学习路径</button>
   </div>
-  <div class="tree-tooltip" id="tree-tooltip"></div>
+    <div class="tree-tooltip" id="tree-tooltip"></div>
+  <button class="kid-mode-toggle" id="kid-mode-toggle" onclick="toggleKidMode()" title="切换小伙伴模式">🧒 小伙伴模式</button>
+  <div class="kid-welcome" id="kid-welcome">
+    <button class="kid-welcome-close" onclick="document.getElementById('kid-welcome').classList.remove('show')">×</button>
+    <h3>🌟 你好呀！我是小知！</h3>
+    <p>欢迎来到知识图谱大世界！<br>在这里你可以：<br>🔍 看看自己学会了哪些本领<br>🎮 做练习题，收集小星星<br>🗺️ 跟着路线图，一步一步变厉害<br><br><b>点一个彩色的圆球</b>，开始你的冒险吧！</p>
+  </div>
+  <div class="mascot" id="mascot" onclick="showMascotTip()">
+    <div class="mascot-bubble" id="mascot-bubble"></div>
+    🦊
+  </div>
+  <div class="encourage-bar" id="encourage-bar"></div>
   <div class="legend">
     <h3>学科颜色</h3>
     <div class="legend-item"><span class="legend-dot" style="background:#e74c3c"></span>语文</div>
@@ -215,20 +289,33 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
       <div><b id="stat-subjects">0</b>学科</div>
     </div>
   </div>
-  <div id="progress-panel" class="progress-panel">
+    <div id="progress-panel" class="progress-panel">
     <h3>📊 学习进度</h3>
     <div class="progress-bar-container"><div class="progress-bar-fill" style="width:0%"></div></div>
     <div style="font-size:11px;color:#7f8c9a">加载中…</div>
   </div>
+  <div id="path-panel" class="path-panel">
+    <h3>🎯 推荐学习路径</h3>
+    <div class="wrongbook-empty">选择年级和学科后显示推荐路径</div>
+  </div>
   <div id="guide-panel">
-    <h3>家长阅读指引</h3>
-    <p>先别急着看全图。这个图谱更适合按“孩子眼下卡在哪个点”来读，而不是一次把所有关系都看完。</p>
+    <h3>👋 家长阅读指引</h3>
+    <p>欢迎使用知识图谱！这个工具帮您了解孩子当前年级的知识体系，找到薄弱环节并针对性辅导。</p>
     <div class="guide-steps">
-      <div class="guide-step"><b>第一步：</b>先用右侧搜索或学习助手，找到孩子当前最不会的知识点。</div>
-      <div class="guide-step"><b>第二步：</b>点开该节点后，重点看“先补什么”“为什么卡在这里”“家长先怎么练”。</div>
-      <div class="guide-step"><b>第三步：</b>只沿前置链补 1-3 个基础点，不要一口气把整张图都学一遍。</div>
+      <div class="guide-step"><b>第一步：</b>选择年级和学科，查看知识图谱</div>
+      <div class="guide-step"><b>第二步：</b>点击节点查看详情，做几道练习题</div>
+      <div class="guide-step"><b>第三步：</b>根据推荐路径，逐个击破薄弱点</div>
     </div>
-    <div class="guide-note">建议默认先按一个年级 + 一个学科查看，再逐步放大范围，这样最容易看懂，也最适合家长实际辅导。</div>
+    <div class="guide-note">💡 建议一次只关注一个年级的一个学科，避免信息过载。</div>
+    <div style="margin-top:12px;padding:10px;background:rgba(46,204,113,0.06);border:1px solid rgba(46,204,113,0.2);border-radius:8px;font-size:11px;color:#2ecc71">
+      <b>🎯 快速开始：</b>点击下方按钮快速跳转<br>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">
+        <button onclick="quickSelect('1','语文')" style="padding:4px 10px;border-radius:6px;border:1px solid rgba(46,204,113,0.3);background:rgba(46,204,113,0.1);color:#2ecc71;cursor:pointer;font-size:10px">一年级语文</button>
+        <button onclick="quickSelect('1','数学')" style="padding:4px 10px;border-radius:6px;border:1px solid rgba(52,152,219,0.3);background:rgba(52,152,219,0.1);color:#3498db;cursor:pointer;font-size:10px">一年级数学</button>
+        <button onclick="quickSelect('3','数学')" style="padding:4px 10px;border-radius:6px;border:1px solid rgba(155,89,182,0.3);background:rgba(155,89,182,0.1);color:#9b59b6;cursor:pointer;font-size:10px">三年级数学</button>
+        <button onclick="quickSelect('5','数学')" style="padding:4px 10px;border-radius:6px;border:1px solid rgba(243,156,18,0.3);background:rgba(243,156,18,0.1);color:#f39c12;cursor:pointer;font-size:10px">五年级数学</button>
+      </div>
+    </div>
   </div>
   <div id="search-panel">
     <h3>知识点搜索</h3>
@@ -335,7 +422,7 @@ function getMastery(topicId) { return masteryData[topicId] || 'not-started'; }
 function setMastery(topicId, status) { masteryData[topicId] = status; saveMastery(); updateProgressPanel(); updateNodeColors(); }
 function resetAllMastery() { if(confirm('确定要重置所有知识点的掌握状态吗？')) { masteryData = {}; saveMastery(); updateProgressPanel(); updateNodeColors(); } }
 function getMasteryStats(topicIds) {
-  const stats = { mastered:0, learning:'not-started', notStarted:0, total:topicIds.length };
+  const stats = { mastered:0, learning:0, notStarted:0, total:topicIds.length };
   topicIds.forEach(id => { const s = getMastery(id); if(s==='mastered') stats.mastered++; else if(s==='learning') stats.learning++; else stats.notStarted++; });
   return stats;
 }
@@ -400,19 +487,31 @@ function renderTreeView() {
   const height = graphEl.clientHeight;
   if (treeSvg) treeSvg.remove();
   treeSvg = d3.select('#graph').append('svg').attr('width', width).attr('height', height).attr('id', 'tree-canvas');
-  const g = treeSvg.append('g').attr('transform', 'translate(80,40)');
+  const g = treeSvg.append('g');
   const root = d3.hierarchy({ name: 'root', children: roots }, d => d.children);
-  const treeGen = d3.tree().nodeSize([28, 180]).separation((a, b) => (a.parent === b.parent ? 1.2 : 1.5) / (a.depth + 1));
+  const treeGen = d3.tree().nodeSize([14, 100]).separation((a, b) => (a.parent === b.parent ? 1.1 : 1.3) / (a.depth + 1));
   treeGen(root);
+  const leaves = root.descendants().filter(d => d.depth > 0);
+  const maxX = Math.max(...leaves.map(d => d.x));
+  const minX = Math.min(...leaves.map(d => d.x));
+  const maxY = Math.max(...leaves.map(d => d.y));
+  const minY = Math.min(...leaves.map(d => d.y));
+  const treeWidth = maxY - minY + 150;
+  const treeHeight = maxX - minX + 80;
+  const scaleX = width / treeWidth;
+  const scaleY = height / treeHeight;
+  const initScale = Math.min(scaleX, scaleY, 0.7);
+  const initX = (width - treeWidth * initScale) / 2 - minY * initScale;
+  const initY = (height - treeHeight * initScale) / 2 - minX * initScale;
+  g.attr('transform', `translate(${initX},${initY}) scale(${initScale})`);
   g.selectAll('.tree-link').data(root.links()).join('path').attr('class', 'tree-link').attr('d', d3.linkHorizontal().x(d => d.y).y(d => d.x));
-  const node = g.selectAll('.tree-node').data(root.descendants().filter(d => d.depth > 0)).join('g').attr('class', 'tree-node').attr('transform', d => `translate(${d.y},${d.x})`).on('click', (_, d) => selectNodeById(d.data.id)).on('mouseenter', (event, d) => showTreeTooltip(event, d.data)).on('mouseleave', hideTreeTooltip);
-  node.append('circle').attr('r', d => d.data.mastered ? 6 : 5).attr('fill', d => getNodeFill(d.data)).attr('stroke', d => { const s = getMastery(d.data.id); return s === 'mastered' ? '#2ecc71' : s === 'learning' ? '#f39c12' : '#fff'; }).attr('stroke-width', d => getMastery(d.data.id) === 'not-started' ? 1 : 2);
-  node.append('text').attr('dy', '0.32em').attr('x', d => d.children && d.children.length ? -12 : 12).attr('text-anchor', d => d.children && d.children.length ? 'end' : 'start').text(d => d.data.name.length > 10 ? d.data.name.slice(0, 9) + '…' : d.data.name).attr('fill', d => { const s = getMastery(d.data.id); return s === 'mastered' ? '#2ecc71' : s === 'learning' ? '#f39c12' : '#c5cdd6'; });
-  const zoom = d3.zoom().scaleExtent([0.3, 3]).on('zoom', (event) => { g.attr('transform', event.transform); });
+  const node = g.selectAll('.tree-node').data(leaves).join('g').attr('class', 'tree-node').attr('transform', d => `translate(${d.y},${d.x})`).on('click', (_, d) => selectNodeById(d.data.id)).on('mouseenter', (event, d) => showTreeTooltip(event, d.data)).on('mouseleave', hideTreeTooltip);
+  node.append('circle').attr('r', d => getMastery(d.data.id) === 'mastered' ? 5 : 4).attr('fill', d => getNodeFill(d.data)).attr('stroke', d => { const s = getMastery(d.data.id); return s === 'mastered' ? '#2ecc71' : s === 'learning' ? '#f39c12' : '#fff'; }).attr('stroke-width', d => getMastery(d.data.id) === 'not-started' ? 1 : 1.5);
+  node.append('text').attr('dy', '0.32em').attr('x', d => d.children && d.children.length ? -10 : 10).attr('text-anchor', d => d.children && d.children.length ? 'end' : 'start').text(d => d.data.name.length > 8 ? d.data.name.slice(0, 7) + '…' : d.data.name).attr('fill', d => { const s = getMastery(d.data.id); return s === 'mastered' ? '#2ecc71' : s === 'learning' ? '#f39c12' : '#c5cdd6'; }).style('font-size', '9px');
+  const zoom = d3.zoom().scaleExtent([0.1, 3]).on('zoom', (event) => { g.attr('transform', event.transform); });
   treeSvg.call(zoom);
-  treeSvg.call(zoom.transform, d3.zoomIdentity.translate(80, 40));
   const maxDepth = Math.max(...root.descendants().map(d => d.depth));
-  const totalNodes = root.descendants().length - 1;
+  const totalNodes = leaves.length;
   updateGraphStatus(`学习路径视图：共 ${totalNodes} 个知识点，最大层级深度 ${maxDepth}。使用鼠标滚轮缩放，拖拽平移。`, 'info');
 }
 function showTreeTooltip(event, data) {
@@ -467,13 +566,19 @@ function getExercisesForTopic(topic) {
   if (topic.commonMistakes && topic.commonMistakes.length) {
     topic.commonMistakes.slice(0, 2).forEach((mistake, i) => {
       bank.push({ type: 'choice', question: `关于「${topic.name}」，下面哪种说法是正确的？`, options: [mistake, `正确的理解方式 ${i + 1}`, `另一种正确表述`, `以上都正确`], answer: 1, explanation: `「${mistake}」是常见错误。正确理解应该是：${(topic.evidence && topic.evidence[0]) || '参照教材定义'}` });
+      bank.push({ type: 'judge', question: `判断：${mistake}`, answer: false, explanation: `这是错误的。正确理解应该是：${(topic.evidence && topic.evidence[0]) || '参照教材定义'}` });
     });
   }
   if (topic.evidence && topic.evidence.length) {
     bank.push({ type: 'choice', question: `下面哪项说明孩子已经掌握了「${topic.name}」？`, options: [`还不能完成相关任务`, `只能完成最简单的练习`, topic.evidence[0], '以上都不是'], answer: 2, explanation: `掌握的证据：${topic.evidence[0]}` });
+    bank.push({ type: 'judge', question: `判断：${topic.evidence[0].length > 30 ? topic.evidence[0].slice(0, 30) + '...' : topic.evidence[0]}`, answer: true, explanation: `这是正确的。掌握的证据就是：${topic.evidence[0]}` });
+  }
+  if (topic.description && topic.description.length > 5) {
+    const descShort = topic.description.length > 40 ? topic.description.slice(0, 40) : topic.description;
+    bank.push({ type: 'fill', question: `「${topic.name}」的含义是：______`, answer: descShort, explanation: `「${topic.name}」的完整描述：${topic.description}` });
   }
   if (bank.length < 2) {
-    bank.push({ type: 'choice', question: `「${topic.name}」这个知识点属于哪个领域？`, options: [topic.domain ||'未知', '另一个领域', '第三个领域', '不属于任何领域'], answer: 0, explanation: `「${topic.name}」属于${topic.domain || '未知'}领域` });
+    bank.push({ type: 'choice', question: `「${topic.name}」这个知识点属于哪个领域？`, options: [topic.domain || '未知', '另一个领域', '第三个领域', '不属于任何领域'], answer: 0, explanation: `「${topic.name}」属于${topic.domain || '未知'}领域` });
   }
   return bank;
 }
@@ -494,28 +599,153 @@ function renderExercise() {
   exerciseAnswered = false;
   const panel = document.getElementById('exercise-panel');
   if (!panel) return;
-  panel.innerHTML = `<h3>✏️ 典型例题 (${currentExerciseIndex + 1}/${Math.min(exercises.length, 3)})</h3><div style="font-size:11px;color:#5a6878;margin-bottom:8px">知识点：${currentExerciseTopic.name}</div><div class="exercise-question">${currentExercise.question}</div><div class="exercise-options">${currentExercise.options.map((opt, i) => `<button class="exercise-option" data-index="${i}" onclick="answerExercise(${i})">${String.fromCharCode(65 + i)}. ${opt}</button>`).join('')}</div><div id="exercise-feedback"></div>`;
+  const totalEx = Math.min(exercises.length, 4);
+  let optionsHtml = '';
+  if (currentExercise.type === 'choice') {
+    optionsHtml = `<div class="exercise-options">${currentExercise.options.map((opt, i) => `<button class="exercise-option" data-index="${i}" onclick="answerExercise(${i})">${String.fromCharCode(65 + i)}. ${opt}</button>`).join('')}</div>`;
+  } else if (currentExercise.type === 'judge') {
+    optionsHtml = `<div class="exercise-options"><button class="exercise-option" data-index="true" onclick="answerExercise(true)">✅ 正确</button><button class="exercise-option" data-index="false" onclick="answerExercise(false)">❌ 错误</button></div>`;
+  } else if (currentExercise.type === 'fill') {
+    optionsHtml = `<div class="exercise-options"><input type="text" id="fill-answer" class="exercise-input" placeholder="请输入答案..." style="width:100%;padding:10px;background:#0f1419;border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;font-size:13px"><button class="exercise-option" onclick="answerFill()" style="margin-top:8px">提交答案</button></div>`;
+  }
+  const typeLabel = currentExercise.type === 'choice' ? '选择题' : currentExercise.type === 'judge' ? '判断题' : '填空题';
+  panel.innerHTML = `<h3>✏️ 典型例题 (${currentExerciseIndex + 1}/${totalEx}) <span style="font-size:10px;color:#5a6878;font-weight:400">[${typeLabel}]</span></h3><div style="font-size:11px;color:#5a6878;margin-bottom:8px">知识点：${currentExerciseTopic.name}</div><div class="exercise-question">${currentExercise.question}</div>${optionsHtml}<div id="exercise-feedback"></div>`;
 }
 function answerExercise(selectedIndex) {
   if (exerciseAnswered) return;
   exerciseAnswered = true;
   const feedback = document.getElementById('exercise-feedback');
   const buttons = document.querySelectorAll('.exercise-option');
-  buttons.forEach((btn, i) => {
-    btn.style.pointerEvents = 'none';
-    if (i === currentExercise.answer) btn.classList.add('correct');
-    if (i === selectedIndex && i !== currentExercise.answer) btn.classList.add('wrong');
-  });
-  const isCorrect = selectedIndex === currentExercise.answer;
-  const wrongNotice = isCorrect ? '' : '<div style="font-size:11px;color:#e74c3c;margin-top:6px">已自动加入错题本</div>';
-  feedback.innerHTML = `<div class="exercise-feedback ${isCorrect ? 'correct' : 'wrong'}">${isCorrect ? '✅ 回答正确！' : '❌ 回答错误'}<br>${currentExercise.explanation}</div>${wrongNotice}<button class="exercise-next" onclick="nextExercise()">下一题 →</button>`;
-  if (isCorrect) { setMastery(currentExerciseTopic.id, 'learning'); }
-  else { addToWrongbook(currentExerciseTopic.id, currentExercise.question, currentExercise.options[selectedIndex], currentExercise.options[currentExercise.answer]); }
+  let isCorrect = false;
+  if (currentExercise.type === 'judge') {
+    isCorrect = (selectedIndex === currentExercise.answer);
+    buttons.forEach(btn => {
+      btn.style.pointerEvents = 'none';
+      const btnVal = btn.dataset.index === 'true';
+      if (btnVal === currentExercise.answer) btn.classList.add('correct');
+      if (btnVal === selectedIndex && !isCorrect) btn.classList.add('wrong');
+    });
+  } else {
+    isCorrect = (selectedIndex === currentExercise.answer);
+    buttons.forEach((btn, i) => {
+      btn.style.pointerEvents = 'none';
+      if (i === currentExercise.answer) btn.classList.add('correct');
+      if (i === selectedIndex && !isCorrect) btn.classList.add('wrong');
+    });
+  }
+  if (kidMode) {
+    if (isCorrect) {
+      celebrateStar();
+      feedback.innerHTML = `<div class="exercise-feedback correct">🎉 你答对啦！真厉害！<br>${currentExercise.explanation}</div><button class="exercise-next" onclick="nextExercise()">下一题 →</button>`;
+      setMastery(currentExerciseTopic.id, 'learning');
+    } else {
+      showMascotTip('没关系哦~做错了正好说明我们找到一个需要加油的地方！再来一次吧！💪');
+      feedback.innerHTML = `<div class="exercise-feedback" style="background:rgba(255,180,50,0.1);color:#e67e22;border:1px solid rgba(255,180,50,0.3)">💡 差一点点！我们再看看<br><b>正确的意思是：</b>${currentExercise.explanation}</div><button class="exercise-next" onclick="nextExercise()">下一题 →</button>`;
+      addToWrongbook(currentExerciseTopic.id, currentExercise.question, selectedIndex.toString(), currentExercise.answer.toString());
+    }
+  } else {
+    const wrongNotice = isCorrect ? '' : '<div style="font-size:11px;color:#e74c3c;margin-top:6px">已自动加入错题本</div>';
+    feedback.innerHTML = `<div class="exercise-feedback ${isCorrect ? 'correct' : 'wrong'}">${isCorrect ? '✅ 回答正确！' : '❌ 回答错误'}<br>${currentExercise.explanation}</div>${wrongNotice}<button class="exercise-next" onclick="nextExercise()">下一题 →</button>`;
+    if (isCorrect) { setMastery(currentExerciseTopic.id, 'learning'); }
+    else { addToWrongbook(currentExerciseTopic.id, currentExercise.question, selectedIndex.toString(), currentExercise.answer.toString()); }
+  }
+}
+function answerFill() {
+  if (exerciseAnswered) return;
+  exerciseAnswered = true;
+  const input = document.getElementById('fill-answer');
+  const userAnswer = (input.value || '').trim();
+  const correctAnswer = currentExercise.answer;
+  const isCorrect = userAnswer.length > 0 && (correctAnswer.includes(userAnswer) || userAnswer.includes(correctAnswer.slice(0, 10)));
+  const feedback = document.getElementById('exercise-feedback');
+  if (kidMode) {
+    if (isCorrect) {
+      celebrateStar();
+      feedback.innerHTML = `<div class="exercise-feedback correct">🎉 太棒了！答对啦！<br>${currentExercise.explanation}</div><button class="exercise-next" onclick="nextExercise()">下一题 →</button>`;
+      setMastery(currentExerciseTopic.id, 'learning');
+    } else {
+      showMascotTip('差一点~没关系！记住这个答案，下次一定行！');
+      feedback.innerHTML = `<div class="exercise-feedback" style="background:rgba(255,180,50,0.1);color:#e67e22;border:1px solid rgba(255,180,50,0.3)">💡 记住它：<b>${currentExercise.explanation}</b></div><button class="exercise-next" onclick="nextExercise()">下一题 →</button>`;
+      addToWrongbook(currentExerciseTopic.id, currentExercise.question, userAnswer || '(空)', correctAnswer);
+    }
+  } else {
+    const wrongNotice = isCorrect ? '' : '<div style="font-size:11px;color:#e74c3c;margin-top:6px">已自动加入错题本</div>';
+    feedback.innerHTML = `<div class="exercise-feedback ${isCorrect ? 'correct' : 'wrong'}">${isCorrect ? '✅ 回答正确！' : '❌ 回答错误'}<br><b>参考答案：</b>${currentExercise.explanation}</div>${wrongNotice}<button class="exercise-next" onclick="nextExercise()">下一题 →</button>`;
+        if (isCorrect) { setMastery(currentExerciseTopic.id, 'learning'); }
+    else { addToWrongbook(currentExerciseTopic.id, currentExercise.question, userAnswer || '(空)', correctAnswer); }
+  }
 }
 function nextExercise() { currentExerciseIndex++; renderExercise(); }
+function quickSelect(grade, subject) {
+  currentGrades = new Set([grade]);
+  currentSubjects = new Set([subject]);
+  currentTextbooks = new Set(['全部']);
+  currentLayer = 'core';
+  buildControls();
+  applyFilters();
+  updateGraphStatus(`已切换到 ${grade}年级${subject}。点击图谱中的节点查看详情，或在下方做练习题。`, 'info');
+}
+function toggleKidMode() {
+  kidMode = !kidMode;
+  document.body.classList.toggle('kid-mode', kidMode);
+  document.getElementById('kid-mode-toggle').classList.toggle('active', kidMode);
+  document.getElementById('kid-mode-toggle').textContent = kidMode ? '👨‍👩‍家长模式' : '🧒 小伙伴模式';
+  if (kidMode) {
+    kidTipIndex = 0;
+    document.getElementById('kid-welcome').classList.add('show');
+    showMascotTip('你好呀！👋 我是小知，你的学习小伙伴！');
+    showEncourage(`🌟 欢迎欢迎！和小知一起探索知识的海洋吧！`);
+    renderKidOverview();
+  } else {
+    document.getElementById('kid-welcome').classList.remove('show');
+    buildControls();
+    renderAssistantPanel();
+    updateProgressPanel();
+    renderPathPanel();
+    renderWrongbookPanel();
+  }
+  if (currentTopic) renderSidebar(currentTopic);
+}
+function showMascotTip(text) {
+  const bubble = document.getElementById('mascot-bubble');
+  if (text) { bubble.textContent = text; }
+  else { bubble.textContent = KID_TIPS[kidTipIndex % KID_TIPS.length]; kidTipIndex++; }
+  bubble.classList.add('show');
+  setTimeout(() => bubble.classList.remove('show'), 4000);
+}
+function showEncourage(text) {
+  const bar = document.getElementById('encourage-bar');
+  bar.textContent = text;
+  bar.classList.add('show');
+  setTimeout(() => bar.classList.remove('show'), 3000);
+}
+function celebrateStar() {
+  kidStars++;
+  localStorage.setItem('cnpt-kid-stars', kidStars.toString());
+  const burst = document.createElement('div');
+  burst.className = 'star-burst';
+  burst.textContent = '⭐';
+  document.body.appendChild(burst);
+  setTimeout(() => burst.remove(), 1200);
+  showEncourage(`⭐ 太棒了！又得到一颗星星！现在你有 ${kidStars} 颗星星啦！`);
+}
+function renderKidOverview() {
+  const overview = document.getElementById('overview-panel');
+  if (!overview) return;
+  overview.innerHTML = `<h1>🌟 知识大闯关</h1><p>小朋友，和狐狸小知一起来探索知识的世界吧！</p><div class="stats-bar"><div><b id="stat-topics">${document.getElementById('stat-topics').textContent}</b>知识圆球</div><div><b id="stat-stars" style="color:#f39c12">${kidStars}⭐</b>小星星</div><div><b id="stat-subjects">${document.getElementById('stat-subjects').textContent}</b>学科</div></div>`;
+}
 function setupViewToggle() {
   document.querySelectorAll('.view-toggle-btn').forEach(btn => {
-    btn.addEventListener('click', () => switchView(btn.dataset.view));
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      switchView(btn.dataset.view);
+    });
+    btn.onclick = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      switchView(btn.dataset.view);
+    };
   });
 }
 function updateProgressPanel() {
@@ -568,6 +798,22 @@ let gradeFilterItems = [];
 let subjectFilterItems = [];
 let textbookFilterItems = [];
 let sidebarCollapsed = false;
+let kidMode = false;
+let kidStars = 0;
+try { kidStars = parseInt(localStorage.getItem('cnpt-kid-stars') || '0'); } catch(e) { kidStars = 0; }
+const KID_TIPS = [
+  "你可以点任意彩色的圆球看看里面有什么秘密哦！",
+  "做练习题可以收集小星星⭐，加油！",
+  "做错了没关系，每一次错误都让你变得更聪明！",
+  "看到绿色的圆球了吗？那是你已经学会的本领！",
+  "黄色的圆球说明你正在学哦，马上就会啦！",
+  "跟着路线图走，一步一步变厉害！",
+  "你今天又学会了新本领，真了不起！",
+  "学习就像爬山，每走一步都离山顶更近！",
+  "小知相信你一定能做到！💪",
+  "遇到不会的先看看'先学什么'，就像拼图要先拼边边"
+];
+let kidTipIndex = 0;
 
 function loadDataset(name, url) {
   if (window.__CNPT_EMBEDDED && window.__CNPT_EMBEDDED[name]) {
@@ -604,9 +850,10 @@ async function init() {
     setupSidebarToggle();
     setupViewToggle();
     setupCanvas();
-    renderWrongbookPanel();
-    renderWeaknessPanel();
-    applyFilters();
+      renderWrongbookPanel();
+  renderWeaknessPanel();
+  renderPathPanel();
+  applyFilters();
     window.addEventListener('resize', handleResize, { passive: true });
     document.addEventListener('visibilitychange', handleVisibilityChange, { passive: true });
     window.addEventListener('pagehide', cleanupRuntime, { once: true });
@@ -901,6 +1148,7 @@ function applyFilters(options = {}) {
   const topics = getFilteredTopics();
   updateFilterSummaries();
   renderGraph(topics, options.keepSelection !== false);
+  renderPathPanel();
 }
 
 function summarizeSelection(items, selectedSet) {
@@ -943,12 +1191,36 @@ function renderGraph(filteredTopics, keepSelection = true) {
   const links = getFilteredLinks(graphCacheKey, filteredTopics.map(topic => topic.id))
     .map(dep => ({ source: dep.prerequisiteId, target: dep.topicId, strength: dep.strength, reason: dep.reason }));
 
-  data.nodes = filteredTopics.map(topic => ({ ...topic }));
+    data.nodes = filteredTopics.map(topic => ({ ...topic }));
   data.links = links;
   data.nodeMap = new Map(data.nodes.map(node => [node.id, node]));
 
   const width = document.getElementById('graph').clientWidth;
   const height = document.getElementById('graph').clientHeight;
+
+  const subjectOrder = ['语文', '数学', '英语', '科学', '道德与法治', '劳动', '体育与健康', '美术', '音乐', '信息科技', 'AI素养'];
+  const subjectIndex = new Map(subjectOrder.map((s, i) => [s, i]));
+  const subjects = [...new Set(data.nodes.map(n => n.subject))].sort((a, b) => (subjectIndex.get(a) || 99) - (subjectIndex.get(b) || 99));
+  const grades = [...new Set(data.nodes.map(n => n.grade))].sort((a, b) => a - b);
+  const colWidth = Math.max(width / (subjects.length + 1), 120);
+  const rowHeight = Math.max(height / (grades.length + 1), 80);
+
+  data.nodes.forEach(node => {
+    const col = subjects.indexOf(node.subject);
+    const row = grades.indexOf(node.grade);
+    const nodesInCell = data.nodes.filter(n => n.subject === node.subject && n.grade === node.grade);
+    const idxInCell = nodesInCell.indexOf(node);
+    const countInCell = nodesInCell.length;
+    const baseX = (col + 0.5) * colWidth;
+    const baseY = (row + 0.5) * rowHeight;
+    const spread = Math.min(colWidth, rowHeight) * 0.35;
+    const angle = (idxInCell / Math.max(countInCell, 1)) * Math.PI * 2;
+    const radius = spread * Math.sqrt(idxInCell + 1) / Math.sqrt(Math.max(countInCell, 1));
+    node.x = baseX + (countInCell > 1 ? Math.cos(angle) * radius : 0) + (Math.random() - 0.5) * 8;
+    node.y = baseY + (countInCell > 1 ? Math.sin(angle) * radius : 0) + (Math.random() - 0.5) * 8;
+    node.x = Math.max(40, Math.min(width - 40, node.x));
+    node.y = Math.max(40, Math.min(height - 40, node.y));
+  });
 
   gLinks = graphGroup.append('g').attr('class', 'links').selectAll('line')
     .data(data.links)
@@ -1120,7 +1392,7 @@ function updateExerciseForTopic(topic) {
   if (exercises.length === 0) return;
   currentExerciseTopic = topic;
   currentExerciseIndex = 0;
-  panel.innerHTML = `<h3>✏️ 典型例题 (1/${Math.min(exercises.length, 3)})</h3><div style="font-size:11px;color:#5a6878;margin-bottom:8px">知识点：${topic.name}</div><div class="exercise-question">${exercises[0].question}</div><div class="exercise-options">${exercises[0].options.map((opt, i) => `<button class="exercise-option" data-index="${i}" onclick="answerExercise(${i})">${String.fromCharCode(65 + i)}. ${opt}</button>`).join('')}</div><div id="exercise-feedback"></div>`;
+  renderExercise();
   currentExercise = exercises[0];
   exerciseAnswered = false;
 }
@@ -1168,50 +1440,27 @@ function renderSidebar(topic) {
     `).join('')
     : '';
 
-  const unitMeta = [...new Set([topic.volume, topic.unit, topic.chapter, topic.lesson, topic.module].filter(Boolean))].join(' · ');
+    const unitMeta = [...new Set([topic.volume, topic.unit, topic.chapter, topic.lesson, topic.module].filter(Boolean))].join(' · ');
+  const masteryKidLabel = getMastery(topic.id) === 'mastered' ? '🌟 我已经会啦' : getMastery(topic.id) === 'learning' ? '📖 我正在学' : '🎯 我想学这个';
   document.getElementById('detail-panel').innerHTML = `
-    <h2>${topic.name}</h2>
-    <div class="meta">${topic.id} · ${topic.textbook || ''}${unitMeta ? ` · ${unitMeta}` : ''}</div>
+    <h2>${kidMode ? '🌟 ' : ''}${topic.name}</h2>
+    <div class="meta">${kidMode ? `${topic.subject} · ${topic.grade}年级` : topic.id + ' · ' + (topic.textbook || '') + (unitMeta ? ` · ${unitMeta}` : '')}</div>
     <div style="margin-bottom:12px">${tags}</div>
-    <div class="mastery-controls">
+    ${kidMode ? `<div style="text-align:center;padding:8px 12px;border-radius:12px;background:rgba(255,180,50,0.08);border:1px solid rgba(255,180,50,0.2);margin-bottom:12px;font-size:13px;color:#e67e22;font-weight:500">${masteryKidLabel}</div>` : `<div class="mastery-controls">
       <button class="mastered mastery-btn ${getMastery(topic.id)==='mastered'?'active':''}" onclick="setMastery('${topic.id}','mastered');renderSidebar(currentTopic)" title="标记为已掌握">✅ 已掌握</button>
       <button class="learning mastery-btn ${getMastery(topic.id)==='learning'?'active':''}" onclick="setMastery('${topic.id}','learning');renderSidebar(currentTopic)" title="标记为学习中">📖 学习中</button>
       <button class="not-started mastery-btn ${getMastery(topic.id)==='not-started'?'active':''}" onclick="setMastery('${topic.id}','not-started');renderSidebar(currentTopic)" title="标记为未开始">⭕ 未开始</button>
-    </div>
-    <button class="exercise-start-btn" onclick="startExercise(currentTopic)" style="width:100%;margin:10px 0;padding:10px;background:rgba(93,173,226,0.15);border:1px solid rgba(93,173,226,0.4);color:#dcefff;border-radius:8px;cursor:pointer;font-size:12px;font-weight:500">✏️ 开始答题练习</button>
+    </div>`}
+    <button class="exercise-start-btn" onclick="startExercise(currentTopic)" style="width:100%;margin:10px 0;padding:${kidMode ? '14px' : '10px'};background:${kidMode ? 'linear-gradient(135deg,#ffcc33,#ff9900)' : 'rgba(93,173,226,0.15)'};border:1px solid ${kidMode ? '#ff9900' : 'rgba(93,173,226,0.4)'};color:${kidMode ? '#fff' : '#dcefff'};border-radius:${kidMode ? '12px' : '8px'};cursor:pointer;font-size:${kidMode ? '14px' : '12px'};font-weight:600">${kidMode ? '🎮 来做题吧！' : '✏️ 开始答题练习'}</button>
     ${parentTopic ? `<div style="font-size:12px;color:#7f8c9a;margin:4px 0 10px">父节点：<a href="javascript:void(0)" onclick="selectNodeById('${parentTopic.id}')" style="color:#5dade2;text-decoration:none">${parentTopic.name}</a></div>` : ''}
-    <div class="desc">${topic.description}</div>
-    <div class="relation-summary">
-      <div class="relation-card"><b>先补什么：</b>${hardPrereqs.length ? hardPrereqs.map(item => item.topic.name).join('、') : '当前没有“必须先补”的显式前置，可直接从本节点练起。'}</div>
-      <div class="relation-card"><b>建议补什么：</b>${softPrereqs.length ? softPrereqs.map(item => item.topic.name).join('、') : '当前没有额外“建议先补”的辅助前置。'}</div>
-      <div class="relation-card"><b>这一步学稳后能带动什么：</b>${nextUnlocks.length ? nextUnlocks.map(item => item.topic.name).join('、') : '当前节点后续解锁范围较小，可以先把本点练扎实。'}</div>
-    </div>
-    <div class="parent-coach-box">
-      <div class="coach-title">家长辅导建议</div>
-      <div class="coach-text">${coachText}</div>
-    </div>
-    ${topic.pageRange ? `<div style="font-size:12px;color:#7f8c9a;margin:8px 0 12px">教材页码：${topic.pageRange}</div>` : ''}
-
-    <h3>✓ 掌握的证据（会什么就算掌握了）</h3>
-    <ul class="evidence-list">${(topic.evidence || []).map(item => `<li>${item}</li>`).join('')}</ul>
-    ${(topic.practiceChain && topic.practiceChain.length) ? `<h3>🔗 建议练习链</h3><ul class="evidence-list">${topic.practiceChain.map(item => `<li>${item}</li>`).join('')}</ul>` : ''}
-    ${(topic.assessmentTasks && topic.assessmentTasks.length) ? `<h3>🎯 建议测评任务</h3><ul class="evidence-list">${topic.assessmentTasks.map(item => `<li>${item}</li>`).join('')}</ul>` : ''}
-    ${skillRubricHtml ? `<h3>📏 分技能测评 Rubric</h3>${skillRubricHtml}` : ''}
-    ${evalRubricHtml ? `<h3>📐 学科评价框架</h3>${evalRubricHtml}` : ''}
-
-    ${(topic.commonMistakes && topic.commonMistakes.length) ? `<h3>⚠️ 常见易错点</h3><ul class="mistakes-list">${topic.commonMistakes.map(item => `<li>${item}</li>`).join('')}</ul>` : ''}
-    ${topic.examTips ? `<h3>📝 常见考法</h3><div style="font-size:12px;line-height:1.7;color:#a8b4c0;padding:8px 10px;background:rgba(255,255,255,0.03);border-radius:6px">${topic.examTips}</div>` : ''}
-    ${topic.assessmentPrompt ? `<h3>💬 家长测评话术</h3><div style="font-size:12px;line-height:1.7;color:#a8b4c0;padding:8px 10px;background:rgba(93,173,226,0.08);border-radius:6px;font-style:italic">${topic.assessmentPrompt.replace(/\{\{name\}\}/g, '孩子')}</div>` : ''}
-    ${resources ? `<h3>🧩 典型例题 / 练习题</h3>${resources}` : ''}
-
-    <h3>📚 前置依赖（要先学会这些 ↓）</h3>
-    ${prereqs.length ? prereqs.map(item => `<div class="chain-item ${item.link.strength}" onclick="selectNodeById('${item.topic.id}')"><span class="chain-arrow">${item.link.strength === 'hard' ? '🔴' : '🟡'}</span><span><b>${item.topic.name}</b><br><span style="color:#7f8c9a;font-size:11px">${item.topic.subject} · ${relationTone(item.link.strength)} · ${item.link.reason || ''}</span></span></div>`).join('') : '<div style="font-size:12px;color:#7f8c9a;padding:8px">（无前置，是起始知识点）</div>'}
-
-    <h3>🚀 解锁后续（学完后可以学这些 ↑）</h3>
-    ${succs.length ? succs.map(item => `<div class="chain-item ${item.link.strength}" onclick="selectNodeById('${item.topic.id}')"><span class="chain-arrow">→</span><span><b>${item.topic.name}</b><br><span style="color:#7f8c9a;font-size:11px">${item.topic.subject} · ${item.link.reason || ''}</span></span></div>`).join('') : '<div style="font-size:12px;color:#7f8c9a;padding:8px">（无后续，是终点知识点）</div>'}
+    <div class="desc">${kidMode ? (topic.description.length > 60 ? topic.description.slice(0, 60) + '...' : topic.description) : topic.description}</div>
+      ${kidMode ? (hardPrereqs.length ? `<div style="margin:10px 0;padding:10px 14px;border-radius:12px;background:rgba(255,180,50,0.08);border:1px solid rgba(255,180,50,0.2);font-size:13px;color:#6d4c41"><b>🔑 先学这个小魔法：</b>${hardPrereqs.map(item => `<a href="javascript:void(0)" onclick="selectNodeById('${item.topic.id}')" style="color:#e67e22;text-decoration:none;font-weight:500">${item.topic.name}</a>`).join('、')}</div>` : '<div style="margin:10px 0;padding:10px 14px;border-radius:12px;background:rgba(46,204,113,0.08);border:1px solid rgba(46,204,113,0.2);font-size:13px;color:#27ae60">✨ 这个可以直接学，不需要先学别的！</div>') + (nextUnlocks.length ? `<div style="margin:10px 0;padding:10px 14px;border-radius:12px;background:rgba(93,173,226,0.08);border:1px solid rgba(93,173,226,0.2);font-size:13px;color:#5dade2"><b>🚀 学会之后可以解锁：</b>${nextUnlocks.map(item => item.topic.name).join('、')}</div>` : '') : `<div class="relation-summary"><div class="relation-card"><b>先补什么：</b>${hardPrereqs.length ? hardPrereqs.map(item => item.topic.name).join('、') : '当前没有"必须先补"的显式前置，可直接从本节点练起。'}</div><div class="relation-card"><b>建议补什么：</b>${softPrereqs.length ? softPrereqs.map(item => item.topic.name).join('、') : '当前没有额外"建议先补"的辅助前置。'}</div><div class="relation-card"><b>这一步学稳后能带动什么：</b>${nextUnlocks.length ? nextUnlocks.map(item => item.topic.name).join('、') : '当前节点后续解锁范围较小，可以先把本点练扎实。'}</div></div><div class="parent-coach-box"><div class="coach-title">家长辅导建议</div><div class="coach-text">${coachText}</div></div>`}
+    ${kidMode ? '' : (topic.pageRange ? `<div style="font-size:12px;color:#7f8c9a;margin:8px 0 12px">教材页码：${topic.pageRange}</div>` : '')}
+    ${kidMode ? (topic.evidence && topic.evidence[0] ? `<div style="margin:10px 0;padding:10px 14px;border-radius:12px;background:rgba(46,204,113,0.06);border:1px solid rgba(46,204,113,0.15);font-size:13px;color:#6d4c41"><b>🌟 学会的标志：</b>${topic.evidence[0]}</div>` : '') + (topic.commonMistakes && topic.commonMistakes[0] ? `<div style="margin:10px 0;padding:10px 14px;border-radius:12px;background:rgba(255,180,50,0.06);border:1px solid rgba(255,180,50,0.15);font-size:13px;color:#6d4c41"><b>💡 小提醒：</b>${topic.commonMistakes[0]}</div>` : '') : `<h3>✓ 掌握的证据（会什么就算掌握了）</h3><ul class="evidence-list">${(topic.evidence || []).map(item => `<li>${item}</li>`).join('')}</ul>${(topic.practiceChain && topic.practiceChain.length) ? `<h3>🔗 建议练习链</h3><ul class="evidence-list">${topic.practiceChain.map(item => `<li>${item}</li>`).join('')}</ul>` : ''}${(topic.assessmentTasks && topic.assessmentTasks.length) ? `<h3>🎯 建议测评任务</h3><ul class="evidence-list">${topic.assessmentTasks.map(item => `<li>${item}</li>`).join('')}</ul>` : ''}${skillRubricHtml ? `<h3>📏 分技能测评 Rubric</h3>${skillRubricHtml}` : ''}${evalRubricHtml ? `<h3>📐 学科评价框架</h3>${evalRubricHtml}` : ''}${(topic.commonMistakes && topic.commonMistakes.length) ? `<h3>⚠️ 常见易错点</h3><ul class="mistakes-list">${topic.commonMistakes.map(item => `<li>${item}</li>`).join('')}</ul>` : ''}${topic.examTips ? `<h3>📝 常见考法</h3><div style="font-size:12px;line-height:1.7;color:#a8b4c0;padding:8px 10px;background:rgba(255,255,255,0.03);border-radius:6px">${topic.examTips}</div>` : ''}${topic.assessmentPrompt ? `<h3>💬 家长测评话术</h3><div style="font-size:12px;line-height:1.7;color:#a8b4c0;padding:8px 10px;background:rgba(93,173,226,0.08);border-radius:6px;font-style:italic">${topic.assessmentPrompt.replace(/\{\{name\}\}/g, '孩子')}</div>` : ''}${resources ? `<h3>🧩 典型例题 / 练习题</h3>${resources}` : ''}`}
+    ${kidMode ? '' : `<h3>📚 前置依赖（要先学会这些 ↓）</h3>${prereqs.length ? prereqs.map(item => `<div class="chain-item ${item.link.strength}" onclick="selectNodeById('${item.topic.id}')"><span class="chain-arrow">${item.link.strength === 'hard' ? '🔴' : '🟡'}</span><span><b>${item.topic.name}</b><br><span style="color:#7f8c9a;font-size:11px">${item.topic.subject} · ${relationTone(item.link.strength)} · ${item.link.reason || ''}</span></span></div>`).join('') : '<div style="font-size:12px;color:#7f8c9a;padding:8px">（无前置，是起始知识点）</div>'}`}
+    ${kidMode ? '' : `<h3>🚀 解锁后续（学完后可以学这些 ↑）</h3>${succs.length ? succs.map(item => `<div class="chain-item ${item.link.strength}" onclick="selectNodeById('${item.topic.id}')"><span class="chain-arrow">→</span><span><b>${item.topic.name}</b><br><span style="color:#7f8c9a;font-size:11px">${item.topic.subject} · ${item.link.reason || ''}</span></span></div>`).join('') : '<div style="font-size:12px;color:#7f8c9a;padding:8px">（无后续，是终点知识点）</div>'}`}
   `;
 }
-
 function topicScore(topic, query) {
   const text = topicSearchTextMap.get(topic.id) || '';
   const q = query.toLowerCase();
@@ -1224,46 +1473,24 @@ function topicScore(topic, query) {
   if (q.includes('不熟') || q.includes('不会') || q.includes('薄弱')) score += topic.type === 'PROCEDURAL' ? 1 : 0;
   return score;
 }
-
 function getDirectPrereqs(topicId) {
   return (incomingMap.get(topicId) || []).map(edge => ({ id: edge.source, strength: edge.strength, reason: edge.reason }));
 }
-
 function getHumanSupportActions(topic) {
-  return [
-    ...(topic.practiceChain || []),
-    ...(topic.assessmentTasks || []),
-    ...(topic.evidence || [])
-  ].filter(Boolean).slice(0, 3);
+  return [...(topic.practiceChain || []), ...(topic.assessmentTasks || []), ...(topic.evidence || [])].filter(Boolean).slice(0, 3);
 }
-
 function explainWhyMatched(topic, direct) {
-  if (direct.length) {
-    return `之所以先定位到“${topic.name}”，是因为它下面直接连着 ${direct.slice(0, 2).map(item => `“${item.name}”`).join('、')} 这些基础点，适合作为当前薄弱点的入口。`;
-  }
-  return `之所以先定位到“${topic.name}”，是因为它和你的问题关键词最接近，而且没有更明显的显式前置门槛，可以直接开始补。`;
+  if (direct.length) { return `之所以先定位到"${topic.name}"，是因为它下面直接连着 ${direct.slice(0, 2).map(item => item.name).join('、')} 这些基础点，适合作为当前薄弱点的入口。`; }
+  return `之所以先定位到"${topic.name}"，是因为它和你的问题关键词最接近，而且没有更明显的显式前置门槛，可以直接开始补。`;
 }
-
 function buildWeeklyPlan(topic, direct) {
   const actions = getHumanSupportActions(topic);
-  return [
-    direct[0] ? `先用 5-10 分钟带孩子回顾“${direct[0].name}”，确认基础是否真的稳。` : `先花 5-10 分钟让孩子口头说一遍“${topic.name}”在做什么、难在哪里。`,
-    actions[0] ? `当天先做一项最轻的练习：${actions[0]}` : `当天先做一组基础题，重点观察孩子卡在理解、方法还是计算。`,
-    actions[1] ? `第二步继续跟进：${actions[1]}` : `第二步让孩子把做题过程讲出来，看看是否只是会做不会说。`,
-    (topic.commonMistakes || [])[0] ? `辅导时重点盯住这个常见问题：${topic.commonMistakes[0]}` : `辅导时重点记录“孩子到底错在哪一步”，比盲目加题更有价值。`
-  ].slice(0, 3);
+  return [direct[0] ? `先用 5-10 分钟带孩子回顾"${direct[0].name}"，确认基础是否真的稳。` : `先花 5-10 分钟让孩子口头说一遍"${topic.name}"在做什么、难在哪里。`, actions[0] ? `当天先做一项最轻的练习：${actions[0]}` : `当天先做一组基础题，重点观察孩子卡在理解、方法还是计算。`, actions[1] ? `第二步继续跟进：${actions[1]}` : `第二步让孩子把做题过程讲出来，看看是否只是会做不会说。`, (topic.commonMistakes || [])[0] ? `辅导时重点盯住这个常见问题：${topic.commonMistakes[0]}` : `辅导时重点记录"孩子到底错在哪一步"，比盲目加题更有价值。`].slice(0, 3);
 }
-
 function collectAncestorIds(topicId, visited = new Set()) {
-  getDirectPrereqs(topicId).forEach(prereq => {
-    if (!visited.has(prereq.id)) {
-      visited.add(prereq.id);
-      collectAncestorIds(prereq.id, visited);
-    }
-  });
+  getDirectPrereqs(topicId).forEach(prereq => { if (!visited.has(prereq.id)) { visited.add(prereq.id); collectAncestorIds(prereq.id, visited); } });
   return visited;
 }
-
 function topoPathTo(topicId) {
   const ids = collectAncestorIds(topicId);
   ids.add(topicId);
@@ -1290,6 +1517,49 @@ function topoPathTo(topicId) {
     });
   }
   return ordered.map(id => topicMap.get(id)).filter(Boolean);
+}
+function getRecommendedPath(topicId) {
+  const fullPath = topoPathTo(topicId);
+  const unreviewed = fullPath.filter(t => getMastery(t.id) !== 'mastered');
+  return { full: fullPath, remaining: unreviewed, mastered: fullPath.length - unreviewed.length };
+}
+function getGradeLearningPath(grade, subject) {
+  let topics = fullData.topics.topics.filter(t => String(t.grade) === String(grade));
+  if (subject && subject !== '全部') topics = topics.filter(t => t.subject === subject);
+  const topicIds = new Set(topics.map(t => t.id));
+  const inDegree = new Map();
+  const graph = new Map();
+  topics.forEach(t => { inDegree.set(t.id, 0); graph.set(t.id, []); });
+  fullData.deps.dependencies.forEach(dep => {
+    if (topicIds.has(dep.prerequisiteId) && topicIds.has(dep.topicId)) {
+      graph.get(dep.prerequisiteId).push(dep.topicId);
+      inDegree.set(dep.topicId, (inDegree.get(dep.topicId) || 0) + 1);
+    }
+  });
+  const queue = [...topics].filter(t => inDegree.get(t.id) === 0).sort((a, b) => (a.difficulty || 3) - (b.difficulty || 3));
+  const ordered = [];
+  const visited = new Set();
+  while (queue.length) {
+    const current = queue.shift();
+    if (visited.has(current.id)) continue;
+    visited.add(current.id);
+    if (getMastery(current.id) !== 'mastered') ordered.push(current);
+    graph.get(current.id).forEach(next => {
+      inDegree.set(next.id, inDegree.get(next.id) - 1);
+      if (inDegree.get(next.id) === 0) queue.push(next);
+    });
+    queue.sort((a, b) => (a.difficulty || 3) - (b.difficulty || 3));
+  }
+  return ordered.slice(0, 20);
+}
+function renderPathPanel() {
+  const panel = document.getElementById('path-panel');
+  if (!panel) return;
+  const grade = [...currentGrades][0] || '1';
+  const subject = [...currentSubjects][0] || '语文';
+  const path = getGradeLearningPath(grade, subject);
+  if (!path.length) { panel.innerHTML = '<h3>🎯 推荐学习路径</h3><div class="wrongbook-empty">暂无推荐内容</div>'; return; }
+  panel.innerHTML = `<h3>🎯 推荐学习路径</h3><div style="font-size:11px;color:#5a6878;margin-bottom:8px">${grade}年级 · ${subject} · 推荐 ${path.length} 个知识点</div>${path.slice(0, 8).map((t, i) => `<div class="path-step" onclick="selectNodeById('${t.id}')"><span class="step-num">${i + 1}</span><span class="step-name">${t.name}</span><span class="step-status ${getMastery(t.id)}">${getMastery(t.id) === 'mastered' ? '已掌握' : getMastery(t.id) === 'learning' ? '学习中' : '未开始'}</span></div>`).join('')}${path.length > 8 ? `<div style="font-size:10px;color:#5a6878;text-align:center;margin-top:6px">还有 ${path.length - 8} 个知识点...</div>` : ''}`;
 }
 
 function runAssistant(query) {
