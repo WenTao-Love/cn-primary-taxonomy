@@ -31,6 +31,10 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
 #guide-panel .guide-step { padding:10px 12px; border-radius:8px; background:rgba(255,255,255,0.04); font-size:12px; line-height:1.7; color:#c5cdd6; }
 #guide-panel .guide-step b { color:#fff; }
 #guide-panel .guide-note { margin-top:12px; padding:10px 12px; border-radius:8px; background:rgba(93,173,226,0.08); color:#dcefff; font-size:12px; line-height:1.7; }
+.quick-start-btn { transition: all 0.2s; position:relative; }
+.quick-start-btn:hover { transform: scale(1.05); box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.quick-start-btn.active { box-shadow: 0 0 0 2px currentColor, 0 4px 16px rgba(0,0,0,0.25); transform: scale(1.08); font-weight: 700; }
+.quick-start-btn.active::after { content:"✓"; position:absolute; top:-6px; right:-6px; width:16px; height:16px; border-radius:50%; background:#2ecc71; color:#fff; font-size:10px; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 4px rgba(0,0,0,0.2); }
 #search-panel p { margin-top:10px; font-size:11px; color:#7f8c9a; line-height:1.6; }
 #filter-panel p { margin-top:10px; font-size:11px; color:#7f8c9a; line-height:1.6; }
 #filter-panel .filter-field { margin-top:12px; }
@@ -309,11 +313,11 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
     <div class="guide-note">💡 建议一次只关注一个年级的一个学科，避免信息过载。</div>
     <div style="margin-top:12px;padding:10px;background:rgba(46,204,113,0.06);border:1px solid rgba(46,204,113,0.2);border-radius:8px;font-size:11px;color:#2ecc71">
       <b>🎯 快速开始：</b>点击下方按钮快速跳转<br>
-      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">
-        <button onclick="quickSelect('1','语文')" style="padding:4px 10px;border-radius:6px;border:1px solid rgba(46,204,113,0.3);background:rgba(46,204,113,0.1);color:#2ecc71;cursor:pointer;font-size:10px">一年级语文</button>
-        <button onclick="quickSelect('1','数学')" style="padding:4px 10px;border-radius:6px;border:1px solid rgba(52,152,219,0.3);background:rgba(52,152,219,0.1);color:#3498db;cursor:pointer;font-size:10px">一年级数学</button>
-        <button onclick="quickSelect('3','数学')" style="padding:4px 10px;border-radius:6px;border:1px solid rgba(155,89,182,0.3);background:rgba(155,89,182,0.1);color:#9b59b6;cursor:pointer;font-size:10px">三年级数学</button>
-        <button onclick="quickSelect('5','数学')" style="padding:4px 10px;border-radius:6px;border:1px solid rgba(243,156,18,0.3);background:rgba(243,156,18,0.1);color:#f39c12;cursor:pointer;font-size:10px">五年级数学</button>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px" class="quick-start-btns">
+        <button class="quick-start-btn" data-grade="1" data-subject="语文" onclick="quickSelect('1','语文')" style="padding:4px 10px;border-radius:6px;border:1px solid rgba(46,204,113,0.3);background:rgba(46,204,113,0.1);color:#2ecc71;cursor:pointer;font-size:10px">一年级语文</button>
+        <button class="quick-start-btn" data-grade="1" data-subject="数学" onclick="quickSelect('1','数学')" style="padding:4px 10px;border-radius:6px;border:1px solid rgba(52,152,219,0.3);background:rgba(52,152,219,0.1);color:#3498db;cursor:pointer;font-size:10px">一年级数学</button>
+        <button class="quick-start-btn" data-grade="3" data-subject="数学" onclick="quickSelect('3','数学')" style="padding:4px 10px;border-radius:6px;border:1px solid rgba(155,89,182,0.3);background:rgba(155,89,182,0.1);color:#9b59b6;cursor:pointer;font-size:10px">三年级数学</button>
+        <button class="quick-start-btn" data-grade="5" data-subject="数学" onclick="quickSelect('5','数学')" style="padding:4px 10px;border-radius:6px;border:1px solid rgba(243,156,18,0.3);background:rgba(243,156,18,0.1);color:#f39c12;cursor:pointer;font-size:10px">五年级数学</button>
       </div>
     </div>
   </div>
@@ -683,7 +687,21 @@ function quickSelect(grade, subject) {
   currentLayer = 'core';
   buildControls();
   applyFilters();
+  updateQuickStartActive();
   updateGraphStatus(`已切换到 ${grade}年级${subject}。点击图谱中的节点查看详情，或在下方做练习题。`, 'info');
+}
+
+function updateQuickStartActive() {
+  const buttons = document.querySelectorAll('.quick-start-btn');
+  buttons.forEach(btn => {
+    const btnGrade = btn.dataset.grade;
+    const btnSubject = btn.dataset.subject;
+    if (currentGrades.has(btnGrade) && currentSubjects.has(btnSubject) && currentGrades.size === 1 && currentSubjects.size === 1) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
 }
 function toggleKidMode() {
   kidMode = !kidMode;
@@ -857,6 +875,7 @@ async function init() {
     window.addEventListener('resize', handleResize, { passive: true });
     document.addEventListener('visibilitychange', handleVisibilityChange, { passive: true });
     window.addEventListener('pagehide', cleanupRuntime, { once: true });
+        updateQuickStartActive();
     window._initCompleted = true;
   } catch(err) {
     console.error('INIT ERROR:', err);
@@ -1083,7 +1102,7 @@ function renderMultiSelectOptions(kind, items, selectedSet) {
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.checked = selectedSet.has(item.value);
-    checkbox.addEventListener('change', () => {
+        checkbox.addEventListener('change', () => {
       if (checkbox.checked) {
         selectedSet.add(item.value);
       } else {
@@ -1091,6 +1110,7 @@ function renderMultiSelectOptions(kind, items, selectedSet) {
       }
       updateFilterSummaries();
       applyFilters();
+      updateQuickStartActive();
     });
     const text = document.createElement('span');
     text.textContent = `${item.label} (${item.count})`;
