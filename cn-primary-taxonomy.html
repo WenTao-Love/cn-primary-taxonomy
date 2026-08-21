@@ -118,6 +118,56 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
 .graph-status strong { color:#fff; }
 .graph-status.warn { border-color:rgba(243,156,18,0.4); }
 .graph-status.info { border-color:rgba(93,173,226,0.35); }
+.node-status-ring { pointer-events:none; }
+.mastery-controls { display:flex; gap:8px; margin:12px 0; flex-wrap:wrap; }
+.mastery-btn { padding:6px 12px; border-radius:20px; border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.05); color:#a8b4c0; font-size:11px; cursor:pointer; transition:all 0.2s; }
+.mastery-btn:hover { background:rgba(255,255,255,0.12); }
+.mastery-btn.active { border-color:transparent; color:#fff; font-weight:600; }
+.mastery-btn.mastered.active { background:rgba(46,204,113,0.25); border-color:rgba(46,204,113,0.5); }
+.mastery-btn.learning.active { background:rgba(243,156,18,0.25); border-color:rgba(243,156,18,0.5); }
+.mastery-btn.not-started.active { background:rgba(149,165,166,0.2); border-color:rgba(149,165,166,0.4); }
+.progress-panel { margin-bottom:20px; padding:14px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:10px; }
+.progress-panel h3 { margin-top:0; font-size:12px; color:#7f8c9a; text-transform:uppercase; letter-spacing:1px; }
+.progress-bar-container { height:8px; background:rgba(255,255,255,0.08); border-radius:4px; overflow:hidden; margin:8px 0; }
+.progress-bar-fill { height:100%; border-radius:4px; transition:width 0.4s ease; background:linear-gradient(90deg,#2ecc71,#27ae60); }
+.progress-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:10px; }
+.progress-stat { text-align:center; padding:8px 4px; border-radius:6px; background:rgba(255,255,255,0.03); }
+.progress-stat b { display:block; font-size:16px; color:#fff; }
+.progress-stat span { font-size:10px; color:#7f8c9a; }
+.progress-stat.mastered b { color:#2ecc71; }
+.progress-stat.learning b { color:#f39c12; }
+.progress-stat.remaining b { color:#95a5a6; }
+.reset-mastery-btn { background:none; border:1px solid rgba(231,76,60,0.3); color:#e74c3c; padding:4px 10px; border-radius:6px; font-size:10px; cursor:pointer; margin-top:8px; }
+.reset-mastery-btn:hover { background:rgba(231,76,60,0.1); }
+.view-toggle { position:absolute; top:16px; left:16px; z-index:15; display:flex; gap:4px; background:rgba(20,28,40,0.88); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:4px; backdrop-filter:blur(8px); }
+.view-toggle-btn { padding:6px 12px; border:none; background:transparent; color:#a8b4c0; cursor:pointer; border-radius:7px; font-size:11px; font-weight:500; transition:all 0.2s; }
+.view-toggle-btn:hover { background:rgba(255,255,255,0.08); color:#fff; }
+.view-toggle-btn.active { background:rgba(93,173,226,0.2); color:#dcefff; font-weight:600; }
+.tree-node circle { cursor:pointer; transition:all 0.2s; }
+.tree-node circle:hover { stroke-width:3px; }
+.tree-node text { font-size:11px; fill:#c5cdd6; }
+.tree-link { fill:none; stroke:rgba(255,255,255,0.15); stroke-width:1.2px; }
+.tree-tooltip { position:absolute; padding:8px 12px; background:rgba(20,28,40,0.95); border:1px solid rgba(93,173,226,0.3); border-radius:8px; font-size:11px; color:#c5cdd6; pointer-events:none; opacity:0; transition:opacity 0.2s; z-index:20; max-width:240px; }
+.exercise-panel { margin-bottom:20px; padding:14px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:10px; }
+.exercise-panel h3 { margin-top:0; font-size:12px; color:#7f8c9a; text-transform:uppercase; letter-spacing:1px; }
+.exercise-question { font-size:13px; color:#fff; margin:10px 0; line-height:1.7; }
+.exercise-options { display:grid; gap:6px; margin:10px 0; }
+.exercise-option { padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); color:#c5cdd6; font-size:12px; cursor:pointer; transition:all 0.2s; text-align:left; }
+.exercise-option:hover { background:rgba(93,173,226,0.12); border-color:rgba(93,173,226,0.3); }
+.exercise-option.correct { background:rgba(46,204,113,0.2); border-color:rgba(46,204,113,0.5); color:#2ecc71; }
+.exercise-option.wrong { background:rgba(231,76,60,0.2); border-color:rgba(231,76,60,0.5); color:#e74c3c; }
+.exercise-feedback { padding:10px 12px; border-radius:8px; font-size:12px; line-height:1.6; margin-top:8px; }
+.exercise-feedback.correct { background:rgba(46,204,113,0.1); color:#2ecc71; border:1px solid rgba(46,204,113,0.3); }
+.exercise-feedback.wrong { background:rgba(231,76,60,0.1); color:#e74c3c; border:1px solid rgba(231,76,60,0.3); }
+.exercise-next { margin-top:10px; padding:8px 16px; background:rgba(93,173,226,0.18); border:1px solid rgba(93,173,226,0.45); color:#dcefff; border-radius:8px; cursor:pointer; font-size:12px; }
+.exercise-next:hover { background:rgba(93,173,226,0.28); }
+.wrongbook-panel { margin-bottom:20px; padding:14px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:10px; }
+.wrongbook-panel h3 { margin-top:0; font-size:12px; color:#7f8c9a; text-transform:uppercase; letter-spacing:1px; }
+.wrongbook-item { padding:8px 10px; border-radius:6px; background:rgba(231,76,60,0.06); border:1px solid rgba(231,76,60,0.15); margin:6px 0; cursor:pointer; transition:background 0.2s; }
+.wrongbook-item:hover { background:rgba(231,76,60,0.12); }
+.wrongbook-topic { font-size:11px; color:#e74c3c; margin-top:4px; }
+.wrongbook-empty { font-size:11px; color:#5a6878; text-align:center; padding:16px; }
+.weakness-tag { display:inline-block; padding:3px 8px; border-radius:4px; font-size:10px; margin:2px; background:rgba(231,76,60,0.12); color:#e74c3c; border:1px solid rgba(231,76,60,0.25); }
 @media (max-width: 1180px) {
   #app { grid-template-columns: 1fr 340px; }
 }
@@ -127,6 +177,11 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
 <div id="app">
 <div id="graph">
   <button id="sidebar-toggle" class="sidebar-toggle" type="button" title="折叠右侧面板" aria-expanded="true">→</button>
+  <div class="view-toggle">
+    <button class="view-toggle-btn active" data-view="graph" title="力导向图谱视图">🔵 知识图谱</button>
+    <button class="view-toggle-btn" data-view="tree" title="层级树状学习路径">🌳 学习路径</button>
+  </div>
+  <div class="tree-tooltip" id="tree-tooltip"></div>
   <div class="legend">
     <h3>学科颜色</h3>
     <div class="legend-item"><span class="legend-dot" style="background:#e74c3c"></span>语文</div>
@@ -142,6 +197,10 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
     <h3 style="margin-top:12px">依赖线</h3>
     <div class="legend-item"><span style="width:24px;height:2px;background:#e74c3c;display:inline-block"></span> 强依赖（必须先掌握）</div>
     <div class="legend-item"><span style="width:24px;height:2px;background:#f39c12;background-image:linear-gradient(to right,#f39c12 50%,transparent 50%);background-size:6px 2px;display:inline-block"></span> 弱依赖（有帮助）</div>
+    <h3 style="margin-top:12px">掌握状态</h3>
+    <div class="legend-item"><span class="legend-dot" style="background:#2ecc71"></span>已掌握</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#f39c12"></span>学习中</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#888"></span>未开始（原学科色）</div>
   </div>
   <svg id="canvas"></svg>
 </div>
@@ -155,6 +214,11 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
       <div><b id="stat-deps">0</b>依赖</div>
       <div><b id="stat-subjects">0</b>学科</div>
     </div>
+  </div>
+  <div id="progress-panel" class="progress-panel">
+    <h3>📊 学习进度</h3>
+    <div class="progress-bar-container"><div class="progress-bar-fill" style="width:0%"></div></div>
+    <div style="font-size:11px;color:#7f8c9a">加载中…</div>
   </div>
   <div id="guide-panel">
     <h3>家长阅读指引</h3>
@@ -229,6 +293,18 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
     <p>筛选器已移到右侧，不再遮挡知识图谱。年级、学科、版本支持组合多选，适合逐步收窄查看。</p>
   </div>
   <div id="assistant-panel"></div>
+  <div id="exercise-panel" class="exercise-panel">
+    <h3>✏️ 典型例题</h3>
+    <div style="font-size:12px;color:#7f8c9a">点击左侧知识图谱中的节点后，在此处进行答题练习，巩固所学知识。</div>
+  </div>
+  <div id="wrongbook-panel" class="wrongbook-panel">
+    <h3>📕 错题本</h3>
+    <div class="wrongbook-empty">目前还没有错题记录<br>快去「典型例题」中练习吧！</div>
+  </div>
+  <div id="weakness-panel" class="wrongbook-panel">
+    <h3>🎯 薄弱点追踪</h3>
+    <div id="weakness-content"><div class="wrongbook-empty">答题后自动分析薄弱知识点</div></div>
+  </div>
   <div id="detail-panel">
     <div class="hint">
       先用右侧搜索或学习助手，找到孩子当前不会的知识点。<br><br>
@@ -247,10 +323,219 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
 <script id="embedded-clusters" type="application/json">{"version":"v0.1-mvp","clusterCount":134,"clusters":[{"subject":"英语","domain":"词汇","gradeBand":"L","topicCount":8,"summary":"围绕数字、颜色、动物、家庭成员等话题积累基础词汇，每个话题10-20个词，要求能听、能说、能认。"},{"subject":"英语","domain":"句型","gradeBand":"L","topicCount":8,"summary":"英语·句型：二年级低段（1-2年级）将学习约8个相关知识点，为后续中高段学习打基础。"},{"subject":"英语","domain":"语篇","gradeBand":"L","topicCount":8,"summary":"英语·语篇：二年级低段（1-2年级）将学习约8个相关知识点，为后续中高段学习打基础。"},{"subject":"英语","domain":"写作任务","gradeBand":"L","topicCount":8,"summary":"英语·写作任务：二年级低段（1-2年级）将学习约8个相关知识点，为后续中高段学习打基础。"},{"subject":"英语","domain":"词汇","gradeBand":"M","topicCount":24,"summary":"英语·词汇：二年级低段（1-2年级）将学习约24个相关知识点，为后续中高段学习打基础。"},{"subject":"英语","domain":"句型","gradeBand":"M","topicCount":24,"summary":"英语·句型：二年级低段（1-2年级）将学习约24个相关知识点，为后续中高段学习打基础。"},{"subject":"英语","domain":"语篇","gradeBand":"M","topicCount":24,"summary":"英语·语篇：二年级低段（1-2年级）将学习约24个相关知识点，为后续中高段学习打基础。"},{"subject":"英语","domain":"写作任务","gradeBand":"M","topicCount":24,"summary":"英语·写作任务：二年级低段（1-2年级）将学习约24个相关知识点，为后续中高段学习打基础。"},{"subject":"英语","domain":"词汇","gradeBand":"H","topicCount":24,"summary":"英语·词汇：二年级低段（1-2年级）将学习约24个相关知识点，为后续中高段学习打基础。"},{"subject":"英语","domain":"句型","gradeBand":"H","topicCount":24,"summary":"英语·句型：二年级低段（1-2年级）将学习约24个相关知识点，为后续中高段学习打基础。"},{"subject":"英语","domain":"语篇","gradeBand":"H","topicCount":24,"summary":"英语·语篇：二年级低段（1-2年级）将学习约24个相关知识点，为后续中高段学习打基础。"},{"subject":"英语","domain":"写作任务","gradeBand":"H","topicCount":24,"summary":"英语·写作任务：二年级低段（1-2年级）将学习约24个相关知识点，为后续中高段学习打基础。"},{"subject":"科学","domain":"生命科学","gradeBand":"L","topicCount":8,"summary":"了解我们的身体结构，认识五种感觉器官（眼耳鼻舌皮肤），学会综合运用多种感官观察和比较。可以和孩子玩\"蒙眼猜物\"等感官游戏。"},{"subject":"科学","domain":"地球与宇宙科学","gradeBand":"L","topicCount":8,"summary":"本学期孩子将认识地球家园的组成、土壤的作用、天气和季节变化、太阳的位置与方向。这些内容和生活密切相关，建议带孩子在户外观察自然现象。"},{"subject":"科学","domain":"物质科学","gradeBand":"L","topicCount":8,"summary":"认识常见材料（金属、木头、塑料、玻璃、纸等）和它们的特性，了解磁铁的基本性质（能吸铁、有两极、同极相斥异极相吸、指南针原理）。在家可以用冰箱贴、磁铁玩\"寻宝游戏\"。"},{"subject":"道德与法治","domain":"生活适应","gradeBand":"L","topicCount":4,"summary":"道德与法治·生活适应：二年级低段（1-2年级）将学习约4个相关知识点，为后续中高段学习打基础。"},{"subject":"道德与法治","domain":"自我成长","gradeBand":"L","topicCount":4,"summary":"道德与法治·自我成长：二年级低段（1-2年级）将学习约4个相关知识点，为后续中高段学习打基础。"},{"subject":"劳动","domain":"日常生活劳动","gradeBand":"L","topicCount":3,"summary":"二年级劳动重点在生活自理：自己整理书包、系鞋带、叠衣服、扫地擦桌子、洗碗等。这些是最基础的生活能力，建议每天分配一点家务让孩子完成。"},{"subject":"体育与健康","domain":"基本运动技能","gradeBand":"L","topicCount":2,"summary":"体育与健康·基本运动技能：二年级低段（1-2年级）将学习约2个相关知识点，为后续中高段学习打基础。"},{"subject":"体育与健康","domain":"移动性技能","gradeBand":"L","topicCount":1,"summary":"体育与健康·移动性技能：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"美术","domain":"造型表现","gradeBand":"L","topicCount":2,"summary":"认识三原色和三间色、学习用不同线条画画，培养基础造型能力和色彩感觉。"},{"subject":"美术","domain":"设计应用","gradeBand":"L","topicCount":1,"summary":"美术·设计应用：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"音乐","domain":"音乐基础","gradeBand":"L","topicCount":2,"summary":"音乐·音乐基础：二年级低段（1-2年级）将学习约2个相关知识点，为后续中高段学习打基础。"},{"subject":"音乐","domain":"演唱","gradeBand":"L","topicCount":1,"summary":"学习正确的唱歌姿势和腹式呼吸，用自然的声音唱歌，不要扯着嗓子喊。"},{"subject":"信息科技","domain":"信息意识","gradeBand":"L","topicCount":1,"summary":"引导孩子认识信息无处不在，了解多种信息来源，初步建立不盲目相信网络信息的意识。"},{"subject":"信息科技","domain":"数字设备","gradeBand":"L","topicCount":2,"summary":"认识计算机主要部件，学会正确开关机、使用鼠标、初识键盘和基准键位，培养正确的坐姿和指法习惯。"},{"subject":"AI素养","domain":"AI认知","gradeBand":"L","topicCount":2,"summary":"带孩子认识身边的人工智能（语音助手、智能推荐、人脸识别等），知道AI是工具也会犯错，不能完全信赖AI的答案。"},{"subject":"AI素养","domain":"AI局限","gradeBand":"L","topicCount":1,"summary":"AI素养·AI局限：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"道德与法治","domain":"集体生活","gradeBand":"L","topicCount":4,"summary":"道德与法治·集体生活：二年级低段（1-2年级）将学习约4个相关知识点，为后续中高段学习打基础。"},{"subject":"道德与法治","domain":"环境与生活","gradeBand":"L","topicCount":4,"summary":"道德与法治·环境与生活：二年级低段（1-2年级）将学习约4个相关知识点，为后续中高段学习打基础。"},{"subject":"劳动","domain":"生产劳动","gradeBand":"L","topicCount":1,"summary":"通过种植小植物（绿豆、大蒜等），体验简单的生产劳动，学习观察记录植物生长过程。"},{"subject":"体育与健康","domain":"健康行为","gradeBand":"L","topicCount":1,"summary":"体育与健康·健康行为：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"美术","domain":"审美感知","gradeBand":"L","topicCount":1,"summary":"美术·审美感知：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"音乐","domain":"演奏与表现","gradeBand":"L","topicCount":1,"summary":"音乐·演奏与表现：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"信息科技","domain":"数字安全","gradeBand":"L","topicCount":1,"summary":"信息科技·数字安全：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"AI素养","domain":"AI应用","gradeBand":"L","topicCount":1,"summary":"AI素养·AI应用：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"科学","domain":"生命科学","gradeBand":"M","topicCount":8,"summary":"科学·生命科学：二年级低段（1-2年级）将学习约8个相关知识点，为后续中高段学习打基础。"},{"subject":"科学","domain":"物质科学","gradeBand":"M","topicCount":8,"summary":"科学·物质科学：二年级低段（1-2年级）将学习约8个相关知识点，为后续中高段学习打基础。"},{"subject":"科学","domain":"工程与技术实践","gradeBand":"M","topicCount":4,"summary":"科学·工程与技术实践：二年级低段（1-2年级）将学习约4个相关知识点，为后续中高段学习打基础。"},{"subject":"道德与法治","domain":"社会生活","gradeBand":"M","topicCount":4,"summary":"道德与法治·社会生活：二年级低段（1-2年级）将学习约4个相关知识点，为后续中高段学习打基础。"},{"subject":"道德与法治","domain":"法治启蒙","gradeBand":"M","topicCount":4,"summary":"道德与法治·法治启蒙：二年级低段（1-2年级）将学习约4个相关知识点，为后续中高段学习打基础。"},{"subject":"劳动","domain":"日常生活劳动","gradeBand":"M","topicCount":2,"summary":"劳动·日常生活劳动：二年级低段（1-2年级）将学习约2个相关知识点，为后续中高段学习打基础。"},{"subject":"劳动","domain":"服务性劳动","gradeBand":"M","topicCount":1,"summary":"劳动·服务性劳动：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"体育与健康","domain":"基本运动技能","gradeBand":"M","topicCount":1,"summary":"体育与健康·基本运动技能：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"体育与健康","domain":"健康行为","gradeBand":"M","topicCount":1,"summary":"体育与健康·健康行为：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"美术","domain":"造型表现","gradeBand":"M","topicCount":1,"summary":"美术·造型表现：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"美术","domain":"设计应用","gradeBand":"M","topicCount":1,"summary":"美术·设计应用：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"音乐","domain":"演唱","gradeBand":"M","topicCount":1,"summary":"音乐·演唱：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"音乐","domain":"欣赏","gradeBand":"M","topicCount":1,"summary":"音乐·欣赏：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"信息科技","domain":"信息表达","gradeBand":"M","topicCount":2,"summary":"信息科技·信息表达：二年级低段（1-2年级）将学习约2个相关知识点，为后续中高段学习打基础。"},{"subject":"信息科技","domain":"信息意识","gradeBand":"M","topicCount":1,"summary":"信息科技·信息意识：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"AI素养","domain":"AI认知","gradeBand":"M","topicCount":1,"summary":"AI素养·AI认知：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"AI素养","domain":"AI素养","gradeBand":"M","topicCount":1,"summary":"AI素养·AI素养：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"科学","domain":"地球与宇宙科学","gradeBand":"M","topicCount":4,"summary":"科学·地球与宇宙科学：二年级低段（1-2年级）将学习约4个相关知识点，为后续中高段学习打基础。"},{"subject":"道德与法治","domain":"家国与文化","gradeBand":"M","topicCount":4,"summary":"道德与法治·家国与文化：二年级低段（1-2年级）将学习约4个相关知识点，为后续中高段学习打基础。"},{"subject":"道德与法治","domain":"社会参与","gradeBand":"M","topicCount":4,"summary":"道德与法治·社会参与：二年级低段（1-2年级）将学习约4个相关知识点，为后续中高段学习打基础。"},{"subject":"劳动","domain":"生产劳动","gradeBand":"M","topicCount":1,"summary":"劳动·生产劳动：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"体育与健康","domain":"专项运动技能","gradeBand":"M","topicCount":1,"summary":"体育与健康·专项运动技能：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"体育与健康","domain":"体育品德","gradeBand":"M","topicCount":1,"summary":"体育与健康·体育品德：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"美术","domain":"欣赏评述","gradeBand":"M","topicCount":1,"summary":"美术·欣赏评述：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"美术","domain":"综合探索","gradeBand":"M","topicCount":1,"summary":"美术·综合探索：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"音乐","domain":"演奏与创编","gradeBand":"M","topicCount":1,"summary":"音乐·演奏与创编：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"音乐","domain":"音乐基础","gradeBand":"M","topicCount":1,"summary":"音乐·音乐基础：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"信息科技","domain":"计算思维","gradeBand":"M","topicCount":1,"summary":"信息科技·计算思维：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"AI素养","domain":"AI局限","gradeBand":"M","topicCount":1,"summary":"AI素养·AI局限：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"AI素养","domain":"AI应用","gradeBand":"M","topicCount":1,"summary":"AI素养·AI应用：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"科学","domain":"生命科学","gradeBand":"H","topicCount":4,"summary":"科学·生命科学：二年级低段（1-2年级）将学习约4个相关知识点，为后续中高段学习打基础。"},{"subject":"科学","domain":"物质科学","gradeBand":"H","topicCount":8,"summary":"科学·物质科学：二年级低段（1-2年级）将学习约8个相关知识点，为后续中高段学习打基础。"},{"subject":"科学","domain":"工程与技术实践","gradeBand":"H","topicCount":4,"summary":"科学·工程与技术实践：二年级低段（1-2年级）将学习约4个相关知识点，为后续中高段学习打基础。"},{"subject":"道德与法治","domain":"公民意识","gradeBand":"H","topicCount":4,"summary":"道德与法治·公民意识：二年级低段（1-2年级）将学习约4个相关知识点，为后续中高段学习打基础。"},{"subject":"道德与法治","domain":"国家认同","gradeBand":"H","topicCount":4,"summary":"道德与法治·国家认同：二年级低段（1-2年级）将学习约4个相关知识点，为后续中高段学习打基础。"},{"subject":"劳动","domain":"日常生活劳动","gradeBand":"H","topicCount":1,"summary":"劳动·日常生活劳动：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"劳动","domain":"服务性劳动","gradeBand":"H","topicCount":1,"summary":"劳动·服务性劳动：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"体育与健康","domain":"专项运动技能","gradeBand":"H","topicCount":2,"summary":"体育与健康·专项运动技能：二年级低段（1-2年级）将学习约2个相关知识点，为后续中高段学习打基础。"},{"subject":"体育与健康","domain":"健康行为","gradeBand":"H","topicCount":1,"summary":"体育与健康·健康行为：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"美术","domain":"造型表现","gradeBand":"H","topicCount":1,"summary":"美术·造型表现：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"美术","domain":"欣赏评述","gradeBand":"H","topicCount":1,"summary":"美术·欣赏评述：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"音乐","domain":"演唱","gradeBand":"H","topicCount":1,"summary":"音乐·演唱：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"音乐","domain":"欣赏","gradeBand":"H","topicCount":1,"summary":"音乐·欣赏：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"信息科技","domain":"数据与编码","gradeBand":"H","topicCount":1,"summary":"信息科技·数据与编码：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"信息科技","domain":"数字安全","gradeBand":"H","topicCount":1,"summary":"信息科技·数字安全：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"AI素养","domain":"AI伦理","gradeBand":"H","topicCount":2,"summary":"AI素养·AI伦理：二年级低段（1-2年级）将学习约2个相关知识点，为后续中高段学习打基础。"},{"subject":"AI素养","domain":"AI应用","gradeBand":"H","topicCount":1,"summary":"AI素养·AI应用：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"科学","domain":"地球与宇宙科学","gradeBand":"H","topicCount":4,"summary":"科学·地球与宇宙科学：二年级低段（1-2年级）将学习约4个相关知识点，为后续中高段学习打基础。"},{"subject":"科学","domain":"科学探究","gradeBand":"H","topicCount":4,"summary":"科学·科学探究：二年级低段（1-2年级）将学习约4个相关知识点，为后续中高段学习打基础。"},{"subject":"道德与法治","domain":"法治观念","gradeBand":"H","topicCount":4,"summary":"道德与法治·法治观念：二年级低段（1-2年级）将学习约4个相关知识点，为后续中高段学习打基础。"},{"subject":"道德与法治","domain":"社会责任","gradeBand":"H","topicCount":4,"summary":"道德与法治·社会责任：二年级低段（1-2年级）将学习约4个相关知识点，为后续中高段学习打基础。"},{"subject":"劳动","domain":"劳动素养","gradeBand":"H","topicCount":1,"summary":"劳动·劳动素养：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"劳动","domain":"生产劳动","gradeBand":"H","topicCount":1,"summary":"劳动·生产劳动：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"体育与健康","domain":"体育品德","gradeBand":"H","topicCount":1,"summary":"体育与健康·体育品德：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"美术","domain":"设计应用","gradeBand":"H","topicCount":1,"summary":"美术·设计应用：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"美术","domain":"综合探索","gradeBand":"H","topicCount":1,"summary":"美术·综合探索：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"音乐","domain":"创编与表现","gradeBand":"H","topicCount":1,"summary":"音乐·创编与表现：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"音乐","domain":"综合艺术实践","gradeBand":"H","topicCount":1,"summary":"音乐·综合艺术实践：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"信息科技","domain":"计算思维","gradeBand":"H","topicCount":1,"summary":"信息科技·计算思维：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"信息科技","domain":"数字创新","gradeBand":"H","topicCount":1,"summary":"信息科技·数字创新：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"AI素养","domain":"AI素养","gradeBand":"H","topicCount":1,"summary":"AI素养·AI素养：二年级低段（1-2年级）将学习约1个相关知识点，为后续中高段学习打基础。"},{"subject":"数学","domain":"数与代数","gradeBand":"L","topicCount":567,"summary":"这是二年级数学的重头戏：上学期100以内进退位加减法、表内乘法（2-9的乘法口诀），下学期表内除法、混合运算（含小括号）、有余数的除法、万以内数的认识。核心是熟练口算和理解运算意义，其中乘法口诀务必滚瓜烂熟。"},{"subject":"数学","domain":"图形与几何","gradeBand":"L","topicCount":216,"summary":"认识角和直角/锐角/钝角，从不同位置观察物体，初步认识轴对称、平移、旋转等图形运动。这些是空间观念的基础，可以通过折纸、拼图、照镜子等游戏加深理解。"},{"subject":"数学","domain":"量与计量","gradeBand":"L","topicCount":189,"summary":"二年级将认识长度单位厘米和米，会用尺子测量；认识时间（几时几分，1时=60分）；认识质量单位克和千克（1千克=1000克）。测量知识和日常生活紧密结合，家长可以让孩子多动手量、多掂一掂、多观察钟表。"},{"subject":"数学","domain":"统计与概率","gradeBand":"L","topicCount":63,"summary":"开始接触简单的数据收集和整理：用画\"正\"字的方法记录数据、填简单的统计表、根据数据回答问题。家长可以和孩子一起做小调查（如\"家里人喜欢什么水果\"）来练习。"},{"subject":"数学","domain":"综合与实践","gradeBand":"L","topicCount":117,"summary":"数学广角部分安排了简单的排列组合（搭配问题）和逻辑推理。这是思维训练类内容，不需要复杂计算，主要是培养有序思考和推理的习惯。"},{"subject":"数学","domain":"数与代数","gradeBand":"M","topicCount":423,"summary":"数学·数与代数：二年级低段（1-2年级）将学习约423个相关知识点，为后续中高段学习打基础。"},{"subject":"数学","domain":"图形与几何","gradeBand":"M","topicCount":180,"summary":"数学·图形与几何：二年级低段（1-2年级）将学习约180个相关知识点，为后续中高段学习打基础。"},{"subject":"数学","domain":"量与计量","gradeBand":"M","topicCount":108,"summary":"数学·量与计量：二年级低段（1-2年级）将学习约108个相关知识点，为后续中高段学习打基础。"},{"subject":"数学","domain":"统计与概率","gradeBand":"M","topicCount":72,"summary":"数学·统计与概率：二年级低段（1-2年级）将学习约72个相关知识点，为后续中高段学习打基础。"},{"subject":"数学","domain":"综合与实践","gradeBand":"M","topicCount":90,"summary":"数学·综合与实践：二年级低段（1-2年级）将学习约90个相关知识点，为后续中高段学习打基础。"},{"subject":"数学","domain":"数与代数","gradeBand":"H","topicCount":270,"summary":"数学·数与代数：二年级低段（1-2年级）将学习约270个相关知识点，为后续中高段学习打基础。"},{"subject":"数学","domain":"图形与几何","gradeBand":"H","topicCount":153,"summary":"数学·图形与几何：二年级低段（1-2年级）将学习约153个相关知识点，为后续中高段学习打基础。"},{"subject":"数学","domain":"量与计量","gradeBand":"H","topicCount":9,"summary":"数学·量与计量：二年级低段（1-2年级）将学习约9个相关知识点，为后续中高段学习打基础。"},{"subject":"数学","domain":"统计与概率","gradeBand":"H","topicCount":27,"summary":"数学·统计与概率：二年级低段（1-2年级）将学习约27个相关知识点，为后续中高段学习打基础。"},{"subject":"数学","domain":"综合与实践","gradeBand":"H","topicCount":27,"summary":"数学·综合与实践：二年级低段（1-2年级）将学习约27个相关知识点，为后续中高段学习打基础。"},{"subject":"语文","domain":"拼音","gradeBand":"L","topicCount":64,"summary":"语文·拼音：二年级低段（1-2年级）将学习约64个相关知识点，为后续中高段学习打基础。"},{"subject":"语文","domain":"识字与写字","gradeBand":"L","topicCount":116,"summary":"二年级是识字量飞跃的关键期。孩子将继续认识450+450个生字、会写250+250个汉字，学会用部首查字法和音序查字法独立查字典，开始理解汉字的构字规律（偏旁表意、形声字、会意字），为独立阅读打下基础。家长可以多鼓励孩子在生活中识字、查字典，而不是死记硬背。"},{"subject":"语文","domain":"词语","gradeBand":"L","topicCount":52,"summary":"孩子将系统学习近义词、反义词、数量词、ABB/AABB等特殊结构词语、四字成语，以及\"的、地、得\"的正确用法。这些是把话说清楚、写通顺的底层材料。日常说话时可以有意识地让孩子换个词表达同一个意思，丰富词汇量。"},{"subject":"语文","domain":"句子","gradeBand":"L","topicCount":52,"summary":"二年级重点学习把字句/被字句互换、比喻句和拟人句的认识、常用标点符号、扩写仿写句子、冒号引号对话。这些是从\"说一句完整的话\"过渡到\"写一段通顺的话\"的桥梁。"},{"subject":"语文","domain":"阅读","gradeBand":"L","topicCount":84,"summary":"孩子开始从朗读过渡到学习默读，能借助图画和上下文理解内容，认识自然段，能提取文章中的明显信息，开始阅读寓言等小篇章理解其中道理。本学期建议每天保持15-20分钟课外阅读，可以读快乐读书吧推荐书目。"},{"subject":"语文","domain":"古诗文","gradeBand":"L","topicCount":60,"summary":"二年级开始系统学习经典古诗（《登鹳雀楼》《望庐山瀑布》《敕勒歌》《赋得古原草送别》等），要求能流利背诵、默写、初步理解诗意。家长可以带孩子感受诗中画面，不必逐字翻译。"},{"subject":"语文","domain":"写话","gradeBand":"L","topicCount":44,"summary":"从写一句话到写一段话，本学期重点学习看图写话（单幅图→多幅图）、留言条、日记三种体裁。重点是写清楚四要素（时间、地点、人物、事情），标点正确，语句通顺。不要追求长，通顺和完整最重要。"},{"subject":"语文","domain":"口语交际","gradeBand":"L","topicCount":48,"summary":"二年级口语交际重点是：学会商量、学会用恰当语气说话、能连贯地看图讲故事、能向同学介绍一种事物。核心是\"敢说、说清楚、有礼貌\"。"},{"subject":"语文","domain":"识字与写字","gradeBand":"M","topicCount":56,"summary":"语文·识字与写字：二年级低段（1-2年级）将学习约56个相关知识点，为后续中高段学习打基础。"},{"subject":"语文","domain":"词句段运用","gradeBand":"M","topicCount":88,"summary":"语文·词句段运用：二年级低段（1-2年级）将学习约88个相关知识点，为后续中高段学习打基础。"},{"subject":"语文","domain":"阅读","gradeBand":"M","topicCount":104,"summary":"语文·阅读：二年级低段（1-2年级）将学习约104个相关知识点，为后续中高段学习打基础。"},{"subject":"语文","domain":"古诗文","gradeBand":"M","topicCount":56,"summary":"语文·古诗文：二年级低段（1-2年级）将学习约56个相关知识点，为后续中高段学习打基础。"},{"subject":"语文","domain":"习作","gradeBand":"M","topicCount":64,"summary":"语文·习作：二年级低段（1-2年级）将学习约64个相关知识点，为后续中高段学习打基础。"},{"subject":"语文","domain":"口语交际","gradeBand":"M","topicCount":28,"summary":"语文·口语交际：二年级低段（1-2年级）将学习约28个相关知识点，为后续中高段学习打基础。"},{"subject":"语文","domain":"综合性学习","gradeBand":"M","topicCount":28,"summary":"语文·综合性学习：二年级低段（1-2年级）将学习约28个相关知识点，为后续中高段学习打基础。"},{"subject":"语文","domain":"识字与写字","gradeBand":"H","topicCount":24,"summary":"语文·识字与写字：二年级低段（1-2年级）将学习约24个相关知识点，为后续中高段学习打基础。"},{"subject":"语文","domain":"词句段运用","gradeBand":"H","topicCount":52,"summary":"语文·词句段运用：二年级低段（1-2年级）将学习约52个相关知识点，为后续中高段学习打基础。"},{"subject":"语文","domain":"阅读","gradeBand":"H","topicCount":64,"summary":"语文·阅读：二年级低段（1-2年级）将学习约64个相关知识点，为后续中高段学习打基础。"},{"subject":"语文","domain":"古诗文","gradeBand":"H","topicCount":32,"summary":"语文·古诗文：二年级低段（1-2年级）将学习约32个相关知识点，为后续中高段学习打基础。"},{"subject":"语文","domain":"习作","gradeBand":"H","topicCount":36,"summary":"语文·习作：二年级低段（1-2年级）将学习约36个相关知识点，为后续中高段学习打基础。"},{"subject":"语文","domain":"口语交际","gradeBand":"H","topicCount":8,"summary":"语文·口语交际：二年级低段（1-2年级）将学习约8个相关知识点，为后续中高段学习打基础。"},{"subject":"语文","domain":"综合性学习","gradeBand":"H","topicCount":8,"summary":"语文·综合性学习：二年级低段（1-2年级）将学习约8个相关知识点，为后续中高段学习打基础。"}]}</script>
 <script>
 const COLORS = {
-  '语文':'#e74c3c','数学':'#3498db','科学':'#2ecc71','道德与法治':'#f39c12',
-  '劳动':'#9b59b6','英语':'#1abc9c','体育与健康':'#e67e22','美术':'#fd79a8',
-  '音乐':'#a29bfe','信息科技':'#00cec9','AI素养':'#00cec9'
+'语文':'#e74c3c','数学':'#3498db','科学':'#2ecc71','道德与法治':'#f39c12',
+'劳动':'#9b59b6','英语':'#1abc9c','体育与健康':'#e67e22','美术':'#fd79a8',
+'音乐':'#a29bfe','信息科技':'#00cec9','AI素养':'#00cec9'};
+const MASTERY_COLORS = { mastered:'#2ecc71', learning:'#f39c12', 'not-started':'#5a6878' };
+const STORAGE_KEY = 'cn-primary-taxonomy-mastery';
+let masteryData = {};
+try { masteryData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch(e) { masteryData = {}; }
+function saveMastery() { localStorage.setItem(STORAGE_KEY, JSON.stringify(masteryData)); }
+function getMastery(topicId) { return masteryData[topicId] || 'not-started'; }
+function setMastery(topicId, status) { masteryData[topicId] = status; saveMastery(); updateProgressPanel(); updateNodeColors(); }
+function resetAllMastery() { if(confirm('确定要重置所有知识点的掌握状态吗？')) { masteryData = {}; saveMastery(); updateProgressPanel(); updateNodeColors(); } }
+function getMasteryStats(topicIds) {
+  const stats = { mastered:0, learning:'not-started', notStarted:0, total:topicIds.length };
+  topicIds.forEach(id => { const s = getMastery(id); if(s==='mastered') stats.mastered++; else if(s==='learning') stats.learning++; else stats.notStarted++; });
+  return stats;
+}
+function getNodeFill(node) { const status = getMastery(node.id); if(status==='mastered') return MASTERY_COLORS.mastered; if(status==='learning') return MASTERY_COLORS.learning; return COLORS[node.subject] || '#888'; }
+function updateNodeColors() {
+  if (!gNodes) return;
+  gNodes.select('circle')
+    .attr('fill', node => getNodeFill(node))
+    .attr('stroke', node => { const s = getMastery(node.id); return s === 'mastered' ? '#2ecc71' : s === 'learning' ? '#f39c12' : '#fff'; })
+    .attr('stroke-width', node => { const s = getMastery(node.id); return s === 'not-started' ? 1.1 : 2.2; })
+    .attr('stroke-opacity', node => { const s = getMastery(node.id); return s === 'not-started' ? 0.18 : 0.6; });
+}
+let currentView = 'graph';
+let treeSvg = null;
+let treeLayout = null;
+function switchView(view) {
+  currentView = view;
+  document.querySelectorAll('.view-toggle-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.view === view));
+  const svg = document.getElementById('canvas');
+  if (view === 'tree') {
+    svg.style.opacity = '0';
+    svg.style.pointerEvents = 'none';
+    renderTreeView();
+  } else {
+    svg.style.opacity = '1';
+    svg.style.pointerEvents = 'auto';
+    if (treeSvg) { treeSvg.remove(); treeSvg = null; }
+    renderGraph(buildFilteredTopics(), true);
+  }
+}
+function buildFilteredTopics() {
+  return fullData.topics.topics.filter(t => currentGrades.has(String(t.grade)) && currentSubjects.has(t.subject) && (currentTextbooks.has(t.textbook || '未标注版本') || currentTextbooks.has('全部')));
+}
+function buildTreeHierarchy(topicIds) {
+  const roots = [];
+  const nodeMap = new Map();
+  const topics = fullData.topics.topics.filter(t => topicIds.includes(t.id));
+  topics.forEach(t => { nodeMap.set(t.id, { ...t, children: [] }); });
+  topics.forEach(t => {
+    const node = nodeMap.get(t.id);
+    if (t.parentTopicId && nodeMap.has(t.parentTopicId)) {
+      nodeMap.get(t.parentTopicId).children.push(node);
+    } else {
+      roots.push(node);
+    }
+  });
+  roots.forEach(root => pruneEmptyNodes(root));
+  return roots;
+}
+function pruneEmptyNodes(node) {
+  if (node.children) {
+    node.children.forEach(pruneEmptyNodes);
+    node.children = node.children.filter(c => c.children.length > 0 || (fullData.topics.topics.some(t => t.id === c.id)));
+  }
+}
+function renderTreeView() {
+  const filteredTopics = buildFilteredTopics();
+  if (!filteredTopics.length) { updateGraphStatus('当前筛选结果为空。', 'warn'); return; }
+  const roots = buildTreeHierarchy(filteredTopics.map(t => t.id));
+  const graphEl = document.getElementById('graph');
+  const width = graphEl.clientWidth;
+  const height = graphEl.clientHeight;
+  if (treeSvg) treeSvg.remove();
+  treeSvg = d3.select('#graph').append('svg').attr('width', width).attr('height', height).attr('id', 'tree-canvas');
+  const g = treeSvg.append('g').attr('transform', 'translate(80,40)');
+  const root = d3.hierarchy({ name: 'root', children: roots }, d => d.children);
+  const treeGen = d3.tree().nodeSize([28, 180]).separation((a, b) => (a.parent === b.parent ? 1.2 : 1.5) / (a.depth + 1));
+  treeGen(root);
+  g.selectAll('.tree-link').data(root.links()).join('path').attr('class', 'tree-link').attr('d', d3.linkHorizontal().x(d => d.y).y(d => d.x));
+  const node = g.selectAll('.tree-node').data(root.descendants().filter(d => d.depth > 0)).join('g').attr('class', 'tree-node').attr('transform', d => `translate(${d.y},${d.x})`).on('click', (_, d) => selectNodeById(d.data.id)).on('mouseenter', (event, d) => showTreeTooltip(event, d.data)).on('mouseleave', hideTreeTooltip);
+  node.append('circle').attr('r', d => d.data.mastered ? 6 : 5).attr('fill', d => getNodeFill(d.data)).attr('stroke', d => { const s = getMastery(d.data.id); return s === 'mastered' ? '#2ecc71' : s === 'learning' ? '#f39c12' : '#fff'; }).attr('stroke-width', d => getMastery(d.data.id) === 'not-started' ? 1 : 2);
+  node.append('text').attr('dy', '0.32em').attr('x', d => d.children && d.children.length ? -12 : 12).attr('text-anchor', d => d.children && d.children.length ? 'end' : 'start').text(d => d.data.name.length > 10 ? d.data.name.slice(0, 9) + '…' : d.data.name).attr('fill', d => { const s = getMastery(d.data.id); return s === 'mastered' ? '#2ecc71' : s === 'learning' ? '#f39c12' : '#c5cdd6'; });
+  const zoom = d3.zoom().scaleExtent([0.3, 3]).on('zoom', (event) => { g.attr('transform', event.transform); });
+  treeSvg.call(zoom);
+  treeSvg.call(zoom.transform, d3.zoomIdentity.translate(80, 40));
+  const maxDepth = Math.max(...root.descendants().map(d => d.depth));
+  const totalNodes = root.descendants().length - 1;
+  updateGraphStatus(`学习路径视图：共 ${totalNodes} 个知识点，最大层级深度 ${maxDepth}。使用鼠标滚轮缩放，拖拽平移。`, 'info');
+}
+function showTreeTooltip(event, data) {
+  const tooltip = document.getElementById('tree-tooltip');
+  tooltip.innerHTML = `<b>${data.name}</b><br>${data.subject} · ${data.grade}年级${data.term || ''}<br>${data.description ? data.description.slice(0, 60) + '...' : ''}`;
+  tooltip.style.opacity = '1';
+  tooltip.style.left = (event.offsetX + 20) + 'px';
+  tooltip.style.top = (event.offsetY - 10) + 'px';
+}
+function hideTreeTooltip() { document.getElementById('tree-tooltip').style.opacity = '0'; }
+const WRONGBOOK_KEY = 'cn-primary-taxonomy-wrongbook';
+let wrongbookData = [];
+try { wrongbookData = JSON.parse(localStorage.getItem(WRONGBOOK_KEY)) || []; } catch(e) { wrongbookData = []; }
+function saveWrongbook() { localStorage.setItem(WRONGBOOK_KEY, JSON.stringify(wrongbookData)); }
+function addToWrongbook(topicId, question, userAnswer, correctAnswer) {
+  const topic = topicMap.get(topicId);
+  if (!topic) return;
+  wrongbookData.push({ topicId, topicName: topic.name, subject: topic.subject, question, userAnswer, correctAnswer, timestamp: Date.now() });
+  wrongbookData = wrongbookData.slice(-100);
+  saveWrongbook();
+  renderWrongbookPanel();
+  renderWeaknessPanel();
+}
+function renderWeaknessPanel() {
+  const content = document.getElementById('weakness-content');
+  if (!content) return;
+  const weaknesses = getWeaknessTopics();
+  if (!weaknesses.length) { content.innerHTML = '<div class="wrongbook-empty">答题后自动分析薄弱知识点</div>'; return; }
+  content.innerHTML = weaknesses.map(w => `<div class="wrongbook-item" onclick="selectNodeById('${w.topic.id}')"><b>${w.topic.name}</b> <span style="color:#e74c3c;font-size:10px">(${w.count}错题)</span><div class="wrongbook-topic">${w.topic.subject} · ${w.topic.grade}年级 · 建议重点复习</div></div>`).join('');
+}
+function renderWrongbookPanel() {
+  const panel = document.getElementById('wrongbook-panel');
+  if (!panel) return;
+  if (!wrongbookData.length) { panel.innerHTML = '<h3>📕 错题本</h3><div class="wrongbook-empty">目前还没有错题记录<br>快去「典型例题」中练习吧！</div>'; return; }
+  const grouped = {};
+  wrongbookData.forEach(item => { if (!grouped[item.topicId]) grouped[item.topicId] = []; grouped[item.topicId].push(item); });
+  const totalCount = wrongbookData.length;
+  panel.innerHTML = '<h3>📕 错题本</h3>' + Object.entries(grouped).slice(-5).map(([topicId, items]) => `<div class="wrongbook-item" onclick="selectNodeById('${topicId}')"><b>${items[0].topicName}</b> <span style="color:#5a6878;font-size:10px">(${items[0].subject})</span><div class="wrongbook-topic">错 ${items.length} 题：${items[0].question.slice(0, 30)}...</div></div>`).join('') + `<div style="font-size:10px;color:#5a6878;text-align:center;margin-top:8px">共 ${totalCount} 题</div>`;
+}
+function getWeaknessTopics() {
+  const counts = {};
+  wrongbookData.forEach(item => { counts[item.topicId] = (counts[item.topicId] || 0) + 1; });
+  return Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 5).map(([topicId, count]) => ({ topic: topicMap.get(topicId), count })).filter(item => item.topic);
+}
+const EXERCISE_BANK = {
+  default: [
+    { type: 'choice', question: '下面哪个是正确的？', options: ['选项A', '选项B', '选项C', '选项D'], answer: 0, explanation: '选项A是正确的，因为...' }
+  ]
 };
+function getExercisesForTopic(topic) {
+  const bank = [];
+  if (topic.commonMistakes && topic.commonMistakes.length) {
+    topic.commonMistakes.slice(0, 2).forEach((mistake, i) => {
+      bank.push({ type: 'choice', question: `关于「${topic.name}」，下面哪种说法是正确的？`, options: [mistake, `正确的理解方式 ${i + 1}`, `另一种正确表述`, `以上都正确`], answer: 1, explanation: `「${mistake}」是常见错误。正确理解应该是：${(topic.evidence && topic.evidence[0]) || '参照教材定义'}` });
+    });
+  }
+  if (topic.evidence && topic.evidence.length) {
+    bank.push({ type: 'choice', question: `下面哪项说明孩子已经掌握了「${topic.name}」？`, options: [`还不能完成相关任务`, `只能完成最简单的练习`, topic.evidence[0], '以上都不是'], answer: 2, explanation: `掌握的证据：${topic.evidence[0]}` });
+  }
+  if (bank.length < 2) {
+    bank.push({ type: 'choice', question: `「${topic.name}」这个知识点属于哪个领域？`, options: [topic.domain ||'未知', '另一个领域', '第三个领域', '不属于任何领域'], answer: 0, explanation: `「${topic.name}」属于${topic.domain || '未知'}领域` });
+  }
+  return bank;
+}
+let currentExercise = null;
+let currentExerciseIndex = 0;
+let currentExerciseTopic = null;
+let exerciseAnswered = false;
+function startExercise(topic) {
+  currentExerciseTopic = topic;
+  const exercises = getExercisesForTopic(topic);
+  if (!exercises.length) { alert('该知识点暂时没有例题'); return; }
+  currentExerciseIndex = 0;
+  renderExercise();
+}
+function renderExercise() {
+  const exercises = getExercisesForTopic(currentExerciseTopic);
+  currentExercise = exercises[currentExerciseIndex % exercises.length];
+  exerciseAnswered = false;
+  const panel = document.getElementById('exercise-panel');
+  if (!panel) return;
+  panel.innerHTML = `<h3>✏️ 典型例题 (${currentExerciseIndex + 1}/${Math.min(exercises.length, 3)})</h3><div style="font-size:11px;color:#5a6878;margin-bottom:8px">知识点：${currentExerciseTopic.name}</div><div class="exercise-question">${currentExercise.question}</div><div class="exercise-options">${currentExercise.options.map((opt, i) => `<button class="exercise-option" data-index="${i}" onclick="answerExercise(${i})">${String.fromCharCode(65 + i)}. ${opt}</button>`).join('')}</div><div id="exercise-feedback"></div>`;
+}
+function answerExercise(selectedIndex) {
+  if (exerciseAnswered) return;
+  exerciseAnswered = true;
+  const feedback = document.getElementById('exercise-feedback');
+  const buttons = document.querySelectorAll('.exercise-option');
+  buttons.forEach((btn, i) => {
+    btn.style.pointerEvents = 'none';
+    if (i === currentExercise.answer) btn.classList.add('correct');
+    if (i === selectedIndex && i !== currentExercise.answer) btn.classList.add('wrong');
+  });
+  const isCorrect = selectedIndex === currentExercise.answer;
+  const wrongNotice = isCorrect ? '' : '<div style="font-size:11px;color:#e74c3c;margin-top:6px">已自动加入错题本</div>';
+  feedback.innerHTML = `<div class="exercise-feedback ${isCorrect ? 'correct' : 'wrong'}">${isCorrect ? '✅ 回答正确！' : '❌ 回答错误'}<br>${currentExercise.explanation}</div>${wrongNotice}<button class="exercise-next" onclick="nextExercise()">下一题 →</button>`;
+  if (isCorrect) { setMastery(currentExerciseTopic.id, 'learning'); }
+  else { addToWrongbook(currentExerciseTopic.id, currentExercise.question, currentExercise.options[selectedIndex], currentExercise.options[currentExercise.answer]); }
+}
+function nextExercise() { currentExerciseIndex++; renderExercise(); }
+function setupViewToggle() {
+  document.querySelectorAll('.view-toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => switchView(btn.dataset.view));
+  });
+}
+function updateProgressPanel() {
+  const panel = document.getElementById('progress-panel');
+  if (!panel) return;
+  const topics = fullData.topics.topics;
+  const stats = getMasteryStats(topics.map(t => t.id));
+  const pct = stats.total > 0 ? Math.round(stats.mastered / stats.total * 100) : 0;
+  panel.innerHTML = `
+    <h3>📊 学习进度</h3>
+    <div class="progress-bar-container"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
+    <div style="font-size:11px;color:#7f8c9a;margin-bottom:8px">${pct}% 已掌握（共 ${stats.total} 个知识点）</div>
+    <div class="progress-stats">
+      <div class="progress-stat mastered"><b>${stats.mastered}</b><span>已掌握</span></div>
+      <div class="progress-stat learning"><b>${stats.learning}</b><span>学习中</span></div>
+      <div class="progress-stat remaining"><b>${stats.notStarted}</b><span>未开始</span></div>
+    </div>
+    <button class="reset-mastery-btn" onclick="resetAllMastery()">重置所有进度</button>
+  `;
+}
 const DIFFICULTY = n => '★'.repeat(n)+'☆'.repeat(5-n);
 const RUBRIC_LABELS = {listening:'听力',speaking:'口语',reading:'阅读',writing:'写作'};
 const MAX_RENDER_NODES = { core: 1300, detail: 900 };
@@ -271,6 +556,7 @@ let currentGrades = new Set();
 let currentSubjects = new Set();
 let currentTextbooks = new Set();
 let selectedNodeId = null;
+let currentTopic = null;
 let searchDebounceTimer = null;
 let resizeDebounceTimer = null;
 let layoutStopTimer = null;
@@ -293,51 +579,45 @@ function loadDataset(name, url) {
 }
 
 async function init() {
-  const [topics, deps, clusters] = await Promise.all([
-    loadDataset('topics', '../data/topics.json'),
-    loadDataset('dependencies', '../data/dependencies.json'),
-    loadDataset('clusters', '../data/clusters.json')
-  ]);
-  fullData = { topics, deps, clusters };
-  buildIndices();
+  try {
+    const [topics, deps, clusters] = await Promise.all([
+      loadDataset('topics', '../data/topics.json'),
+      loadDataset('dependencies', '../data/dependencies.json'),
+      loadDataset('clusters', '../data/clusters.json')
+    ]);
+    fullData = { topics, deps, clusters };
+    if (!topics || !topics.topics) throw new Error("Topics data missing");
+    buildIndices();
+    if (!topicMap || topicMap.size === 0) throw new Error("topicMap empty");
 
-  document.getElementById('stat-topics').textContent = topics.topicCount;
-  document.getElementById('stat-deps').textContent = deps.edgeCount;
-  document.getElementById('stat-subjects').textContent = new Set(topics.topics.map(t=>t.subject)).size;
-  const grades = [...new Set(topics.topics.map(t => t.grade))].sort((a,b)=>a-b).map(String);
-  currentGrades = new Set(grades.length ? [grades[0]] : []);
-  document.getElementById('subtitle').textContent = `${topics.version || 'CN-Primary-Taxonomy'} · 默认以轻量模式展示，可切换到详细节点 · ${topics.topicCount} 知识点 · ${deps.edgeCount} 依赖关系`;
+    document.getElementById('stat-topics').textContent = topics.topicCount;
+    document.getElementById('stat-deps').textContent = deps.edgeCount;
+    document.getElementById('stat-subjects').textContent = new Set(topics.topics.map(t=>t.subject)).size;
+    updateProgressPanel();
+    const grades = [...new Set(topics.topics.map(t => t.grade))].sort((a,b)=>a-b).map(String);
+    currentGrades = new Set(grades.length ? [grades[0]] : []);
+    document.getElementById('subtitle').textContent = `${topics.version || 'CN-Primary-Taxonomy'} · 默认以轻量模式展示，可切换到详细节点 · ${topics.topicCount} 知识点 · ${deps.edgeCount} 依赖关系`;
 
-  buildControls();
-  renderAssistantPanel();
-  setupSearch();
-  setupSidebarToggle();
-  setupCanvas();
-  applyFilters();
-  window.addEventListener('resize', handleResize, { passive: true });
-  document.addEventListener('visibilitychange', handleVisibilityChange, { passive: true });
-  window.addEventListener('pagehide', cleanupRuntime, { once: true });
-  window.addEventListener('beforeunload', cleanupRuntime, { once: true });
-}
-
-function handleResize() {
-  if (resizeDebounceTimer) clearTimeout(resizeDebounceTimer);
-  resizeDebounceTimer = setTimeout(() => {
-    destroyGraphRuntime();
+    buildControls();
+    renderAssistantPanel();
+    setupSearch();
+    setupSidebarToggle();
+    setupViewToggle();
     setupCanvas();
+    renderWrongbookPanel();
+    renderWeaknessPanel();
     applyFilters();
-  }, 120);
-}
-
-function handleVisibilityChange() {
-  if (document.hidden) {
-    destroyGraphRuntime();
-    return;
+    window.addEventListener('resize', handleResize, { passive: true });
+    document.addEventListener('visibilitychange', handleVisibilityChange, { passive: true });
+    window.addEventListener('pagehide', cleanupRuntime, { once: true });
+    window._initCompleted = true;
+  } catch(err) {
+    console.error('INIT ERROR:', err);
+    window._initError = err.message + ' | ' + (err.stack || '');
+    var gs = document.getElementById('graph-status');
+    if (gs) gs.innerHTML = '<span style="color:#e74c3c">加载错误: ' + err.message + '</span>';
   }
-  setupCanvas();
-  applyFilters();
 }
-
 function cleanupRuntime() {
   destroyGraphRuntime();
   if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
@@ -363,12 +643,32 @@ function setSidebarCollapsed(collapsed) {
   toggle.textContent = collapsed ? '←' : '→';
   toggle.title = collapsed ? '展开右侧面板' : '折叠右侧面板';
   toggle.setAttribute('aria-expanded', String(!collapsed));
-  if (resizeDebounceTimer) clearTimeout(resizeDebounceTimer);
+    if (resizeDebounceTimer) clearTimeout(resizeDebounceTimer);
   resizeDebounceTimer = setTimeout(() => {
     destroyGraphRuntime();
     setupCanvas();
     applyFilters();
   }, 120);
+}
+
+function handleResize() {
+  if (resizeDebounceTimer) clearTimeout(resizeDebounceTimer);
+  resizeDebounceTimer = setTimeout(() => {
+    if (currentView === 'graph' && window.data && window.data.nodes) {
+      destroyGraphRuntime();
+      setupCanvas();
+      applyFilters();
+    }
+  }, 250);
+}
+
+function handleVisibilityChange() {
+  if (document.hidden && simulation) {
+    simulation.stop();
+  } else if (!document.hidden && currentView === 'graph' && window.data && window.data.nodes) {
+    setupCanvas();
+    applyFilters();
+  }
 }
 
 function destroyGraphRuntime(options = {}) {
@@ -680,10 +980,10 @@ function renderGraph(filteredTopics, keepSelection = true) {
 
   gNodes.append('circle')
     .attr('r', node => 4 + (node.difficulty || 3) * 0.55)
-    .attr('fill', node => COLORS[node.subject] || '#888')
-    .attr('stroke', '#fff')
-    .attr('stroke-width', 1.1)
-    .attr('stroke-opacity', 0.18);
+    .attr('fill', node => getNodeFill(node))
+    .attr('stroke', node => { const s = getMastery(node.id); return s === 'mastered' ? '#2ecc71' : s === 'learning' ? '#f39c12' : '#fff'; })
+    .attr('stroke-width', node => { const s = getMastery(node.id); return s === 'not-started' ? 1.1 : 2.2; })
+    .attr('stroke-opacity', node => { const s = getMastery(node.id); return s === 'not-started' ? 0.18 : 0.6; });
 
   gNodes.append('title').text(node => `${node.name}\n[${node.subject}·${node.domain}·${node.grade}年级${node.term}]`);
 
@@ -791,6 +1091,7 @@ function buildParentCoachText(topic, prereqs, succs) {
 
 function selectNode(node) {
   selectedNodeId = node.id;
+  currentTopic = node;
   const preIds = collectRelatedIds(node.id, 'pre');
   const succIds = collectRelatedIds(node.id, 'succ');
   const keepIds = new Set([node.id, ...preIds, ...succIds]);
@@ -810,6 +1111,18 @@ function selectNode(node) {
   }
   if (gNodes) gNodes.select('text.node-label').style('opacity', item => keepIds.has(item.id) ? 1 : 0);
   renderSidebar(node);
+  updateExerciseForTopic(node);
+}
+function updateExerciseForTopic(topic) {
+  const panel = document.getElementById('exercise-panel');
+  if (!panel) return;
+  const exercises = getExercisesForTopic(topic);
+  if (exercises.length === 0) return;
+  currentExerciseTopic = topic;
+  currentExerciseIndex = 0;
+  panel.innerHTML = `<h3>✏️ 典型例题 (1/${Math.min(exercises.length, 3)})</h3><div style="font-size:11px;color:#5a6878;margin-bottom:8px">知识点：${topic.name}</div><div class="exercise-question">${exercises[0].question}</div><div class="exercise-options">${exercises[0].options.map((opt, i) => `<button class="exercise-option" data-index="${i}" onclick="answerExercise(${i})">${String.fromCharCode(65 + i)}. ${opt}</button>`).join('')}</div><div id="exercise-feedback"></div>`;
+  currentExercise = exercises[0];
+  exerciseAnswered = false;
 }
 
 function renderSidebar(topic) {
@@ -860,6 +1173,12 @@ function renderSidebar(topic) {
     <h2>${topic.name}</h2>
     <div class="meta">${topic.id} · ${topic.textbook || ''}${unitMeta ? ` · ${unitMeta}` : ''}</div>
     <div style="margin-bottom:12px">${tags}</div>
+    <div class="mastery-controls">
+      <button class="mastered mastery-btn ${getMastery(topic.id)==='mastered'?'active':''}" onclick="setMastery('${topic.id}','mastered');renderSidebar(currentTopic)" title="标记为已掌握">✅ 已掌握</button>
+      <button class="learning mastery-btn ${getMastery(topic.id)==='learning'?'active':''}" onclick="setMastery('${topic.id}','learning');renderSidebar(currentTopic)" title="标记为学习中">📖 学习中</button>
+      <button class="not-started mastery-btn ${getMastery(topic.id)==='not-started'?'active':''}" onclick="setMastery('${topic.id}','not-started');renderSidebar(currentTopic)" title="标记为未开始">⭕ 未开始</button>
+    </div>
+    <button class="exercise-start-btn" onclick="startExercise(currentTopic)" style="width:100%;margin:10px 0;padding:10px;background:rgba(93,173,226,0.15);border:1px solid rgba(93,173,226,0.4);color:#dcefff;border-radius:8px;cursor:pointer;font-size:12px;font-weight:500">✏️ 开始答题练习</button>
     ${parentTopic ? `<div style="font-size:12px;color:#7f8c9a;margin:4px 0 10px">父节点：<a href="javascript:void(0)" onclick="selectNodeById('${parentTopic.id}')" style="color:#5dade2;text-decoration:none">${parentTopic.name}</a></div>` : ''}
     <div class="desc">${topic.description}</div>
     <div class="relation-summary">
@@ -1119,3 +1438,4 @@ document.head.appendChild(script);
 </script>
 </body>
 </html>
+
