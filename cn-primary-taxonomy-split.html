@@ -760,21 +760,22 @@ function applyFilters(options = {}) {
   renderGraph(topics, options.keepSelection !== false);
 }
 
+function quickSelect(grade, subject) {
+  currentGrades = new Set([grade]);
+  currentSubjects = new Set([subject]);
+  currentTextbooks = new Set(['全部']);
+  currentLayer = 'core';
+  buildControls();
+  applyFilters();
+  updateQuickStartActive();
+}
+
 function updateQuickStartActive() {
   const buttons = document.querySelectorAll('.quick-start-btn');
-  const pathPanel = document.getElementById('path-panel');
-  let pathGrade = null, pathSubject = null;
-  if (pathPanel) {
-    const match = pathPanel.textContent.match(/(\d+)年级\s*·\s*([^·]+)/);
-    if (match) {
-      pathGrade = match[1];
-      pathSubject = match[2].trim();
-    }
-  }
   buttons.forEach(btn => {
     const btnGrade = btn.dataset.grade;
     const btnSubject = btn.dataset.subject;
-    if (pathGrade && pathSubject && btnGrade === pathGrade && btnSubject === pathSubject) {
+    if (currentGrades.has(btnGrade) && currentSubjects.has(btnSubject)) {
       btn.classList.add('active');
     } else {
       btn.classList.remove('active');
