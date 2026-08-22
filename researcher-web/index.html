@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>知识图谱 · 教研员版 | CN-Primary-Taxonomy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="教研员专用知识图谱系统，支持教学路径分析、跨版本对比、知识图谱标注、教研活动组织。">
+<meta property="og:title" content="知识图谱 · 教研员版">
+<meta property="og:description" content="教研员专用，支持知识图谱分析、路径推演、教研共创">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../shared/css/common.css">
+<link rel="stylesheet" href="../shared/css/tokens.css">
+<link rel="stylesheet" href="css/researcher.css">
+</head>
+<body class="cnpt-role-researcher">
+<a href="#main-content" class="cnpt-skip-link" style="position:absolute;top:-100%;left:16px;z-index:99999;padding:10px 20px;background:#5dade2;color:#fff;font-size:13px;font-weight:600;text-decoration:none;border-radius:0 0 8px 8px;transition:top 0.2s;" onfocus="this.style.top='0'" onblur="this.style.top='-100%'">跳到主内容</a>
+
+<!-- 加载指示器 -->
+<div id="cnpt-loading" class="cnpt-loading-screen">
+  <div class="cnpt-loading-spinner"></div>
+  <div class="cnpt-loading-text">加载知识图谱数据...</div>
+  <div class="cnpt-loading-progress"></div>
+</div>
+
+<div id="main-content" class="cnpt-app-layout" tabindex="-1">
+
+  <!-- 顶部导航 -->
+  <header class="cnpt-top-bar" aria-label="顶部导航">
+    <div class="cnpt-top-bar-left">
+      <h1 class="cnpt-logo">🔬 知识图谱 · 教研员版</h1>
+      <span class="cnpt-top-info" id="top-info"></span>
+    </div>
+    <nav class="cnpt-nav-items" aria-label="主导航">
+      <button class="cnpt-nav-btn active" data-view="structure">🧬 图谱结构</button>
+      <button class="cnpt-nav-btn" data-view="paths">🛤️ 路径分析</button>
+      <button class="cnpt-nav-btn" data-view="compare">⚖️ 版本对比</button>
+      <button class="cnpt-nav-btn" data-view="annotate">📝 图谱标注</button>
+      <button class="cnpt-nav-btn" data-view="report">📊 分析报告</button>
+    </nav>
+  </header>
+
+  <!-- 主内容区 -->
+  <main class="cnpt-main-content">
+
+    <!-- 图谱结构分析 -->
+    <section id="view-structure" class="cnpt-view active">
+      <h2>知识图谱结构分析</h2>
+      <div class="cnpt-dashboard-grid">
+        <div class="cnpt-card">
+          <div class="cnpt-card-value" id="stat-node-count">0</div>
+          <div class="cnpt-card-label">节点总数</div>
+        </div>
+        <div class="cnpt-card">
+          <div class="cnpt-card-value" id="stat-edge-count">0</div>
+          <div class="cnpt-card-label">依赖边数</div>
+        </div>
+        <div class="cnpt-card">
+          <div class="cnpt-card-value" id="stat-avg-degree">0</div>
+          <div class="cnpt-card-label">平均连接度</div>
+        </div>
+        <div class="cnpt-card">
+          <div class="cnpt-card-value" id="stat-max-depth">0</div>
+          <div class="cnpt-card-label">最大依赖深度</div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:24px">🔝 高度连接节点 TOP20（教学核心节点）</h3>
+      <p class="cnpt-text-muted">连接度 = 前置依赖 + 后续知识点，连接度越高说明该知识点越核心</p>
+      <div class="cnpt-table-wrapper">
+        <table class="cnpt-table" id="hub-table">
+          <thead><tr><th>排名</th><th>知识点</th><th>学科</th><th>年级</th><th>连接度</th><th>前置</th><th>后续</th></tr></thead>
+          <tbody id="hub-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 路径分析 -->
+    <section id="view-paths" class="cnpt-view">
+      <h2>学习路径分析</h2>
+      <div class="cnpt-form-inline">
+        <div class="cnpt-form-group">
+          <label for="path-search-input">搜索目标知识点：</label>
+          <input type="text" id="path-search-input" class="cnpt-input" placeholder="输入知识点名称...">
+          <div class="cnpt-search-results" id="path-search-results"></div>
+        </div>
+      </div>
+      <div id="path-analysis-result" style="margin-top:20px"></div>
+    </section>
+
+    <!-- 版本对比 -->
+    <section id="view-compare" class="cnpt-view">
+      <h2>教材版本对比</h2>
+      <p class="cnpt-text-muted">对比不同教材版本的知识点编排差异（当前基于textbook字段）</p>
+      <div id="textbook-compare-result"></div>
+    </section>
+
+    <!-- 图谱标注 -->
+    <section id="view-annotate" class="cnpt-view">
+      <h2>知识图谱标注</h2>
+      <p class="cnpt-text-muted">为知识点添加教学建议、重难点标注、易错点提醒等教研批注</p>
+      <div class="cnpt-form-inline" style="margin-bottom:16px">
+        <div class="cnpt-form-group">
+          <label for="annotate-search-input">搜索知识点：</label>
+          <input type="text" id="annotate-search-input" class="cnpt-input" placeholder="输入知识点名称...">
+          <div class="cnpt-search-results" id="annotate-search-results"></div>
+        </div>
+      </div>
+      <div id="annotation-panel"></div>
+    </section>
+
+    <!-- 分析报告 -->
+    <section id="view-report" class="cnpt-view">
+      <h2>教研分析报告</h2>
+      <div class="cnpt-toolbar">
+        <button class="cnpt-btn cnpt-btn-primary" id="btn-generate-analysis">📊 生成图谱分析报告</button>
+      </div>
+      <div id="analysis-report-result" style="margin-top:16px"></div>
+    </section>
+
+  </main>
+
+</div><!-- #main-content -->
+
+<!-- 脚本加载 -->
+<script src="../shared/js/core/constants.js"></script>
+<script src="../shared/js/core/utils.js"></script>
+<script src="../shared/js/core/data-loader.js"></script>
+<script src="../shared/js/core/indices.js"></script>
+<script src="../shared/js/core/search.js"></script>
+<script src="../shared/js/core/path.js"></script>
+<script src="../shared/js/core/storage.js"></script>
+<script src="../shared/js/core/multi-user-storage.js"></script>
+<script src="../shared/js/components/show-load-error.js"></script>
+<script src="../shared/js/components/mascot-effects.js"></script>
+<script src="../shared/js/components/topic-tags.js"></script>
+<script src="../shared/js/components/mastery-row.js"></script>
+<script src="../shared/js/components/diagnostic-engine.js"></script>
+<script src="../shared/js/components/report-generator.js"></script>
+<script src="../shared/js/graph/pc-graph.js"></script>
+<script src="js/researcher.js"></script>
+</body>
+</html>

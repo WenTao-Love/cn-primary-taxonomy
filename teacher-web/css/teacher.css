@@ -601,8 +601,6 @@
 
 .cnpt-select:focus { border-color: var(--cnpt-primary); }
 
-.cnpt-hidden { display: none !important; }
-
 /* ========== 响应式 ========== */
 @media (max-width: 1024px) {
   .cnpt-dashboard-grid { grid-template-columns: repeat(2, 1fr); }

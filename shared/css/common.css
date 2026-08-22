@@ -272,3 +272,38 @@
 /* 小屏: < 640px */
 /* 中屏: 640 - 1024px */
 /* 大屏: > 1024px */
+
+/* ========== 可访问性 ========== */
+
+/* 跳转到主内容链接（仅键盘用户可见） */
+.cnpt-skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: calc(var(--cnpt-z-modal, 9999) + 1);
+  padding: 10px 20px;
+  background: var(--cnpt-info, #5dade2);
+  color: #fff;
+  font-size: var(--cnpt-font-sm, 13px);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 var(--cnpt-radius-md, 8px) var(--cnpt-radius-md, 8px);
+  transition: top 0.2s ease;
+}
+
+.cnpt-skip-link:focus {
+  top: 0;
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+/* 键盘聚焦可见样式 */
+*:focus-visible {
+  outline: 2px solid var(--cnpt-info, #5dade2);
+  outline-offset: 2px;
+}
+
+/* 鼠标点击聚焦不显示轮廓 */
+*:focus:not(:focus-visible) {
+  outline: none;
+}

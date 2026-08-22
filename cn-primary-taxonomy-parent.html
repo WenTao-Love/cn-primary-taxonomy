@@ -9,8 +9,12 @@ window.__CNPT_EMBEDDED = {
 </script>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>知识图谱 · 家长辅导版 | CN-Primary-Taxonomy</title>
+<meta name="description" content="家长辅导专用知识图谱，4275个知识点覆盖11学科，支持学习路径推荐、掌握度跟踪、教练式引导。">
+<meta property="og:title" content="知识图谱 · 家长辅导版">
+<meta property="og:description" content="家长辅导专用知识图谱，覆盖11学科4275个知识点">
+<meta property="og:type" content="website">
 <!-- 共享设计令牌 -->
 <link rel="stylesheet" href="shared/css/tokens.css">
 <!-- 共享通用样式 -->
@@ -19,13 +23,15 @@ window.__CNPT_EMBEDDED = {
 <link rel="stylesheet" href="parent-web/css/parent.css">
 </head>
 <body class="cnpt-role-parent">
+<a href="#main-content" class="cnpt-skip-link" style="position:absolute;top:-100%;left:16px;z-index:99999;padding:10px 20px;background:#5dade2;color:#fff;font-size:13px;font-weight:600;text-decoration:none;border-radius:0 0 8px 8px;transition:top 0.2s;" onfocus="this.style.top='0'" onblur="this.style.top='-100%'">跳到主内容</a>
+<h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">知识图谱 · 家长辅导版</h1>
 <!-- 加载指示器 -->
 <div id="cnpt-loading" class="cnpt-loading-screen">
   <div class="cnpt-loading-spinner"></div>
   <div class="cnpt-loading-text">知识图谱加载中...</div>
   <div class="cnpt-loading-progress"></div>
 </div>
-<div id="app" class="cnpt-app-layout">
+<div id="main-content" class="cnpt-app-layout" tabindex="-1">
   <!-- 左侧：图谱区 -->
   <div id="graph-panel" class="cnpt-graph-panel">
     <button id="sidebar-toggle" class="cnpt-sidebar-toggle" title="折叠面板" aria-expanded="true">→</button>
@@ -170,9 +176,17 @@ window.__CNPT_EMBEDDED = {
 <script src="shared/js/core/search.js"></script>
 <script src="shared/js/core/path.js"></script>
 <script src="shared/js/core/storage.js"></script>
-<!-- 2. 共享图谱渲染 -->
+<script src="shared/js/core/multi-user-storage.js"></script>
+<!-- 2. 共享组件模块 -->
+<script src="shared/js/components/show-load-error.js"></script>
+<script src="shared/js/components/mascot-effects.js"></script>
+<script src="shared/js/components/topic-tags.js"></script>
+<script src="shared/js/components/mastery-row.js"></script>
+<script src="shared/js/components/diagnostic-engine.js"></script>
+<script src="shared/js/components/report-generator.js"></script>
+<!-- 3. 共享图谱渲染 -->
 <script src="shared/js/graph/pc-graph.js"></script>
-<!-- 3. 家长版专属逻辑 -->
+<!-- 4. 家长版专属逻辑 -->
 <script src="parent-web/js/parent.js"></script>
 </body>
 </html>

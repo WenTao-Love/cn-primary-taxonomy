@@ -44,6 +44,8 @@
     DOM.modeSwitch = document.getElementById('mode-switch');
   }
 
+  // showLoadError 已移至共享组件 CNPT.components.showLoadError
+
   async function init() {
     cacheDom();
     state.storage = CNPT.storage.create('student');
@@ -53,7 +55,8 @@
     try {
       state.fullData = await CNPT.dataLoader.loadAllData();
     } catch (err) {
-      CNPT.utils.showToast('数据加载失败');
+      console.error('数据加载失败:', err);
+      CNPT.components.showLoadError('加载失败啦，点击按钮再试一次吧', { role: 'student' });
       return;
     }
 
@@ -61,7 +64,7 @@
     updateStats();
     renderSubjectGrid();
     initEvents();
-    showMascotTip('你好呀！👋 选择一个学科开始吧~');
+    CNPT.components.showMascotTip('你好呀！👋 选择一个学科开始吧~');
 
     // 隐藏加载指示器
     CNPT.utils.hideLoadingScreen();
@@ -288,7 +291,7 @@
         setTimeout(() => {
           if (correct) {
             opt.classList.add('correct');
-            showEncourage(['⭐ 太棒了！', '🌟 你真聪明！', '✨ 继续加油！'][Math.floor(Math.random() * 3)]);
+            CNPT.components.showEncourage(['⭐ 太棒了！', '🌟 你真聪明！', '✨ 继续加油！'][Math.floor(Math.random() * 3)]);
             addStar();
             setTimeout(() => showPracticeQuestion(questions, idx + 1, topic), 800);
           } else {
@@ -320,30 +323,10 @@
   function addStar() {
     state.stars = state.storage.addStar();
     updateStats();
-    showStarBurst();
+    CNPT.components.showStarBurst();
   }
 
-  function showStarBurst() {
-    const el = document.createElement('div');
-    el.className = 'cnpt-star-burst';
-    el.textContent = '⭐';
-    document.body.appendChild(el);
-    setTimeout(() => el.remove(), 800);
-  }
-
-  function showEncourage(text) {
-    DOM.encourageBar.textContent = text;
-    DOM.encourageBar.classList.add('show');
-    clearTimeout(DOM.encourageBar._timer);
-    DOM.encourageBar._timer = setTimeout(() => DOM.encourageBar.classList.remove('show'), 3000);
-  }
-
-  function showMascotTip(text) {
-    DOM.mascotBubble.textContent = text;
-    DOM.mascotBubble.classList.add('show');
-    clearTimeout(DOM.mascotBubble._timer);
-    DOM.mascotBubble._timer = setTimeout(() => DOM.mascotBubble.classList.remove('show'), 4000);
-  }
+    // showStarBurst/showMascotTip/showEncourage 已移至共享组件 CNPT.components
 
   function initEvents() {
     DOM.detailClose.addEventListener('click', () => DOM.detailCard.classList.add('cnpt-hidden'));
@@ -366,7 +349,7 @@
         "你已经很棒了！休息一下也没关系~",
         "学知识就像爬楼梯，一步一步来"
       ];
-      showMascotTip(tips[Math.floor(Math.random() * tips.length)]);
+      CNPT.components.showMascotTip(tips[Math.floor(Math.random() * tips.length)]);
     });
     DOM.modeSwitch.addEventListener('click', () => {
       window.location.href = '../parent-web/index.html';

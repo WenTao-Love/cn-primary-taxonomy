@@ -86,7 +86,7 @@
       }, 4000);
     } catch (err) {
       console.error('加载数据失败:', err);
-      CNPT.utils.showToast('数据加载失败，请刷新重试');
+      CNPT.components.showLoadError('加载失败啦', { icon: '😢' });
     }
 
     window.addEventListener('resize', onResize);
@@ -142,9 +142,25 @@
     ).map(d => ({ source: d.prerequisiteId, target: d.topicId, strength: d.strength, reason: d.reason }));
 
     updateFilterCount(filtered.length);
+    updateGraphStatus();
+
+    // 空结果引导提示
+    const graphHint = document.getElementById('graph-hint');
+    if (filtered.length === 0 && graphHint) {
+      graphHint.innerHTML = '<span>🔍 当前筛选条件下没有匹配的知识点</span><br><span style="font-size:12px;color:#999">请尝试调整筛选条件，如选择其他年级、学科或教材版本</span>';
+      graphHint.classList.remove('hint-hidden');
+    } else if (graphHint && filtered.length > 0) {
+      graphHint.innerHTML = '<span>💡 拖拽/双指缩放可平移和缩放图谱</span>';
+    }
+
+    // 节点截断提示
+    if (filtered.length > limit && graphHint) {
+      graphHint.innerHTML = `<span>⚠️ 当前筛选结果共 ${filtered.length} 个节点，为保证性能仅显示前 ${limit} 个</span><br><span style="font-size:12px;color:#999">建议缩小筛选范围以获得更好的浏览体验</span>`;
+      graphHint.classList.remove('hint-hidden');
+    }
+
     initSimulation();
     renderGraph();
-    updateGraphStatus();
   }
 
   function updateGraphStatus() {
@@ -535,17 +551,17 @@
 
       ${hardPrereqs.length ? `
         <h3>🔴 必须先补</h3>
-        ${hardPrereqs.map(i => `<div class="bs-chain-item hard" onclick="window._h5SelectNode('${i.topic.id}')"><span class="chain-arrow">🔴</span><b>${CNPT.utils.escapeHtml(i.topic.name)}</b><br><span style="color:#999;font-size:11px">${CNPT.utils.escapeHtml(i.edge.reason || '')}</span></div>`).join('')}
+        ${hardPrereqs.map(i => `<div class="bs-chain-item hard" data-action="select-node" data-id="${i.topic.id}"><span class="chain-arrow">🔴</span><b>${CNPT.utils.escapeHtml(i.topic.name)}</b><br><span style="color:#999;font-size:11px">${CNPT.utils.escapeHtml(i.edge.reason || '')}</span></div>`).join('')}
       ` : ''}
 
       ${softPrereqs.length ? `
         <h3>🟡 建议先补</h3>
-        ${softPrereqs.map(i => `<div class="bs-chain-item soft" onclick="window._h5SelectNode('${i.topic.id}')"><span class="chain-arrow">🟡</span><b>${CNPT.utils.escapeHtml(i.topic.name)}</b><br><span style="color:#999;font-size:11px">${CNPT.utils.escapeHtml(i.edge.reason || '')}</span></div>`).join('')}
+        ${softPrereqs.map(i => `<div class="bs-chain-item soft" data-action="select-node" data-id="${i.topic.id}"><span class="chain-arrow">🟡</span><b>${CNPT.utils.escapeHtml(i.topic.name)}</b><br><span style="color:#999;font-size:11px">${CNPT.utils.escapeHtml(i.edge.reason || '')}</span></div>`).join('')}
       ` : ''}
 
       <div class="bs-actions">
-        <button class="bs-action-btn primary" onclick="window._h5StartPractice('${topic.id}')">📝 练习题</button>
-        <button class="bs-action-btn secondary" onclick="window._h5ViewPath('${topic.id}')">🛤️ 学习路径</button>
+        <button class="bs-action-btn primary" data-action="start-practice" data-id="${topic.id}">📝 练习题</button>
+        <button class="bs-action-btn secondary" data-action="view-path" data-id="${topic.id}">🛤️ 学习路径</button>
       </div>
     `;
 
@@ -557,6 +573,18 @@
         showNodeDetail(nodeId);
         renderGraph();
       });
+    });
+
+    // Setup data-action click handlers (替代 inline onclick，防止XSS)
+    sheetContent.querySelectorAll('[data-action="select-node"]').forEach(el => {
+      el.style.cursor = 'pointer';
+      el.addEventListener('click', () => window._h5SelectNode(el.dataset.id));
+    });
+    sheetContent.querySelectorAll('[data-action="start-practice"]').forEach(el => {
+      el.addEventListener('click', () => window._h5StartPractice(el.dataset.id));
+    });
+    sheetContent.querySelectorAll('[data-action="view-path"]').forEach(el => {
+      el.addEventListener('click', () => window._h5ViewPath(el.dataset.id));
     });
 
     sheet.classList.add('bs-open');
@@ -653,12 +681,12 @@
           <div class="pr-sub">已完成 ${questions.length} 道题目</div>
         </div>
       `;
-      if (kidMode) showStarBurst();
+      if (kidMode) CNPT.components.showStarBurst();
       return;
     }
 
     const q = questions[idx];
-    let html = `<div class="practice-question">${idx + 1}. ${q.question}</div>`;
+    let html = `<div class="practice-question">${idx + 1}. ${CNPT.utils.escapeHtml(q.question)}</div>`;
 
     if (q.type === 'choice') {
       html += '<div class="practice-options">';
@@ -691,7 +719,7 @@
           if (correct) {
             opt.classList.add('po-correct');
             CNPT.utils.showToast(kidMode ? '🎉 太棒了！' : '✅ 正确！');
-            if (kidMode) showStarBurst();
+            if (kidMode) CNPT.components.showStarBurst();
             storage.addStar();
             setTimeout(() => showQuestion(container, questions, idx + 1, topic), 800);
           } else {
@@ -716,7 +744,7 @@
 
         if (match || val.length > 2) {
           CNPT.utils.showToast(kidMode ? '🎉 答对啦！' : '✅ 回答正确！');
-          if (kidMode) showStarBurst();
+          if (kidMode) CNPT.components.showStarBurst();
           storage.addStar();
           setTimeout(() => showQuestion(container, questions, idx + 1, topic), 800);
         } else {
@@ -758,7 +786,7 @@
       const status = masteryData[t.id];
       const icon = status === 'mastered' ? '✅' : status === 'learning' ? '📖' : '⏳';
       return `
-        <div class="lp-item" onclick="window._h5FocusNode('${t.id}')">
+        <div class="lp-item" data-action="focus-node" data-id="${t.id}">
           <div class="lp-num">${i + 1}</div>
           <div class="lp-info">
             <div class="lp-name">${CNPT.utils.escapeHtml(t.name)}</div>
@@ -768,6 +796,10 @@
         </div>
       `;
     }).join('');
+    container.querySelectorAll('[data-action="focus-node"]').forEach(el => {
+      el.style.cursor = 'pointer';
+      el.addEventListener('click', () => window._h5FocusNode(el.dataset.id));
+    });
   }
 
   function updateLearningPath() {
@@ -794,7 +826,7 @@
       const status = masteryData[t.id];
       const icon = status === 'mastered' ? '✅' : status === 'learning' ? '📖' : '⏳';
       return `
-        <div class="lp-item" onclick="window._h5FocusNode('${t.id}')">
+        <div class="lp-item" data-action="focus-node" data-id="${t.id}">
           <div class="lp-num">${i + 1}</div>
           <div class="lp-info">
             <div class="lp-name">${CNPT.utils.escapeHtml(t.name)}</div>
@@ -804,6 +836,10 @@
         </div>
       `;
     }).join('');
+    container.querySelectorAll('[data-action="focus-node"]').forEach(el => {
+      el.style.cursor = 'pointer';
+      el.addEventListener('click', () => window._h5FocusNode(el.dataset.id));
+    });
   }
 
   // ==================== Wrong Book ====================
@@ -819,12 +855,16 @@
     }
 
     container.innerHTML = wrongBook.slice(0, 20).map(w => `
-      <div class="wb-item" onclick="window._h5FocusNode('${w.topicId}')">
+      <div class="wb-item" data-action="focus-node" data-id="${w.topicId}">
         <div class="wb-q">📝 ${CNPT.utils.escapeHtml(w.question)}</div>
         <div class="wb-a">❌ ${CNPT.utils.escapeHtml(w.userAnswer)} → ✅ ${CNPT.utils.escapeHtml(w.correctAnswer)}</div>
         <div class="wb-topic">${CNPT.utils.escapeHtml(w.topicName)}</div>
       </div>
     `).join('');
+    container.querySelectorAll('[data-action="focus-node"]').forEach(el => {
+      el.style.cursor = 'pointer';
+      el.addEventListener('click', () => window._h5FocusNode(el.dataset.id));
+    });
   }
 
   // ==================== Search (使用CNPT.search) ====================
@@ -846,7 +886,7 @@
       const searchResults = CNPT.search.search(q, { limit: 30 });
 
       results.innerHTML = searchResults.map(({ topic }) => `
-        <div class="sr-item" onclick="window._h5FocusNode('${topic.id}'); document.getElementById('search-cancel').click();">
+        <div class="sr-item" data-action="focus-node-and-close" data-id="${topic.id}">
           <div class="sr-dot" style="background:${CNPT.constants.COLORS[topic.subject] || '#888'}"></div>
           <div class="sr-info">
             <div class="sr-name">${CNPT.utils.escapeHtml(topic.name)}</div>
@@ -854,6 +894,13 @@
           </div>
         </div>
       `).join('');
+      results.querySelectorAll('[data-action="focus-node-and-close"]').forEach(el => {
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', () => {
+          window._h5FocusNode(el.dataset.id);
+          document.getElementById('search-cancel')?.click();
+        });
+      });
     });
 
     clear?.addEventListener('click', () => {
@@ -962,11 +1009,15 @@
     container.innerHTML = subjects.map(s => {
       const color = CNPT.constants.COLORS[s] || '#888';
       return `
-      <div class="sqg-item" onclick="window._h5SelectSubject('${s}')" style="border-left:3px solid ${color}">
+      <div class="sqg-item" data-action="select-subject" data-value="${s}" style="border-left:3px solid ${color}">
         <div class="sqg-dot" style="background:${color}"></div>
         <span>${s}</span>
       </div>
     `}).join('');
+    container.querySelectorAll('[data-action="select-subject"]').forEach(el => {
+      el.style.cursor = 'pointer';
+      el.addEventListener('click', () => window._h5SelectSubject(el.dataset.value));
+    });
   }
 
   // ==================== Top Navigation ====================
@@ -1178,18 +1229,19 @@
       <div class="ar-card"><strong>补到什么程度算有起色：</strong>${CNPT.utils.escapeHtml(evidence)}</div>
       ${mistake ? `<div class="ar-card"><strong>注意:</strong>${CNPT.utils.escapeHtml(mistake)}</div>` : ''}
       <div style="margin-top:8px"><strong>建议学习顺序：</strong></div>
-      ${path.map((t, i) => `<a class="ar-path" href="javascript:void(0)" onclick="window._h5FocusNode('${t.id}'); document.getElementById('assistant-close').click();">${i+1}. ${CNPT.utils.escapeHtml(t.name)} · ${t.subject} · ${t.grade}年级</a>`).join('')}
+      ${path.map((t, i) => `<a class="ar-path" href="javascript:void(0)" data-action="focus-node-and-close" data-id="${t.id}">${i+1}. ${CNPT.utils.escapeHtml(t.name)} · ${t.subject} · ${t.grade}年级</a>`).join('')}
     `;
+    // Setup path click handlers
+    resultContainer.querySelectorAll('[data-action="focus-node-and-close"]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        window._h5FocusNode(el.dataset.id);
+        document.getElementById('assistant-close')?.click();
+      });
+    });
   }
 
-  // ==================== Utilities ====================
-  function showStarBurst() {
-    const el = document.createElement('div');
-    el.className = 'star-burst';
-    el.textContent = '⭐';
-    document.body.appendChild(el);
-    setTimeout(() => el.remove(), 800);
-  }
+  // showStarBurst 已移至共享组件 CNPT.components.showStarBurst
 
   // ==================== Global Exports (for inline handlers) ====================
   window._h5SelectNode = function(id) { showNodeDetail(id); };

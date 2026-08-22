@@ -1,0 +1,404 @@
+/* 班主任版主题 - 橙色暖调 */
+:root {
+  --cnpt-primary: #e67e22;
+  --cnpt-primary-light: #f39c12;
+  --cnpt-primary-dark: #d35400;
+  --cnpt-gradient: linear-gradient(135deg, #e67e22 0%, #f39c12 100%);
+  --cnpt-bg: #fef9f3;
+  --cnpt-card-shadow: 0 2px 8px rgba(230, 126, 34, 0.1);
+}
+
+body[data-role="headteacher"] {
+  background: var(--cnpt-bg);
+}
+
+.cnpt-header {
+  background: var(--cnpt-gradient);
+}
+
+.cnpt-nav-btn.active {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* 仪表盘卡片 */
+.cnpt-dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.cnpt-dashboard-card {
+  text-align: center;
+  padding: 20px;
+}
+
+.cnpt-dashboard-card h3 {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+/* 掌握度圆环 */
+.cnpt-mastery-ring {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: conic-gradient(var(--cnpt-primary) 0%, #eee 0%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+.cnpt-mastery-ring::before {
+  content: '';
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+}
+
+.cnpt-mastery-value {
+  position: relative;
+  z-index: 1;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--cnpt-primary-dark);
+}
+
+.cnpt-mastery-label {
+  position: relative;
+  z-index: 1;
+  font-size: 12px;
+  color: #999;
+}
+
+.cnpt-stat-value {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--cnpt-primary);
+}
+
+.cnpt-stat-label {
+  font-size: 14px;
+  color: #999;
+}
+
+/* 雷达图容器 */
+.cnpt-radar-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  min-height: 300px;
+}
+
+/* 热力图表格 */
+.cnpt-table-wrapper {
+  overflow-x: auto;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.cnpt-heatmap-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.cnpt-heatmap-table th,
+.cnpt-heatmap-table td {
+  border: 1px solid #eee;
+  padding: 4px 8px;
+  text-align: center;
+  min-width: 60px;
+}
+
+.cnpt-heatmap-table th {
+  background: #f8f8f8;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.cnpt-heatmap-table td:first-child {
+  position: sticky;
+  left: 0;
+  background: #fff;
+  font-weight: bold;
+  text-align: left;
+  z-index: 2;
+}
+
+/* 热力图颜色 */
+.heat-high { background: #27ae60; color: #fff; }
+.heat-medium { background: #f1c40f; color: #333; }
+.heat-low { background: #e74c3c; color: #fff; }
+.heat-none { background: #ecf0f1; }
+
+/* 学生卡片网格 */
+.cnpt-student-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.cnpt-student-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: var(--cnpt-card-shadow);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-left: 4px solid var(--cnpt-primary);
+}
+
+.cnpt-student-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(230, 126, 34, 0.2);
+}
+
+.cnpt-student-card.warning {
+  border-left-color: #e74c3c;
+}
+
+.cnpt-student-card.excellent {
+  border-left-color: #27ae60;
+}
+
+.cnpt-student-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.cnpt-student-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #666;
+}
+
+.cnpt-student-bar {
+  height: 6px;
+  background: #eee;
+  border-radius: 3px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.cnpt-student-bar-fill {
+  height: 100%;
+  background: var(--cnpt-gradient);
+  border-radius: 3px;
+  transition: width 0.5s;
+}
+
+/* 工具栏 */
+.cnpt-toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.cnpt-toolbar input,
+.cnpt-toolbar select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+}
+
+.cnpt-toolbar input {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* 预警列表 */
+.cnpt-warning-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cnpt-warning-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: var(--cnpt-card-shadow);
+}
+
+.cnpt-warning-item.high {
+  border-left: 4px solid #e74c3c;
+}
+
+.cnpt-warning-item.medium {
+  border-left: 4px solid #f39c12;
+}
+
+.cnpt-warning-item.low {
+  border-left: 4px solid #3498db;
+}
+
+.cnpt-warning-icon {
+  font-size: 24px;
+}
+
+.cnpt-warning-info {
+  flex: 1;
+}
+
+.cnpt-warning-student {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.cnpt-warning-detail {
+  font-size: 13px;
+  color: #666;
+}
+
+.cnpt-warning-rules {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.cnpt-warning-rules label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.cnpt-warning-rules input {
+  width: 60px;
+  padding: 4px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* 评语生成器 */
+.cnpt-comment-generator {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cnpt-comment-generator select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.cnpt-comment-preview {
+  min-height: 120px;
+  padding: 16px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background: #fafafa;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+/* 提纲容器 */
+.cnpt-outline-container {
+  min-height: 150px;
+  padding: 16px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background: #fafafa;
+  line-height: 2;
+}
+
+/* 报告卡片 */
+.cnpt-report-types {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.cnpt-report-card {
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+  padding: 24px;
+}
+
+.cnpt-report-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(230, 126, 34, 0.2);
+}
+
+.cnpt-report-card h3 {
+  color: var(--cnpt-primary);
+  margin-bottom: 8px;
+}
+
+.cnpt-report-card p {
+  font-size: 13px;
+  color: #666;
+}
+
+.cnpt-report-output {
+  margin-top: 24px;
+  padding: 24px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: var(--cnpt-card-shadow);
+  line-height: 1.8;
+}
+
+/* 弹窗样式 */
+.cnpt-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.cnpt-modal-content {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 700px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.cnpt-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .cnpt-dashboard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cnpt-student-grid {
+    grid-template-columns: 1fr;
+  }
+}

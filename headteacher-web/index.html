@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="知识点图谱班主任版 - 班级学情全景、学生画像、家校沟通、学业预警、升学推荐">
+  <meta property="og:title" content="知识点图谱 · 班主任版">
+  <meta property="og:description" content="班主任专用：班级学情仪表盘、学生画像卡片、家校沟通模板、学业预警系统">
+  <meta property="og:type" content="website">
+  <title>知识点图谱 · 班主任版</title>
+  <link rel="stylesheet" href="../shared/css/tokens.css">
+  <link rel="stylesheet" href="../shared/css/common.css">
+  <link rel="stylesheet" href="css/headteacher.css">
+</head>
+<body data-role="headteacher">
+  <a href="#main-content" class="cnpt-skip-link">跳转到主要内容</a>
+
+  <header class="cnpt-header">
+    <div class="cnpt-header-inner">
+      <h1 class="cnpt-logo">📚 班主任工作台</h1>
+      <nav class="cnpt-nav">
+        <button class="cnpt-nav-btn active" data-view="dashboard">班级概览</button>
+        <button class="cnpt-nav-btn" data-view="students">学生管理</button>
+        <button class="cnpt-nav-btn" data-view="warnings">学业预警</button>
+        <button class="cnpt-nav-btn" data-view="communication">家校沟通</button>
+        <button class="cnpt-nav-btn" data-view="reports">报告中心</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="cnpt-main">
+    <!-- 加载状态 -->
+    <div id="cnpt-loading" class="cnpt-loading">
+      <div class="cnpt-loading-spinner"></div>
+      <div class="cnpt-loading-text">正在加载知识图谱数据...</div>
+    </div>
+
+    <!-- 班级概览视图 -->
+    <section id="view-dashboard" class="cnpt-view active">
+      <div class="cnpt-dashboard">
+        <div class="cnpt-card cnpt-dashboard-card">
+          <h3>班级整体掌握度</h3>
+          <div id="class-mastery-ring" class="cnpt-mastery-ring">
+            <span class="cnpt-mastery-value">--</span>
+            <span class="cnpt-mastery-label">%</span>
+          </div>
+        </div>
+        <div class="cnpt-card cnpt-dashboard-card">
+          <h3>本月预警学生</h3>
+          <div id="warning-count" class="cnpt-stat-value">0</div>
+          <span class="cnpt-stat-label">人</span>
+        </div>
+        <div class="cnpt-card cnpt-dashboard-card">
+          <h3>学科均衡度</h3>
+          <div id="balance-score" class="cnpt-stat-value">--</div>
+          <span class="cnpt-stat-label">/100</span>
+        </div>
+        <div class="cnpt-card cnpt-dashboard-card">
+          <h3>班级排名</h3>
+          <div id="class-rank" class="cnpt-stat-value">--</div>
+          <span class="cnpt-stat-label">/10班</span>
+        </div>
+      </div>
+
+      <div class="cnpt-card">
+        <h3>各学科掌握度雷达</h3>
+        <div id="subject-radar" class="cnpt-radar-container"></div>
+      </div>
+
+      <div class="cnpt-card">
+        <h3>班级掌握度热力图（学生 × 知识点）</h3>
+        <div class="cnpt-table-wrapper">
+          <table id="mastery-heatmap" class="cnpt-heatmap-table"></table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 学生管理视图 -->
+    <section id="view-students" class="cnpt-view">
+      <div class="cnpt-toolbar">
+        <input type="text" id="student-search" placeholder="搜索学生姓名..." aria-label="搜索学生">
+        <select id="student-filter" aria-label="筛选学科">
+          <option value="">全部学科</option>
+        </select>
+        <select id="student-sort" aria-label="排序方式">
+          <option value="name">按姓名</option>
+          <option value="mastery">按掌握度</option>
+          <option value="warning">按预警等级</option>
+        </select>
+      </div>
+      <div id="student-grid" class="cnpt-student-grid"></div>
+    </section>
+
+    <!-- 学业预警视图 -->
+    <section id="view-warnings" class="cnpt-view">
+      <div class="cnpt-card">
+        <h3>预警规则设置</h3>
+        <div class="cnpt-warning-rules">
+          <label>掌握度骤降阈值：<input type="number" id="threshold-drop" value="15" min="5" max="50" aria-label="掌握度骤降阈值">%</label>
+          <label>前置知识缺失数：<input type="number" id="threshold-prereq" value="3" min="1" max="10" aria-label="前置知识缺失数">个</label>
+          <label>连续未掌握天数：<input type="number" id="threshold-days" value="7" min="1" max="30" aria-label="连续未掌握天数">天</label>
+        </div>
+      </div>
+      <div id="warning-list" class="cnpt-warning-list"></div>
+    </section>
+
+    <!-- 家校沟通视图 -->
+    <section id="view-communication" class="cnpt-view">
+      <div class="cnpt-card">
+        <h3>学生评语生成器</h3>
+        <div class="cnpt-comment-generator">
+          <select id="comment-student" aria-label="选择学生"></select>
+          <select id="comment-period" aria-label="选择周期">
+            <option value="weekly">本周</option>
+            <option value="monthly">本月</option>
+            <option value="semester">本学期</option>
+          </select>
+          <div id="comment-preview" class="cnpt-comment-preview"></div>
+          <button id="btn-generate-comment" class="cnpt-btn cnpt-btn-primary">生成评语</button>
+          <button id="btn-copy-comment" class="cnpt-btn">复制评语</button>
+        </div>
+      </div>
+
+      <div class="cnpt-card">
+        <h3>家长会发言提纲</h3>
+        <div id="meeting-outline" class="cnpt-outline-container"></div>
+        <button id="btn-generate-outline" class="cnpt-btn cnpt-btn-primary">生成提纲</button>
+      </div>
+    </section>
+
+    <!-- 报告中心视图 -->
+    <section id="view-reports" class="cnpt-view">
+      <div class="cnpt-report-types">
+        <div class="cnpt-card cnpt-report-card" data-report="class-summary">
+          <h3>班级学情总结</h3>
+          <p>生成班级整体学习情况报告</p>
+        </div>
+        <div class="cnpt-card cnpt-report-card" data-report="student-growth">
+          <h3>学生成长档案</h3>
+          <p>为每位学生生成个性化成长报告</p>
+        </div>
+        <div class="cnpt-card cnpt-report-card" data-report="teaching-suggestion">
+          <h3>教学改进建议</h3>
+          <p>基于数据分析的改进方案</p>
+        </div>
+        <div class="cnpt-card cnpt-report-card" data-report="entrance-recommend">
+          <h3>升学推荐建议</h3>
+          <p>基于知识图谱的升学方向建议</p>
+        </div>
+      </div>
+      <div id="report-output" class="cnpt-report-output cnpt-hidden"></div>
+    </section>
+  </main>
+
+  <!-- 学生详情弹窗 -->
+  <div id="student-modal" class="cnpt-modal cnpt-hidden">
+    <div class="cnpt-modal-content">
+      <button class="cnpt-modal-close" aria-label="关闭">&times;</button>
+      <div id="student-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- 脚本加载 -->
+  <script src="../shared/js/core/constants.js"></script>
+  <script src="../shared/js/core/data-loader.js"></script>
+  <script src="../shared/js/core/indices.js"></script>
+  <script src="../shared/js/core/search.js"></script>
+  <script src="../shared/js/core/path.js"></script>
+  <script src="../shared/js/core/storage.js"></script>
+  <script src="../shared/js/core/multi-user-storage.js"></script>
+  <script src="../shared/js/core/utils.js"></script>
+  <script src="../shared/js/components/show-load-error.js"></script>
+  <script src="../shared/js/components/mascot-effects.js"></script>
+  <script src="../shared/js/components/topic-tags.js"></script>
+  <script src="../shared/js/components/mastery-row.js"></script>
+  <script src="../shared/js/components/diagnostic-engine.js"></script>
+  <script src="../shared/js/components/report-generator.js"></script>
+  <script src="js/headteacher.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>知识图谱 · 教育管理版 | CN-Primary-Taxonomy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="教育管理者专用知识图谱系统，支持全校教学质量监控、教师教学对比、课标落实检查、学业预警。">
+<meta property="og:title" content="知识图谱 · 教育管理版">
+<meta property="og:description" content="教育管理者专用，支持教学质量监控、教师对比、课标检查">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../shared/css/common.css">
+<link rel="stylesheet" href="../shared/css/tokens.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="cnpt-role-admin">
+<a href="#main-content" class="cnpt-skip-link" style="position:absolute;top:-100%;left:16px;z-index:99999;padding:10px 20px;background:#5dade2;color:#fff;font-size:13px;font-weight:600;text-decoration:none;border-radius:0 0 8px 8px;transition:top 0.2s;" onfocus="this.style.top='0'" onblur="this.style.top='-100%'">跳到主内容</a>
+
+<!-- 加载指示器 -->
+<div id="cnpt-loading" class="cnpt-loading-screen">
+  <div class="cnpt-loading-spinner"></div>
+  <div class="cnpt-loading-text">加载知识图谱数据...</div>
+  <div class="cnpt-loading-progress"></div>
+</div>
+
+<div id="main-content" class="cnpt-app-layout" tabindex="-1">
+
+  <!-- 顶部导航 -->
+  <header class="cnpt-top-bar" aria-label="顶部导航">
+    <div class="cnpt-top-bar-left">
+      <h1 class="cnpt-logo">📊 知识图谱 · 教育管理版</h1>
+      <span class="cnpt-top-info" id="top-info"></span>
+    </div>
+    <nav class="cnpt-nav-items" aria-label="主导航">
+      <button class="cnpt-nav-btn active" data-view="overview">📈 全校概览</button>
+      <button class="cnpt-nav-btn" data-view="coverage">🗺️ 覆盖度分析</button>
+      <button class="cnpt-nav-btn" data-view="standards">📋 课标落实</button>
+      <button class="cnpt-nav-btn" data-view="quality">⚠️ 学业预警</button>
+      <button class="cnpt-nav-btn" data-view="settings">⚙️ 设置</button>
+    </nav>
+  </header>
+
+  <!-- 主内容区 -->
+  <main class="cnpt-main-content">
+
+    <!-- 全校概览 -->
+    <section id="view-overview" class="cnpt-view active">
+      <h2>全校教学概览</h2>
+      <div class="cnpt-dashboard-grid">
+        <div class="cnpt-card">
+          <div class="cnpt-card-value" id="stat-total-topics">0</div>
+          <div class="cnpt-card-label">知识点总数</div>
+        </div>
+        <div class="cnpt-card">
+          <div class="cnpt-card-value" id="stat-total-subjects">0</div>
+          <div class="cnpt-card-label">覆盖学科</div>
+        </div>
+        <div class="cnpt-card">
+          <div class="cnpt-card-value" id="stat-total-grades">0</div>
+          <div class="cnpt-card-label">覆盖年级</div>
+        </div>
+        <div class="cnpt-card">
+          <div class="cnpt-card-value" id="stat-total-deps">0</div>
+          <div class="cnpt-card-label">依赖关系</div>
+        </div>
+      </div>
+
+      <!-- 年级分布 -->
+      <h3 style="margin-top:24px">📊 各年级知识点分布</h3>
+      <div id="grade-distribution" class="cnpt-bar-chart"></div>
+
+      <!-- 学科分布 -->
+      <h3 style="margin-top:24px">📚 各学科知识点分布</h3>
+      <div id="subject-distribution" class="cnpt-bar-chart"></div>
+
+      <!-- 难度分布 -->
+      <h3 style="margin-top:24px">🎯 知识点难度分布</h3>
+      <div id="difficulty-distribution" class="cnpt-bar-chart"></div>
+    </section>
+
+    <!-- 覆盖度分析 -->
+    <section id="view-coverage" class="cnpt-view">
+      <h2>学科×年级覆盖度矩阵</h2>
+      <p class="cnpt-text-muted">显示各学科在各年级的知识点数量分布，识别教学覆盖盲区</p>
+      <div class="cnpt-table-wrapper">
+        <table class="cnpt-table cnpt-matrix-table" id="coverage-matrix">
+          <thead><tr><th>学科</th><th>一年级</th><th>二年级</th><th>三年级</th><th>四年级</th><th>五年级</th><th>六年级</th><th>合计</th></tr></thead>
+          <tbody id="coverage-matrix-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 课标落实 -->
+    <section id="view-standards" class="cnpt-view">
+      <h2>课标落实情况检查</h2>
+      <p class="cnpt-text-muted">检查各学科知识点是否关联了课程标准编码</p>
+      <div class="cnpt-dashboard-grid" style="margin-bottom:20px">
+        <div class="cnpt-card">
+          <div class="cnpt-card-value" id="stat-standards-covered">0</div>
+          <div class="cnpt-card-label">已关联课标</div>
+        </div>
+        <div class="cnpt-card">
+          <div class="cnpt-card-value" id="stat-standards-uncovered">0</div>
+          <div class="cnpt-card-label">未关联课标</div>
+        </div>
+        <div class="cnpt-card">
+          <div class="cnpt-card-value" id="stat-standards-rate">0%</div>
+          <div class="cnpt-card-label">课标覆盖率</div>
+        </div>
+      </div>
+      <h3>未关联课标的知识点（前50个）</h3>
+      <div id="uncovered-topics" class="cnpt-table-wrapper" style="max-height:400px;overflow-y:auto"></div>
+    </section>
+
+    <!-- 学业预警 -->
+    <section id="view-quality" class="cnpt-view">
+      <h2>学业质量预警</h2>
+      <p class="cnpt-text-muted">基于知识图谱结构，识别潜在的教学薄弱环节和学习断层风险</p>
+
+      <h3 style="margin-top:20px">⚠️ 高难度前置依赖链（潜在学习障碍）</h3>
+      <p class="cnpt-text-muted" style="font-size:12px">以下知识点难度较高且被大量后续知识点依赖，是需要重点教学的关键节点</p>
+      <div id="critical-topics" class="cnpt-table-wrapper"></div>
+
+      <h3 style="margin-top:24px">🔗 跨年级依赖分析</h3>
+      <p class="cnpt-text-muted" style="font-size:12px">高年级知识点对低年级知识的依赖情况，帮助规划跨年级的教学衔接</p>
+      <div id="cross-grade-deps" class="cnpt-table-wrapper"></div>
+    </section>
+
+    <!-- 设置 -->
+    <section id="view-settings" class="cnpt-view">
+      <h2>系统设置</h2>
+      <div class="cnpt-card">
+        <h3>数据管理</h3>
+        <p style="color:#666;margin:8px 0">清除所有本地缓存数据</p>
+        <button class="cnpt-btn cnpt-btn-danger" id="btn-clear-cache">🗑️ 清除缓存</button>
+      </div>
+      <div class="cnpt-card" style="margin-top:16px">
+        <h3>关于</h3>
+        <p style="color:#666;margin:8px 0">CN-Primary-Taxonomy 教育管理版 v1.0</p>
+        <p style="color:#999;font-size:12px">基于中国小学教育知识图谱，覆盖11学科4275个知识点</p>
+      </div>
+    </section>
+
+  </main>
+
+</div><!-- #main-content -->
+
+<!-- 脚本加载 -->
+<script src="../shared/js/core/constants.js"></script>
+<script src="../shared/js/core/utils.js"></script>
+<script src="../shared/js/core/data-loader.js"></script>
+<script src="../shared/js/core/indices.js"></script>
+<script src="../shared/js/core/search.js"></script>
+<script src="../shared/js/core/path.js"></script>
+<script src="../shared/js/core/storage.js"></script>
+<script src="../shared/js/core/multi-user-storage.js"></script>
+<script src="../shared/js/components/show-load-error.js"></script>
+<script src="../shared/js/components/mascot-effects.js"></script>
+<script src="../shared/js/components/topic-tags.js"></script>
+<script src="../shared/js/components/mastery-row.js"></script>
+<script src="../shared/js/components/diagnostic-engine.js"></script>
+<script src="../shared/js/components/report-generator.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

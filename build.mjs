@@ -72,6 +72,12 @@ window.__CNPT_EMBEDDED = {
     { id: 'parent', name: '家长版', dir: 'parent-web', file: 'index.html' },
     { id: 'student', name: '学生版', dir: 'student-web', file: 'index.html' },
     { id: 'teacher', name: '教师版', dir: 'teacher-web', file: 'index.html' },
+    { id: 'training', name: '培训机构版', dir: 'training-web', file: 'index.html' },
+    { id: 'admin', name: '教育管理版', dir: 'admin-web', file: 'index.html' },
+    { id: 'researcher', name: '教研员版', dir: 'researcher-web', file: 'index.html' },
+    { id: 'headteacher', name: '班主任版', dir: 'headteacher-web', file: 'index.html' },
+    { id: 'testdesigner', name: '出题人版', dir: 'testdesigner-web', file: 'index.html' },
+    { id: 'transition', name: '升学过渡版', dir: 'transition-web', file: 'index.html' },
   ];
 
   for (const entry of entries) {
@@ -119,6 +125,12 @@ const standaloneOutputs = [
   'cn-primary-taxonomy-parent.html',
   'cn-primary-taxonomy-student.html',
   'cn-primary-taxonomy-teacher.html',
+  'cn-primary-taxonomy-training.html',
+  'cn-primary-taxonomy-admin.html',
+  'cn-primary-taxonomy-researcher.html',
+  'cn-primary-taxonomy-headteacher.html',
+  'cn-primary-taxonomy-testdesigner.html',
+  'cn-primary-taxonomy-transition.html',
 ];
 let validationIssues = 0;
 let validationChecked = 0;
@@ -132,7 +144,7 @@ for (const outFile of standaloneOutputs) {
     let m;
     while ((m = refRegex.exec(html)) !== null) {
       const ref = m[1];
-      if (ref.startsWith('http')) continue;
+      if (ref.startsWith('http') || ref.startsWith('#')) continue;
       validationChecked++;
       if (!existsSync(resolve(ROOT, ref))) {
         console.log(`   ⚠️ ${outFile}: 断链 ${ref}`);
@@ -158,3 +170,9 @@ console.log('   · H5移动版: h5/index.html');
 console.log('   · 家长版:   parent-web/index.html');
 console.log('   · 学生版:   student-web/index.html');
 console.log('   · 教师版:   teacher-web/index.html');
+console.log('   · 培训机构版: training-web/index.html');
+console.log('   · 教育管理版: admin-web/index.html');
+console.log('   · 教研员版: researcher-web/index.html');
+console.log('   · 班主任版: headteacher-web/index.html');
+console.log('   · 出题人版: testdesigner-web/index.html');
+console.log('   · 升学过渡版: transition-web/index.html');

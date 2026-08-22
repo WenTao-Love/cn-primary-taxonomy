@@ -1,0 +1,348 @@
+/* ========== 培训机构版 专属样式 ========== */
+
+/* 头部样式 */
+.cnpt-role-training .cnpt-top-bar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.cnpt-role-training .cnpt-nav-btn.active {
+  background: rgba(255,255,255,0.25);
+}
+
+/* 仪表盘网格 */
+.cnpt-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.cnpt-card {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.cnpt-card-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.cnpt-card-label {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* 表格样式 */
+.cnpt-table-wrapper {
+  overflow-x: auto;
+  margin-top: 12px;
+}
+
+.cnpt-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.cnpt-table th,
+.cnpt-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.cnpt-table th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+  font-size: 13px;
+}
+
+.cnpt-table tr:hover td {
+  background: #f8f9fa;
+}
+
+.cnpt-empty-state {
+  text-align: center;
+  color: #999;
+  padding: 30px !important;
+}
+
+/* 诊断面板 */
+.cnpt-diagnose-panel {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  align-items: end;
+  margin-bottom: 20px;
+}
+
+.cnpt-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cnpt-form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #495057;
+}
+
+.cnpt-input, .cnpt-select {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+
+.cnpt-input:focus, .cnpt-select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102,126,234,0.15);
+}
+
+/* 按钮样式 */
+.cnpt-btn {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.cnpt-btn-primary {
+  background: #667eea;
+  color: #fff;
+}
+.cnpt-btn-primary:hover { background: #5a6fd6; }
+
+.cnpt-btn-secondary {
+  background: #fff;
+  color: #495057;
+  border-color: #dee2e6;
+}
+.cnpt-btn-secondary:hover { background: #f8f9fa; border-color: #adb5bd; }
+
+.cnpt-btn-danger {
+  background: #dc3545;
+  color: #fff;
+}
+.cnpt-btn-danger:hover { background: #c82333; }
+
+.cnpt-btn-sm {
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+/* 工具栏 */
+.cnpt-toolbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+/* 学员卡片网格 */
+.cnpt-student-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.cnpt-student-card {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 16px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.cnpt-student-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102,126,234,0.15);
+  transform: translateY(-2px);
+}
+
+.cnpt-student-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 8px;
+}
+
+.cnpt-student-meta {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.cnpt-student-stats {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.cnpt-student-stats span {
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #f8f9fa;
+}
+
+.cnpt-student-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+/* 结果面板 */
+.cnpt-result-panel {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 20px;
+  min-height: 200px;
+}
+
+/* 模态框 */
+.cnpt-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.cnpt-modal.show {
+  display: flex;
+}
+
+.cnpt-modal-content {
+  background: #fff;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.cnpt-modal-lg {
+  max-width: 700px;
+}
+
+.cnpt-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.cnpt-modal-header h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.cnpt-modal-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #666;
+  padding: 4px;
+}
+
+.cnpt-modal-body {
+  padding: 20px;
+}
+
+.cnpt-modal-footer {
+  padding: 12px 20px;
+  border-top: 1px solid #e9ecef;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* 报告预览 */
+.cnpt-report-preview {
+  margin-top: 16px;
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* 诊断结果样式 */
+.cnpt-diagnostic-summary {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.cnpt-diagnostic-item {
+  flex: 1;
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+
+.cnpt-diagnostic-item-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.cnpt-diagnostic-item-label {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.cnpt-gap-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.cnpt-gap-tag {
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 12px;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .cnpt-dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cnpt-diagnose-panel {
+    grid-template-columns: 1fr;
+  }
+  .cnpt-student-grid {
+    grid-template-columns: 1fr;
+  }
+}

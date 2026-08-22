@@ -2,20 +2,26 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>知识图谱 · 教师教学版 | CN-Primary-Taxonomy</title>
+<meta name="description" content="教师教学专用知识图谱，4275个知识点覆盖11学科，支持课标对齐、学习路径规划、知识点搜索。">
+<meta property="og:title" content="知识图谱 · 教师教学版">
+<meta property="og:description" content="教师教学专用知识图谱，覆盖11学科4275个知识点">
+<meta property="og:type" content="website">
 <link rel="stylesheet" href="../shared/css/tokens.css">
 <link rel="stylesheet" href="../shared/css/common.css">
 <link rel="stylesheet" href="css/teacher.css">
 </head>
 <body class="cnpt-role-teacher">
+<a href="#main-content" class="cnpt-skip-link" style="position:absolute;top:-100%;left:16px;z-index:99999;padding:10px 20px;background:#5dade2;color:#fff;font-size:13px;font-weight:600;text-decoration:none;border-radius:0 0 8px 8px;transition:top 0.2s;" onfocus="this.style.top='0'" onblur="this.style.top='-100%'">跳到主内容</a>
+<h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">知识图谱 · 教师教学版</h1>
 <!-- 加载指示器 -->
 <div id="cnpt-loading" class="cnpt-loading-screen">
   <div class="cnpt-loading-spinner"></div>
   <div class="cnpt-loading-text">知识图谱加载中...</div>
   <div class="cnpt-loading-progress"></div>
 </div>
-<div id="app" class="cnpt-app-layout">
+<div id="main-content" class="cnpt-app-layout" tabindex="-1">
   <!-- 顶部工具栏 -->
   <header id="top-bar" class="cnpt-top-bar">
     <div class="cnpt-top-left">
@@ -30,7 +36,7 @@
   <div class="cnpt-teacher-body">
     <!-- 左侧导航 -->
     <aside id="left-nav" class="cnpt-left-nav">
-      <nav class="cnpt-nav-items">
+      <nav class="cnpt-nav-items" aria-label="主导航">
         <button class="cnpt-nav-item active" data-view="dashboard">
           <span class="cnpt-nav-icon">📊</span>
           <span>教学概览</span>
@@ -96,14 +102,14 @@
         <h2>知识图谱</h2>
         <div class="cnpt-graph-container">
           <div class="cnpt-graph-toolbar">
-            <select id="graph-layer" class="cnpt-select">
+            <select id="graph-layer" class="cnpt-select" aria-label="视图层级">
               <option value="core">核心骨架</option>
               <option value="detail">详细节点</option>
             </select>
-            <select id="graph-grade" class="cnpt-select">
+            <select id="graph-grade" class="cnpt-select" aria-label="年级筛选">
               <option value="all">全部年级</option>
             </select>
-            <select id="graph-subject" class="cnpt-select">
+            <select id="graph-subject" class="cnpt-select" aria-label="学科筛选">
               <option value="all">全部学科</option>
             </select>
             <button class="cnpt-btn cnpt-btn-secondary" id="graph-reset">重置</button>
@@ -122,7 +128,7 @@
           <select id="standards-subject" class="cnpt-select">
             <option value="all">全部学科</option>
           </select>
-          <input type="text" id="standards-search" class="cnpt-input" placeholder="搜索课标编码或描述...">
+          <input type="text" id="standards-search" class="cnpt-input" placeholder="搜索课标编码或描述..." aria-label="搜索课标">
         </div>
         <div class="cnpt-standards-list" id="standards-list"></div>
       </section>
@@ -132,7 +138,7 @@
         <h2>学习路径生成器</h2>
         <p class="cnpt-text-muted">基于DAG拓扑排序，输入目标知识点自动生成推荐学习序列</p>
         <div class="cnpt-path-generator">
-          <input type="text" id="path-search" class="cnpt-input" placeholder="搜索目标知识点...">
+          <input type="text" id="path-search" class="cnpt-input" placeholder="搜索目标知识点..." aria-label="搜索目标知识点">
           <div class="cnpt-search-results" id="path-search-results"></div>
         </div>
         <div class="cnpt-path-result" id="path-result"></div>
@@ -152,7 +158,7 @@
             <option value="all">全部版本</option>
           </select>
         </div>
-        <input type="text" id="main-search" class="cnpt-input" placeholder="搜索知识点...">
+        <input type="text" id="main-search" class="cnpt-input" placeholder="搜索知识点..." aria-label="搜索知识点">
         <div class="cnpt-search-result-list" id="main-search-results"></div>
       </section>
 
@@ -184,6 +190,13 @@
 <script src="../shared/js/core/search.js"></script>
 <script src="../shared/js/core/path.js"></script>
 <script src="../shared/js/core/storage.js"></script>
+<script src="../shared/js/core/multi-user-storage.js"></script>
+<script src="../shared/js/components/show-load-error.js"></script>
+<script src="../shared/js/components/mascot-effects.js"></script>
+<script src="../shared/js/components/topic-tags.js"></script>
+<script src="../shared/js/components/mastery-row.js"></script>
+<script src="../shared/js/components/diagnostic-engine.js"></script>
+<script src="../shared/js/components/report-generator.js"></script>
 <script src="../shared/js/graph/pc-graph.js"></script>
 <script src="js/teacher.js"></script>
 </body>

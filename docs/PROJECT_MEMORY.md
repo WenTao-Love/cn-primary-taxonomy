@@ -142,7 +142,127 @@
 - **版本标签尾随空格（P3）**：`search.js` 中版本标签为空时产生尾随空格，已修复条件拼接
 - **死代码清理（P3）**：删除 `pc-graph.js` 构造函数中未使用的 `this._resizeHandler = null`
 
-### 9.5 待修复（未解决）
+### 9.5 安全与体验增强 ✅（2026年8月四轮体检）
+
+- **H5 XSS漏洞（P1-security）**：`h5/js/app.js` 中10+处 `onclick="..."` 内联事件包含未转义的 `topic.id`，可能被利用注入恶意代码。已全部替换为 `data-action` + 事件委托模式
+- **加载失败无重试（P2）**：数据加载失败时只显示Toast，用户无法操作。已为所有角色(parent/student/teacher/h5)添加 `showLoadError` 风格的加载错误界面，带重新加载按钮
+- **筛选空结果无引导（P2）**：筛选条件过严时图为空白，用户不知道原因。已在 `applyFilters()` 中检测空结果并显示提示："当前筛选条件下没有匹配的知识点"
+- **节点截断无通知（P2）**：超过500节点时静默截断。已添加节点数量超限提示，建议缩小筛选范围
+- **可访问性增强（P2-a11y）**：
+  - 所有6个HTML入口添加跳转链接 (`<a href="#main-content" class="cnpt-skip-link">跳到主内容</a>`)，键盘用户可按Tab聚焦后回车跳转
+  - `common.css` 添加 `:focus-visible` 样式（键盘聚焦显示蓝色轮廓，鼠标点击不显示）
+  - `build.mjs` 验证脚本修复：跳过 `#` 锚点链接验证
+- **构建验证完善**：撤销 `scripts/validate-build.mjs` 独立脚本，将验证逻辑内联到 `build.mjs` 步骤3，并修复锚点误报
+- **ARIA属性增强（P2-a11y）**：
+  - `teacher-web/index.html` 导航添加 `aria-label="主导航"`
+  - `h5/index.html` 底部导航添加 `aria-label="主导航"`
+  - 修复 `student-web/index.html` 重复 `id="main-content"` 的无效HTML问题
+
+### 9.6 五轮深度审计修复 ✅（2026年8月）
+
+**SEO与语义化HTML**
+- 所有5个HTML入口添加 `<meta name="description">` 和 Open Graph 标签
+- 所有5个HTML入口添加视觉隐藏的 `<h1>` 标题（屏幕阅读器可访问）
+- 所有 `viewport` 添加 `viewport-fit=cover`（适配iPhone刘海屏）
+- 所有表单元素添加 `aria-label`（teacher-web: 6个, h5: 2个）
+
+**CSS健康度**
+- 移除 `teacher.css` 中重复的 `.cnpt-hidden`（已在 `common.css` 定义）
+
+**数据质量确认**
+- 0个孤儿依赖、0个循环依赖、0个自依赖、0个重复依赖
+- 必填字段覆盖率100%，可选字段覆盖率84-100%
+- 学科/年级/难度分布均衡
+
+**隐私安全确认**
+- 零第三方追踪（无GA/友盟/百度统计）
+- 纯localStorage本地存储，无网络数据传输
+- 6个console.log/error（均为错误处理所需）
+- 无敏感数据（密码/token/API密钥）处理
+
+**代码冗余发现**
+- 4个角色JS文件存在约400-500行重复代码
+- 最高优先级：`showNodeDetail()` 在3个文件中重复约270行
+- 建议后续抽取为共享组件（error-handler, effects, mascot, topic-detail, practice, path-list等）
+
+### 9.7 共享组件化重构 ✅（2026年8月五轮体检后）
+
+**新增共享组件**
+- `shared/js/components/show-load-error.js` - 统一加载失败UI（7角色共用）
+- `shared/js/components/mascot-effects.js` - 吉祥物特效（气泡/鼓励/星星爆发）
+- `shared/js/components/topic-tags.js` - 知识点标签构建（学科/领域/年级/难度）
+- `shared/js/components/mastery-row.js` - 掌握度三态按钮行
+- `shared/js/core/multi-user-storage.js` - 多用户存储引擎（培训机构/学校场景基础）
+- `shared/js/components/diagnostic-engine.js` - 诊断测评引擎（入学诊断/学情分析）
+- `shared/js/components/report-generator.js` - 报告生成器（进度报告/诊断报告/家校卡片）
+
+**重构收益**
+- 4个角色的HTML入口新增共享组件脚本引用
+- 各角色JS移除重复函数：showLoadError、showMascotTip、showEncourage、showStarBurst
+- 所有调用点改为 `CNPT.components.xxx()` 统一接口
+- 构建验证通过：74个引用（原46个+28个新组件引用）
+
+**性能观察**
+- 102个addEventListener vs 2个removeEventListener（SPA中需关注）
+- 4275个知识点 × 多次数组遍历，低端设备可能有卡顿
+- 建议后续引入事件委托和虚拟滚动
+
+### 9.8 三大新角色视角实现 ✅（2026年8月遗漏视角攻坚）
+
+**培训机构版 (training-web/)**
+- 位置: `training-web/index.html` + `training-web/css/training.css` + `training-web/js/training.js`
+- 核心功能: 学员管理(增删改查)、入学诊断、学习进度排行、家校报告生成
+- 复用组件: MultiUserStorage + DiagnosticEngine + ReportGenerator
+- 特色: 学员档案卡片化、掌握度排行表格、诊断报告一键生成
+
+**教育管理版 (admin-web/)**
+- 位置: `admin-web/index.html` + `admin-web/css/admin.css` + `admin-web/js/admin.js`
+- 核心功能: 全校概览仪表盘、学科×年级覆盖度矩阵、课标落实检查、学业预警
+- 复用组件: ReportGenerator + 图谱结构分析
+- 特色: 知识点分布柱状图、高难度关键节点识别、跨年级依赖分析
+
+**教研员版 (researcher-web/)**
+- 位置: `researcher-web/index.html` + `researcher-web/css/researcher.css` + `researcher-web/js/researcher.js`
+- 核心功能: 知识图谱结构分析、学习路径推演、教材版本对比、教研标注共创
+- 复用组件: CNPT.path(路径分析) + 本地标注存储
+- 特色: 高度连接节点分析、版本对比卡片、知识点教学批注
+
+**构建系统更新**
+- build.mjs 入口从4个扩展到7个
+- 独立HTML产物: 7个 (cn-primary-taxonomy-*.html)
+- 验证引用数: 129个（每个新角色约18个脚本引用）
+- 所有7个独立版本构建成功且路径验证通过
+
+### 9.9 第二轮三大新角色视角实现 ✅（2026年8月第二轮遗漏视角攻坚）
+
+**班主任版 (headteacher-web/)**
+- 位置: `headteacher-web/index.html` + `headteacher-web/css/headteacher.css` + `headteacher-web/js/headteacher.js`
+- 核心功能: 班级学情仪表盘、学生画像卡片、家校沟通模板、学业预警系统、升学推荐建议
+- 复用组件: CNPT.components.showLoadError + Storage + 雷达图/热力图自定义渲染
+- 特色: 学生×知识点掌握度热力图、一键生成家长会发言提纲、个性化学生评语生成器
+- 主题: 橙色暖调 (#e67e22 → #f39c12)
+
+**出题人版 (testdesigner-web/)**
+- 位置: `testdesigner-web/index.html` + `testdesigner-web/css/testdesigner.css` + `testdesigner-web/js/testdesigner.js`
+- 核心功能: 双向细目表生成、智能组卷、难度预测、覆盖度分析、试卷库管理
+- 复用组件: CNPT.components.showLoadError + Storage + 图谱数据
+- 特色: 知识点×认知维度矩阵自动生成、基于节点难度的难度预测算法、试卷保存/导出
+- 主题: 青蓝专业调 (#1a73e8 → #6c5ce7)
+
+**升学过渡版 (transition-web/)**
+- 位置: `transition-web/index.html` + `transition-web/css/transition.css` + `transition-web/js/transition.js`
+- 核心功能: 衔接知识图谱、考点热力图、学情差距分析、冲刺路径生成、模拟测评
+- 复用组件: CNPT.components.showLoadError + Storage + 路径算法
+- 特色: 倒计时进度追踪、目标vs现状差距可视化、三阶段冲刺路径规划
+- 主题: 红金冲刺调 (#c0392b → #e67e22 → #f39c12)
+
+**构建系统更新**
+- build.mjs 入口从7个扩展到10个
+- 独立HTML产物: 10个 (cn-primary-taxonomy-*.html)
+- 验证引用数: 174个（每个新角色约15个脚本引用）
+- 所有10个独立版本构建成功且路径验证通过
+
+### 9.10 待修复（未解决）
 
 - 管理驾驶舱假数据（需要接入真实数据源后才能真正解决）
 - 多角色功能同质化（需要产品层面重新定义角色差异化）

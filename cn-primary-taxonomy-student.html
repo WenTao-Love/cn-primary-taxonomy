@@ -9,20 +9,26 @@ window.__CNPT_EMBEDDED = {
 </script>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>知识大闯关 · 小朋友版 | CN-Primary-Taxonomy</title>
+<meta name="description" content="小学生知识闯关游戏，通过答题获得星星奖励，覆盖11学科4275个知识点，让学习更有趣。">
+<meta property="og:title" content="知识大闯关 · 小朋友版">
+<meta property="og:description" content="小学生知识闯关游戏，覆盖11学科4275个知识点">
+<meta property="og:type" content="website">
 <link rel="stylesheet" href="shared/css/tokens.css">
 <link rel="stylesheet" href="shared/css/common.css">
 <link rel="stylesheet" href="student-web/css/student.css">
 </head>
 <body class="cnpt-role-student">
+<a href="#main-content" class="cnpt-skip-link" style="position:absolute;top:-100%;left:16px;z-index:99999;padding:10px 20px;background:#5dade2;color:#fff;font-size:13px;font-weight:600;text-decoration:none;border-radius:0 0 8px 8px;transition:top 0.2s;" onfocus="this.style.top='0'" onblur="this.style.top='-100%'">跳到主内容</a>
+<h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">知识大闯关 · 小朋友版</h1>
 <!-- 加载指示器 -->
 <div id="cnpt-loading" class="cnpt-loading-screen">
   <div class="cnpt-loading-spinner"></div>
   <div class="cnpt-loading-text">知识图谱加载中...</div>
   <div class="cnpt-loading-progress"></div>
 </div>
-<div id="app" class="cnpt-app-layout">
+<div id="main-content" class="cnpt-app-layout" tabindex="-1">
   <!-- 顶部状态栏 -->
   <header id="top-bar" class="cnpt-top-bar">
     <div class="cnpt-top-left">
@@ -38,7 +44,7 @@ window.__CNPT_EMBEDDED = {
   </header>
 
   <!-- 主内容区 -->
-  <main id="main-content" class="cnpt-main-content">
+  <main class="cnpt-main-content">
     <!-- 欢迎面板 -->
     <div class="cnpt-welcome-card" id="welcome-card">
       <div class="cnpt-mascot-large">🦊</div>
@@ -117,6 +123,13 @@ window.__CNPT_EMBEDDED = {
 <script src="shared/js/core/search.js"></script>
 <script src="shared/js/core/path.js"></script>
 <script src="shared/js/core/storage.js"></script>
+<script src="shared/js/core/multi-user-storage.js"></script>
+<script src="shared/js/components/show-load-error.js"></script>
+<script src="shared/js/components/mascot-effects.js"></script>
+<script src="shared/js/components/topic-tags.js"></script>
+<script src="shared/js/components/mastery-row.js"></script>
+<script src="shared/js/components/diagnostic-engine.js"></script>
+<script src="shared/js/components/report-generator.js"></script>
 <script src="student-web/js/student.js"></script>
 </body>
 </html>

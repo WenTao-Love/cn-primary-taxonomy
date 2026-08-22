@@ -1,0 +1,119 @@
+/* ========== 教研员版 专属样式 ========== */
+
+.cnpt-role-researcher .cnpt-top-bar {
+  background: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
+}
+
+.cnpt-role-researcher .cnpt-nav-btn.active {
+  background: rgba(255,255,255,0.25);
+}
+
+.cnpt-role-researcher .cnpt-card-value {
+  color: #8e44ad;
+}
+
+/* 行内表单 */
+.cnpt-form-inline {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: end;
+}
+
+/* 搜索结果下拉 */
+.cnpt-search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 100;
+  display: none;
+}
+
+.cnpt-search-results.show {
+  display: block;
+}
+
+.cnpt-search-result-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 13px;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.cnpt-search-result-item:hover {
+  background: #f8f9fa;
+}
+
+/* 标注面板 */
+.cnpt-annotation-card {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 12px;
+}
+
+.cnpt-annotation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.cnpt-annotation-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  margin-right: 4px;
+}
+
+.cnpt-tag-key { background: #ffeaa7; color: #6c5ce7; }
+.cnpt-tag-error { background: #fab1a0; color: #d63031; }
+.cnpt-tag-tip { background: #81ecec; color: #00b894; }
+
+/* 版本对比 */
+.cnpt-compare-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.cnpt-compare-card {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.cnpt-compare-card h4 {
+  margin: 0 0 8px;
+  color: #8e44ad;
+}
+
+/* 分析报告 */
+.cnpt-analysis-section {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.cnpt-analysis-section h3 {
+  margin: 0 0 12px;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .cnpt-form-inline { flex-direction: column; }
+}

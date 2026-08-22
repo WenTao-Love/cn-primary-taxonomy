@@ -1,0 +1,408 @@
+/* 升学过渡版主题 - 红金冲刺调 */
+:root {
+  --cnpt-primary: #c0392b;
+  --cnpt-primary-light: #e74c3c;
+  --cnpt-primary-dark: #96281b;
+  --cnpt-accent: #f39c12;
+  --cnpt-gradient: linear-gradient(135deg, #c0392b 0%, #e67e22 50%, #f39c12 100%);
+  --cnpt-bg: #fef7f5;
+  --cnpt-card-shadow: 0 2px 8px rgba(192, 57, 43, 0.1);
+}
+
+body[data-role="transition"] {
+  background: var(--cnpt-bg);
+}
+
+.cnpt-header {
+  background: var(--cnpt-gradient);
+}
+
+.cnpt-nav-btn.active {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* 顶部过渡信息栏 */
+.cnpt-transition-bar {
+  background: #fff;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cnpt-transition-info {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.cnpt-transition-target {
+  font-weight: bold;
+  color: var(--cnpt-primary);
+  padding: 4px 12px;
+  background: #fde8e6;
+  border-radius: 20px;
+}
+
+.cnpt-transition-countdown {
+  color: #666;
+}
+
+.cnpt-transition-countdown strong {
+  color: var(--cnpt-primary);
+  font-size: 18px;
+}
+
+.cnpt-transition-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 200px;
+}
+
+.cnpt-progress-bar {
+  flex: 1;
+  height: 12px;
+  background: #eee;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.cnpt-progress-fill {
+  height: 100%;
+  background: var(--cnpt-gradient);
+  border-radius: 6px;
+  transition: width 0.5s;
+}
+
+#transition-progress-text {
+  font-size: 13px;
+  color: #666;
+  white-space: nowrap;
+}
+
+/* 仪表盘 */
+.cnpt-dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.cnpt-dashboard-card {
+  text-align: center;
+  padding: 16px;
+}
+
+.cnpt-dashboard-card h3 {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.cnpt-stat-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--cnpt-primary);
+}
+
+.cnpt-stat-label {
+  font-size: 13px;
+  color: #999;
+}
+
+/* 雷达图容器 */
+.cnpt-radar-container {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  min-height: 280px;
+}
+
+/* 任务列表 */
+.cnpt-task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.cnpt-task-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.cnpt-task-item:hover {
+  background: #f0f0f0;
+}
+
+.cnpt-task-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.cnpt-task-checkbox.checked {
+  background: #27ae60;
+  border-color: #27ae60;
+  color: #fff;
+}
+
+.cnpt-task-text {
+  flex: 1;
+}
+
+.cnpt-task-meta {
+  font-size: 12px;
+  color: #999;
+}
+
+/* 考点热力网格 */
+.cnpt-filter-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.cnpt-filter-bar select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+}
+
+.cnpt-hotspot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.cnpt-hotspot-item {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  background: #fff;
+  transition: transform 0.2s;
+}
+
+.cnpt-hotspot-item:hover {
+  transform: translateY(-2px);
+}
+
+.cnpt-hotspot-freq {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.freq-high {
+  background: #fde8e6;
+  color: #c0392b;
+}
+
+.freq-medium {
+  background: #fef3e2;
+  color: #e67e22;
+}
+
+.freq-low {
+  background: #e8f5e9;
+  color: #27ae60;
+}
+
+.cnpt-hotspot-name {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.cnpt-hotspot-domain {
+  font-size: 12px;
+  color: #999;
+}
+
+/* 差距分析输出 */
+.cnpt-gap-output {
+  margin-top: 20px;
+}
+
+.cnpt-gap-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.cnpt-gap-label {
+  width: 120px;
+  font-size: 13px;
+  color: #666;
+}
+
+.cnpt-gap-track {
+  flex: 1;
+  height: 20px;
+  background: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+}
+
+.cnpt-gap-fill {
+  height: 100%;
+  border-radius: 10px;
+}
+
+.cnpt-gap-fill.mastered {
+  background: #27ae60;
+}
+
+.cnpt-gap-fill.learning {
+  background: #f39c12;
+}
+
+.cnpt-gap-fill.missing {
+  background: #e74c3c;
+}
+
+.cnct-gap-value {
+  width: 60px;
+  text-align: right;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* 冲刺路径输出 */
+.cnpt-sprint-output {
+  margin-top: 20px;
+}
+
+.cnpt-sprint-phase {
+  margin-bottom: 20px;
+  padding: 16px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-left: 4px solid var(--cnpt-primary);
+}
+
+.cnpt-sprint-phase h4 {
+  margin-bottom: 12px;
+  color: var(--cnpt-primary);
+}
+
+.cnpt-sprint-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cnpt-sprint-topic {
+  padding: 4px 12px;
+  background: #f8f8f8;
+  border-radius: 16px;
+  font-size: 13px;
+  border: 1px solid #eee;
+}
+
+.cnpt-sprint-topic.required {
+  border-color: var(--cnpt-primary);
+  background: #fde8e6;
+}
+
+/* 模拟测评输出 */
+.cnpt-mock-output {
+  margin-top: 20px;
+}
+
+.cnpt-mock-result {
+  text-align: center;
+  padding: 32px;
+}
+
+.cnpt-mock-score {
+  font-size: 64px;
+  font-weight: bold;
+  color: var(--cnpt-primary);
+}
+
+.cnpt-mock-grade {
+  font-size: 20px;
+  margin: 12px 0;
+}
+
+.cnpt-mock-detail {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+  text-align: left;
+}
+
+.cnpt-mock-item {
+  padding: 16px;
+  background: #f8f8f8;
+  border-radius: 8px;
+}
+
+.cnpt-mock-item h5 {
+  color: var(--cnpt-primary);
+  margin-bottom: 8px;
+}
+
+/* 表单行 */
+.cnpt-form-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.cnpt-form-row label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: #666;
+}
+
+.cnpt-form-row select,
+.cnpt-form-row input {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .cnpt-dashboard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cnpt-transition-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cnpt-hotspot-grid {
+    grid-template-columns: 1fr;
+  }
+}

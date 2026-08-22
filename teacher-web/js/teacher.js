@@ -49,6 +49,8 @@
     DOM.modeSwitch = document.getElementById('mode-switch');
   }
 
+  // showLoadError 已移至共享组件 CNPT.components.showLoadError
+
   async function init() {
     cacheDom();
     state.storage = CNPT.storage.create('teacher');
@@ -56,7 +58,8 @@
     try {
       state.fullData = await CNPT.dataLoader.loadAllData();
     } catch (err) {
-      CNPT.utils.showToast('数据加载失败');
+      console.error('数据加载失败:', err);
+      CNPT.components.showLoadError('数据加载失败，请检查网络连接后重试');
       return;
     }
 
@@ -227,7 +230,7 @@
     DOM.nodeDetailPanel.innerHTML = `
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
         <div class="cnpt-detail-name" style="margin:0">${CNPT.utils.escapeHtml(topic.name)}</div>
-        <button onclick="document.getElementById('node-detail-panel').classList.add('cnpt-hidden')"
+        <button id="cnpt-detail-close"
           style="background:none;border:none;font-size:18px;cursor:pointer;color:#999">×</button>
       </div>
       <div class="cnpt-detail-meta">${topic.id} · ${topic.textbook || '未标注版本'}${topic.unit ? ' · ' + topic.unit : ''}</div>
@@ -288,6 +291,11 @@
         </div>
       ` : ''}
     `;
+
+    // Close button handler
+    DOM.nodeDetailPanel.querySelector('#cnpt-detail-close')?.addEventListener('click', () => {
+      DOM.nodeDetailPanel.classList.add('cnpt-hidden');
+    });
 
     DOM.nodeDetailPanel.querySelectorAll('.cnpt-chain-item').forEach(item => {
       item.addEventListener('click', () => {

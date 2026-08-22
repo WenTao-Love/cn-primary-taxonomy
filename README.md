@@ -28,14 +28,20 @@
 - **依赖关系**：**4191 条**（强依赖2810 / 弱依赖1381）
 - **课标对齐**：13个课标文件，共197个编码条目
 
-### 多角色版本
+### 多角色版本（10大角色）
 
 | 版本 | 入口 | 面向用户 | 特色功能 |
 |---|---|---|---|
+| 📱H5移动版 | `h5/index.html` | 通用 | Canvas渲染、触摸手势、底部导航、移动端原生体验 |
 | 👨‍👩‍家长版 | `parent-web/index.html` | 家长 | 暗色主题、学习助手Bot、阅读指引、小伙伴模式切换 |
 | 🧒学生版 | `student-web/index.html` | 小学生 | 明亮主题、星星奖励、正向激励、游戏化体验 |
 | 👨‍🏫教师版 | `teacher-web/index.html` | 教师 | 专业主题、课标对照、路径生成器、覆盖统计表 |
-| 📱H5移动版 | `h5/index.html` | 通用 | Canvas渲染、触摸手势、底部导航、移动端原生体验 |
+| 🏫培训机构版 | `training-web/index.html` | 培训机构 | 多学员管理、诊断测评、班级对比、报告生成 |
+| 🎓教育管理者版 | `admin-web/index.html` | 教育局/学校管理者 | 区域学情分析、覆盖矩阵、质量预警、均衡监测 |
+| 📊教研员版 | `researcher-web/index.html` | 教研员 | 知识图谱结构分析、学习路径研究、教材对比、标注系统 |
+| 👔班主任版 | `headteacher-web/index.html` | 班主任 | 班级学情全景、学生画像卡片、家校沟通模板、学业预警 |
+| 📝出题人版 | `testdesigner-web/index.html` | 出题人 | 双向细目表生成、智能组卷、难度预测、覆盖度分析 |
+| 🎯升学过渡版 | `transition-web/index.html` | 升学学生/家长 | 衔接知识图谱、考点热力图、学情差距分析、冲刺路径 |
 
 ## 快速开始
 
@@ -45,16 +51,25 @@
 
 | 文件 | 说明 |
 |---|---|
+| `cn-primary-taxonomy-h5.html` | 📱H5移动版独立文件（数据已内嵌） |
 | `cn-primary-taxonomy-parent.html` | 👨‍👩‍家长版独立文件（数据已内嵌） |
 | `cn-primary-taxonomy-student.html` | 🧒学生版独立文件（数据已内嵌） |
 | `cn-primary-taxonomy-teacher.html` | 👨‍🏫教师版独立文件（数据已内嵌） |
-| `cn-primary-taxonomy-h5.html` | 📱H5移动版独立文件（数据已内嵌） |
+| `cn-primary-taxonomy-training.html` | 🏫培训机构版独立文件（数据已内嵌） |
+| `cn-primary-taxonomy-admin.html` | 🎓教育管理者版独立文件（数据已内嵌） |
+| `cn-primary-taxonomy-researcher.html` | 📊教研员版独立文件（数据已内嵌） |
+| `cn-primary-taxonomy-headteacher.html` | 👔班主任版独立文件（数据已内嵌） |
+| `cn-primary-taxonomy-testdesigner.html` | 📝出题人版独立文件（数据已内嵌） |
+| `cn-primary-taxonomy-transition.html` | 🎯升学过渡版独立文件（数据已内嵌） |
 
 ### 方法二：开发模式（使用shared/公共模块）
 
 直接用浏览器打开源码目录下的HTML文件：
 
 ```bash
+# H5移动版
+open h5/index.html
+
 # 家长版
 open parent-web/index.html
 
@@ -64,8 +79,23 @@ open student-web/index.html
 # 教师版
 open teacher-web/index.html
 
-# H5移动版
-open h5/index.html
+# 培训机构版
+open training-web/index.html
+
+# 教育管理者版
+open admin-web/index.html
+
+# 教研员版
+open researcher-web/index.html
+
+# 班主任版
+open headteacher-web/index.html
+
+# 出题人版
+open testdesigner-web/index.html
+
+# 升学过渡版
+open transition-web/index.html
 ```
 
 > 开发模式需要保持项目目录结构完整（shared/ 目录必须存在）
@@ -84,6 +114,12 @@ node build.mjs --target=h5
 node build.mjs --target=parent
 node build.mjs --target=student
 node build.mjs --target=teacher
+node build.mjs --target=training
+node build.mjs --target=admin
+node build.mjs --target=researcher
+node build.mjs --target=headteacher
+node build.mjs --target=testdesigner
+node build.mjs --target=transition
 
 # 验证构建产物路径完整性
 node scripts/validate-build.mjs
@@ -137,12 +173,25 @@ cn-primary-taxonomy/
 │   │   │   ├── search.js        ← 搜索引擎（评分/筛选）
 │   │   │   ├── path.js          ← 路径算法（拓扑排序/学习路径）
 │   │   │   ├── storage.js       ← 存储管理（分角色localStorage）
+│   │   │   ├── multi-user-storage.js ← 多用户存储引擎（培训机构/学校场景）
 │   │   │   └── utils.js         ← 工具函数（防抖/转义/Toast）
+│   │   ├── components/
+│   │   │   ├── show-load-error.js ← 统一加载失败UI（10角色共用）
+│   │   │   ├── mascot-effects.js  ← 吉祥物特效（气泡/鼓励/星星爆发）
+│   │   │   ├── topic-tags.js      ← 知识点标签构建（学科/领域/年级/难度）
+│   │   │   ├── mastery-row.js     ← 掌握度三态按钮行
+│   │   │   ├── diagnostic-engine.js ← 诊断测评引擎（入学诊断/学情分析）
+│   │   │   └── report-generator.js  ← 报告生成器（进度/诊断/家校卡片）
 │   │   └── graph/
 │   │       └── pc-graph.js      ← PC端D3图谱渲染引擎
 │   └── data/                    ← 构建生成的数据JS文件
 │       ├── topics.js            ← 知识点数据（构建生成）
 │       └── dependencies.js      ← 依赖关系数据（构建生成）
+│
+├── h5/                          ← H5移动版（Canvas渲染）
+│   ├── index.html
+│   ├── css/style.css
+│   └── js/app.js
 │
 ├── parent-web/                  ← 家长版（暗色主题）
 │   ├── index.html
@@ -159,11 +208,35 @@ cn-primary-taxonomy/
 │   ├── css/teacher.css
 │   └── js/teacher.js
 │
-├── h5/                          ← H5移动版（Canvas渲染）
+├── training-web/                ← 培训机构版（紫色主题）
 │   ├── index.html
-│   ├── build-h5.mjs             ← 旧版H5构建脚本（保留）
-│   ├── css/style.css
-│   └── js/app.js
+│   ├── css/training.css
+│   └── js/training.js
+│
+├── admin-web/                   ← 教育管理者版（绿色主题）
+│   ├── index.html
+│   ├── css/admin.css
+│   └── js/admin.js
+│
+├── researcher-web/              ← 教研员版（蓝紫主题）
+│   ├── index.html
+│   ├── css/researcher.css
+│   └── js/researcher.js
+│
+├── headteacher-web/              ← 班主任版（橙色主题）
+│   ├── index.html
+│   ├── css/headteacher.css
+│   └── js/headteacher.js
+│
+├── testdesigner-web/             ← 出题人版（青蓝主题）
+│   ├── index.html
+│   ├── css/testdesigner.css
+│   └── js/testdesigner.js
+│
+├── transition-web/               ← 升学过渡版（红金主题）
+│   ├── index.html
+│   ├── css/transition.css
+│   └── js/transition.js
 │
 ├── data/                        ← 原始JSON数据
 │   ├── topics.json              ← 知识点节点（4275个）
@@ -182,6 +255,9 @@ cn-primary-taxonomy/
 │   ├── TEACHER_REVIEW.md        ← 一线在校教师视角复盘
 │   ├── TEACHER_REVIEW_CHOZIXIAOSHENG.md ← 培训机构教师视角（小升初）
 │   ├── EDUCATION_MANAGER_REVIEW.md ← 教育管理者/教育局视角复盘
+│   ├── HONEST_HEALTH_CHECK_ROUND5.md ← 五轮深度体检报告
+│   ├── MISSING_PERSPECTIVES_ANALYSIS.md ← 缺失视角分析（第一轮）
+│   ├── MISSING_PERSPECTIVES_ROUND2.md ← 缺失视角深度分析（第二轮，含刁钻角度）
 │   ├── exam-review.html         ← 小升初知识图谱交互式分析页面
 │   ├── manager-dashboard.html   ← 教育管理者交互式驾驶舱
 │   └── SHENZHEN_G2_TEACHER_CALIBRATION.md ← 教师校准专项
@@ -200,8 +276,20 @@ cn-primary-taxonomy/
 | `search.js` | 关键词搜索、多维度筛选 | indices |
 | `path.js` | 拓扑排序、学习路径生成 | indices |
 | `storage.js` | 分角色localStorage管理 | constants |
+| `multi-user-storage.js` | 多学员存储引擎（培训机构/学校场景） | constants |
 | `utils.js` | 防抖、HTML转义、Toast提示 | 无 |
 | `pc-graph.js` | D3.js力导向图谱渲染 | D3.js(本地 + CDN回退) |
+
+### 共享组件说明
+
+| 组件 | 功能 | 使用角色 |
+|---|---|---|
+| `show-load-error.js` | 统一加载失败UI，可配置图标/标题/重试回调 | 全部7角色 |
+| `mascot-effects.js` | 吉祥物气泡提示、鼓励条、星星爆发动画 | 家长/学生/H5 |
+| `topic-tags.js` | 构建学科/领域/年级/难度彩色标签 | 全部7角色 |
+| `mastery-row.js` | 掌握度三态按钮行（已掌握/学习中/未开始） | 学生/家长/教师 |
+| `diagnostic-engine.js` | 诊断测评引擎，学情缺口分析、学习建议生成 | 培训机构/教研员 |
+| `report-generator.js` | 报告生成器（进度报告/诊断报告/家校卡片） | 培训机构/教育管理者 |
 
 ### 数据加载策略
 
@@ -300,6 +388,36 @@ data-loader 自动选择最优加载方式：
 - **学习助手**：自然语言输入，智能推荐辅导建议
 - **练习系统**：选择、判断、填空三种题型
 
+### 🏫培训机构版 (training-web/)
+
+面向培训机构教学场景，紫色渐变主题，核心功能：
+
+- **多学员管理**：学员档案CRUD、当前学员切换、班级列表
+- **诊断测评**：生成入学诊断测评，分析学情缺口，给出学习建议
+- **班级对比**：全班知识点掌握对比表格、平均掌握率统计
+- **报告生成**：学员进度报告、诊断报告、家校沟通卡片（支持HTML下载）
+- **5大视图**：仪表盘、学员管理、诊断测评、报告中心、系统设置
+
+### 🎓教育管理者版 (admin-web/)
+
+面向教育局/学校管理者，绿色渐变主题，核心功能：
+
+- **区域学情概览**：整体掌握率、活跃学员数、学习时长统计
+- **分布可视化**：年级/学科/难度分布柱状图、知识点领域分布
+- **覆盖矩阵**：年级 × 学科知识点覆盖热力图
+- **质量预警**：关键节点识别、跨年级依赖断裂检测、薄弱学科预警
+- **课标合规检查**：知识点与2022新课标对齐情况、缺失编码识别
+
+### 📊教研员版 (researcher-web/)
+
+面向教研员研究场景，蓝紫渐变主题，核心功能：
+
+- **结构分析**：枢纽节点TOP20、知识模块度分析、图谱连通性
+- **学习路径分析**：知识点前置依赖链、推荐学习序列生成
+- **教材版本对比**：不同教材版本知识点编排差异对比分析
+- **标注系统**：知识点批注、研究笔记、个人知识管理
+- **分析报告**：研究摘要导出、关键发现总结、建议改进项
+
 ## 数据模型
 
 ### 知识点（Topic）
@@ -353,9 +471,11 @@ data-loader 自动选择最优加载方式：
 - **v0.9.x**：✅ H5 移动端版本
 - **v1.0**：✅ 多角色版本拆分（家长/学生/教师 + H5）
 - **v1.1**：✅ 三维度全方位复盘（在校教师/培训机构/教育管理者）
-- **v1.2**：数据质量提升（pageRange补全、resource链接替换、跨学科依赖）
-- **v1.3**：管理者驾驶舱（区域学情/均衡分析/质量监测/预警机制）
-- **v1.4**：数据安全合规（隐私政策、数据分级、教育APP备案）
+- **v1.2**：✅ 共享组件化重构（7个共享组件，消除400+行重复代码）
+- **v1.3**：✅ 教育机构/管理者/教研员三大新角色版本
+- **v1.4**：✅ 班主任/出题人/升学过渡三大新角色版本
+- **v1.5**：数据质量提升（pageRange补全、resource链接替换、跨学科依赖）
+- **v1.6**：数据安全合规（隐私政策、数据分级、教育APP备案）
 - **v2.0**：规模化推广体系（培训材料、试点经验、评估框架）
 - **v3.0**：对标 Marble 完整度并面向商用学习产品收口
 

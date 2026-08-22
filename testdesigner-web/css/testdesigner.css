@@ -1,0 +1,338 @@
+/* 出题人版主题 - 青蓝专业调 */
+:root {
+  --cnpt-primary: #1a73e8;
+  --cnpt-primary-light: #4a90e2;
+  --cnpt-primary-dark: #1557b0;
+  --cnpt-gradient: linear-gradient(135deg, #1a73e8 0%, #6c5ce7 100%);
+  --cnpt-bg: #f5f8fc;
+  --cnpt-card-shadow: 0 2px 8px rgba(26, 115, 232, 0.1);
+}
+
+body[data-role="testdesigner"] {
+  background: var(--cnpt-bg);
+}
+
+.cnpt-header {
+  background: var(--cnpt-gradient);
+}
+
+.cnpt-nav-btn.active {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* 表单行 */
+.cnpt-form-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.cnpt-form-row label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: #666;
+}
+
+.cnpt-form-row select,
+.cnpt-form-row input {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+  min-width: 120px;
+}
+
+.cnpt-form-row input[type="number"] {
+  width: 80px;
+}
+
+/* 细目表输出 */
+.cnpt-blueprint-output {
+  margin-top: 24px;
+}
+
+.cnpt-blueprint-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 16px;
+}
+
+.cnpt-blueprint-table th,
+.cnpt-blueprint-table td {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.cnpt-blueprint-table th {
+  background: #f0f4f8;
+  font-weight: bold;
+}
+
+.cnpt-blueprint-table td:first-child {
+  text-align: left;
+  font-weight: 500;
+}
+
+.cnpt-blueprint-table .row-total {
+  background: #f8f9fa;
+  font-weight: bold;
+}
+
+.cnpt-blueprint-table .col-total {
+  background: #eef2ff;
+  font-weight: bold;
+}
+
+/* 认知维度颜色 */
+.cog-memory { background: #e3f2fd; }
+.cog-understand { background: #e8f5e9; }
+.cog-apply { background: #fff3e0; }
+.cog-analyze { background: #fce4ec; }
+.cog-evaluate { background: #f3e5f5; }
+.cog-create { background: #e0f7fa; }
+
+/* 组卷输出 */
+.cnpt-assembly-output {
+  margin-top: 24px;
+}
+
+.cnpt-paper-preview {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 32px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cnpt-paper-header {
+  text-align: center;
+  border-bottom: 2px solid #333;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.cnpt-paper-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.cnpt-paper-info {
+  font-size: 14px;
+  color: #666;
+}
+
+.cnpt-paper-section {
+  margin-bottom: 24px;
+}
+
+.cnpt-paper-section h4 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background: #f0f4f8;
+  border-radius: 6px;
+}
+
+.cnpt-paper-question {
+  padding: 12px 0;
+  border-bottom: 1px dotted #eee;
+  line-height: 1.8;
+}
+
+.cnpt-paper-question:last-child {
+  border-bottom: none;
+}
+
+.cnpt-question-num {
+  font-weight: bold;
+  color: var(--cnpt-primary);
+  margin-right: 8px;
+}
+
+.cnpt-question-meta {
+  font-size: 12px;
+  color: #999;
+  margin-left: 8px;
+}
+
+/* 难度预测输出 */
+.cnpt-difficulty-output {
+  margin-top: 24px;
+}
+
+.cnpt-difficulty-result {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.cnpt-difficulty-gauge {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: conic-gradient(#27ae60 0%, #f1c40f 50%, #e74c3c 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.cnpt-difficulty-gauge::before {
+  content: '';
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+}
+
+.cnpt-difficulty-value {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.cnpt-difficulty-value .num {
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--cnpt-primary);
+}
+
+.cnpt-difficulty-value .label {
+  font-size: 12px;
+  color: #999;
+}
+
+.cnpt-difficulty-detail {
+  flex: 1;
+  min-width: 250px;
+}
+
+.cnpt-difficulty-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* 覆盖度输出 */
+.cnpt-coverage-output {
+  margin-top: 24px;
+}
+
+.cnpt-coverage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.cnpt-coverage-item {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  background: #fff;
+}
+
+.cnpt-coverage-item.covered {
+  border-color: #27ae60;
+  background: #e8f5e9;
+}
+
+.cnpt-coverage-item.partial {
+  border-color: #f39c12;
+  background: #fff3e0;
+}
+
+.cnpt-coverage-item.missing {
+  border-color: #e74c3c;
+  background: #fce4ec;
+}
+
+.cnpt-coverage-domain {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.cnpt-coverage-pct {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.cnpt-coverage-bar {
+  height: 6px;
+  background: #eee;
+  border-radius: 3px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.cnpt-coverage-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s;
+}
+
+/* 试卷库 */
+.cnpt-papers-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.cnpt-paper-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: var(--cnpt-card-shadow);
+  cursor: pointer;
+  transition: transform 0.2s;
+  border: 1px solid #eee;
+}
+
+.cnpt-paper-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(26, 115, 232, 0.15);
+}
+
+.cnpt-paper-card-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: var(--cnpt-primary);
+}
+
+.cnpt-paper-card-meta {
+  font-size: 12px;
+  color: #999;
+  display: flex;
+  gap: 12px;
+}
+
+/* 操作按钮组 */
+.cnpt-action-bar {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .cnpt-form-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cnpt-form-row select,
+  .cnpt-form-row input {
+    width: 100%;
+  }
+}

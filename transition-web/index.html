@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="知识点图谱升学过渡版 - 幼升小/小升初衔接知识图谱、考点热力学情差距分析、冲刺路径、模拟测评">
+  <meta property="og:title" content="知识点图谱 · 升学过渡版">
+  <meta property="og:description" content="升学过渡专用：衔接知识图谱、考点热力图、学情差距分析、冲刺路径生成、模拟测评">
+  <meta property="og:type" content="website">
+  <title>知识点图谱 · 升学过渡版</title>
+  <link rel="stylesheet" href="../shared/css/tokens.css">
+  <link rel="stylesheet" href="../shared/css/common.css">
+  <link rel="stylesheet" href="css/transition.css">
+</head>
+<body data-role="transition">
+  <a href="#main-content" class="cnpt-skip-link">跳转到主要内容</a>
+
+  <header class="cnpt-header">
+    <div class="cnpt-header-inner">
+      <h1 class="cnpt-logo">🎯 升学冲刺</h1>
+      <nav class="cnpt-nav">
+        <button class="cnpt-nav-btn active" data-view="overview">总览</button>
+        <button class="cnpt-nav-btn" data-view="hotspots">考点热力</button>
+        <button class="cnpt-nav-btn" data-view="gap">差距分析</button>
+        <button class="cnpt-nav-btn" data-view="sprint">冲刺路径</button>
+        <button class="cnpt-nav-btn" data-view="mock">模拟测评</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="cnpt-main">
+    <!-- 加载状态 -->
+    <div id="cnpt-loading" class="cnpt-loading">
+      <div class="cnpt-loading-spinner"></div>
+      <div class="cnpt-loading-text">正在加载知识图谱数据...</div>
+    </div>
+
+    <!-- 顶部信息栏 -->
+    <div class="cnpt-transition-bar">
+      <div class="cnpt-transition-info">
+        <span class="cnpt-transition-target">目标：小升初</span>
+        <span class="cnpt-transition-countdown">倒计时：<strong>120</strong>天</span>
+      </div>
+      <div class="cnpt-transition-progress">
+        <div class="cnpt-progress-bar">
+          <div id="transition-progress-fill" class="cnpt-progress-fill" style="width:35%"></div>
+        </div>
+        <span id="transition-progress-text">已完成 35%</span>
+      </div>
+    </div>
+
+    <!-- 总览视图 -->
+    <section id="view-overview" class="cnpt-view active">
+      <div class="cnpt-dashboard">
+        <div class="cnpt-card cnpt-dashboard-card">
+          <h3>衔接知识点</h3>
+          <div id="transition-topics-count" class="cnpt-stat-value">--</div>
+          <span class="cnpt-stat-label">个</span>
+        </div>
+        <div class="cnpt-card cnpt-dashboard-card">
+          <h3>已掌握</h3>
+          <div id="transition-mastered" class="cnpt-stat-value">--</div>
+          <span class="cnpt-stat-label">个</span>
+        </div>
+        <div class="cnpt-card cnpt-dashboard-card">
+          <h3>待强化</h3>
+          <div id="transition-weak" class="cnpt-stat-value">--</div>
+          <span class="cnpt-stat-label">个</span>
+        </div>
+        <div class="cnpt-card cnpt-dashboard-card">
+          <h3>达标率</h3>
+          <div id="transition-rate" class="cnpt-stat-value">--</div>
+          <span class="cnpt-stat-label">%</span>
+        </div>
+      </div>
+
+      <div class="cnpt-card">
+        <h3>升学准备度雷达</h3>
+        <div id="readiness-radar" class="cnpt-radar-container"></div>
+      </div>
+
+      <div class="cnpt-card">
+        <h3>每日任务</h3>
+        <div id="daily-tasks" class="cnpt-task-list"></div>
+      </div>
+    </section>
+
+    <!-- 考点热力视图 -->
+    <section id="view-hotspots" class="cnpt-view">
+      <div class="cnpt-card">
+        <h3>高频考点分布</h3>
+        <p style="color:#666;margin-bottom:16px">基于历年真题分析，标注各知识点考试出现频率。</p>
+        <div class="cnpt-filter-bar">
+          <select id="hotspot-subject" aria-label="选择学科">
+            <option value="">全部学科</option>
+          </select>
+          <select id="hotspot-grade" aria-label="选择年级">
+            <option value="4">四年级</option>
+            <option value="5">五年级</option>
+            <option value="6" selected>六年级</option>
+          </select>
+        </div>
+        <div id="hotspot-grid" class="cnpt-hotspot-grid"></div>
+      </div>
+    </section>
+
+    <!-- 差距分析视图 -->
+    <section id="view-gap" class="cnpt-view">
+      <div class="cnpt-card">
+        <h3>目标 vs 现状 差距分析</h3>
+        <p style="color:#666;margin-bottom:16px">对比目标学校要求，找出知识掌握差距。</p>
+        <div class="cnpt-form-row">
+          <label>目标类型：
+            <select id="gap-target" aria-label="目标类型">
+              <option value="key">重点初中</option>
+              <option value="normal">普通初中</option>
+              <option value="international">国际学校</option>
+            </select>
+          </label>
+          <label>学科：
+            <select id="gap-subject" aria-label="选择学科"></select>
+          </label>
+          <button id="btn-analyze-gap" class="cnpt-btn cnpt-btn-primary">分析差距</button>
+        </div>
+      </div>
+      <div id="gap-output" class="cnpt-gap-output cnpt-hidden"></div>
+    </section>
+
+    <!-- 冲刺路径视图 -->
+    <section id="view-sprint" class="cnpt-view">
+      <div class="cnpt-card">
+        <h3>智能冲刺路径</h3>
+        <p style="color:#666;margin-bottom:16px">基于剩余时间和知识差距，生成最优复习序列。</p>
+        <div class="cnpt-form-row">
+          <label>剩余天数：
+            <input type="number" id="sprint-days" value="120" min="7" max="365" aria-label="剩余天数">
+          </label>
+          <label>每日学习量：
+            <select id="sprint-load" aria-label="每日学习量">
+              <option value="light">轻松（3个知识点）</option>
+              <option value="medium" selected>适中（5个知识点）</option>
+              <option value="heavy">强化（8个知识点）</option>
+            </select>
+          </label>
+          <button id="btn-generate-sprint" class="cnpt-btn cnpt-btn-primary">生成路径</button>
+        </div>
+      </div>
+      <div id="sprint-output" class="cnpt-sprint-output cnpt-hidden"></div>
+    </section>
+
+    <!-- 模拟测评视图 -->
+    <section id="view-mock" class="cnpt-view">
+      <div class="cnpt-card">
+        <h3>升学模拟测评</h3>
+        <p style="color:#666;margin-bottom:16p>生成升学模拟卷，评估当前准备度。</p>
+        <div class="cnpt-form-row">
+          <label>学科：
+            <select id="mock-subject" aria-label="选择学科"></select>
+          </label>
+          <label>难度：
+            <select id="mock-difficulty" aria-label="难度">
+              <option value="easy">基础</option>
+              <option value="medium" selected>标准</option>
+              <option value="hard">选拔</option>
+            </select>
+          </label>
+          <label>题数：
+            <input type="number" id="mock-count" value="20" min="10" max="50" aria-label="题数">
+          </label>
+          <button id="btn-start-mock" class="cnpt-btn cnpt-btn-primary">开始测评</button>
+        </div>
+      </div>
+      <div id="mock-output" class="cnpt-mock-output cnpt-hidden"></div>
+    </section>
+  </main>
+
+  <!-- 脚本加载 -->
+  <script src="../shared/js/core/constants.js"></script>
+  <script src="../shared/js/core/data-loader.js"></script>
+  <script src="../shared/js/core/indices.js"></script>
+  <script src="../shared/js/core/search.js"></script>
+  <script src="../shared/js/core/path.js"></script>
+  <script src="../shared/js/core/storage.js"></script>
+  <script src="../shared/js/core/multi-user-storage.js"></script>
+  <script src="../shared/js/core/utils.js"></script>
+  <script src="../shared/js/components/show-load-error.js"></script>
+  <script src="../shared/js/components/mascot-effects.js"></script>
+  <script src="../shared/js/components/topic-tags.js"></script>
+  <script src="../shared/js/components/mastery-row.js"></script>
+  <script src="../shared/js/components/diagnostic-engine.js"></script>
+  <script src="../shared/js/components/report-generator.js"></script>
+  <script src="js/transition.js"></script>
+</body>
+</html>

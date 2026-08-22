@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="知识点图谱出题人版 - 双向细目表生成、智能组卷、难度预测、覆盖度分析">
+  <meta property="og:title" content="知识点图谱 · 出题人版">
+  <meta property="og:description" content="出题人专用：双向细目表自动生成、基于知识图谱的智能组卷、难度预测、覆盖度分析">
+  <meta property="og:type" content="website">
+  <title>知识点图谱 · 出题人版</title>
+  <link rel="stylesheet" href="../shared/css/tokens.css">
+  <link rel="stylesheet" href="../shared/css/common.css">
+  <link rel="stylesheet" href="css/testdesigner.css">
+</head>
+<body data-role="testdesigner">
+  <a href="#main-content" class="cnpt-skip-link">跳转到主要内容</a>
+
+  <header class="cnpt-header">
+    <div class="cnpt-header-inner">
+      <h1 class="cnpt-logo">📝 出题工作间</h1>
+      <nav class="cnpt-nav">
+        <button class="cnpt-nav-btn active" data-view="blueprint">双向细目表</button>
+        <button class="cnpt-nav-btn" data-view="assembly">智能组卷</button>
+        <button class="cnpt-nav-btn" data-view="difficulty">难度预测</button>
+        <button class="cnpt-nav-btn" data-view="coverage">覆盖度分析</button>
+        <button class="cnpt-nav-btn" data-view="papers">试卷库</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="cnpt-main">
+    <!-- 加载状态 -->
+    <div id="cnpt-loading" class="cnpt-loading">
+      <div class="cnpt-loading-spinner"></div>
+      <div class="cnpt-loading-text">正在加载知识图谱数据...</div>
+    </div>
+
+    <!-- 双向细目表视图 -->
+    <section id="view-blueprint" class="cnpt-view active">
+      <div class="cnpt-card">
+        <h3>双向细目表生成器</h3>
+        <div class="cnpt-form-row">
+          <label>学科：
+            <select id="bp-subject" aria-label="选择学科"></select>
+          </label>
+          <label>年级：
+            <select id="bp-grade" aria-label="选择年级">
+              <option value="1">一年级</option>
+              <option value="2">二年级</option>
+              <option value="3">三年级</option>
+              <option value="4">四年级</option>
+              <option value="5">五年级</option>
+              <option value="6">六年级</option>
+            </select>
+          </label>
+          <label>考试类型：
+            <select id="bp-type" aria-label="考试类型">
+              <option value="unit">单元测试</option>
+              <option value="midterm">期中考试</option>
+              <option value="final">期末考试</option>
+              <option value="simulation">模拟考试</option>
+            </select>
+          </label>
+          <label>目标难度：
+            <select id="bp-difficulty" aria-label="目标难度">
+              <option value="0.9">较易（0.9）</option>
+              <option value="0.7" selected>适中（0.7）</option>
+              <option value="0.5">较难（0.5）</option>
+              <option value="0.3">很难（0.3）</option>
+            </select>
+          </label>
+          <button id="btn-generate-blueprint" class="cnpt-btn cnpt-btn-primary">生成细目表</button>
+        </div>
+      </div>
+
+      <div id="blueprint-output" class="cnpt-blueprint-output cnpt-hidden"></div>
+    </section>
+
+    <!-- 智能组卷视图 -->
+    <section id="view-assembly" class="cnpt-view">
+      <div class="cnpt-card">
+        <h3>智能组卷</h3>
+        <div class="cnpt-form-row">
+          <label>学科：
+            <select id="asm-subject" aria-label="选择学科"></select>
+          </label>
+          <label>年级：
+            <select id="asm-grade" aria-label="选择年级">
+              <option value="1">一年级</option>
+              <option value="2">二年级</option>
+              <option value="3">三年级</option>
+              <option value="4">四年级</option>
+              <option value="5">五年级</option>
+              <option value="6">六年级</option>
+            </select>
+          </label>
+          <label>总题数：
+            <input type="number" id="asm-count" value="30" min="10" max="100" aria-label="总题数">
+          </label>
+          <label>总分：
+            <input type="number" id="asm-score" value="100" min="50" max="200" aria-label="总分">
+          </label>
+          <label>时长(分钟)：
+            <input type="number" id="asm-duration" value="60" min="30" max="180" aria-label="考试时长">
+          </label>
+        </div>
+        <div class="cnpt-form-row">
+          <label>题型分布：</label>
+          <label>选择题：<input type="number" id="asm-choice" value="10" min="0" aria-label="选择题数量"></label>
+          <label>填空题：<input type="number" id="asm-fill" value="8" min="0" aria-label="填空题数量"></label>
+          <label>计算题：<input type="number" id="asm-calc" value="6" min="0" aria-label="计算题数量"></label>
+          <label>解答题：<input type="number" id="asm-answer" value="6" min="0" aria-label="解答题数量"></label>
+          <button id="btn-assemble" class="cnpt-btn cnpt-btn-primary">开始组卷</button>
+        </div>
+      </div>
+
+      <div id="assembly-output" class="cnpt-assembly-output cnpt-hidden"></div>
+    </section>
+
+    <!-- 难度预测视图 -->
+    <section id="view-difficulty" class="cnpt-view">
+      <div class="cnpt-card">
+        <h3>难度预测</h3>
+        <p style="color:#666;margin-bottom:16px">基于知识图谱节点难度、认知维度权重、历史数据，预测整卷难度系数。</p>
+        <div class="cnpt-form-row">
+          <label>试卷题目数：
+            <input type="number" id="diff-total" value="30" min="5" aria-label="题目总数">
+          </label>
+          <label>平均节点难度：
+            <input type="number" id="diff-avg" value="3" min="1" max="5" step="0.1" aria-label="平均节点难度">
+          </label>
+          <label>高阶思维题占比：
+            <input type="number" id="diff-high-order" value="30" min="0" max="100" aria-label="高阶思维题占比">%
+          </label>
+          <button id="btn-predict" class="cnpt-btn cnpt-btn-primary">预测难度</button>
+        </div>
+      </div>
+      <div id="difficulty-output" class="cnpt-difficulty-output cnpt-hidden"></div>
+    </section>
+
+    <!-- 覆盖度分析视图 -->
+    <section id="view-coverage" class="cnpt-view">
+      <div class="cnpt-card">
+        <h3>覆盖度分析</h3>
+        <p style="color:#666;margin-bottom:16px">检测试卷对课标要求、知识域的覆盖盲区。</p>
+        <div class="cnpt-form-row">
+          <label>学科：
+            <select id="cov-subject" aria-label="选择学科"></select>
+          </label>
+          <label>年级：
+            <select id="cov-grade" aria-label="选择年级">
+              <option value="1">一年级</option>
+              <option value="2">二年级</option>
+              <option value="3">三年级</option>
+              <option value="4">四年级</option>
+              <option value="5">五年级</option>
+              <option value="6">六年级</option>
+            </select>
+          </label>
+          <button id="btn-analyze-coverage" class="cnpt-btn cnpt-btn-primary">分析覆盖度</button>
+        </div>
+      </div>
+      <div id="coverage-output" class="cnpt-coverage-output cnpt-hidden"></div>
+    </section>
+
+    <!-- 试卷库视图 -->
+    <section id="view-papers" class="cnpt-view">
+      <div class="cnpt-card">
+        <h3>试卷库</h3>
+        <div id="papers-list" class="cnpt-papers-list">
+          <p style="color:#999;text-align:center;padding:40px">暂无保存的试卷，请先使用智能组卷功能生成试卷。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 脚本加载 -->
+  <script src="../shared/js/core/constants.js"></script>
+  <script src="../shared/js/core/data-loader.js"></script>
+  <script src="../shared/js/core/indices.js"></script>
+  <script src="../shared/js/core/search.js"></script>
+  <script src="../shared/js/core/path.js"></script>
+  <script src="../shared/js/core/storage.js"></script>
+  <script src="../shared/js/core/multi-user-storage.js"></script>
+  <script src="../shared/js/core/utils.js"></script>
+  <script src="../shared/js/components/show-load-error.js"></script>
+  <script src="../shared/js/components/mascot-effects.js"></script>
+  <script src="../shared/js/components/topic-tags.js"></script>
+  <script src="../shared/js/components/mastery-row.js"></script>
+  <script src="../shared/js/components/diagnostic-engine.js"></script>
+  <script src="../shared/js/components/report-generator.js"></script>
+  <script src="js/testdesigner.js"></script>
+</body>
+</html>

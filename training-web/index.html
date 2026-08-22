@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>知识图谱 · 培训机构版 | CN-Primary-Taxonomy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="培训机构专用知识图谱系统，支持学生管理、入学诊断、学习进度跟踪、家校报告生成。">
+<meta property="og:title" content="知识图谱 · 培训机构版">
+<meta property="og:description" content="培训机构专用，支持学生管理、入学诊断、家校报告">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../shared/css/common.css">
+<link rel="stylesheet" href="../shared/css/tokens.css">
+<link rel="stylesheet" href="css/training.css">
+</head>
+<body class="cnpt-role-training">
+<a href="#main-content" class="cnpt-skip-link" style="position:absolute;top:-100%;left:16px;z-index:99999;padding:10px 20px;background:#5dade2;color:#fff;font-size:13px;font-weight:600;text-decoration:none;border-radius:0 0 8px 8px;transition:top 0.2s;" onfocus="this.style.top='0'" onblur="this.style.top='-100%'">跳到主内容</a>
+
+<!-- 加载指示器 -->
+<div id="cnpt-loading" class="cnpt-loading-screen">
+  <div class="cnpt-loading-spinner"></div>
+  <div class="cnpt-loading-text">加载知识图谱数据...</div>
+  <div class="cnpt-loading-progress"></div>
+</div>
+
+<div id="main-content" class="cnpt-app-layout" tabindex="-1">
+
+  <!-- 顶部导航 -->
+  <header class="cnpt-top-bar" aria-label="顶部导航">
+    <div class="cnpt-top-bar-left">
+      <h1 class="cnpt-logo">📚 知识图谱 · 培训机构版</h1>
+      <span class="cnpt-top-info" id="top-info"></span>
+    </div>
+    <nav class="cnpt-nav-items" aria-label="主导航">
+      <button class="cnpt-nav-btn active" data-view="dashboard">📊 概览</button>
+      <button class="cnpt-nav-btn" data-view="students">👥 学员</button>
+      <button class="cnpt-nav-btn" data-view="diagnose">🔍 诊断</button>
+      <button class="cnpt-nav-btn" data-view="reports">📄 报告</button>
+      <button class="cnpt-nav-btn" data-view="settings">⚙️ 设置</button>
+    </nav>
+  </header>
+
+  <!-- 主内容区 -->
+  <main class="cnpt-main-content">
+
+    <!-- 概览视图 -->
+    <section id="view-dashboard" class="cnpt-view active">
+      <h2>教学概览</h2>
+      <div class="cnpt-dashboard-grid">
+        <div class="cnpt-card">
+          <div class="cnpt-card-value" id="stat-total-students">0</div>
+          <div class="cnpt-card-label">在读学员</div>
+        </div>
+        <div class="cnpt-card">
+          <div class="cnpt-card-value" id="stat-total-mastered">0</div>
+          <div class="cnpt-card-label">累计掌握知识点</div>
+        </div>
+        <div class="cnpt-card">
+          <div class="cnpt-card-value" id="stat-avg-mastery">0%</div>
+          <div class="cnpt-card-label">平均掌握率</div>
+        </div>
+        <div class="cnpt-card">
+          <div class="cnpt-card-value" id="stat-total-stars">0</div>
+          <div class="cnpt-card-label">学员星星总数</div>
+        </div>
+      </div>
+
+      <!-- 班级掌握度对比 -->
+      <h3 style="margin-top:24px">📈 学员掌握度排行</h3>
+      <div class="cnpt-table-wrapper">
+        <table class="cnpt-table" id="student-ranking-table">
+          <thead>
+            <tr>
+              <th>排名</th>
+              <th>姓名</th>
+              <th>年级</th>
+              <th>已掌握</th>
+              <th>学习中</th>
+              <th>掌握率</th>
+              <th>星星</th>
+              <th>学习天数</th>
+            </tr>
+          </thead>
+          <tbody id="student-ranking-body">
+            <tr><td colspan="8" class="cnpt-empty-state">暂无学员数据，请先在"学员"页面添加学员</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 学员管理视图 -->
+    <section id="view-students" class="cnpt-view">
+      <h2>学员管理</h2>
+      <div class="cnpt-toolbar">
+        <button class="cnpt-btn cnpt-btn-primary" id="btn-add-student">➕ 添加学员</button>
+        <button class="cnpt-btn cnpt-btn-secondary" id="btn-export-data">📤 导出数据</button>
+      </div>
+      <div id="student-list" class="cnpt-student-grid"></div>
+    </section>
+
+    <!-- 诊断视图 -->
+    <section id="view-diagnose" class="cnpt-view">
+      <h2>入学诊断</h2>
+      <div class="cnpt-diagnose-panel">
+        <div class="cnpt-form-group">
+          <label>选择学员：</label>
+          <select id="diagnose-student" class="cnpt-select"></select>
+        </div>
+        <div class="cnpt-form-group">
+            <label for="diagnose-subject">诊断学科：</label>
+          <select id="diagnose-subject" class="cnpt-select"></select>
+        </div>
+        <div class="cnpt-form-group">
+          <label for="diagnose-grade">诊断年级：</label>
+          <select id="diagnose-grade" class="cnpt-select">
+            <option value="1">一年级</option>
+            <option value="2">二年级</option>
+            <option value="3">三年级</option>
+            <option value="4">四年级</option>
+            <option value="5">五年级</option>
+            <option value="6">六年级</option>
+          </select>
+        </div>
+        <button class="cnpt-btn cnpt-btn-primary" id="btn-run-diagnose">🔍 开始诊断</button>
+      </div>
+      <div id="diagnose-result" class="cnpt-result-panel"></div>
+    </section>
+
+    <!-- 报告视图 -->
+    <section id="view-reports" class="cnpt-view">
+      <h2>学习报告</h2>
+      <div class="cnpt-form-group">
+        <label>选择学员生成报告：</label>
+        <select id="report-student" class="cnpt-select"></select>
+      </div>
+      <div class="cnpt-toolbar">
+        <button class="cnpt-btn cnpt-btn-primary" id="btn-generate-report">📄 生成进度报告</button>
+        <button class="cnpt-btn cnpt-btn-secondary" id="btn-generate-diagnostic">🔬 生成诊断报告</button>
+        <button class="cnpt-btn cnpt-btn-secondary" id="btn-generate-parent-card">💌 家校卡片</button>
+      </div>
+      <div id="report-preview" class="cnpt-report-preview"></div>
+    </section>
+
+    <!-- 设置视图 -->
+    <section id="view-settings" class="cnpt-view">
+      <h2>系统设置</h2>
+      <div class="cnpt-card">
+        <h3>数据管理</h3>
+        <p style="color:#666;margin:8px 0">清除所有学员数据（不可恢复）</p>
+        <button class="cnpt-btn cnpt-btn-danger" id="btn-clear-all">🗑️ 清除全部数据</button>
+      </div>
+      <div class="cnpt-card" style="margin-top:16px">
+        <h3>关于</h3>
+        <p style="color:#666;margin:8px 0">CN-Primary-Taxonomy 培训机构版 v1.0</p>
+        <p style="color:#999;font-size:12px">基于中国小学教育知识图谱，覆盖11学科4275个知识点</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 添加学员模态框 -->
+  <div class="cnpt-modal" id="modal-add-student">
+    <div class="cnpt-modal-content">
+      <div class="cnpt-modal-header">
+        <h3>添加学员</h3>
+        <button class="cnpt-modal-close" data-modal="modal-add-student">✕</button>
+      </div>
+      <div class="cnpt-modal-body">
+        <div class="cnpt-form-group">
+          <label for="new-student-name">姓名 *</label>
+          <input type="text" id="new-student-name" class="cnpt-input" placeholder="请输入学员姓名">
+        </div>
+        <div class="cnpt-form-group">
+          <label for="new-student-grade">年级</label>
+          <select id="new-student-grade" class="cnpt-select">
+            <option value="">请选择</option>
+            <option value="1">一年级</option>
+            <option value="2">二年级</option>
+            <option value="3">三年级</option>
+            <option value="4">四年级</option>
+            <option value="5">五年级</option>
+            <option value="6">六年级</option>
+          </select>
+        </div>
+        <div class="cnpt-form-group">
+          <label for="new-student-subject">主要辅导学科</label>
+          <select id="new-student-subject" class="cnpt-select">
+            <option value="">请选择</option>
+            <option value="语文">语文</option>
+            <option value="数学">数学</option>
+            <option value="英语">英语</option>
+            <option value="科学">科学</option>
+          </select>
+        </div>
+      </div>
+      <div class="cnpt-modal-footer">
+        <button class="cnpt-btn cnpt-btn-secondary" data-modal="modal-add-student">取消</button>
+        <button class="cnpt-btn cnpt-btn-primary" id="btn-confirm-add">确认添加</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 学员详情模态框 -->
+  <div class="cnpt-modal" id="modal-student-detail">
+    <div class="cnpt-modal-content cnpt-modal-lg">
+      <div class="cnpt-modal-header">
+        <h3 id="student-detail-title">学员详情</h3>
+        <button class="cnpt-modal-close" data-modal="modal-student-detail">✕</button>
+      </div>
+      <div class="cnpt-modal-body" id="student-detail-body"></div>
+    </div>
+  </div>
+
+</div><!-- #main-content -->
+
+<!-- 脚本加载 -->
+<script src="../shared/js/core/constants.js"></script>
+<script src="../shared/js/core/utils.js"></script>
+<script src="../shared/js/core/data-loader.js"></script>
+<script src="../shared/js/core/indices.js"></script>
+<script src="../shared/js/core/search.js"></script>
+<script src="../shared/js/core/path.js"></script>
+<script src="../shared/js/core/storage.js"></script>
+<script src="../shared/js/core/multi-user-storage.js"></script>
+<script src="../shared/js/components/show-load-error.js"></script>
+<script src="../shared/js/components/mascot-effects.js"></script>
+<script src="../shared/js/components/topic-tags.js"></script>
+<script src="../shared/js/components/mastery-row.js"></script>
+<script src="../shared/js/components/diagnostic-engine.js"></script>
+<script src="../shared/js/components/report-generator.js"></script>
+<script src="js/training.js"></script>
+</body>
+</html>

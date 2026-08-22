@@ -54,6 +54,8 @@
   }
 
   // ========== 初始化 ==========
+  // showLoadError 已移至共享组件 CNPT.components.showLoadError
+
   async function init() {
     cacheDom();
     state.storage = CNPT.storage.create('parent');
@@ -64,7 +66,7 @@
       state.fullData = await CNPT.dataLoader.loadAllData();
     } catch (err) {
       console.error('数据加载失败:', err);
-      CNPT.utils.showToast('数据加载失败，请刷新重试');
+      CNPT.components.showLoadError('数据加载失败，请检查网络连接后重试');
       return;
     }
 
@@ -434,7 +436,7 @@
   // ========== 小伙伴模式 ==========
   function initKidMode() {
     DOM.kidToggle.addEventListener('click', toggleKidMode);
-    DOM.mascot.addEventListener('click', () => showMascotTip(getRandomKidTip()));
+    DOM.mascot.addEventListener('click', () => CNPT.components.showMascotTip(getRandomKidTip()));
   }
 
   function toggleKidMode() {
@@ -445,26 +447,14 @@
 
     if (state.kidMode) {
       DOM.kidWelcome.classList.add('show');
-      showMascotTip('你好呀！👋 我是小知，你的学习小伙伴！');
-      showEncourage('🌟 欢迎欢迎！和小知一起探索知识的海洋吧！');
+      CNPT.components.showMascotTip('你好呀！👋 我是小知，你的学习小伙伴！');
+      CNPT.components.showEncourage('🌟 欢迎欢迎！和小知一起探索知识的海洋吧！');
     } else {
       DOM.kidWelcome.classList.remove('show');
     }
   }
 
-  function showMascotTip(text) {
-    DOM.mascotBubble.textContent = text;
-    DOM.mascotBubble.classList.add('show');
-    clearTimeout(DOM.mascotBubble._timer);
-    DOM.mascotBubble._timer = setTimeout(() => DOM.mascotBubble.classList.remove('show'), 4000);
-  }
-
-  function showEncourage(text) {
-    DOM.encourageBar.textContent = text;
-    DOM.encourageBar.classList.add('show');
-    clearTimeout(DOM.encourageBar._timer);
-    DOM.encourageBar._timer = setTimeout(() => DOM.encourageBar.classList.remove('show'), 3000);
-  }
+  // showMascotTip/showEncourage 已移至共享组件 CNPT.components
 
   function getRandomKidTip() {
     const tips = [
