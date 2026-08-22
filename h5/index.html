@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#4A90D9">
+<title>小学知识图谱 · H5</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- 顶部状态栏 -->
+<header id="app-header">
+  <div class="header-left">
+    <span id="header-title">知识图谱</span>
+  </div>
+  <div class="header-right">
+    <button id="btn-search" class="header-icon" aria-label="搜索">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    </button>
+    <button id="btn-filter" class="header-icon" aria-label="筛选">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M6 12h12M10 18h4"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- 主内容区 -->
+<main id="app-main">
+  <!-- 视图容器 -->
+  <div id="view-graph" class="view view-active">
+    <!-- Canvas图谱 -->
+    <div id="graph-container">
+      <canvas id="graph-canvas"></canvas>
+      <div id="graph-hint" class="graph-hint">
+        <span class="hint-icon">👆</span>
+        <span class="hint-text">点击节点查看详情 · 双指缩放</span>
+      </div>
+      <div id="graph-status" class="graph-status"></div>
+    </div>
+
+    <!-- 快捷筛选条 -->
+    <div id="quick-filter-bar">
+      <div class="qf-scroll">
+        <button class="qf-chip qf-active" data-grade="all">全部</button>
+        <button class="qf-chip" data-grade="1">一年级</button>
+        <button class="qf-chip" data-grade="2">二年级</button>
+        <button class="qf-chip" data-grade="3">三年级</button>
+        <button class="qf-chip" data-grade="4">四年级</button>
+        <button class="qf-chip" data-grade="5">五年级</button>
+        <button class="qf-chip" data-grade="6">六年级</button>
+      </div>
+      <div class="qf-divider"></div>
+      <div class="qf-scroll" id="qf-subjects">
+        <button class="qf-chip-sub qf-active" data-subject="all">全部</button>
+      </div>
+    </div>
+
+    <!-- 科目快捷入口 -->
+    <div id="subject-quick-grid">
+      <div class="sqg-inner"></div>
+    </div>
+
+    <!-- 学习助手浮动按钮 -->
+    <button id="btn-assistant-fab" class="fab-btn" aria-label="学习助手">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 1 7 7c0 2.5-1.3 4.5-3 5.5V17a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-2.5C6.3 13.5 5 11.5 5 9a7 7 0 0 1 7-7z"/><path d="M10 22h4"/></svg>
+    </button>
+  </div>
+
+  <!-- 搜索视图 -->
+  <div id="view-search" class="view">
+    <div class="search-header">
+      <div class="search-input-wrap">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="search-input" placeholder="搜索知识点（如：乘法、部首、时间）" autocomplete="off">
+        <button id="search-clear" class="search-clear-btn" style="display:none">✕</button>
+      </div>
+      <button id="search-cancel" class="search-cancel">取消</button>
+    </div>
+    <div id="search-hot" class="search-hot">
+      <div class="sh-label">热门搜索</div>
+      <div class="sh-chips">
+        <span class="sh-chip" data-q="乘法口诀">乘法口诀</span>
+        <span class="sh-chip" data-q="看图写话">看图写话</span>
+        <span class="sh-chip" data-q="有余数除法">有余数除法</span>
+        <span class="sh-chip" data-q="分数">分数</span>
+        <span class="sh-chip" data-q="部首查字法">部首查字法</span>
+        <span class="sh-chip" data-q="时间">时间</span>
+        <span class="sh-chip" data-q="英语">英语</span>
+        <span class="sh-chip" data-q="跳绳">跳绳</span>
+      </div>
+    </div>
+    <div id="search-results" class="search-results"></div>
+  </div>
+
+  <!-- 学习视图 -->
+  <div id="view-learn" class="view">
+    <div class="learn-container">
+      <div class="learn-stats-bar">
+        <div class="ls-item"><span class="ls-num" id="ls-mastered">0</span><span class="ls-label">已掌握</span></div>
+        <div class="ls-item"><span class="ls-num" id="ls-learning">0</span><span class="ls-label">学习中</span></div>
+        <div class="ls-item"><span class="ls-num" id="ls-remaining">0</span><span class="ls-label">待学习</span></div>
+        <div class="ls-item"><span class="ls-num" id="ls-wrong">0</span><span class="ls-label">错题</span></div>
+      </div>
+      <div class="learn-section">
+        <h3 class="ls-title">📚 学习路径推荐</h3>
+        <div id="learning-path-list" class="learning-path-list">
+          <div class="empty-state">选择一个年级和学科后，系统会为你推荐学习路径</div>
+        </div>
+      </div>
+      <div class="learn-section">
+        <h3 class="ls-title">📖 错题本</h3>
+        <div id="wrong-book-list" class="wrong-book-list">
+          <div class="empty-state">还没有错题记录哦，去练习吧！</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 我的视图 -->
+  <div id="view-mine" class="view">
+    <div class="mine-container">
+      <div class="mine-header">
+        <div class="mine-avatar">🎓</div>
+        <div class="mine-info">
+          <div class="mine-name">小同学</div>
+          <div class="mine-desc">每天进步一点点</div>
+        </div>
+      </div>
+      <div class="mine-stats">
+        <div class="ms-item"><span class="ms-num" id="ms-total-mastered">0</span><span class="ms-label">已掌握知识点</span></div>
+        <div class="ms-item"><span class="ms-num" id="ms-total-stars">0</span><span class="ms-label">获得星星</span></div>
+        <div class="ms-item"><span class="ms-num" id="ms-total-days">0</span><span class="ms-label">连续学习天数</span></div>
+      </div>
+      <div class="mine-menu">
+        <div class="mm-item" data-action="kid-mode">
+          <span class="mm-icon">🧒</span>
+          <span class="mm-text">小伙伴模式</span>
+          <span class="mm-arrow">›</span>
+        </div>
+        <div class="mm-item" data-action="reset">
+          <span class="mm-icon">🔄</span>
+          <span class="mm-text">重置学习进度</span>
+          <span class="mm-arrow">›</span>
+        </div>
+        <div class="mm-item" data-action="about">
+          <span class="mm-icon">ℹ️</span>
+          <span class="mm-text">关于</span>
+          <span class="mm-arrow">›</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- 底部导航栏 -->
+<nav id="bottom-nav">
+  <button class="nav-item nav-active" data-view="graph">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/></svg>
+    <span>图谱</span>
+  </button>
+  <button class="nav-item" data-view="search">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    <span>搜索</span>
+  </button>
+  <button class="nav-item center-btn" data-view="learn">
+    <div class="center-icon">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    </div>
+    <span>学习</span>
+  </button>
+  <button class="nav-item" data-view="learn">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
+    <span>错题</span>
+  </button>
+  <button class="nav-item" data-view="mine">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    <span>我的</span>
+  </button>
+</nav>
+
+<!-- 节点详情底部抽屉 -->
+<div id="node-detail-sheet" class="bottom-sheet">
+  <div class="bs-handle-bar">
+    <div class="bs-handle"></div>
+  </div>
+  <div class="bs-content" id="node-detail-content">
+    <!-- 动态填充 -->
+  </div>
+</div>
+
+<!-- 全屏筛选面板 -->
+<div id="filter-panel" class="fullscreen-panel">
+  <div class="fp-header">
+    <button id="filter-close" class="fp-close">✕</button>
+    <h3>筛选</h3>
+    <button id="filter-reset" class="fp-reset">重置</button>
+  </div>
+  <div class="fp-body">
+    <div class="fp-section">
+      <div class="fp-label">年级</div>
+      <div class="fp-options" id="filter-grades"></div>
+    </div>
+    <div class="fp-section">
+      <div class="fp-label">学科</div>
+      <div class="fp-options" id="filter-subjects"></div>
+    </div>
+    <div class="fp-section">
+      <div class="fp-label">教材版本</div>
+      <div class="fp-options" id="filter-textbooks"></div>
+    </div>
+    <div class="fp-section">
+      <div class="fp-label">视图层级</div>
+      <div class="fp-options" id="filter-layers">
+        <button class="fp-opt-btn fp-active" data-value="core">核心骨架</button>
+        <button class="fp-opt-btn" data-value="detail">详细节点</button>
+      </div>
+    </div>
+  </div>
+  <div class="fp-footer">
+    <button id="filter-apply" class="fp-apply-btn">查看 <span id="filter-count">0</span> 个结果</button>
+  </div>
+</div>
+
+<!-- 练习弹窗 -->
+<div id="practice-modal" class="modal-overlay">
+  <div class="modal-content practice-modal-content">
+    <div class="pm-header">
+      <span class="pm-title" id="practice-title">练习题</span>
+      <button id="practice-close" class="pm-close">✕</button>
+    </div>
+    <div class="pm-body" id="practice-body"></div>
+  </div>
+</div>
+
+<!-- 学习助手弹窗 -->
+<div id="assistant-modal" class="modal-overlay">
+  <div class="modal-content assistant-modal-content">
+    <div class="pm-header">
+      <span class="pm-title">🤖 学习助手</span>
+      <button id="assistant-close" class="pm-close">✕</button>
+    </div>
+    <div class="assistant-body" id="assistant-body">
+      <div class="assistant-input-wrap">
+        <textarea id="assistant-query" placeholder="输入孩子当前卡住的问题，例如：乘法口诀不熟，应该先补什么？" rows="3"></textarea>
+        <button id="assistant-send" class="assistant-send-btn">发送</button>
+      </div>
+      <div class="assistant-chips">
+        <span class="ac-chip" data-q="乘法口诀不熟，应该先补什么">乘法口诀不熟</span>
+        <span class="ac-chip" data-q="看图写话总写不长">看图写话写不长</span>
+        <span class="ac-chip" data-q="有余数除法总做错">有余数除法总错</span>
+        <span class="ac-chip" data-q="分数和除法混淆">分数和除法混淆</span>
+      </div>
+      <div id="assistant-result" class="assistant-result"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 引导气泡（小伙伴模式） -->
+<div id="mascot-guide" class="mascot-guide" style="display:none">
+  <div class="mg-bubble">
+    <span class="mg-text" id="mascot-text">你好呀！我是小知🦊 有问题随时找我哦~</span>
+  </div>
+  <div class="mg-icon">🦊</div>
+</div>
+
+<!-- Toast提示 -->
+<div id="toast" class="toast"></div>
+
+<!-- 加载数据 -->
+<script>
+window.__CNPT_EMBEDDED = window.__CNPT_EMBEDDED || {};
+</script>
+<!--DATA_INJECTION_POINT-->
+<script src="js/app.js"></script>
+</body>
+</html>
