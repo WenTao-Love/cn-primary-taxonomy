@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="theme-color" content="#4A90D9">
@@ -10,6 +10,12 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<!-- 加载指示器 -->
+<div id="cnpt-loading" class="cnpt-loading-screen">
+  <div class="cnpt-loading-spinner"></div>
+  <div class="cnpt-loading-text">知识图谱加载中...</div>
+  <div class="cnpt-loading-progress"></div>
+</div>
 <!-- 顶部状态栏 -->
 <header id="app-header">
   <div class="header-left">
@@ -267,11 +273,15 @@
 <!-- Toast提示 -->
 <div id="toast" class="toast"></div>
 
-<!-- 加载数据 -->
-<script>
-window.__CNPT_EMBEDDED = window.__CNPT_EMBEDDED || {};
-</script>
-<!--DATA_INJECTION_POINT-->
+<!-- 共享核心模块 -->
+<script src="../shared/js/core/constants.js"></script>
+<script src="../shared/js/core/utils.js"></script>
+<script src="../shared/js/core/data-loader.js"></script>
+<script src="../shared/js/core/indices.js"></script>
+<script src="../shared/js/core/search.js"></script>
+<script src="../shared/js/core/path.js"></script>
+<script src="../shared/js/core/storage.js"></script>
+<!-- H5 主应用 -->
 <script src="js/app.js"></script>
 </body>
 </html>

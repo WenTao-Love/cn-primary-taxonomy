@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知识图谱 · 教师教学版 | CN-Primary-Taxonomy</title>
+<link rel="stylesheet" href="../shared/css/tokens.css">
+<link rel="stylesheet" href="../shared/css/common.css">
+<link rel="stylesheet" href="css/teacher.css">
+</head>
+<body class="cnpt-role-teacher">
+<!-- 加载指示器 -->
+<div id="cnpt-loading" class="cnpt-loading-screen">
+  <div class="cnpt-loading-spinner"></div>
+  <div class="cnpt-loading-text">知识图谱加载中...</div>
+  <div class="cnpt-loading-progress"></div>
+</div>
+<div id="app" class="cnpt-app-layout">
+  <!-- 顶部工具栏 -->
+  <header id="top-bar" class="cnpt-top-bar">
+    <div class="cnpt-top-left">
+      <span class="cnpt-top-logo">🎓 知识图谱 · 教师版</span>
+    </div>
+    <div class="cnpt-top-right">
+      <span class="cnpt-top-info" id="top-info">4275知识点 · 4191依赖 · 11学科</span>
+      <button class="cnpt-mode-switch" id="mode-switch">👨‍👩‍家长版</button>
+    </div>
+  </header>
+
+  <div class="cnpt-teacher-body">
+    <!-- 左侧导航 -->
+    <aside id="left-nav" class="cnpt-left-nav">
+      <nav class="cnpt-nav-items">
+        <button class="cnpt-nav-item active" data-view="dashboard">
+          <span class="cnpt-nav-icon">📊</span>
+          <span>教学概览</span>
+        </button>
+        <button class="cnpt-nav-item" data-view="graph">
+          <span class="cnpt-nav-icon">🗺️</span>
+          <span>知识图谱</span>
+        </button>
+        <button class="cnpt-nav-item" data-view="standards">
+          <span class="cnpt-nav-icon">📋</span>
+          <span>课标对照</span>
+        </button>
+        <button class="cnpt-nav-item" data-view="path">
+          <span class="cnpt-nav-icon">🛤️</span>
+          <span>学习路径</span>
+        </button>
+        <button class="cnpt-nav-item" data-view="search">
+          <span class="cnpt-nav-icon">🔍</span>
+          <span>知识点库</span>
+        </button>
+        <button class="cnpt-nav-item" data-view="settings">
+          <span class="cnpt-nav-icon">⚙️</span>
+          <span>设置</span>
+        </button>
+      </nav>
+    </aside>
+
+    <!-- 右侧主内容 -->
+    <main id="main-panel" class="cnpt-main-panel">
+      <!-- 教学概览 -->
+      <section id="view-dashboard" class="cnpt-view active">
+        <h2>教学概览</h2>
+        <div class="cnpt-dashboard-grid">
+          <div class="cnpt-dash-card">
+            <div class="cnpt-dash-num" id="dash-total-topics">0</div>
+            <div class="cnpt-dash-label">知识点总数</div>
+          </div>
+          <div class="cnpt-dash-card">
+            <div class="cnpt-dash-num" id="dash-total-deps">0</div>
+            <div class="cnpt-dash-label">依赖关系</div>
+          </div>
+          <div class="cnpt-dash-card">
+            <div class="cnpt-dash-num" id="dash-total-subjects">0</div>
+            <div class="cnpt-dash-label">学科数</div>
+          </div>
+          <div class="cnpt-dash-card">
+            <div class="cnpt-dash-num" id="dash-total-standards">0</div>
+            <div class="cnpt-dash-label">课标条目</div>
+          </div>
+        </div>
+        <div class="cnpt-section">
+          <h3>年级 × 学科覆盖</h3>
+          <div class="cnpt-coverage-table" id="coverage-table"></div>
+        </div>
+        <div class="cnpt-section">
+          <h3>教材版本覆盖</h3>
+          <div class="cnpt-textbook-list" id="textbook-list"></div>
+        </div>
+      </section>
+
+      <!-- 知识图谱 -->
+      <section id="view-graph" class="cnpt-view">
+        <h2>知识图谱</h2>
+        <div class="cnpt-graph-container">
+          <div class="cnpt-graph-toolbar">
+            <select id="graph-layer" class="cnpt-select">
+              <option value="core">核心骨架</option>
+              <option value="detail">详细节点</option>
+            </select>
+            <select id="graph-grade" class="cnpt-select">
+              <option value="all">全部年级</option>
+            </select>
+            <select id="graph-subject" class="cnpt-select">
+              <option value="all">全部学科</option>
+            </select>
+            <button class="cnpt-btn cnpt-btn-secondary" id="graph-reset">重置</button>
+          </div>
+          <div id="graph-canvas" class="cnpt-graph-canvas"></div>
+          <div class="cnpt-graph-status" id="graph-status">正在准备图谱…</div>
+        </div>
+        <div class="cnpt-side-detail cnpt-hidden" id="node-detail-panel"></div>
+      </section>
+
+      <!-- 课标对照 -->
+      <section id="view-standards" class="cnpt-view">
+        <h2>课标对照</h2>
+        <p class="cnpt-text-muted">所有知识点对应的义务教育课程标准(2022年版)编码</p>
+        <div class="cnpt-standards-filters">
+          <select id="standards-subject" class="cnpt-select">
+            <option value="all">全部学科</option>
+          </select>
+          <input type="text" id="standards-search" class="cnpt-input" placeholder="搜索课标编码或描述...">
+        </div>
+        <div class="cnpt-standards-list" id="standards-list"></div>
+      </section>
+
+      <!-- 学习路径 -->
+      <section id="view-path" class="cnpt-view">
+        <h2>学习路径生成器</h2>
+        <p class="cnpt-text-muted">基于DAG拓扑排序，输入目标知识点自动生成推荐学习序列</p>
+        <div class="cnpt-path-generator">
+          <input type="text" id="path-search" class="cnpt-input" placeholder="搜索目标知识点...">
+          <div class="cnpt-search-results" id="path-search-results"></div>
+        </div>
+        <div class="cnpt-path-result" id="path-result"></div>
+      </section>
+
+      <!-- 知识点库 -->
+      <section id="view-search" class="cnpt-view">
+        <h2>知识点库</h2>
+        <div class="cnpt-search-filters">
+          <select id="search-grade" class="cnpt-select">
+            <option value="all">全部年级</option>
+          </select>
+          <select id="search-subject" class="cnpt-select">
+            <option value="all">全部学科</option>
+          </select>
+          <select id="search-textbook" class="cnpt-select">
+            <option value="all">全部版本</option>
+          </select>
+        </div>
+        <input type="text" id="main-search" class="cnpt-input" placeholder="搜索知识点...">
+        <div class="cnpt-search-result-list" id="main-search-results"></div>
+      </section>
+
+      <!-- 设置 -->
+      <section id="view-settings" class="cnpt-view">
+        <h2>设置</h2>
+        <div class="cnpt-settings-list">
+          <div class="cnpt-setting-item">
+            <span class="cnpt-setting-label">📊 清除教学数据</span>
+            <button class="cnpt-btn cnpt-btn-secondary" id="btn-clear-data">清除</button>
+          </div>
+          <div class="cnpt-setting-item">
+            <span class="cnpt-setting-label">ℹ️ 关于本项目</span>
+            <span class="cnpt-setting-value">CN-Primary-Taxonomy v0.9</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<!-- D3.js (CDN) -->
+<script src="../shared/vendor/d3.min.js"></script>
+<!-- 脚本 -->
+<script src="../shared/js/core/constants.js"></script>
+<script src="../shared/js/core/utils.js"></script>
+<script src="../shared/js/core/data-loader.js"></script>
+<script src="../shared/js/core/indices.js"></script>
+<script src="../shared/js/core/search.js"></script>
+<script src="../shared/js/core/path.js"></script>
+<script src="../shared/js/core/storage.js"></script>
+<script src="../shared/js/graph/pc-graph.js"></script>
+<script src="js/teacher.js"></script>
+</body>
+</html>

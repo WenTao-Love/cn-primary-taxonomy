@@ -1,0 +1,274 @@
+/*!
+ * CN-Primary-Taxonomy · 共享通用样式
+ * 所有角色共享的基础样式和工具类
+ */
+
+/* ========== 基础Reset ========== */
+.cnpt-root, .cnpt-root * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.cnpt-root {
+  font-family: var(--cnpt-font-family);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========== 工具类 ========== */
+.cnpt-flex { display: flex; }
+.cnpt-flex-col { display: flex; flex-direction: column; }
+.cnpt-items-center { align-items: center; }
+.cnpt-justify-between { justify-content: space-between; }
+.cnpt-justify-center { justify-content: center; }
+.cnpt-gap-sm { gap: var(--cnpt-space-sm); }
+.cnpt-gap-md { gap: var(--cnpt-space-md); }
+.cnpt-gap-lg { gap: var(--cnpt-space-lg); }
+
+.cnpt-grid { display: grid; }
+.cnpt-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.cnpt-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.cnpt-hidden { display: none !important; }
+.cnpt-invisible { visibility: hidden; }
+.cnpt-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ========== 通用组件样式 ========== */
+
+/* 标签 */
+.cnpt-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: var(--cnpt-radius-sm);
+  font-size: var(--cnpt-font-xs);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* 教材版本标签（搜索结果消歧） */
+.cnpt-version-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 6px;
+  margin-left: 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 500;
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.cnpt-version-tag::before {
+  content: '📚';
+  margin-right: 3px;
+  font-size: 9px;
+}
+
+/* 统计卡片 */
+.cnpt-stat-card {
+  padding: 12px 10px;
+  border-radius: var(--cnpt-radius-md);
+  text-align: center;
+}
+
+.cnpt-stat-card .cnpt-stat-num {
+  display: block;
+  font-size: var(--cnpt-font-2xl);
+  font-weight: 700;
+}
+
+.cnpt-stat-card .cnpt-stat-label {
+  font-size: var(--cnpt-font-xs);
+  margin-top: 2px;
+}
+
+/* 按钮基础 */
+.cnpt-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--cnpt-radius-md);
+  font-size: var(--cnpt-font-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--cnpt-transition-base);
+  border: 1px solid transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.cnpt-btn:active {
+  transform: scale(0.97);
+}
+
+.cnpt-btn-primary {
+  background: var(--cnpt-primary, var(--cnpt-info));
+  color: #fff;
+}
+
+.cnpt-btn-secondary {
+  background: var(--cnpt-bg-secondary, rgba(255,255,255,0.05));
+  color: var(--cnpt-text-main, #fff);
+  border-color: var(--cnpt-border, rgba(255,255,255,0.12));
+}
+
+/* 输入框 */
+.cnpt-input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--cnpt-radius-md);
+  font-size: var(--cnpt-font-md);
+  outline: none;
+  transition: border-color var(--cnpt-transition-base);
+}
+
+/* 选择框 */
+.cnpt-select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--cnpt-radius-md);
+  font-size: var(--cnpt-font-md);
+  outline: none;
+  cursor: pointer;
+}
+
+/* 面板 */
+.cnpt-panel {
+  padding: var(--cnpt-space-md);
+  border-radius: var(--cnpt-radius-lg);
+  margin-bottom: var(--cnpt-space-md);
+}
+
+/* Toast */
+.cnpt-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: rgba(0, 0, 0, 0.82);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: var(--cnpt-radius-md);
+  font-size: var(--cnpt-font-md);
+  z-index: var(--cnpt-z-toast);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+  max-width: 80%;
+  text-align: center;
+}
+
+.cnpt-toast.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* 空状态 */
+.cnpt-empty {
+  text-align: center;
+  color: var(--cnpt-text-muted, #7f8c9a);
+  font-size: var(--cnpt-font-sm);
+  padding: 24px 16px;
+  line-height: 1.7;
+}
+
+/* 加载动画 */
+.cnpt-spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255,255,255,0.15);
+  border-top-color: var(--cnpt-info);
+  border-radius: 50%;
+  animation: cnpt-spin 0.8s linear infinite;
+}
+
+@keyframes cnpt-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 星标动画 */
+.cnpt-star-burst {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  font-size: 48px;
+  pointer-events: none;
+  animation: cnpt-star-burst 0.8s ease-out forwards;
+  z-index: var(--cnpt-z-toast);
+}
+
+@keyframes cnpt-star-burst {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(0.3); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.5) rotate(180deg); }
+  100% { opacity: 0; transform: translate(-50%, -70%) scale(0.8) rotate(360deg); }
+}
+
+/* ========== 通用滚动条 ========== */
+.cnpt-scrollable::-webkit-scrollbar {
+  width: 6px;
+}
+.cnpt-scrollable::-webkit-scrollbar-track {
+  background: transparent;
+}
+.cnpt-scrollable::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.15);
+  border-radius: 3px;
+}
+.cnpt-scrollable::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* ========== 加载指示器 ========== */
+.cnpt-loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: var(--cnpt-z-modal, 9999);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: var(--cnpt-bg-primary, #1a1f2e);
+  transition: opacity 0.4s ease;
+}
+
+.cnpt-loading-screen.cnpt-loading-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cnpt-loading-screen .cnpt-loading-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(255,255,255,0.12);
+  border-top-color: var(--cnpt-info, #5dade2);
+  border-radius: 50%;
+  animation: cnpt-spin 0.8s linear infinite;
+}
+
+.cnpt-loading-screen .cnpt-loading-text {
+  font-size: var(--cnpt-font-md, 14px);
+  color: var(--cnpt-text-muted, #7f8c9a);
+}
+
+.cnpt-loading-screen .cnpt-loading-progress {
+  font-size: var(--cnpt-font-xs, 12px);
+  color: var(--cnpt-text-muted, #7f8c9a);
+  opacity: 0.7;
+}
+
+/* ========== 响应式断点引用 ========== */
+/* 小屏: < 640px */
+/* 中屏: 640 - 1024px */
+/* 大屏: > 1024px */

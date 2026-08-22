@@ -9,183 +9,89 @@
 这不是课程表、不是教材目录，而是一个**可计算的学习图谱**——可以用来做：
 
 - 🎯 **学情诊断**：孩子不会做某道题，沿依赖链找到真正薄弱的前置知识点
-- 🛤️ **学习路径推荐**：根据已掌握的知识点，智能推荐下一个该学什么；支持直接问"孩子乘法口诀不熟，应该先补什么"
-- 📊 **家长辅导地图**：清晰看到 1-6 年级关键知识点、先后顺序、跨年级衔接与教材版本差异，并能看到数学真实题链、英语 rubric 和多学科子节点信息
-- 🏫 **教师备课工具**：知识点关联、课标对接、易错点查询
+- 🛤️ **学习路径推荐**：根据已掌握的知识点，智能推荐下一个该学什么
+- 📊 **家长辅导地图**：清晰看到知识点关联、跨年级衔接与教材版本差异
+- 🏫 **教师备课工具**：知识点关联、课标对接、易错点查询、路径生成
 - 🤖 **AI 学习助手底层数据**：给 AI 辅导产品提供结构化知识底座
-- 🧩 **题链挂接**：每个知识点都带有典型例题/练习题检索入口，便于快速串联"知识点-练习-讲解"
-- 🧭 **三维筛选**：支持按年级 / 学科 / 教材版本查看知识图谱
-- ✅ **学习进度追踪**：可视化标记每个知识点的掌握状态（已掌握/学习中/未开始）
-- 📝 **交互式练习**：直接在图谱上做选择题、判断题、填空题，即时判分
-- 📖 **智能错题本**：自动记录错题，追踪薄弱知识点
+- 🧩 **题链挂接**：每个知识点都带有典型例题/练习题检索入口
+- ✅ **学习进度追踪**：可视化标记每个知识点的掌握状态
+- 📝 **交互式练习**：选择题、判断题、填空题，即时判分
+- 📱 **多端适配**：PC网页 + H5移动端，家长/学生/教师多角色版本
 
-## 当前版本 v0.9-Interactive
+## 当前版本 v1.0-MultiRole
 
-- **年级范围**：一年级 + 二年级 + 三年级 + 四年级 + 五年级 + 六年级
+### 数据规模
+
+- **年级范围**：一年级 ~ 六年级
 - **学科覆盖**：语文、数学、英语、科学、道德与法治、劳动、体育与健康、美术、音乐、信息科技、AI素养 共11学科
-- **教材版本**：
-  - 语文：统编版（1-6年级）
-  - 数学：人教版 / 北师大版 / 苏教版，已细化到**册次-单元-课时主题**，并继续拆到**例题型 / 易错型 / 方法型**子节点，同时挂接**逐单元精选题单映射、资源组键、资源 ID 与外部作品 ID 直链**；高年级重难点单元已优先补入一批真实作品直链
-  - 英语：外研版（一起点）1-2年级；人教PEP版 / 外研版 / 译林版（三年级起点）3-6年级，已细化到**模块内词汇 / 句型 / 语篇 / 写作任务**，并挂接**页码 / 练习链 / 测评任务 / 分技能 rubric**
-  - 语文 / 科学 / 道德与法治：已推广为**父节点 + 子节点 + 练习链 + 测评任务 + 结构化评价框架**模式
-  - 劳动 / 体育与健康 / 美术 / 音乐 / 信息科技：已推广为**父节点 + 子节点 + 练习链 + 测评任务 + 结构化评价框架**模式
-- **知识点数**：**4275 个**（语文1168 / 数学2511 / 英语224 / 科学72 / 道德与法治48 / 劳动48 / 体育与健康48 / 美术48 / 音乐48 / 信息科技48 / AI素养12）
+- **知识点数**：**4275 个**
 - **依赖关系**：**4191 条**（强依赖2810 / 弱依赖1381）
 - **课标对齐**：13个课标文件，共197个编码条目
-- **领域概览**：134 个面向家长的领域说明
-- **可视化升级**：完整交互式知识图谱网页（基于 D3.js），新增双视图模式（力导向图 + 层级树状图）
-- **学习助手**：右侧内置 DAG Bot，可按薄弱点自动回溯前置知识
-- **练习系统**：支持选择题、判断题、填空题三种题型，自动判分、错题自动录入
-- **掌握追踪**：三态掌握标记（已掌握/学习中/未开始）+ 进度统计面板
-- **学习路径**：基于 DAG 拓扑排序的智能路径推荐算法
-- **家长友好**：快捷入口年级×学科一键直达、分步引导提示
-- **🧒 小伙伴模式**：面向小学生的专属学习模式，含吉祥物陪伴、星星奖励、正向激励反馈
-- **性能优化**：`requestAnimationFrame` 节流 + 隐藏态停布局/销毁 + 卸载清理 + 旧 simulation 生命周期回收
-- **教师校准包**：已生成深圳二年级语文/数学待审清单 `data/shenzhen-g2-teacher-review.csv`
+
+### 多角色版本
+
+| 版本 | 入口 | 面向用户 | 特色功能 |
+|---|---|---|---|
+| 👨‍👩‍家长版 | `parent-web/index.html` | 家长 | 暗色主题、学习助手Bot、阅读指引、小伙伴模式切换 |
+| 🧒学生版 | `student-web/index.html` | 小学生 | 明亮主题、星星奖励、正向激励、游戏化体验 |
+| 👨‍🏫教师版 | `teacher-web/index.html` | 教师 | 专业主题、课标对照、路径生成器、覆盖统计表 |
+| 📱H5移动版 | `h5/index.html` | 通用 | Canvas渲染、触摸手势、底部导航、移动端原生体验 |
 
 ## 快速开始
 
-### 零、📱 H5 移动端版本（推荐手机访问）
+### 方法一：直接打开（推荐，无需服务器）
 
-项目根目录双击打开 **`cn-primary-taxonomy-h5.html`**：
+双击打开对应的独立HTML文件即可在浏览器中运行：
 
-- **纯前端**，无需服务器，双击直接打开
-- **Canvas 高性能渲染**，触摸手势操作
-- **底部导航**：图谱、搜索、学习、错题、我的
-- **支持**：手机浏览器、微信内置浏览器、移动端 Chrome
+| 文件 | 说明 |
+|---|---|
+| `cn-primary-taxonomy-parent.html` | 👨‍👩‍家长版独立文件（数据已内嵌） |
+| `cn-primary-taxonomy-student.html` | 🧒学生版独立文件（数据已内嵌） |
+| `cn-primary-taxonomy-teacher.html` | 👨‍🏫教师版独立文件（数据已内嵌） |
+| `cn-primary-taxonomy-h5.html` | 📱H5移动版独立文件（数据已内嵌） |
 
-> 详细使用说明请查阅 [h5/README.md](h5/README.md)
+### 方法二：开发模式（使用shared/公共模块）
 
-### 方法一：直接打开可视化（推荐PC端）
+直接用浏览器打开源码目录下的HTML文件：
 
-双击打开项目根目录下的 **`cn-primary-taxonomy.html`**（纯前端，**不需要服务器**）：
+```bash
+# 家长版
+open parent-web/index.html
 
-#### 🗺️ 查看知识图谱
+# 学生版
+open student-web/index.html
 
-- 彩色圆点是知识点，颜色代表学科
-- 🔴 红色实线 = 强依赖（必须先掌握）
-- 🟡 橙色虚线 = 弱依赖（有帮助但非必须）
+# 教师版
+open teacher-web/index.html
 
-#### 🔍 快捷筛选（家长推荐）
+# H5移动版
+open h5/index.html
+```
 
-页面顶部提供**年级 × 学科快捷入口**按钮，例如：
+> 开发模式需要保持项目目录结构完整（shared/ 目录必须存在）
 
-- 「一年级·语文」 — 只看一年级语文知识点
-- 「三年级·数学」 — 只看三年级数学知识点
-- 「六年级·英语」 — 只看六年级英语知识点
+### 方法三：重新构建独立版本
 
-点击后图谱自动筛选到对应范围，无需手动勾选多个下拉框。
+```bash
+# 生成shared/data/数据文件（开发模式必需）
+node build.mjs
 
-#### 🖱️ 探索知识点
+# 生成所有独立HTML版本（数据内嵌，可离线使用）
+node build.mjs --standalone
 
-**点击任一圆点**查看详情：描述、掌握标准、易错点、考法、家长测评话术、前置依赖链、后续解锁
+# 生成指定版本
+node build.mjs --target=h5
+node build.mjs --target=parent
+node build.mjs --target=student
+node build.mjs --target=teacher
 
-#### ✅ 标记掌握状态
+# 验证构建产物路径完整性
+node scripts/validate-build.mjs
+```
 
-在节点详情面板中，点击掌握状态图标进行切换：
-- 🟢 **已掌握**（绿色）— 孩子已经学会
-- 🟡 **学习中**（黄色）— 正在学习
-- ⚪ **未开始**（灰色）— 还没学到
+> **构建后自动验证**：`build.mjs --standalone` 会自动检查所有引用路径的有效性
 
-标记后节点颜色会实时变化，右侧面板显示整体掌握进度统计。
-
-#### 🧒 小伙伴模式（推荐给小学生）
-
-点击页面右上角的 **"🧒 小伙伴模式"** 按钮，界面会切换为专为小学生设计的模式：
-
-- 🎨 **明亮暖色主题**：从暗色变为暖黄色调，更友好
-- 🦊 **狐狸小知**：左下角出现吉祥物，点击可获取学习提示
-- ⭐ **星星奖励**：每答对一题获得一颗星星，激发学习动力
-- 🌟 **正向鼓励**：答错时不会显示"错误"，而是"差一点~没关系！"
-- 🎉 **庆祝动画**：答对时屏幕显示星星爆炸动画
-- 👋 **欢迎面板**：进入时显示欢迎信息和引导
-
-再次点击按钮可切换回"家长模式"。
-
-#### 📝 做练习题
-
-在节点详情面板点击「练习题」区域，可看到为该知识点自动生成的题目：
-
-- **选择题**：选出正确答案，点击选项即时判分
-- **判断题**：判断说法对错（✓ 或 ✗）
-- **填空题**：输入答案，支持模糊匹配（如"分数单位"/"分数的分数单位"都算对）
-
-答错会自动记录到错题本，并标注关联的薄弱知识点。
-
-#### 📖 查看错题本
-
-右侧展开错题本面板，可看到：
-
-- 做错的题目和正确答案
-- 错题关联的知识点
-- 该知识点的掌握状态
-- 一键跳转回图谱继续学习对应节点
-
-#### 🛤️ 学习路径推荐
-
-点击「学习路径」或顶部快捷入口后，系统基于 DAG 拓扑排序自动计算推荐路径：
-
-1. 筛选当前年级/学科的知识点
-2. 按依赖关系拓扑排序（前置知识在前）
-3. 跳过已掌握的知识点
-4. 优先推荐基础/简单的知识点
-5. 生成最多 20 个节点的学习序列
-
-路径面板中显示：
-- 每个节点的步骤序号
-- 知识点名称和描述
-- 当前掌握状态（用图标区分）
-- 前置依赖是否已满足
-
-#### 🔄 切换视图模式
-
-页面顶部提供两个视图切换按钮：
-
-- **力导向图**（默认）：节点通过力模拟自动排列，直观展示知识点间的关联
-- **层级树**：按父子层级关系展示，像树形目录一样从上到下，适合查看知识体系的层级结构
-
-切换后图谱会自动居中适配视图，无需手动缩放。
-
-#### 💬 右侧辅助功能
-
-- **知识点搜索**：按名称/学科/领域快速定位
-- **家长阅读指引**：帮助家长快速上手
-- **学习助手 Bot**：输入薄弱点，生成辅导建议（原因 + 优先补点 + 本周辅导动作）
-- **筛选面板**：按视图 / 年级 / 学科 / 教材版本组合筛选
-- **进度面板**：显示整体掌握统计
-
-如果更看重打开速度，可以优先使用拆分版：
-
-- `cn-primary-taxonomy-split.html`
-- `standalone-data/`（拆分后的离线数据包）
-
-### 方法一补充：零服务器 GitHub 托管
-
-本仓库已补入 GitHub Pages 自动部署工作流：
-
-- 工作流文件：`.github/workflows/deploy-pages.yml`
-- 触发方式：推送到 `cn-primary-taxonomy` / `main` / `master` 分支，或手动触发 `workflow_dispatch`
-- Pages 默认首页：`cn-primary-taxonomy.html` 会作为站点根路径的 `index.html`
-- 拆分版页面：`/cn-primary-taxonomy-split.html`
-
-若当前 GitHub 仓库地址为：
-
-- `https://github.com/WenTao-Love/cn-primary-taxonomy`
-
-则 Pages 常见访问地址为：
-
-- `https://WenTao-Love.github.io/cn-primary-taxonomy/`
-- `https://WenTao-Love.github.io/cn-primary-taxonomy/cn-primary-taxonomy-split.html`
-
-说明：
-
-- 这是零服务器静态托管方案，适合直接公开访问知识图谱
-- 工作流会在 GitHub 上自动重建独立版与拆分版 HTML，再发布到 Pages
-- **首次启用时需要手动完成一次仓库设置**：进入 GitHub 仓库 `Settings -> Pages -> Build and deployment -> Source`，选择 `GitHub Actions`
-- 若仓库尚未开启 Pages，`actions/configure-pages` 可能报 `Get Pages site failed / Not Found`
-- 若仓库是私有仓库，还需要确认当前 GitHub 账号方案支持 Pages，或先改为公开仓库
-
-### 方法二：使用数据
+### 方法四：使用数据
 
 所有数据在 `data/` 目录下，纯 JSON，零运行时依赖：
 
@@ -196,128 +102,203 @@ import deps from './data/dependencies.json' assert { type: 'json' };
 // 查询"进位加法"的前置知识
 const byId = new Map(topics.topics.map(t => [t.id, t]));
 const pre = deps.dependencies
-  .filter(d => d.topicId === 'ct_SX2S011')  // 两位数加两位数(进位)
+  .filter(d => d.topicId === 'ct_SX2S011')
   .map(d => byId.get(d.prerequisiteId).name);
 console.log('学习进位加法前需要先掌握:', pre);
-// → [ '两位数加两位数（不进位）' ]
 ```
 
-### 方法三：重新生成数据
+### 方法五：重新生成数据
 
 ```bash
 # 从 scripts/*.mjs 源文件生成所有 JSON 数据
 node scripts/generate-yuwen-g1.mjs
 node scripts/generate-yuwen-g2.mjs
-node scripts/generate-yuwen-g3.mjs
-node scripts/generate-yuwen-g4.mjs
-node scripts/generate-yuwen-g5.mjs
-node scripts/generate-yuwen-g6.mjs
-node scripts/generate-shuxue-g1.mjs
-node scripts/generate-shuxue-g2.mjs
-node scripts/generate-shuxue-g3.mjs
-node scripts/generate-shuxue-g4.mjs
-node scripts/generate-shuxue-g5.mjs
-node scripts/generate-shuxue-g6.mjs
-node scripts/generate-others-all-grades.mjs
-node scripts/generate-shuxue-versions.mjs
-node scripts/generate-english-versions.mjs
-node scripts/generate-subnodes-yw-kx-df.mjs
-node scripts/generate-subnodes-others.mjs
-node scripts/merge.mjs
-node scripts/generate-dependencies.mjs
-node scripts/generate-standards.mjs
-node scripts/generate-clusters.mjs
-node scripts/generate-manifest.mjs
+# ... (其他生成脚本)
 
-# 校验数据完整性（ID/DAG环/引用完整性/计数）
+# 校验数据完整性
 node scripts/validate.mjs
-
-# 生成内嵌数据的独立 HTML
-node scripts/build-standalone.mjs
-
-# 生成拆分版离线 HTML + 分包数据
-node scripts/build-split-standalone.mjs
 ```
 
-## 文件结构
+## 项目架构
+
+### 高内聚、低耦合的多角色架构
 
 ```
 cn-primary-taxonomy/
-├── README.md                    ← 本文件
-├── cn-primary-taxonomy.html     ← 🔥 PC端独立可视化网页（双击直接打开）
-├── cn-primary-taxonomy-h5.html  ← 📱 H5移动端独立网页（双击直接打开）
-├── cn-primary-taxonomy-split.html ← ⚡ 拆分版离线网页（更适合长期浏览）
-├── h5/                          ← 📱 H5移动端源码目录
-│   ├── README.md                ← H5版本说明文档
-│   ├── index.html               ← H5页面模板
-│   ├── build-h5.mjs             ← H5构建脚本（内嵌数据）
-│   ├── css/style.css            ← H5移动优先样式
-│   └── js/app.js                ← H5主应用逻辑
-├── docs/
-│   ├── DESIGN.md                ← 详细设计文档
-│   ├── PROJECT_RULES.md         ← 项目硬约束与协作规则
-│   ├── PROJECT_SKILL_PLAYBOOK.md← 团队常见任务操作手册
-│   ├── PROJECT_MEMORY.md        ← 项目长期记忆镜像
-│   └── SHENZHEN_G2_TEACHER_CALIBRATION.md ← 教师校准专项文档
-├── data/
+├── shared/                      ← 公共层（所有角色共享）
+│   ├── css/
+│   │   ├── tokens.css           ← CSS设计令牌（变量/颜色/间距）
+│   │   └── common.css           ← 通用样式（按钮/输入框/面板）
+│   ├── js/
+│   │   ├── core/
+│   │   │   ├── constants.js     ← 常量（颜色/角色/存储键）
+│   │   │   ├── data-loader.js   ← 数据加载器（多策略自适应）
+│   │   │   ├── indices.js       ← 索引构建器（Map/依赖图）
+│   │   │   ├── search.js        ← 搜索引擎（评分/筛选）
+│   │   │   ├── path.js          ← 路径算法（拓扑排序/学习路径）
+│   │   │   ├── storage.js       ← 存储管理（分角色localStorage）
+│   │   │   └── utils.js         ← 工具函数（防抖/转义/Toast）
+│   │   └── graph/
+│   │       └── pc-graph.js      ← PC端D3图谱渲染引擎
+│   └── data/                    ← 构建生成的数据JS文件
+│       ├── topics.js            ← 知识点数据（构建生成）
+│       └── dependencies.js      ← 依赖关系数据（构建生成）
+│
+├── parent-web/                  ← 家长版（暗色主题）
+│   ├── index.html
+│   ├── css/parent.css
+│   └── js/parent.js
+│
+├── student-web/                 ← 学生版（明亮主题）
+│   ├── index.html
+│   ├── css/student.css
+│   └── js/student.js
+│
+├── teacher-web/                 ← 教师版（专业主题）
+│   ├── index.html
+│   ├── css/teacher.css
+│   └── js/teacher.js
+│
+├── h5/                          ← H5移动版（Canvas渲染）
+│   ├── index.html
+│   ├── build-h5.mjs             ← 旧版H5构建脚本（保留）
+│   ├── css/style.css
+│   └── js/app.js
+│
+├── data/                        ← 原始JSON数据
 │   ├── topics.json              ← 知识点节点（4275个）
 │   ├── dependencies.json        ← 依赖边（4191条，DAG）
 │   ├── curriculum-standards.json← 课标对齐（2022新课标）
 │   ├── clusters.json            ← 面向家长的领域概览
-│   ├── manifest.json            ← 校验和与统计
-│   ├── shenzhen-g2-teacher-review.csv ← 深圳二年级语数教师审核清单
-│   ├── topics-english-versions.json ← 英语多版本模块增强数据
-│   ├── topics-others-g1-g6.json ← 其他学科1-6年级数据
-│   ├── topics-subnodes-yw-kx-df.json ← 语文/科学/道法子节点扩展数据
-│   ├── topics-yuwen-g1.json     ← 一年级语文源数据
-│   ├── topics-yuwen-g2.json     ← 二年级语文源数据
-│   ├── topics-yuwen-g3.json     ← 三年级语文源数据
-│   ├── topics-yuwen-g4.json     ← 四年级语文源数据
-│   ├── topics-yuwen-g5.json     ← 五年级语文源数据
-│   ├── topics-yuwen-g6.json     ← 六年级语文源数据
-│   ├── topics-shuxue-g1.json    ← 一年级数学源数据
-│   ├── topics-shuxue-g2.json    ← 二年级数学源数据
-│   ├── topics-shuxue-g3.json    ← 三年级数学源数据
-│   ├── topics-shuxue-g4.json    ← 四年级数学源数据
-│   ├── topics-shuxue-g5.json    ← 五年级数学源数据
-│   ├── topics-shuxue-g6.json    ← 六年级数学源数据
-│   └── topics-shuxue-versions.json ← 数学多版本子节点化数据
-├── schema/
-│   ├── topics.schema.json       ← 知识点JSON Schema
-│   └── dependencies.schema.json ← 依赖JSON Schema
-├── scripts/
-│   ├── generate-yuwen-g1.mjs ~ generate-yuwen-g6.mjs ← 语文分年级生成
-│   ├── generate-shuxue-g1.mjs ~ generate-shuxue-g6.mjs ← 数学分年级生成
-│   ├── generate-others-all-grades.mjs ← 其他学科生成
-│   ├── generate-shuxue-versions.mjs ← 数学多版本与题链直达页生成
-│   ├── generate-english-versions.mjs ← 英语多版本与rubric生成
-│   ├── generate-subnodes-yw-kx-df.mjs ← 语文/科学/道法子节点与评价框架生成
-│   ├── generate-subnodes-others.mjs ← 劳动/体音美/信息科技子节点与评价框架生成
-│   ├── generate-dependencies.mjs← 依赖关系生成
-│   ├── generate-standards.mjs   ← 课标对齐生成
-│   ├── generate-clusters.mjs    ← 领域概览生成
-│   ├── generate-manifest.mjs    ← 清单生成
-│   ├── merge.mjs                ← 全量主题合并
-│   ├── build-standalone.mjs     ← 打包独立HTML
-│   ├── build-split-standalone.mjs ← 打包拆分版离线HTML
-│   └── validate.mjs             ← 数据完整性校验
-├── standalone-data/
-│   ├── topics.js                ← 拆分版离线知识点数据
-│   ├── dependencies.js          ← 拆分版离线依赖数据
-│   └── clusters.js              ← 拆分版离线领域概览
-└── web/
-    └── index.html               ← 可视化网页源文件
+│   └── ...                      ← 其他源数据
+│
+├── schema/                      ← JSON Schema定义
+├── scripts/                     ← 数据生成脚本
+├── docs/                        ← 项目文档
+│   ├── DESIGN.md                ← 详细设计文档
+│   ├── PROJECT_RULES.md         ← 项目硬约束与协作规则
+│   ├── PROJECT_SKILL_PLAYBOOK.md← 团队常见任务操作手册
+│   ├── PROJECT_MEMORY.md        ← 项目长期记忆镜像
+│   ├── TEACHER_REVIEW.md        ← 一线在校教师视角复盘
+│   ├── TEACHER_REVIEW_CHOZIXIAOSHENG.md ← 培训机构教师视角（小升初）
+│   ├── EDUCATION_MANAGER_REVIEW.md ← 教育管理者/教育局视角复盘
+│   ├── exam-review.html         ← 小升初知识图谱交互式分析页面
+│   ├── manager-dashboard.html   ← 教育管理者交互式驾驶舱
+│   └── SHENZHEN_G2_TEACHER_CALIBRATION.md ← 教师校准专项
+│
+├── build.mjs                    ← 统一构建脚本
+└── README.md                    ← 本文件
+```
+
+### 共享模块说明
+
+| 模块 | 功能 | 依赖 |
+|---|---|---|
+| `constants.js` | 学科颜色、角色定义、存储键 | 无 |
+| `data-loader.js` | 多策略数据加载（嵌入式→JS文件→JSON fetch） | constants |
+| `indices.js` | 构建搜索索引、依赖关系图 | 无 |
+| `search.js` | 关键词搜索、多维度筛选 | indices |
+| `path.js` | 拓扑排序、学习路径生成 | indices |
+| `storage.js` | 分角色localStorage管理 | constants |
+| `utils.js` | 防抖、HTML转义、Toast提示 | 无 |
+| `pc-graph.js` | D3.js力导向图谱渲染 | D3.js(本地 + CDN回退) |
+
+### 数据加载策略
+
+data-loader 自动选择最优加载方式：
+
+```javascript
+// 策略1: window.__CNPT_EMBEDDED (独立HTML内嵌数据)
+// 策略2: <script id="embedded-topics"> (HTML内嵌JSON)
+// 策略3: shared/data/topics.js (构建生成的JS文件)
+// 策略4: data/topics.json (原始JSON fetch)
+
+// 路径深度自动检测：
+// 根目录页面 → ./shared/data/
+// 一级子目录 → ../shared/data/
+// 二级子目录 → ../../shared/data/
 ```
 
 ## 文档阅读顺序
 
-推荐按以下顺序了解项目：
+### 技术/学科方向
 
-1. `README.md`
-2. `docs/PROJECT_RULES.md`
-3. `docs/PROJECT_SKILL_PLAYBOOK.md`
-4. `docs/PROJECT_MEMORY.md`
-5. `docs/DESIGN.md`
+1. `README.md` - 项目总览
+2. `docs/PROJECT_RULES.md` - 项目协作规则
+3. `docs/PROJECT_SKILL_PLAYBOOK.md` - 操作手册
+4. `docs/DESIGN.md` - 详细设计文档
+5. `docs/PROJECT_MEMORY.md` - 项目记忆
+
+### 教育管理方向
+
+1. `README.md` - 项目总览
+2. `docs/EDUCATION_MANAGER_REVIEW.md` - 管理者视角全景复盘
+3. `docs/PROJECT_RULES.md` - 重点关注第8章「管理者专项规则」
+4. `docs/PROJECT_SKILL_PLAYBOOK.md` - 重点关注2.6节「管理操作手册」
+5. `docs/TEACHER_REVIEW.md` - 一线教师视角（了解基层需求）
+6. `docs/TEACHER_REVIEW_CHOZIXIAOSHENG.md` - 培训机构视角（了解升学需求）
+7. `docs/exam-review.html` - 交互式升学分析
+
+## 复盘与专题分析
+
+### 三维度全方位复盘
+
+| 文档 | 视角 | 核心关注 | 内容 |
+|---|---|---|---|
+| `docs/TEACHER_REVIEW.md` | 一线在校教师 | 数据质量与教学场景 | 知识点准确性、教学匹配度、P0-P3改进路线图 |
+| `docs/TEACHER_REVIEW_CHOZIXIAOSHENG.md` | 培训机构教师 | 小升初与应试 | 知识占比、经典试题、考纲对比、趋势预测 |
+| `docs/EDUCATION_MANAGER_REVIEW.md` | 教育管理者/教育局 | 全局统筹与治理 | 政策合规、数据安全、区域均衡、规模化、质量保障 |
+
+### 交互式分析页面
+
+| 文档 | 功能 |
+|---|---|
+| `docs/exam-review.html` | 小升初知识图谱可视化分析（占比/对比/易错/趋势） |
+| `docs/manager-dashboard.html` | 教育管理者交互式驾驶舱（区域学情/均衡分析/质量监测） |
+
+## 各角色版本功能详解
+
+### 👨‍👩‍家长版 (parent-web/)
+
+面向家长用户，暗色主题设计，核心功能：
+
+- 侧边栏布局：搜索、筛选、学习助手、节点详情
+- **DAG Bot 学习助手**：输入薄弱点，自动回溯前置知识并生成辅导建议
+- **小伙伴模式**：一键切换到孩子视角（暖色主题 + 吉祥物 + 星星奖励）
+- **快捷入口**：年级 × 学科矩阵一键直达
+- **组合筛选**：按年级 / 学科 / 教材版本多维筛选
+
+### 🧒学生版 (student-web/)
+
+面向小学生用户，明亮活泼主题，核心功能：
+
+- **星星奖励系统**：答对题目获得星星，激发学习动力
+- **正向激励反馈**：答错时不显示"错误"，而是鼓励话语
+- **游戏化体验**：弹跳动画、吉祥物对话气泡、庆祝特效
+- **学科网格**：可视化选择学科和年级
+- **练习系统**：选择题、判断题、填空题即时判分
+
+### 👨‍🏫教师版 (teacher-web/)
+
+面向教师用户，专业蓝色主题，核心功能：
+
+- **6大功能视图**：教学概览、知识图谱、课标对照、学习路径、知识点库、设置
+- **教学概览**：年级 × 学科覆盖统计表、教材版本列表
+- **课标对照**：所有知识点对应的2022版课标编码查询
+- **路径生成器**：输入目标知识点，基于拓扑排序生成推荐学习序列
+- **知识点库**：全文搜索 + 多维度筛选
+- **专业详情**：技能量表、考法提示、易错点、课标编码
+
+### 📱H5移动版 (h5/)
+
+移动端原生体验，Canvas高性能渲染：
+
+- **Canvas 2D 图谱渲染**：支持数百节点流畅交互
+- **触摸手势**：双指缩放、拖拽平移、点击选择
+- **底部导航**：图谱、搜索、学习、错题、我的
+- **底部抽屉**：原生App风格的节点详情面板
+- **学习助手**：自然语言输入，智能推荐辅导建议
+- **练习系统**：选择、判断、填空三种题型
 
 ## 数据模型
 
@@ -325,37 +306,16 @@ cn-primary-taxonomy/
 
 | 字段 | 说明 | 示例 |
 |---|---|---|
-| `id` | 唯一ID，格式 `ct_{学科码}{年级}{学期}{序号}` | `ct_SX2S011`（数学·二年级·上·第11个） |
-| `type` | 类型枚举 | CONCEPTUAL/PROCEDURAL/REPRESENTATIONAL/LANGUAGE/META |
-| `typeLabel` | 类型中文名 | 概念/技能/表征/语言/元认知 |
+| `id` | 唯一ID，格式 `ct_{学科码}{年级}{学期}{序号}` | `ct_SX2S011` |
 | `subject` | 学科 | 语文/数学/英语/... |
 | `domain` | 领域/模块 | 数与代数/识字与写字/... |
 | `name` | 知识点名称 | 两位数加两位数（进位） |
 | `description` | 1-3句清晰描述 | ... |
-| `grade`/`term` | 年级（1-6）/学期（上/下/全） | 2/上 |
-| `gradeBand` | 年级段 | L（低段1-2）/M（中段3-4）/H（高段5-6） |
-| `textbook` | 教材版本 | 人教版/统编版/教科版 |
-| `volume` | 教材册次 | 四年级上册 |
-| `unit` | 教材单元 | 四上 第1单元 认识更大的数与乘除法 |
-| `chapter` | 章节/模块 | 分数与比 / 三上 Unit 1 Hello |
-| `parentTopicId` | 父知识点ID | `ct_SXB4S001` |
-| `subnodeType` | 子节点类型 | 例题型/易错型/方法型/词汇/句型/语篇/写作任务 |
-| `lesson` | 课时主题 | 课时主题：分数乘法的意义 / Lesson 1 主题词汇 |
-| `module` | 英语模块 | 六上 Unit 2 Plans and Dreams |
-| `pageRange` | 页码映射 | 参考P12-P13 |
-| `practiceChain[]` | 建议练习链 | ["跟读并指认本课词汇", ...] |
-| `assessmentTasks[]` | 建议测评任务 | ["根据提示词口头完成问答", ...] |
-| `skillRubric` | 分技能测评rubric | 听力/口语/阅读/写作三档描述 |
-| `evaluationRubric[]` | 通用结构化评价框架 | 维度 + 三档指标描述 |
-| `resources[].resourceId` | 资源槽位ID | `res_ct_SXB4S001_例题型_album-lecture` |
-| `resources[].resourceGroupKey` | 资源分组键 | `北师大版-四年级上册-四上-第1单元-认识更大的数与乘除法-例题型` |
-| `resources[].resourceUnitKey` | 资源单元键 | `北师大版-四年级上册-四上-第1单元-认识更大的数与乘除法` |
-| `resources[].externalWorkId` | 外部作品ID | `53996087` |
+| `grade`/`term` | 年级（1-6）/学期（上/下） | 2/上 |
+| `textbook` | 教材版本 | 人教版/统编版 |
 | `difficulty` | 难度星级 | 1-5 |
-| `evidence[]` | 掌握证据（会什么就算掌握了） | ["能列竖式计算进位加法",...] |
-| `commonMistakes[]` | 常见易错点 | ["忘记加进位的1",...] |
-| `examTips` | 常见考法 | "竖式计算；判断对错..." |
-| `assessmentPrompt` | 家长测评话术（含{{name}}占位） | "给{{name}}一道36+37..." |
+| `evidence[]` | 掌握证据 | ["能列竖式计算进位加法"] |
+| `commonMistakes[]` | 常见易错点 | ["忘记加进位的1"] |
 | `standards[]` | 对齐的课标编码 | ["cn-shuxue-2022:1-2-syds-1"] |
 
 ### 依赖边（Dependency）
@@ -372,133 +332,43 @@ cn-primary-taxonomy/
 | 代码 | 学科 | 代码 | 学科 |
 |---|---|---|---|
 | YW | 语文 | SX | 数学 |
-| YY | 英语（二外，CEFR起步） | KX | 科学 |
+| YY | 英语 | KX | 科学 |
 | DF | 道德与法治 | LD | 劳动 |
 | TY | 体育与健康 | MS | 美术 |
 | YYP | 音乐 | XX | 信息科技 |
 | AI | AI素养 | ZH | 综合实践 |
 
-## 前端交互功能
-
-### 双视图模式
-
-| 视图 | 说明 | 适用场景 |
-|---|---|---|
-| 力导向图 | D3.js 力模拟布局，节点按依赖关系自动排列 | 查看知识点间的关联、发现跨学科联系 |
-| 层级树 | d3.hierarchy + d3.tree 生成树形结构 | 查看知识体系层级、按父子关系逐一学习 |
-
-### 掌握状态系统
-
-家长可以为每个知识点标记掌握状态：
-
-| 状态 | 图标 | 颜色 | 含义 |
-|---|---|---|---|
-| 已掌握 | 🟢 | #2ecc71 (绿色) | 孩子已经完全学会 |
-| 学习中 | 🟡 | #f39c12 (橙色) | 正在学习但尚未完全掌握 |
-| 未开始 | ⚪ | 原色 (灰色) | 还没学到这个知识点 |
-
-掌握状态保存在浏览器本地存储（localStorage）中，刷新页面不丢失。
-
-### 练习系统
-
-每个知识点自动生成练习题，支持三种题型：
-
-1. **选择题**：从 4 个选项中选择正确答案
-2. **判断题**：判断说法正误（✓ 正确 / ✗ 错误）
-3. **填空题**：输入文本答案，支持模糊匹配
-
-答对的题目会加深对该知识点的理解；答错的题目会自动记录到错题本。
-
-### 学习路径推荐算法
-
-基于 DAG 拓扑排序实现智能学习路径：
-
-```
-输入：年级、学科、当前掌握状态
-  ↓
-筛选：按年级、学科过滤知识点
-  ↓
-排序：按依赖关系拓扑排序（Kahn算法）
-  ↓
-跳过：已掌握的知识点不再推荐
-  ↓
-优先：基础/简单知识点排在前面
-  ↓
-输出：最多20个节点的学习序列
-```
-
-### 家长快捷入口
-
-为方便不熟悉图谱操作的家长，提供年级×学科矩阵快捷入口：
-
-```
-        语文    数学    英语    科学    ...
-一年级  [按钮]  [按钮]  [按钮]  [按钮]
-二年级  [按钮]  [按钮]  [按钮]  [按钮]
-三年级  [按钮]  [按钮]  [按钮]  [按钮]
-四年级  [按钮]  [按钮]  [按钮]  [按钮]
-五年级  [按钮]  [按钮]  [按钮]  [按钮]
-六年级  [按钮]  [按钮]  [按钮]  [按钮]
-```
-
-点击任意按钮，图谱立即定位到对应范围并高亮显示。
-
 ## 与 Marble 原版的关键差异
 
 | 维度 | Marble（原版） | CN-Primary-Taxonomy（本项目） |
 |---|---|---|
-| 国家/课标 | 英美（Common Core/UK NC/NGSS） | 中国大陆（2022新课标） |
-| 核心学科 | English（母语）/Math/Science/History | **语文**（中文母语）/Math/English（**二外**）/Science/道法/劳动 |
-| 年级组织 | 按年龄（4-15岁） | 按**年级（1-6）+学期（上/下）**为主 |
-| 特色字段 | — | +教材版本/+易错点/+考法提示/+难度星级/+中文typeLabel |
-| ID 前缀 | `mt_` | `ct_` (cn-topic) |
-| Clusters | subject+domain+ageBand | subject+domain+**gradeBand** |
-| 缺的内容 | 语文/道法/劳动/体育/音乐/美术 | History（小学融入语文+道法，不单列） |
-| 交互功能 | 静态可视化 | 双视图 + 练习 + 掌握追踪 + 错题本 + 学习路径 |
+| 国家/课标 | 英美 | 中国大陆（2022新课标） |
+| 核心学科 | English/Math/Science | **语文**/Math/English/Science/道法 |
+| 年级组织 | 按年龄（4-15岁） | 按**年级（1-6）+学期（上/下）** |
+| 特色字段 | — | +教材版本/+易错点/+考法/+难度/+课标 |
+| 前端功能 | 静态可视化 | 多角色 + 练习 + 掌握追踪 + 错题本 + 学习路径 |
 
 ## 后续路线图
 
-- **v0.8.x**：完成图谱交互重构 — 双视图、掌握标记、练习系统、错题本、学习路径推荐
-- **v0.9**：教材多版本继续扩展到更多学科，并细化到单元 / 主题 / 章节 / 课时 / 题型级映射
-- **v0.9.x**：✅ **H5 移动端版本** — Canvas 高性能渲染、触摸手势、底部导航、练习系统、学习助手
-- **v1.0**：把当前"检索入口型资源链接"升级为教师精选题链、错题模式、教学建议
-- **v1.1**：对标 Marble 完整度并面向商用学习产品进一步收口
-
-## 📱 H5 移动端版本
-
-项目已支持移动端访问，独立文件 `cn-primary-taxonomy-h5.html`（8MB，数据已内嵌）：
-
-| 特性 | 说明 |
-|---|---|
-| **Canvas 渲染** | 高性能 Canvas 2D 图谱渲染，支持数百节点流畅交互 |
-| **触摸手势** | 双指缩放、拖拽平移、点击选择 |
-| **底部导航** | 图谱、搜索、学习、错题、我的 — 5个核心入口 |
-| **节点详情** | 原生App风格的底部抽屉，滑动关闭 |
-| **搜索筛选** | 实时搜索 + 组合筛选面板 |
-| **练习系统** | 选择、判断、填空三种题型，自动判分 |
-| **学习助手** | 自然语言输入问题，智能推荐辅导建议 |
-
-详见 [h5/README.md](h5/README.md)
+- **v0.9.x**：✅ H5 移动端版本
+- **v1.0**：✅ 多角色版本拆分（家长/学生/教师 + H5）
+- **v1.1**：✅ 三维度全方位复盘（在校教师/培训机构/教育管理者）
+- **v1.2**：数据质量提升（pageRange补全、resource链接替换、跨学科依赖）
+- **v1.3**：管理者驾驶舱（区域学情/均衡分析/质量监测/预警机制）
+- **v1.4**：数据安全合规（隐私政策、数据分级、教育APP备案）
+- **v2.0**：规模化推广体系（培训材料、试点经验、评估框架）
+- **v3.0**：对标 Marble 完整度并面向商用学习产品收口
 
 ## 参与贡献
 
-这是一个开源项目，欢迎贡献：
-
-- **补充知识点**：参考 `scripts/generate-*.mjs` 的模式，按年级/学科/单元补充微知识点
-- **补依赖关系**：最重要也最需要业务经验（一线教师、家长），告诉我们"学X前到底必须先会什么"
+- **补充知识点**：参考 `scripts/generate-*.mjs` 模式
+- **补依赖关系**：告诉我们"学X前到底必须先会什么"
 - **补充易错点/考法**：基于真实教学经验
-- **扩充课标对齐**：当前已覆盖 1-2 / 3-4 学段关键编码，后续继续细化到更具体条目
-- **方言/地区教材**：上海版、苏教版、香港/澳门/台湾教材版本可做分支
+- **扩充课标对齐**：继续细化到更具体条目
 
 ## 开源协议
 
-- 数据库层（topics/dependencies/standards/clusters 的结构与关系）：**ODbL 1.0**（可商用，署名，派生数据库需开源回社区）
-- 文本内容层（name/description/evidence/assessmentPrompt 等中文撰写内容）：**CC BY-SA 4.0**
-- 课标原文：只引用编码和关键术语，不引用正文，版权归教育部所有
-- 代码（scripts/*.mjs 和可视化网页）：MIT
-
-### 署名
-
-基于：Marble Skill Taxonomy (v1) · © Generative Spark, Inc. (Marble) · https://withmarble.com · ODbL 1.0 + CC BY-SA 4.0
-
-二次开发：CN-Primary-Taxonomy (v0.9) · 2026
+- 数据库层（结构与关系）：**ODbL 1.0**
+- 文本内容层：**CC BY-SA 4.0**
+- 课标原文：只引用编码和关键术语
+- 代码：**MIT**

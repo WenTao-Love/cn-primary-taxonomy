@@ -31,10 +31,6 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
 #guide-panel .guide-step { padding:10px 12px; border-radius:8px; background:rgba(255,255,255,0.04); font-size:12px; line-height:1.7; color:#c5cdd6; }
 #guide-panel .guide-step b { color:#fff; }
 #guide-panel .guide-note { margin-top:12px; padding:10px 12px; border-radius:8px; background:rgba(93,173,226,0.08); color:#dcefff; font-size:12px; line-height:1.7; }
-.quick-start-btn { transition: all 0.2s; position:relative; }
-.quick-start-btn:hover { transform: scale(1.05); box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
-.quick-start-btn.active { box-shadow: 0 0 0 2px currentColor, 0 4px 16px rgba(0,0,0,0.25); transform: scale(1.08); font-weight: 700; }
-.quick-start-btn.active::after { content:"✓"; position:absolute; top:-6px; right:-6px; width:16px; height:16px; border-radius:50%; background:#2ecc71; color:#fff; font-size:10px; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 4px rgba(0,0,0,0.2); }
 #search-panel p { margin-top:10px; font-size:11px; color:#7f8c9a; line-height:1.6; }
 #filter-panel p { margin-top:10px; font-size:11px; color:#7f8c9a; line-height:1.6; }
 #filter-panel .filter-field { margin-top:12px; }
@@ -125,52 +121,15 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
 @media (max-width: 1180px) {
   #app { grid-template-columns: 1fr 340px; }
 }
-
-.kid-mode { background:#fefcf6 !important; }
-.kid-mode #graph { background: radial-gradient(ellipse at center, #fff8e7 0%, #fef3d4 100%) !important; }
-.kid-mode #sidebar { background:#fff9ee !important; border-left-color:rgba(255,180,50,0.25) !important; }
-.kid-mode #overview-panel h1 { color:#e67e22; }
-.kid-mode .node-label { fill:#5d4037; }
-.kid-mode #sidebar h2 { color:#e67e22; }
-.kid-mode #guide-panel p { color:#795548; }
-.kid-mode #guide-panel .guide-step { color:#6d4c41; }
-
-/* Mascot character */
-.mascot { position:fixed; bottom:20px; left:20px; z-index:30; width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,#ffcc33,#ff9900); box-shadow:0 4px 16px rgba(255,153,0,0.3); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:transform 0.3s; font-size:32px; }
-.mascot:hover { transform:scale(1.1) rotate(-5deg); }
-.mascot-bubble { position:absolute; bottom:72px; left:0; background:#fff; border:2px solid #ffcc33; border-radius:16px; padding:10px 14px; font-size:13px; color:#5d4037; width:200px; box-shadow:0 4px 12px rgba(0,0,0,0.1); display:none; line-height:1.5; }
-.mascot-bubble:after { content:''; position:absolute; bottom:-8px; left:24px; width:0; height:0; border-left:8px solid transparent; border-right:8px solid transparent; border-top:8px solid #ffcc33; }
-.mascot-bubble.show { display:block; animation: bubblePop 0.3s ease; }
-
-/* Star celebration */
-.star-burst { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); z-index:100; pointer-events:none; animation: starBurst 1.2s ease-out forwards; font-size:48px; }
-@keyframes starBurst { 0%{opacity:1;transform:translate(-50%,-50%) scale(0.3) rotate(0deg);} 50%{opacity:1;transform:translate(-50%,-50%) scale(1.5) rotate(180deg);} 100%{opacity:0;transform:translate(-50%,-80%) scale(0.8) rotate(360deg);} }
-@keyframes bubblePop { 0%{opacity:0;transform:scale(0.8);} 100%{opacity:1;transform:scale(1);} }
-
-/* Kid-mode welcome */
-.kid-welcome { position:absolute; top:60px; left:50%; transform:translateX(-50%); background:#fff; border:3px solid #ffcc33; border-radius:20px; padding:16px 24px; box-shadow:0 6px 20px rgba(255,153,0,0.2); z-index:12; max-width:480px; width:90%; display:none; }
-.kid-welcome.show { display:block; animation: bubblePop 0.4s ease; }
-.kid-welcome h3 { margin:0 0 8px; color:#e67e22; font-size:16px; }
-.kid-welcome p { font-size:13px; color:#6d4c41; line-height:1.6; margin:0; }
-.kid-welcome .kid-welcome-close { position:absolute; top:8px; right:12px; background:none; border:none; color:#bbb; font-size:16px; cursor:pointer; }
-
-/* Encouragement bar */
-.encourage-bar { position:fixed; top:0; left:0; right:0; z-index:50; background:linear-gradient(90deg,#2ecc71,#27ae60); color:#fff; text-align:center; padding:8px; font-size:14px; font-weight:600; transform:translateY(-100%); transition:transform 0.4s ease; }
-.encourage-bar.show { transform:translateY(0); }
-
-/* Kid-friendly button sizing */
-.kid-mode .mastery-btn { padding:8px 16px; font-size:12px; }
-.kid-mode .exercise-option { padding:12px 16px; font-size:14px; }
-.kid-mode .exercise-question { font-size:15px; }
-.kid-mode .path-step { padding:10px 14px; font-size:13px; }
-
-@media (max-width: 1180px) {
-  #app { grid-template-columns: 1fr 340px; }
-}
-
 </style>
 </head>
 <body>
+<!-- 加载指示器 -->
+<div id="cnpt-loading" class="cnpt-loading-screen">
+  <div class="cnpt-loading-spinner"></div>
+  <div class="cnpt-loading-text">知识图谱加载中...</div>
+  <div class="cnpt-loading-progress"></div>
+</div>
 <div id="app">
 <div id="graph">
   <button id="sidebar-toggle" class="sidebar-toggle" type="button" title="折叠右侧面板" aria-expanded="true">→</button>
@@ -191,22 +150,6 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
     <div class="legend-item"><span style="width:24px;height:2px;background:#f39c12;background-image:linear-gradient(to right,#f39c12 50%,transparent 50%);background-size:6px 2px;display:inline-block"></span> 弱依赖（有帮助）</div>
   </div>
   <svg id="canvas"></svg>
-<button class="kid-mode-toggle" id="kid-mode-toggle" onclick="toggleKidMode()" title="切换小伙伴模式">🧒 小伙伴模式</button>
-<div class="kid-welcome" id="kid-welcome">
-  <div class="kid-welcome-close" onclick="document.getElementById('kid-welcome').classList.remove('show')">×</div>
-  <h3>你好呀！我是小知！ <span style="font-size:28px">☀️</span></h3>
-  <p>欢迎来到知识图谱大世界！</p>
-  <p><b>在这里你可以：</b></p>
-  <p>🔍 <b>看看自己学会了哪些本领</b></p>
-  <p>🎮 <b>做练习题，收集小星星</b></p>
-  <p>🗺️ <b>跟着路线图，一步一步变厉害</b></p>
-  <p style="margin-top:12px;font-size:13px;color:#888">👉 <b>点一个彩色的圆球，开始你的冒险吧！</b></p>
-</div>
-<div class="mascot" id="mascot" onclick="showMascotTip()">
-  <div class="mascot-bubble" id="mascot-bubble"></div>
-  🦊
-</div>
-<div class="encourage-bar" id="encourage-bar"></div>
 </div>
 <div id="sidebar">
   <div id="sidebar-content">
@@ -228,15 +171,6 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
       <div class="guide-step"><b>第三步：</b>只沿前置链补 1-3 个基础点，不要一口气把整张图都学一遍。</div>
     </div>
     <div class="guide-note">建议默认先按一个年级 + 一个学科查看，再逐步放大范围，这样最容易看懂，也最适合家长实际辅导。</div>
-    <div style="margin-top:12px;padding:10px;background:rgba(46,204,113,0.06);border:1px solid rgba(46,204,113,0.2);border-radius:8px;font-size:11px;color:#2ecc71">
-      <b>🎯 快速开始：</b>点击下方按钮快速跳转<br>
-      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px" class="quick-start-btns">
-        <button class="quick-start-btn" data-grade="1" data-subject="语文" onclick="quickSelect('1','语文')" style="padding:4px 10px;border-radius:6px;border:1px solid rgba(46,204,113,0.3);background:rgba(46,204,113,0.1);color:#2ecc71;cursor:pointer;font-size:10px">一年级语文</button>
-        <button class="quick-start-btn" data-grade="1" data-subject="数学" onclick="quickSelect('1','数学')" style="padding:4px 10px;border-radius:6px;border:1px solid rgba(52,152,219,0.3);background:rgba(52,152,219,0.1);color:#3498db;cursor:pointer;font-size:10px">一年级数学</button>
-        <button class="quick-start-btn" data-grade="3" data-subject="数学" onclick="quickSelect('3','数学')" style="padding:4px 10px;border-radius:6px;border:1px solid rgba(155,89,182,0.3);background:rgba(155,89,182,0.1);color:#9b59b6;cursor:pointer;font-size:10px">三年级数学</button>
-        <button class="quick-start-btn" data-grade="5" data-subject="数学" onclick="quickSelect('5','数学')" style="padding:4px 10px;border-radius:6px;border:1px solid rgba(243,156,18,0.3);background:rgba(243,156,18,0.1);color:#f39c12;cursor:pointer;font-size:10px">五年级数学</button>
-      </div>
-    </div>
   </div>
   <div id="search-panel">
     <h3>知识点搜索</h3>
@@ -355,89 +289,6 @@ let subjectFilterItems = [];
 let textbookFilterItems = [];
 let sidebarCollapsed = false;
 
-
-/* ========== Kid Mode (小伙伴模式) ========== */
-let kidMode = false;
-let kidStars = 0;
-try { kidStars = parseInt(localStorage.getItem('cnpt-kid-stars') || '0'); } catch(e) { kidStars = 0; }
-
-const KID_TIPS = [
-  "你可以点任意彩色的圆球看看里面有什么秘密哦！",
-  "不会做没关系，点一点'学习路径'，它会告诉你从哪儿开始",
-  "每次答对题目都能获得小星星哦！加油！",
-  "如果觉得难，可以从1年级的知识开始学起",
-  "你今天已经很棒了！休息一下也没关系",
-  "学知识就像爬楼梯，一步一步来，不用着急",
-  "做错了没关系~这说明我们找到一个需要加油的地方！",
-  "遇到不会的先看看'先学什么'，就像拼图要先拼边边"
-];
-let kidTipIndex = 0;
-
-function toggleKidMode() {
-  kidMode = !kidMode;
-  document.body.classList.toggle('kid-mode', kidMode);
-  document.getElementById('kid-mode-toggle').classList.toggle('active', kidMode);
-  document.getElementById('kid-mode-toggle').textContent = kidMode ? '👨‍👩‍家长模式' : '🧒 小伙伴模式';
-  if (kidMode) {
-    kidTipIndex = 0;
-    document.getElementById('kid-welcome').classList.add('show');
-    showMascotTip('你好呀！👋 我是小知，你的学习小伙伴！');
-    showEncourage('🌟 欢迎欢迎！和小知一起探索知识的海洋吧！');
-    renderKidOverview();
-  } else {
-    document.getElementById('kid-welcome').classList.remove('show');
-    renderNormalOverview();
-  }
-  renderSidebar();
-}
-
-function showMascotTip(text) {
-  const bubble = document.getElementById('mascot-bubble');
-  if (!bubble) return;
-  bubble.textContent = text;
-  bubble.classList.add('show');
-  clearTimeout(bubble._timeout);
-  bubble._timeout = setTimeout(() => bubble.classList.remove('show'), 4000);
-}
-
-function showEncourage(text) {
-  const bar = document.getElementById('encourage-bar');
-  if (!bar) return;
-  bar.textContent = text;
-  bar.classList.add('show');
-  clearTimeout(bar._timeout);
-  bar._timeout = setTimeout(() => bar.classList.remove('show'), 3000);
-}
-
-function celebrateStar() {
-  kidStars++;
-  try { localStorage.setItem('cnpt-kid-stars', kidStars.toString()); } catch(e) {}
-  const burst = document.createElement('div');
-  burst.className = 'star-burst';
-  burst.textContent = '⭐';
-  document.body.appendChild(burst);
-  setTimeout(() => burst.remove(), 1200);
-  showEncourage(['⭐ 太棒了！', '🌟 你真聪明！', '✨ 继续加油！', '🎉 好厉害！'][Math.floor(Math.random() * 4)]);
-  const starEl = document.getElementById('stat-stars');
-  if (starEl) starEl.textContent = kidStars + '⭐';
-}
-
-function renderKidOverview() {
-  const panel = document.getElementById('overview-panel');
-  if (!panel) return;
-  panel.innerHTML = `<h1>🌟 知识大闯关</h1><p>小朋友，和狐狸小知一起来探索知识的世界吧！</p><div class="stats-bar"><div><b id="stat-topics">4275</b>知识圆球</div><div><b id="stat-stars" style="color:#f39c12">${kidStars}⭐</b>小星星</div><div><b id="stat-subjects">11</b>学科</div></div>`;
-}
-
-function renderNormalOverview() {
-  const panel = document.getElementById('overview-panel');
-  if (!panel) return;
-  panel.innerHTML = `<h1>🇨🇳 中国小学教育知识图谱</h1><p id="subtitle">v0.8-expanded · 默认以轻量模式展示，可切换到详细节点 · 4275 知识点 · 4191 依赖关系</p><div class="stats-bar"><div><b id="stat-topics">4275</b>知识点</div><div><b id="stat-deps">4191</b>依赖</div><div><b id="stat-subjects">11</b>学科</div></div>`;
-}
-
-// Auto-refresh overview when page loads
-document.addEventListener('DOMContentLoaded', function() {
-  if (kidMode) renderKidOverview();
-});
 function loadDataset(name, url) {
   if (window.__CNPT_EMBEDDED && window.__CNPT_EMBEDDED[name]) {
     return Promise.resolve(window.__CNPT_EMBEDDED[name]);
@@ -473,7 +324,6 @@ async function init() {
   document.addEventListener('visibilitychange', handleVisibilityChange, { passive: true });
   window.addEventListener('pagehide', cleanupRuntime, { once: true });
   window.addEventListener('beforeunload', cleanupRuntime, { once: true });
-  updateQuickStartActive();
 }
 
 function handleResize() {
@@ -700,7 +550,6 @@ function renderMultiSelectOptions(kind, items, selectedSet) {
       }
       updateFilterSummaries();
       applyFilters();
-      updateQuickStartActive();
     });
     const text = document.createElement('span');
     text.textContent = `${item.label} (${item.count})`;
@@ -758,29 +607,6 @@ function applyFilters(options = {}) {
   const topics = getFilteredTopics();
   updateFilterSummaries();
   renderGraph(topics, options.keepSelection !== false);
-}
-
-function quickSelect(grade, subject) {
-  currentGrades = new Set([grade]);
-  currentSubjects = new Set([subject]);
-  currentTextbooks = new Set(['全部']);
-  currentLayer = 'core';
-  buildControls();
-  applyFilters();
-  updateQuickStartActive();
-}
-
-function updateQuickStartActive() {
-  const buttons = document.querySelectorAll('.quick-start-btn');
-  buttons.forEach(btn => {
-    const btnGrade = btn.dataset.grade;
-    const btnSubject = btn.dataset.subject;
-    if (currentGrades.has(btnGrade) && currentSubjects.has(btnSubject)) {
-      btn.classList.add('active');
-    } else {
-      btn.classList.remove('active');
-    }
-  });
 }
 
 function summarizeSelection(items, selectedSet) {
@@ -1293,10 +1119,16 @@ window.selectNodeById = function(id) {
 };
 
 const script = document.createElement('script');
-script.src = 'https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js';
+script.src = 'shared/vendor/d3.min.js';
 script.onload = init;
+script.onerror = () => {
+  // 本地加载失败时回退CDN
+  const fallback = document.createElement('script');
+  fallback.src = 'https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js';
+  fallback.onload = init;
+  document.head.appendChild(fallback);
+};
 document.head.appendChild(script);
 </script>
 </body>
 </html>
-

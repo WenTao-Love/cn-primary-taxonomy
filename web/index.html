@@ -124,6 +124,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
 </style>
 </head>
 <body>
+<!-- 加载指示器 -->
+<div id="cnpt-loading" class="cnpt-loading-screen">
+  <div class="cnpt-loading-spinner"></div>
+  <div class="cnpt-loading-text">知识图谱加载中...</div>
+  <div class="cnpt-loading-progress"></div>
+</div>
 <div id="app">
 <div id="graph">
   <button id="sidebar-toggle" class="sidebar-toggle" type="button" title="折叠右侧面板" aria-expanded="true">→</button>
@@ -1110,8 +1116,15 @@ window.selectNodeById = function(id) {
 };
 
 const script = document.createElement('script');
-script.src = 'https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js';
+script.src = 'shared/vendor/d3.min.js';
 script.onload = init;
+script.onerror = () => {
+  // 本地加载失败时回退CDN
+  const fallback = document.createElement('script');
+  fallback.src = 'https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js';
+  fallback.onload = init;
+  document.head.appendChild(fallback);
+};
 document.head.appendChild(script);
 </script>
 </body>

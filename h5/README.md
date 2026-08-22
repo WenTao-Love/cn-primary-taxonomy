@@ -1,10 +1,10 @@
 # 🇨🇳 CN-Primary-Taxonomy · H5 移动端版本
 
-> 面向手机端的中国小学教育知识图谱 · Canvas高性能渲染 · 触摸友好 · 零依赖
+> 面向手机端的中国小学教育知识图谱 · Canvas高性能渲染 · 触摸友好
 
 ## 快速开始
 
-### 方式一：直接打开（推荐）
+### 方式一：直接打开独立版本（推荐）
 
 项目根目录双击打开 **`cn-primary-taxonomy-h5.html`**：
 
@@ -12,24 +12,17 @@
 - 支持手机浏览器、微信内置浏览器、移动端Chrome
 - 数据已内嵌，完全离线可用
 
-### 方式二：本地预览开发
+### 方式二：开发模式
 
-```bash
-# 进入 h5 目录
-cd h5
-
-# 使用任意静态服务器预览
-npx serve .
-# 或
-python -m http.server 8080
-```
-
-然后访问 `http://localhost:8080`
+直接用浏览器打开 `h5/index.html`（需要保持项目目录结构完整，shared/ 目录必须存在）
 
 ### 方式三：重新构建
 
 ```bash
 # 从项目根目录执行
+node build.mjs --target=h5
+
+# 或使用旧版构建脚本（保留）
 node h5/build-h5.mjs
 ```
 
@@ -54,14 +47,14 @@ node h5/build-h5.mjs
 
 ### 🔍 搜索与导航
 
-- 实时搜索匹配知识点名称、描述、领域、教材信息
+- 实时搜索匹配知识点名称、描述、领域、教材信息（使用 shared/js/search 模块）
 - 热门搜索快捷标签
 - 搜索结果一键跳转定位
 
 ### 📚 学习系统
 
-- **掌握状态追踪**：已掌握/学习中/未开始 三态标记
-- **学习路径推荐**：基于DAG拓扑排序的智能推荐
+- **掌握状态追踪**：已掌握/学习中/未开始 三态标记（分角色localStorage）
+- **学习路径推荐**：基于DAG拓扑排序的智能推荐（使用 shared/js/path 模块）
 - **交互式练习**：选择题、判断题、填空题
 - **错题本**：自动记录错题，支持回顾
 
@@ -81,19 +74,31 @@ node h5/build-h5.mjs
 
 ```
 h5/
-├── index.html          # H5页面模板（构建前）
-├── build-h5.mjs        # 构建脚本（内嵌数据）
+├── index.html          # H5页面入口
+├── build-h5.mjs        # 旧版构建脚本（保留）
 ├── css/
 │   └── style.css       # H5移动优先样式
 └── js/
-    └── app.js          # H5主应用逻辑（~600行）
+    └── app.js          # H5主应用逻辑
+                        # - 使用 shared/ 公共模块处理数据/索引/搜索/路径/存储
+                        # - 保留 Canvas 渲染、触摸手势等H5独有逻辑
 ```
 
-构建后输出：
+## 与 shared/ 模块的关系
 
-```
-cn-primary-taxonomy-h5.html   # 独立H5版本（~8MB，含全部数据）
-```
+H5 版本使用 `shared/` 公共模块处理核心逻辑：
+
+| shared 模块 | H5 中的用途 |
+|---|---|
+| `data-loader.js` | 加载知识点和依赖数据（自动适配路径深度） |
+| `indices.js` | 构建搜索索引和依赖关系图 |
+| `search.js` | 知识点搜索和筛选 |
+| `path.js` | 学习路径生成和拓扑排序 |
+| `storage.js` | 掌握状态、错题本、星星的持久化存储 |
+| `constants.js` | 学科颜色、难度转换等常量 |
+| `utils.js` | HTML转义、Toast提示等工具 |
+
+H5 独有代码（Canvas 渲染、触摸手势、UI交互）保留在 `js/app.js` 中。
 
 ## 设计风格
 
@@ -111,7 +116,6 @@ cn-primary-taxonomy-h5.html   # 独立H5版本（~8MB，含全部数据）
 - 力导向布局限制帧数和迭代次数
 - 页面隐藏时停止模拟计算
 - 搜索输入防抖处理
-- 筛选结果缓存
 - 节点数量智能限制（上限500个）
 
 ## 浏览器支持
@@ -120,17 +124,4 @@ cn-primary-taxonomy-h5.html   # 独立H5版本（~8MB，含全部数据）
 - Safari 13+
 - Firefox 80+
 - 微信内置浏览器
-- 移动端 UC 浏览器
 - iOS Safari / Chrome for Android
-
-## 数据来源
-
-与 PC 版共享同一套 JSON 数据：
-
-- `data/topics.json` - 4275个知识点
-- `data/dependencies.json` - 4191条依赖边
-- `data/clusters.json` - 134个领域概览
-
-## 开源协议
-
-与主项目一致：ODbL 1.0 + CC BY-SA 4.0

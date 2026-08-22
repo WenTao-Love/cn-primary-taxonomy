@@ -34,15 +34,31 @@ jobs:
 
       - name: Rebuild standalone artifacts
         run: |
+          node build.mjs --standalone
           node scripts/build-standalone.mjs
           node scripts/build-split-standalone.mjs
+
+      - name: Validate build artifacts
+        run: node scripts/validate-build.mjs
 
       - name: Prepare Pages site
         run: |
           mkdir -p site
           cp cn-primary-taxonomy.html site/index.html
-          cp cn-primary-taxonomy.html site/cn-primary-taxonomy.html
-          cp cn-primary-taxonomy-split.html site/cn-primary-taxonomy-split.html
+          cp cn-primary-taxonomy-parent.html site/
+          cp cn-primary-taxonomy-student.html site/
+          cp cn-primary-taxonomy-teacher.html site/
+          cp cn-primary-taxonomy-h5.html site/
+          cp cn-primary-taxonomy-split.html site/
+          cp -r shared site/shared
+          mkdir -p site/parent-web/css && cp parent-web/css/* site/parent-web/css/
+          mkdir -p site/student-web/css && cp student-web/css/* site/student-web/css/
+          mkdir -p site/teacher-web/css && cp teacher-web/css/* site/teacher-web/css/
+          mkdir -p site/h5/css && cp h5/css/* site/h5/css/
+          mkdir -p site/parent-web && cp -r parent-web/js site/parent-web/js
+          mkdir -p site/student-web && cp -r student-web/js site/student-web/js
+          mkdir -p site/teacher-web && cp -r teacher-web/js site/teacher-web/js
+          mkdir -p site/h5 && cp -r h5/js site/h5/js
           cp -r standalone-data site/standalone-data
 
       - name: Configure Pages

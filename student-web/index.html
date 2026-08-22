@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知识大闯关 · 小朋友版 | CN-Primary-Taxonomy</title>
+<link rel="stylesheet" href="../shared/css/tokens.css">
+<link rel="stylesheet" href="../shared/css/common.css">
+<link rel="stylesheet" href="css/student.css">
+</head>
+<body class="cnpt-role-student">
+<!-- 加载指示器 -->
+<div id="cnpt-loading" class="cnpt-loading-screen">
+  <div class="cnpt-loading-spinner"></div>
+  <div class="cnpt-loading-text">知识图谱加载中...</div>
+  <div class="cnpt-loading-progress"></div>
+</div>
+<div id="app" class="cnpt-app-layout">
+  <!-- 顶部状态栏 -->
+  <header id="top-bar" class="cnpt-top-bar">
+    <div class="cnpt-top-left">
+      <span class="cnpt-top-logo">🌟 知识大闯关</span>
+    </div>
+    <div class="cnpt-top-right">
+      <div class="cnpt-stars-display">
+        <span class="cnpt-star-icon">⭐</span>
+        <span id="star-count">0</span>
+      </div>
+      <button class="cnpt-mode-switch" id="mode-switch" title="切换到家长模式">👨‍👩‍家长模式</button>
+    </div>
+  </header>
+
+  <!-- 主内容区 -->
+  <main id="main-content" class="cnpt-main-content">
+    <!-- 欢迎面板 -->
+    <div class="cnpt-welcome-card" id="welcome-card">
+      <div class="cnpt-mascot-large">🦊</div>
+      <h2>你好呀！我是小知</h2>
+      <p>欢迎来到知识的海洋！和我一起探索吧~</p>
+    </div>
+
+    <!-- 学习统计 -->
+    <div class="cnpt-stats-grid">
+      <div class="cnpt-stat-card">
+        <div class="cnpt-stat-num" id="stat-mastered">0</div>
+        <div class="cnpt-stat-label">已学会 ✅</div>
+      </div>
+      <div class="cnpt-stat-card">
+        <div class="cnpt-stat-num" id="stat-learning">0</div>
+        <div class="cnpt-stat-label">学习中 📖</div>
+      </div>
+      <div class="cnpt-stat-card">
+        <div class="cnpt-stat-num" id="stat-stars">0</div>
+        <div class="cnpt-stat-label">小星星 ⭐</div>
+      </div>
+    </div>
+
+    <!-- 科目选择 -->
+    <div class="cnpt-section">
+      <h3 class="cnpt-section-title">📚 选择你想学的</h3>
+      <div class="cnpt-subject-grid" id="subject-grid"></div>
+    </div>
+
+    <!-- 知识点浏览 -->
+    <div class="cnpt-section cnpt-hidden" id="topic-section">
+      <h3 class="cnpt-section-title">
+        <button class="cnpt-back-btn" id="back-to-subjects">←</button>
+        <span id="current-subject-title">知识点</span>
+      </h3>
+      <div class="cnpt-topic-filters" id="topic-filters"></div>
+      <div class="cnpt-topic-list" id="topic-list"></div>
+    </div>
+
+    <!-- 节点详情卡 -->
+    <div class="cnpt-detail-card cnpt-hidden" id="detail-card">
+      <div class="cnpt-detail-header">
+        <h2 id="detail-name"></h2>
+        <button class="cnpt-detail-close" id="detail-close">×</button>
+      </div>
+      <div class="cnpt-detail-body" id="detail-body"></div>
+    </div>
+
+    <!-- 鼓励提示条 -->
+    <div class="cnpt-encourage-bar" id="encourage-bar"></div>
+
+    <!-- Mascot -->
+    <div class="cnpt-mascot" id="mascot">
+      <div class="cnpt-mascot-bubble" id="mascot-bubble"></div>
+      🦊
+    </div>
+  </main>
+</div>
+
+<!-- 练习弹窗 -->
+<div class="cnpt-modal-overlay cnpt-hidden" id="practice-modal">
+  <div class="cnpt-modal-content">
+    <div class="cnpt-modal-header">
+      <span class="cnpt-modal-title" id="practice-title">练习题</span>
+      <button class="cnpt-modal-close" id="practice-close">×</button>
+    </div>
+    <div class="cnpt-modal-body" id="practice-body"></div>
+  </div>
+</div>
+
+<!-- 脚本 -->
+<script src="../shared/js/core/constants.js"></script>
+<script src="../shared/js/core/utils.js"></script>
+<script src="../shared/js/core/data-loader.js"></script>
+<script src="../shared/js/core/indices.js"></script>
+<script src="../shared/js/core/search.js"></script>
+<script src="../shared/js/core/path.js"></script>
+<script src="../shared/js/core/storage.js"></script>
+<script src="js/student.js"></script>
+</body>
+</html>

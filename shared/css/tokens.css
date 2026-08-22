@@ -1,0 +1,81 @@
+/*!
+ * CN-Primary-Taxonomy · 设计令牌 (Design Tokens)
+ * 所有用户角色共享的颜色、间距、字号、阴影等基础变量
+ * 各角色通过覆盖这些变量来定制主题
+ */
+
+:root {
+  /* ========== 学科颜色 ========== */
+  --cnpt-c-yw: #e74c3c;
+  --cnpt-c-sx: #3498db;
+  --cnpt-c-yy: #1abc9c;
+  --cnpt-c-kx: #2ecc71;
+  --cnpt-c-df: #f39c12;
+  --cnpt-c-ld: #9b59b6;
+  --cnpt-c-ty: #e67e22;
+  --cnpt-c-ms: #fd79a8;
+  --cnpt-c-yyp: #a29bfe;
+  --cnpt-c-xx: #00cec9;
+  --cnpt-c-ai: #00cec9;
+
+  /* ========== 功能色 ========== */
+  --cnpt-success: #2ecc71;
+  --cnpt-warning: #f39c12;
+  --cnpt-danger: #e74c3c;
+  --cnpt-info: #3498db;
+
+  /* ========== 间距系统 (4px base) ========== */
+  --cnpt-space-xs: 4px;
+  --cnpt-space-sm: 8px;
+  --cnpt-space-md: 12px;
+  --cnpt-space-lg: 16px;
+  --cnpt-space-xl: 20px;
+  --cnpt-space-2xl: 24px;
+  --cnpt-space-3xl: 32px;
+
+  /* ========== 圆角 ========== */
+  --cnpt-radius-sm: 6px;
+  --cnpt-radius-md: 8px;
+  --cnpt-radius-lg: 12px;
+  --cnpt-radius-xl: 16px;
+  --cnpt-radius-full: 9999px;
+
+  /* ========== 字号 ========== */
+  --cnpt-font-xs: 11px;
+  --cnpt-font-sm: 12px;
+  --cnpt-font-md: 13px;
+  --cnpt-font-base: 14px;
+  --cnpt-font-lg: 16px;
+  --cnpt-font-xl: 18px;
+  --cnpt-font-2xl: 20px;
+  --cnpt-font-3xl: 24px;
+
+  /* ========== 阴影 ========== */
+  --cnpt-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --cnpt-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --cnpt-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --cnpt-shadow-glow: 0 0 12px rgba(74, 144, 217, 0.3);
+
+  /* ========== 过渡 ========== */
+  --cnpt-transition-fast: 0.15s ease;
+  --cnpt-transition-base: 0.2s ease;
+  --cnpt-transition-slow: 0.3s ease;
+
+  /* ========== Z-index层级 ========== */
+  --cnpt-z-base: 1;
+  --cnpt-z-dropdown: 10;
+  --cnpt-z-sticky: 50;
+  --cnpt-z-overlay: 100;
+  --cnpt-z-modal: 200;
+  --cnpt-z-toast: 500;
+
+  /* ========== 安全区域 ========== */
+  --cnpt-safe-top: env(safe-area-inset-top, 0px);
+  --cnpt-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --cnpt-safe-left: env(safe-area-inset-left, 0px);
+  --cnpt-safe-right: env(safe-area-inset-right, 0px);
+
+  /* ========== 字体栈 ========== */
+  --cnpt-font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+  --cnpt-font-mono: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, monospace;
+}
