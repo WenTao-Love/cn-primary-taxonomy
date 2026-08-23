@@ -262,7 +262,50 @@
 - 验证引用数: 174个（每个新角色约15个脚本引用）
 - 所有10个独立版本构建成功且路径验证通过
 
-### 9.10 待修复（未解决）
+### 9.10 第三轮五大新角色视角实现 ✅（2026年8月第三轮刁钻角度攻坚）
+
+**教育销售版 (edu-sales/)**
+- 位置: `edu-sales/index.html` + `edu-sales/css/edu-sales.css` + `edu-sales/js/edu-sales.js`
+- 核心功能: 快速学情诊断、学习方案生成、提分预测模型、竞品对比卡、转化漏斗追踪
+- 复用组件: CNPT.components.showLoadError + Storage + 图谱数据
+- 特色: 3分钟快速诊断、多套学习方案自动生成、转化漏斗可视化
+- 主题: 金黄商业调 (#d4a017 → #f39c12 → #e67e22)
+
+**竞品分析版 (competitor-analyst/)**
+- 位置: `competitor-analyst/index.html` + `competitor-analyst/css/competitor-analyst.css` + `competitor-analyst/js/competitor-analyst.js`
+- 核心功能: 知识结构对比、覆盖度分析、难度曲线对比、市场机会识别
+- 复用组件: CNPT.components.showLoadError + Storage + 图谱数据
+- 特色: 多维对比表格、难度曲线可视化、市场空白区域识别
+- 主题: 冷灰专业调 (#37474f → #546e7a → #78909c)
+
+**学校本体版 (school-entity/)**
+- 位置: `school-entity/index.html` + `school-entity/css/school-entity.css` + `school-entity/js/school-entity.js`
+- 核心功能: 知识资产仪表盘、招生卖点挖掘、师资缺口分析、校本课程设计
+- 复用组件: CNPT.components.showLoadError + Storage + 图谱数据
+- 特色: 学校作为法人的自我审视、知识资产全景、师资配置建议
+- 主题: 藏青稳重调 (#1a3a5c → #2c5282 → #3182ce)
+
+**招生办版 (admissions/)**
+- 位置: `admissions/index.html` + `admissions/css/admissions.css` + `admissions/js/admissions.js`
+- 核心功能: 智能招生简章生成、教学成果可视化、宣传素材生成、学校差异对比
+- 复用组件: CNPT.components.showLoadError + Storage + 图谱数据
+- 特色: 一键生成招生简章、数据可视化展示、宣传素材库
+- 主题: 紫红品牌调 (#8e44ad → #a569bd → #d2b4de)
+
+**课后服务版 (afterschool/)**
+- 位置: `afterschool/index.html` + `afterschool/css/afterschool.css` + `afterschool/js/afterschool.js`
+- 核心功能: 课后活动推荐、混龄分组策略、趣味学习设计、家长通报生成
+- 复用组件: CNPT.components.showLoadError + Storage + 图谱数据
+- 特色: 基于知识点的活动推荐、混龄分组策略、趣味学习游戏设计
+- 主题: 草绿活力调 (#1e8449 → #27ae60 → #2ecc71)
+
+**构建系统更新**
+- build.mjs 入口从10个扩展到15个
+- 独立HTML产物: 15个 (cn-primary-taxonomy-*.html)
+- 验证引用数: 约225个（每个新角色约15个脚本引用）
+- 所有15个独立版本构建成功且路径验证通过
+
+### 9.11 待修复（未解决）
 
 - 管理驾驶舱假数据（需要接入真实数据源后才能真正解决）
 - 多角色功能同质化（需要产品层面重新定义角色差异化）

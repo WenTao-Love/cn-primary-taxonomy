@@ -42,6 +42,11 @@
 | 👔班主任版 | `headteacher-web/index.html` | 班主任 | 班级学情全景、学生画像卡片、家校沟通模板、学业预警 |
 | 📝出题人版 | `testdesigner-web/index.html` | 出题人 | 双向细目表生成、智能组卷、难度预测、覆盖度分析 |
 | 🎯升学过渡版 | `transition-web/index.html` | 升学学生/家长 | 衔接知识图谱、考点热力图、学情差距分析、冲刺路径 |
+| 💼教育销售版 | `edu-sales/index.html` | 课程顾问 | 快速学情诊断、学习路径提案、提分预测、竞品对比卡 |
+| 🔍竞品分析版 | `competitor-analyst/index.html` | 产品经理 | 知识结构对比、覆盖度分析、难度曲线对比、机会识别 |
+| 🏫学校本体版 | `school-entity/index.html` | 学校 | 知识资产仪表盘、招生卖点挖掘、师资缺口分析、校本课程 |
+| 📢招生办版 | `admissions/index.html` | 招生办 | 招生简章生成、数据可视化、宣传素材、学校对比 |
+| 🎪课后服务版 | `afterschool/index.html` | 课后服务教师 | 活动推荐、混龄分组策略、趣味学习设计、家长通报 |
 
 ## 快速开始
 
@@ -61,6 +66,11 @@
 | `cn-primary-taxonomy-headteacher.html` | 👔班主任版独立文件（数据已内嵌） |
 | `cn-primary-taxonomy-testdesigner.html` | 📝出题人版独立文件（数据已内嵌） |
 | `cn-primary-taxonomy-transition.html` | 🎯升学过渡版独立文件（数据已内嵌） |
+| `cn-primary-taxonomy-edu-sales.html` | 💼教育销售版独立文件（数据已内嵌） |
+| `cn-primary-taxonomy-competitor-analyst.html` | 🔍竞品分析版独立文件（数据已内嵌） |
+| `cn-primary-taxonomy-school-entity.html` | 🏫学校本体版独立文件（数据已内嵌） |
+| `cn-primary-taxonomy-admissions.html` | 📢招生办版独立文件（数据已内嵌） |
+| `cn-primary-taxonomy-afterschool.html` | 🎪课后服务版独立文件（数据已内嵌） |
 
 ### 方法二：开发模式（使用shared/公共模块）
 
@@ -96,6 +106,21 @@ open testdesigner-web/index.html
 
 # 升学过渡版
 open transition-web/index.html
+
+# 教育销售版
+open edu-sales/index.html
+
+# 竞品分析版
+open competitor-analyst/index.html
+
+# 学校本体版
+open school-entity/index.html
+
+# 招生办版
+open admissions/index.html
+
+# 课后服务版
+open afterschool/index.html
 ```
 
 > 开发模式需要保持项目目录结构完整（shared/ 目录必须存在）
@@ -120,6 +145,11 @@ node build.mjs --target=researcher
 node build.mjs --target=headteacher
 node build.mjs --target=testdesigner
 node build.mjs --target=transition
+node build.mjs --target=edu-sales
+node build.mjs --target=competitor-analyst
+node build.mjs --target=school-entity
+node build.mjs --target=admissions
+node build.mjs --target=afterschool
 
 # 验证构建产物路径完整性
 node scripts/validate-build.mjs
@@ -237,6 +267,31 @@ cn-primary-taxonomy/
 │   ├── index.html
 │   ├── css/transition.css
 │   └── js/transition.js
+│
+├── edu-sales/                   ← 教育销售版（金黄商业调）
+│   ├── index.html
+│   ├── css/edu-sales.css
+│   └── js/edu-sales.js
+│
+├── competitor-analyst/          ← 竞品分析版（冷灰专业调）
+│   ├── index.html
+│   ├── css/competitor-analyst.css
+│   └── js/competitor-analyst.js
+│
+├── school-entity/               ← 学校本体版（藏青稳重调）
+│   ├── index.html
+│   ├── css/school-entity.css
+│   └── js/school-entity.js
+│
+├── admissions/                  ← 招生办版（紫红品牌调）
+│   ├── index.html
+│   ├── css/admissions.css
+│   └── js/admissions.js
+│
+├── afterschool/                 ← 课后服务版（草绿活力调）
+│   ├── index.html
+│   ├── css/afterschool.css
+│   └── js/afterschool.js
 │
 ├── data/                        ← 原始JSON数据
 │   ├── topics.json              ← 知识点节点（4275个）
@@ -474,8 +529,9 @@ data-loader 自动选择最优加载方式：
 - **v1.2**：✅ 共享组件化重构（7个共享组件，消除400+行重复代码）
 - **v1.3**：✅ 教育机构/管理者/教研员三大新角色版本
 - **v1.4**：✅ 班主任/出题人/升学过渡三大新角色版本
-- **v1.5**：数据质量提升（pageRange补全、resource链接替换、跨学科依赖）
-- **v1.6**：数据安全合规（隐私政策、数据分级、教育APP备案）
+- **v1.5**：✅ 教育销售/竞品分析/学校本体/招生办/课后服务五大新角色版本
+- **v1.6**：数据质量提升（pageRange补全、resource链接替换、跨学科依赖）
+- **v1.7**：数据安全合规（隐私政策、数据分级、教育APP备案）
 - **v2.0**：规模化推广体系（培训材料、试点经验、评估框架）
 - **v3.0**：对标 Marble 完整度并面向商用学习产品收口
 

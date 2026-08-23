@@ -1,0 +1,86 @@
+/* 教育销售版主题 - 金黄商业调 */
+:root {
+  --cnpt-primary: #d4a017;
+  --cnpt-primary-light: #f1c40f;
+  --cnpt-primary-dark: #b8860b;
+  --cnpt-gradient: linear-gradient(135deg, #d4a017 0%, #f39c12 50%, #e67e22 100%);
+  --cnpt-bg: #fefcf5;
+  --cnpt-card-shadow: 0 2px 8px rgba(212, 160, 23, 0.1);
+}
+
+body[data-role="edu-sales"] { background: var(--cnpt-bg); }
+.cnpt-header { background: var(--cnpt-gradient); }
+.cnpt-nav-btn.active { background: rgba(255, 255, 255, 0.25); }
+
+.cnpt-form-row {
+  display: flex; gap: 16px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 20px;
+}
+.cnpt-form-row label {
+  display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: #666;
+}
+.cnpt-form-row select,
+.cnpt-form-row input {
+  padding: 8px 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; background: #fff;
+}
+
+/* 诊断结果 */
+.cnpt-diagnose-output { margin-top: 20px; }
+.cnpt-result-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+.cnpt-result-card {
+  padding: 16px; border-radius: 12px; text-align: center;
+  background: #fff; box-shadow: var(--cnpt-card-shadow);
+}
+.cnpt-result-value { font-size: 32px; font-weight: bold; color: var(--cnpt-primary); }
+.cnpt-result-label { font-size: 13px; color: #666; margin-top: 4px; }
+
+.cnpt-weak-topics { margin-top: 16px; }
+.cnpt-weak-topic {
+  display: flex; align-items: center; gap: 12px; padding: 8px 12px;
+  background: #fff; border-radius: 8px; margin-bottom: 8px; border-left: 3px solid #e74c3c;
+}
+.cnpt-weak-topic .name { flex: 1; }
+.cnpt-weak-topic .badge { font-size: 12px; padding: 2px 8px; border-radius: 12px; background: #fce4ec; color: #c0392b; }
+
+/* 方案输出 */
+.cnpt-proposal-output { margin-top: 20px; }
+.cnpt-plan-card {
+  background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 16px;
+  box-shadow: var(--cnpt-card-shadow); border-left: 4px solid var(--cnpt-primary);
+}
+.cnpt-plan-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.cnpt-plan-title { font-weight: bold; color: var(--cnpt-primary); font-size: 16px; }
+.cnpt-plan-price { font-size: 20px; font-weight: bold; color: #e74c3c; }
+.cnpt-plan-features { list-style: none; padding: 0; }
+.cnpt-plan-features li { padding: 4px 0; color: #555; }
+
+/* 提分预测 */
+.cnpt-prediction-output { margin-top: 20px; }
+.cnpt-prediction-chart { display: flex; align-items: flex-end; gap: 8px; height: 200px; padding: 20px; }
+.cnpt-prediction-bar {
+  flex: 1; background: var(--cnpt-gradient); border-radius: 4px 4px 0 0;
+  display: flex; align-items: flex-start; justify-content: center; padding-top: 8px;
+  color: #fff; font-weight: bold; font-size: 12px; min-height: 30px;
+}
+
+/* 竞品对比 */
+.cnpt-compare-output { margin-top: 20px; }
+.cnpt-compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.cnpt-compare-col {
+  padding: 20px; border-radius: 12px; background: #fff;
+  box-shadow: var(--cnpt-card-shadow); text-align: center;
+}
+.cnpt-compare-col.us { border-top: 4px solid #27ae60; }
+.cnpt-compare-col.them { border-top: 4px solid #95a5a6; }
+.cnpt-compare-col h4 { margin-bottom: 12px; }
+.cnpt-compare-stat { font-size: 24px; font-weight: bold; color: var(--cnpt-primary); }
+
+/* 转化漏斗 */
+.cnpt-funnel-container { padding: 20px; }
+.cnpt-funnel-step { margin-bottom: 16px; }
+.cnpt-funnel-bar {
+  height: 48px; background: var(--cnpt-gradient); border-radius: 8px;
+  display: flex; align-items: center; padding: 0 16px; margin-bottom: 4px;
+  transition: width 0.5s;
+}
+.cnpt-funnel-label { color: #fff; font-weight: bold; }
+.cnpt-funnel-rate { text-align: right; font-size: 13px; color: #999; }

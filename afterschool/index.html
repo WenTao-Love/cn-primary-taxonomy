@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="知识点图谱课后服务版 - 课后活动推荐、混龄分组策略、趣味学习设计、素质拓展地图">
+  <meta property="og:title" content="知识点图谱 · 课后服务版">
+  <meta property="og:description" content="课后延时服务：活动推荐、混龄分组、趣味学习设计、素质拓展、家长通报">
+  <meta property="og:type" content="website">
+  <title>知识点图谱 · 课后服务版</title>
+  <link rel="stylesheet" href="../shared/css/tokens.css">
+  <link rel="stylesheet" href="../shared/css/common.css">
+  <link rel="stylesheet" href="css/afterschool.css">
+</head>
+<body data-role="afterschool">
+  <a href="#main-content" class="cnpt-skip-link">跳转到主要内容</a>
+  <header class="cnpt-header">
+    <div class="cnpt-header-inner">
+      <h1 class="cnpt-logo">🎪 课后服务台</h1>
+      <nav class="cnpt-nav">
+        <button class="cnpt-nav-btn active" data-view="activities">活动推荐</button>
+        <button class="cnpt-nav-btn" data-view="grouping">分组策略</button>
+        <button class="cnpt-nav-btn" data-view="gamify">趣味学习</button>
+        <button class="cnpt-nav-btn" data-view="report">家长通报</button>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content" class="cnpt-main">
+    <div id="cnpt-loading" class="cnpt-loading"><div class="cnpt-loading-spinner"></div><div class="cnpt-loading-text">正在加载...</div></div>
+    <section id="view-activities" class="cnpt-view active">
+      <div class="cnpt-card"><h3>🎨 课后活动推荐</h3><p style="color:#666;margin-bottom:16px">基于已学知识推荐巩固/拓展活动。</p>
+        <div class="cnpt-filter-bar"><select id="activity-subject" aria-label="选择学科"></select><select id="activity-type" aria-label="活动类型"><option value="">全部类型</option><option value="game">游戏化</option><option value="practice">巩固练习</option><option value="expand">拓展探究</option></select></div>
+        <div id="activity-grid"></div>
+      </div>
+    </section>
+    <section id="view-grouping" class="cnpt-view">
+      <div class="cnpt-card"><h3>👥 混龄分组策略</h3><p style="color:#666;margin-bottom:16px">根据知识掌握度而非年级分组，实现因材施教。</p><div id="grouping-strategy"></div></div>
+    </section>
+    <section id="view-gamify" class="cnpt-view">
+      <div class="cnpt-card"><h3>🎮 趣味学习设计</h3><p style="color:#666;margin-bottom:16px">基于知识图谱设计游戏化学习活动。</p><div id="gamify-grid"></div></div>
+    </section>
+    <section id="view-report" class="cnpt-view">
+      <div class="cnpt-card"><h3>📋 家长通报生成</h3><p style="color:#666;margin-bottom:16px">自动生成课后服务内容通报。</p><button id="btn-generate-report" class="cnpt-btn cnpt-btn-primary">生成通报</button><div id="report-output" class="cnpt-hidden" style="margin-top:20px"></div></div>
+    </section>
+  </main>
+  <script src="../shared/js/core/constants.js"></script>
+  <script src="../shared/js/core/data-loader.js"></script>
+  <script src="../shared/js/core/indices.js"></script>
+  <script src="../shared/js/core/search.js"></script>
+  <script src="../shared/js/core/path.js"></script>
+  <script src="../shared/js/core/storage.js"></script>
+  <script src="../shared/js/core/multi-user-storage.js"></script>
+  <script src="../shared/js/core/utils.js"></script>
+  <script src="../shared/js/components/show-load-error.js"></script>
+  <script src="../shared/js/components/mascot-effects.js"></script>
+  <script src="../shared/js/components/topic-tags.js"></script>
+  <script src="../shared/js/components/mastery-row.js"></script>
+  <script src="../shared/js/components/diagnostic-engine.js"></script>
+  <script src="../shared/js/components/report-generator.js"></script>
+  <script src="js/afterschool.js"></script>
+</body>
+</html>

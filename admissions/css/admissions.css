@@ -1,0 +1,24 @@
+/* 招生办版主题 - 紫红品牌调 */
+:root {
+  --cnpt-primary: #8e44ad;
+  --cnpt-primary-light: #a569bd;
+  --cnpt-primary-dark: #6c3483;
+  --cnpt-gradient: linear-gradient(135deg, #8e44ad 0%, #a569bd 50%, #d2b4de 100%);
+  --cnpt-bg: #faf5ff;
+  --cnpt-card-shadow: 0 2px 8px rgba(142, 68, 173, 0.1);
+}
+body[data-role="admissions"] { background: var(--cnpt-bg); }
+.cnpt-header { background: var(--cnpt-gradient); }
+.cnpt-nav-btn.active { background: rgba(255, 255, 255, 0.25); }
+.cnpt-form-row { display: flex; gap: 16px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 20px; }
+.cnpt-form-row label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: #666; }
+.cnpt-form-row select, .cnpt-form-row input { padding: 8px 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; background: #fff; }
+.cnpt-brochure-preview { background: #fff; border-radius: 12px; padding: 32px; max-width: 700px; margin: 0 auto; box-shadow: var(--cnpt-card-shadow); }
+.cnpt-brochure-header { text-align: center; border-bottom: 2px solid var(--cnpt-primary); padding-bottom: 16px; margin-bottom: 20px; }
+.cnpt-brochure-title { font-size: 24px; font-weight: bold; color: var(--cnpt-primary); }
+.cnpt-brochure-section { margin-bottom: 20px; }
+.cnpt-brochure-section h4 { color: var(--cnpt-primary); margin-bottom: 8px; }
+.cnpt-materials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 16px; }
+.cnpt-material-card { background: #fff; border-radius: 12px; padding: 16px; box-shadow: var(--cnpt-card-shadow); text-align: center; cursor: pointer; transition: transform 0.2s; }
+.cnpt-material-card:hover { transform: translateY(-2px); }
+.cnpt-material-icon { font-size: 32px; margin-bottom: 8px; }

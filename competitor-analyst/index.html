@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="知识点图谱竞品分析版 - 知识结构对比、覆盖度分析、难度曲线对比、特色分析、机会识别">
+  <meta property="og:title" content="知识点图谱 · 竞品分析版">
+  <meta property="og:description" content="EdTech产品经理专用：知识结构对比、覆盖度分析、难度曲线对比、市场空白识别">
+  <meta property="og:type" content="website">
+  <title>知识点图谱 · 竞品分析版</title>
+  <link rel="stylesheet" href="../shared/css/tokens.css">
+  <link rel="stylesheet" href="../shared/css/common.css">
+  <link rel="stylesheet" href="css/competitor-analyst.css">
+</head>
+<body data-role="competitor-analyst">
+  <a href="#main-content" class="cnpt-skip-link">跳转到主要内容</a>
+  <header class="cnpt-header">
+    <div class="cnpt-header-inner">
+      <h1 class="cnpt-logo">🔍 竞品分析台</h1>
+      <nav class="cnpt-nav">
+        <button class="cnpt-nav-btn active" data-view="overview">对比概览</button>
+        <button class="cnpt-nav-btn" data-view="coverage">覆盖对比</button>
+        <button class="cnpt-nav-btn" data-view="difficulty">难度曲线</button>
+        <button class="cnpt-nav-btn" data-view="opportunity">机会识别</button>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content" class="cnpt-main">
+    <div id="cnpt-loading" class="cnpt-loading"><div class="cnpt-loading-spinner"></div><div class="cnpt-loading-text">正在加载...</div></div>
+    <section id="view-overview" class="cnpt-view active">
+      <div class="cnpt-card"><h3>竞品对比概览</h3><p style="color:#666;margin-bottom:16px">将本知识图谱与竞品进行多维度对比。</p>
+        <div class="cnpt-form-row">
+          <label>竞品名称：<input type="text" id="comp-name" placeholder="输入竞品名称" aria-label="竞品名称"></label>
+          <label>学科：<select id="comp-subject" aria-label="选择学科"></select></label>
+          <button id="btn-analyze" class="cnpt-btn cnpt-btn-primary">开始分析</button>
+        </div>
+      </div>
+      <div id="overview-output" class="cnpt-hidden"></div>
+    </section>
+    <section id="view-coverage" class="cnpt-view">
+      <div class="cnpt-card"><h3>知识覆盖对比</h3><p style="color:#666;margin-bottom:16px">各知识点领域的覆盖率对比。</p>
+        <div class="cnpt-filter-bar"><select id="cov-subject" aria-label="选择学科"></select></div>
+        <div id="coverage-chart"></div>
+      </div>
+    </section>
+    <section id="view-difficulty" class="cnpt-view">
+      <div class="cnpt-card"><h3>难度曲线对比</h3><p style="color:#666;margin-bottom:16px">不同年级难度递进对比。</p>
+        <div id="difficulty-chart"></div>
+      </div>
+    </section>
+    <section id="view-opportunity" class="cnpt-view">
+      <div class="cnpt-card"><h3>市场机会识别</h3><p style="color:#666;margin-bottom:16px">识别竞品未覆盖的知识空白区域。</p>
+        <div id="opportunity-grid"></div>
+      </div>
+    </section>
+  </main>
+  <script src="../shared/js/core/constants.js"></script>
+  <script src="../shared/js/core/data-loader.js"></script>
+  <script src="../shared/js/core/indices.js"></script>
+  <script src="../shared/js/core/search.js"></script>
+  <script src="../shared/js/core/path.js"></script>
+  <script src="../shared/js/core/storage.js"></script>
+  <script src="../shared/js/core/multi-user-storage.js"></script>
+  <script src="../shared/js/core/utils.js"></script>
+  <script src="../shared/js/components/show-load-error.js"></script>
+  <script src="../shared/js/components/mascot-effects.js"></script>
+  <script src="../shared/js/components/topic-tags.js"></script>
+  <script src="../shared/js/components/mastery-row.js"></script>
+  <script src="../shared/js/components/diagnostic-engine.js"></script>
+  <script src="../shared/js/components/report-generator.js"></script>
+  <script src="js/competitor-analyst.js"></script>
+</body>
+</html>

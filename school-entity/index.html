@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="知识点图谱学校本体版 - 知识资产仪表盘、招生卖点挖掘、师资缺口分析、校本课程设计">
+  <meta property="og:title" content="知识点图谱 · 学校本体版">
+  <meta property="og:description" content="学校作为法人实体：知识资产管理、招生优势分析、师资配置优化、校本课程设计">
+  <meta property="og:type" content="website">
+  <title>知识点图谱 · 学校本体版</title>
+  <link rel="stylesheet" href="../shared/css/tokens.css">
+  <link rel="stylesheet" href="../shared/css/common.css">
+  <link rel="stylesheet" href="css/school-entity.css">
+</head>
+<body data-role="school-entity">
+  <a href="#main-content" class="cnpt-skip-link">跳转到主要内容</a>
+  <header class="cnpt-header">
+    <div class="cnpt-header-inner">
+      <h1 class="cnpt-logo">🏫 学校知识资产</h1>
+      <nav class="cnpt-nav">
+        <button class="cnpt-nav-btn active" data-view="assets">资产总览</button>
+        <button class="cnpt-nav-btn" data-view="enrollment">招生卖点</button>
+        <button class="cnpt-nav-btn" data-view="faculty">师资配置</button>
+        <button class="cnpt-nav-btn" data-view="curriculum">校本课程</button>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content" class="cnpt-main">
+    <div id="cnpt-loading" class="cnpt-loading"><div class="cnpt-loading-spinner"></div><div class="cnpt-loading-text">正在加载...</div></div>
+    <section id="view-assets" class="cnpt-view active">
+      <div class="cnpt-dashboard">
+        <div class="cnpt-card cnpt-dashboard-card"><h3>知识点资产</h3><div id="asset-topics" class="cnpt-stat-value">--</div><span class="cnpt-stat-label">个</span></div>
+        <div class="cnpt-card cnpt-dashboard-card"><h3>知识领域</h3><div id="asset-domains" class="cnpt-stat-value">--</div><span class="cnpt-stat-label">个</span></div>
+        <div class="cnpt-card cnpt-dashboard-card"><h3>课标对齐率</h3><div id="asset-standard" class="cnpt-stat-value">100</div><span class="cnpt-stat-label">%</span></div>
+        <div class="cnpt-card cnpt-dashboard-card"><h3>依赖关系</h3><div id="asset-deps" class="cnpt-stat-value">--</div><span class="cnpt-stat-label">条</span></div>
+      </div>
+      <div class="cnpt-card"><h3>知识资产分布</h3><div id="asset-distribution"></div></div>
+    </section>
+    <section id="view-enrollment" class="cnpt-view">
+      <div class="cnpt-card"><h3>🎯 招生优势挖掘</h3><p style="color:#666;margin-bottom:16px">基于知识图谱数据，识别学校教学优势领域。</p><div id="enrollment-advantages"></div></div>
+    </section>
+    <section id="view-faculty" class="cnpt-view">
+      <div class="cnpt-card"><h3>👥 师资配置分析</h3><p style="color:#666;margin-bottom:16px">对比教师能力与知识点覆盖需求，发现师资缺口。</p><div id="faculty-gap"></div></div>
+    </section>
+    <section id="view-curriculum" class="cnpt-view">
+      <div class="cnpt-card"><h3>📚 校本课程设计</h3><p style="color:#666;margin-bottom:16px">基于知识图谱空白区域，设计特色校本课程。</p><button id="btn-design-curriculum" class="cnpt-btn cnpt-btn-primary">生成课程建议</button><div id="curriculum-output" class="cnpt-hidden" style="margin-top:20px"></div></div>
+    </section>
+  </main>
+  <script src="../shared/js/core/constants.js"></script>
+  <script src="../shared/js/core/data-loader.js"></script>
+  <script src="../shared/js/core/indices.js"></script>
+  <script src="../shared/js/core/search.js"></script>
+  <script src="../shared/js/core/path.js"></script>
+  <script src="../shared/js/core/storage.js"></script>
+  <script src="../shared/js/core/multi-user-storage.js"></script>
+  <script src="../shared/js/core/utils.js"></script>
+  <script src="../shared/js/components/show-load-error.js"></script>
+  <script src="../shared/js/components/mascot-effects.js"></script>
+  <script src="../shared/js/components/topic-tags.js"></script>
+  <script src="../shared/js/components/mastery-row.js"></script>
+  <script src="../shared/js/components/diagnostic-engine.js"></script>
+  <script src="../shared/js/components/report-generator.js"></script>
+  <script src="js/school-entity.js"></script>
+</body>
+</html>

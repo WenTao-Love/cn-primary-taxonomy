@@ -78,6 +78,11 @@ window.__CNPT_EMBEDDED = {
     { id: 'headteacher', name: '班主任版', dir: 'headteacher-web', file: 'index.html' },
     { id: 'testdesigner', name: '出题人版', dir: 'testdesigner-web', file: 'index.html' },
     { id: 'transition', name: '升学过渡版', dir: 'transition-web', file: 'index.html' },
+    { id: 'edu-sales', name: '教育销售版', dir: 'edu-sales', file: 'index.html' },
+    { id: 'competitor-analyst', name: '竞品分析版', dir: 'competitor-analyst', file: 'index.html' },
+    { id: 'school-entity', name: '学校本体版', dir: 'school-entity', file: 'index.html' },
+    { id: 'admissions', name: '招生办版', dir: 'admissions', file: 'index.html' },
+    { id: 'afterschool', name: '课后服务版', dir: 'afterschool', file: 'index.html' },
   ];
 
   for (const entry of entries) {
@@ -131,6 +136,11 @@ const standaloneOutputs = [
   'cn-primary-taxonomy-headteacher.html',
   'cn-primary-taxonomy-testdesigner.html',
   'cn-primary-taxonomy-transition.html',
+  'cn-primary-taxonomy-edu-sales.html',
+  'cn-primary-taxonomy-competitor-analyst.html',
+  'cn-primary-taxonomy-school-entity.html',
+  'cn-primary-taxonomy-admissions.html',
+  'cn-primary-taxonomy-afterschool.html',
 ];
 let validationIssues = 0;
 let validationChecked = 0;
@@ -176,3 +186,8 @@ console.log('   · 教研员版: researcher-web/index.html');
 console.log('   · 班主任版: headteacher-web/index.html');
 console.log('   · 出题人版: testdesigner-web/index.html');
 console.log('   · 升学过渡版: transition-web/index.html');
+console.log('   · 教育销售版: edu-sales/index.html');
+console.log('   · 竞品分析版: competitor-analyst/index.html');
+console.log('   · 学校本体版: school-entity/index.html');
+console.log('   · 招生办版: admissions/index.html');
+console.log('   · 课后服务版: afterschool/index.html');

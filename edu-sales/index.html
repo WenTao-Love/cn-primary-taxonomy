@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="知识点图谱教育销售版 - 快速学情诊断、学习路径提案、提分预测、竞品对比、转化率追踪">
+  <meta property="og:title" content="知识点图谱 · 教育销售版">
+  <meta property="og:description" content="课程顾问专用：快速学情诊断、动态学习路径展示、提分预测模型、竞品对比卡">
+  <meta property="og:type" content="website">
+  <title>知识点图谱 · 教育销售版</title>
+  <link rel="stylesheet" href="../shared/css/tokens.css">
+  <link rel="stylesheet" href="../shared/css/common.css">
+  <link rel="stylesheet" href="css/edu-sales.css">
+</head>
+<body data-role="edu-sales">
+  <a href="#main-content" class="cnpt-skip-link">跳转到主要内容</a>
+
+  <header class="cnpt-header">
+    <div class="cnpt-header-inner">
+      <h1 class="cnpt-logo">💼 课程顾问工作台</h1>
+      <nav class="cnpt-nav">
+        <button class="cnpt-nav-btn active" data-view="diagnose">快速诊断</button>
+        <button class="cnpt-nav-btn" data-view="proposal">学习方案</button>
+        <button class="cnpt-nav-btn" data-view="prediction">提分预测</button>
+        <button class="cnpt-nav-btn" data-view="compare">竞品对比</button>
+        <button class="cnpt-nav-btn" data-view="conversion">转化漏斗</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="cnpt-main">
+    <div id="cnpt-loading" class="cnpt-loading">
+      <div class="cnpt-loading-spinner"></div>
+      <div class="cnpt-loading-text">正在加载知识图谱数据...</div>
+    </div>
+
+    <!-- 快速诊断视图 -->
+    <section id="view-diagnose" class="cnpt-view active">
+      <div class="cnpt-card">
+        <h3>🎯 快速学情诊断</h3>
+        <p style="color:#666;margin-bottom:16px">3分钟快速了解学生知识薄弱点，为咨询提供数据支撑。</p>
+        <div class="cnpt-form-row">
+          <label>学生姓名：<input type="text" id="diag-name" placeholder="选填" aria-label="学生姓名"></label>
+          <label>当前年级：
+            <select id="diag-grade" aria-label="选择年级">
+              <option value="1">一年级</option>
+              <option value="2">二年级</option>
+              <option value="3">三年级</option>
+              <option value="4">四年级</option>
+              <option value="5">五年级</option>
+              <option value="6" selected>六年级</option>
+            </select>
+          </label>
+          <label>学科：
+            <select id="diag-subject" aria-label="选择学科"></select>
+          </label>
+          <label>近期成绩：
+            <select id="diag-score" aria-label="近期成绩">
+              <option value="excellent">优秀（90+）</option>
+              <option value="good" selected>良好（75-90）</option>
+              <option value="medium">中等（60-75）</option>
+              <option value="weak">薄弱（60以下）</option>
+            </select>
+          </label>
+          <button id="btn-diagnose" class="cnpt-btn cnpt-btn-primary">开始诊断</button>
+        </div>
+      </div>
+      <div id="diagnose-output" class="cnpt-diagnose-output cnpt-hidden"></div>
+    </section>
+
+    <!-- 学习方案视图 -->
+    <section id="view-proposal" class="cnpt-view">
+      <div class="cnpt-card">
+        <h3>📋 学习方案生成器</h3>
+        <p style="color:#666;margin-bottom:16px">根据诊断结果，自动生成多套学习方案供家长选择。</p>
+        <div class="cnpt-form-row">
+          <label>目标类型：
+            <select id="proposal-target" aria-label="目标类型">
+              <option value="sprint">冲刺提分</option>
+              <option value="stable" selected>稳健提升</option>
+              <option value="foundation">基础巩固</option>
+              <option value="competition">竞赛培优</option>
+            </select>
+          </label>
+          <label>周期：
+            <select id="proposal-period" aria-label="学习周期">
+              <option value="1个月">1个月</option>
+              <option value="3个月" selected>3个月</option>
+              <option value="6个月">6个月</option>
+              <option value="1年">1年</option>
+            </select>
+          </label>
+          <button id="btn-generate-proposal" class="cnpt-btn cnpt-btn-primary">生成方案</button>
+        </div>
+      </div>
+      <div id="proposal-output" class="cnpt-proposal-output cnpt-hidden"></div>
+    </section>
+
+    <!-- 提分预测视图 -->
+    <section id="view-prediction" class="cnpt-view">
+      <div class="cnpt-card">
+        <h3>📈 提分预测模型</h3>
+        <p style="color:#666;margin-bottom:16px">基于知识图谱掌握度，预测学习周期内的提分空间。</p>
+        <div class="cnpt-form-row">
+          <label>当前分数：<input type="number" id="pred-current" value="75" min="0" max="100" aria-label="当前分数"></label>
+          <label>目标分数：<input type="number" id="pred-target" value="90" min="0" max="100" aria-label="目标分数"></label>
+          <label>每周课时：<input type="number" id="pred-hours" value="2" min="1" max="10" aria-label="每周课时"></label>
+          <button id="btn-predict-score" class="cnpt-btn cnpt-btn-primary">预测提分</button>
+        </div>
+      </div>
+      <div id="prediction-output" class="cnpt-prediction-output cnpt-hidden"></div>
+    </section>
+
+    <!-- 竞品对比视图 -->
+    <section id="view-compare" class="cnpt-view">
+      <div class="cnpt-card">
+        <h3>⚔️ 竞品对比卡</h3>
+        <p style="color:#666;margin-bottom:16px">一键生成与竞品机构的知识覆盖对比，突出本机构优势。</p>
+        <div class="cnpt-form-row">
+          <label>竞品名称：<input type="text" id="comp-name" placeholder="如：XX教育" aria-label="竞品名称"></label>
+          <label>对比维度：
+            <select id="comp-dimension" aria-label="对比维度">
+              <option value="coverage">知识覆盖</option>
+              <option value="difficulty">难度深度</option>
+              <option value="progression">进阶体系</option>
+              <option value="comprehensive">综合对比</option>
+            </select>
+          </label>
+          <button id="btn-compare" class="cnpt-btn cnpt-btn-primary">生成对比</button>
+        </div>
+      </div>
+      <div id="compare-output" class="cnpt-compare-output cnpt-hidden"></div>
+    </section>
+
+    <!-- 转化漏斗视图 -->
+    <section id="view-conversion" class="cnpt-view">
+      <div class="cnpt-card">
+        <h3>📊 转化漏斗追踪</h3>
+        <p style="color:#666;margin-bottom:16px">追踪咨询→试听→报名→续费的转化率。</p>
+      </div>
+      <div class="cnpt-funnel-container">
+        <div class="cnpt-funnel-step">
+          <div class="cnpt-funnel-bar" style="width:100%">
+            <span class="cnpt-funnel-label">咨询：<strong id="funnel-consult">100</strong>人</span>
+          </div>
+          <div class="cnpt-funnel-rate">基准</div>
+        </div>
+        <div class="cnpt-funnel-step">
+          <div class="cnpt-funnel-bar" style="width:70%">
+            <span class="cnpt-funnel-label">试听：<strong id="funnel-trial">70</strong>人</span>
+          </div>
+          <div class="cnpt-funnel-rate">70%</div>
+        </div>
+        <div class="cnpt-funnel-step">
+          <div class="cnpt-funnel-bar" style="width:42%">
+            <span class="cnpt-funnel-label">报名：<strong id="funnel-signup">42</strong>人</span>
+          </div>
+          <div class="cnpt-funnel-rate">60%</div>
+        </div>
+        <div class="cnpt-funnel-step">
+          <div class="cnpt-funnel-bar" style="width:30%">
+            <span class="cnpt-funnel-label">续费：<strong id="funnel-renew">30</strong>人</span>
+          </div>
+          <div class="cnpt-funnel-rate">71%</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../shared/js/core/constants.js"></script>
+  <script src="../shared/js/core/data-loader.js"></script>
+  <script src="../shared/js/core/indices.js"></script>
+  <script src="../shared/js/core/search.js"></script>
+  <script src="../shared/js/core/path.js"></script>
+  <script src="../shared/js/core/storage.js"></script>
+  <script src="../shared/js/core/multi-user-storage.js"></script>
+  <script src="../shared/js/core/utils.js"></script>
+  <script src="../shared/js/components/show-load-error.js"></script>
+  <script src="../shared/js/components/mascot-effects.js"></script>
+  <script src="../shared/js/components/topic-tags.js"></script>
+  <script src="../shared/js/components/mastery-row.js"></script>
+  <script src="../shared/js/components/diagnostic-engine.js"></script>
+  <script src="../shared/js/components/report-generator.js"></script>
+  <script src="js/edu-sales.js"></script>
+</body>
+</html>

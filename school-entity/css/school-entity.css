@@ -1,0 +1,21 @@
+/* 学校本体版主题 - 藏青稳重调 */
+:root {
+  --cnpt-primary: #1a3a5c;
+  --cnpt-primary-light: #2c5282;
+  --cnpt-primary-dark: #0d2137;
+  --cnpt-gradient: linear-gradient(135deg, #1a3a5c 0%, #2c5282 50%, #3182ce 100%);
+  --cnpt-bg: #f5f7fa;
+  --cnpt-card-shadow: 0 2px 8px rgba(26, 58, 92, 0.1);
+}
+body[data-role="school-entity"] { background: var(--cnpt-bg); }
+.cnpt-header { background: var(--cnpt-gradient); }
+.cnpt-nav-btn.active { background: rgba(255, 255, 255, 0.25); }
+.cnpt-dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 24px; }
+.cnpt-dashboard-card { text-align: center; padding: 16px; }
+.cnpt-dashboard-card h3 { font-size: 13px; color: #666; margin-bottom: 8px; }
+.cnpt-stat-value { font-size: 28px; font-weight: bold; color: var(--cnpt-primary); }
+.cnpt-stat-label { font-size: 13px; color: #999; }
+.cnpt-advantage-card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 12px; box-shadow: var(--cnpt-card-shadow); border-left: 4px solid #27ae60; }
+.cnpt-advantage-title { font-weight: bold; color: var(--cnpt-primary); margin-bottom: 8px; }
+.cnpt-faculty-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #eee; }
+.cnpt-curriculum-card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 12px; box-shadow: var(--cnpt-card-shadow); border-left: 4px solid var(--cnpt-primary); }

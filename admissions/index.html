@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="知识点图谱招生办版 - 招生简章生成、可视化教学成果、微信推文素材、学校差异对比">
+  <meta property="og:title" content="知识点图谱 · 招生办版">
+  <meta property="og:description" content="学校招生办：招生简章自动生成、数据可视化展示、宣传素材生成、差异对比">
+  <meta property="og:type" content="website">
+  <title>知识点图谱 · 招生办版</title>
+  <link rel="stylesheet" href="../shared/css/tokens.css">
+  <link rel="stylesheet" href="../shared/css/common.css">
+  <link rel="stylesheet" href="css/admissions.css">
+</head>
+<body data-role="admissions">
+  <a href="#main-content" class="cnpt-skip-link">跳转到主要内容</a>
+  <header class="cnpt-header">
+    <div class="cnpt-header-inner">
+      <h1 class="cnpt-logo">📢 招生工作台</h1>
+      <nav class="cnpt-nav">
+        <button class="cnpt-nav-btn active" data-view="brochure">招生简章</button>
+        <button class="cnpt-nav-btn" data-view="visualization">数据展示</button>
+        <button class="cnpt-nav-btn" data-view="materials">宣传素材</button>
+        <button class="cnpt-nav-btn" data-view="comparison">差异对比</button>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content" class="cnpt-main">
+    <div id="cnpt-loading" class="cnpt-loading"><div class="cnpt-loading-spinner"></div><div class="cnpt-loading-text">正在加载...</div></div>
+    <section id="view-brochure" class="cnpt-view active">
+      <div class="cnpt-card"><h3>📄 智能招生简章生成器</h3><p style="color:#666;margin-bottom:16px">基于学校知识图谱数据，自动生成特色招生简章。</p>
+        <div class="cnpt-form-row">
+          <label>学校名称：<input type="text" id="school-name" placeholder="输入学校名称" aria-label="学校名称"></label>
+          <label>招生年级：<select id="enroll-grade" aria-label="招生年级"><option value="1">一年级</option></select></label>
+          <label>办学特色：<input type="text" id="school-feature" placeholder="如：科技创新" aria-label="办学特色"></label>
+          <button id="btn-generate-brochure" class="cnpt-btn cnpt-btn-primary">生成简章</button>
+        </div>
+      </div>
+      <div id="brochure-output" class="cnpt-hidden"></div>
+    </section>
+    <section id="view-visualization" class="cnpt-view">
+      <div class="cnpt-card"><h3>📊 教学成果可视化</h3><p style="color:#666;margin-bottom:16px">将抽象的教学质量转化为直观的图谱。</p><div id="viz-container"></div></div>
+    </section>
+    <section id="view-materials" class="cnpt-view">
+      <div class="cnpt-card"><h3>🎨 宣传素材生成</h3><p style="color:#666;margin-bottom:16px">微信推文素材、短视频脚本自动生成。</p><div id="materials-grid"></div></div>
+    </section>
+    <section id="view-comparison" class="cnpt-view">
+      <div class="cnpt-card"><h3>⚖️ 学校差异对比</h3><p style="color:#666;margin-bottom:16px">与同类学校的详细对比报告。</p>
+        <div class="cnpt-form-row"><label>对比学校：<input type="text" id="compare-school" placeholder="输入学校名" aria-label="对比学校"></label><button id="btn-compare-school" class="cnpt-btn cnpt-btn-primary">对比</button></div>
+        <div id="comparison-output" class="cnpt-hidden"></div>
+      </div>
+    </section>
+  </main>
+  <script src="../shared/js/core/constants.js"></script>
+  <script src="../shared/js/core/data-loader.js"></script>
+  <script src="../shared/js/core/indices.js"></script>
+  <script src="../shared/js/core/search.js"></script>
+  <script src="../shared/js/core/path.js"></script>
+  <script src="../shared/js/core/storage.js"></script>
+  <script src="../shared/js/core/multi-user-storage.js"></script>
+  <script src="../shared/js/core/utils.js"></script>
+  <script src="../shared/js/components/show-load-error.js"></script>
+  <script src="../shared/js/components/mascot-effects.js"></script>
+  <script src="../shared/js/components/topic-tags.js"></script>
+  <script src="../shared/js/components/mastery-row.js"></script>
+  <script src="../shared/js/components/diagnostic-engine.js"></script>
+  <script src="../shared/js/components/report-generator.js"></script>
+  <script src="js/admissions.js"></script>
+</body>
+</html>
