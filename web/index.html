@@ -127,6 +127,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft
   #app { grid-template-columns: 1fr 340px; }
 }
 </style>
+<link rel="stylesheet" href="../shared/css/responsive.css">
 </head>
 <body>
 <a href="#graph" class="cnpt-skip-link" style="position:absolute;top:-100%;left:16px;z-index:99999;padding:10px 20px;background:#5dade2;color:#fff;font-size:13px;font-weight:600;text-decoration:none;border-radius:0 0 8px 8px;transition:top 0.2s;" onfocus="this.style.top='0'" onblur="this.style.top='-100%'">跳到主内容</a>
@@ -1134,5 +1135,8 @@ script.onerror = () => {
 };
 document.head.appendChild(script);
 </script>
+<script src="shared/js/components/bookmarks.js"></script>
+<script src="shared/js/components/share-card.js"></script>
+<script src="shared/js/components/data-export.js"></script>
 </body>
 </html>

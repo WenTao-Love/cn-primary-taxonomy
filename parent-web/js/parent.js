@@ -92,6 +92,32 @@
     // 应用默认筛选
     applyFilters();
 
+    // 初始化错误反馈组件（P0 合规要求）
+    if (CNPT.components.initErrorFeedback) {
+  if (CNPT.components.initBookmarks) { CNPT.components.initBookmarks(); }
+  if (CNPT.components.initVoiceSearch) { CNPT.components.initVoiceSearch(); }
+  if (CNPT.components.initShareCard) { CNPT.components.initShareCard(); }
+  if (CNPT.components.initPWA) { CNPT.components.initPWA(); }
+  if (CNPT.components.initDataExport) { CNPT.components.initDataExport(); }
+  if (CNPT.components.initNodeDetail) { CNPT.components.initNodeDetail(); }
+
+    // 初始化主题管理器（主题切换+字号控制）
+    if (CNPT.components.initThemeManager) {
+
+    // 初始化入门引导（首次使用显示）
+    if (CNPT.components.initOnboarding) {
+
+    // 初始化搜索历史
+    if (CNPT.components.initSearchHistoryAuto) {
+      CNPT.components.initSearchHistoryAuto();
+    }
+      CNPT.components.initOnboarding();
+    }
+      CNPT.components.initThemeManager();
+    }
+      CNPT.components.initErrorFeedback();
+    }
+
     // 隐藏加载指示器
     CNPT.utils.hideLoadingScreen();
 
@@ -267,7 +293,7 @@
     DOM.graphStatus.innerHTML = `显示 <strong>${nodes.length}</strong> / ${state.fullData.topics.topics.length} 个节点 · <strong>${links.length}</strong> 条关系`;
   }
 
-  // ========== 节点详情 ==========
+  // ========== 节点详情（使用共享组件）==========
   function showNodeDetail(node) {
     const topic = CNPT.indices.getTopicMap().get(node.id);
     if (!topic) return;
@@ -275,89 +301,19 @@
     state.selectedNodeId = node.id;
     state.graph.highlightNode(node.id);
 
-    const status = state.storage.getTopicStatus(topic.id);
-    const hardPrereqs = CNPT.path.getHardPrerequisites(topic.id);
-    const softPrereqs = CNPT.path.getSoftPrerequisites(topic.id);
-    const successors = CNPT.path.getSuccessors(topic.id);
-    const coachText = CNPT.utils.buildCoachText(topic, hardPrereqs, successors);
-
-    const tags = [
-      `<span class="cnpt-tag" style="background:${CNPT.constants.COLORS[topic.subject]}20;color:${CNPT.constants.COLORS[topic.subject]}">${topic.subject}</span>`,
-      `<span class="cnpt-tag" style="background:rgba(0,0,0,0.1);color:#999">${topic.domain || ''}</span>`,
-      `<span class="cnpt-tag" style="background:rgba(0,0,0,0.1);color:#999">${topic.grade}年级${topic.term || ''}</span>`,
-      `<span class="cnpt-tag" style="background:rgba(255,200,0,0.15);color:#f39c12">难度 ${CNPT.constants.DIFFICULTY(topic.difficulty || 3)}</span>`
-    ].join('');
-
-    DOM.detailPanel.classList.remove('cnpt-hidden');
-    DOM.detailPanel.innerHTML = `
-      <div class="cnpt-detail-name">${CNPT.utils.escapeHtml(topic.name)}</div>
-      <div class="cnpt-detail-meta">${topic.id} · ${topic.textbook || ''}${topic.unit ? ' · ' + topic.unit : ''}</div>
-      <div class="cnpt-detail-tags">${tags}</div>
-      <div class="cnpt-detail-desc">${CNPT.utils.escapeHtml(topic.description || '暂无描述')}</div>
-
-      <div class="cnpt-mastery-row">
-        <button class="cnpt-mastery-btn ${status === 'mastered' ? 'active' : ''}" data-mastery="mastered">✅ 已掌握</button>
-        <button class="cnpt-mastery-btn ${status === 'learning' ? 'active' : ''}" data-mastery="learning">📖 学习中</button>
-        <button class="cnpt-mastery-btn ${status === 'not-started' ? 'active' : ''}" data-mastery="not-started">⏳ 未开始</button>
-      </div>
-
-      <div class="cnpt-coach-box">${CNPT.utils.escapeHtml(coachText)}</div>
-
-      <div class="cnpt-detail-section">
-        <h4>✓ 掌握标准</h4>
-        <ul>${(topic.evidence || []).map(e => `<li>${CNPT.utils.escapeHtml(e)}</li>`).join('') || '<li style="color:#999">暂无</li>'}</ul>
-      </div>
-
-      ${topic.commonMistakes && topic.commonMistakes.length ? `
-        <div class="cnpt-detail-section">
-          <h4>⚠️ 易错点</h4>
-          <ul>${topic.commonMistakes.map(e => `<li>${CNPT.utils.escapeHtml(e)}</li>`).join('')}</ul>
-        </div>
-      ` : ''}
-
-      ${topic.examTips ? `
-        <div class="cnpt-detail-section">
-          <h4>📝 考法提示</h4>
-          <p style="font-size:12px;color:#a8b4c0;margin-top:4px">${CNPT.utils.escapeHtml(topic.examTips)}</p>
-        </div>
-      ` : ''}
-
-      ${hardPrereqs.length ? `
-        <div class="cnpt-detail-section">
-          <h4>🔴 必须先补</h4>
-          ${hardPrereqs.map(i => `<div class="cnpt-chain-item hard" data-id="${i.topic.id}"><span>🔴</span><b>${CNPT.utils.escapeHtml(i.topic.name)}</b><br><span style="color:#999;font-size:11px">${CNPT.utils.escapeHtml(i.edge.reason || '')}</span></div>`).join('')}
-        </div>
-      ` : ''}
-
-      ${softPrereqs.length ? `
-        <div class="cnpt-detail-section">
-          <h4>🟡 建议先补</h4>
-          ${softPrereqs.map(i => `<div class="cnpt-chain-item soft" data-id="${i.topic.id}"><span>🟡</span><b>${CNPT.utils.escapeHtml(i.topic.name)}</b><br><span style="color:#999;font-size:11px">${CNPT.utils.escapeHtml(i.edge.reason || '')}</span></div>`).join('')}
-        </div>
-      ` : ''}
-
-      ${topic.standards && topic.standards.length ? `
-        <div class="cnpt-detail-section">
-          <h4>📋 课标编码</h4>
-          <ul>${topic.standards.map(s => `<li style="font-family:monospace;font-size:11px">${CNPT.utils.escapeHtml(s)}</li>`).join('')}</ul>
-        </div>
-      ` : ''}
-    `;
-
-    // 掌握状态按钮
-    DOM.detailPanel.querySelectorAll('.cnpt-mastery-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const newStatus = btn.dataset.mastery;
-        state.storage.setTopicStatus(topic.id, newStatus);
-        renderOverviewStats();
-        showNodeDetail(node);
+    if (window.CNPT?.components?.renderNodeDetail) {
+      CNPT.components.renderNodeDetail(topic, {
+        container: DOM.detailPanel,
+        showMastery: true,
+        showCoach: true,
+        showExamTips: true,
+        onMasteryChange: (id, status) => {
+          state.storage.setTopicStatus(id, status);
+          renderOverviewStats();
+        },
+        onNodeClick: (id) => focusNode(id)
       });
-    });
-
-    // 链式跳转
-    DOM.detailPanel.querySelectorAll('.cnpt-chain-item').forEach(item => {
-      item.addEventListener('click', () => focusNode(item.dataset.id));
-    });
+    }
   }
 
   // ========== 聚焦节点 ==========

@@ -30,6 +30,31 @@
       state.indices = indicesBuilder.buildIndices(data);
       state.storage = Storage.create('admissions');
       DOM.loading.classList.add('cnpt-loading-hidden');
+
+  // 初始化错误反馈组件（P0 合规要求）
+  if (CNPT.components.initErrorFeedback) {
+  if (CNPT.components.initBookmarks) { CNPT.components.initBookmarks(); }
+  if (CNPT.components.initVoiceSearch) { CNPT.components.initVoiceSearch(); }
+  if (CNPT.components.initShareCard) { CNPT.components.initShareCard(); }
+  if (CNPT.components.initPWA) { CNPT.components.initPWA(); }
+  if (CNPT.components.initDataExport) { CNPT.components.initDataExport(); }
+
+    // 初始化主题管理器（主题切换+字号控制）
+    if (CNPT.components.initThemeManager) {
+
+    // 初始化入门引导（首次使用显示）
+    if (CNPT.components.initOnboarding) {
+
+    // 初始化搜索历史
+    if (CNPT.components.initSearchHistoryAuto) {
+      CNPT.components.initSearchHistoryAuto();
+    }
+      CNPT.components.initOnboarding();
+    }
+      CNPT.components.initThemeManager();
+    }
+    CNPT.components.initErrorFeedback();
+  }
       initNavigation();
       initBrochure();
       initVisualization();

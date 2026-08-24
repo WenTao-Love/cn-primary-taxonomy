@@ -1,0 +1,23 @@
+{
+  "name": "中国小学教育知识图谱 CN-Primary-Taxonomy",
+  "short_name": "知识图谱",
+  "description": "覆盖11学科4275个知识点的中国小学教育知识图谱，支持家长、教师、学生等多角色视图",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "any",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "categories": ["education", "reference"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%233b82f6'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='white'>📚</text></svg>",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "prefer_related_applications": false
+}

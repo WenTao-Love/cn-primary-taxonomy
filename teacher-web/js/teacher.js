@@ -74,6 +74,32 @@
     initSearchView();
     initSettings();
 
+    // 初始化错误反馈组件（P0 合规要求）
+    if (CNPT.components.initErrorFeedback) {
+  if (CNPT.components.initBookmarks) { CNPT.components.initBookmarks(); }
+  if (CNPT.components.initVoiceSearch) { CNPT.components.initVoiceSearch(); }
+  if (CNPT.components.initShareCard) { CNPT.components.initShareCard(); }
+  if (CNPT.components.initPWA) { CNPT.components.initPWA(); }
+  if (CNPT.components.initDataExport) { CNPT.components.initDataExport(); }
+  if (CNPT.components.initNodeDetail) { CNPT.components.initNodeDetail(); }
+
+    // 初始化主题管理器（主题切换+字号控制）
+    if (CNPT.components.initThemeManager) {
+
+    // 初始化入门引导（首次使用显示）
+    if (CNPT.components.initOnboarding) {
+
+    // 初始化搜索历史
+    if (CNPT.components.initSearchHistoryAuto) {
+      CNPT.components.initSearchHistoryAuto();
+    }
+      CNPT.components.initOnboarding();
+    }
+      CNPT.components.initThemeManager();
+    }
+      CNPT.components.initErrorFeedback();
+    }
+
     // 隐藏加载指示器
     CNPT.utils.hideLoadingScreen();
   }
@@ -210,61 +236,42 @@
     DOM.graphStatus.innerHTML = `显示 <strong>${graphData.nodes.length}</strong> / ${topics.length} 个节点 · <strong>${graphData.links.length}</strong> 条关系`;
   }
 
-  // ========== 节点详情（教师版：增加课标、考法等字段）==========
+  // ========== 节点详情（教师版：使用共享组件 + 教师专属字段）==========
   function showNodeDetail(node) {
     const topic = CNPT.indices.getTopicMap().get(node.id);
     if (!topic) return;
 
     state.graph.highlightNode(node.id);
 
-    const tags = [
-      `<span class="cnpt-tag" style="background:${CNPT.constants.COLORS[topic.subject]}20;color:${CNPT.constants.COLORS[topic.subject]}">${topic.subject}</span>`,
-      `<span class="cnpt-tag" style="background:rgba(0,0,0,0.06);color:#666">${topic.domain || ''}</span>`,
-      `<span class="cnpt-tag" style="background:rgba(0,0,0,0.06);color:#666">${topic.grade}年级${topic.term || ''}</span>`
-    ].join('');
+    if (window.CNPT?.components?.renderNodeDetail) {
+      CNPT.components.renderNodeDetail(topic, {
+        container: DOM.nodeDetailPanel,
+        showStandards: true,
+        showExamTips: true,
+        onNodeClick: (id) => {
+          const n = state.graph.data.nodes.find(nd => nd.id === id);
+          if (n) showNodeDetail(n);
+        }
+      });
 
-    const hardPrereqs = CNPT.path.getHardPrerequisites(topic.id);
-    const successors = CNPT.path.getSuccessors(topic.id);
+      // 教师专属：添加关闭按钮
+      const header = DOM.nodeDetailPanel.querySelector('.cnpt-detail-name');
+      if (header && !DOM.nodeDetailPanel.querySelector('#cnpt-detail-close')) {
+        const headerRow = document.createElement('div');
+        headerRow.style.cssText = 'display:flex;justify-content:space-between;align-items:center;margin-bottom:8px';
+        headerRow.innerHTML = `<div class="cnpt-detail-name" style="margin:0">${CNPT.utils.escapeHtml(topic.name)}</div>
+          <button id="cnpt-detail-close" style="background:none;border:none;font-size:18px;cursor:pointer;color:#999">×</button>`;
+        header.replaceWith(headerRow);
+        DOM.nodeDetailPanel.querySelector('#cnpt-detail-close').addEventListener('click', () => {
+          DOM.nodeDetailPanel.classList.add('cnpt-hidden');
+        });
+      }
 
-    DOM.nodeDetailPanel.classList.remove('cnpt-hidden');
-    DOM.nodeDetailPanel.innerHTML = `
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-        <div class="cnpt-detail-name" style="margin:0">${CNPT.utils.escapeHtml(topic.name)}</div>
-        <button id="cnpt-detail-close"
-          style="background:none;border:none;font-size:18px;cursor:pointer;color:#999">×</button>
-      </div>
-      <div class="cnpt-detail-meta">${topic.id} · ${topic.textbook || '未标注版本'}${topic.unit ? ' · ' + topic.unit : ''}</div>
-      <div class="cnpt-detail-tags">${tags}</div>
-      <div class="cnpt-detail-desc">${CNPT.utils.escapeHtml(topic.description || '暂无描述')}</div>
-
-      <div class="cnpt-detail-section">
-        <h4>📋 课标编码</h4>
-        ${(topic.standards && topic.standards.length) ?
-          topic.standards.map(s => `<span class="cnpt-standard-code" style="margin:2px">${CNPT.utils.escapeHtml(s)}</span>`).join(' ') :
-          '<span style="color:#999;font-size:12px">暂未标注</span>'}
-      </div>
-
-      <div class="cnpt-detail-section">
-        <h4>🎯 掌握标准</h4>
-        <ul>${(topic.evidence || []).map(e => `<li>${CNPT.utils.escapeHtml(e)}</li>`).join('') || '<li>暂无</li>'}</ul>
-      </div>
-
-      ${topic.examTips ? `
-        <div class="cnpt-detail-section">
-          <h4>📝 考法提示</h4>
-          <p style="font-size:12px;color:#546E7A">${CNPT.utils.escapeHtml(topic.examTips)}</p>
-        </div>
-      ` : ''}
-
-      ${topic.commonMistakes && topic.commonMistakes.length ? `
-        <div class="cnpt-detail-section">
-          <h4>⚠️ 易错点</h4>
-          <ul>${topic.commonMistakes.map(e => `<li>${CNPT.utils.escapeHtml(e)}</li>`).join('')}</ul>
-        </div>
-      ` : ''}
-
-      ${topic.skillRubric ? `
-        <div class="cnpt-detail-section">
+      // 教师专属：添加技能量表
+      if (topic.skillRubric) {
+        const rubricSection = document.createElement('div');
+        rubricSection.className = 'cnpt-detail-section';
+        rubricSection.innerHTML = `
           <h4>📊 技能量表</h4>
           ${Object.entries(topic.skillRubric).map(([skill, levels]) => `
             <div style="margin-bottom:8px">
@@ -274,36 +281,10 @@
               </ul>
             </div>
           `).join('')}
-        </div>
-      ` : ''}
-
-      ${hardPrereqs.length ? `
-        <div class="cnpt-detail-section">
-          <h4>🔴 前置知识</h4>
-          ${hardPrereqs.map(i => `<div class="cnpt-chain-item hard" data-id="${i.topic.id}"><span>🔴</span><b>${CNPT.utils.escapeHtml(i.topic.name)}</b></div>`).join('')}
-        </div>
-      ` : ''}
-
-      ${successors.length ? `
-        <div class="cnpt-detail-section">
-          <h4>🔵 后续知识</h4>
-          ${successors.slice(0, 5).map(i => `<div class="cnpt-chain-item soft" data-id="${i.topic.id}"><span>🔵</span><b>${CNPT.utils.escapeHtml(i.topic.name)}</b></div>`).join('')}
-        </div>
-      ` : ''}
-    `;
-
-    // Close button handler
-    DOM.nodeDetailPanel.querySelector('#cnpt-detail-close')?.addEventListener('click', () => {
-      DOM.nodeDetailPanel.classList.add('cnpt-hidden');
-    });
-
-    DOM.nodeDetailPanel.querySelectorAll('.cnpt-chain-item').forEach(item => {
-      item.addEventListener('click', () => {
-        const id = item.dataset.id;
-        const n = state.graph.data.nodes.find(nd => nd.id === id);
-        if (n) showNodeDetail(n);
-      });
-    });
+        `;
+        DOM.nodeDetailPanel.appendChild(rubricSection);
+      }
+    }
   }
 
   // ========== 课标对照 ==========
@@ -508,6 +489,49 @@
         CNPT.utils.showToast('数据已清除');
       }
     });
+
+    // 绑定隐私政策、用户协议链接
+    const privacyLink = document.getElementById('link-privacy');
+    const agreementLink = document.getElementById('link-agreement');
+    const exportBtn = document.getElementById('btn-export-data');
+
+    if (privacyLink) {
+      privacyLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.open('../shared/privacy-policy.html', '_blank');
+      });
+    }
+    if (agreementLink) {
+      agreementLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.open('../shared/user-agreement.html', '_blank');
+      });
+    }
+    if (exportBtn) {
+      exportBtn.addEventListener('click', exportUserData);
+    }
+  }
+
+  /**
+   * 导出用户数据（数据可携带权）
+   */
+  function exportUserData() {
+    const data = {
+      role: state.role,
+      exportedAt: new Date().toISOString(),
+      mastery: state.storage.getMastery(),
+      stats: state.storage.getStats(),
+      consecutiveDays: state.storage.getConsecutiveDays()
+    };
+
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `cnpt_teacher_data_${new Date().toISOString().slice(0, 10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+    CNPT.utils.showToast('✅ 数据已导出');
   }
 
   if (document.readyState === 'loading') {

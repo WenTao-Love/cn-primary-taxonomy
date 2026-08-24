@@ -546,6 +546,17 @@
   color: var(--cnpt-text-muted);
 }
 
+.cnpt-setting-link {
+  font-size: 13px;
+  color: var(--cnpt-primary);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cnpt-setting-link:hover {
+  text-decoration: underline;
+}
+
 /* ========== 工具类 ========== */
 .cnpt-btn {
   display: inline-flex;

@@ -10,6 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../shared/css/tokens.css">
 <link rel="stylesheet" href="../shared/css/common.css">
+<link rel="stylesheet" href="../shared/css/responsive.css">
 <link rel="stylesheet" href="css/teacher.css">
 </head>
 <body class="cnpt-role-teacher">
@@ -167,14 +168,29 @@
         <h2>设置</h2>
         <div class="cnpt-settings-list">
           <div class="cnpt-setting-item">
+            <span class="cnpt-setting-label">📤 导出学习数据</span>
+            <button class="cnpt-btn cnpt-btn-secondary" id="btn-export-data">导出</button>
+          </div>
+          <div class="cnpt-setting-item">
             <span class="cnpt-setting-label">📊 清除教学数据</span>
             <button class="cnpt-btn cnpt-btn-secondary" id="btn-clear-data">清除</button>
           </div>
           <div class="cnpt-setting-item">
+            <span class="cnpt-setting-label">🔒 隐私政策</span>
+            <a href="../shared/privacy-policy.html" id="link-privacy" class="cnpt-setting-link" target="_blank">查看</a>
+          </div>
+          <div class="cnpt-setting-item">
+            <span class="cnpt-setting-label">📝 用户协议</span>
+            <a href="../shared/user-agreement.html" id="link-agreement" class="cnpt-setting-link" target="_blank">查看</a>
+          </div>
+          <div class="cnpt-setting-item">
             <span class="cnpt-setting-label">ℹ️ 关于本项目</span>
-            <span class="cnpt-setting-value">CN-Primary-Taxonomy v0.9</span>
+            <span class="cnpt-setting-value">CN-Primary-Taxonomy v1.0</span>
           </div>
         </div>
+        <p style="font-size:11px;color:#999;margin-top:16px;padding:0 4px;">
+          💡 所有数据仅存储在您的浏览器本地，不会上传到任何服务器。
+        </p>
       </section>
     </main>
   </div>
@@ -197,6 +213,16 @@
 <script src="../shared/js/components/mastery-row.js"></script>
 <script src="../shared/js/components/diagnostic-engine.js"></script>
 <script src="../shared/js/components/report-generator.js"></script>
+<script src="../shared/js/components/error-feedback.js"></script>
+<script src="../shared/js/components/bookmarks.js"></script>
+<script src="../shared/js/components/voice-search.js"></script>
+<script src="../shared/js/components/share-card.js"></script>
+<script src="../shared/js/components/pwa-register.js"></script>
+<script src="../shared/js/components/data-export.js"></script>
+<script src="../shared/js/components/node-detail.js"></script>
+<script src="../shared/js/components/theme-manager.js"></script>
+<script src="../shared/js/components/onboarding.js"></script>
+<script src="../shared/js/components/search-history.js"></script>
 <script src="../shared/js/graph/pc-graph.js"></script>
 <script src="js/teacher.js"></script>
 </body>

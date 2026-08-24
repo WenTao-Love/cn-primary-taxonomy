@@ -1,0 +1,356 @@
+/*!
+ * CN-Primary-Taxonomy · 响应式适配
+ * 为PC版本添加移动端适配
+ * 包含：触摸优化、断点适配、安全区域、手势支持
+ */
+
+/* ========== 基础触摸优化 ========== */
+@media (pointer: coarse) {
+  /* 增大触摸目标 */
+  button,
+  .cnpt-btn,
+  .cnpt-mastery-btn,
+  .cnpt-nav-item,
+  .cnpt-filter-action,
+  .cnpt-chain-item {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* 输入框增大 */
+  input[type="text"],
+  input[type="search"],
+  select {
+    min-height: 44px;
+    font-size: 16px; /* 防止iOS缩放 */
+  }
+
+  /* 标签和选项间距增大 */
+  .cnpt-tag,
+  .cnpt-multi-select-option {
+    padding: 6px 10px;
+  }
+}
+
+/* ========== 小屏手机 (≤480px) ========== */
+@media (max-width: 480px) {
+  /* 顶部栏 */
+  .cnpt-top-bar {
+    padding: 8px 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .cnpt-top-left {
+    font-size: 14px;
+  }
+
+  .cnpt-top-right {
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .cnpt-top-right button,
+  .cnpt-top-right .cnpt-data-export-btn,
+  .cnpt-top-right .cnpt-bookmarks-entry-btn {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  /* 主内容区 */
+  .cnpt-main-content {
+    padding: 12px;
+  }
+
+  /* 统计卡片 */
+  .cnpt-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px;
+  }
+
+  .cnpt-stat-card {
+    padding: 12px 8px;
+  }
+
+  .cnpt-stat-num {
+    font-size: 20px;
+  }
+
+  .cnpt-stat-label {
+    font-size: 11px;
+  }
+
+  /* 学科选择网格 */
+  .cnpt-subject-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px;
+  }
+
+  .cnpt-subject-card {
+    padding: 12px 8px;
+  }
+
+  .cnpt-subject-icon {
+    font-size: 24px;
+  }
+
+  .cnpt-subject-name {
+    font-size: 12px;
+  }
+
+  /* 详情面板 */
+  .cnpt-detail-card,
+  .cnpt-detail-panel {
+    margin: 8px;
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .cnpt-detail-name {
+    font-size: 16px !important;
+  }
+
+  .cnpt-detail-desc {
+    font-size: 12px;
+  }
+
+  /* 掌握按钮 */
+  .cnpt-mastery-row {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .cnpt-mastery-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  /* 筛选器 */
+  .cnpt-filter-group,
+  .cnpt-filter-field {
+    margin-bottom: 12px;
+  }
+
+  .cnpt-filter-label {
+    font-size: 12px;
+  }
+
+  /* 搜索框 */
+  .cnpt-search-input,
+  input[aria-label*="搜索"] {
+    padding: 12px 40px 12px 12px !important;
+    font-size: 14px;
+  }
+
+  /* 导航 */
+  .cnpt-nav {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .cnpt-nav-item {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+
+  /* 模态弹窗 */
+  .cnpt-modal-content,
+  .cnpt-export-content,
+  .cnpt-bm-content {
+    width: 95% !important;
+    max-width: none !important;
+    margin: 10px;
+    border-radius: 12px;
+  }
+
+  /* 表格 */
+  table {
+    font-size: 11px;
+  }
+
+  th, td {
+    padding: 6px 4px;
+  }
+
+  /* 错题本 */
+  .cnpt-wrong-item {
+    padding: 10px;
+  }
+
+  /* 学习路径 */
+  .cnpt-path-item {
+    padding: 10px;
+  }
+
+  /* 设置面板 */
+  .cnpt-settings-section {
+    padding: 12px;
+  }
+
+  /* 报错按钮 */
+  .cnpt-error-fab {
+    bottom: 16px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+    font-size: 12px;
+  }
+}
+
+/* ========== 平板横屏 (481px-768px) ========== */
+@media (min-width: 481px) and (max-width: 768px) {
+  .cnpt-stats-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .cnpt-subject-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .cnpt-top-bar {
+    padding: 10px 16px;
+  }
+
+  .cnpt-main-content {
+    padding: 16px;
+  }
+}
+
+/* ========== 手机横屏 / 小平板 ========== */
+@media (max-width: 768px) and (orientation: landscape) {
+  .cnpt-top-bar {
+    padding: 6px 12px;
+  }
+
+  .cnpt-main-content {
+    padding: 8px;
+  }
+}
+
+/* ========== 安全区域适配 (iPhone X+) ========== */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .cnpt-top-bar {
+    padding-top: calc(8px + env(safe-area-inset-top));
+    padding-left: calc(12px + env(safe-area-inset-left));
+    padding-right: calc(12px + env(safe-area-inset-right));
+  }
+
+  .cnpt-main-content {
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  }
+
+  .cnpt-bottom-nav {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .cnpt-error-fab {
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    right: calc(16px + env(safe-area-inset-right));
+  }
+}
+
+/* ========== 触摸手势优化 ========== */
+@media (hover: none) and (pointer: coarse) {
+  /* 移除hover效果 */
+  .cnpt-subject-card:hover,
+  .cnpt-stat-card:hover,
+  .cnpt-chain-item:hover {
+    transform: none;
+  }
+
+  /* 增加点击反馈 */
+  .cnpt-subject-card:active,
+  .cnpt-stat-card:active,
+  .cnpt-chain-item:active,
+  .cnpt-mastery-btn:active {
+    transform: scale(0.97);
+    opacity: 0.9;
+  }
+
+  /* 滚动优化 */
+  .cnpt-main-content,
+  .cnpt-sidebar,
+  .cnpt-detail-panel {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  /* 禁用文本选择（按钮） */
+  button,
+  .cnpt-btn,
+  .cnpt-nav-item {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* ========== 暗色模式下的移动端优化 ========== */
+@media (prefers-color-scheme: dark) {
+  @media (max-width: 480px) {
+    .cnpt-top-bar {
+      background: rgba(15, 20, 25, 0.95);
+      border-bottom-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .cnpt-detail-card,
+    .cnpt-detail-panel {
+      background: rgba(21, 29, 40, 0.95);
+      border-color: rgba(255, 255, 255, 0.06);
+    }
+  }
+}
+
+/* ========== 减少动画偏好 ========== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ========== 打印样式 ========== */
+@media print {
+  .cnpt-top-bar,
+  .cnpt-nav,
+  .cnpt-error-fab,
+  .cnpt-mastery-row,
+  .cnpt-filter-panel,
+  .cnpt-search-box {
+    display: none !important;
+  }
+
+  .cnpt-main-content {
+    padding: 0;
+  }
+
+  .cnpt-detail-card,
+  .cnpt-detail-panel {
+    border: none;
+    box-shadow: none;
+  }
+
+  body {
+    font-size: 12pt;
+    color: #000;
+    background: #fff;
+  }
+}
+
+/* ========== 高对比度模式 ========== */
+@media (prefers-contrast: high) {
+  .cnpt-tag,
+  .cnpt-chain-item,
+  .cnpt-mastery-btn {
+    border-width: 2px;
+  }
+
+  .cnpt-detail-desc {
+    border-left-width: 4px;
+  }
+}
