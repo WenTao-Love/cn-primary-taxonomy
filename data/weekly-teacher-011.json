@@ -1,0 +1,101 @@
+{
+  "version": "v1.0-teacher-weekly",
+  "issueNumber": 11,
+  "title": "教学难点：英语词汇教学策略",
+  "subtitle": "——让单词'活'起来的五种方法",
+  "publishDate": "2026-11-07",
+  "coverImage": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800",
+  "coverCaption": "单词不是背出来的，是用出来的。",
+  "sections": [
+    {
+      "type": "headline",
+      "title": "本周教学难点：英语词汇教学策略",
+      "content": "词汇是英语学习的基础。但很多学生记单词靠死记硬背，今天记明天忘。如何让单词教学更有效？",
+      "keyInsight": "词汇教学要做到'音形义用'四位一体。让学生在语境中理解、在运用中掌握，而不是孤立地背单词表。"
+    },
+    {
+      "type": "analysis",
+      "title": "词汇教学的三个难点",
+      "items": [
+        {"difficulty": "记不住", "percentage": "40%", "example": "今天背明天忘"},
+        {"difficulty": "不会用", "percentage": "35%", "example": "认识单词但不会造句"},
+        {"difficulty": "发音不准", "percentage": "25%", "example": "中式英语发音"}
+      ]
+    },
+    {
+      "type": "lessonDesign",
+      "title": "教学设计：词汇教学五步法",
+      "topicId": "ct_YY3S010",
+      "grade": 3,
+      "term": "下",
+      "duration": "40分钟",
+      "objectives": ["能听懂、会说、认读新单词", "能在语境中运用单词", "掌握记忆单词的方法"],
+      "keyPoints": ["音形义结合", "语境中教学", "多种感官参与"],
+      "difficultPoints": ["单词的灵活运用", "发音的准确性"],
+      "teachingProcess": [
+        {"step": 1, "activity": "情境呈现", "duration": "5分钟", "detail": "用图片、实物或动作引出新单词。如教'apple'，拿出苹果，问：What's this? It's an apple."},
+        {"step": 2, "activity": "音形教学", "duration": "8分钟", "detail": "①听录音跟读；②拆分音节：ap-ple；③书空拼写；④找规律：apple, happy都有pp。"},
+        {"step": 3, "activity": "语境理解", "duration": "8分钟", "detail": "①在句子中理解：I like apples. Apples are red. ②图片匹配：把单词和图片连线。"},
+        {"step": 4, "activity": "趣味操练", "duration": "12分钟", "detail": "①大小声游戏：老师大声读，学生小声读；②Simon says：听到apple就拍手；③单词接龙：apple-egg-go...；④看图说词。"},
+        {"step": 5, "activity": "运用输出", "duration": "5分钟", "detail": "①用新单词造句；②看图写单词；③同桌互相问答。"},
+        {"step": 6, "activity": "总结作业", "duration": "2分钟", "detail": "总结：记单词要'眼到、口到、手到、心到'。作业：用新单词画一幅画，写一句话。"}
+      ],
+      "blackboard设计": "中间：apple\n图片：🍎\n音标：/ˈæpl/\n例句：I like apples.\n记忆方法：ap + ple，两个p像两个苹果",
+      "commonStudentErrors": ["中式发音", "拼写混淆（如appel）", "只会认不会用"],
+      "differentiation": {
+        "advanced": "用新单词编一个小对话。",
+        "support": "先掌握发音和意思，拼写慢慢来。"
+      }
+    },
+    {
+      "type": "knowledge",
+      "title": "知识精讲：词汇教学策略",
+      "oneLiner": "词汇教学要做到'音形义用'四位一体，让学生在语境中学习。",
+      "keyPoints": ["音形义结合", "语境教学", "多种感官参与", "复现巩固"],
+      "commonMistakes": ["孤立教单词", "只重拼写不重运用", "缺乏复现"],
+      "teachingScript": "不要让学生反复抄写单词10遍，而是让学生在句子中、对话中、游戏中反复使用单词。"
+    },
+    {
+      "type": "tools",
+      "title": "本周推荐：5个教学工具",
+      "items": [
+        {"name": "单词卡片", "description": "正面图片，反面单词", "how": "认读和记忆单词。", "link": "#"},
+        {"name": "自然拼读表", "description": "字母组合发音表", "how": "帮助学生掌握发音规律。", "link": "#"},
+        {"name": "单词游戏APP", "description": "趣味单词游戏", "how": "课后巩固练习。", "link": "#"},
+        {"name": "情境图片", "description": "单词配图", "how": "帮助理解词义。", "link": "#"},
+        {"name": "单词本", "description": "按主题分类的单词本", "how": "积累和复习单词。", "link": "#"}
+      ]
+    },
+    {
+      "type": "case",
+      "title": "教师经验分享",
+      "author": "三年级英语教师 王老师",
+      "content": "我在教动物单词时，带了一个'动物盲盒'，学生摸到什么动物就学什么单词。学生兴趣很高，学得很快。课后让学生画自己喜欢的动物，写上单词。这样单词记得牢。",
+      "keyTakeaway": "把单词教学变成游戏，学生学得开心，记得牢固。"
+    },
+    {
+      "type": "quiz",
+      "title": "教学小测验",
+      "questions": [
+        {"question": "词汇教学应该怎么做？", "type": "choice", "options": ["孤立教单词", "音形义用结合", "只教拼写", "只教发音"], "answer": 1},
+        {"question": "哪种方法最适合巩固单词？", "type": "choice", "options": ["抄写10遍", "反复默写", "在语境中使用", "背诵单词表"], "answer": 2},
+        {"question": "自然拼读法主要帮助学生掌握什么？", "type": "choice", "options": ["语法", "发音规律", "写作", "翻译"], "answer": 1}
+      ]
+    },
+    {
+      "type": "quote",
+      "title": "教育金句",
+      "items": [
+        {"text": "兴趣是最好的老师。", "author": "爱因斯坦"},
+        {"text": "语言是文化的载体。", "author": "萨丕尔"}
+      ]
+    },
+    {
+      "type": "nextWeek",
+      "title": "下周预告",
+      "content": "下周我们将讨论：教学难点——科学课'水的三态变化'实验教学。"
+    }
+  ],
+  "relatedTopics": ["ct_YY3S010", "ct_YY3S015", "ct_YY4S005"],
+  "tags": ["英语", "词汇教学", "自然拼读", "中年级"]
+}
