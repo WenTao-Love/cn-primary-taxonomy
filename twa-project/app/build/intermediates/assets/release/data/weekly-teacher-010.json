@@ -1,0 +1,101 @@
+{
+  "version": "v1.0-teacher-weekly",
+  "issueNumber": 10,
+  "title": "教学难点：长方形正方形周长教学设计",
+  "subtitle": "——从'量'到'算'，理解周长本质",
+  "publishDate": "2026-10-31",
+  "coverImage": "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800",
+  "coverCaption": "周长是'一圈的长度'，不是'里面的面积'。",
+  "sections": [
+    {
+      "type": "headline",
+      "title": "本周教学难点：长方形正方形周长教学设计",
+      "content": "周长教学是三年级的一个重点。学生容易把周长和面积混淆，或者只会套公式不理解本质。",
+      "keyInsight": "周长教学要让学生先'量'——用绳子绕一圈、用尺子量边长，再'算'——把四条边加起来。理解'周长就是一圈的总长度'。"
+    },
+    {
+      "type": "analysis",
+      "title": "周长教学的三个难点",
+      "items": [
+        {"difficulty": "周长面积混淆", "percentage": "40%", "example": "求周长时算成面积"},
+        {"difficulty": "只会套公式", "percentage": "35%", "example": "背了公式但不知道为什么"},
+        {"difficulty": "不规则图形不会求", "percentage": "25%", "example": "凹字形、L形不会算"}
+      ]
+    },
+    {
+      "type": "lessonDesign",
+      "title": "教学设计：长方形正方形周长",
+      "topicId": "ct_SX3S030",
+      "grade": 3,
+      "term": "下",
+      "duration": "40分钟",
+      "objectives": ["理解周长的含义", "掌握长方形正方形周长计算方法", "能解决实际问题"],
+      "keyPoints": ["周长的含义", "长方形周长公式", "正方形周长公式"],
+      "difficultPoints": ["周长与面积的区别", "不规则图形的周长"],
+      "teachingProcess": [
+        {"step": 1, "activity": "情境导入", "duration": "5分钟", "detail": "小明绕操场跑一圈，跑了多少米？引出'一圈的长度'就是周长。"},
+        {"step": 2, "activity": "感知周长", "duration": "8分钟", "detail": "①摸一摸课本的周长；②用绳子绕树叶一周，拉直量长度；③指出图形的周长。"},
+        {"step": 3, "activity": "探究公式", "duration": "12分钟", "detail": "①量长方形的长和宽，算周长；②展示不同算法：长+宽+长+宽、长×2+宽×2、（长+宽）×2；③比较哪种最简便；④正方形周长：边长×4。"},
+        {"step": 4, "activity": "巩固练习", "duration": "10分钟", "detail": "①求给定长方形正方形的周长；②已知周长和宽，求长；③解决实际问题：围篱笆、做边框。"},
+        {"step": 5, "activity": "拓展提升", "duration": "3分钟", "detail": "①L形图形的周长怎么求？②把不规则图形变成长方形来算。"},
+        {"step": 6, "activity": "总结作业", "duration": "2分钟", "detail": "总结：周长是'一圈的总长度'。作业：量一量家里物品的周长。"}
+      ],
+      "blackboard设计": "中间：长方形\n长：8厘米，宽：5厘米\n周长 = 长+宽+长+宽 = 8+5+8+5 = 26厘米\n或 = 长×2+宽×2 = 8×2+5×2 = 26厘米\n或 =（长+宽）×2 =（8+5）×2 = 26厘米\n正方形：边长×4",
+      "commonStudentErrors": ["周长面积混淆", "单位写错（面积单位）", "只算两条边"],
+      "differentiation": {
+        "advanced": "求L形、凹字形的周长。",
+        "support": "先掌握长方形，再学正方形。"
+      }
+    },
+    {
+      "type": "knowledge",
+      "title": "知识精讲：周长教学策略",
+      "oneLiner": "周长教学的核心是'一圈的长度'。先量后算，理解本质。",
+      "keyPoints": ["从'量'入手理解周长", "公式是方法不是目的", "区分周长和面积"],
+      "commonMistakes": ["直接给公式不操作", "忽视周长与面积的区别", "只练标准图形"],
+      "teachingScript": "不要只教公式，要让学生先用绳子绕、用尺子量，感受'一圈的长度'，再总结公式。"
+    },
+    {
+      "type": "tools",
+      "title": "本周推荐：5个教学工具",
+      "items": [
+        {"name": "绳子", "description": "测量不规则图形周长", "how": "绕树叶、拉直量。", "link": "#"},
+        {"name": "方格纸", "description": "数格子求周长", "how": "在方格纸上数周长。", "link": "#"},
+        {"name": "图形卡片", "description": "各种平面图形", "how": "练习求周长。", "link": "#"},
+        {"name": "生活实例", "description": "相框、操场等", "how": "联系实际理解周长。", "link": "#"},
+        {"name": "对比练习", "description": "周长和面积对比题", "how": "区分周长和面积。", "link": "#"}
+      ]
+    },
+    {
+      "type": "case",
+      "title": "教师经验分享",
+      "author": "三年级数学教师 刘老师",
+      "content": "我在教学周长时，先让学生用绳子绕自己的头围、腰围，感受'一圈的长度'。然后量长方形纸的四条边，加起来就是周长。学生理解得很透彻，很少和周长混淆。",
+      "keyTakeaway": "从身体上的周长入手，学生更容易理解概念。"
+    },
+    {
+      "type": "quiz",
+      "title": "教学小测验",
+      "questions": [
+        {"question": "周长指的是什么？", "type": "choice", "options": ["图形的大小", "一圈的长度", "里面的面积", "边的数量"], "answer": 1},
+        {"question": "长8厘米、宽5厘米的长方形，周长是多少？", "type": "choice", "options": ["13厘米", "26厘米", "40厘米", "30厘米"], "answer": 1},
+        {"question": "正方形边长6厘米，周长是多少？", "type": "choice", "options": ["12厘米", "18厘米", "24厘米", "36厘米"], "answer": 2}
+      ]
+    },
+    {
+      "type": "quote",
+      "title": "教育金句",
+      "items": [
+        {"text": "数学是打开科学大门的钥匙。", "author": "培根"},
+        {"text": "知其然，更要知其所以然。", "author": "朱熹"}
+      ]
+    },
+    {
+      "type": "nextWeek",
+      "title": "下周预告",
+      "content": "下周我们将讨论：教学难点——英语词汇教学策略。"
+    }
+  ],
+  "relatedTopics": ["ct_SX3S030", "ct_SX3S035", "ct_SX4S015"],
+  "tags": ["数学", "周长", "操作体验", "中年级"]
+}

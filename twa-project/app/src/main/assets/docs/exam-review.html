@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小升初知识图谱复盘 · CN-Primary-Taxonomy</title>
+<style>
+:root {
+  --bg-primary: #0f1419;
+  --bg-secondary: #1a1f2e;
+  --bg-card: #1e2433;
+  --text-primary: #e7eaf0;
+  --text-secondary: #8892a4;
+  --border: #2a3142;
+  --accent-math: #3498db;
+  --accent-chinese: #e74c3c;
+  --accent-english: #1abc9c;
+  --accent-trend: #f39c12;
+  --accent-high: #e74c3c;
+  --accent-mid: #f39c12;
+  --accent-low: #2ecc71;
+  --radius: 12px;
+  --shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.container { max-width: 1200px; margin: 0 auto; }
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+  border-radius: var(--radius);
+  margin-bottom: 30px;
+  border: 1px solid var(--border);
+}
+.header h1 { font-size: 1.8rem; margin-bottom: 8px; }
+.header p { color: var(--text-secondary); font-size: 0.9rem; }
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.tab-btn {
+  padding: 10px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+.tab-btn:hover { border-color: var(--accent-trend); color: var(--text-primary); }
+.tab-btn.active {
+  background: var(--accent-trend);
+  color: #fff;
+  border-color: var(--accent-trend);
+}
+
+/* Panels */
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+}
+.card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.card h3 { font-size: 1rem; margin: 16px 0 10px; color: var(--accent-trend); }
+
+/* Grid */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+
+/* Stats */
+.stat-card {
+  background: var(--bg-secondary);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.stat-num { font-size: 2rem; font-weight: 700; margin-bottom: 4px; }
+.stat-label { font-size: 0.8rem; color: var(--text-secondary); }
+.stat-math { color: var(--accent-math); }
+.stat-chinese { color: var(--accent-chinese); }
+.stat-english { color: var(--accent-english); }
+
+/* Subject bars */
+.bar-chart { margin: 20px 0; }
+.bar-row { display: flex; align-items: center; margin-bottom: 12px; }
+.bar-label { width: 80px; font-size: 0.85rem; color: var(--text-secondary); flex-shrink: 0; }
+.bar-track {
+  flex: 1;
+  height: 24px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0 12px;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 12px;
+  transition: width 0.8s ease;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+}
+.bar-value { width: 50px; font-size: 0.85rem; color: var(--text-secondary); text-align: right; }
+.bar-math { background: linear-gradient(90deg, #3498db, #2980b9); }
+.bar-chinese { background: linear-gradient(90deg, #e74c3c, #c0392b); }
+.bar-english { background: linear-gradient(90deg, #1abc9c, #16a085); }
+.bar-other { background: linear-gradient(90deg, #95a5a6, #7f8c8d); }
+
+/* Table */
+.data-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+.data-table th, .data-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.85rem;
+}
+.data-table th { color: var(--text-secondary); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; }
+.data-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+/* Tags */
+.tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin: 2px;
+}
+.tag-high { background: rgba(231,76,60,0.2); color: #e74c3c; }
+.tag-mid { background: rgba(243,156,18,0.2); color: #f39c12; }
+.tag-low { background: rgba(46,204,113,0.2); color: #2ecc71; }
+.tag-pro { background: rgba(52,152,219,0.2); color: #3498db; }
+
+/* City comparison */
+.city-card {
+  background: var(--bg-secondary);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.city-name { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+.city-bars { display: flex; height: 30px; border-radius: 6px; overflow: hidden; margin-bottom: 8px; }
+.city-bar { display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 600; color: #fff; }
+.city-legend { display: flex; justify-content: center; gap: 12px; font-size: 0.7rem; color: var(--text-secondary); }
+.legend-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; }
+
+/* Trend chart */
+.trend-section { margin: 20px 0; }
+.trend-row { display: flex; align-items: center; margin-bottom: 16px; }
+.trend-label { width: 100px; font-size: 0.85rem; flex-shrink: 0; }
+.trend-bars { flex: 1; display: flex; gap: 8px; align-items: flex-end; height: 60px; }
+.trend-bar-group { display: flex; flex-direction: column; align-items: center; flex: 1; }
+.trend-bar { width: 100%; max-width: 40px; border-radius: 4px 4px 0 0; transition: height 0.6s ease; }
+.trend-year { font-size: 0.65rem; color: var(--text-secondary); margin-top: 4px; }
+
+/* Insight */
+.insight-box {
+  background: linear-gradient(135deg, rgba(243,156,18,0.1) 0%, rgba(243,156,18,0.02) 100%);
+  border: 1px solid rgba(243,156,18,0.3);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+.insight-box h4 { color: var(--accent-trend); margin-bottom: 8px; font-size: 0.95rem; }
+.insight-box ul { margin-left: 20px; }
+.insight-box li { font-size: 0.85rem; margin-bottom: 4px; color: var(--text-secondary); }
+
+/* Priority indicator */
+.priority {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+.priority-p0 { background: #e74c3c; color: #fff; }
+.priority-p1 { background: #f39c12; color: #fff; }
+.priority-p2 { background: #2ecc71; color: #fff; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  body { padding: 10px; }
+  .header h1 { font-size: 1.3rem; }
+  .card { padding: 16px; }
+  .data-table { font-size: 0.75rem; }
+  .data-table th, .data-table td { padding: 8px 6px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>🎯 小升初 · 知识图谱培训视角复盘</h1>
+    <p>培训机构教师视角 · 小升初占比 · 经典试题 · 考纲对比 · 趋势预测</p>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="overview">占比总览</button>
+    <button class="tab-btn" data-tab="math">数学高频考点</button>
+    <button class="tab-btn" data-tab="chinese">语文高分策略</button>
+    <button class="tab-btn" data-tab="english">英语进阶要求</button>
+    <button class="tab-btn" data-tab="cities">城市对比</button>
+    <button class="tab-btn" data-tab="pitfalls">易错分析</button>
+    <button class="tab-btn" data-tab="trends">趋势预测</button>
+  </div>
+
+  <!-- 占比总览 -->
+  <div id="overview" class="panel active">
+    <div class="card">
+      <h2>📊 学科权重分布（小升初视角）</h2>
+      <div class="grid-4">
+        <div class="stat-card">
+          <div class="stat-num stat-math">62%</div>
+          <div class="stat-label">数学占比</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num stat-chinese">22%</div>
+          <div class="stat-label">语文占比</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num stat-english">13%</div>
+          <div class="stat-label">英语占比</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3%</div>
+          <div class="stat-label">其他学科</div>
+        </div>
+      </div>
+      <div class="bar-chart" style="margin-top:24px">
+        <div class="bar-row">
+          <span class="bar-label">数学</span>
+          <div class="bar-track"><div class="bar-fill bar-math" style="width:62%">62%</div></div>
+          <span class="bar-value">2511点</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">语文</span>
+          <div class="bar-track"><div class="bar-fill bar-chinese" style="width:22%">22%</div></div>
+          <span class="bar-value">1168点</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">英语</span>
+          <div class="bar-track"><div class="bar-fill bar-english" style="width:13%">13%</div></div>
+          <span class="bar-value">224点</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">其他</span>
+          <div class="bar-track"><div class="bar-fill bar-other" style="width:3%">3%</div></div>
+          <span class="bar-value">372点</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🎯 数学各领域考试频次热力</h2>
+      <table class="data-table">
+        <thead><tr><th>领域</th><th>考试占比</th><th>难度</th><th>拉分度</th><th>思维要求</th></tr></thead>
+        <tbody>
+          <tr><td>数的运算</td><td><span class="tag tag-high">95%</span></td><td>⭐⭐</td><td>⭐⭐</td><td>算理理解</td></tr>
+          <tr><td>分数应用题</td><td><span class="tag tag-high">90%</span></td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>量率对应</td></tr>
+          <tr><td>图形与几何</td><td><span class="tag tag-high">85%</span></td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>空间观念</td></tr>
+          <tr><td>方程应用</td><td><span class="tag tag-high">80%</span></td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>建模思想</td></tr>
+          <tr><td>行程问题</td><td><span class="tag tag-mid">75%</span></td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>数形结合</td></tr>
+          <tr><td>统计概率</td><td><span class="tag tag-mid">60%</span></td><td>⭐⭐</td><td>⭐⭐</td><td>数据分析</td></tr>
+          <tr><td>数学广角</td><td><span class="tag tag-low">30%</span></td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>策略优化</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="insight-box">
+      <h4>💡 培优核心洞察</h4>
+      <ul>
+        <li>数学是小升初区分度最高的学科，占总分60-65%，且高分段拼的是压轴题（行程/几何/综合应用）</li>
+        <li>语文阅读和写作合计占70%，是"隐形的拉分项"，答题模板和素材积累是提分关键</li>
+        <li>英语在一二线城市权重持续上升，KET/PET证书是民办初中隐形门槛</li>
+        <li>跨学科融合成为新趋势（数学阅读题/语文非连续性文本/英语中国文化传播）</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 数学 -->
+  <div id="math" class="panel">
+    <div class="card">
+      <h2>📐 数学 · 高频考点与进阶题型</h2>
+      
+      <h3>⭐⭐⭐⭐⭐ 必考核心（占比>80%）</h3>
+      <table class="data-table">
+        <thead><tr><th>知识领域</th><th>经典题型</th><th>进阶题型</th><th>图谱覆盖</th></tr></thead>
+        <tbody>
+          <tr><td>四则运算</td><td>简便计算（凑整）</td><td>定义新运算/繁分数</td><td class="tag tag-high">✅ 完善</td></tr>
+          <tr><td>分数乘法</td><td>量率对应基础</td><td>还原问题/蝴蝶型</td><td class="tag tag-high">✅ 完善</td></tr>
+          <tr><td>分数除法</td><td>知分量求总量</td><td>牛吃草/工程变形</td><td class="tag tag-mid">⚠️ 需补充</td></tr>
+          <tr><td>圆的认识</td><td>周长面积基础</td><td>方中圆/圆中方/弓形</td><td class="tag tag-high">✅ 完善</td></tr>
+          <tr><td>圆柱圆锥</td><td>等积变形</td><td>旋转体/三视图相关</td><td class="tag tag-mid">⚠️ 旋转需补</td></tr>
+          <tr><td>比例应用</td><td>比例尺/按比例分配</td><td>比例方程/杠杆原理</td><td class="tag tag-high">✅ 完善</td></tr>
+        </tbody>
+      </table>
+
+      <h3>⭐⭐⭐⭐ 高频题型（占比50-80%）</h3>
+      <table class="data-table">
+        <thead><tr><th>知识领域</th><th>经典题型</th><th>进阶题型</th><th>图谱覆盖</th></tr></thead>
+        <tbody>
+          <tr><td>行程问题</td><td>相遇/追及</td><td>多次相遇/火车过桥/流水</td><td class="tag tag-high">✅ 完善</td></tr>
+          <tr><td>工程问题</td><td>假设法基础</td><td>交替合作/效率变化</td><td class="tag tag-mid">⚠️ 需细分</td></tr>
+          <tr><td>浓度问题</td><td>十字交叉基础</td><td>溶液mixed/重复操作</td><td class="tag tag-low">❌ 缺失</td></tr>
+          <tr><td>经济问题</td><td>折扣基础</td><td>利潤率/税率/利息</td><td class="tag tag-low">❌ 缺失</td></tr>
+          <tr><td>最值问题</td><td>极端原理</td><td>构造法/不等式估计</td><td class="tag tag-low">❌ 缺失</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>🧠 培优/竞赛向（尖子生区分度）</h2>
+      <table class="data-table">
+        <thead><tr><th>模块</th><th>核心思想</th><th>经典题型</th><th>建议补充</th></tr></thead>
+        <tbody>
+          <tr><td>数论基础</td><td>整除特征/余数</td><td>物不知数/同余</td><td>需20+新节点</td></tr>
+          <tr><td>计数原理</td><td>加乘原理/枚举</td><td>抽屉原理/容斥</td><td>需15+新节点</td></tr>
+          <tr><td>逻辑推理</td><td>假设法/表格法</td><td>真假判断/排名</td><td>需10+新节点</td></tr>
+          <tr><td>统筹优化</td><td>极值/策略</td><td>烙饼/泡茶/找次品</td><td>需10+新节点</td></tr>
+          <tr><td>构造论证</td><td>极端/调整</td><td>构造数列/调整策略</td><td>需10+新节点</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="insight-box">
+      <h4>💡 数学培优建议</h4>
+      <ul>
+        <li><strong>中档提分（80→90分）</strong>：夯实分数应用题+圆柱圆锥+比例，这三块是性价比最高的</li>
+        <li><strong>优秀冲顶尖（90→98分）</strong>：行程+几何变换+综合应用题，需专项突破</li>
+        <li><strong>竞赛路线（98分+）</strong>：数论+组合+图论初步，需大量补充新节点</li>
+        <li><strong>计算正确率是底线</strong>：再难的题，算不对也白搭，每天15分钟计算练习不可少</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 语文 -->
+  <div id="chinese" class="panel">
+    <div class="card">
+      <h2>📖 语文 · 高分策略与考点分布</h2>
+      
+      <div class="grid-3" style="margin-bottom:20px">
+        <div class="stat-card">
+          <div class="stat-num stat-chinese">40%</div>
+          <div class="stat-label">阅读板块</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num stat-chinese">35%</div>
+          <div class="stat-label">写作板块</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num stat-chinese">25%</div>
+          <div class="stat-label">基础板块</div>
+        </div>
+      </div>
+
+      <h3>📚 阅读板块（分值最高，区分度最大）</h3>
+      <table class="data-table">
+        <thead><tr><th>题型</th><th>分值占比</th><th>答题模板</th><th>提分要点</th></tr></thead>
+        <tbody>
+          <tr><td>信息提取</td><td>10%</td><td>回归原文定位</td><td>画线标注关键词</td></tr>
+          <tr><td>词句理解</td><td>15%</td><td>语境+手法+情感</td><td>修辞/描写角度识别</td></tr>
+          <tr><td>内容概括</td><td>10%</td><td>六要素法/段意合并</td><td>语言简洁不遗漏</td></tr>
+          <tr><td>作用分析</td><td>20%</td><td>内容+结构+表达效果</td><td>开头/中间/结尾模板</td></tr>
+          <tr><td>拓展延伸</td><td>15%</td><td>观点+理由+联系生活</td><td>真情实感+正能量</td></tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ 写作板块（需要长期积累）</h3>
+      <table class="data-table">
+        <thead><tr><th>题型</th><th>评分要点</th><th>高分策略</th><th>素材类型</th></tr></thead>
+        <tbody>
+          <tr><td>全命题作文</td><td>审题+结构+细节</td><td>五段式+细节描写</td><td>成长/亲情/校园</td></tr>
+          <tr><td>半命题作文</td><td>补题+切题+真情</td><td>小切口+深挖掘</td><td>感悟/启示/改变</td></tr>
+          <tr><td>材料作文</td><td>提炼+论证+联系</td><td>观点鲜明+论据充分</td><td>名人事例+时事</td></tr>
+          <tr><td>应用文</td><td>格式+内容+语言</td><td>格式规范+内容完整</td><td>书信/演讲稿</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>📖 古诗文与整本书阅读（近年热点）</h2>
+      <table class="data-table">
+        <thead><tr><th>模块</th><th>命题变化</th><th>备考建议</th></tr></thead>
+        <tbody>
+          <tr><td>课内古诗</td><td>机械默写→理解性默写</td><td>每首诗能说意思+情感+手法</td></tr>
+          <tr><td>课外古诗</td><td>占比逐年上升</td><td>常见意象/手法/情感分类积累</td></tr>
+          <tr><td>小古文</td><td>部分城市新增</td><td>实词虚词+断句+翻译技巧</td></tr>
+          <tr><td>整本书阅读</td><td>从"读过"到"读懂"</td><td>情节+人物+主题+精彩片段赏析</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="insight-box">
+      <h4>💡 语文提分路径</h4>
+      <ul>
+        <li><strong>基础层（人人必拿）</strong>：字词读音+课内古诗默写+句子运用 ≈ 25分</li>
+        <li><strong>阅读层（区分度）</strong>：答题模板+文本细读+语言组织 ≈ 35分</li>
+        <li><strong>写作层（上限所在）</strong>：审题立意+结构安排+语言表达+真情实感 ≈ 35分</li>
+        <li><strong>关键习惯</strong>：每日阅读30分钟+每周一篇练笔+素材本积累</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 英语 -->
+  <div id="english" class="panel">
+    <div class="card">
+      <h2>🔤 英语 · 进阶要求与备考策略</h2>
+      
+      <h3>📊 不同城市英语权重对比</h3>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <span class="bar-label">上海</span>
+          <div class="bar-track"><div class="bar-fill bar-english" style="width:35%">35%</div></div>
+          <span class="bar-value">最高</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">北京</span>
+          <div class="bar-track"><div class="bar-fill bar-english" style="width:30%">30%</div></div>
+          <span class="bar-value">高</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">深圳</span>
+          <div class="bar-track"><div class="bar-fill bar-english" style="width:25%">25%</div></div>
+          <span class="bar-value">中高</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">其他</span>
+          <div class="bar-track"><div class="bar-fill bar-english" style="width:15%">15%</div></div>
+          <span class="bar-value">标准</span>
+        </div>
+      </div>
+
+      <h3>🎯 核心语法点与易错点</h3>
+      <table class="data-table">
+        <thead><tr><th>语法点</th><th>错误率</th><th>易错表现</th><th>掌握标志</th></tr></thead>
+        <tbody>
+          <tr><td>动词过去式变形</td><td class="tag tag-high">65%</td><td>不规则动词变形错误</td><td>默写不规则动词表</td></tr>
+          <tr><td>时态综合运用</td><td class="tag tag-mid">58%</td><td>时间状语与时态不匹配</td><td>见时间知时态</td></tr>
+          <tr><td>名词单复数</td><td class="tag tag-mid">42%</td><td>不可数名词加s</td><td>区分可数/不可数</td></tr>
+          <tr><td>be/助动词连用</td><td class="tag tag-mid">50%</td><td>He is doesn't...</td><td>句型结构清晰</td></tr>
+          <tr><td>There be句型</td><td class="tag tag-mid">38%</td><td>就近原则搞混</td><td>单复数和距离</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>📈 KET/PET衔接要求（一二线城市）</h2>
+      <table class="data-table">
+        <thead><tr><th>级别</th><th>词汇量</th><th>语法要求</th><th>对应小学阶段</th></tr></thead>
+        <tbody>
+          <tr><td>KET</td><td>1500-1800</td><td>6大时态+被动语态</td><td>5-6年级达标</td></tr>
+          <tr><td>PET</td><td>3000-3500</td><td>条件句+定语从句+完成时</td><td>6年级优秀/初一</td></tr>
+        </tbody>
+      </table>
+      <div class="insight-box" style="margin-top:16px">
+        <h4>💡 机构英语培优建议</h4>
+        <ul>
+          <li>KET通过是一二线民办初中的"隐形门槛"</li>
+          <li>PET通过是外语类民办初中的"加分项"</li>
+          <li>口语表达和阅读理解是培训重点</li>
+          <li>不建议过早学语法，听说先行</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 城市对比 -->
+  <div id="cities" class="panel">
+    <div class="card">
+      <h2>🏙️ 重点城市小升初命题特点</h2>
+      <div class="grid-2">
+        <div class="city-card">
+          <div class="city-name">北京</div>
+          <div class="city-bars">
+            <div class="city-bar" style="width:35%;background:#3498db">数35%</div>
+            <div class="city-bar" style="width:35%;background:#e74c3c">语35%</div>
+            <div class="city-bar" style="width:30%;background:#1abc9c">英30%</div>
+          </div>
+          <div class="city-legend">
+            <span><span class="legend-dot" style="background:#3498db"></span>数学</span>
+            <span><span class="legend-dot" style="background:#e74c3c"></span>语文</span>
+            <span><span class="legend-dot" style="background:#1abc9c"></span>英语</span>
+          </div>
+          <p style="font-size:0.75rem;color:var(--text-secondary);margin-top:8px">数学有浅奥拓展，语文重思辨</p>
+        </div>
+        <div class="city-card">
+          <div class="city-name">上海</div>
+          <div class="city-bars">
+            <div class="city-bar" style="width:35%;background:#3498db">数35%</div>
+            <div class="city-bar" style="width:30%;background:#e74c3c">语30%</div>
+            <div class="city-bar" style="width:35%;background:#1abc9c">英35%</div>
+          </div>
+          <div class="city-legend">
+            <span><span class="legend-dot" style="background:#3498db"></span>数学</span>
+            <span><span class="legend-dot" style="background:#e74c3c"></span>语文</span>
+            <span><span class="legend-dot" style="background:#1abc9c"></span>英语</span>
+          </div>
+          <p style="font-size:0.75rem;color:var(--text-secondary);margin-top:8px">英语权重最高，衔接PET</p>
+        </div>
+        <div class="city-card">
+          <div class="city-name">深圳</div>
+          <div class="city-bars">
+            <div class="city-bar" style="width:40%;background:#3498db">数40%</div>
+            <div class="city-bar" style="width:35%;background:#e74c3c">语35%</div>
+            <div class="city-bar" style="width:25%;background:#1abc9c">英25%</div>
+          </div>
+          <div class="city-legend">
+            <span><span class="legend-dot" style="background:#3498db"></span>数学</span>
+            <span><span class="legend-dot" style="background:#e74c3c"></span>语文</span>
+            <span><span class="legend-dot" style="background:#1abc9c"></span>英语</span>
+          </div>
+          <p style="font-size:0.75rem;color:var(--text-secondary);margin-top:8px">数学区分度最高</p>
+        </div>
+        <div class="city-card">
+          <div class="city-name">杭州</div>
+          <div class="city-bars">
+            <div class="city-bar" style="width:35%;background:#3498db">数35%</div>
+            <div class="city-bar" style="width:35%;background:#e74c3c">语35%</div>
+            <div class="city-bar" style="width:30%;background:#1abc9c">英30%</div>
+          </div>
+          <div class="city-legend">
+            <span><span class="legend-dot" style="background:#3498db"></span>数学</span>
+            <span><span class="legend-dot" style="background:#e74c3c"></span>语文</span>
+            <span><span class="legend-dot" style="background:#1abc9c"></span>英语</span>
+          </div>
+          <p style="font-size:0.75rem;color:var(--text-secondary);margin-top:8px">民办自主招生含奥数</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📋 城市命题差异对照</h2>
+      <table class="data-table">
+        <thead><tr><th>城市</th><th>数学特色</th><th>语文特色</th><th>英语特色</th></tr></thead>
+        <tbody>
+          <tr><td>北京</td><td>智慧初探/数学游戏</td><td>群文阅读整本书</td><td>PET级别要求</td></tr>
+          <tr><td>上海</td><td>探究性问题解决</td><td>综合语言运用</td><td>听说读写全面+原版阅读</td></tr>
+          <tr><td>深圳</td><td>生活情境应用</td><td>非连续性文本</td><td>深港融合特色</td></tr>
+          <tr><td>广州</td><td>实践与综合</td><td>地域文化素材</td><td>粤教版衔接</td></tr>
+          <tr><td>成都</td><td>华杯赛风格</td><td>作文（50分）</td><td>人教版标准</td></tr>
+          <tr><td>南京</td><td>数学思维探究</td><td>口语交际</td><td>译林版深入</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 易错点 -->
+  <div id="pitfalls" class="panel">
+    <div class="card">
+      <h2>⚠️ 隐藏点与易错点深度分析</h2>
+      
+      <h3>数学 · 高频错误TOP10</h3>
+      <table class="data-table">
+        <thead><tr><th>排名</th><th>错误类型</th><th>错误率</th><th>典型表现</th><th>根因</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>圆锥忘×1/3</td><td>72%</td><td>V=Sh（忘记÷3）</td><td>公式推导理解不足</td></tr>
+          <tr><td>2</td><td>分数单位混淆</td><td>68%</td><td>1/3 vs 1/3米</td><td>量与率本质不清</td></tr>
+          <tr><td>3</td><td>行程不画图</td><td>60%</td><td>相遇追及无图分析</td><td>数形结合习惯差</td></tr>
+          <tr><td>4</td><td>单位"1"判断错</td><td>55%</td><td>谁比谁多几分之几</td><td>标准量概念不牢</td></tr>
+          <tr><td>5</td><td>简便定律混淆</td><td>52%</td><td>分配律/结合律混用</td><td>算理不明</td></tr>
+          <tr><td>6</td><td>份数总份算错</td><td>48%</td><td>按比例分配</td><td>份数思想未建立</td></tr>
+          <tr><td>7</td><td>比例尺忘换算</td><td>45%</td><td>cm→km换算错</td><td>单位换算习惯差</td></tr>
+          <tr><td>8</td><td>圆柱表面积漏底</td><td>42%</td><td>无盖/有底判断错</td><td>审题不细</td></tr>
+          <tr><td>9</td><td>正反比例判断错</td><td>40%</td><td>正反比混淆</td><td>函数思想薄弱</td></tr>
+          <tr><td>10</td><td>可能性求错</td><td>35%</td><td>放回/不放回混淆</td><td>情境理解不清</td></tr>
+        </tbody>
+      </table>
+
+      <h3>语文 · 高频错误TOP8</h3>
+      <table class="data-table">
+        <thead><tr><th>排名</th><th>错误类型</th><th>错误率</th><th>典型表现</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>阅读答非所问</td><td>45%</td><td>不答关键，答案偏题</td></tr>
+          <tr><td>2</td><td>古诗理解默写</td><td>52%</td><td>给提示语写不出诗句</td></tr>
+          <tr><td>3</td><td>作文偏题</td><td>38%</td><td>审题不细，素材不迁移</td></tr>
+          <tr><td>4</td><td>修改病句漏错</td><td>55%</td><td>只找明显错误</td></tr>
+          <tr><td>5</td><td>口语交际不得体</td><td>40%</td><td>语气生硬格式错</td></tr>
+          <tr><td>6</td><td>拼音标调错</td><td>35%</td><td>iu/ui标调位置错</td></tr>
+          <tr><td>7</td><td>形近字混淆</td><td>30%</td><td>已/己、末/未等</td></tr>
+          <tr><td>8</td><td>标点符号遗漏</td><td>28%</td><td>说话引号不完整</td></tr>
+        </tbody>
+      </table>
+
+      <h3>英语 · 高频错误TOP6</h3>
+      <table class="data-table">
+        <thead><tr><th>排名</th><th>错误类型</th><th>错误率</th><th>典型表现</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>过去式变形错</td><td>65%</td><td>go→goed, see→seed</td></tr>
+          <tr><td>2</td><td>时态混用</td><td>58%</td><td>时间状语与时态不匹配</td></tr>
+          <tr><td>3</td><td>be/助动词连用</td><td>50%</td><td>He is doesn't like...</td></tr>
+          <tr><td>4</td><td>名词复数错</td><td>42%</td><td>不可数名词加s</td></tr>
+          <tr><td>5</td><td>大小写/标点</td><td>35%</td><td>句首不大写</td></tr>
+          <tr><td>6</td><td>单词拼写错</td><td>30%</td><td>双写/漏字母</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="insight-box">
+      <h4>💡 易错点教学策略</h4>
+      <ul>
+        <li><strong>对比辨析法</strong>：把易混概念放在一起对比（如分配律vs结合律）</li>
+        <li><strong>刻意训练法</strong>：错题同类题反复练，形成条件反射</li>
+        <li><strong>思维可视化</strong>：画图/列表/线段图，让思维看得见</li>
+        <li><strong>检验习惯培养</strong>：代入法/逆算法/估算法三重检验</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 趋势预测 -->
+  <div id="trends" class="panel">
+    <div class="card">
+      <h2>📈 2024-2030命题趋势与演变预测</h2>
+      
+      <h3>三大核心趋势</h3>
+      <div class="grid-3">
+        <div class="stat-card">
+          <div class="stat-num" style="color:#f39c12">素养化</div>
+          <div class="stat-label">从刷题到素养</div>
+          <p style="font-size:0.75rem;color:var(--text-secondary);margin-top:8px">情境化命题取代套路化刷题</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" style="color:#3498db">跨学科</div>
+          <div class="stat-label">从单科到融合</div>
+          <p style="font-size:0.75rem;color:var(--text-secondary);margin-top:8px">数学+语文+科学+英语交叉</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" style="color:#2ecc71">过程化</div>
+          <div class="stat-label">从结果到过程</div>
+          <p style="font-size:0.75rem;color:var(--text-secondary);margin-top:8px">关注思维过程和解题策略</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:24px">数学命题难度演变</h3>
+      <table class="data-table">
+        <thead><tr><th>时期</th><th>命题特点</th><th>难度</th><th>备考策略</th></tr></thead>
+        <tbody>
+          <tr><td>2020前</td><td>奥数为主（华杯赛难度）</td><td>⭐⭐⭐⭐⭐</td><td>套路化刷题+公式记忆</td></tr>
+          <tr><td>2020-2023</td><td>浅奥+灵活运用</td><td>⭐⭐⭐⭐</td><td>理解算理+变式训练</td></tr>
+          <tr><td>2024-2026</td><td>情境化+跨学科</td><td>⭐⭐⭐</td><td>阅读能力+建模意识</td></tr>
+          <tr><td>2027+（预测）</td><td>项目式问题解决</td><td>⭐⭐⭐</td><td>创新能力+综合素养</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin-top:24px">语文命题演变</h3>
+      <table class="data-table">
+        <thead><tr><th>时期</th><th>命题特点</th><th>备考策略</th></tr></thead>
+        <tbody>
+          <tr><td>2020前</td><td>课内阅读为主+八股作文</td><td>背模板+背素材</td></tr>
+          <tr><td>2020-2023</td><td>课外阅读+真情实感</td><td>大量阅读+思维训练</td></tr>
+          <tr><td>2024-2026</td><td>群文阅读+整本书阅读</td><td>比较阅读+批判性思维</td></tr>
+          <tr><td>2027+（预测）<td>跨媒介读写+口语交际</td><td>多元表达+信息素养</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>🔮 2027+ 改革方向预测</h2>
+      <div class="grid-2">
+        <div class="stat-card">
+          <h4 style="margin-bottom:12px">综合素质档案</h4>
+          <p style="font-size:0.8rem;color:var(--text-secondary)">从单一分数到多元记录，社会实践、创新成果、艺术素养纳入评价</p>
+        </div>
+        <div class="stat-card">
+          <h4 style="margin-bottom:12px">信息技术融合</h4>
+          <p style="font-size:0.8rem;color:var(--text-secondary)">机考成为趋势，编程思维、数据分析能力成为新考点</p>
+        </div>
+        <div class="stat-card">
+          <h4 style="margin-bottom:12px">评价方式改革</h4>
+          <p style="font-size:0.8rem;color:var(--text-secondary)">等级制替代百分制，过程性评价权重上升</p>
+        </div>
+        <div class="stat-card">
+          <h4 style="margin-bottom:12px">命题权力下放</h4>
+          <p style="font-size:0.8rem;color:var(--text-secondary)">区县自主命题增多，本地化情境素材增加</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <h4>💡 培训机构应对策略</h4>
+      <ul>
+        <li><strong>产品升级</strong>：从"刷题班"升级为"素养班"，增加阅读/思维/实践类课程</li>
+        <li><strong>服务延伸</strong>：从学科培训到升学规划，提供综合素质档案指导</li>
+        <li><strong>技术赋能</strong>：利用AI/大数据做学情诊断和个性化推荐</li>
+        <li><strong>生态布局</strong>：提前布局编程、科创、艺术等蓝海领域</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Tab switching
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+  });
+});
+
+// Animate bars on load
+window.addEventListener('load', () => {
+  document.querySelectorAll('.bar-fill').forEach(bar => {
+    const width = bar.style.width;
+    bar.style.width = '0';
+    setTimeout(() => { bar.style.width = width; }, 100);
+  });
+});
+</script>
+</body>
+</html>

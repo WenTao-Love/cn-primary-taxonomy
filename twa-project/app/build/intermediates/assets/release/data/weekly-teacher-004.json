@@ -1,0 +1,101 @@
+{
+  "version": "v1.0-teacher-weekly",
+  "issueNumber": 4,
+  "title": "教学难点：语文《秋天的雨》教学设计",
+  "subtitle": "——用'五感法'教学生写景作文",
+  "publishDate": "2026-09-19",
+  "coverImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800",
+  "coverCaption": "秋天的雨，藏着五彩缤纷的颜料。",
+  "sections": [
+    {
+      "type": "headline",
+      "title": "本周教学难点：《秋天的雨》教学设计",
+      "content": "《秋天的雨》是三年级上册的一篇抒情散文。课文用优美的语言描写了秋天的美景。如何教学生感受秋天的美，并学习作者的写作方法？",
+      "keyInsight": "写景散文教学要调动学生的五感。让学生像作者一样，用眼睛看、用耳朵听、用鼻子闻、用手摸，感受秋天的美，然后学习作者的表达方法。"
+    },
+    {
+      "type": "analysis",
+      "title": "写景散文教学的三个难点",
+      "items": [
+        {"difficulty": "学生感受不到美", "percentage": "40%", "example": "城市孩子对秋天缺乏体验"},
+        {"difficulty": "不理解修辞手法", "percentage": "35%", "example": "比喻、拟人分不清"},
+        {"difficulty": "不会仿写", "percentage": "25%", "example": "读了不会用"}
+      ]
+    },
+    {
+      "type": "lessonDesign",
+      "title": "教学设计：《秋天的雨》",
+      "topicId": "ct_YW3S008",
+      "grade": 3,
+      "term": "上",
+      "duration": "80分钟（两课时）",
+      "objectives": ["正确流利有感情地朗读课文", "感受秋天的美，体会作者的感情", "学习比喻、拟人的表达方法"],
+      "keyPoints": ["感受秋天的美", "学习修辞手法", "有感情朗读"],
+      "difficultPoints": ["理解修辞手法的表达效果", "仿写练习"],
+      "teachingProcess": [
+        {"step": 1, "activity": "情境导入", "duration": "5分钟", "detail": "播放秋天的图片和雨声，提问：你看到了什么？听到了什么？秋天的雨是什么样的？"},
+        {"step": 2, "activity": "初读课文", "duration": "10分钟", "detail": "自由读课文，读准字音，读通句子。思考：秋天的雨给你什么感觉？"},
+        {"step": 3, "activity": "精读感悟", "duration": "25分钟", "detail": "①第二自然段：秋天的雨有哪些颜色？把什么比作什么？②第三自然段：秋天的雨有哪些气味？③第四自然段：秋天的雨告诉小动物们什么？"},
+        {"step": 4, "activity": "朗读指导", "duration": "15分钟", "detail": "①配乐朗读；②分角色朗读；③背诵喜欢的段落。"},
+        {"step": 5, "activity": "仿写拓展", "duration": "20分钟", "detail": "①仿写：秋天的雨把___色给了___，像___。②写一写：秋天的风、秋天的树叶。"},
+        {"step": 6, "activity": "总结作业", "duration": "5分钟", "detail": "总结：写景作文可以用五感法。作业：画一幅秋天的画，写几句话。"}
+      ],
+      "blackboard设计": "中间：秋天的雨\n左边：颜色（黄、红、金黄、橙红）\n右边：气味（菠萝、苹果、菠萝）\n下方：修辞：比喻、拟人",
+      "commonStudentErrors": ["读不出感情", "比喻和拟人分不清", "仿写内容空洞"],
+      "differentiation": {
+        "advanced": "仿写整段，用五感法写一段秋天的景色。",
+        "support": "仿写一句话，用'秋天的雨把___色给了___'的句式。"
+      }
+    },
+    {
+      "type": "knowledge",
+      "title": "知识精讲：写景散文教学策略",
+      "oneLiner": "写景散文教学要调动五感，让学生在感受中学习表达。",
+      "keyPoints": ["五感法感受景物", "学习修辞手法", "有感情朗读"],
+      "commonMistakes": ["只分析不感受", "脱离生活体验", "忽视朗读指导"],
+      "teachingScript": "不要只分析修辞手法，要让学生先感受秋天的美，再学习作者的表达方法。"
+    },
+    {
+      "type": "tools",
+      "title": "本周推荐：5个教学工具",
+      "items": [
+        {"name": "秋天图片集", "description": "秋天的美景图片", "how": "情境导入用。", "link": "#"},
+        {"name": "雨声音频", "description": "秋雨的声音", "how": "配乐朗读用。", "link": "#"},
+        {"name": "修辞手法卡", "description": "比喻、拟人卡片", "how": "分析课文用。", "link": "#"},
+        {"name": "仿写模板", "description": "五感法仿写模板", "how": "仿写练习用。", "link": "#"},
+        {"name": "朗读评价表", "description": "朗读评价标准", "how": "朗读指导用。", "link": "#"}
+      ]
+    },
+    {
+      "type": "case",
+      "title": "教师经验分享",
+      "author": "三年级语文教师 赵老师",
+      "content": "我在教学《秋天的雨》时，先带学生到校园里观察秋天，用五感感受秋天的变化。回到教室后，学生再读课文，感受特别深。仿写时，学生写得很生动。",
+      "keyTakeaway": "生活体验是写作的源泉。让学生先观察生活，再学习表达。"
+    },
+    {
+      "type": "quiz",
+      "title": "教学小测验",
+      "questions": [
+        {"question": "写景散文教学的关键是什么？", "type": "choice", "options": ["分析修辞手法", "调动五感感受景物", "背诵课文", "抄写生字"], "answer": 1},
+        {"question": "《秋天的雨》用了哪些修辞手法？", "type": "choice", "options": ["比喻", "拟人", "比喻和拟人", "排比"], "answer": 2},
+        {"question": "五感法指的是什么？", "type": "choice", "options": ["看听闻尝摸", "听说读写算", "酸甜苦辣咸", "红黄蓝绿紫"], "answer": 0}
+      ]
+    },
+    {
+      "type": "quote",
+      "title": "教育金句",
+      "items": [
+        {"text": "生活即教育。", "author": "陶行知"},
+        {"text": "大自然是最好的课堂。", "author": "卢梭"}
+      ]
+    },
+    {
+      "type": "nextWeek",
+      "title": "下周预告",
+      "content": "下周我们将讨论：教学难点——长方形和正方形的周长教学。"
+    }
+  ],
+  "relatedTopics": ["ct_YW3S008", "ct_YW3S010"],
+  "tags": ["语文", "写景散文", "五感法", "中年级"]
+}

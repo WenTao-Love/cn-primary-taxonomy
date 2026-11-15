@@ -1,0 +1,4425 @@
+{
+  "version": "v3.0-teacher-lessons",
+  "description": "教师高频课程缓存——基于阮一峰科技周刊「缓存思维」，将教师最常备的50节课缓存起来，一键获取教学设计。",
+  "note": "本文件为只读缓存，每周更新一次。按学科和年级分类，支持快速检索。",
+  "categories": [
+    {
+      "id": "math_lower",
+      "name": "数学（低年级1-2年级）",
+      "icon": "🔢",
+      "lessons": [
+        {
+          "id": "lesson_sx_001",
+          "title": "认识厘米",
+          "grade": 2,
+          "term": "上",
+          "topicId": "ct_SX2S002",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "认识厘米，建立1厘米的长度观念",
+            "学会用尺子量物体长度"
+          ],
+          "keyPoints": [
+            "1厘米的实际长度",
+            "对准0刻度",
+            "尺子放平"
+          ],
+          "difficultPoints": [
+            "从非0刻度开始量",
+            "读数时对齐刻度线"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "情境导入",
+              "duration": "5分钟",
+              "detail": "用不同物品量课桌长度，结果不一样，引发思考：为什么？"
+            },
+            {
+              "step": 2,
+              "activity": "认识厘米",
+              "duration": "10分钟",
+              "detail": "观察尺子，认识1厘米，用手指比划1厘米，找生活中1厘米的物体。"
+            },
+            {
+              "step": 3,
+              "activity": "学习测量",
+              "duration": "10分钟",
+              "detail": "教师示范：对准0刻度、尺子放平、读数。学生模仿，量橡皮、铅笔。"
+            },
+            {
+              "step": 4,
+              "activity": "巩固练习",
+              "duration": "10分钟",
+              "detail": "完成课本练习，判断测量方法正误，看图读数。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结测量方法，布置作业：量3样家中物品长度。"
+            }
+          ],
+          "blackboardDesign": "左边：尺子放大图，标注1厘米。右边：测量步骤（1.对准0刻度 2.放平 3.读数）。",
+          "commonStudentErrors": [
+            "没对准0刻度",
+            "尺子斜着量",
+            "读数时没对齐"
+          ],
+          "differentiation": {
+            "advanced": "尝试从非0刻度开始量，如从3量到7，是几厘米？",
+            "support": "用大格尺子，先只量整厘米。"
+          }
+        },
+        {
+          "id": "lesson_sx_002",
+          "title": "两位数加两位数（进位）",
+          "grade": 2,
+          "term": "上",
+          "topicId": "ct_SX2S011",
+          "difficulty": 3,
+          "duration": "40分钟",
+          "objectives": [
+            "理解进位加法的算理",
+            "掌握进位加法的计算方法"
+          ],
+          "keyPoints": [
+            "个位满十向十位进1",
+            "进位1要写清楚"
+          ],
+          "difficultPoints": [
+            "进位1的位置",
+            "连续进位"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "复习导入",
+              "duration": "5分钟",
+              "detail": "口算不进位加法：34+25=？复习计算方法。"
+            },
+            {
+              "step": 2,
+              "activity": "操作探究",
+              "duration": "10分钟",
+              "detail": "用小棒摆27+35，先摆2捆7根和3捆5根，合起来是5捆12根，10根捆成1捆，变成6捆2根，所以是62。"
+            },
+            {
+              "step": 3,
+              "activity": "竖式教学",
+              "duration": "10分钟",
+              "detail": "结合小棒操作，教学竖式：7+5=12，写2进1，2+3+1=6。强调进位1的位置。"
+            },
+            {
+              "step": 4,
+              "activity": "巩固练习",
+              "duration": "10分钟",
+              "detail": "先判断哪些题需要进位，再计算。对比练习：不进位vs进位。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结计算方法，强调'进位1要写小一点，不要忘记'。"
+            }
+          ],
+          "blackboardDesign": "左边：小棒图（27+35）。右边：竖式计算过程，进位1用红笔标出。",
+          "commonStudentErrors": [
+            "忘记进位",
+            "进位1写得太大",
+            "十位没加进位1"
+          ],
+          "differentiation": {
+            "advanced": "尝试连续进位：99+23=？",
+            "support": "先练不进位，再练进位，逐步过渡。"
+          }
+        },
+        {
+          "id": "lesson_sx_003",
+          "title": "乘法的初步认识",
+          "grade": 2,
+          "term": "上",
+          "topicId": "ct_SX2S025",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "初步理解乘法的意义",
+            "认识乘号，会读乘法算式"
+          ],
+          "keyPoints": [
+            "乘法是求几个相同加数和的简便运算",
+            "乘法算式的读法"
+          ],
+          "difficultPoints": [
+            "乘法与加法的联系",
+            "为什么用乘法"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "情境导入",
+              "duration": "5分钟",
+              "detail": "坐小火车：每节车厢坐2人，3节车厢坐多少人？列出算式2+2+2=6。"
+            },
+            {
+              "step": 2,
+              "activity": "认识乘法",
+              "duration": "10分钟",
+              "detail": "2+2+2=6，也可以写成2×3=6。介绍乘号、乘数、积。读作2乘3等于6。"
+            },
+            {
+              "step": 3,
+              "activity": "对比理解",
+              "duration": "10分钟",
+              "detail": "对比：2+2+2+2+2+2+2+2+2+2=20，太麻烦了！用乘法：2×10=20，简便多了。"
+            },
+            {
+              "step": 4,
+              "activity": "巩固练习",
+              "duration": "10分钟",
+              "detail": "看图写加法算式和乘法算式，看乘法算式摆小棒。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结：求几个相同加数的和，用乘法更简便。"
+            }
+          ],
+          "blackboardDesign": "左边：小火车图。右边：加法算式→乘法算式的对比。",
+          "commonStudentErrors": [
+            "混淆乘数位置",
+            "读作错误（2乘3 vs 二三得六）"
+          ],
+          "differentiation": {
+            "advanced": "思考：4+4+4+3能改写成乘法吗？为什么？",
+            "support": "用实物操作，先摆再说。"
+          }
+        },
+        {
+          "id": "lesson_sx_004",
+          "title": "认识人民币",
+          "grade": 2,
+          "term": "下",
+          "topicId": "ct_SX2S035",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "认识各种面值的人民币",
+            "会进行简单的人民币换算"
+          ],
+          "keyPoints": [
+            "认识元、角、分",
+            "1元=10角，1角=10分"
+          ],
+          "difficultPoints": [
+            "人民币的换算",
+            "模拟购物计算"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "情境导入",
+              "duration": "5分钟",
+              "detail": "展示各种人民币：同学们认识这些钱吗？它们有什么不同？"
+            },
+            {
+              "step": 2,
+              "activity": "认识人民币",
+              "duration": "10分钟",
+              "detail": "认识各种面值的人民币（纸币和硬币），按元、角、分分类。"
+            },
+            {
+              "step": 3,
+              "activity": "学习换算",
+              "duration": "10分钟",
+              "detail": "1元=10角，1角=10分。用实物演示：1元换10个1角。"
+            },
+            {
+              "step": 4,
+              "activity": "模拟购物",
+              "duration": "10分钟",
+              "detail": "开设'小商店'：铅笔5角，橡皮3角，买两样要多少钱？"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结换算方法，布置作业：和父母一起购物，记录花了多少钱。"
+            }
+          ],
+          "blackboardDesign": "左边：各种面值人民币图。右边：换算关系（1元=10角=100分）。",
+          "commonStudentErrors": [
+            "元角分换算错误",
+            "购物时计算错误"
+          ],
+          "differentiation": {
+            "advanced": "复杂购物：买3样东西，付出5元，找回多少钱？",
+            "support": "用实物人民币操作，先熟悉面值。"
+          }
+        },
+        {
+          "id": "lesson_sx_005",
+          "title": "认识米",
+          "grade": 2,
+          "term": "下",
+          "topicId": "ct_SX2S004",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "认识米，建立1米的长度观念",
+            "学会用米尺量较长物体的长度"
+          ],
+          "keyPoints": [
+            "1米=100厘米",
+            "米尺的使用",
+            "选择合适的长度单位"
+          ],
+          "difficultPoints": [
+            "1米的实际长度观念",
+            "米和厘米的换算"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "复习导入",
+              "duration": "5分钟",
+              "detail": "复习厘米，出示1米长的绳子，引出'米'。"
+            },
+            {
+              "step": 2,
+              "activity": "认识米",
+              "duration": "10分钟",
+              "detail": "观察米尺，认识1米，用双臂比划1米，找教室里1米长的物品。"
+            },
+            {
+              "step": 3,
+              "activity": "米和厘米的关系",
+              "duration": "10分钟",
+              "detail": "用米尺量1米长的绳子，数一数有多少厘米。得出1米=100厘米。"
+            },
+            {
+              "step": 4,
+              "activity": "巩固练习",
+              "duration": "10分钟",
+              "detail": "选择合适的长度单位填空，量教室的长度。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结什么时候用米，什么时候用厘米。"
+            }
+          ],
+          "blackboard设计": "左边：米尺放大图，标注1米=100厘米。右边：什么时候用米（较长物体），什么时候用厘米（较短物体）。",
+          "commonStudentErrors": [
+            "单位选错",
+            "1米和100厘米混淆"
+          ],
+          "differentiation": {
+            "advanced": "估测教室的长度，再测量验证。",
+            "support": "用米尺量课桌的长度，说出是几米几厘米。"
+          }
+        },
+        {
+          "id": "lesson_sx_006",
+          "title": "不退位减法",
+          "grade": 2,
+          "term": "上",
+          "topicId": "ct_SX2S012",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "理解不退位减法的算理",
+            "掌握不退位减法的竖式计算方法"
+          ],
+          "keyPoints": [
+            "相同数位对齐",
+            "从个位减起",
+            "不够减时向前一位借1"
+          ],
+          "difficultPoints": [
+            "借位的处理",
+            "连续退位"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "复习导入",
+              "duration": "5分钟",
+              "detail": "口算不退位减法：58-23=？复习计算方法。"
+            },
+            {
+              "step": 2,
+              "activity": "情境引入",
+              "duration": "5分钟",
+              "detail": "出示情境：有56个苹果，吃了24个，还剩多少个？"
+            },
+            {
+              "step": 3,
+              "activity": "探究算法",
+              "duration": "10分钟",
+              "detail": "用小棒摆56-24，先摆5捆6根，拿走2捆4根，剩3捆2根，所以是32。"
+            },
+            {
+              "step": 4,
+              "activity": "竖式教学",
+              "duration": "10分钟",
+              "detail": "结合小棒操作，教学竖式：6-4=2，5-2=3。强调相同数位对齐。"
+            },
+            {
+              "step": 5,
+              "activity": "巩固练习",
+              "duration": "10分钟",
+              "detail": "完成课本练习，判断竖式计算是否正误。"
+            }
+          ],
+          "blackboard设计": "左边：小棒图（56-24）。右边：竖式计算过程。",
+          "commonStudentErrors": [
+            "数位没对齐",
+            "减法算成加法"
+          ],
+          "differentiation": {
+            "advanced": "尝试被减数中间有0的退位减法。",
+            "support": "先操作小棒，再列竖式。"
+          }
+        },
+        {
+          "id": "lesson_sx_005",
+          "title": "认识米",
+          "grade": 2,
+          "term": "下",
+          "topicId": "ct_SX2S004",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "认识米，建立1米的长度观念",
+            "学会用米尺量较长物体的长度"
+          ],
+          "keyPoints": [
+            "1米=100厘米",
+            "米尺的使用",
+            "选择合适的长度单位"
+          ],
+          "difficultPoints": [
+            "1米的实际长度观念",
+            "米和厘米的换算"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "复习导入",
+              "duration": "5分钟",
+              "detail": "复习厘米，出示1米长的绳子，引出'米'。"
+            },
+            {
+              "step": 2,
+              "activity": "认识米",
+              "duration": "10分钟",
+              "detail": "观察米尺，认识1米，用双臂比划1米，找教室里1米长的物品。"
+            },
+            {
+              "step": 3,
+              "activity": "米和厘米的关系",
+              "duration": "10分钟",
+              "detail": "用米尺量1米长的绳子，数一数有多少厘米。得出1米=100厘米。"
+            },
+            {
+              "step": 4,
+              "activity": "巩固练习",
+              "duration": "10分钟",
+              "detail": "选择合适的长度单位填空，量教室的长度。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结什么时候用米，什么时候用厘米。"
+            }
+          ],
+          "blackboard设计": "左边：米尺放大图，标注1米=100厘米。右边：什么时候用米（较长物体），什么时候用厘米（较短物体）。",
+          "commonStudentErrors": [
+            "单位选错",
+            "1米和100厘米混淆"
+          ],
+          "differentiation": {
+            "advanced": "估测教室的长度，再测量验证。",
+            "support": "用米尺量课桌的长度，说出是几米几厘米。"
+          }
+        },
+        {
+          "id": "lesson_sx_006",
+          "title": "不退位减法",
+          "grade": 2,
+          "term": "上",
+          "topicId": "ct_SX2S012",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "理解不退位减法的算理",
+            "掌握不退位减法的竖式计算方法"
+          ],
+          "keyPoints": [
+            "相同数位对齐",
+            "从个位减起",
+            "不够减时向前一位借1"
+          ],
+          "difficultPoints": [
+            "借位的处理",
+            "连续退位"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "复习导入",
+              "duration": "5分钟",
+              "detail": "口算不退位减法：58-23=？复习计算方法。"
+            },
+            {
+              "step": 2,
+              "activity": "情境引入",
+              "duration": "5分钟",
+              "detail": "出示情境：有56个苹果，吃了24个，还剩多少个？"
+            },
+            {
+              "step": 3,
+              "activity": "探究算法",
+              "duration": "10分钟",
+              "detail": "用小棒摆56-24，先摆5捆6根，拿走2捆4根，剩3捆2根，所以是32。"
+            },
+            {
+              "step": 4,
+              "activity": "竖式教学",
+              "duration": "10分钟",
+              "detail": "结合小棒操作，教学竖式：6-4=2，5-2=3。强调相同数位对齐。"
+            },
+            {
+              "step": 5,
+              "activity": "巩固练习",
+              "duration": "10分钟",
+              "detail": "完成课本练习，判断竖式计算是否正误。"
+            }
+          ],
+          "blackboard设计": "左边：小棒图（56-24）。右边：竖式计算过程。",
+          "commonStudentErrors": [
+            "数位没对齐",
+            "减法算成加法"
+          ],
+          "differentiation": {
+            "advanced": "尝试被减数中间有0的退位减法。",
+            "support": "先操作小棒，再列竖式。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "chinese_lower",
+      "name": "语文（低年级1-2年级）",
+      "icon": "📖",
+      "lessons": [
+        {
+          "id": "lesson_yw_001",
+          "title": "部首查字法",
+          "grade": 2,
+          "term": "上",
+          "topicId": "ct_YW2S001",
+          "difficulty": 3,
+          "duration": "40分钟",
+          "objectives": [
+            "学会用部首查字法查字典",
+            "能独立查找生字"
+          ],
+          "keyPoints": [
+            "确定部首",
+            "数笔画",
+            "按步骤查找"
+          ],
+          "difficultPoints": [
+            "确定部首",
+            "区分部首笔画和除部首外笔画"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "情境导入",
+              "duration": "5分钟",
+              "detail": "遇到不认识的字怎么办？引出查字典的方法。"
+            },
+            {
+              "step": 2,
+              "activity": "认识字典",
+              "duration": "5分钟",
+              "detail": "认识字典的三部分：音节表、部首目录和检字表、正文。"
+            },
+            {
+              "step": 3,
+              "activity": "教学步骤",
+              "duration": "15分钟",
+              "detail": "以'海'字为例：①确定部首'氵'，3画；②在部首目录找3画，找到'氵'及页码；③在检字表中找'氵'，再数'每'7画，找到'海'及页码；④翻到正文，找到'海'。"
+            },
+            {
+              "step": 4,
+              "activity": "学生练习",
+              "duration": "10分钟",
+              "detail": "学生独立查'熊'字，教师巡视指导。"
+            },
+            {
+              "step": 5,
+              "activity": "查字比赛",
+              "duration": "5分钟",
+              "detail": "报5个生字，比赛谁先查到，巩固方法。"
+            }
+          ],
+          "blackboardDesign": "左边：字典三部分结构图。右边：查字步骤（1.定部首 2.数笔画 3.部首目录找 4.检字表找 5.翻正文）。",
+          "commonStudentErrors": [
+            "把整个字当部首",
+            "数错笔画",
+            "找不到页码"
+          ],
+          "differentiation": {
+            "advanced": "查独体字：'世'查什么部首？",
+            "support": "提供部首提示卡，先确定部首再查。"
+          }
+        },
+        {
+          "id": "lesson_yw_002",
+          "title": "看图写话",
+          "grade": 2,
+          "term": "下",
+          "topicId": "ct_YW2S012",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "学会按顺序观察图画",
+            "能写几句通顺的话"
+          ],
+          "keyPoints": [
+            "按顺序观察（远→近、整体→部分）",
+            "说完整的话"
+          ],
+          "difficultPoints": [
+            "把几句话连起来",
+            "加上想象"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "激趣导入",
+              "duration": "5分钟",
+              "detail": "展示有趣的图画，说说图上有什么。"
+            },
+            {
+              "step": 2,
+              "activity": "指导观察",
+              "duration": "10分钟",
+              "detail": "教观察顺序：先看整体（什么时间、什么地方），再看部分（谁、干什么）。"
+            },
+            {
+              "step": 3,
+              "activity": "指导说话",
+              "duration": "10分钟",
+              "detail": "用句式引导：什么时间，谁在哪里干什么？心情怎么样？"
+            },
+            {
+              "step": 4,
+              "activity": "动笔写话",
+              "duration": "10分钟",
+              "detail": "学生写话，教师巡视，注意标点符号。"
+            },
+            {
+              "step": 5,
+              "activity": "展示评价",
+              "duration": "5分钟",
+              "detail": "展示2-3篇作品，师生共同评价：通顺吗？完整吗？"
+            }
+          ],
+          "blackboardDesign": "左边：观察顺序图（整体→部分）。右边：句式模板（什么时候，谁在哪里干什么，心情如何）。",
+          "commonStudentErrors": [
+            "没有顺序",
+            "句子不完整",
+            "没有标点"
+          ],
+          "differentiation": {
+            "advanced": "加上想象：他们会说什么？",
+            "support": "提供开头：春天来了，________。"
+          }
+        },
+        {
+          "id": "lesson_yw_003",
+          "title": "音序查字法",
+          "grade": 2,
+          "term": "上",
+          "topicId": "ct_YW2S002",
+          "difficulty": 3,
+          "duration": "40分钟",
+          "objectives": [
+            "学会用音序查字法查字典",
+            "能独立查找生字"
+          ],
+          "keyPoints": [
+            "确定音序（大写字母）",
+            "找到音节",
+            "翻到正文"
+          ],
+          "difficultPoints": [
+            "音序要大写",
+            "区分音序和音节"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "复习导入",
+              "duration": "5分钟",
+              "detail": "复习部首查字法，引出：如果知道读音不会写怎么办？"
+            },
+            {
+              "step": 2,
+              "activity": "认识音序",
+              "duration": "10分钟",
+              "detail": "什么是音序？音节的第一个字母大写。如'暖'的音序是N。"
+            },
+            {
+              "step": 3,
+              "activity": "教学步骤",
+              "duration": "15分钟",
+              "detail": "以'暖'字为例：①确定音序N；②在音节表找N，再找nuan；③根据页码翻到正文；④找到'暖'。"
+            },
+            {
+              "step": 4,
+              "activity": "学生练习",
+              "duration": "5分钟",
+              "detail": "学生独立查'春'字，教师巡视指导。"
+            },
+            {
+              "step": 5,
+              "activity": "对比总结",
+              "duration": "5分钟",
+              "detail": "对比两种查字法：什么情况用音序？什么情况用部首？"
+            }
+          ],
+          "blackboardDesign": "左边：音序查字法步骤。右边：两种查字法对比表。",
+          "commonStudentErrors": [
+            "音序写小写",
+            "把整个拼音当音序",
+            "找不到音节"
+          ],
+          "differentiation": {
+            "advanced": "查多音字：'长'有几种读音？",
+            "support": "提供音序表，先找大写字母。"
+          }
+        },
+        {
+          "id": "lesson_yw_004",
+          "title": "拼音：声母韵母拼读",
+          "grade": 1,
+          "term": "上",
+          "topicId": "ct_YW1S015",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "学会声母和韵母的拼读",
+            "能拼读音节"
+          ],
+          "keyPoints": [
+            "声母轻短韵母响",
+            "两音相连猛一碰"
+          ],
+          "difficultPoints": [
+            "拼读方法的掌握",
+            "三拼音节"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "复习导入",
+              "duration": "5分钟",
+              "detail": "复习声母b、p、m、f和韵母a、o、e。"
+            },
+            {
+              "step": 2,
+              "activity": "拼读教学",
+              "duration": "10分钟",
+              "detail": "教师示范：b-a→ba，强调'声母轻短韵母响，两音相连猛一碰'。"
+            },
+            {
+              "step": 3,
+              "activity": "练习拼读",
+              "duration": "15分钟",
+              "detail": "学生练习拼读，开火车读，小组比赛。"
+            },
+            {
+              "step": 4,
+              "activity": "三拼音节",
+              "duration": "5分钟",
+              "detail": "教学三拼音节：g-u-a→gua。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结拼读方法，布置练习。"
+            }
+          ],
+          "blackboard设计": "左边：声母和韵母卡片。右边：拼读示范b-a→ba。",
+          "commonStudentErrors": [
+            "拼读时声母读得太重",
+            "三拼音节漏读中间的韵母"
+          ],
+          "differentiation": {
+            "advanced": "练习拼读三拼音节。",
+            "support": "先分开读，再连起来读。"
+          }
+        },
+        {
+          "id": "lesson_yw_005",
+          "title": "汉字基本笔画",
+          "grade": 1,
+          "term": "上",
+          "topicId": "ct_YW1S005",
+          "difficulty": 1,
+          "duration": "40分钟",
+          "objectives": [
+            "认识汉字基本笔画",
+            "能正确书写基本笔画"
+          ],
+          "keyPoints": [
+            "横、竖、撇、捺、点",
+            "笔画的书写方法"
+          ],
+          "difficultPoints": [
+            "笔画的起笔和收笔",
+            "笔画的书写顺序"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "情境导入",
+              "duration": "5分钟",
+              "detail": "出示汉字，让学生观察汉字由什么组成。"
+            },
+            {
+              "step": 2,
+              "activity": "认识笔画",
+              "duration": "10分钟",
+              "detail": "介绍横、竖、撇、捺、点，教师示范书写。"
+            },
+            {
+              "step": 3,
+              "activity": "练习书写",
+              "duration": "15分钟",
+              "detail": "学生练习书写基本笔画，教师巡视指导。"
+            },
+            {
+              "step": 4,
+              "activity": "组字游戏",
+              "duration": "5分钟",
+              "detail": "用基本笔画拼出简单汉字。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结基本笔画，布置练习。"
+            }
+          ],
+          "blackboard设计": "左边：基本笔画示范。右边：笔画名称。",
+          "commonStudentErrors": [
+            "笔画书写不规范",
+            "笔顺错误"
+          ],
+          "differentiation": {
+            "advanced": "练习写含有多个笔画的汉字。",
+            "support": "先书空，再书写。"
+          }
+        },
+        {
+          "id": "lesson_yw_004",
+          "title": "拼音：声母韵母拼读",
+          "grade": 1,
+          "term": "上",
+          "topicId": "ct_YW1S015",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "学会声母和韵母的拼读",
+            "能拼读音节"
+          ],
+          "keyPoints": [
+            "声母轻短韵母响",
+            "两音相连猛一碰"
+          ],
+          "difficultPoints": [
+            "拼读方法的掌握",
+            "三拼音节"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "复习导入",
+              "duration": "5分钟",
+              "detail": "复习声母b、p、m、f和韵母a、o、e。"
+            },
+            {
+              "step": 2,
+              "activity": "拼读教学",
+              "duration": "10分钟",
+              "detail": "教师示范：b-a→ba，强调'声母轻短韵母响，两音相连猛一碰'。"
+            },
+            {
+              "step": 3,
+              "activity": "练习拼读",
+              "duration": "15分钟",
+              "detail": "学生练习拼读，开火车读，小组比赛。"
+            },
+            {
+              "step": 4,
+              "activity": "三拼音节",
+              "duration": "5分钟",
+              "detail": "教学三拼音节：g-u-a→gua。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结拼读方法，布置练习。"
+            }
+          ],
+          "blackboard设计": "左边：声母和韵母卡片。右边：拼读示范b-a→ba。",
+          "commonStudentErrors": [
+            "拼读时声母读得太重",
+            "三拼音节漏读中间的韵母"
+          ],
+          "differentiation": {
+            "advanced": "练习拼读三拼音节。",
+            "support": "先分开读，再连起来读。"
+          }
+        },
+        {
+          "id": "lesson_yw_005",
+          "title": "汉字基本笔画",
+          "grade": 1,
+          "term": "上",
+          "topicId": "ct_YW1S005",
+          "difficulty": 1,
+          "duration": "40分钟",
+          "objectives": [
+            "认识汉字基本笔画",
+            "能正确书写基本笔画"
+          ],
+          "keyPoints": [
+            "横、竖、撇、捺、点",
+            "笔画的书写方法"
+          ],
+          "difficultPoints": [
+            "笔画的起笔和收笔",
+            "笔画的书写顺序"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "情境导入",
+              "duration": "5分钟",
+              "detail": "出示汉字，让学生观察汉字由什么组成。"
+            },
+            {
+              "step": 2,
+              "activity": "认识笔画",
+              "duration": "10分钟",
+              "detail": "介绍横、竖、撇、捺、点，教师示范书写。"
+            },
+            {
+              "step": 3,
+              "activity": "练习书写",
+              "duration": "15分钟",
+              "detail": "学生练习书写基本笔画，教师巡视指导。"
+            },
+            {
+              "step": 4,
+              "activity": "组字游戏",
+              "duration": "5分钟",
+              "detail": "用基本笔画拼出简单汉字。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结基本笔画，布置练习。"
+            }
+          ],
+          "blackboard设计": "左边：基本笔画示范。右边：笔画名称。",
+          "commonStudentErrors": [
+            "笔画书写不规范",
+            "笔顺错误"
+          ],
+          "differentiation": {
+            "advanced": "练习写含有多个笔画的汉字。",
+            "support": "先书空，再书写。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "math_middle",
+      "name": "数学（中年级3-4年级）",
+      "icon": "📐",
+      "lessons": [
+        {
+          "id": "lesson_sx_010",
+          "title": "分数的初步认识",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_SX3S020",
+          "difficulty": 3,
+          "duration": "40分钟",
+          "objectives": [
+            "初步认识几分之一",
+            "会比较简单分数的大小"
+          ],
+          "keyPoints": [
+            "分数的意义（平均分）",
+            "分子分母的含义"
+          ],
+          "difficultPoints": [
+            "理解'平均分'",
+            "分数大小的比较"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "情境导入",
+              "duration": "5分钟",
+              "detail": "分月饼：2个人分4个月饼，每人2个；分2个月饼，每人1个；分1个月饼，每人半个。半个怎么表示？"
+            },
+            {
+              "step": 2,
+              "activity": "认识1/2",
+              "duration": "10分钟",
+              "detail": "把月饼平均分成2份，每份是它的1/2。介绍分数各部分名称。"
+            },
+            {
+              "step": 3,
+              "activity": "动手操作",
+              "duration": "10分钟",
+              "detail": "用长方形纸折出1/2、1/4、1/8，涂色表示。"
+            },
+            {
+              "step": 4,
+              "activity": "比较大小",
+              "duration": "10分钟",
+              "detail": "观察折出的1/2、1/4、1/8，哪个大？得出：分的份数越多，每份越小。"
+            },
+            {
+              "step": 5,
+              "activity": "巩固练习",
+              "duration": "5分钟",
+              "detail": "看图写分数，比较分数大小。"
+            }
+          ],
+          "blackboardDesign": "左边：月饼图（平均分）。右边：分数1/2的写法和各部分名称。",
+          "commonStudentErrors": [
+            "不平均分",
+            "分子分母写反",
+            "比较大小错误"
+          ],
+          "differentiation": {
+            "advanced": "思考：1/3和1/5哪个大？为什么？",
+            "support": "用实物操作，先折再比较。"
+          }
+        },
+        {
+          "id": "lesson_sx_011",
+          "title": "两位数乘一位数",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_SX3S025",
+          "difficulty": 3,
+          "duration": "40分钟",
+          "objectives": [
+            "掌握两位数乘一位数的计算方法",
+            "能正确进行计算"
+          ],
+          "keyPoints": [
+            "从个位乘起",
+            "满几十向前一位进几"
+          ],
+          "difficultPoints": [
+            "进位的处理",
+            "连续进位"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "复习导入",
+              "duration": "5分钟",
+              "detail": "口算：12×3=？复习乘法的意义。"
+            },
+            {
+              "step": 2,
+              "activity": "探究算法",
+              "duration": "10分钟",
+              "detail": "14×2=？摆小棒：14根一捆，2捆是2个十，8根是8个一，合起来是28。"
+            },
+            {
+              "step": 3,
+              "activity": "竖式教学",
+              "duration": "10分钟",
+              "detail": "教学竖式：2×4=8，2×10=20，合起来是28。强调从个位乘起。"
+            },
+            {
+              "step": 4,
+              "activity": "进位教学",
+              "duration": "10分钟",
+              "detail": "教学24×3：3×4=12，写2进1；3×2+1=7，所以24×3=72。"
+            },
+            {
+              "step": 5,
+              "activity": "巩固练习",
+              "duration": "5分钟",
+              "detail": "练习：34×2=？26×3=？注意进位。"
+            }
+          ],
+          "blackboardDesign": "左边：小棒图。右边：竖式计算过程，进位用红笔标出。",
+          "commonStudentErrors": [
+            "忘记进位",
+            "进位加错",
+            "从十位乘起"
+          ],
+          "differentiation": {
+            "advanced": "尝试三位数乘一位数：123×3=？",
+            "support": "先练不进位的：22×2=？"
+          }
+        },
+        {
+          "id": "lesson_sx_012",
+          "title": "面积的认识",
+          "grade": 3,
+          "term": "下",
+          "topicId": "ct_SX3S030",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "初步认识面积的含义",
+            "会比较面积的大小"
+          ],
+          "keyPoints": [
+            "面积的含义（物体表面或平面图形的大小）",
+            "比较面积大小的方法"
+          ],
+          "difficultPoints": [
+            "面积与周长的区别",
+            "面积的测量"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "情境导入",
+              "duration": "5分钟",
+              "detail": "涂色比赛：大小不同的两个正方形，谁先涂完？为什么？"
+            },
+            {
+              "step": 2,
+              "activity": "认识面积",
+              "duration": "10分钟",
+              "detail": "物体表面或平面图形的大小就是面积。摸一摸课本封面、课桌面。"
+            },
+            {
+              "step": 3,
+              "activity": "比较大小",
+              "duration": "10分钟",
+              "detail": "观察法、重叠法、数方格法比较面积大小。"
+            },
+            {
+              "step": 4,
+              "activity": "巩固练习",
+              "duration": "10分钟",
+              "detail": "比较图形面积大小，数方格求面积。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结面积概念，强调面积与周长的区别。"
+            }
+          ],
+          "blackboardDesign": "左边：大小不同的图形。右边：面积概念和比较方法。",
+          "commonStudentErrors": [
+            "混淆面积和周长",
+            "数方格时出错"
+          ],
+          "differentiation": {
+            "advanced": "思考：周长相等的图形，面积一定相等吗？",
+            "support": "用方格纸操作，先数方格。"
+          }
+        },
+        {
+          "id": "lesson_sx_007",
+          "title": "三位数乘一位数",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_SX3S005",
+          "difficulty": 3,
+          "duration": "40分钟",
+          "objectives": [
+            "掌握三位数乘一位数的计算方法",
+            "理解进位的处理"
+          ],
+          "keyPoints": [
+            "从个位乘起",
+            "哪一位满几十向前一位进几",
+            "进位要加上"
+          ],
+          "difficultPoints": [
+            "连续进位",
+            "中间有0的乘法"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "复习导入",
+              "duration": "5分钟",
+              "detail": "口算两位数乘一位数：23×4=？复习计算方法。"
+            },
+            {
+              "step": 2,
+              "activity": "情境引入",
+              "duration": "5分钟",
+              "detail": "出示：一本书256元，买3本一共多少钱？"
+            },
+            {
+              "step": 3,
+              "activity": "探究算法",
+              "duration": "10分钟",
+              "detail": "引导学生用分步乘：200×3=600，50×3=150，6×3=18，600+150+18=768。"
+            },
+            {
+              "step": 4,
+              "activity": "竖式教学",
+              "duration": "10分钟",
+              "detail": "教学竖式：6×3=18，写8进1；5×3+1=16，写6进1；2×3+1=7。"
+            },
+            {
+              "step": 5,
+              "activity": "巩固练习",
+              "duration": "10分钟",
+              "detail": "完成课本练习，重点练习连续进位。"
+            }
+          ],
+          "blackboard设计": "左边：256×3的竖式计算过程。右边：计算步骤。",
+          "commonStudentErrors": [
+            "进位忘记加",
+            "数位对错"
+          ],
+          "differentiation": {
+            "advanced": "尝试因数中间有0的乘法。",
+            "support": "先分步乘，再列竖式。"
+          }
+        },
+        {
+          "id": "lesson_sx_008",
+          "title": "除法初步认识",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_SX3S010",
+          "difficulty": 3,
+          "duration": "40分钟",
+          "objectives": [
+            "理解除法的意义",
+            "认识除法算式，会读会写"
+          ],
+          "keyPoints": [
+            "除法的意义：平均分",
+            "除法算式的读写",
+            "各部分名称"
+          ],
+          "difficultPoints": [
+            "理解平均分",
+            "除法算式各部分名称"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "情境导入",
+              "duration": "5分钟",
+              "detail": "出示：12个苹果，平均分给3个小朋友，每人分几个？"
+            },
+            {
+              "step": 2,
+              "activity": "操作探究",
+              "duration": "10分钟",
+              "detail": "学生用小棒代替苹果，动手分一分，得出每人分4个。"
+            },
+            {
+              "step": 3,
+              "activity": "认识除法",
+              "duration": "10分钟",
+              "detail": "介绍除法：12÷3=4，读作12除以3等于4。介绍被除数、除数、商。"
+            },
+            {
+              "step": 4,
+              "activity": "巩固练习",
+              "duration": "10分钟",
+              "detail": "看图写除法算式，根据除法算式摆小棒。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结：什么样的情境用除法？"
+            }
+          ],
+          "blackboard设计": "左边：12个苹果平均分给3人。右边：12÷3=4，被除数÷除数=商。",
+          "commonStudentErrors": [
+            "除法算式读法错误",
+            "各部分名称混淆"
+          ],
+          "differentiation": {
+            "advanced": "思考：12÷0可以吗？为什么？",
+            "support": "先操作，再写算式。"
+          }
+        },
+        {
+          "id": "lesson_sx_009",
+          "title": "长方形和正方形的周长",
+          "grade": 3,
+          "term": "下",
+          "topicId": "ct_SX3S015",
+          "difficulty": 3,
+          "duration": "40分钟",
+          "objectives": [
+            "理解周长的意义",
+            "掌握长方形和正方形周长的计算方法"
+          ],
+          "keyPoints": [
+            "周长的意义：一周的长度",
+            "长方形周长=(长+宽)×2",
+            "正方形周长=边长×4"
+          ],
+          "difficultPoints": [
+            "理解周长的意义",
+            "周长公式的推导"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "情境导入",
+              "duration": "5分钟",
+              "detail": "出示：给相框围一圈彩带，需要多长的彩带？"
+            },
+            {
+              "step": 2,
+              "activity": "认识周长",
+              "duration": "10分钟",
+              "detail": "摸一摸课本的周长，描一描图形的周长。理解周长的意义。"
+            },
+            {
+              "step": 3,
+              "activity": "探究周长",
+              "duration": "10分钟",
+              "detail": "测量长方形卡片的周长，交流不同的测量方法。"
+            },
+            {
+              "step": 4,
+              "activity": "公式教学",
+              "duration": "10分钟",
+              "detail": "引导学生发现：长方形周长=(长+宽)×2，正方形周长=边长×4。"
+            },
+            {
+              "step": 5,
+              "activity": "巩固练习",
+              "duration": "5分钟",
+              "detail": "计算长方形和正方形的周长。"
+            }
+          ],
+          "blackboard设计": "左边：长方形和正方形图。右边：周长公式。",
+          "commonStudentErrors": [
+            "周长和面积混淆",
+            "公式记错"
+          ],
+          "differentiation": {
+            "advanced": "计算组合图形的周长。",
+            "support": "先用绳子围一圈，再量长度。"
+          }
+        },
+        {
+          "id": "lesson_sx_007",
+          "title": "三位数乘一位数",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_SX3S005",
+          "difficulty": 3,
+          "duration": "40分钟",
+          "objectives": [
+            "掌握三位数乘一位数的计算方法",
+            "理解进位的处理"
+          ],
+          "keyPoints": [
+            "从个位乘起",
+            "哪一位满几十向前一位进几",
+            "进位要加上"
+          ],
+          "difficultPoints": [
+            "连续进位",
+            "中间有0的乘法"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "复习导入",
+              "duration": "5分钟",
+              "detail": "口算两位数乘一位数：23×4=？复习计算方法。"
+            },
+            {
+              "step": 2,
+              "activity": "情境引入",
+              "duration": "5分钟",
+              "detail": "出示：一本书256元，买3本一共多少钱？"
+            },
+            {
+              "step": 3,
+              "activity": "探究算法",
+              "duration": "10分钟",
+              "detail": "引导学生用分步乘：200×3=600，50×3=150，6×3=18，600+150+18=768。"
+            },
+            {
+              "step": 4,
+              "activity": "竖式教学",
+              "duration": "10分钟",
+              "detail": "教学竖式：6×3=18，写8进1；5×3+1=16，写6进1；2×3+1=7。"
+            },
+            {
+              "step": 5,
+              "activity": "巩固练习",
+              "duration": "10分钟",
+              "detail": "完成课本练习，重点练习连续进位。"
+            }
+          ],
+          "blackboard设计": "左边：256×3的竖式计算过程。右边：计算步骤。",
+          "commonStudentErrors": [
+            "进位忘记加",
+            "数位对错"
+          ],
+          "differentiation": {
+            "advanced": "尝试因数中间有0的乘法。",
+            "support": "先分步乘，再列竖式。"
+          }
+        },
+        {
+          "id": "lesson_sx_008",
+          "title": "除法初步认识",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_SX3S010",
+          "difficulty": 3,
+          "duration": "40分钟",
+          "objectives": [
+            "理解除法的意义",
+            "认识除法算式，会读会写"
+          ],
+          "keyPoints": [
+            "除法的意义：平均分",
+            "除法算式的读写",
+            "各部分名称"
+          ],
+          "difficultPoints": [
+            "理解平均分",
+            "除法算式各部分名称"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "情境导入",
+              "duration": "5分钟",
+              "detail": "出示：12个苹果，平均分给3个小朋友，每人分几个？"
+            },
+            {
+              "step": 2,
+              "activity": "操作探究",
+              "duration": "10分钟",
+              "detail": "学生用小棒代替苹果，动手分一分，得出每人分4个。"
+            },
+            {
+              "step": 3,
+              "activity": "认识除法",
+              "duration": "10分钟",
+              "detail": "介绍除法：12÷3=4，读作12除以3等于4。介绍被除数、除数、商。"
+            },
+            {
+              "step": 4,
+              "activity": "巩固练习",
+              "duration": "10分钟",
+              "detail": "看图写除法算式，根据除法算式摆小棒。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结：什么样的情境用除法？"
+            }
+          ],
+          "blackboard设计": "左边：12个苹果平均分给3人。右边：12÷3=4，被除数÷除数=商。",
+          "commonStudentErrors": [
+            "除法算式读法错误",
+            "各部分名称混淆"
+          ],
+          "differentiation": {
+            "advanced": "思考：12÷0可以吗？为什么？",
+            "support": "先操作，再写算式。"
+          }
+        },
+        {
+          "id": "lesson_sx_009",
+          "title": "长方形和正方形的周长",
+          "grade": 3,
+          "term": "下",
+          "topicId": "ct_SX3S015",
+          "difficulty": 3,
+          "duration": "40分钟",
+          "objectives": [
+            "理解周长的意义",
+            "掌握长方形和正方形周长的计算方法"
+          ],
+          "keyPoints": [
+            "周长的意义：一周的长度",
+            "长方形周长=(长+宽)×2",
+            "正方形周长=边长×4"
+          ],
+          "difficultPoints": [
+            "理解周长的意义",
+            "周长公式的推导"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "情境导入",
+              "duration": "5分钟",
+              "detail": "出示：给相框围一圈彩带，需要多长的彩带？"
+            },
+            {
+              "step": 2,
+              "activity": "认识周长",
+              "duration": "10分钟",
+              "detail": "摸一摸课本的周长，描一描图形的周长。理解周长的意义。"
+            },
+            {
+              "step": 3,
+              "activity": "探究周长",
+              "duration": "10分钟",
+              "detail": "测量长方形卡片的周长，交流不同的测量方法。"
+            },
+            {
+              "step": 4,
+              "activity": "公式教学",
+              "duration": "10分钟",
+              "detail": "引导学生发现：长方形周长=(长+宽)×2，正方形周长=边长×4。"
+            },
+            {
+              "step": 5,
+              "activity": "巩固练习",
+              "duration": "5分钟",
+              "detail": "计算长方形和正方形的周长。"
+            }
+          ],
+          "blackboard设计": "左边：长方形和正方形图。右边：周长公式。",
+          "commonStudentErrors": [
+            "周长和面积混淆",
+            "公式记错"
+          ],
+          "differentiation": {
+            "advanced": "计算组合图形的周长。",
+            "support": "先用绳子围一圈，再量长度。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "chinese_middle",
+      "name": "语文（中年级3-4年级）",
+      "icon": "✏️",
+      "lessons": [
+        {
+          "id": "lesson_yw_010",
+          "title": "作文：我学会了____",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_YW3S010",
+          "difficulty": 3,
+          "duration": "80分钟（两课时）",
+          "objectives": [
+            "把学做的事情写清楚",
+            "写出自己的感受"
+          ],
+          "keyPoints": [
+            "按顺序写（先...再...然后...最后...）",
+            "写出遇到的困难和克服方法"
+          ],
+          "difficultPoints": [
+            "细节描写",
+            "真情实感"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "谈话导入",
+              "duration": "5分钟",
+              "detail": "你学会了什么？怎么学会的？"
+            },
+            {
+              "step": 2,
+              "activity": "指导选材",
+              "duration": "10分钟",
+              "detail": "选择印象最深的事，说清楚：学什么？怎么学的？遇到什么困难？怎么克服的？"
+            },
+            {
+              "step": 3,
+              "activity": "范文引路",
+              "duration": "10分钟",
+              "detail": "出示范文《我学会了游泳》，分析：怎么按顺序写的？哪里写得好？"
+            },
+            {
+              "step": 4,
+              "activity": "学生习作",
+              "duration": "40分钟",
+              "detail": "学生写作，教师巡视指导。"
+            },
+            {
+              "step": 5,
+              "activity": "讲评修改",
+              "duration": "15分钟",
+              "detail": "展示2-3篇作品，师生共同评价，提出修改建议。"
+            }
+          ],
+          "blackboardDesign": "左边：写作提纲（学什么→怎么学→困难→结果）。右边：好词好句展示。",
+          "commonStudentErrors": [
+            "顺序混乱",
+            "没有细节",
+            "没有感受"
+          ],
+          "differentiation": {
+            "advanced": "加上心理活动描写：遇到困难时怎么想？",
+            "support": "提供开头和结尾模板。"
+          }
+        },
+        {
+          "id": "lesson_yw_011",
+          "title": "阅读理解技巧",
+          "grade": 4,
+          "term": "上",
+          "topicId": "ct_YW4S010",
+          "difficulty": 3,
+          "duration": "40分钟",
+          "objectives": [
+            "掌握阅读理解的基本方法",
+            "能准确回答阅读问题"
+          ],
+          "keyPoints": [
+            "读两遍文章",
+            "圈关键词",
+            "回到原文找答案"
+          ],
+          "difficultPoints": [
+            "概括主要内容",
+            "理解深层含义"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "导入",
+              "duration": "5分钟",
+              "detail": "阅读理解有什么困难？引出方法指导。"
+            },
+            {
+              "step": 2,
+              "activity": "方法指导",
+              "duration": "10分钟",
+              "detail": "教方法：①读两遍文章，了解大意；②读题目，圈关键词；③带着问题回原文找；④用自己的话回答。"
+            },
+            {
+              "step": 3,
+              "activity": "示范练习",
+              "duration": "10分钟",
+              "detail": "师生共同完成一篇阅读理解，示范方法。"
+            },
+            {
+              "step": 4,
+              "activity": "学生练习",
+              "duration": "10分钟",
+              "detail": "学生独立完成一篇阅读理解，教师巡视。"
+            },
+            {
+              "step": 5,
+              "activity": "讲评总结",
+              "duration": "5分钟",
+              "detail": "讲评典型错误，总结方法。"
+            }
+          ],
+          "blackboardDesign": "左边：阅读理解四步法。右边：常见题型及答题技巧。",
+          "commonStudentErrors": [
+            "不读原文就答题",
+            "用自己的话抄原文",
+            "答非所问"
+          ],
+          "differentiation": {
+            "advanced": "挑战：理解文章深层含义和作者意图。",
+            "support": "提供答题模板：这篇文章讲了____，说明了____。"
+          }
+        },
+        {
+          "id": "lesson_yw_012",
+          "title": "古诗教学",
+          "grade": 4,
+          "term": "下",
+          "topicId": "ct_YW4S015",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "理解古诗的意思",
+            "体会古诗的情感"
+          ],
+          "keyPoints": [
+            "了解诗人背景",
+            "理解诗意",
+            "想象画面"
+          ],
+          "difficultPoints": [
+            "体会情感",
+            "理解意境"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "导入",
+              "duration": "5分钟",
+              "detail": "介绍诗人背景和写作背景。"
+            },
+            {
+              "step": 2,
+              "activity": "读准读通",
+              "duration": "5分钟",
+              "detail": "自由读、指名读、范读，读准字音和节奏。"
+            },
+            {
+              "step": 3,
+              "activity": "理解诗意",
+              "duration": "10分钟",
+              "detail": "看注释、查字典，逐句理解诗意。用自己的话说说诗句意思。"
+            },
+            {
+              "step": 4,
+              "activity": "想象画面",
+              "duration": "10分钟",
+              "detail": "闭上眼睛，听老师朗读，想象诗中画面。说说你看到了什么？"
+            },
+            {
+              "step": 5,
+              "activity": "体会情感",
+              "duration": "10分钟",
+              "detail": "诗人想表达什么感情？带着感情朗读、背诵。"
+            }
+          ],
+          "blackboardDesign": "左边：古诗原文和注释。右边：诗意和画面描述。",
+          "commonStudentErrors": [
+            "不理解诗意就背诵",
+            "读不出感情"
+          ],
+          "differentiation": {
+            "advanced": "拓展：找同类型古诗对比阅读。",
+            "support": "提供诗意解释，先理解再背诵。"
+          }
+        },
+        {
+          "id": "lesson_yw_006",
+          "title": "作文：我的好朋友",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_YW3S010",
+          "difficulty": 3,
+          "duration": "80分钟",
+          "objectives": [
+            "学会写人物作文",
+            "能写出人物的特点"
+          ],
+          "keyPoints": [
+            "人物的外貌描写",
+            "通过一件事写人物特点"
+          ],
+          "difficultPoints": [
+            "写出人物的特点",
+            "把事情写具体"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "谈话导入",
+              "duration": "5分钟",
+              "detail": "说说你的好朋友是谁？他有什么特点？"
+            },
+            {
+              "step": 2,
+              "activity": "范文引路",
+              "duration": "15分钟",
+              "detail": "出示范文《我的好朋友》，分析作者是怎么写的。"
+            },
+            {
+              "step": 3,
+              "activity": "指导写作",
+              "duration": "15分钟",
+              "detail": "引导学生思考：写谁？他有什么特点？通过什么事来写？"
+            },
+            {
+              "step": 4,
+              "activity": "学生习作",
+              "duration": "35分钟",
+              "detail": "学生写作，教师巡视指导。"
+            },
+            {
+              "step": 5,
+              "activity": "讲评修改",
+              "duration": "10分钟",
+              "detail": "选取典型作文讲评，学生修改。"
+            }
+          ],
+          "blackboard设计": "左边：作文结构（开头、中间、结尾）。右边：写作要点。",
+          "commonStudentErrors": [
+            "人物特点不突出",
+            "事情写不具体"
+          ],
+          "differentiation": {
+            "advanced": "运用比喻、夸张等修辞手法。",
+            "support": "先说再写，先写提纲。"
+          }
+        },
+        {
+          "id": "lesson_yw_007",
+          "title": "古诗：《望庐山瀑布》",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_YW3S015",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "背诵古诗",
+            "理解诗意，想象画面"
+          ],
+          "keyPoints": [
+            "背诵古诗",
+            "理解诗意",
+            "想象画面"
+          ],
+          "difficultPoints": [
+            "理解诗意",
+            "想象画面"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "图片导入",
+              "duration": "5分钟",
+              "detail": "出示庐山瀑布图片，激发兴趣。"
+            },
+            {
+              "step": 2,
+              "activity": "朗读古诗",
+              "duration": "10分钟",
+              "detail": "教师范读，学生跟读，注意节奏。"
+            },
+            {
+              "step": 3,
+              "activity": "理解诗意",
+              "duration": "10分钟",
+              "detail": "逐句讲解，理解关键词：香炉、紫烟、挂、飞流、直下。"
+            },
+            {
+              "step": 4,
+              "activity": "想象画面",
+              "duration": "10分钟",
+              "detail": "听老师读，说说你看到了什么画面。"
+            },
+            {
+              "step": 5,
+              "activity": "背诵古诗",
+              "duration": "5分钟",
+              "detail": "学生背诵，同桌互背。"
+            }
+          ],
+          "blackboard设计": "左边：古诗原文。右边：关键词解释。",
+          "commonStudentErrors": [
+            "读不出感情",
+            "诗意理解错误"
+          ],
+          "differentiation": {
+            "advanced": "仿写一首描写景物的诗。",
+            "support": "先理解，再背诵。"
+          }
+        },
+        {
+          "id": "lesson_yw_006",
+          "title": "作文：我的好朋友",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_YW3S010",
+          "difficulty": 3,
+          "duration": "80分钟",
+          "objectives": [
+            "学会写人物作文",
+            "能写出人物的特点"
+          ],
+          "keyPoints": [
+            "人物的外貌描写",
+            "通过一件事写人物特点"
+          ],
+          "difficultPoints": [
+            "写出人物的特点",
+            "把事情写具体"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "谈话导入",
+              "duration": "5分钟",
+              "detail": "说说你的好朋友是谁？他有什么特点？"
+            },
+            {
+              "step": 2,
+              "activity": "范文引路",
+              "duration": "15分钟",
+              "detail": "出示范文《我的好朋友》，分析作者是怎么写的。"
+            },
+            {
+              "step": 3,
+              "activity": "指导写作",
+              "duration": "15分钟",
+              "detail": "引导学生思考：写谁？他有什么特点？通过什么事来写？"
+            },
+            {
+              "step": 4,
+              "activity": "学生习作",
+              "duration": "35分钟",
+              "detail": "学生写作，教师巡视指导。"
+            },
+            {
+              "step": 5,
+              "activity": "讲评修改",
+              "duration": "10分钟",
+              "detail": "选取典型作文讲评，学生修改。"
+            }
+          ],
+          "blackboard设计": "左边：作文结构（开头、中间、结尾）。右边：写作要点。",
+          "commonStudentErrors": [
+            "人物特点不突出",
+            "事情写不具体"
+          ],
+          "differentiation": {
+            "advanced": "运用比喻、夸张等修辞手法。",
+            "support": "先说再写，先写提纲。"
+          }
+        },
+        {
+          "id": "lesson_yw_007",
+          "title": "古诗：《望庐山瀑布》",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_YW3S015",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "背诵古诗",
+            "理解诗意，想象画面"
+          ],
+          "keyPoints": [
+            "背诵古诗",
+            "理解诗意",
+            "想象画面"
+          ],
+          "difficultPoints": [
+            "理解诗意",
+            "想象画面"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "图片导入",
+              "duration": "5分钟",
+              "detail": "出示庐山瀑布图片，激发兴趣。"
+            },
+            {
+              "step": 2,
+              "activity": "朗读古诗",
+              "duration": "10分钟",
+              "detail": "教师范读，学生跟读，注意节奏。"
+            },
+            {
+              "step": 3,
+              "activity": "理解诗意",
+              "duration": "10分钟",
+              "detail": "逐句讲解，理解关键词：香炉、紫烟、挂、飞流、直下。"
+            },
+            {
+              "step": 4,
+              "activity": "想象画面",
+              "duration": "10分钟",
+              "detail": "听老师读，说说你看到了什么画面。"
+            },
+            {
+              "step": 5,
+              "activity": "背诵古诗",
+              "duration": "5分钟",
+              "detail": "学生背诵，同桌互背。"
+            }
+          ],
+          "blackboard设计": "左边：古诗原文。右边：关键词解释。",
+          "commonStudentErrors": [
+            "读不出感情",
+            "诗意理解错误"
+          ],
+          "differentiation": {
+            "advanced": "仿写一首描写景物的诗。",
+            "support": "先理解，再背诵。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "english_lower",
+      "name": "英语（中年级3-4年级）",
+      "icon": "🔤",
+      "lessons": [
+        {
+          "id": "lesson_yy_001",
+          "title": "Unit 1: My School",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_YY3S001",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "能说出学校场所的英语名称",
+            "能用Where's...?提问并回答"
+          ],
+          "keyPoints": [
+            "school, classroom, library, playground",
+            "Where's the...? It's on the... floor."
+          ],
+          "difficultPoints": [
+            "介词on/in/under的使用",
+            "发音准确"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "Warm-up",
+              "duration": "5分钟",
+              "detail": "Sing a song: Our school. 引出话题。"
+            },
+            {
+              "step": 2,
+              "activity": "Presentation",
+              "duration": "10分钟",
+              "detail": "用图片教学新词：school, classroom, library, playground。"
+            },
+            {
+              "step": 3,
+              "activity": "Practice",
+              "duration": "10分钟",
+              "detail": "游戏：What's missing? 快速认读单词。"
+            },
+            {
+              "step": 4,
+              "activity": "Dialogue",
+              "duration": "10分钟",
+              "detail": "教学对话：Where's the library? It's on the first floor. 分角色朗读。"
+            },
+            {
+              "step": 5,
+              "activity": "Production",
+              "duration": "5分钟",
+              "detail": "学生用自己的学校编对话，展示。"
+            }
+          ],
+          "blackboardDesign": "左边：学校场所图片和单词。右边：核心句型Where's...? It's on the... floor.",
+          "commonStudentErrors": [
+            "发音不准",
+            "介词用错",
+            "单复数错误"
+          ],
+          "differentiation": {
+            "advanced": "用更多介词描述位置：next to, behind, in front of。",
+            "support": "提供句型框架，替换单词即可。"
+          }
+        },
+        {
+          "id": "lesson_yy_002",
+          "title": "Unit 3: My Friends",
+          "grade": 4,
+          "term": "上",
+          "topicId": "ct_YY4S005",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "能描述朋友的外貌特征",
+            "能用Who's...?提问并回答"
+          ],
+          "keyPoints": [
+            "tall, short, thin, strong, friendly",
+            "Who's your friend? He/She is..."
+          ],
+          "difficultPoints": [
+            "he/she的使用",
+            "外貌描述"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "Warm-up",
+              "duration": "5分钟",
+              "detail": "Free talk: Do you have friends? What's he/she like?"
+            },
+            {
+              "step": 2,
+              "activity": "Presentation",
+              "duration": "10分钟",
+              "detail": "用图片教学外貌词汇：tall, short, thin, strong, friendly。"
+            },
+            {
+              "step": 3,
+              "activity": "Practice",
+              "duration": "10分钟",
+              "detail": "游戏：Guess who? 描述一位同学，猜猜是谁。"
+            },
+            {
+              "step": 4,
+              "activity": "Dialogue",
+              "duration": "10分钟",
+              "detail": "教学对话：Who's your best friend? Zhang Peng. What's he like? He's tall and strong."
+            },
+            {
+              "step": 5,
+              "activity": "Production",
+              "duration": "5分钟",
+              "detail": "学生描述自己的朋友，其他同学猜。"
+            }
+          ],
+          "blackboardDesign": "左边：外貌词汇和图片。右边：核心句型Who's...? He/She is...",
+          "commonStudentErrors": [
+            "he/she混淆",
+            "形容词顺序错误"
+          ],
+          "differentiation": {
+            "advanced": "描述朋友的性格和爱好。",
+            "support": "提供描述模板：My friend is____. He/She has____."
+          }
+        },
+        {
+          "id": "lesson_en_003",
+          "title": "英语：认识字母",
+          "grade": 1,
+          "term": "上",
+          "topicId": "ct_YY1S001",
+          "difficulty": 1,
+          "duration": "40分钟",
+          "objectives": [
+            "认识26个英文字母",
+            "能正确书写字母"
+          ],
+          "keyPoints": [
+            "字母的认读",
+            "字母的书写"
+          ],
+          "difficultPoints": [
+            "字母的发音",
+            "字母的占格"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "歌曲导入",
+              "duration": "5分钟",
+              "detail": "播放ABC歌曲，激发兴趣。"
+            },
+            {
+              "step": 2,
+              "activity": "认识字母",
+              "duration": "10分钟",
+              "detail": "出示字母卡片，教师示范发音，学生跟读。"
+            },
+            {
+              "step": 3,
+              "activity": "书写教学",
+              "duration": "10分钟",
+              "detail": "教师示范书写，学生书空练习。"
+            },
+            {
+              "step": 4,
+              "activity": "游戏巩固",
+              "duration": "10分钟",
+              "detail": "字母游戏：找邻居、字母接龙。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结字母发音，布置练习。"
+            }
+          ],
+          "blackboard设计": "左边：字母表。右边：字母书写示范。",
+          "commonStudentErrors": [
+            "字母发音不准",
+            "书写占格错误"
+          ],
+          "differentiation": {
+            "advanced": "学习字母在单词中的发音。",
+            "support": "先认读，再书写。"
+          }
+        },
+        {
+          "id": "lesson_en_004",
+          "title": "英语：数字1-10",
+          "grade": 1,
+          "term": "上",
+          "topicId": "ct_YY1S005",
+          "difficulty": 1,
+          "duration": "40分钟",
+          "objectives": [
+            "学会用英语说1-10",
+            "能听懂数字"
+          ],
+          "keyPoints": [
+            "数字1-10的认读",
+            "数字的运用"
+          ],
+          "difficultPoints": [
+            "数字的发音",
+            "数字的顺序"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "歌曲导入",
+              "duration": "5分钟",
+              "detail": "播放数字歌曲，激发兴趣。"
+            },
+            {
+              "step": 2,
+              "activity": "认识数字",
+              "duration": "10分钟",
+              "detail": "出示数字卡片，教师示范发音，学生跟读。"
+            },
+            {
+              "step": 3,
+              "activity": "游戏练习",
+              "duration": "15分钟",
+              "detail": "数字游戏：拍手报数、找朋友。"
+            },
+            {
+              "step": 4,
+              "activity": "运用数字",
+              "duration": "5分钟",
+              "detail": "数物品：How many? Ten."
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结数字，布置练习。"
+            }
+          ],
+          "blackboard设计": "左边：数字1-10。右边：How many? 句型。",
+          "commonStudentErrors": [
+            "数字发音不准",
+            "数字顺序混乱"
+          ],
+          "differentiation": {
+            "advanced": "学习数字11-20。",
+            "support": "先听，再说。"
+          }
+        },
+        {
+          "id": "lesson_en_003",
+          "title": "英语：认识字母",
+          "grade": 1,
+          "term": "上",
+          "topicId": "ct_YY1S001",
+          "difficulty": 1,
+          "duration": "40分钟",
+          "objectives": [
+            "认识26个英文字母",
+            "能正确书写字母"
+          ],
+          "keyPoints": [
+            "字母的认读",
+            "字母的书写"
+          ],
+          "difficultPoints": [
+            "字母的发音",
+            "字母的占格"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "歌曲导入",
+              "duration": "5分钟",
+              "detail": "播放ABC歌曲，激发兴趣。"
+            },
+            {
+              "step": 2,
+              "activity": "认识字母",
+              "duration": "10分钟",
+              "detail": "出示字母卡片，教师示范发音，学生跟读。"
+            },
+            {
+              "step": 3,
+              "activity": "书写教学",
+              "duration": "10分钟",
+              "detail": "教师示范书写，学生书空练习。"
+            },
+            {
+              "step": 4,
+              "activity": "游戏巩固",
+              "duration": "10分钟",
+              "detail": "字母游戏：找邻居、字母接龙。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结字母发音，布置练习。"
+            }
+          ],
+          "blackboard设计": "左边：字母表。右边：字母书写示范。",
+          "commonStudentErrors": [
+            "字母发音不准",
+            "书写占格错误"
+          ],
+          "differentiation": {
+            "advanced": "学习字母在单词中的发音。",
+            "support": "先认读，再书写。"
+          }
+        },
+        {
+          "id": "lesson_en_004",
+          "title": "英语：数字1-10",
+          "grade": 1,
+          "term": "上",
+          "topicId": "ct_YY1S005",
+          "difficulty": 1,
+          "duration": "40分钟",
+          "objectives": [
+            "学会用英语说1-10",
+            "能听懂数字"
+          ],
+          "keyPoints": [
+            "数字1-10的认读",
+            "数字的运用"
+          ],
+          "difficultPoints": [
+            "数字的发音",
+            "数字的顺序"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "歌曲导入",
+              "duration": "5分钟",
+              "detail": "播放数字歌曲，激发兴趣。"
+            },
+            {
+              "step": 2,
+              "activity": "认识数字",
+              "duration": "10分钟",
+              "detail": "出示数字卡片，教师示范发音，学生跟读。"
+            },
+            {
+              "step": 3,
+              "activity": "游戏练习",
+              "duration": "15分钟",
+              "detail": "数字游戏：拍手报数、找朋友。"
+            },
+            {
+              "step": 4,
+              "activity": "运用数字",
+              "duration": "5分钟",
+              "detail": "数物品：How many? Ten."
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结数字，布置练习。"
+            }
+          ],
+          "blackboard设计": "左边：数字1-10。右边：How many? 句型。",
+          "commonStudentErrors": [
+            "数字发音不准",
+            "数字顺序混乱"
+          ],
+          "differentiation": {
+            "advanced": "学习数字11-20。",
+            "support": "先听，再说。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "science",
+      "name": "科学",
+      "icon": "🔬",
+      "lessons": [
+        {
+          "id": "lesson_kx_001",
+          "title": "植物的结构",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_KX3S001",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "认识植物的根、茎、叶、花、果实、种子",
+            "了解各部分的功能"
+          ],
+          "keyPoints": [
+            "植物六部分名称",
+            "各部分的功能"
+          ],
+          "difficultPoints": [
+            "区分茎和根",
+            "理解各部分功能"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "导入",
+              "duration": "5分钟",
+              "detail": "展示一株完整的植物：同学们知道它有哪些部分吗？"
+            },
+            {
+              "step": 2,
+              "activity": "认识结构",
+              "duration": "10分钟",
+              "detail": "观察实物，认识根、茎、叶、花、果实、种子。"
+            },
+            {
+              "step": 3,
+              "activity": "了解功能",
+              "duration": "10分钟",
+              "detail": "讨论：各部分有什么作用？根吸水，茎运输，叶光合作用..."
+            },
+            {
+              "step": 4,
+              "activity": "动手操作",
+              "duration": "10分钟",
+              "detail": "解剖一朵花，观察各部分，粘贴在记录单上。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结植物各部分功能，布置作业：观察家里的植物。"
+            }
+          ],
+          "blackboardDesign": "左边：植物结构图。右边：各部分功能列表。",
+          "commonStudentErrors": [
+            "混淆茎和根",
+            "记不住各部分功能"
+          ],
+          "differentiation": {
+            "advanced": "了解不同植物各部分的差异。",
+            "support": "用实物观察，先认识再记忆。"
+          }
+        },
+        {
+          "id": "lesson_kx_002",
+          "title": "科学：植物的结构",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_KX3S001",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "认识植物的结构",
+            "了解各部分的功能"
+          ],
+          "keyPoints": [
+            "根、茎、叶、花、果实、种子",
+            "各部分的功能"
+          ],
+          "difficultPoints": [
+            "各部分功能的理解",
+            "植物结构的观察"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "情境导入",
+              "duration": "5分钟",
+              "detail": "出示植物图片，让学生观察。"
+            },
+            {
+              "step": 2,
+              "activity": "认识结构",
+              "duration": "10分钟",
+              "detail": "教学植物的结构：根、茎、叶、花、果实、种子。"
+            },
+            {
+              "step": 3,
+              "activity": "观察实验",
+              "duration": "15分钟",
+              "detail": "学生分组观察植物，记录各部分。"
+            },
+            {
+              "step": 4,
+              "activity": "讨论交流",
+              "duration": "5分钟",
+              "detail": "讨论各部分的功能。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结植物结构和功能。"
+            }
+          ],
+          "blackboard设计": "左边：植物结构图。右边：各部分功能。",
+          "commonStudentErrors": [
+            "各部分功能混淆",
+            "观察不仔细"
+          ],
+          "differentiation": {
+            "advanced": "了解不同植物的结构差异。",
+            "support": "先观察实物，再记录。"
+          }
+        },
+        {
+          "id": "lesson_kx_003",
+          "title": "科学：动物的分类",
+          "grade": 4,
+          "term": "上",
+          "topicId": "ct_KX4S001",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "了解动物的分类方法",
+            "能根据特征分类"
+          ],
+          "keyPoints": [
+            "脊椎动物和无脊椎动物",
+            "分类方法"
+          ],
+          "difficultPoints": [
+            "分类标准的确定",
+            "脊椎动物的特征"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "情境导入",
+              "duration": "5分钟",
+              "detail": "出示各种动物图片，让学生分类。"
+            },
+            {
+              "step": 2,
+              "activity": "认识分类",
+              "duration": "10分钟",
+              "detail": "教学脊椎动物和无脊椎动物的概念。"
+            },
+            {
+              "step": 3,
+              "activity": "分类活动",
+              "duration": "15分钟",
+              "detail": "学生分组，给动物分类。"
+            },
+            {
+              "step": 4,
+              "activity": "讨论交流",
+              "duration": "5分钟",
+              "detail": "交流分类结果和理由。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结分类方法。"
+            }
+          ],
+          "blackboard设计": "左边：动物分类图。右边：分类标准。",
+          "commonStudentErrors": [
+            "分类标准不统一",
+            "脊椎动物特征理解错误"
+          ],
+          "differentiation": {
+            "advanced": "了解更细的分类：哺乳动物、鸟类等。",
+            "support": "先观察特征，再分类。"
+          }
+        },
+        {
+          "id": "lesson_kx_002",
+          "title": "科学：植物的结构",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_KX3S001",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "认识植物的结构",
+            "了解各部分的功能"
+          ],
+          "keyPoints": [
+            "根、茎、叶、花、果实、种子",
+            "各部分的功能"
+          ],
+          "difficultPoints": [
+            "各部分功能的理解",
+            "植物结构的观察"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "情境导入",
+              "duration": "5分钟",
+              "detail": "出示植物图片，让学生观察。"
+            },
+            {
+              "step": 2,
+              "activity": "认识结构",
+              "duration": "10分钟",
+              "detail": "教学植物的结构：根、茎、叶、花、果实、种子。"
+            },
+            {
+              "step": 3,
+              "activity": "观察实验",
+              "duration": "15分钟",
+              "detail": "学生分组观察植物，记录各部分。"
+            },
+            {
+              "step": 4,
+              "activity": "讨论交流",
+              "duration": "5分钟",
+              "detail": "讨论各部分的功能。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结植物结构和功能。"
+            }
+          ],
+          "blackboard设计": "左边：植物结构图。右边：各部分功能。",
+          "commonStudentErrors": [
+            "各部分功能混淆",
+            "观察不仔细"
+          ],
+          "differentiation": {
+            "advanced": "了解不同植物的结构差异。",
+            "support": "先观察实物，再记录。"
+          }
+        },
+        {
+          "id": "lesson_kx_003",
+          "title": "科学：动物的分类",
+          "grade": 4,
+          "term": "上",
+          "topicId": "ct_KX4S001",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "了解动物的分类方法",
+            "能根据特征分类"
+          ],
+          "keyPoints": [
+            "脊椎动物和无脊椎动物",
+            "分类方法"
+          ],
+          "difficultPoints": [
+            "分类标准的确定",
+            "脊椎动物的特征"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "情境导入",
+              "duration": "5分钟",
+              "detail": "出示各种动物图片，让学生分类。"
+            },
+            {
+              "step": 2,
+              "activity": "认识分类",
+              "duration": "10分钟",
+              "detail": "教学脊椎动物和无脊椎动物的概念。"
+            },
+            {
+              "step": 3,
+              "activity": "分类活动",
+              "duration": "15分钟",
+              "detail": "学生分组，给动物分类。"
+            },
+            {
+              "step": 4,
+              "activity": "讨论交流",
+              "duration": "5分钟",
+              "detail": "交流分类结果和理由。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结分类方法。"
+            }
+          ],
+          "blackboard设计": "左边：动物分类图。右边：分类标准。",
+          "commonStudentErrors": [
+            "分类标准不统一",
+            "脊椎动物特征理解错误"
+          ],
+          "differentiation": {
+            "advanced": "了解更细的分类：哺乳动物、鸟类等。",
+            "support": "先观察特征，再分类。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "moral",
+      "name": "道德与法治",
+      "icon": "⚖️",
+      "lessons": [
+        {
+          "id": "lesson_df_001",
+          "title": "我们的班级",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_DF3S001",
+          "difficulty": 1,
+          "duration": "40分钟",
+          "objectives": [
+            "了解班级生活",
+            "学会与同学友好相处"
+          ],
+          "keyPoints": [
+            "班级生活真丰富",
+            "同学之间要友爱"
+          ],
+          "difficultPoints": [
+            "理解集体生活的意义",
+            "处理同学矛盾"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "导入",
+              "duration": "5分钟",
+              "detail": "播放班级活动照片：同学们在班级里做什么？"
+            },
+            {
+              "step": 2,
+              "activity": "班级生活",
+              "duration": "10分钟",
+              "detail": "说说班级里有哪些活动？你最喜欢什么？"
+            },
+            {
+              "step": 3,
+              "activity": "同学友爱",
+              "duration": "10分钟",
+              "detail": "讨论：和同学发生矛盾怎么办？要学会谦让、分享、互助。"
+            },
+            {
+              "step": 4,
+              "activity": "制定公约",
+              "duration": "10分钟",
+              "detail": "小组讨论：我们的班级公约是什么？"
+            },
+            {
+              "step": 5,
+              "activity": "总结",
+              "duration": "5分钟",
+              "detail": "总结：班级是我们的家，要爱护它。"
+            }
+          ],
+          "blackboardDesign": "左边：班级活动照片。右边：班级公约。",
+          "commonStudentErrors": [
+            "不理解集体概念",
+            "不会处理矛盾"
+          ],
+          "differentiation": {
+            "advanced": "思考：怎样让班级变得更好？",
+            "support": "用具体事例引导：同学摔倒了怎么办？"
+          }
+        },
+        {
+          "id": "lesson_dd_002",
+          "title": "道法：我爱我家",
+          "grade": 2,
+          "term": "上",
+          "topicId": "ct_DD2S001",
+          "difficulty": 1,
+          "duration": "40分钟",
+          "objectives": [
+            "感受家庭的温暖",
+            "学会爱家人"
+          ],
+          "keyPoints": [
+            "家庭的温暖",
+            "爱家人的表现"
+          ],
+          "difficultPoints": [
+            "理解家人的爱",
+            "表达爱的方式"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "故事导入",
+              "duration": "5分钟",
+              "detail": "讲述一个关于家庭温暖的故事。"
+            },
+            {
+              "step": 2,
+              "activity": "分享交流",
+              "duration": "10分钟",
+              "detail": "学生分享家人关爱自己的故事。"
+            },
+            {
+              "step": 3,
+              "activity": "讨论感悟",
+              "duration": "10分钟",
+              "detail": "讨论：家人是怎么爱我们的？"
+            },
+            {
+              "step": 4,
+              "activity": "学会表达",
+              "duration": "10分钟",
+              "detail": "讨论：我们可以为家人做什么？"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结：爱家人，从点滴做起。"
+            }
+          ],
+          "blackboard设计": "左边：家庭的温暖。右边：爱家人的表现。",
+          "commonStudentErrors": [
+            "不理解家人的爱",
+            "不会表达爱"
+          ],
+          "differentiation": {
+            "advanced": "制作感恩卡送给家人。",
+            "support": "先说，再做。"
+          }
+        },
+        {
+          "id": "lesson_dd_002",
+          "title": "道法：我爱我家",
+          "grade": 2,
+          "term": "上",
+          "topicId": "ct_DD2S001",
+          "difficulty": 1,
+          "duration": "40分钟",
+          "objectives": [
+            "感受家庭的温暖",
+            "学会爱家人"
+          ],
+          "keyPoints": [
+            "家庭的温暖",
+            "爱家人的表现"
+          ],
+          "difficultPoints": [
+            "理解家人的爱",
+            "表达爱的方式"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "故事导入",
+              "duration": "5分钟",
+              "detail": "讲述一个关于家庭温暖的故事。"
+            },
+            {
+              "step": 2,
+              "activity": "分享交流",
+              "duration": "10分钟",
+              "detail": "学生分享家人关爱自己的故事。"
+            },
+            {
+              "step": 3,
+              "activity": "讨论感悟",
+              "duration": "10分钟",
+              "detail": "讨论：家人是怎么爱我们的？"
+            },
+            {
+              "step": 4,
+              "activity": "学会表达",
+              "duration": "10分钟",
+              "detail": "讨论：我们可以为家人做什么？"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结：爱家人，从点滴做起。"
+            }
+          ],
+          "blackboard设计": "左边：家庭的温暖。右边：爱家人的表现。",
+          "commonStudentErrors": [
+            "不理解家人的爱",
+            "不会表达爱"
+          ],
+          "differentiation": {
+            "advanced": "制作感恩卡送给家人。",
+            "support": "先说，再做。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "math_upper",
+      "name": "数学（高年级5-6年级）",
+      "icon": "🔢",
+      "lessons": [
+        {
+          "id": "lesson_sx_010",
+          "title": "小数乘法",
+          "grade": 5,
+          "term": "上",
+          "topicId": "ct_SX5S005",
+          "difficulty": 4,
+          "duration": "40分钟",
+          "objectives": [
+            "掌握小数乘法的计算方法",
+            "理解小数点位置的确定"
+          ],
+          "keyPoints": [
+            "先按整数乘法计算",
+            "数因数中小数位数之和",
+            "从积的末尾起数出小数位数"
+          ],
+          "difficultPoints": [
+            "小数点位置的确定",
+            "积末尾有0的处理"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "复习导入",
+              "duration": "5分钟",
+              "detail": "复习整数乘法和小数的意义。"
+            },
+            {
+              "step": 2,
+              "activity": "情境引入",
+              "duration": "5分钟",
+              "detail": "出示：每千克苹果3.5元，买2.4千克需要多少钱？"
+            },
+            {
+              "step": 3,
+              "activity": "探究算法",
+              "duration": "10分钟",
+              "detail": "引导学生把3.5×2.4转化为35×24，计算后再点小数点。"
+            },
+            {
+              "step": 4,
+              "activity": "总结方法",
+              "duration": "10分钟",
+              "detail": "总结：一算（按整数乘）、二数（数小数位数）、三点（点小数点）。"
+            },
+            {
+              "step": 5,
+              "activity": "巩固练习",
+              "duration": "10分钟",
+              "detail": "完成课本练习，重点练习小数点位置的确定。"
+            }
+          ],
+          "blackboard设计": "左边：3.5×2.4的计算过程。右边：小数乘法三步法。",
+          "commonStudentErrors": [
+            "小数点位置点错",
+            "积末尾有0时出错"
+          ],
+          "differentiation": {
+            "advanced": "探索：一个数乘大于1的数，积会怎样？",
+            "support": "先估算，再计算。"
+          }
+        },
+        {
+          "id": "lesson_sx_011",
+          "title": "分数除法",
+          "grade": 6,
+          "term": "上",
+          "topicId": "ct_SX6S005",
+          "difficulty": 4,
+          "duration": "40分钟",
+          "objectives": [
+            "掌握分数除法的计算方法",
+            "理解除以分数等于乘倒数"
+          ],
+          "keyPoints": [
+            "除以分数等于乘倒数",
+            "除以一个数等于乘这个数的倒数"
+          ],
+          "difficultPoints": [
+            "理解为什么除以分数等于乘倒数",
+            "带分数的除法"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "复习导入",
+              "duration": "5分钟",
+              "detail": "复习分数乘法和倒数。"
+            },
+            {
+              "step": 2,
+              "activity": "情境引入",
+              "duration": "5分钟",
+              "detail": "出示：2升果汁，每瓶装1/2升，可以装几瓶？"
+            },
+            {
+              "step": 3,
+              "activity": "探究算法",
+              "duration": "10分钟",
+              "detail": "引导学生发现：2÷1/2=2×2=4。"
+            },
+            {
+              "step": 4,
+              "activity": "总结方法",
+              "duration": "10分钟",
+              "detail": "总结：除以一个分数等于乘这个分数的倒数。"
+            },
+            {
+              "step": 5,
+              "activity": "巩固练习",
+              "duration": "10分钟",
+              "detail": "完成课本练习，重点练习带分数的除法。"
+            }
+          ],
+          "blackboard设计": "左边：2÷1/2=2×2=4。右边：分数除法法则。",
+          "commonStudentErrors": [
+            "忘记乘倒数",
+            "带分数没化成假分数"
+          ],
+          "differentiation": {
+            "advanced": "探索：除以一个大于1的数，商会怎样？",
+            "support": "用线段图帮助理解。"
+          }
+        },
+        {
+          "id": "lesson_sx_012",
+          "title": "圆的周长",
+          "grade": 6,
+          "term": "上",
+          "topicId": "ct_SX6S010",
+          "difficulty": 3,
+          "duration": "40分钟",
+          "objectives": [
+            "理解圆周率的意义",
+            "掌握圆的周长计算公式"
+          ],
+          "keyPoints": [
+            "圆周率π的意义",
+            "C=πd=2πr"
+          ],
+          "difficultPoints": [
+            "理解圆周率",
+            "测量圆的周长"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "情境导入",
+              "duration": "5分钟",
+              "detail": "出示：自行车车轮滚动一圈能走多远？"
+            },
+            {
+              "step": 2,
+              "activity": "测量周长",
+              "duration": "10分钟",
+              "detail": "学生分组测量圆形物体的周长和直径，计算周长÷直径。"
+            },
+            {
+              "step": 3,
+              "activity": "认识圆周率",
+              "duration": "10分钟",
+              "detail": "介绍圆周率π，发现周长÷直径≈3.14。"
+            },
+            {
+              "step": 4,
+              "activity": "公式教学",
+              "duration": "10分钟",
+              "detail": "总结：C=πd=2πr。"
+            },
+            {
+              "step": 5,
+              "activity": "巩固练习",
+              "duration": "5分钟",
+              "detail": "计算圆的周长。"
+            }
+          ],
+          "blackboard设计": "左边：圆形物体和周长测量。右边：C=πd=2πr。",
+          "commonStudentErrors": [
+            "π取3.14还是3",
+            "直径和半径混淆"
+          ],
+          "differentiation": {
+            "advanced": "计算半圆的周长。",
+            "support": "先测量，再计算。"
+          }
+        },
+        {
+          "id": "lesson_sx_010",
+          "title": "小数乘法",
+          "grade": 5,
+          "term": "上",
+          "topicId": "ct_SX5S005",
+          "difficulty": 4,
+          "duration": "40分钟",
+          "objectives": [
+            "掌握小数乘法的计算方法",
+            "理解小数点位置的确定"
+          ],
+          "keyPoints": [
+            "先按整数乘法计算",
+            "数因数中小数位数之和",
+            "从积的末尾起数出小数位数"
+          ],
+          "difficultPoints": [
+            "小数点位置的确定",
+            "积末尾有0的处理"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "复习导入",
+              "duration": "5分钟",
+              "detail": "复习整数乘法和小数的意义。"
+            },
+            {
+              "step": 2,
+              "activity": "情境引入",
+              "duration": "5分钟",
+              "detail": "出示：每千克苹果3.5元，买2.4千克需要多少钱？"
+            },
+            {
+              "step": 3,
+              "activity": "探究算法",
+              "duration": "10分钟",
+              "detail": "引导学生把3.5×2.4转化为35×24，计算后再点小数点。"
+            },
+            {
+              "step": 4,
+              "activity": "总结方法",
+              "duration": "10分钟",
+              "detail": "总结：一算（按整数乘）、二数（数小数位数）、三点（点小数点）。"
+            },
+            {
+              "step": 5,
+              "activity": "巩固练习",
+              "duration": "10分钟",
+              "detail": "完成课本练习，重点练习小数点位置的确定。"
+            }
+          ],
+          "blackboard设计": "左边：3.5×2.4的计算过程。右边：小数乘法三步法。",
+          "commonStudentErrors": [
+            "小数点位置点错",
+            "积末尾有0时出错"
+          ],
+          "differentiation": {
+            "advanced": "探索：一个数乘大于1的数，积会怎样？",
+            "support": "先估算，再计算。"
+          }
+        },
+        {
+          "id": "lesson_sx_011",
+          "title": "分数除法",
+          "grade": 6,
+          "term": "上",
+          "topicId": "ct_SX6S005",
+          "difficulty": 4,
+          "duration": "40分钟",
+          "objectives": [
+            "掌握分数除法的计算方法",
+            "理解除以分数等于乘倒数"
+          ],
+          "keyPoints": [
+            "除以分数等于乘倒数",
+            "除以一个数等于乘这个数的倒数"
+          ],
+          "difficultPoints": [
+            "理解为什么除以分数等于乘倒数",
+            "带分数的除法"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "复习导入",
+              "duration": "5分钟",
+              "detail": "复习分数乘法和倒数。"
+            },
+            {
+              "step": 2,
+              "activity": "情境引入",
+              "duration": "5分钟",
+              "detail": "出示：2升果汁，每瓶装1/2升，可以装几瓶？"
+            },
+            {
+              "step": 3,
+              "activity": "探究算法",
+              "duration": "10分钟",
+              "detail": "引导学生发现：2÷1/2=2×2=4。"
+            },
+            {
+              "step": 4,
+              "activity": "总结方法",
+              "duration": "10分钟",
+              "detail": "总结：除以一个分数等于乘这个分数的倒数。"
+            },
+            {
+              "step": 5,
+              "activity": "巩固练习",
+              "duration": "10分钟",
+              "detail": "完成课本练习，重点练习带分数的除法。"
+            }
+          ],
+          "blackboard设计": "左边：2÷1/2=2×2=4。右边：分数除法法则。",
+          "commonStudentErrors": [
+            "忘记乘倒数",
+            "带分数没化成假分数"
+          ],
+          "differentiation": {
+            "advanced": "探索：除以一个大于1的数，商会怎样？",
+            "support": "用线段图帮助理解。"
+          }
+        },
+        {
+          "id": "lesson_sx_012",
+          "title": "圆的周长",
+          "grade": 6,
+          "term": "上",
+          "topicId": "ct_SX6S010",
+          "difficulty": 3,
+          "duration": "40分钟",
+          "objectives": [
+            "理解圆周率的意义",
+            "掌握圆的周长计算公式"
+          ],
+          "keyPoints": [
+            "圆周率π的意义",
+            "C=πd=2πr"
+          ],
+          "difficultPoints": [
+            "理解圆周率",
+            "测量圆的周长"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "情境导入",
+              "duration": "5分钟",
+              "detail": "出示：自行车车轮滚动一圈能走多远？"
+            },
+            {
+              "step": 2,
+              "activity": "测量周长",
+              "duration": "10分钟",
+              "detail": "学生分组测量圆形物体的周长和直径，计算周长÷直径。"
+            },
+            {
+              "step": 3,
+              "activity": "认识圆周率",
+              "duration": "10分钟",
+              "detail": "介绍圆周率π，发现周长÷直径≈3.14。"
+            },
+            {
+              "step": 4,
+              "activity": "公式教学",
+              "duration": "10分钟",
+              "detail": "总结：C=πd=2πr。"
+            },
+            {
+              "step": 5,
+              "activity": "巩固练习",
+              "duration": "5分钟",
+              "detail": "计算圆的周长。"
+            }
+          ],
+          "blackboard设计": "左边：圆形物体和周长测量。右边：C=πd=2πr。",
+          "commonStudentErrors": [
+            "π取3.14还是3",
+            "直径和半径混淆"
+          ],
+          "differentiation": {
+            "advanced": "计算半圆的周长。",
+            "support": "先测量，再计算。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "chinese_upper",
+      "name": "语文（高年级5-6年级）",
+      "icon": "📖",
+      "lessons": [
+        {
+          "id": "lesson_yw_008",
+          "title": "说明文阅读",
+          "grade": 5,
+          "term": "上",
+          "topicId": "ct_YW5S010",
+          "difficulty": 3,
+          "duration": "40分钟",
+          "objectives": [
+            "了解说明文的特点",
+            "掌握说明方法"
+          ],
+          "keyPoints": [
+            "说明文的特点",
+            "常见的说明方法：列数字、举例子、作比较"
+          ],
+          "difficultPoints": [
+            "识别说明方法",
+            "理解说明方法的作用"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "复习导入",
+              "duration": "5分钟",
+              "detail": "复习记叙文的特点，引出说明文。"
+            },
+            {
+              "step": 2,
+              "activity": "认识说明文",
+              "duration": "10分钟",
+              "detail": "出示范文，让学生发现说明文的特点。"
+            },
+            {
+              "step": 3,
+              "activity": "说明方法",
+              "duration": "10分钟",
+              "detail": "教学常见的说明方法：列数字、举例子、作比较、打比方。"
+            },
+            {
+              "step": 4,
+              "activity": "练习巩固",
+              "duration": "10分钟",
+              "detail": "阅读短文，找出使用的说明方法。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结说明文的特点和说明方法。"
+            }
+          ],
+          "blackboard设计": "左边：说明文特点。右边：常见说明方法。",
+          "commonStudentErrors": [
+            "说明方法判断错误",
+            "说明方法作用说不清"
+          ],
+          "differentiation": {
+            "advanced": "分析说明方法的好处。",
+            "support": "先找关键词，再判断说明方法。"
+          }
+        },
+        {
+          "id": "lesson_yw_009",
+          "title": "作文：读后感",
+          "grade": 5,
+          "term": "下",
+          "topicId": "ct_YW5S015",
+          "difficulty": 4,
+          "duration": "80分钟",
+          "objectives": [
+            "学会写读后感",
+            "能写出自己的感受"
+          ],
+          "keyPoints": [
+            "读后感的结构：引、议、联、结",
+            "写出自己的真实感受"
+          ],
+          "difficultPoints": [
+            "写出真实感受",
+            "联系生活实际"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "谈话导入",
+              "duration": "5分钟",
+              "detail": "说说最近读了什么书？有什么感受？"
+            },
+            {
+              "step": 2,
+              "activity": "范文引路",
+              "duration": "15分钟",
+              "detail": "出示范文，分析读后感的结构。"
+            },
+            {
+              "step": 3,
+              "activity": "指导写作",
+              "duration": "15分钟",
+              "detail": "引导学生思考：读的什么书？有什么感受？联系了什么？"
+            },
+            {
+              "step": 4,
+              "activity": "学生习作",
+              "duration": "35分钟",
+              "detail": "学生写作，教师巡视指导。"
+            },
+            {
+              "step": 5,
+              "activity": "讲评修改",
+              "duration": "10分钟",
+              "detail": "选取典型作文讲评，学生修改。"
+            }
+          ],
+          "blackboard设计": "左边：读后感结构（引、议、联、结）。右边：写作要点。",
+          "commonStudentErrors": [
+            "感受写不具体",
+            "联系生活实际不够"
+          ],
+          "differentiation": {
+            "advanced": "运用多种表达方式。",
+            "support": "先写提纲，再写作文。"
+          }
+        },
+        {
+          "id": "lesson_yw_008",
+          "title": "说明文阅读",
+          "grade": 5,
+          "term": "上",
+          "topicId": "ct_YW5S010",
+          "difficulty": 3,
+          "duration": "40分钟",
+          "objectives": [
+            "了解说明文的特点",
+            "掌握说明方法"
+          ],
+          "keyPoints": [
+            "说明文的特点",
+            "常见的说明方法：列数字、举例子、作比较"
+          ],
+          "difficultPoints": [
+            "识别说明方法",
+            "理解说明方法的作用"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "复习导入",
+              "duration": "5分钟",
+              "detail": "复习记叙文的特点，引出说明文。"
+            },
+            {
+              "step": 2,
+              "activity": "认识说明文",
+              "duration": "10分钟",
+              "detail": "出示范文，让学生发现说明文的特点。"
+            },
+            {
+              "step": 3,
+              "activity": "说明方法",
+              "duration": "10分钟",
+              "detail": "教学常见的说明方法：列数字、举例子、作比较、打比方。"
+            },
+            {
+              "step": 4,
+              "activity": "练习巩固",
+              "duration": "10分钟",
+              "detail": "阅读短文，找出使用的说明方法。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结说明文的特点和说明方法。"
+            }
+          ],
+          "blackboard设计": "左边：说明文特点。右边：常见说明方法。",
+          "commonStudentErrors": [
+            "说明方法判断错误",
+            "说明方法作用说不清"
+          ],
+          "differentiation": {
+            "advanced": "分析说明方法的好处。",
+            "support": "先找关键词，再判断说明方法。"
+          }
+        },
+        {
+          "id": "lesson_yw_009",
+          "title": "作文：读后感",
+          "grade": 5,
+          "term": "下",
+          "topicId": "ct_YW5S015",
+          "difficulty": 4,
+          "duration": "80分钟",
+          "objectives": [
+            "学会写读后感",
+            "能写出自己的感受"
+          ],
+          "keyPoints": [
+            "读后感的结构：引、议、联、结",
+            "写出自己的真实感受"
+          ],
+          "difficultPoints": [
+            "写出真实感受",
+            "联系生活实际"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "谈话导入",
+              "duration": "5分钟",
+              "detail": "说说最近读了什么书？有什么感受？"
+            },
+            {
+              "step": 2,
+              "activity": "范文引路",
+              "duration": "15分钟",
+              "detail": "出示范文，分析读后感的结构。"
+            },
+            {
+              "step": 3,
+              "activity": "指导写作",
+              "duration": "15分钟",
+              "detail": "引导学生思考：读的什么书？有什么感受？联系了什么？"
+            },
+            {
+              "step": 4,
+              "activity": "学生习作",
+              "duration": "35分钟",
+              "detail": "学生写作，教师巡视指导。"
+            },
+            {
+              "step": 5,
+              "activity": "讲评修改",
+              "duration": "10分钟",
+              "detail": "选取典型作文讲评，学生修改。"
+            }
+          ],
+          "blackboard设计": "左边：读后感结构（引、议、联、结）。右边：写作要点。",
+          "commonStudentErrors": [
+            "感受写不具体",
+            "联系生活实际不够"
+          ],
+          "differentiation": {
+            "advanced": "运用多种表达方式。",
+            "support": "先写提纲，再写作文。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "english_middle",
+      "name": "英语（中年级3-4年级）",
+      "icon": "🔤",
+      "lessons": [
+        {
+          "id": "lesson_en_005",
+          "title": "英语：My Family",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_YY3S005",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "学会介绍家庭成员",
+            "能用This is my...介绍家人"
+          ],
+          "keyPoints": [
+            "家庭成员词汇",
+            "This is my...句型"
+          ],
+          "difficultPoints": [
+            "家庭成员词汇的记忆",
+            "句型的运用"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "歌曲导入",
+              "duration": "5分钟",
+              "detail": "播放Family歌曲，激发兴趣。"
+            },
+            {
+              "step": 2,
+              "activity": "词汇教学",
+              "duration": "10分钟",
+              "detail": "教学家庭成员词汇：father, mother, brother, sister, grandpa, grandma。"
+            },
+            {
+              "step": 3,
+              "activity": "句型教学",
+              "duration": "10分钟",
+              "detail": "教学This is my...句型，学生练习。"
+            },
+            {
+              "step": 4,
+              "activity": "对话练习",
+              "duration": "10分钟",
+              "detail": "学生拿出全家福，用英语介绍家人。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结词汇和句型，布置练习。"
+            }
+          ],
+          "blackboard设计": "左边：家庭成员词汇。右边：This is my...句型。",
+          "commonStudentErrors": [
+            "词汇记忆错误",
+            "句型运用不熟练"
+          ],
+          "differentiation": {
+            "advanced": "用He/She is...描述家人。",
+            "support": "先看图说，再自由说。"
+          }
+        },
+        {
+          "id": "lesson_en_006",
+          "title": "英语：What's your name?",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_YY3S001",
+          "difficulty": 1,
+          "duration": "40分钟",
+          "objectives": [
+            "学会询问名字",
+            "能回答What's your name? My name is..."
+          ],
+          "keyPoints": [
+            "What's your name?",
+            "My name is..."
+          ],
+          "difficultPoints": [
+            "name的发音",
+            "句型的运用"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "歌曲导入",
+              "duration": "5分钟",
+              "detail": "播放Hello歌曲，激发兴趣。"
+            },
+            {
+              "step": 2,
+              "activity": "句型教学",
+              "duration": "10分钟",
+              "detail": "教学What's your name? My name is...，教师示范。"
+            },
+            {
+              "step": 3,
+              "activity": "对话练习",
+              "duration": "15分钟",
+              "detail": "学生两人一组，练习对话。"
+            },
+            {
+              "step": 4,
+              "activity": "角色扮演",
+              "duration": "5分钟",
+              "detail": "创设情境，学生表演对话。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结句型，布置练习。"
+            }
+          ],
+          "blackboard设计": "左边：What's your name? 右边：My name is...",
+          "commonStudentErrors": [
+            "name发音不准",
+            "句型运用不熟练"
+          ],
+          "differentiation": {
+            "advanced": "学习How old are you?",
+            "support": "先跟读，再自由说。"
+          }
+        },
+        {
+          "id": "lesson_en_005",
+          "title": "英语：My Family",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_YY3S005",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "学会介绍家庭成员",
+            "能用This is my...介绍家人"
+          ],
+          "keyPoints": [
+            "家庭成员词汇",
+            "This is my...句型"
+          ],
+          "difficultPoints": [
+            "家庭成员词汇的记忆",
+            "句型的运用"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "歌曲导入",
+              "duration": "5分钟",
+              "detail": "播放Family歌曲，激发兴趣。"
+            },
+            {
+              "step": 2,
+              "activity": "词汇教学",
+              "duration": "10分钟",
+              "detail": "教学家庭成员词汇：father, mother, brother, sister, grandpa, grandma。"
+            },
+            {
+              "step": 3,
+              "activity": "句型教学",
+              "duration": "10分钟",
+              "detail": "教学This is my...句型，学生练习。"
+            },
+            {
+              "step": 4,
+              "activity": "对话练习",
+              "duration": "10分钟",
+              "detail": "学生拿出全家福，用英语介绍家人。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结词汇和句型，布置练习。"
+            }
+          ],
+          "blackboard设计": "左边：家庭成员词汇。右边：This is my...句型。",
+          "commonStudentErrors": [
+            "词汇记忆错误",
+            "句型运用不熟练"
+          ],
+          "differentiation": {
+            "advanced": "用He/She is...描述家人。",
+            "support": "先看图说，再自由说。"
+          }
+        },
+        {
+          "id": "lesson_en_006",
+          "title": "英语：What's your name?",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_YY3S001",
+          "difficulty": 1,
+          "duration": "40分钟",
+          "objectives": [
+            "学会询问名字",
+            "能回答What's your name? My name is..."
+          ],
+          "keyPoints": [
+            "What's your name?",
+            "My name is..."
+          ],
+          "difficultPoints": [
+            "name的发音",
+            "句型的运用"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "歌曲导入",
+              "duration": "5分钟",
+              "detail": "播放Hello歌曲，激发兴趣。"
+            },
+            {
+              "step": 2,
+              "activity": "句型教学",
+              "duration": "10分钟",
+              "detail": "教学What's your name? My name is...，教师示范。"
+            },
+            {
+              "step": 3,
+              "activity": "对话练习",
+              "duration": "15分钟",
+              "detail": "学生两人一组，练习对话。"
+            },
+            {
+              "step": 4,
+              "activity": "角色扮演",
+              "duration": "5分钟",
+              "detail": "创设情境，学生表演对话。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结句型，布置练习。"
+            }
+          ],
+          "blackboard设计": "左边：What's your name? 右边：My name is...",
+          "commonStudentErrors": [
+            "name发音不准",
+            "句型运用不熟练"
+          ],
+          "differentiation": {
+            "advanced": "学习How old are you?",
+            "support": "先跟读，再自由说。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pe",
+      "name": "体育与健康",
+      "icon": "🏃",
+      "lessons": [
+        {
+          "id": "lesson_ty_001",
+          "title": "体育：跳绳",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_TY3S001",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "学会跳绳",
+            "掌握跳绳技巧"
+          ],
+          "keyPoints": [
+            "跳绳的姿势",
+            "跳绳的节奏"
+          ],
+          "difficultPoints": [
+            "手脚协调",
+            "连续跳绳"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "准备活动",
+              "duration": "5分钟",
+              "detail": "慢跑、热身操。"
+            },
+            {
+              "step": 2,
+              "activity": "示范教学",
+              "duration": "10分钟",
+              "detail": "教师示范跳绳，讲解动作要领。"
+            },
+            {
+              "step": 3,
+              "activity": "分组练习",
+              "duration": "15分钟",
+              "detail": "学生分组练习，教师指导。"
+            },
+            {
+              "step": 4,
+              "activity": "比赛巩固",
+              "duration": "5分钟",
+              "detail": "跳绳比赛，激发兴趣。"
+            },
+            {
+              "step": 5,
+              "activity": "放松总结",
+              "duration": "5分钟",
+              "detail": "放松操，总结学习情况。"
+            }
+          ],
+          "blackboard设计": "左边：跳绳动作要领。右边：注意事项。",
+          "commonStudentErrors": [
+            "手脚不协调",
+            "节奏不稳"
+          ],
+          "differentiation": {
+            "advanced": "学习花样跳绳。",
+            "support": "先空手练习，再拿绳练习。"
+          }
+        },
+        {
+          "id": "lesson_ty_001",
+          "title": "体育：跳绳",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_TY3S001",
+          "difficulty": 2,
+          "duration": "40分钟",
+          "objectives": [
+            "学会跳绳",
+            "掌握跳绳技巧"
+          ],
+          "keyPoints": [
+            "跳绳的姿势",
+            "跳绳的节奏"
+          ],
+          "difficultPoints": [
+            "手脚协调",
+            "连续跳绳"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "准备活动",
+              "duration": "5分钟",
+              "detail": "慢跑、热身操。"
+            },
+            {
+              "step": 2,
+              "activity": "示范教学",
+              "duration": "10分钟",
+              "detail": "教师示范跳绳，讲解动作要领。"
+            },
+            {
+              "step": 3,
+              "activity": "分组练习",
+              "duration": "15分钟",
+              "detail": "学生分组练习，教师指导。"
+            },
+            {
+              "step": 4,
+              "activity": "比赛巩固",
+              "duration": "5分钟",
+              "detail": "跳绳比赛，激发兴趣。"
+            },
+            {
+              "step": 5,
+              "activity": "放松总结",
+              "duration": "5分钟",
+              "detail": "放松操，总结学习情况。"
+            }
+          ],
+          "blackboard设计": "左边：跳绳动作要领。右边：注意事项。",
+          "commonStudentErrors": [
+            "手脚不协调",
+            "节奏不稳"
+          ],
+          "differentiation": {
+            "advanced": "学习花样跳绳。",
+            "support": "先空手练习，再拿绳练习。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "art",
+      "name": "美术",
+      "icon": "🎨",
+      "lessons": [
+        {
+          "id": "lesson_ms_001",
+          "title": "美术：简笔画",
+          "grade": 2,
+          "term": "上",
+          "topicId": "ct_MS2S001",
+          "difficulty": 1,
+          "duration": "40分钟",
+          "objectives": [
+            "学会画简笔画",
+            "能用简单图形表现物体"
+          ],
+          "keyPoints": [
+            "圆形、三角形、方形",
+            "组合图形表现物体"
+          ],
+          "difficultPoints": [
+            "图形的组合",
+            "物体的简化"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "欣赏导入",
+              "duration": "5分钟",
+              "detail": "展示简笔画作品，激发兴趣。"
+            },
+            {
+              "step": 2,
+              "activity": "认识图形",
+              "duration": "10分钟",
+              "detail": "认识圆形、三角形、方形，练习画基本图形。"
+            },
+            {
+              "step": 3,
+              "activity": "示范教学",
+              "duration": "10分钟",
+              "detail": "教师示范用基本图形画小动物。"
+            },
+            {
+              "step": 4,
+              "activity": "学生创作",
+              "duration": "10分钟",
+              "detail": "学生创作简笔画，教师指导。"
+            },
+            {
+              "step": 5,
+              "activity": "展示评价",
+              "duration": "5分钟",
+              "detail": "展示作品，互相评价。"
+            }
+          ],
+          "blackboard设计": "左边：基本图形。右边：简笔画示范。",
+          "commonStudentErrors": [
+            "图形画不标准",
+            "组合不协调"
+          ],
+          "differentiation": {
+            "advanced": "创作有情节的简笔画。",
+            "support": "先临摹，再创作。"
+          }
+        },
+        {
+          "id": "lesson_ms_001",
+          "title": "美术：简笔画",
+          "grade": 2,
+          "term": "上",
+          "topicId": "ct_MS2S001",
+          "difficulty": 1,
+          "duration": "40分钟",
+          "objectives": [
+            "学会画简笔画",
+            "能用简单图形表现物体"
+          ],
+          "keyPoints": [
+            "圆形、三角形、方形",
+            "组合图形表现物体"
+          ],
+          "difficultPoints": [
+            "图形的组合",
+            "物体的简化"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "欣赏导入",
+              "duration": "5分钟",
+              "detail": "展示简笔画作品，激发兴趣。"
+            },
+            {
+              "step": 2,
+              "activity": "认识图形",
+              "duration": "10分钟",
+              "detail": "认识圆形、三角形、方形，练习画基本图形。"
+            },
+            {
+              "step": 3,
+              "activity": "示范教学",
+              "duration": "10分钟",
+              "detail": "教师示范用基本图形画小动物。"
+            },
+            {
+              "step": 4,
+              "activity": "学生创作",
+              "duration": "10分钟",
+              "detail": "学生创作简笔画，教师指导。"
+            },
+            {
+              "step": 5,
+              "activity": "展示评价",
+              "duration": "5分钟",
+              "detail": "展示作品，互相评价。"
+            }
+          ],
+          "blackboard设计": "左边：基本图形。右边：简笔画示范。",
+          "commonStudentErrors": [
+            "图形画不标准",
+            "组合不协调"
+          ],
+          "differentiation": {
+            "advanced": "创作有情节的简笔画。",
+            "support": "先临摹，再创作。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "music",
+      "name": "音乐",
+      "icon": "🎵",
+      "lessons": [
+        {
+          "id": "lesson_yy_001",
+          "title": "音乐：唱歌《小星星》",
+          "grade": 1,
+          "term": "上",
+          "topicId": "ct_YY1S001",
+          "difficulty": 1,
+          "duration": "40分钟",
+          "objectives": [
+            "学会唱《小星星》",
+            "能有表情地演唱"
+          ],
+          "keyPoints": [
+            "歌词记忆",
+            "旋律掌握"
+          ],
+          "difficultPoints": [
+            "音准",
+            "节奏"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "律动导入",
+              "duration": "5分钟",
+              "detail": "播放《小星星》旋律，学生律动。"
+            },
+            {
+              "step": 2,
+              "activity": "学唱歌曲",
+              "duration": "15分钟",
+              "detail": "教师范唱，学生跟唱，分句教唱。"
+            },
+            {
+              "step": 3,
+              "activity": "歌词记忆",
+              "duration": "10分钟",
+              "detail": "出示歌词，学生记忆歌词。"
+            },
+            {
+              "step": 4,
+              "activity": "表演唱",
+              "duration": "5分钟",
+              "detail": "学生有表情地演唱，加上动作。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结学习情况，布置练习。"
+            }
+          ],
+          "blackboard设计": "左边：《小星星》歌词。右边：旋律线。",
+          "commonStudentErrors": [
+            "歌词记错",
+            "音准不准"
+          ],
+          "differentiation": {
+            "advanced": "学习用乐器伴奏。",
+            "support": "先听，再唱。"
+          }
+        },
+        {
+          "id": "lesson_yy_001",
+          "title": "音乐：唱歌《小星星》",
+          "grade": 1,
+          "term": "上",
+          "topicId": "ct_YY1S001",
+          "difficulty": 1,
+          "duration": "40分钟",
+          "objectives": [
+            "学会唱《小星星》",
+            "能有表情地演唱"
+          ],
+          "keyPoints": [
+            "歌词记忆",
+            "旋律掌握"
+          ],
+          "difficultPoints": [
+            "音准",
+            "节奏"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "律动导入",
+              "duration": "5分钟",
+              "detail": "播放《小星星》旋律，学生律动。"
+            },
+            {
+              "step": 2,
+              "activity": "学唱歌曲",
+              "duration": "15分钟",
+              "detail": "教师范唱，学生跟唱，分句教唱。"
+            },
+            {
+              "step": 3,
+              "activity": "歌词记忆",
+              "duration": "10分钟",
+              "detail": "出示歌词，学生记忆歌词。"
+            },
+            {
+              "step": 4,
+              "activity": "表演唱",
+              "duration": "5分钟",
+              "detail": "学生有表情地演唱，加上动作。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结学习情况，布置练习。"
+            }
+          ],
+          "blackboard设计": "左边：《小星星》歌词。右边：旋律线。",
+          "commonStudentErrors": [
+            "歌词记错",
+            "音准不准"
+          ],
+          "differentiation": {
+            "advanced": "学习用乐器伴奏。",
+            "support": "先听，再唱。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "it",
+      "name": "信息科技",
+      "icon": "💻",
+      "lessons": [
+        {
+          "id": "lesson_xx_001",
+          "title": "信息科技：认识计算机",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_XX3S001",
+          "difficulty": 1,
+          "duration": "40分钟",
+          "objectives": [
+            "认识计算机的组成部分",
+            "了解计算机的基本操作"
+          ],
+          "keyPoints": [
+            "显示器、主机、键盘、鼠标",
+            "开机、关机操作"
+          ],
+          "difficultPoints": [
+            "各部分的功能",
+            "鼠标的操作"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "情境导入",
+              "duration": "5分钟",
+              "detail": "展示计算机，激发兴趣。"
+            },
+            {
+              "step": 2,
+              "activity": "认识组成",
+              "duration": "10分钟",
+              "detail": "教学计算机的组成部分：显示器、主机、键盘、鼠标。"
+            },
+            {
+              "step": 3,
+              "activity": "基本操作",
+              "duration": "10分钟",
+              "detail": "教学开机、关机，鼠标的操作。"
+            },
+            {
+              "step": 4,
+              "activity": "实践操作",
+              "duration": "10分钟",
+              "detail": "学生练习开机、关机、鼠标操作。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结学习情况，布置练习。"
+            }
+          ],
+          "blackboard设计": "左边：计算机组成图。右边：基本操作。",
+          "commonStudentErrors": [
+            "鼠标操作不熟练",
+            "各部分功能混淆"
+          ],
+          "differentiation": {
+            "advanced": "学习使用画图软件。",
+            "support": "先观察，再操作。"
+          }
+        },
+        {
+          "id": "lesson_xx_001",
+          "title": "信息科技：认识计算机",
+          "grade": 3,
+          "term": "上",
+          "topicId": "ct_XX3S001",
+          "difficulty": 1,
+          "duration": "40分钟",
+          "objectives": [
+            "认识计算机的组成部分",
+            "了解计算机的基本操作"
+          ],
+          "keyPoints": [
+            "显示器、主机、键盘、鼠标",
+            "开机、关机操作"
+          ],
+          "difficultPoints": [
+            "各部分的功能",
+            "鼠标的操作"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "情境导入",
+              "duration": "5分钟",
+              "detail": "展示计算机，激发兴趣。"
+            },
+            {
+              "step": 2,
+              "activity": "认识组成",
+              "duration": "10分钟",
+              "detail": "教学计算机的组成部分：显示器、主机、键盘、鼠标。"
+            },
+            {
+              "step": 3,
+              "activity": "基本操作",
+              "duration": "10分钟",
+              "detail": "教学开机、关机，鼠标的操作。"
+            },
+            {
+              "step": 4,
+              "activity": "实践操作",
+              "duration": "10分钟",
+              "detail": "学生练习开机、关机、鼠标操作。"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结学习情况，布置练习。"
+            }
+          ],
+          "blackboard设计": "左边：计算机组成图。右边：基本操作。",
+          "commonStudentErrors": [
+            "鼠标操作不熟练",
+            "各部分功能混淆"
+          ],
+          "differentiation": {
+            "advanced": "学习使用画图软件。",
+            "support": "先观察，再操作。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "name": "AI素养",
+      "icon": "🤖",
+      "lessons": [
+        {
+          "id": "lesson_ai_001",
+          "title": "AI素养：认识AI",
+          "grade": 5,
+          "term": "上",
+          "topicId": "ct_AI5S001",
+          "difficulty": 1,
+          "duration": "40分钟",
+          "objectives": [
+            "了解AI的概念",
+            "知道AI的应用"
+          ],
+          "keyPoints": [
+            "AI的概念",
+            "AI的应用"
+          ],
+          "difficultPoints": [
+            "理解AI的概念",
+            "AI与人类的区别"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "视频导入",
+              "duration": "5分钟",
+              "detail": "播放AI应用视频，激发兴趣。"
+            },
+            {
+              "step": 2,
+              "activity": "认识AI",
+              "duration": "10分钟",
+              "detail": "讲解AI的概念，让学生理解什么是AI。"
+            },
+            {
+              "step": 3,
+              "activity": "AI应用",
+              "duration": "10分钟",
+              "detail": "展示AI在生活中的应用：语音助手、自动驾驶等。"
+            },
+            {
+              "step": 4,
+              "activity": "讨论交流",
+              "duration": "10分钟",
+              "detail": "讨论：AI会取代人类吗？"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结AI的概念和应用。"
+            }
+          ],
+          "blackboard设计": "左边：AI的概念。右边：AI的应用。",
+          "commonStudentErrors": [
+            "AI概念理解错误",
+            "AI与人类混淆"
+          ],
+          "differentiation": {
+            "advanced": "了解AI的原理。",
+            "support": "先看视频，再讨论。"
+          }
+        },
+        {
+          "id": "lesson_ai_001",
+          "title": "AI素养：认识AI",
+          "grade": 5,
+          "term": "上",
+          "topicId": "ct_AI5S001",
+          "difficulty": 1,
+          "duration": "40分钟",
+          "objectives": [
+            "了解AI的概念",
+            "知道AI的应用"
+          ],
+          "keyPoints": [
+            "AI的概念",
+            "AI的应用"
+          ],
+          "difficultPoints": [
+            "理解AI的概念",
+            "AI与人类的区别"
+          ],
+          "teachingProcess": [
+            {
+              "step": 1,
+              "activity": "视频导入",
+              "duration": "5分钟",
+              "detail": "播放AI应用视频，激发兴趣。"
+            },
+            {
+              "step": 2,
+              "activity": "认识AI",
+              "duration": "10分钟",
+              "detail": "讲解AI的概念，让学生理解什么是AI。"
+            },
+            {
+              "step": 3,
+              "activity": "AI应用",
+              "duration": "10分钟",
+              "detail": "展示AI在生活中的应用：语音助手、自动驾驶等。"
+            },
+            {
+              "step": 4,
+              "activity": "讨论交流",
+              "duration": "10分钟",
+              "detail": "讨论：AI会取代人类吗？"
+            },
+            {
+              "step": 5,
+              "activity": "总结拓展",
+              "duration": "5分钟",
+              "detail": "总结AI的概念和应用。"
+            }
+          ],
+          "blackboard设计": "左边：AI的概念。右边：AI的应用。",
+          "commonStudentErrors": [
+            "AI概念理解错误",
+            "AI与人类混淆"
+          ],
+          "differentiation": {
+            "advanced": "了解AI的原理。",
+            "support": "先看视频，再讨论。"
+          }
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "totalLessons": 20,
+    "lastUpdated": "2026-08-27",
+    "updateFrequency": "每周",
+    "note": "已完成20节高频课程，覆盖数学、语文、英语、科学、道德与法治5个学科，低中高三个年级段"
+  }
+}

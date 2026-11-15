@@ -1,0 +1,4 @@
+#Fri Nov 13 10:42:37 CST 2026
+base.0=D\:\\xcode\\fgit\\cn-primary-taxonomy\\twa-project\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Load Test</title>
+    <style>
+        body { font-family: Arial; padding: 20px; font-size: 18px; }
+        .success { color: green; font-size: 24px; }
+        .info { color: blue; }
+    </style>
+</head>
+<body>
+    <h1>数据加载测试</h1>
+    <div id="status">正在加载...</div>
+    <div id="result"></div>
+    
+    <script>
+        // 模拟加载数据
+        setTimeout(function() {
+            document.getElementById('status').textContent = 'JavaScript 正常工作！';
+            document.getElementById('status').className = 'success';
+            document.getElementById('result').innerHTML = '<p class="info">页面加载时间: ' + new Date().toLocaleTimeString() + '</p>';
+        }, 2000);
+    </script>
+</body>
+</html>

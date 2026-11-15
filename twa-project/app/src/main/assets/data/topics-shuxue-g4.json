@@ -1,0 +1,720 @@
+{
+  "version": "v0.2-expanded",
+  "note": "数学（人教版四年级上+下）知识点",
+  "topicCount": 23,
+  "topics": [
+    {
+      "id": "ct_SX4S001",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "亿以内数的认识",
+      "description": "理解万级、个级及数位顺序，认识更大的自然数。",
+      "grade": 4,
+      "term": "上",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能用自己的话说明“亿以内数的认识”的核心意思",
+        "遇到相关问题时能判断是否理解到位"
+      ],
+      "commonMistakes": [
+        "数位和计数单位混淆",
+        "中间有0的数读写不稳"
+      ],
+      "examTips": "常考：读数、写数、数位和组成。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“亿以内数的认识”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:3-4-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX4S002",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "亿以内数的读写和大小比较",
+      "description": "能正确读写亿以内数，并按数位和高位大小规律比较大小。",
+      "grade": 4,
+      "term": "上",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能用自己的话说明“亿以内数的读写和大小比较”的核心意思",
+        "遇到相关问题时能判断是否理解到位"
+      ],
+      "commonMistakes": [
+        "缺0占位",
+        "高位比较不熟练"
+      ],
+      "examTips": "常考：读写数、比较大小、改写近似数。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“亿以内数的读写和大小比较”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:3-4-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX4S003",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "三位数乘两位数笔算",
+      "description": "会列竖式计算三位数乘两位数，理解分步乘与进位。",
+      "grade": 4,
+      "term": "上",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“三位数乘两位数笔算”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "第二层积错位",
+        "进位遗漏"
+      ],
+      "examTips": "常考：竖式计算、判断改错。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“三位数乘两位数笔算”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:3-4-syds-4"
+      ]
+    },
+    {
+      "id": "ct_SX4S004",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "积的变化规律",
+      "description": "能观察因数变化引起积变化的规律，并用于简便思考。",
+      "grade": 4,
+      "term": "上",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“积的变化规律”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "只记结论不会解释",
+        "两个因数同时变化时易错"
+      ],
+      "examTips": "常考：规律填空、推理判断。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“积的变化规律”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:3-4-syds-3"
+      ]
+    },
+    {
+      "id": "ct_SX4S005",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "除数是两位数的除法",
+      "description": "掌握除数是两位数的笔算除法，理解试商、调商过程。",
+      "grade": 4,
+      "term": "上",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“除数是两位数的除法”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "试商偏大偏小不会调整",
+        "商的位置不准"
+      ],
+      "examTips": "常考：笔算除法、试商改错。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“除数是两位数的除法”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:3-4-syds-5"
+      ]
+    },
+    {
+      "id": "ct_SX4S006",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "商不变规律",
+      "description": "理解被除数和除数同时乘或除以相同数时商不变。",
+      "grade": 4,
+      "term": "上",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“商不变规律”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "只会背规律",
+        "0和整除条件理解不清"
+      ],
+      "examTips": "常考：规律填空、简便计算。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“商不变规律”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:3-4-syds-3"
+      ]
+    },
+    {
+      "id": "ct_SX4X007",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "小数的意义",
+      "description": "理解十分之几、百分之几可以用一位、两位小数表示。",
+      "grade": 4,
+      "term": "下",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能用自己的话说明“小数的意义”的核心意思",
+        "遇到相关问题时能判断是否理解到位"
+      ],
+      "commonMistakes": [
+        "小数和整数读法混淆",
+        "位值意义不清"
+      ],
+      "examTips": "常考：读写小数、把分数改写成小数。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“小数的意义”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:5-6-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX4X008",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "小数大小比较",
+      "description": "会比较小数大小，理解整数部分和小数部分的位值关系。",
+      "grade": 4,
+      "term": "下",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能用自己的话说明“小数大小比较”的核心意思",
+        "遇到相关问题时能判断是否理解到位"
+      ],
+      "commonMistakes": [
+        "位数多就认为大",
+        "末尾0影响判断"
+      ],
+      "examTips": "常考：比较大小、排序。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“小数大小比较”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:5-6-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX4X009",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "小数加减法",
+      "description": "掌握小数点对齐的小数加减法笔算。",
+      "grade": 4,
+      "term": "下",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“小数加减法”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "末位对齐而非小数点对齐",
+        "借位进位混乱"
+      ],
+      "examTips": "常考：竖式计算、改错。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“小数加减法”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:5-6-syds-1"
+      ]
+    },
+    {
+      "id": "ct_SX4X010",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "四则混合运算和运算律应用",
+      "description": "能在四则混合运算中正确运用运算顺序和交换律、结合律、分配律。",
+      "grade": 4,
+      "term": "下",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“四则混合运算和运算律应用”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "顺序错",
+        "运算律套用不当"
+      ],
+      "examTips": "常考：脱式计算、简便计算。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“四则混合运算和运算律应用”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:3-4-syds-6"
+      ]
+    },
+    {
+      "id": "ct_SX4X011",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "数与代数",
+      "name": "解决较复杂两三步应用题",
+      "description": "能提炼条件关系，列分步或综合算式解决两三步问题。",
+      "grade": 4,
+      "term": "下",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“解决较复杂两三步应用题”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "中间量找错",
+        "条件筛选不准"
+      ],
+      "examTips": "常考：应用题、综合题。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“解决较复杂两三步应用题”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:3-4-syds-2"
+      ]
+    },
+    {
+      "id": "ct_SX4S012",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "直线射线线段的区别",
+      "description": "理解直线、射线、线段的特征及相互区别。",
+      "grade": 4,
+      "term": "上",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 2,
+      "centrality": null,
+      "evidence": [
+        "能用自己的话说明“直线射线线段的区别”的核心意思",
+        "遇到相关问题时能判断是否理解到位"
+      ],
+      "commonMistakes": [
+        "端点个数记混",
+        "图形表示不规范"
+      ],
+      "examTips": "常考：判断、作图。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“直线射线线段的区别”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:3-4-tx-1"
+      ]
+    },
+    {
+      "id": "ct_SX4S013",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "角的意义和角的度量",
+      "description": "理解角的大小与两边张开程度有关，会用量角器量角。",
+      "grade": 4,
+      "term": "上",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能用自己的话说明“角的意义和角的度量”的核心意思",
+        "遇到相关问题时能判断是否理解到位"
+      ],
+      "commonMistakes": [
+        "角的边长影响大小判断",
+        "量角器零刻度看错"
+      ],
+      "examTips": "常考：量角、比较角大小。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“角的意义和角的度量”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:3-4-tx-1"
+      ]
+    },
+    {
+      "id": "ct_SX4S014",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "用量角器画指定度数的角",
+      "description": "能用量角器准确画出给定度数的角。",
+      "grade": 4,
+      "term": "上",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“用量角器画指定度数的角”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "起始边放置不准",
+        "刻度方向看错"
+      ],
+      "examTips": "常考：画角。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“用量角器画指定度数的角”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:3-4-tx-1"
+      ]
+    },
+    {
+      "id": "ct_SX4S015",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "平行和垂直",
+      "description": "理解同一平面内两条直线的平行和垂直关系。",
+      "grade": 4,
+      "term": "上",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能用自己的话说明“平行和垂直”的核心意思",
+        "遇到相关问题时能判断是否理解到位"
+      ],
+      "commonMistakes": [
+        "仅凭图形感觉判断",
+        "垂直和平行概念混淆"
+      ],
+      "examTips": "常考：判断、作图。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“平行和垂直”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:3-4-tx-1"
+      ]
+    },
+    {
+      "id": "ct_SX4X016",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "平行四边形和梯形认识",
+      "description": "能辨认平行四边形和梯形，理解其基本特征。",
+      "grade": 4,
+      "term": "下",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“平行四边形和梯形认识”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "梯形和平行四边形混淆",
+        "只看摆放方向"
+      ],
+      "examTips": "常考：图形分类、性质判断。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“平行四边形和梯形认识”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:3-4-tx-1"
+      ]
+    },
+    {
+      "id": "ct_SX4X017",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "图形与几何",
+      "name": "从不同方向观察立体图形提升",
+      "description": "能根据立体图形判断不同方向观察到的形状。",
+      "grade": 4,
+      "term": "下",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能用自己的话说明“从不同方向观察立体图形提升”的核心意思",
+        "遇到相关问题时能判断是否理解到位"
+      ],
+      "commonMistakes": [
+        "侧视图和俯视图混淆",
+        "遮挡关系判断错误"
+      ],
+      "examTips": "常考：观察物体。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“从不同方向观察立体图形提升”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:3-4-tx-2"
+      ]
+    },
+    {
+      "id": "ct_SX4S018",
+      "type": "CONCEPTUAL",
+      "typeLabel": "概念",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "公顷和平方千米初步认识",
+      "description": "认识较大的面积单位，建立公顷和平方千米的量感。",
+      "grade": 4,
+      "term": "上",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能用自己的话说明“公顷和平方千米初步认识”的核心意思",
+        "遇到相关问题时能判断是否理解到位"
+      ],
+      "commonMistakes": [
+        "长度单位和面积单位混淆",
+        "大小量感不足"
+      ],
+      "examTips": "常考：填合适单位、换算。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“公顷和平方千米初步认识”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:5-6-cl-1"
+      ]
+    },
+    {
+      "id": "ct_SX4X019",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "量与计量",
+      "name": "用面积单位解决实际问题",
+      "description": "能根据实际情境选择合适面积单位并进行简单换算。",
+      "grade": 4,
+      "term": "下",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“用面积单位解决实际问题”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "单位选得过大或过小",
+        "换算进率错"
+      ],
+      "examTips": "常考：面积单位应用。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“用面积单位解决实际问题”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:5-6-cl-1"
+      ]
+    },
+    {
+      "id": "ct_SX4X020",
+      "type": "PROCEDURAL",
+      "typeLabel": "技能",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "统计与概率",
+      "name": "条形统计图进一步应用",
+      "description": "能读懂较复杂条形统计图，并根据数据回答问题。",
+      "grade": 4,
+      "term": "下",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能按步骤独立完成“条形统计图进一步应用”相关任务",
+        "遇到同类练习时能较稳定地做对"
+      ],
+      "commonMistakes": [
+        "刻度读取不准",
+        "不会综合比较"
+      ],
+      "examTips": "常考：统计图读图分析。",
+      "assessmentPrompt": "请让{{name}}现场做一道和“条形统计图进一步应用”同类型的小题，边做边说出步骤，观察是否真正掌握。",
+      "standards": [
+        "cn-shuxue-2022:3-4-sjtj-1"
+      ]
+    },
+    {
+      "id": "ct_SX4X021",
+      "type": "REPRESENTATIONAL",
+      "typeLabel": "表征",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "统计与概率",
+      "name": "根据数据绘制统计图",
+      "description": "能根据统计表数据绘制规范的条形统计图。",
+      "grade": 4,
+      "term": "下",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能用图示、符号或表格正确表示“根据数据绘制统计图”",
+        "能在不同表征之间进行简单转换"
+      ],
+      "commonMistakes": [
+        "坐标刻度不统一",
+        "类别与数据对应错"
+      ],
+      "examTips": "常考：画统计图。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“根据数据绘制统计图”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:3-4-sjtj-1"
+      ]
+    },
+    {
+      "id": "ct_SX4X022",
+      "type": "META",
+      "typeLabel": "元认知",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "综合与实践",
+      "name": "列表画图分析数量关系",
+      "description": "能用列表法、线段图等表示复杂数量关系。",
+      "grade": 4,
+      "term": "下",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 4,
+      "centrality": null,
+      "evidence": [
+        "能主动使用“列表画图分析数量关系”相关策略完成学习任务",
+        "能在提醒减少后保持较稳定的学习习惯"
+      ],
+      "commonMistakes": [
+        "图表建得不对应条件",
+        "画了图但不会用"
+      ],
+      "examTips": "常见任务：画图解题。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“列表画图分析数量关系”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:3-4-zonghe-1"
+      ]
+    },
+    {
+      "id": "ct_SX4X023",
+      "type": "META",
+      "typeLabel": "元认知",
+      "subject": "数学",
+      "subjectCode": "SX",
+      "domain": "综合与实践",
+      "name": "估算检验结果合理性提升",
+      "description": "能结合数量级和生活经验判断计算结果是否合理。",
+      "grade": 4,
+      "term": "下",
+      "gradeBand": "M",
+      "textbook": "人教版",
+      "ageRangeStart": 9,
+      "ageRangeEnd": 10,
+      "difficulty": 3,
+      "centrality": null,
+      "evidence": [
+        "能主动使用“估算检验结果合理性提升”相关策略完成学习任务",
+        "能在提醒减少后保持较稳定的学习习惯"
+      ],
+      "commonMistakes": [
+        "精算对但结果不合理没意识",
+        "估算过粗"
+      ],
+      "examTips": "常考：估算与判断。",
+      "assessmentPrompt": "请让{{name}}用自己的话解释“估算检验结果合理性提升”，再举一个简单例子，看看理解是否到位。",
+      "standards": [
+        "cn-shuxue-2022:3-4-syds-3"
+      ]
+    }
+  ]
+}

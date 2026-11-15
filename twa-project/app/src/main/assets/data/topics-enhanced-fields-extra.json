@@ -1,0 +1,1014 @@
+{
+  "version": "v2.0-enhanced-extra",
+  "description": "知识图谱增强字段（补充）：45个高频知识点的增强字段，与topics-enhanced-fields.json合计50个。",
+  "note": "本文件为补充文件，与topics-enhanced-fields.json配合使用。",
+  "enhancedTopics": [
+    {
+      "id": "ct_YW2S005",
+      "oneLiner": "形近字：对比记忆，找出不同点，用口诀帮助记忆。",
+      "parentGuide": {
+        "quickExplanation": "把形近字放一起比较，找出不同点。",
+        "dailyExample": "大和天：大比天多一横。",
+        "commonParentMistake": "不要让孩子抄写10遍，要对比记忆。",
+        "encouragement": "孩子找出不同点时，表扬：'观察得真仔细！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "形近字卡片：抽卡片，说出不同点。",
+        "keyQuestion": "怎么区分形近字？",
+        "visualAid": "形近字对比表。",
+        "transition": "先复习独体字，再学习形近字。"
+      },
+      "quizQuestions": [
+        {
+          "question": "大和天的不同是（ ）。",
+          "type": "choice",
+          "options": [
+            "大比天多一横",
+            "天比大多一横",
+            "一样"
+          ],
+          "answer": 0,
+          "explanation": "大比天多一横。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YW2S006",
+      "oneLiner": "多音字：根据意思判断读音，同一个字不同读音意思不同。",
+      "parentGuide": {
+        "quickExplanation": "多音字要看意思，意思不同读音不同。",
+        "dailyExample": "长：长短（cháng），长大（zhǎng）。",
+        "commonParentMistake": "不要让孩子死记，要用句子记忆。",
+        "encouragement": "孩子判断正确时，表扬：'判断得真准！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "给多音字组词，读不同读音。",
+        "keyQuestion": "怎么判断多音字的读音？",
+        "visualAid": "多音字表。",
+        "transition": "先复习单音字，再学习多音字。"
+      },
+      "quizQuestions": [
+        {
+          "question": "长（zhǎng）大还是长（cháng）短？",
+          "type": "choice",
+          "options": [
+            "长大",
+            "长短"
+          ],
+          "answer": 0,
+          "explanation": "长大读zhǎng。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YW2S007",
+      "oneLiner": "反义词：意思相反的词，用对比法记忆。",
+      "parentGuide": {
+        "quickExplanation": "意思相反的词叫反义词。",
+        "dailyExample": "大-小，高-矮，胖-瘦。",
+        "commonParentMistake": "不要让孩子死记，要用对比法。",
+        "encouragement": "孩子说出反义词时，表扬：'反应真快！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "对口令：老师说'大'，学生说'小'。",
+        "keyQuestion": "什么是反义词？",
+        "visualAid": "反义词卡片。",
+        "transition": "先复习词义，再学习反义词。"
+      },
+      "quizQuestions": [
+        {
+          "question": "大的反义词是（ ）。",
+          "type": "fill",
+          "answer": "小",
+          "explanation": "大和小意思相反。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YW2S008",
+      "oneLiner": "标点符号：句号、问号、叹号，不同语气用不同标点。",
+      "parentGuide": {
+        "quickExplanation": "句号=话说完，问号=在问问题，叹号=有感情。",
+        "dailyExample": "今天天气好。（句号）今天天气好吗？（问号）天气真好啊！（叹号）",
+        "commonParentMistake": "不要只讲规则，要让孩子读出语气。",
+        "encouragement": "孩子读出语气时，表扬：'读得真有感情！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "读句子，加上合适的标点。",
+        "keyQuestion": "句号、问号、叹号分别用在什么语气？",
+        "visualAid": "标点符号表。",
+        "transition": "先复习句子，再学习标点。"
+      },
+      "quizQuestions": [
+        {
+          "question": "你叫什么名字（ ）",
+          "type": "choice",
+          "options": [
+            "。",
+            "？",
+            "！"
+          ],
+          "answer": 1,
+          "explanation": "问问题用问号。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YW2S010",
+      "oneLiner": "阅读兴趣：让孩子自己选书，家长陪读，每天固定时间。",
+      "parentGuide": {
+        "quickExplanation": "兴趣第一，让孩子自己选喜欢的书。",
+        "dailyExample": "每天睡前15分钟，和孩子一起读书。",
+        "commonParentMistake": "不要逼孩子读名著，先培养兴趣。",
+        "encouragement": "孩子主动读书时，表扬：'爱读书的孩子最棒！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "好书推荐：每人推荐一本喜欢的书。",
+        "keyQuestion": "怎么培养阅读兴趣？",
+        "visualAid": "好书推荐墙。",
+        "transition": "先让学生分享喜欢的书，再引导阅读方法。"
+      },
+      "quizQuestions": [
+        {
+          "question": "培养阅读兴趣最重要的是（ ）。",
+          "type": "choice",
+          "options": [
+            "让孩子自己选书",
+            "逼孩子读名著",
+            "每天读2小时"
+          ],
+          "answer": 0,
+          "explanation": "兴趣第一。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YW2S012",
+      "oneLiner": "看图写话：按顺序观察，说清楚时间、地点、人物、事件。",
+      "parentGuide": {
+        "quickExplanation": "先看整体，再看部分，按顺序说。",
+        "dailyExample": "看漫画：先说图上有什么，再说他们在干什么。",
+        "commonParentMistake": "不要要求孩子写长，先让孩子说清楚。",
+        "encouragement": "孩子说得好时，表扬：'说得真完整！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "看一幅图，同桌互相说，再写下来。",
+        "keyQuestion": "看图写话要注意什么？",
+        "visualAid": "有趣的图画。",
+        "transition": "先练习说话，再练习写话。"
+      },
+      "quizQuestions": [
+        {
+          "question": "看图写话第一步是（ ）。",
+          "type": "choice",
+          "options": [
+            "写",
+            "看",
+            "说"
+          ],
+          "answer": 1,
+          "explanation": "先观察图画。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YW2S015",
+      "oneLiner": "背诵方法：理解意思，分段背诵，早上背一次晚上再背一次。",
+      "parentGuide": {
+        "quickExplanation": "先理解意思，再分段背诵，反复复习。",
+        "dailyExample": "背古诗：先讲诗的意思，再一句一句背。",
+        "commonParentMistake": "不要让孩子死记硬背，要先理解。",
+        "encouragement": "孩子背出来时，表扬：'背得真流利！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "教背诵方法：理解→分段→复习。",
+        "keyQuestion": "怎么背得快记得牢？",
+        "visualAid": "背诵方法图。",
+        "transition": "先复习理解课文，再学习背诵方法。"
+      },
+      "quizQuestions": [
+        {
+          "question": "背诵的第一步是（ ）。",
+          "type": "choice",
+          "options": [
+            "死记硬背",
+            "理解意思",
+            "分段背诵"
+          ],
+          "answer": 1,
+          "explanation": "先理解意思。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YW2S016",
+      "oneLiner": "古诗：了解诗人背景，理解诗意，想象画面，体会情感。",
+      "parentGuide": {
+        "quickExplanation": "学古诗四步：知诗人→明诗意→想画面→悟情感。",
+        "dailyExample": "《静夜思》：李白想家了，看着月亮思念家乡。",
+        "commonParentMistake": "不要只让孩子背，要先理解诗的意思。",
+        "encouragement": "孩子理解诗意时，表扬：'理解得真好！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "听老师读古诗，说说你看到了什么画面。",
+        "keyQuestion": "学古诗要学什么？",
+        "visualAid": "古诗配画。",
+        "transition": "先介绍诗人，再学习诗意。"
+      },
+      "quizQuestions": [
+        {
+          "question": "《静夜思》的作者是（ ）。",
+          "type": "choice",
+          "options": [
+            "李白",
+            "杜甫",
+            "白居易"
+          ],
+          "answer": 0,
+          "explanation": "《静夜思》是李白写的。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YW3S005",
+      "oneLiner": "段落结构：总分、总分总、分总，学会概括段意。",
+      "parentGuide": {
+        "quickExplanation": "一段话有一个中心意思，其他句子围绕它写。",
+        "dailyExample": "找中心句：一段话中哪句最重要？",
+        "commonParentMistake": "不要只让孩子找中心句，要教方法。",
+        "encouragement": "孩子找到时，表扬：'找得真准！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "读一段话，找出中心句。",
+        "keyQuestion": "怎么概括段意？",
+        "visualAid": "段落结构图。",
+        "transition": "先复习句子，再学习段落。"
+      },
+      "quizQuestions": [
+        {
+          "question": "概括段意要找到（ ）。",
+          "type": "choice",
+          "options": [
+            "中心句",
+            "第一句",
+            "最后一句"
+          ],
+          "answer": 0,
+          "explanation": "中心句概括段意。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YW3S006",
+      "oneLiner": "多音字：根据意思判断读音，同一个字不同读音意思不同。",
+      "parentGuide": {
+        "quickExplanation": "多音字要看意思，意思不同读音不同。",
+        "dailyExample": "长：长短（cháng），长大（zhǎng）。",
+        "commonParentMistake": "不要让孩子死记，要用句子记忆。",
+        "encouragement": "孩子判断正确时，表扬：'判断得真准！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "给多音字组词，读不同读音。",
+        "keyQuestion": "怎么判断多音字的读音？",
+        "visualAid": "多音字表。",
+        "transition": "先复习单音字，再学习多音字。"
+      },
+      "quizQuestions": [
+        {
+          "question": "长（zhǎng）大还是长（cháng）短？",
+          "type": "choice",
+          "options": [
+            "长大",
+            "长短"
+          ],
+          "answer": 0,
+          "explanation": "长大读zhǎng。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YW3S007",
+      "oneLiner": "近义词：意思相近的词，用替换法理解。",
+      "parentGuide": {
+        "quickExplanation": "意思相近的词叫近义词，可以替换使用。",
+        "dailyExample": "高兴=开心，美丽=漂亮。",
+        "commonParentMistake": "不要让孩子死记，要用替换法理解。",
+        "encouragement": "孩子说出近义词时，表扬：'词汇量真丰富！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "给词语找近义词，替换后读一读。",
+        "keyQuestion": "什么是近义词？",
+        "visualAid": "近义词表。",
+        "transition": "先复习词义，再学习近义词。"
+      },
+      "quizQuestions": [
+        {
+          "question": "高兴的近义词是（ ）。",
+          "type": "fill",
+          "answer": "开心",
+          "explanation": "高兴和开心意思相近。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YW3S008",
+      "oneLiner": "阅读理解：读两遍文章，圈关键词，回到原文找答案。",
+      "parentGuide": {
+        "quickExplanation": "阅读理解四步法：读→圈→找→答。",
+        "dailyExample": "做阅读题：先读文章，再读题目，回原文找答案。",
+        "commonParentMistake": "不要直接告诉答案，要教方法。",
+        "encouragement": "孩子做对时，表扬：'方法用得好！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "师生共同完成一篇阅读理解，示范方法。",
+        "keyQuestion": "怎么做阅读理解？",
+        "visualAid": "阅读理解步骤图。",
+        "transition": "先复习读文章，再学习答题方法。"
+      },
+      "quizQuestions": [
+        {
+          "question": "阅读理解第一步是（ ）。",
+          "type": "choice",
+          "options": [
+            "读题目",
+            "读文章",
+            "找答案"
+          ],
+          "answer": 1,
+          "explanation": "先读文章，了解大意。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YW3S010",
+      "oneLiner": "作文：先说再写，按顺序写，写出感受。",
+      "parentGuide": {
+        "quickExplanation": "写作文前先说，按顺序写，写出自己的感受。",
+        "dailyExample": "写'我学会了游泳'：先说学游泳的过程，再写感受。",
+        "commonParentMistake": "不要要求孩子写长，先让孩子说清楚。",
+        "encouragement": "孩子写得好时，表扬：'写得真生动！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "先说后写：小组讨论，互相说，再写下来。",
+        "keyQuestion": "怎么写好作文？",
+        "visualAid": "写作步骤图。",
+        "transition": "先练习说话，再练习写作。"
+      },
+      "quizQuestions": [
+        {
+          "question": "写作文第一步是（ ）。",
+          "type": "choice",
+          "options": [
+            "写",
+            "说",
+            "改"
+          ],
+          "answer": 1,
+          "explanation": "先说再写。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YW3S011",
+      "oneLiner": "细节描写：用'五感法'（看听闻尝摸）让作文更生动。",
+      "parentGuide": {
+        "quickExplanation": "写作文时，写看到的、听到的、闻到的、尝到的、摸到的。",
+        "dailyExample": "写苹果：红红的（看）、香香的（闻）、甜甜的（尝）。",
+        "commonParentMistake": "不要只让孩子写'很好看'，要写具体。",
+        "encouragement": "孩子写得具体时，表扬：'描写得真生动！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "观察一种水果，用五感法描述。",
+        "keyQuestion": "什么是五感法？",
+        "visualAid": "五感法提示卡。",
+        "transition": "先复习观察方法，再学习细节描写。"
+      },
+      "quizQuestions": [
+        {
+          "question": "红红的苹果是用（ ）来描写的。",
+          "type": "choice",
+          "options": [
+            "看",
+            "听",
+            "闻"
+          ],
+          "answer": 0,
+          "explanation": "红红的是看到的。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YW3S012",
+      "oneLiner": "仿写句子：读例句，找句式，替换内容。",
+      "parentGuide": {
+        "quickExplanation": "仿写三步法：读例句→找句式→替换内容。",
+        "dailyExample": "例句：春天来了，花儿开了。仿写：夏天来了，蝉儿叫了。",
+        "commonParentMistake": "不要让孩子抄例句，要理解句式。",
+        "encouragement": "孩子仿写得好时，表扬：'仿写得真棒！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "出示范句，学生仿写，互相评价。",
+        "keyQuestion": "怎么仿写句子？",
+        "visualAid": "句式模板。",
+        "transition": "先复习句式，再学习仿写。"
+      },
+      "quizQuestions": [
+        {
+          "question": "仿写的第一步是（ ）。",
+          "type": "choice",
+          "options": [
+            "替换",
+            "读例句",
+            "找句式"
+          ],
+          "answer": 1,
+          "explanation": "先读例句。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YW3S015",
+      "oneLiner": "古诗背诵：理解诗意，想象画面，边想画面边背诵。",
+      "parentGuide": {
+        "quickExplanation": "背古诗时，想象诗中的画面，帮助记忆。",
+        "dailyExample": "背《静夜思》：想象月光洒在地上，诗人想家的画面。",
+        "commonParentMistake": "不要让孩子死记硬背，要先理解。",
+        "encouragement": "孩子背出来时，表扬：'背得真有感情！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "听老师读古诗，说说你看到了什么画面。",
+        "keyQuestion": "怎么背古诗记得牢？",
+        "visualAid": "古诗配画。",
+        "transition": "先理解诗意，再背诵。"
+      },
+      "quizQuestions": [
+        {
+          "question": "背古诗时，想象（ ）能帮助记忆。",
+          "type": "choice",
+          "options": [
+            "画面",
+            "声音",
+            "味道"
+          ],
+          "answer": 0,
+          "explanation": "想象画面帮助记忆。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YW4S005",
+      "oneLiner": "作文结构：开头、中间、结尾，中间部分要详细。",
+      "parentGuide": {
+        "quickExplanation": "作文三段式：开头点题，中间详细，结尾总结。",
+        "dailyExample": "写'我的妈妈'：开头介绍妈妈，中间写一件事，结尾表达感情。",
+        "commonParentMistake": "不要只关注字数，要关注结构。",
+        "encouragement": "孩子结构清晰时，表扬：'结构真完整！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "分析范文结构，学生练习列提纲。",
+        "keyQuestion": "作文怎么分段？",
+        "visualAid": "作文结构图。",
+        "transition": "先复习段落，再学习篇章结构。"
+      },
+      "quizQuestions": [
+        {
+          "question": "作文的中间部分要（ ）。",
+          "type": "choice",
+          "options": [
+            "详细",
+            "简短",
+            "省略"
+          ],
+          "answer": 0,
+          "explanation": "中间部分要详细。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YW4S010",
+      "oneLiner": "阅读理解：概括主要内容，理解深层含义，体会作者情感。",
+      "parentGuide": {
+        "quickExplanation": "阅读理解要读懂表面意思，还要理解深层含义。",
+        "dailyExample": "读文章：这篇文章讲了什么？想告诉我们什么？",
+        "commonParentMistake": "不要只关注字面意思，要引导孩子思考。",
+        "encouragement": "孩子理解深刻时，表扬：'理解得真透彻！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "读一篇文章，讨论：作者想告诉我们什么？",
+        "keyQuestion": "怎么深入理解文章？",
+        "visualAid": "阅读理解层次图。",
+        "transition": "先复习字面理解，再学习深层理解。"
+      },
+      "quizQuestions": [
+        {
+          "question": "阅读理解要读懂（ ）和深层含义。",
+          "type": "choice",
+          "options": [
+            "表面意思",
+            "字数",
+            "标点"
+          ],
+          "answer": 0,
+          "explanation": "要读懂表面意思和深层含义。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YW4S012",
+      "oneLiner": "续写故事：根据原文，合理想象，续写情节。",
+      "parentGuide": {
+        "quickExplanation": "续写要合理，不能太离谱，要和原文有联系。",
+        "dailyExample": "读故事：接下来会发生什么？为什么？",
+        "commonParentMistake": "不要让孩子乱编，要合理想象。",
+        "encouragement": "孩子续写得好时，表扬：'想象力真丰富！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "读故事开头，学生续写，互相评价。",
+        "keyQuestion": "续写要注意什么？",
+        "visualAid": "续写提示卡。",
+        "transition": "先复习故事结构，再学习续写。"
+      },
+      "quizQuestions": [
+        {
+          "question": "续写要（ ）。",
+          "type": "choice",
+          "options": [
+            "合理想象",
+            "乱编",
+            "抄原文"
+          ],
+          "answer": 0,
+          "explanation": "续写要合理想象。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YW4S015",
+      "oneLiner": "古诗鉴赏：了解诗人背景，理解诗意，想象画面，体会情感。",
+      "parentGuide": {
+        "quickExplanation": "学古诗四步：知诗人→明诗意→想画面→悟情感。",
+        "dailyExample": "《望庐山瀑布》：李白看到庐山瀑布，写下这首诗。",
+        "commonParentMistake": "不要只让孩子背，要先理解。",
+        "encouragement": "孩子理解深刻时，表扬：'理解得真好！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "看瀑布图片，读诗，说说你看到了什么。",
+        "keyQuestion": "怎么鉴赏古诗？",
+        "visualAid": "古诗配画。",
+        "transition": "先介绍诗人，再学习诗意。"
+      },
+      "quizQuestions": [
+        {
+          "question": "《望庐山瀑布》的作者是（ ）。",
+          "type": "choice",
+          "options": [
+            "李白",
+            "杜甫",
+            "白居易"
+          ],
+          "answer": 0,
+          "explanation": "《望庐山瀑布》是李白写的。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YY2S005",
+      "oneLiner": "英语书写：字母占格正确，间距均匀，单词间距一个字母宽。",
+      "parentGuide": {
+        "quickExplanation": "大写字母占上两格，小写字母有占格区别。",
+        "dailyExample": "写名字：Zhang Peng，注意字母占格。",
+        "commonParentMistake": "不要只关注写得多，要关注写得规范。",
+        "encouragement": "孩子写得规范时，表扬：'写得很标准！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "教师示范，学生描红，独立书写。",
+        "keyQuestion": "字母怎么占格？",
+        "visualAid": "四线三格和字母卡片。",
+        "transition": "先复习字母认读，再学习书写。"
+      },
+      "quizQuestions": [
+        {
+          "question": "大写字母占（ ）格。",
+          "type": "choice",
+          "options": [
+            "上两格",
+            "中间格",
+            "下两格"
+          ],
+          "answer": 0,
+          "explanation": "大写字母占上两格。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YY2S010",
+      "oneLiner": "单词记忆：自然拼读法，根据读音拼写单词。",
+      "parentGuide": {
+        "quickExplanation": "根据读音拼写单词，不要死记硬背字母。",
+        "dailyExample": "cat：c-a-t，读/kæt/。",
+        "commonParentMistake": "不要让孩子背字母顺序，要教拼读。",
+        "encouragement": "孩子拼对时，表扬：'拼得真准！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "用自然拼读法教新词，学生尝试拼读。",
+        "keyQuestion": "怎么记单词？",
+        "visualAid": "自然拼读规则表。",
+        "transition": "先复习字母发音，再学习拼读。"
+      },
+      "quizQuestions": [
+        {
+          "question": "cat用自然拼读法拼读是（ ）。",
+          "type": "choice",
+          "options": [
+            "c-a-t",
+            "c-t-a",
+            "a-c-t"
+          ],
+          "answer": 0,
+          "explanation": "按顺序拼读c-a-t。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YY3S001",
+      "oneLiner": "英语问候：Hello! Hi! Good morning! 会读会会用。",
+      "parentGuide": {
+        "quickExplanation": "见面说Hello或Hi，早上说Good morning。",
+        "dailyExample": "早上见到老师说Good morning!",
+        "commonParentMistake": "不要只让孩子读，要让孩子用。",
+        "encouragement": "孩子用英语问候时，表扬：'真有礼貌！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "情景表演：见面打招呼，用英语问候。",
+        "keyQuestion": "早上见到老师说什么？",
+        "visualAid": "问候语卡片。",
+        "transition": "先复习字母，再学习问候语。"
+      },
+      "quizQuestions": [
+        {
+          "question": "早上见到老师说（ ）。",
+          "type": "choice",
+          "options": [
+            "Good morning",
+            "Goodbye",
+            "Hello"
+          ],
+          "answer": 0,
+          "explanation": "早上说Good morning。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YY3S003",
+      "oneLiner": "字母书写：大写占上两格，小写有占格区别，注意笔顺。",
+      "parentGuide": {
+        "quickExplanation": "大写字母占上两格，小写b、d、f、h、k、l、t占上两格。",
+        "dailyExample": "写名字：Tom，注意T占上两格。",
+        "commonParentMistake": "不要只关注写得多，要关注笔顺和占格。",
+        "encouragement": "孩子写得规范时，表扬：'笔顺真标准！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "教师示范，学生描红，独立书写。",
+        "keyQuestion": "哪些小写字母占上两格？",
+        "visualAid": "四线三格和字母卡片。",
+        "transition": "先复习字母认读，再学习书写。"
+      },
+      "quizQuestions": [
+        {
+          "question": "小写字母（ ）占上两格。",
+          "type": "choice",
+          "options": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answer": 1,
+          "explanation": "b占上两格。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YY3S005",
+      "oneLiner": "英语发音：跟读模仿，不要急于说，先听清楚再开口。",
+      "parentGuide": {
+        "quickExplanation": "先听原版音频，再跟读模仿，不要急于说。",
+        "dailyExample": "听英语儿歌，跟着唱。",
+        "commonParentMistake": "不要纠正每一个发音，先鼓励开口。",
+        "encouragement": "孩子发音有进步时，表扬：'发音真好听！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "听录音，跟读，模仿语音语调。",
+        "keyQuestion": "怎么学好发音？",
+        "visualAid": "音频和口型图。",
+        "transition": "先复习字母发音，再学习单词发音。"
+      },
+      "quizQuestions": [
+        {
+          "question": "学英语发音要（ ）。",
+          "type": "choice",
+          "options": [
+            "先听再跟读",
+            "直接说",
+            "不读"
+          ],
+          "answer": 0,
+          "explanation": "先听再跟读。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YY3S008",
+      "oneLiner": "听力理解：先听懂大意，再抓细节，重复听同一材料。",
+      "parentGuide": {
+        "quickExplanation": "听英语时，先听懂大意，再抓细节。",
+        "dailyExample": "听英语故事，说说讲了什么。",
+        "commonParentMistake": "不要要求每个词都听懂，先听懂大意。",
+        "encouragement": "孩子听懂时，表扬：'听力真棒！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "听录音，回答问题：谁？在哪里？干什么？",
+        "keyQuestion": "怎么提高听力？",
+        "visualAid": "听力材料。",
+        "transition": "先复习单词，再练习听力。"
+      },
+      "quizQuestions": [
+        {
+          "question": "听英语要先听懂（ ）。",
+          "type": "choice",
+          "options": [
+            "大意",
+            "每个词",
+            "语法"
+          ],
+          "answer": 0,
+          "explanation": "先听懂大意。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YY3S010",
+      "oneLiner": "单词分类：按颜色、动物、食物等分类记忆单词。",
+      "parentGuide": {
+        "quickExplanation": "把单词按类别分组，更容易记忆。",
+        "dailyExample": "颜色类：red, blue, yellow, green。",
+        "commonParentMistake": "不要让孩子一次背太多，分类记忆更有效。",
+        "encouragement": "孩子分类正确时，表扬：'分类能力真强！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "给单词分类，贴在分类卡片上。",
+        "keyQuestion": "怎么记单词更有效？",
+        "visualAid": "单词分类表。",
+        "transition": "先复习单词，再学习分类。"
+      },
+      "quizQuestions": [
+        {
+          "question": "red, blue, yellow都是（ ）类单词。",
+          "type": "choice",
+          "options": [
+            "颜色",
+            "动物",
+            "食物"
+          ],
+          "answer": 0,
+          "explanation": "red, blue, yellow都是颜色。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YY3S015",
+      "oneLiner": "口语表达：从简单句开始，不要怕错，大胆开口。",
+      "parentGuide": {
+        "quickExplanation": "从I like...开始，不要怕说错，大胆开口。",
+        "dailyExample": "介绍自己：I'm Tom. I like apples。",
+        "commonParentMistake": "不要纠正每一个错误，先鼓励开口。",
+        "encouragement": "孩子开口说时，表扬：'说得真好！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "两人一组，用英语互相介绍。",
+        "keyQuestion": "怎么提高口语？",
+        "visualAid": "句型卡片。",
+        "transition": "先复习单词，再学习句型。"
+      },
+      "quizQuestions": [
+        {
+          "question": "介绍自己说I'm...，后面跟（ ）。",
+          "type": "choice",
+          "options": [
+            "名字",
+            "年龄",
+            "颜色"
+          ],
+          "answer": 0,
+          "explanation": "I'm后面跟名字。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YY4S005",
+      "oneLiner": "描述人物：用He/She is...描述外貌，用He/She likes...描述爱好。",
+      "parentGuide": {
+        "quickExplanation": "描述人物：He is tall. He likes reading。",
+        "dailyExample": "介绍朋友：My friend is Tom. He is tall. He likes football。",
+        "commonParentMistake": "不要只让孩子背，要让孩子说。",
+        "encouragement": "孩子说得好时，表扬：'描述得真完整！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "介绍自己的朋友，用He/She is...和He/She likes...",
+        "keyQuestion": "怎么描述人物？",
+        "visualAid": "人物图片和句型。",
+        "transition": "先复习外貌词汇，再学习描述人物。"
+      },
+      "quizQuestions": [
+        {
+          "question": "描述男孩用（ ）。",
+          "type": "choice",
+          "options": [
+            "He",
+            "She",
+            "It"
+          ],
+          "answer": 0,
+          "explanation": "男孩用He。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YY4S010",
+      "oneLiner": "语法：he/she后面动词要加s，第三人称单数。",
+      "parentGuide": {
+        "quickExplanation": "he/she后面动词要加s，如He likes apples.",
+        "dailyExample": "I like apples. He likes apples.",
+        "commonParentMistake": "不要讲语法术语，用例子说明。",
+        "encouragement": "孩子用对时，表扬：'语法用得真准！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "对比：I like... He likes... 找规律。",
+        "keyQuestion": "he后面动词怎么变？",
+        "visualAid": "语法对比表。",
+        "transition": "先复习I like...，再学习He likes...。"
+      },
+      "quizQuestions": [
+        {
+          "question": "He (like) apples. 填likes还是like？",
+          "type": "choice",
+          "options": [
+            "likes",
+            "like"
+          ],
+          "answer": 0,
+          "explanation": "He后面动词加s。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YY4S015",
+      "oneLiner": "英语阅读：选择适合水平的读物，每页不超过5个生词。",
+      "parentGuide": {
+        "quickExplanation": "选择适合水平的读物，生词不要太多。",
+        "dailyExample": "读英语绘本，每页最多5个生词。",
+        "commonParentMistake": "不要逼孩子读太难的书，先培养兴趣。",
+        "encouragement": "孩子读得好时，表扬：'读得真流利！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "阅读英语绘本，回答问题。",
+        "keyQuestion": "怎么选择读物？",
+        "visualAid": "分级读物。",
+        "transition": "先复习单词，再学习阅读。"
+      },
+      "quizQuestions": [
+        {
+          "question": "选择读物时，每页生词不超过（ ）个。",
+          "type": "choice",
+          "options": [
+            "5",
+            "10",
+            "20"
+          ],
+          "answer": 0,
+          "explanation": "每页不超过5个生词。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YY5S005",
+      "oneLiner": "时态：一般现在时、一般过去时、一般将来时，根据时间选时态。",
+      "parentGuide": {
+        "quickExplanation": "现在用一般现在时，过去用一般过去时，将来用一般将来时。",
+        "dailyExample": "I play football. I played football. I will play football.",
+        "commonParentMistake": "不要讲语法术语，用时间词说明。",
+        "encouragement": "孩子用对时，表扬：'时态用得真准！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "给句子选时态，根据时间词判断。",
+        "keyQuestion": "怎么判断时态？",
+        "visualAid": "时态时间轴。",
+        "transition": "先复习动词，再学习时态。"
+      },
+      "quizQuestions": [
+        {
+          "question": "yesterday用（ ）时态。",
+          "type": "choice",
+          "options": [
+            "一般过去时",
+            "一般现在时",
+            "一般将来时"
+          ],
+          "answer": 0,
+          "explanation": "yesterday是过去时间。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YY5S010",
+      "oneLiner": "阅读理解：先读题目，再读文章，带着问题找答案。",
+      "parentGuide": {
+        "quickExplanation": "做阅读题时，先读题目，再读文章，带着问题找答案。",
+        "dailyExample": "做阅读题：先看问题，再读文章。",
+        "commonParentMistake": "不要直接告诉答案，要教方法。",
+        "encouragement": "孩子做对时，表扬：'方法用得好！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "师生共同完成一篇阅读，示范方法。",
+        "keyQuestion": "怎么做阅读理解？",
+        "visualAid": "阅读步骤图。",
+        "transition": "先复习读文章，再学习答题方法。"
+      },
+      "quizQuestions": [
+        {
+          "question": "做阅读题第一步是（ ）。",
+          "type": "choice",
+          "options": [
+            "读文章",
+            "读题目",
+            "找答案"
+          ],
+          "answer": 1,
+          "explanation": "先读题目。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YY5S015",
+      "oneLiner": "英语写作：从简单句开始，用熟悉的句型，写完后检查。",
+      "parentGuide": {
+        "quickExplanation": "写作文从简单句开始，用熟悉的句型，写完后检查。",
+        "dailyExample": "写日记：Today is Monday. I am happy.",
+        "commonParentMistake": "不要要求孩子写长，先让孩子写对。",
+        "encouragement": "孩子写得好时，表扬：'写得真棒！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "写一篇3-5句话的日记，互相检查。",
+        "keyQuestion": "怎么写英语作文？",
+        "visualAid": "写作模板。",
+        "transition": "先复习句型，再学习写作。"
+      },
+      "quizQuestions": [
+        {
+          "question": "写英语作文从（ ）开始。",
+          "type": "choice",
+          "options": [
+            "简单句",
+            "复杂句",
+            "长句"
+          ],
+          "answer": 0,
+          "explanation": "从简单句开始。"
+        }
+      ]
+    },
+    {
+      "id": "ct_YY6S010",
+      "oneLiner": "综合复习：整理错题，复习重点，模拟练习。",
+      "parentGuide": {
+        "quickExplanation": "期末复习：整理错题，复习重点，模拟练习。",
+        "dailyExample": "期末考试前：看错题本，做模拟题。",
+        "commonParentMistake": "不要搞题海战术，要有针对性。",
+        "encouragement": "孩子复习得好时，表扬：'复习方法真好！'"
+      },
+      "teacherGuide": {
+        "classroomActivity": "整理本学期错题，做模拟练习。",
+        "keyQuestion": "怎么有效复习？",
+        "visualAid": "复习计划表。",
+        "transition": "先复习错题，再做模拟题。"
+      },
+      "quizQuestions": [
+        {
+          "question": "期末复习最重要的是（ ）。",
+          "type": "choice",
+          "options": [
+            "整理错题",
+            "做新题",
+            "背书"
+          ],
+          "answer": 0,
+          "explanation": "整理错题最重要。"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "totalEnhancedTopics": 45,
+    "lastUpdated": "2026-08-27",
+    "note": "本文件包含45个增强字段，与topics-enhanced-fields.json的5个合计50个"
+  }
+}

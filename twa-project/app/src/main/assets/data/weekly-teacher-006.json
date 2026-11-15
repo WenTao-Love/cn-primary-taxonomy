@@ -1,0 +1,101 @@
+{
+  "version": "v1.0-teacher-weekly",
+  "issueNumber": 6,
+  "title": "教学难点：平行四边形面积教学设计",
+  "subtitle": "——用'转化思想'推导面积公式",
+  "publishDate": "2026-10-03",
+  "coverImage": "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800",
+  "coverCaption": "把未知转化为已知，是数学学习的重要思想。",
+  "sections": [
+    {
+      "type": "headline",
+      "title": "本周教学难点：平行四边形面积教学设计",
+      "content": "平行四边形面积是五年级几何教学的重点和难点。学生容易把平行四边形面积和邻边相乘混淆。如何让学生真正理解面积公式的推导？",
+      "keyInsight": "平行四边形面积教学的核心是'转化思想'。通过剪拼把平行四边形转化成长方形，让学生发现两者之间的联系，从而理解面积公式。"
+    },
+    {
+      "type": "analysis",
+      "title": "平行四边形面积教学的三个难点",
+      "items": [
+        {"difficulty": "和长方形面积混淆", "percentage": "40%", "example": "用邻边相乘求面积"},
+        {"difficulty": "不理解转化思想", "percentage": "35%", "example": "不知道为什么可以剪拼"},
+        {"difficulty": "不会找对应底和高", "percentage": "25%", "example": "底和高不对应"}
+      ]
+    },
+    {
+      "type": "lessonDesign",
+      "title": "教学设计：平行四边形面积",
+      "topicId": "ct_SX5S020",
+      "grade": 5,
+      "term": "上",
+      "duration": "40分钟",
+      "objectives": ["理解平行四边形面积公式的推导过程", "掌握平行四边形面积计算方法", "培养转化思想和动手能力"],
+      "keyPoints": ["面积公式推导", "底和高的对应关系", "转化思想"],
+      "difficultPoints": ["理解剪拼转化的原理", "底和高的对应"],
+      "teachingProcess": [
+        {"step": 1, "activity": "复习导入", "duration": "5分钟", "detail": "复习长方形面积公式。出示平行四边形：这个图形的面积怎么求？"},
+        {"step": 2, "activity": "猜想验证", "duration": "5分钟", "detail": "学生猜想：平行四边形面积=底×高？还是底×邻边？如何验证？"},
+        {"step": 3, "activity": "剪拼转化", "duration": "15分钟", "detail": "①学生动手：把平行四边形沿高剪开，拼成长方形；②观察：剪拼前后，什么变了？什么没变？③发现：长方形的长=平行四边形的底，宽=平行四边形的高。"},
+        {"step": 4, "activity": "推导公式", "duration": "5分钟", "detail": "长方形面积=长×宽，所以平行四边形面积=底×高。用字母表示：S=ah。"},
+        {"step": 5, "activity": "巩固练习", "duration": "8分钟", "detail": "①求平行四边形面积（已知底和高）；②已知面积和底，求高；③判断：面积相等的平行四边形，底和高一定相等吗？"},
+        {"step": 6, "activity": "总结拓展", "duration": "2分钟", "detail": "总结：转化思想——把未知变成已知。作业：用转化思想思考三角形面积怎么求。"}
+      ],
+      "blackboard设计": "左边：平行四边形剪拼成长方形\n中间：长方形面积=长×宽\n右边：平行四边形面积=底×高\nS=ah",
+      "commonStudentErrors": ["用邻边相乘", "底和高不对应", "忘记写单位"],
+      "differentiation": {
+        "advanced": "思考：等底等高的平行四边形面积相等吗？",
+        "support": "提供剪刀和方格纸，让学生动手剪拼。"
+      }
+    },
+    {
+      "type": "knowledge",
+      "title": "知识精讲：转化思想教学",
+      "oneLiner": "转化思想是数学学习的重要思想。把未知转化为已知，把复杂转化为简单。",
+      "keyPoints": ["剪拼转化", "找对应关系", "推导公式"],
+      "commonMistakes": ["直接告诉公式", "不让学生动手", "忽视转化思想"],
+      "teachingScript": "不要直接告诉公式，要让学生动手剪拼，自己发现平行四边形和长方形的关系。"
+    },
+    {
+      "type": "tools",
+      "title": "本周推荐：5个教学工具",
+      "items": [
+        {"name": "平行四边形学具", "description": "可剪拼的平行四边形", "how": "学生动手剪拼。", "link": "#"},
+        {"name": "方格纸", "description": "验证面积", "how": "数方格验证面积。", "link": "#"},
+        {"name": "剪刀", "description": "安全剪刀", "how": "剪开平行四边形。", "link": "#"},
+        {"name": "多媒体课件", "description": "剪拼动画演示", "how": "动态展示剪拼过程。", "link": "#"},
+        {"name": "练习卡片", "description": "不同底和高的平行四边形", "how": "巩固练习。", "link": "#"}
+      ]
+    },
+    {
+      "type": "case",
+      "title": "教师经验分享",
+      "author": "五年级数学教师 孙老师",
+      "content": "我在教学平行四边形面积时，先让学生猜答案，然后让学生用剪刀剪拼验证。学生自己动手发现规律，理解特别深刻。后来学三角形面积时，学生自然会想到用转化的方法。",
+      "keyTakeaway": "转化思想比公式更重要。让学生掌握方法，比记住公式更有价值。"
+    },
+    {
+      "type": "quiz",
+      "title": "教学小测验",
+      "questions": [
+        {"question": "平行四边形面积公式是什么？", "type": "choice", "options": ["底×邻边", "底×高", "长×宽", "边长×边长"], "answer": 1},
+        {"question": "推导平行四边形面积公式用了什么思想？", "type": "choice", "options": ["转化思想", "类比思想", "归纳思想", "演绎思想"], "answer": 0},
+        {"question": "平行四边形的底和高必须是什么关系？", "type": "choice", "options": ["相等", "垂直", "平行", "相交"], "answer": 1}
+      ]
+    },
+    {
+      "type": "quote",
+      "title": "教育金句",
+      "items": [
+        {"text": "数学是思维的体操。", "author": "加里宁"},
+        {"text": "授人以鱼不如授人以渔。", "author": "俗语"}
+      ]
+    },
+    {
+      "type": "nextWeek",
+      "title": "下周预告",
+      "content": "下周我们将讨论：教学难点——英语绘本教学设计。"
+    }
+  ],
+  "relatedTopics": ["ct_SX5S020", "ct_SX4S010", "ct_SX5S015"],
+  "tags": ["数学", "几何", "转化思想", "高年级"]
+}

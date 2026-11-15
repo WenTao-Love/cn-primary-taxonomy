@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小学教育周刊 - 家长版</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* 侧边栏 */
+        .sidebar {
+            width: 320px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        
+        .sidebar h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .sidebar .subtitle {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+        
+        .issue-list {
+            list-style: none;
+        }
+        
+        .issue-item {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .issue-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(5px);
+        }
+        
+        .issue-item.active {
+            background: rgba(255,255,255,0.3);
+            border-left: 4px solid #ffd700;
+        }
+        
+        .issue-number {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-bottom: 5px;
+        }
+        
+        .issue-title {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .issue-date {
+            font-size: 12px;
+            opacity: 0.6;
+            margin-top: 5px;
+        }
+        
+        /* 主内容区 */
+        .main-content {
+            flex: 1;
+            margin-left: 320px;
+            padding: 40px;
+            max-width: 900px;
+        }
+        
+        .article {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+        }
+        
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .article-issue {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .article-title {
+            font-size: 32px;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+        
+        .article-subtitle {
+            font-size: 18px;
+            color: #718096;
+        }
+        
+        .article-date {
+            font-size: 14px;
+            color: #a0aec0;
+            margin-top: 15px;
+        }
+        
+        /* 内容区块 */
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            color: #2d3748;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .section-content {
+            color: #4a5568;
+            font-size: 16px;
+        }
+        
+        .key-insight {
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .key-insight-label {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+        
+        /* 分析列表 */
+        .analysis-list {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .analysis-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 8px;
+        }
+        
+        .analysis-percentage {
+            font-size: 28px;
+            font-weight: 700;
+            color: #667eea;
+            margin-right: 20px;
+            min-width: 70px;
+        }
+        
+        .analysis-content h4 {
+            font-size: 16px;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+        
+        .analysis-content p {
+            font-size: 14px;
+            color: #718096;
+        }
+        
+        /* 方法卡片 */
+        .method-card {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .method-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+        
+        .method-desc {
+            color: #718096;
+            margin-bottom: 15px;
+        }
+        
+        .method-detail {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .method-detail-label {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        /* 知识点 */
+        .knowledge-box {
+            background: #fffaf0;
+            border: 1px solid #fbd38d;
+            border-radius: 12px;
+            padding: 25px;
+        }
+        
+        .one-liner {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #fbd38d;
+        }
+        
+        .key-points, .common-mistakes {
+            margin-bottom: 15px;
+        }
+        
+        .key-points h4, .common-mistakes h4 {
+            font-size: 14px;
+            color: #718096;
+            margin-bottom: 10px;
+        }
+        
+        .key-points ul, .common-mistakes ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .key-points li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .key-points li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: bold;
+        }
+        
+        .common-mistakes li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .common-mistakes li::before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #f56565;
+            font-weight: bold;
+        }
+        
+        .parent-script {
+            background: #e6fffa;
+            border: 1px solid #81e6d9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .parent-script-label {
+            font-weight: 600;
+            color: #319795;
+            margin-bottom: 8px;
+        }
+        
+        /* 工具列表 */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .tool-card {
+            background: #f7fafc;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .tool-name {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+        
+        .tool-desc {
+            font-size: 14px;
+            color: #718096;
+            margin-bottom: 10px;
+        }
+        
+        .tool-how {
+            font-size: 13px;
+            color: #667eea;
+        }
+        
+        /* 案例 */
+        .case-box {
+            background: #ebf8ff;
+            border: 1px solid #90cdf4;
+            border-radius: 12px;
+            padding: 25px;
+        }
+        
+        .case-author {
+            font-weight: 600;
+            color: #2b6cb0;
+            margin-bottom: 15px;
+        }
+        
+        .case-content {
+            color: #4a5568;
+            margin-bottom: 15px;
+        }
+        
+        .case-takeaway {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            color: #2b6cb0;
+        }
+        
+        /* 测验 */
+        .quiz-box {
+            background: #f0fff4;
+            border: 1px solid #9ae6b4;
+            border-radius: 12px;
+            padding: 25px;
+        }
+        
+        .quiz-question {
+            margin-bottom: 20px;
+        }
+        
+        .quiz-question-text {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+        
+        .quiz-options {
+            display: grid;
+            gap: 8px;
+        }
+        
+        .quiz-option {
+            padding: 10px 15px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .quiz-option:hover {
+            border-color: #48bb78;
+            background: #f0fff4;
+        }
+        
+        /* 金句 */
+        .quote-box {
+            background: #faf5ff;
+            border: 1px solid #d6bcfa;
+            border-radius: 12px;
+            padding: 25px;
+        }
+        
+        .quote-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #d6bcfa;
+        }
+        
+        .quote-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .quote-text {
+            font-size: 18px;
+            font-style: italic;
+            color: #553c9a;
+            margin-bottom: 8px;
+        }
+        
+        .quote-author {
+            font-size: 14px;
+            color: #718096;
+            text-align: right;
+        }
+        
+        /* 下周预告 */
+        .next-week {
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .next-week-label {
+            font-size: 14px;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .next-week-content {
+            font-size: 18px;
+            color: #2d3748;
+            font-weight: 600;
+        }
+        
+        /* 标签 */
+        .tags {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            background: #edf2f7;
+            color: #4a5568;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 13px;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+            
+            .article {
+                padding: 20px;
+            }
+            
+            .article-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <h1>📚 小学教育周刊</h1>
+            <p class="subtitle">家长版 · 每周一个学习难题</p>
+            <ul class="issue-list" id="issueList">
+                <!-- 动态生成 -->
+            </ul>
+        </aside>
+        
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <article class="article" id="articleContent">
+                <!-- 动态生成 -->
+            </article>
+        </main>
+    </div>
+    
+    <script>
+        // 周刊数据
+        const issues = [
+            {
+                id: 1,
+                title: "孩子数学总是粗心怎么办？",
+                subtitle: "——三个方法帮孩子告别'粗心'",
+                date: "2026-08-29",
+                tags: ["数学", "粗心", "学习习惯", "低年级"]
+            },
+            {
+                id: 2,
+                title: "孩子应用题理解不了怎么办？",
+                subtitle: "——用'画图法'帮助孩子理解题意",
+                date: "2026-09-05",
+                tags: ["数学", "应用题", "画图法", "低中年级"]
+            },
+            {
+                id: 3,
+                title: "孩子乘法口诀背不熟怎么办？",
+                subtitle: "——用'游戏法'让口诀变有趣",
+                date: "2026-09-12",
+                tags: ["数学", "乘法口诀", "游戏法", "低年级"]
+            },
+            {
+                id: 4,
+                title: "孩子作文不会写怎么办？",
+                subtitle: "——用'五感法'让作文有血有肉",
+                date: "2026-09-19",
+                tags: ["语文", "作文", "五感法", "中高年级"]
+            },
+            {
+                id: 5,
+                title: "孩子不爱阅读怎么办？",
+                subtitle: "——用'兴趣第一'原则培养阅读习惯",
+                date: "2026-09-26",
+                tags: ["语文", "阅读", "兴趣培养", "低中年级"]
+            },
+            {
+                id: 6,
+                title: "孩子数学计算粗心怎么办？",
+                subtitle: "——用'检查三步法'提高正确率",
+                date: "2026-10-03",
+                tags: ["数学", "计算", "检查习惯", "中低年级"]
+            },
+            {
+                id: 7,
+                title: "孩子英语发音不准怎么办？",
+                subtitle: "——用'模仿跟读法'纠正发音",
+                date: "2026-10-10",
+                tags: ["英语", "发音", "模仿跟读", "中高年级"]
+            },
+            {
+                id: 8,
+                title: "孩子写作业磨蹭怎么办？",
+                subtitle: "——用'番茄钟'培养时间观念",
+                date: "2026-10-17",
+                tags: ["学习习惯", "时间管理", "番茄钟", "全年级"]
+            },
+            {
+                id: 9,
+                title: "孩子上课不专心怎么办？",
+                subtitle: "——用'专注力训练'提升课堂效率",
+                date: "2026-10-24",
+                tags: ["注意力", "课堂专注", "学习习惯", "全年级"]
+            },
+            {
+                id: 10,
+                title: "孩子厌学怎么办？",
+                subtitle: "——用'正向激励'重建学习动力",
+                date: "2026-10-31",
+                tags: ["学习动力", "厌学", "正向激励", "全年级"]
+            },
+            {
+                id: 11,
+                title: "孩子考试紧张怎么办？",
+                subtitle: "——用'平常心'应对考试焦虑",
+                date: "2026-11-07",
+                tags: ["考试焦虑", "心理调节", "学习方法", "中高年级"]
+            },
+            {
+                id: 12,
+                title: "孩子不会交朋友怎么办？",
+                subtitle: "——用'社交技巧'帮助孩子融入集体",
+                date: "2026-11-14",
+                tags: ["社交能力", "同伴关系", "心理健康", "全年级"]
+            }
+        ];
+        
+        // 详细内容数据
+        const issueDetails = {
+            1: {
+                headline: {
+                    title: "本周难题：孩子数学总是粗心怎么办？",
+                    content: "很多家长都遇到过：孩子考试回来，一看错题，不是不会，而是粗心。抄错数字、看错题目、计算错误... 家长们常常感叹：'这孩子，要是细心点就好了！'",
+                    keyInsight: "粗心本质是习惯问题，不是智力问题。研究表明，90%的'粗心'都可以通过三个方法改善。"
+                },
+                analysis: {
+                    title: "粗心的三种原因",
+                    items: [
+                        { reason: "读题不仔细", percentage: "40%", example: "把'多多少'看成'少多少'，把'一共'看成'还剩'" },
+                        { reason: "计算不熟练", percentage: "35%", example: "进位加法忘记进位，乘法口诀背错" },
+                        { reason: "检查不到位", percentage: "25%", example: "做完不检查，或者检查也看不出错误" }
+                    ]
+                },
+                solution: {
+                    title: "三个方法解决粗心",
+                    methods: [
+                        {
+                            name: "指读法",
+                            description: "读题时用手指指着一个字一个字地读",
+                            why: "眼睛移动速度比大脑快，指读能让孩子慢下来，看清每个字",
+                            how: "让孩子做题时，用食指指着题目，一个字一个字地读。读两遍再开始做。",
+                            example: "题目：'小明有8个苹果，小红比小明多3个，小红有几个？' 指读时特别注意'多'字。"
+                        },
+                        {
+                            name: "检查三步法",
+                            description: "做完题后，用三种方法检查",
+                            why: "不同检查方法能发现不同类型的错误",
+                            how: "第一步：重新算一遍（发现计算错误）；第二步：逆运算验算（加法用减法验）；第三步：估算判断（结果合理吗？）",
+                            example: "27+35=62，验算：62-35=27，正确。估算：27约等于30，35约等于40，30+40=70，62接近70，合理。"
+                        },
+                        {
+                            name: "错题本",
+                            description: "把错题记录下来，每周回顾",
+                            why: "错题是最好的复习资料，避免重复犯错",
+                            how: "准备一个本子，抄下错题，写上错误原因和正确做法。每周末花15分钟回顾。",
+                            example: "错题：27+35=52（错误）。原因：忘记进位。正确：27+35=62。"
+                        }
+                    ]
+                },
+                knowledge: {
+                    title: "知识精讲：进位加法",
+                    oneLiner: "进位加法：个位满十要向十位进1，这是竖式计算最容易错的地方。",
+                    keyPoints: ["个位相加满十，要向十位进1", "进位1要写小一点，不要忘记", "十位相加时，要加上进位的1"],
+                    commonMistakes: ["忘记进位", "进位1写得太大，和数字混在一起", "十位相加时没加进位的1"],
+                    parentScript: "不要说'又忘了进位'，换成'我们再来捆一次小棒'。用小棒演示：10根单棒捆成一捆，理解'满十进一'。"
+                },
+                tools: {
+                    title: "本周推荐：5个辅导工具",
+                    items: [
+                        { name: "口算卡片", description: "每天5分钟口算练习，提高计算熟练度", how: "买一套口算卡片，或者自己制作。每天5分钟，计时练习。" },
+                        { name: "错题本模板", description: "打印错题本模板，让孩子养成记录错题的习惯", how: "下载模板，打印出来。每道错题抄下来，写上错误原因。" },
+                        { name: "指读棒", description: "用铅笔或筷子当指读棒，帮助孩子指读题目", how: "让孩子用铅笔指着题目读，比用手指更正式，孩子更愿意做。" },
+                        { name: "估算游戏", description: "生活中随时练习估算：买东西时先估一估总价", how: "逛超市时，让孩子先估算两样东西一共多少钱，再实际算一算。" },
+                        { name: "检查清单", description: "制作检查清单，让孩子做完题后逐项检查", how: "①数字抄对了吗？②计算对了吗？③单位写了吗？④答句完整吗？" }
+                    ]
+                },
+                case: {
+                    title: "家长经验分享",
+                    author: "二年级学生家长 李妈妈",
+                    content: "我家孩子以前也是粗心大王，后来我用了'指读法'，让孩子用铅笔指着题目读两遍。一开始孩子觉得麻烦，但坚持了一个月，粗心错误明显减少了。现在孩子已经养成习惯，不需要提醒就会指读。",
+                    keyTakeaway: "习惯的养成需要时间，坚持21天就能看到效果。"
+                },
+                quiz: {
+                    title: "小测验：今天学到了什么？",
+                    questions: [
+                        { question: "孩子粗心最常见的原因是什么？", options: ["读题不仔细", "计算不熟练", "检查不到位", "以上都是"], answer: 3 },
+                        { question: "检查三步法不包括以下哪项？", options: ["重新算一遍", "逆运算验算", "估算判断", "问同学答案"], answer: 3 },
+                        { question: "错题本应该多久回顾一次？", options: ["每天", "每周", "每月", "期末"], answer: 1 }
+                    ]
+                },
+                quotes: {
+                    title: "教育金句",
+                    items: [
+                        { text: "教育不是注满一桶水，而是点燃一把火。", author: "威廉·巴特勒·叶芝" },
+                        { text: "孩子是在错误中学习的。", author: "约翰·杜威" },
+                        { text: "耐心是教育成功的关键。", author: "佚名" },
+                        { text: "好习惯的养成需要21天，好性格的养成需要90天。", author: "佚名" }
+                    ]
+                },
+                nextWeek: {
+                    title: "下周预告",
+                    content: "下周我们将讨论：孩子应用题理解不了怎么办？——用'画图法'帮助孩子理解题意。"
+                }
+            }
+            9: {
+                headline: {
+                    title: "本周难题：孩子上课不专心怎么办？",
+                    content: "老师反映孩子上课走神、小动作多、不认真听讲。家长很头疼：明明孩子很聪明，为什么就是坐不住？",
+                    keyInsight: "注意力不集中不是孩子的错，是大脑发育和训练的问题。通过科学的方法，注意力是可以培养的。"
+                },
+                analysis: {
+                    title: "注意力不集中的四种原因",
+                    items: [
+                        { reason: "生理因素", percentage: "30%", example: "前额叶发育不完善，自控力弱" },
+                        { reason: "兴趣不足", percentage: "25%", example: "觉得上课内容无聊或太难" },
+                        { reason: "环境干扰", percentage: "25%", example: "同桌影响、教室噪音、窗外风景" },
+                        { reason: "习惯问题", percentage: "20%", example: "没有养成专注做事的习惯" }
+                    ]
+                },
+                solution: {
+                    title: "专注力训练：让听课变高效",
+                    methods: [
+                        {
+                            name: "舒尔特方格",
+                            description: "在5×5方格中按顺序指认1-25",
+                            how: "每天练习5分钟，逐步提高速度。可以自制方格，也可以下载APP。",
+                            example: "从3×3开始，熟练后再升级到4×4、5×5。"
+                        },
+                        {
+                            name: "听课目标法",
+                            description: "课前给孩子设定听课目标",
+                            how: "告诉孩子：'今天数学课，你要找出老师讲的三个重点，回来讲给我听。'",
+                            example: "有了目标，孩子会主动集中注意力去寻找答案。"
+                        },
+                        {
+                            name: "分段学习",
+                            description: "把学习时间分成小段",
+                            how: "低年级15分钟、中年级20分钟、高年级25分钟为一个专注时段，中间休息5分钟。",
+                            example: "用计时器提醒，培养时间观念和专注习惯。"
+                        }
+                    ]
+                },
+                knowledge: {
+                    title: "知识精讲：注意力发展规律",
+                    oneLiner: "注意力是可以通过训练提升的。小学阶段是培养注意力的黄金期。",
+                    keyPoints: ["低年级注意力持续15-20分钟", "中年级20-25分钟", "高年级25-30分钟"],
+                    commonMistakes: ["要求孩子坐定1小时", "边玩边写作业", "频繁打断孩子"],
+                    parentScript: "不要说'你怎么又走神了'，换成'你今天专注了15分钟，比昨天多了5分钟，继续加油！'"
+                },
+                tools: {
+                    title: "本周推荐：5个专注力工具",
+                    items: [
+                        { name: "舒尔特方格", description: "训练视觉专注力", how: "每天5分钟练习", link: "#" },
+                        { name: "计时器", description: "培养时间观念", how: "设定专注时段", link: "#" },
+                        { name: "白噪音", description: "屏蔽环境干扰", how: "学习时播放", link: "#" },
+                        { name: "专注力训练卡", description: "找不同、走迷宫等", how: "游戏化训练", link: "#" },
+                        { name: "听课记录本", description: "记录课堂重点", how: "课后回顾", link: "#" }
+                    ]
+                },
+                caseStudy: {
+                    title: "家长经验分享",
+                    author: "三年级学生家长 王妈妈",
+                    content: "孩子上课总走神，老师经常反映。后来我每天和孩子玩'舒尔特方格'，还给孩子定了'听课目标'。两个月后，老师反馈孩子进步很大。",
+                    keyTakeaway: "专注力训练需要坚持，每天10分钟，两个月就能看到效果。"
+                },
+                quiz: {
+                    title: "小测验：今天学到了什么？",
+                    questions: [
+                        { q: "低年级学生注意力持续多长时间？", options: ["5分钟", "15-20分钟", "45分钟", "1小时"], answer: 1 },
+                        { q: "舒尔特方格主要训练什么？", options: ["记忆力", "视觉专注力", "计算能力", "想象力"], answer: 1 },
+                        { q: "听课目标法是指什么？", options: ["让孩子抄写目标", "设定听课目标", "考试得高分", "完成作业"], answer: 1 }
+                    ]
+                },
+                quotes: {
+                    title: "教育金句",
+                    items: [
+                        { text: "专注是最稀缺的资源。", author: "卡尔·纽波特" },
+                        { text: "耐心是一切聪明才智的基础。", author: "柏拉图" }
+                    ]
+                },
+                nextWeek: {
+                    title: "下周预告",
+                    content: "下周我们将讨论：孩子厌学怎么办？——用'正向激励'重建学习动力。"
+                }
+            },
+            10: {
+                headline: {
+                    title: "本周难题：孩子厌学怎么办？",
+                    content: "孩子一提到学习就烦躁、拖拉、逃避。说'我不喜欢学习'、'学习有什么用'。家长越逼越反抗，亲子关系越来越紧张。",
+                    keyInsight: "厌学不是'懒'，是'挫败感'积累的结果。孩子在学习中体验到的失败多于成功，就会逃避学习。正向激励能帮孩子重建信心。"
+                },
+                analysis: {
+                    title: "厌学的四种原因",
+                    items: [
+                        { reason: "挫败感积累", percentage: "35%", example: "成绩不好，经常被批评" },
+                        { reason: "缺乏成就感", percentage: "25%", example: "努力了但没有进步" },
+                        { reason: "亲子关系紧张", percentage: "25%", example: "学习成了亲子冲突的导火索" },
+                        { reason: "没有找到意义", percentage: "15%", example: "不知道学习为了什么" }
+                    ]
+                },
+                solution: {
+                    title: "正向激励：让学习变有趣",
+                    methods: [
+                        {
+                            name: "发现闪光点",
+                            description: "找到孩子学习中的进步和优点",
+                            how: "不要说'你怎么才考80分'，换成'比上次进步了5分，这道题解题思路很棒'。关注过程，不只看结果。",
+                            example: "孩子数学考了75分：'这次计算题全对了，比上次进步了！'"
+                        },
+                        {
+                            name: "小目标策略",
+                            description: "设定孩子能达成的小目标",
+                            how: "不要定'考100分'这样的目标，定'每天专注写作业20分钟'这样的过程目标。",
+                            example: "本周目标：每天按时完成作业，不打扰。达成后奖励周末多玩30分钟。"
+                        },
+                        {
+                            name: "自主选择权",
+                            description: "给孩子一些学习的自主权",
+                            how: "让孩子决定：先做哪科作业？什么时候复习？在哪里学习？",
+                            example: "问孩子：'你想先做数学还是先做语文？'而不是'必须先做数学'。"
+                        }
+                    ]
+                },
+                knowledge: {
+                    title: "知识精讲：学习动机培养",
+                    oneLiner: "学习动机分为外在动机（奖励、惩罚）和内在动机（兴趣、成就感）。激发内在动机才是长久之计。",
+                    keyPoints: ["关注过程而非结果", "设定合理的小目标", "给予自主选择权"],
+                    commonMistakes: ["只看分数不看进步", "过度使用物质奖励", "拿孩子和别人比较"],
+                    parentScript: "不要说'你怎么这么懒'，换成'我看到你今天很努力，继续加油'。"
+                },
+                tools: {
+                    title: "本周推荐：5个激励工具",
+                    items: [
+                        { name: "进步记录本", description: "记录每天的进步", how: "每天写一条'今天我学会了...'", link: "#" },
+                        { name: "学习积分表", description: "完成任务得积分", how: "积分兑换奖励", link: "#" },
+                        { name: "优点清单", description: "写下孩子的学习优点", how: "每周更新", link: "#" },
+                        { name: "目标卡片", description: "写下本周小目标", how: "完成后打勾", link: "#" },
+                        { name: "亲子学习时间", description: "和孩子一起学习", how: "孩子在写作业，家长在看书", link: "#" }
+                    ]
+                },
+                caseStudy: {
+                    title: "家长经验分享",
+                    author: "四年级学生家长 刘爸爸",
+                    content: "我家孩子三年级时突然厌学，说'学习没意思'。后来我不再盯着成绩，而是每天问他'今天学到了什么有趣的东西？'。慢慢地，孩子又开始主动聊学校的事情了。",
+                    keyTakeaway: "不要把学习变成痛苦的事。让孩子感受到学习的乐趣，比考多少分重要。"
+                },
+                quiz: {
+                    title: "小测验：今天学到了什么？",
+                    questions: [
+                        { q: "孩子厌学的根本原因是什么？", options: ["懒", "挫败感积累", "笨", "不想好"], answer: 1 },
+                        { q: "正向激励的关键是什么？", options: ["只看分数", "关注过程和进步", "物质奖励", "打骂教育"], answer: 1 },
+                        { q: "给孩子自主权的目的是什么？", options: ["省事", "培养控制感和责任感", "让孩子随便玩", "不管孩子"], answer: 1 }
+                    ]
+                },
+                quotes: {
+                    title: "教育金句",
+                    items: [
+                        { text: "数子十过，不如奖子一长。", author: "清代教育家 颜元" },
+                        { text: "教育的本质是唤醒，而不是灌输。", author: "卡尔·雅斯贝尔斯" }
+                    ]
+                },
+                nextWeek: {
+                    title: "下周预告",
+                    content: "下周我们将讨论：孩子考试紧张怎么办？——用'平常心'应对考试焦虑。"
+                }
+            },
+            11: {
+                headline: {
+                    title: "本周难题：孩子考试紧张怎么办？",
+                    content: "孩子平时作业做得很好，一到考试就发挥失常。考前失眠、考时手抖、脑子一片空白。",
+                    keyInsight: "适度紧张有助于发挥，过度紧张才会影响表现。关键是教孩子把紧张'正常化'，学会与紧张共处。"
+                },
+                analysis: {
+                    title: "考试紧张的三种原因",
+                    items: [
+                        { reason: "害怕失败", percentage: "40%", example: "担心考不好被批评" },
+                        { reason: "准备不足", percentage: "30%", example: "复习不充分，心里没底" },
+                        { reason: "期望过高", percentage: "30%", example: "家长或自己要求太高" }
+                    ]
+                },
+                solution: {
+                    title: "平常心：与紧张和平共处",
+                    methods: [
+                        {
+                            name: "考前充分准备",
+                            description: "复习到位，心里有底",
+                            how: "考前一周开始复习，每天一小块，不临时抱佛脚。",
+                            example: "制作复习清单，逐项打勾，做到心中有数。"
+                        },
+                        {
+                            name: "放松技巧",
+                            description: "紧张时用呼吸法放松",
+                            how: "深呼吸：吸气4秒，屏气2秒，呼气6秒。重复3-5次。",
+                            example: "考前在考场外做几次深呼吸，帮助平静。"
+                        },
+                        {
+                            name: "积极自我暗示",
+                            description: "用积极话语鼓励自己",
+                            how: "对自己说：'我已经准备好了'、'我能行'、'考试只是检验学习效果'。",
+                            example: "考前写下3个自己的优点，贴在铅笔盒里。"
+                        }
+                    ]
+                },
+                knowledge: {
+                    title: "知识精讲：考试心理调节",
+                    oneLiner: "考试紧张是正常的。适度的紧张有助于集中注意力，过度紧张才需要调节。",
+                    keyPoints: ["考前充分准备", "考中深呼吸放松", "考后总结经验"],
+                    commonMistakes: ["考前熬夜复习", "考后只关注分数", "拿考试结果定义孩子"],
+                    parentScript: "不要说'考不好怎么办'，换成'不管考多少分，我们都爱你'。"
+                },
+                tools: {
+                    title: "本周推荐：5个调节工具",
+                    items: [
+                        { name: "复习清单", description: "逐项复习打勾", how: "考前一周使用", link: "#" },
+                        { name: "呼吸练习卡", description: "深呼吸步骤卡", how: "紧张时使用", link: "#" },
+                        { name: "积极暗示卡", description: "写鼓励的话", how: "考前阅读", link: "#" },
+                        { name: "考试流程卡", description: "考试步骤提醒", how: "考前熟悉", link: "#" },
+                        { name: "错题本", description: "考前复习错题", how: "重点复习", link: "#" }
+                    ]
+                },
+                caseStudy: {
+                    title: "家长经验分享",
+                    author: "五年级学生家长 赵妈妈",
+                    content: "女儿以前每次考前都睡不好。后来我不再强调'要考好'，而是说'考试就是看看你学到了什么'。还教她深呼吸放松。现在孩子考试心态好多了。",
+                    keyTakeaway: "降低考试的意义感，帮孩子以平常心对待考试。"
+                },
+                quiz: {
+                    title: "小测验：今天学到了什么？",
+                    questions: [
+                        { q: "考试紧张的主要原因是什么？", options: ["题目太难", "害怕失败", "老师太严", "时间不够"], answer: 1 },
+                        { q: "深呼吸放松的方法是什么？", options: ["吸气2秒呼气2秒", "吸气4秒屏气2秒呼气6秒", "一直憋气", "快速呼吸"], answer: 1 },
+                        { q: "积极的自我暗示是？", options: ["我肯定考不好", "我已经准备好了", "考试太可怕了", "我不想考试"], answer: 1 }
+                    ]
+                },
+                quotes: {
+                    title: "教育金句",
+                    items: [
+                        { text: "紧张是因为在乎，放松是因为准备。", author: "佚名" },
+                        { text: "考试是手段，不是目的。", author: "叶圣陶" }
+                    ]
+                },
+                nextWeek: {
+                    title: "下周预告",
+                    content: "下周我们将讨论：孩子不会交朋友怎么办？——用'社交技巧'帮助孩子融入集体。"
+                }
+            },
+            12: {
+                headline: {
+                    title: "本周难题：孩子不会交朋友怎么办？",
+                    content: "孩子说'没人喜欢我'、'我没有朋友'。下课一个人玩，看起来很孤单。",
+                    keyInsight: "社交能力不是天生的，是可以学习的。通过具体的技巧练习，每个孩子都能交到朋友。"
+                },
+                analysis: {
+                    title: "社交困难的三种原因",
+                    items: [
+                        { reason: "缺乏社交技巧", percentage: "40%", example: "不知道如何加入别人的游戏" },
+                        { reason: "性格内向", percentage: "30%", example: "不敢主动打招呼" },
+                        { reason: "社交经验不足", percentage: "30%", example: "缺少和同龄人互动的机会" }
+                    ]
+                },
+                solution: {
+                    title: "社交技巧：让交友变简单",
+                    methods: [
+                        {
+                            name: "学会打招呼",
+                            description: "主动开口是交友的第一步",
+                            how: "教孩子微笑着说'你好，我可以和你们一起玩吗？'在家里练习。",
+                            example: "角色扮演：家长当小朋友，孩子练习打招呼。"
+                        },
+                        {
+                            name: "学会倾听",
+                            description: "认真听别人说话是受欢迎的秘诀",
+                            how: "教孩子：看着对方眼睛、点头回应、不随意打断。",
+                            example: "练习：孩子讲学校的事，家长认真倾听并回应。"
+                        },
+                        {
+                            name: "学会分享",
+                            description: "分享是建立友谊的桥梁",
+                            how: "鼓励孩子带玩具或零食到学校，和小伙伴分享。",
+                            example: "今天带一本有趣的书，借给同学看。"
+                        }
+                    ]
+                },
+                knowledge: {
+                    title: "知识精讲：儿童社交能力发展",
+                    oneLiner: "社交能力是21世纪的核心素养之一。小学阶段是培养社交能力的关键期。",
+                    keyPoints: ["主动打招呼", "认真倾听", "学会分享", "处理冲突"],
+                    commonMistakes: ["替孩子解决所有冲突", "强迫孩子外向", "忽视孩子的社交需求"],
+                    parentScript: "不要说'你怎么这么胆小'，换成'你今天主动打招呼了，真棒！'"
+                },
+                tools: {
+                    title: "本周推荐：5个社交练习工具",
+                    items: [
+                        { name: "社交故事卡", description: "用故事教社交技巧", how: "亲子共读", link: "#" },
+                        { name: "角色扮演", description: "模拟社交场景", how: "在家练习", link: "#" },
+                        { name: "交友日记", description: "记录每天的社交", how: "写一件和同学的事", link: "#" },
+                        { name: "情绪卡片", description: "识别和表达情绪", how: "情绪认知练习", link: "#" },
+                        { name: "合作游戏", description: "需要合作的游戏", how: "和同伴一起玩", link: "#" }
+                    ]
+                },
+                caseStudy: {
+                    title: "家长经验分享",
+                    author: "二年级学生家长 孙妈妈",
+                    content: "女儿性格内向，没什么朋友。我每天和她玩'角色扮演'，练习怎么加入别人的游戏。还邀请同学来家里玩。一个学期后，女儿有了两个好朋友。",
+                    keyTakeaway: "社交技巧需要练习。给孩子创造机会，而不是强迫。"
+                },
+                quiz: {
+                    title: "小测验：今天学到了什么？",
+                    questions: [
+                        { q: "交友的第一步是什么？", options: ["送礼物", "主动打招呼", "等别人来", "请家长帮忙"], answer: 1 },
+                        { q: "受欢迎的秘诀是什么？", options: ["成绩好", "认真听别人说话", "长得漂亮", "有很多玩具"], answer: 1 },
+                        { q: "分享的作用是什么？", options: ["浪费东西", "建立友谊的桥梁", "讨好别人", "显示富有"], answer: 1 }
+                    ]
+                },
+                quotes: {
+                    title: "教育金句",
+                    items: [
+                        { text: "一个人走得快，一群人走得远。", author: "非洲谚语" },
+                        { text: "友谊是两颗心真诚相待。", author: "马克思" }
+                    ]
+                },
+                nextWeek: {
+                    title: "下周预告",
+                    content: "下周我们将讨论：孩子沉迷电子产品怎么办？——用'约定规则'培养自控力。"
+                }
+            }
+        };
+        
+        // 渲染侧边栏
+        function renderSidebar() {
+            const issueList = document.getElementById('issueList');
+            issueList.innerHTML = issues.map(issue => `
+                <li class="issue-item ${issue.id === 1 ? 'active' : ''}" data-id="${issue.id}">
+                    <div class="issue-number">第 ${issue.id} 期</div>
+                    <div class="issue-title">${issue.title}</div>
+                    <div class="issue-date">${issue.date}</div>
+                </li>
+            `).join('');
+            
+            // 绑定点击事件
+            document.querySelectorAll('.issue-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    document.querySelectorAll('.issue-item').forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
+                    const id = parseInt(item.dataset.id);
+                    renderArticle(id);
+                });
+            });
+        }
+        
+        // 渲染文章
+        function renderArticle(id) {
+            const issue = issues.find(i => i.id === id);
+            const detail = issueDetails[id];
+            const article = document.getElementById('articleContent');
+            
+            let html = `
+                <div class="article-header">
+                    <span class="article-issue">第 ${issue.id} 期</span>
+                    <h1 class="article-title">${issue.title}</h1>
+                    <p class="article-subtitle">${issue.subtitle}</p>
+                    <p class="article-date">发布日期：${issue.date}</p>
+                    <div class="tags">
+                        ${issue.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+            
+            if (detail) {
+                // 头条
+                html += `
+                    <div class="section">
+                        <h2 class="section-title">${detail.headline.title}</h2>
+                        <div class="section-content">
+                            <p>${detail.headline.content}</p>
+                            <div class="key-insight">
+                                <div class="key-insight-label">💡 核心观点</div>
+                                <p>${detail.headline.keyInsight}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // 分析
+                html += `
+                    <div class="section">
+                        <h2 class="section-title">${detail.analysis.title}</h2>
+                        <div class="analysis-list">
+                            ${detail.analysis.items.map(item => `
+                                <div class="analysis-item">
+                                    <div class="analysis-percentage">${item.percentage}</div>
+                                    <div class="analysis-content">
+                                        <h4>${item.reason}</h4>
+                                        <p>${item.example}</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                
+                // 解决方案
+                html += `
+                    <div class="section">
+                        <h2 class="section-title">${detail.solution.title}</h2>
+                        ${detail.solution.methods.map(method => `
+                            <div class="method-card">
+                                <div class="method-name">${method.name}</div>
+                                <div class="method-desc">${method.description}</div>
+                                <div class="method-detail">
+                                    <div class="method-detail-label">为什么有效？</div>
+                                    <p>${method.why}</p>
+                                </div>
+                                <div class="method-detail">
+                                    <div class="method-detail-label">怎么做？</div>
+                                    <p>${method.how}</p>
+                                </div>
+                                <div class="method-detail">
+                                    <div class="method-detail-label">举个例子</div>
+                                    <p>${method.example}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                
+                // 知识点
+                html += `
+                    <div class="section">
+                        <h2 class="section-title">${detail.knowledge.title}</h2>
+                        <div class="knowledge-box">
+                            <div class="one-liner">${detail.knowledge.oneLiner}</div>
+                            <div class="key-points">
+                                <h4>✅ 核心要点</h4>
+                                <ul>
+                                    ${detail.knowledge.keyPoints.map(p => `<li>${p}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div class="common-mistakes">
+                                <h4>❌ 常见错误</h4>
+                                <ul>
+                                    ${detail.knowledge.commonMistakes.map(m => `<li>${m}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div class="parent-script">
+                                <div class="parent-script-label">🗣️ 家长话术</div>
+                                <p>${detail.knowledge.parentScript}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // 工具
+                html += `
+                    <div class="section">
+                        <h2 class="section-title">${detail.tools.title}</h2>
+                        <div class="tools-grid">
+                            ${detail.tools.items.map(tool => `
+                                <div class="tool-card">
+                                    <div class="tool-name">${tool.name}</div>
+                                    <div class="tool-desc">${tool.description}</div>
+                                    <div class="tool-how">${tool.how}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                
+                // 案例
+                html += `
+                    <div class="section">
+                        <h2 class="section-title">${detail.case.title}</h2>
+                        <div class="case-box">
+                            <div class="case-author">👤 ${detail.case.author}</div>
+                            <div class="case-content">${detail.case.content}</div>
+                            <div class="case-takeaway">💡 ${detail.case.keyTakeaway}</div>
+                        </div>
+                    </div>
+                `;
+                
+                // 测验
+                html += `
+                    <div class="section">
+                        <h2 class="section-title">${detail.quiz.title}</h2>
+                        <div class="quiz-box">
+                            ${detail.quiz.questions.map((q, qi) => `
+                                <div class="quiz-question">
+                                    <div class="quiz-question-text">${qi + 1}. ${q.question}</div>
+                                    <div class="quiz-options">
+                                        ${q.options.map((opt, oi) => `
+                                            <div class="quiz-option" data-question="${qi}" data-index="${oi}" data-answer="${q.answer}">
+                                                ${String.fromCharCode(65 + oi)}. ${opt}
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                
+                // 金句
+                html += `
+                    <div class="section">
+                        <h2 class="section-title">${detail.quotes.title}</h2>
+                        <div class="quote-box">
+                            ${detail.quotes.items.map(q => `
+                                <div class="quote-item">
+                                    <div class="quote-text">"${q.text}"</div>
+                                    <div class="quote-author">—— ${q.author}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                
+                // 下周预告
+                html += `
+                    <div class="section">
+                        <div class="next-week">
+                            <div class="next-week-label">${detail.nextWeek.title}</div>
+                            <div class="next-week-content">${detail.nextWeek.content}</div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                html += `
+                    <div class="section">
+                        <div class="section-content" style="text-align: center; padding: 60px 0;">
+                            <p style="font-size: 18px; color: #718096;">详细内容正在整理中...</p>
+                            <p style="margin-top: 20px;">请查看 JSON 源文件：<code>data/weekly-parent-00${id}.json</code></p>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            article.innerHTML = html;
+            
+            // 绑定测验点击事件
+            document.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.addEventListener('click', function() {
+                    const question = parseInt(this.dataset.question);
+                    const index = parseInt(this.dataset.index);
+                    const answer = parseInt(this.dataset.answer);
+                    const parent = this.parentElement;
+                    
+                    // 禁用所有选项
+                    parent.querySelectorAll('.quiz-option').forEach(o => {
+                        o.style.pointerEvents = 'none';
+                        if (parseInt(o.dataset.index) === answer) {
+                            o.style.background = '#48bb78';
+                            o.style.color = 'white';
+                            o.style.borderColor = '#48bb78';
+                        }
+                    });
+                    
+                    // 标记选择
+                    if (index !== answer) {
+                        this.style.background = '#f56565';
+                        this.style.color = 'white';
+                        this.style.borderColor = '#f56565';
+                    }
+                });
+            });
+        }
+        
+        // 初始化
+        renderSidebar();
+        renderArticle(1);
+    </script>
+</body>
+</html>
