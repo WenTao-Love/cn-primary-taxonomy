@@ -1,0 +1,38 @@
+# 调试截图（验证界面时生成，不入库）
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# 中间产物数据文件（只保留最终版 diagnostic-questions-hinted.json）
+data/diagnostic-questions-fixed.json
+data/diagnostic-questions-verified.json
+data/diagnostic-questions-deduped.json
+
+# 临时分析文件
+data/topics-by-subject-grade.txt
+data/topics-yw-yy-kx.txt
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

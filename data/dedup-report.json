@@ -1,0 +1,1034 @@
+{
+  "originalCount": 735,
+  "dedupedCount": 564,
+  "removedCount": 171,
+  "duplicateGroups": 130,
+  "removed": [
+    {
+      "index": 350,
+      "id": "dq_KX4S006_01",
+      "topicId": "ct_KX4S006",
+      "question": "测量气温用什么工具？"
+    },
+    {
+      "index": 415,
+      "id": "dq_SX4S007_01",
+      "topicId": "ct_SX4X017",
+      "question": "从正面看一个正方体，看到的是（ ）"
+    },
+    {
+      "index": 416,
+      "id": "dq_SX4S007_02",
+      "topicId": "ct_SX4X017",
+      "question": "从上面看一个圆柱，看到的是（ ）"
+    },
+    {
+      "index": 417,
+      "id": "dq_SX4S007_03",
+      "topicId": "ct_SX4X017",
+      "question": "一个长方体，从不同方向看，最多能看到（ ）个面"
+    },
+    {
+      "index": 418,
+      "id": "dq_SX4S008_01",
+      "topicId": "ct_SX4X016",
+      "question": "下面哪种现象是平移？"
+    },
+    {
+      "index": 419,
+      "id": "dq_SX4S008_02",
+      "topicId": "ct_SX4X016",
+      "question": "下面哪种现象是旋转？"
+    },
+    {
+      "index": 423,
+      "id": "dq_SX4S022_01",
+      "topicId": "ct_SX4X020",
+      "question": "条形统计图的优点是什么？"
+    },
+    {
+      "index": 424,
+      "id": "dq_SX4S022_02",
+      "topicId": "ct_SX4X020",
+      "question": "如果条形统计图1格表示5人，3格表示多少人？"
+    },
+    {
+      "index": 435,
+      "id": "dq_YW1S009_02",
+      "topicId": "ct_YW1S009",
+      "question": "下面哪个是后鼻韵母？"
+    },
+    {
+      "index": 436,
+      "id": "dq_YW1S010_03",
+      "topicId": "ct_YW1S010",
+      "question": "下面哪个是整体认读音节？"
+    },
+    {
+      "index": 441,
+      "id": "dq_YW1S032_01",
+      "topicId": "ct_YW1S032",
+      "question": "'大'的反义词是（ ）"
+    },
+    {
+      "index": 448,
+      "id": "dq_YW2S004_01",
+      "topicId": "ct_YW2S004",
+      "question": "用音序查字法查'学'字，先查（ ）"
+    },
+    {
+      "index": 449,
+      "id": "dq_YW2S004_02",
+      "topicId": "ct_YW2S004",
+      "question": "用部首查字法查'河'字，先查（ ）部"
+    },
+    {
+      "index": 455,
+      "id": "dq_YW2S012_02",
+      "topicId": "ct_YW2S031",
+      "question": "'小鸟在树上唱歌'用了什么修辞？"
+    },
+    {
+      "index": 456,
+      "id": "dq_YW2S012_03",
+      "topicId": "ct_YW2S031",
+      "question": "下面哪句是排比句？"
+    },
+    {
+      "index": 461,
+      "id": "dq_YW3S023_01",
+      "topicId": "ct_YW3X024",
+      "question": "写记叙文的三要素是（ ）"
+    },
+    {
+      "index": 462,
+      "id": "dq_YW3S023_02",
+      "topicId": "ct_YW3X024",
+      "question": "作文中间部分应该写什么？"
+    },
+    {
+      "index": 469,
+      "id": "dq_YW5S008_01",
+      "topicId": "ct_YW5X026",
+      "question": "'鲸是哺乳动物'用了什么说明方法？"
+    },
+    {
+      "index": 470,
+      "id": "dq_YW5S008_02",
+      "topicId": "ct_YW5X026",
+      "question": "'赵州桥非常长，大约50多米'用了什么说明方法？"
+    },
+    {
+      "index": 473,
+      "id": "dq_YW5S019_01",
+      "topicId": "ct_YW5S019",
+      "question": "缩写故事时，应该（ ）"
+    },
+    {
+      "index": 474,
+      "id": "dq_YW5S019_02",
+      "topicId": "ct_YW5S019",
+      "question": "缩写时，下列哪种句子应该删除？"
+    },
+    {
+      "index": 479,
+      "id": "dq_YW6S019_01",
+      "topicId": "ct_YW6S019",
+      "question": "倡议书的格式不包括（ ）"
+    },
+    {
+      "index": 480,
+      "id": "dq_YW6S019_02",
+      "topicId": "ct_YW6S019",
+      "question": "倡议书正文应该写（ ）"
+    },
+    {
+      "index": 485,
+      "id": "dq_YY4S006_01",
+      "topicId": "ct_YRP4S001",
+      "question": "选出'teacher'的中文意思"
+    },
+    {
+      "index": 499,
+      "id": "dq_KX3S031_01",
+      "topicId": "ct_KX3S002",
+      "question": "下面哪种物体是导体？"
+    },
+    {
+      "index": 500,
+      "id": "dq_KX3S031_02",
+      "topicId": "ct_KX3S002",
+      "question": "一个简单电路至少需要什么？"
+    },
+    {
+      "index": 501,
+      "id": "dq_KX4S010_03",
+      "topicId": "ct_KX4S002",
+      "question": "测量气温用什么工具？"
+    },
+    {
+      "index": 502,
+      "id": "dq_KX4S010_04",
+      "topicId": "ct_KX4S002",
+      "question": "气温的单位是（ ）"
+    },
+    {
+      "index": 503,
+      "id": "dq_KX4S011_01",
+      "topicId": "ct_KX4S001",
+      "question": "云是由什么组成的？"
+    },
+    {
+      "index": 504,
+      "id": "dq_KX4S012_01",
+      "topicId": "ct_KX4S001",
+      "question": "植物生长需要什么？"
+    },
+    {
+      "index": 505,
+      "id": "dq_KX4S013_01",
+      "topicId": "ct_KX4S001",
+      "question": "蝴蝶的生命周期是（ ）"
+    },
+    {
+      "index": 506,
+      "id": "dq_KX5S015_01",
+      "topicId": "ct_KX5S002",
+      "question": "光是沿什么传播的？"
+    },
+    {
+      "index": 507,
+      "id": "dq_KX5S015_02",
+      "topicId": "ct_KX5S002",
+      "question": "影子是怎么形成的？"
+    },
+    {
+      "index": 508,
+      "id": "dq_KX5S016_01",
+      "topicId": "ct_KX5S002",
+      "question": "热传递的方式不包括（ ）"
+    },
+    {
+      "index": 509,
+      "id": "dq_KX5S017_01",
+      "topicId": "ct_KX5S001",
+      "question": "水循环包括哪些过程？"
+    },
+    {
+      "index": 510,
+      "id": "dq_KX6S020_01",
+      "topicId": "ct_KX6S002",
+      "question": "下面哪种是可再生能源？"
+    },
+    {
+      "index": 511,
+      "id": "dq_KX6S020_02",
+      "topicId": "ct_KX6S002",
+      "question": "能量可以（ ）"
+    },
+    {
+      "index": 512,
+      "id": "dq_KX6S021_01",
+      "topicId": "ct_KX6S001",
+      "question": "保护环境应该（ ）"
+    },
+    {
+      "index": 513,
+      "id": "dq_KX6S022_01",
+      "topicId": "ct_KX6S001",
+      "question": "可持续发展的含义是（ ）"
+    },
+    {
+      "index": 529,
+      "id": "dq_SX2S025_01",
+      "topicId": "ct_SX2X100",
+      "question": "一千里面有（ ）个一百"
+    },
+    {
+      "index": 531,
+      "id": "dq_SX2S026_01",
+      "topicId": "ct_SX2X101",
+      "question": "最小的四位数是（ ）"
+    },
+    {
+      "index": 532,
+      "id": "dq_SX2S026_02",
+      "topicId": "ct_SX2X101",
+      "question": "3456读作（ ）"
+    },
+    {
+      "index": 533,
+      "id": "dq_SX2S027_01",
+      "topicId": "ct_SX2X101",
+      "question": "用3、0、5、8组成最大的四位数是（ ）"
+    },
+    {
+      "index": 535,
+      "id": "dq_SX2S028_02",
+      "topicId": "ct_SX2X104",
+      "question": "计算：5000 - 1876 = ?"
+    },
+    {
+      "index": 539,
+      "id": "dq_SX3S019_01",
+      "topicId": "ct_SX3X024",
+      "question": "计算：12 × 11 = ?"
+    },
+    {
+      "index": 540,
+      "id": "dq_SX3S019_02",
+      "topicId": "ct_SX3X024",
+      "question": "计算：23 × 14 = ?"
+    },
+    {
+      "index": 542,
+      "id": "dq_SX3S021_01",
+      "topicId": "ct_SX3X026",
+      "question": "计算：432 ÷ 6 = ?"
+    },
+    {
+      "index": 543,
+      "id": "dq_SX3S021_02",
+      "topicId": "ct_SX3X026",
+      "question": "计算：567 ÷ 9 = ?"
+    },
+    {
+      "index": 551,
+      "id": "dq_SX4S016_01",
+      "topicId": "ct_SX4X009",
+      "question": "计算：3.5 + 2.7 = ?"
+    },
+    {
+      "index": 552,
+      "id": "dq_SX4S016_02",
+      "topicId": "ct_SX4X009",
+      "question": "计算：8.6 - 3.9 = ?"
+    },
+    {
+      "index": 553,
+      "id": "dq_SX4S017_01",
+      "topicId": "ct_SX4X007",
+      "question": "计算：0.5 × 2 = ?"
+    },
+    {
+      "index": 554,
+      "id": "dq_SX4S017_02",
+      "topicId": "ct_SX4X007",
+      "question": "计算：1.2 × 3 = ?"
+    },
+    {
+      "index": 555,
+      "id": "dq_SX4S018_01",
+      "topicId": "ct_SX4S018",
+      "question": "计算：1.2 ÷ 0.3 = ?"
+    },
+    {
+      "index": 556,
+      "id": "dq_SX4S018_02",
+      "topicId": "ct_SX4S018",
+      "question": "计算：4.8 ÷ 0.6 = ?"
+    },
+    {
+      "index": 557,
+      "id": "dq_SX4S019_01",
+      "topicId": "ct_SX4X010",
+      "question": "x + 5 = 12，x = ?"
+    },
+    {
+      "index": 558,
+      "id": "dq_SX4S019_02",
+      "topicId": "ct_SX4X010",
+      "question": "3x = 15，x = ?"
+    },
+    {
+      "index": 559,
+      "id": "dq_SX4S020_03",
+      "topicId": "ct_SX4X020",
+      "question": "小明今年x岁，爸爸是他的3倍，爸爸36岁，x = ?"
+    },
+    {
+      "index": 562,
+      "id": "dq_SX5S022_01",
+      "topicId": "ct_SX5X015",
+      "question": "计算：1/4 + 2/4 = ?"
+    },
+    {
+      "index": 563,
+      "id": "dq_SX5S022_02",
+      "topicId": "ct_SX5X015",
+      "question": "计算：2/3 - 1/6 = ?"
+    },
+    {
+      "index": 564,
+      "id": "dq_SX5S023_01",
+      "topicId": "ct_SX5X009",
+      "question": "计算：1/2 × 1/3 = ?"
+    },
+    {
+      "index": 565,
+      "id": "dq_SX5S023_02",
+      "topicId": "ct_SX5X009",
+      "question": "计算：2/3 × 3/4 = ?"
+    },
+    {
+      "index": 566,
+      "id": "dq_SX5S024_01",
+      "topicId": "ct_SX5X009",
+      "question": "计算：1/2 ÷ 1/4 = ?"
+    },
+    {
+      "index": 567,
+      "id": "dq_SX5S024_02",
+      "topicId": "ct_SX5X009",
+      "question": "计算：3/4 ÷ 3/5 = ?"
+    },
+    {
+      "index": 568,
+      "id": "dq_SX6S027_01",
+      "topicId": "ct_SX6X028",
+      "question": "鸽巢问题的基本原理是（ ）"
+    },
+    {
+      "index": 569,
+      "id": "dq_SX6S027_02",
+      "topicId": "ct_SX6X028",
+      "question": "把10个苹果放进3个抽屉，至少有一个抽屉有（ ）个苹果"
+    },
+    {
+      "index": 570,
+      "id": "dq_SX6S028_01",
+      "topicId": "ct_SX6X028",
+      "question": "把7本书放进2个抽屉，至少有一个抽屉有（ ）本书"
+    },
+    {
+      "index": 575,
+      "id": "dq_YW1S039_01",
+      "topicId": "ct_YW1S035",
+      "question": "下面哪个句子最完整？"
+    },
+    {
+      "index": 576,
+      "id": "dq_YW1S040_01",
+      "topicId": "ct_YW1S047",
+      "question": "阅读理解时，首先要（ ）"
+    },
+    {
+      "index": 577,
+      "id": "dq_YW1S041_01",
+      "topicId": "ct_YW1S021",
+      "question": "下面哪个字是'日'字？"
+    },
+    {
+      "index": 578,
+      "id": "dq_YW1S042_01",
+      "topicId": "ct_YW1S017",
+      "question": "'木'字加一笔可以变成（ ）"
+    },
+    {
+      "index": 579,
+      "id": "dq_YW2S013_01",
+      "topicId": "ct_YW2S046",
+      "question": "《坐井观天》中，青蛙认为天有多大？"
+    },
+    {
+      "index": 580,
+      "id": "dq_YW2S013_02",
+      "topicId": "ct_YW2S046",
+      "question": "《狐假虎威》中，狐狸借了什么吓跑百兽？"
+    },
+    {
+      "index": 587,
+      "id": "dq_YW3S024_01",
+      "topicId": "ct_YW3S029",
+      "question": "《秋天的雨》中，秋天的雨是什么颜色的？"
+    },
+    {
+      "index": 588,
+      "id": "dq_YW3S024_02",
+      "topicId": "ct_YW3S029",
+      "question": "《铺满金色巴掌的水泥道》中，'金色巴掌'指什么？"
+    },
+    {
+      "index": 589,
+      "id": "dq_YW3S025_01",
+      "topicId": "ct_YW3S025",
+      "question": "写记叙文的三要素是（ ）"
+    },
+    {
+      "index": 590,
+      "id": "dq_YW3S025_02",
+      "topicId": "ct_YW3S025",
+      "question": "作文中间部分应该写什么？"
+    },
+    {
+      "index": 591,
+      "id": "dq_YW3S026_01",
+      "topicId": "ct_YW3S026",
+      "question": "《卖火柴的小女孩》中，小女孩擦了几根火柴？"
+    },
+    {
+      "index": 596,
+      "id": "dq_YW4S018_01",
+      "topicId": "ct_YW4S014",
+      "question": "阅读理解时，要关注文章的（ ）"
+    },
+    {
+      "index": 597,
+      "id": "dq_YW4S018_02",
+      "topicId": "ct_YW4S014",
+      "question": "文章的细节描写作用是（ ）"
+    },
+    {
+      "index": 598,
+      "id": "dq_YW4S019_01",
+      "topicId": "ct_YW4S025",
+      "question": "写'我的妈妈'，下列哪个开头最吸引人？"
+    },
+    {
+      "index": 601,
+      "id": "dq_YW5S020_01",
+      "topicId": "ct_YW5S020",
+      "question": "'鲸是哺乳动物'用了什么说明方法？"
+    },
+    {
+      "index": 602,
+      "id": "dq_YW5S020_02",
+      "topicId": "ct_YW5S020",
+      "question": "'赵州桥非常长，大约50多米'用了什么说明方法？"
+    },
+    {
+      "index": 603,
+      "id": "dq_YW5S021_01",
+      "topicId": "ct_YW5X026",
+      "question": "说明文的语言特点是（ ）"
+    },
+    {
+      "index": 604,
+      "id": "dq_YW5S021_02",
+      "topicId": "ct_YW5X026",
+      "question": "说明文的顺序不包括（ ）"
+    },
+    {
+      "index": 605,
+      "id": "dq_YW5S022_01",
+      "topicId": "ct_YW5X025",
+      "question": "缩写故事时，应该（ ）"
+    },
+    {
+      "index": 608,
+      "id": "dq_YW6S020_01",
+      "topicId": "ct_YW6S013",
+      "question": "《少年闰土》的作者是（ ）"
+    },
+    {
+      "index": 609,
+      "id": "dq_YW6S020_02",
+      "topicId": "ct_YW6S013",
+      "question": "《匆匆》中，作者感叹什么匆匆？"
+    },
+    {
+      "index": 610,
+      "id": "dq_YW6S021_01",
+      "topicId": "ct_YW6S002",
+      "question": "阅读理解时，要关注文章的（ ）"
+    },
+    {
+      "index": 611,
+      "id": "dq_YW6S021_02",
+      "topicId": "ct_YW6S002",
+      "question": "文章的表达方式不包括（ ）"
+    },
+    {
+      "index": 612,
+      "id": "dq_YW6S022_01",
+      "topicId": "ct_YW6S022",
+      "question": "倡议书的格式不包括（ ）"
+    },
+    {
+      "index": 614,
+      "id": "dq_YW6S024_01",
+      "topicId": "ct_YW6S024",
+      "question": "综合性学习的特点是（ ）"
+    },
+    {
+      "index": 615,
+      "id": "dq_YY3S010_01",
+      "topicId": "ct_YRP3S002",
+      "question": "选出正确的be动词：I ___ a student."
+    },
+    {
+      "index": 616,
+      "id": "dq_YY3S010_02",
+      "topicId": "ct_YRP3S002",
+      "question": "选出正确的be动词：She ___ a teacher."
+    },
+    {
+      "index": 617,
+      "id": "dq_YY3S011_01",
+      "topicId": "ct_YRP3S001",
+      "question": "选出'Good morning'的中文意思"
+    },
+    {
+      "index": 618,
+      "id": "dq_YY3S011_02",
+      "topicId": "ct_YRP3S001",
+      "question": "选出'Nice to meet you'的中文意思"
+    },
+    {
+      "index": 622,
+      "id": "dq_YY4S009_01",
+      "topicId": "ct_YRP4S001",
+      "question": "选出'book'的复数形式"
+    },
+    {
+      "index": 623,
+      "id": "dq_YY4S009_02",
+      "topicId": "ct_YRP4S001",
+      "question": "选出'box'的复数形式"
+    },
+    {
+      "index": 624,
+      "id": "dq_YY4S011_01",
+      "topicId": "ct_YRP4S003",
+      "question": "听力时，要注意（ ）"
+    },
+    {
+      "index": 625,
+      "id": "dq_YY4S012_01",
+      "topicId": "ct_YRP4S002",
+      "question": "口语时，发音要（ ）"
+    },
+    {
+      "index": 626,
+      "id": "dq_YY5S009_01",
+      "topicId": "ct_YRP5S002",
+      "question": "选出正确的现在进行时：Look! The birds ___ in the sky."
+    },
+    {
+      "index": 627,
+      "id": "dq_YY5S009_02",
+      "topicId": "ct_YRP5S002",
+      "question": "选出正确的过去式：Yesterday, I ___ to the park."
+    },
+    {
+      "index": 628,
+      "id": "dq_YY5S010_01",
+      "topicId": "ct_YRP5X013",
+      "question": "选出'spring'的中文意思"
+    },
+    {
+      "index": 629,
+      "id": "dq_YY5S011_01",
+      "topicId": "ct_YRP5S003",
+      "question": "听力时，要注意（ ）"
+    },
+    {
+      "index": 630,
+      "id": "dq_YY5S012_01",
+      "topicId": "ct_YRP5S002",
+      "question": "口语时，发音要（ ）"
+    },
+    {
+      "index": 631,
+      "id": "dq_YY6S009_01",
+      "topicId": "ct_YRP6S002",
+      "question": "选出'big'的比较级"
+    },
+    {
+      "index": 632,
+      "id": "dq_YY6S009_02",
+      "topicId": "ct_YRP6S002",
+      "question": "选出'beautiful'的比较级"
+    },
+    {
+      "index": 633,
+      "id": "dq_YY6S010_01",
+      "topicId": "ct_YRP6X014",
+      "question": "选出'How much is it?'的正确回答"
+    },
+    {
+      "index": 634,
+      "id": "dq_YY6S011_01",
+      "topicId": "ct_YRP6S003",
+      "question": "听力时，要注意（ ）"
+    },
+    {
+      "index": 635,
+      "id": "dq_YY6S012_01",
+      "topicId": "ct_YRP6S002",
+      "question": "口语时，发音要（ ）"
+    },
+    {
+      "index": 636,
+      "id": "dq_KX3S032_01",
+      "topicId": "ct_KX3S002",
+      "question": "测量气温用什么工具？"
+    },
+    {
+      "index": 637,
+      "id": "dq_KX3S032_02",
+      "topicId": "ct_KX3S002",
+      "question": "气温的单位是（ ）"
+    },
+    {
+      "index": 639,
+      "id": "dq_KX3S033_02",
+      "topicId": "ct_KX3S002",
+      "question": "1米 = （ ）厘米"
+    },
+    {
+      "index": 643,
+      "id": "dq_KX4S014_01",
+      "topicId": "ct_KX4S001",
+      "question": "植物进行光合作用需要（ ）"
+    },
+    {
+      "index": 644,
+      "id": "dq_KX4S014_02",
+      "topicId": "ct_KX4S001",
+      "question": "植物的根有什么作用？"
+    },
+    {
+      "index": 645,
+      "id": "dq_KX4S016_01",
+      "topicId": "ct_KX4S001",
+      "question": "下面哪种动物是哺乳动物？"
+    },
+    {
+      "index": 646,
+      "id": "dq_KX4S016_02",
+      "topicId": "ct_KX4S001",
+      "question": "下面哪种动物是昆虫？"
+    },
+    {
+      "index": 647,
+      "id": "dq_KX4S017_01",
+      "topicId": "ct_KX4X003",
+      "question": "做实验时，要注意（ ）"
+    },
+    {
+      "index": 648,
+      "id": "dq_KX4S018_01",
+      "topicId": "ct_KX4X003",
+      "question": "科学探究的第一步是（ ）"
+    },
+    {
+      "index": 649,
+      "id": "dq_KX5S018_01",
+      "topicId": "ct_KX5S001",
+      "question": "细胞是生物体什么的基本单位？"
+    },
+    {
+      "index": 650,
+      "id": "dq_KX5S018_02",
+      "topicId": "ct_KX5S001",
+      "question": "植物细胞与动物细胞最大的区别是植物细胞有（ ）"
+    },
+    {
+      "index": 651,
+      "id": "dq_KX5S019_01",
+      "topicId": "ct_KX5X003",
+      "question": "保护环境应该（ ）"
+    },
+    {
+      "index": 652,
+      "id": "dq_KX5S019_02",
+      "topicId": "ct_KX5X003",
+      "question": "可持续发展的含义是（ ）"
+    },
+    {
+      "index": 653,
+      "id": "dq_KX5S020_01",
+      "topicId": "ct_KX5S001",
+      "question": "地球绕着什么转？"
+    },
+    {
+      "index": 654,
+      "id": "dq_KX5S021_01",
+      "topicId": "ct_KX5X003",
+      "question": "做实验时，要注意（ ）"
+    },
+    {
+      "index": 655,
+      "id": "dq_KX5S022_01",
+      "topicId": "ct_KX5X003",
+      "question": "科学探究的第一步是（ ）"
+    },
+    {
+      "index": 656,
+      "id": "dq_KX6S023_01",
+      "topicId": "ct_KX6S001",
+      "question": "太阳系中最大的行星是（ ）"
+    },
+    {
+      "index": 657,
+      "id": "dq_KX6S023_02",
+      "topicId": "ct_KX6S001",
+      "question": "月亮本身发光吗？"
+    },
+    {
+      "index": 658,
+      "id": "dq_KX6S024_01",
+      "topicId": "ct_KX6S002",
+      "question": "下面哪种是可再生能源？"
+    },
+    {
+      "index": 659,
+      "id": "dq_KX6S024_02",
+      "topicId": "ct_KX6S002",
+      "question": "能量可以（ ）"
+    },
+    {
+      "index": 660,
+      "id": "dq_KX6S025_01",
+      "topicId": "ct_KX6S001",
+      "question": "保护环境应该（ ）"
+    },
+    {
+      "index": 661,
+      "id": "dq_KX6S026_01",
+      "topicId": "ct_KX6X003",
+      "question": "做实验时，要注意（ ）"
+    },
+    {
+      "index": 662,
+      "id": "dq_KX6S027_01",
+      "topicId": "ct_KX6X003",
+      "question": "科学探究的第一步是（ ）"
+    },
+    {
+      "index": 668,
+      "id": "dq_SX2S048_01",
+      "topicId": "ct_SX2X076",
+      "question": "下面哪种现象是平移？"
+    },
+    {
+      "index": 669,
+      "id": "dq_SX2S048_02",
+      "topicId": "ct_SX2X076",
+      "question": "下面哪种现象是旋转？"
+    },
+    {
+      "index": 670,
+      "id": "dq_SX2S049_01",
+      "topicId": "ct_SX2X075",
+      "question": "下面哪个图形是轴对称图形？"
+    },
+    {
+      "index": 671,
+      "id": "dq_SX2S049_02",
+      "topicId": "ct_SX2X075",
+      "question": "正方形有几条对称轴？"
+    },
+    {
+      "index": 672,
+      "id": "dq_SX2S049_03",
+      "topicId": "ct_SX2X075",
+      "question": "圆有几条对称轴？"
+    },
+    {
+      "index": 675,
+      "id": "dq_YW1S069_01",
+      "topicId": "ct_YW1S069",
+      "question": "口语交际时，要注意（ ）"
+    },
+    {
+      "index": 686,
+      "id": "dq_YW3S029_01",
+      "topicId": "ct_YW3S029",
+      "question": "'咏柳'的作者是（ ）"
+    },
+    {
+      "index": 687,
+      "id": "dq_YW3S029_02",
+      "topicId": "ct_YW3S029",
+      "question": "'碧玉妆成一树高'的下一句是（ ）"
+    },
+    {
+      "index": 688,
+      "id": "dq_YW3S030_01",
+      "topicId": "ct_YW3S030",
+      "question": "阅读理解时，首先要（ ）"
+    },
+    {
+      "index": 689,
+      "id": "dq_YW3S030_02",
+      "topicId": "ct_YW3S030",
+      "question": "文章的中心思想通常在（ ）"
+    },
+    {
+      "index": 690,
+      "id": "dq_YW3S031_01",
+      "topicId": "ct_YW3S031",
+      "question": "写记叙文的三要素是（ ）"
+    },
+    {
+      "index": 691,
+      "id": "dq_YW3S031_02",
+      "topicId": "ct_YW3S031",
+      "question": "作文中间部分应该写什么？"
+    },
+    {
+      "index": 692,
+      "id": "dq_YW4S022_01",
+      "topicId": "ct_YW4S022",
+      "question": "'望庐山瀑布'的作者是（ ）"
+    },
+    {
+      "index": 693,
+      "id": "dq_YW4S022_02",
+      "topicId": "ct_YW4S022",
+      "question": "'飞流直下三千尺'的下一句是（ ）"
+    },
+    {
+      "index": 694,
+      "id": "dq_YW4S023_01",
+      "topicId": "ct_YW4S002",
+      "question": "阅读理解时，遇到不理解的词语应该（ ）"
+    },
+    {
+      "index": 695,
+      "id": "dq_YW4S023_02",
+      "topicId": "ct_YW4S002",
+      "question": "文章的细节描写作用是（ ）"
+    },
+    {
+      "index": 696,
+      "id": "dq_YW4S024_01",
+      "topicId": "ct_YW4S025",
+      "question": "写'我的妈妈'，下列哪个开头最吸引人？"
+    },
+    {
+      "index": 697,
+      "id": "dq_YW4S024_02",
+      "topicId": "ct_YW4S025",
+      "question": "作文结尾的作用是（ ）"
+    },
+    {
+      "index": 698,
+      "id": "dq_YW5S025_01",
+      "topicId": "ct_YW5S025",
+      "question": "'鲸是哺乳动物'用了什么说明方法？"
+    },
+    {
+      "index": 699,
+      "id": "dq_YW5S025_02",
+      "topicId": "ct_YW5S025",
+      "question": "'赵州桥非常长，大约50多米'用了什么说明方法？"
+    },
+    {
+      "index": 700,
+      "id": "dq_YW5S026_01",
+      "topicId": "ct_YW5S026",
+      "question": "说明文的语言特点是（ ）"
+    },
+    {
+      "index": 701,
+      "id": "dq_YW5S026_02",
+      "topicId": "ct_YW5S026",
+      "question": "说明文的顺序不包括（ ）"
+    },
+    {
+      "index": 702,
+      "id": "dq_YW5S027_01",
+      "topicId": "ct_YW5S027",
+      "question": "缩写故事时，应该（ ）"
+    },
+    {
+      "index": 703,
+      "id": "dq_YW5S027_02",
+      "topicId": "ct_YW5S027",
+      "question": "缩写时，下列哪种句子应该删除？"
+    },
+    {
+      "index": 704,
+      "id": "dq_YW6S025_01",
+      "topicId": "ct_YW6S025",
+      "question": "'马诗'的作者是（ ）"
+    },
+    {
+      "index": 705,
+      "id": "dq_YW6S025_02",
+      "topicId": "ct_YW6S025",
+      "question": "'大漠沙如雪'的下一句是（ ）"
+    },
+    {
+      "index": 706,
+      "id": "dq_YW6S026_01",
+      "topicId": "ct_YW6S026",
+      "question": "阅读理解时，要关注文章的（ ）"
+    },
+    {
+      "index": 707,
+      "id": "dq_YW6S026_02",
+      "topicId": "ct_YW6S026",
+      "question": "文章的表达方式不包括（ ）"
+    },
+    {
+      "index": 708,
+      "id": "dq_YW6S027_01",
+      "topicId": "ct_YW6S027",
+      "question": "倡议书的格式不包括（ ）"
+    },
+    {
+      "index": 709,
+      "id": "dq_YW6S027_02",
+      "topicId": "ct_YW6S027",
+      "question": "倡议书正文应该写（ ）"
+    },
+    {
+      "index": 712,
+      "id": "dq_YY1S002_01",
+      "topicId": "ct_YY1S002",
+      "question": "选出'How are you?'的正确回答"
+    },
+    {
+      "index": 713,
+      "id": "dq_YY1S005_01",
+      "topicId": "ct_YY1S005",
+      "question": "选出'red'的中文意思"
+    },
+    {
+      "index": 719,
+      "id": "dq_YY2S002_01",
+      "topicId": "ct_YY2S002",
+      "question": "选出'school'的中文意思"
+    },
+    {
+      "index": 720,
+      "id": "dq_YY2S002_02",
+      "topicId": "ct_YY2S002",
+      "question": "选出'classroom'的中文意思"
+    },
+    {
+      "index": 723,
+      "id": "dq_KX1S001_01",
+      "topicId": "ct_KX1S001",
+      "question": "观察时，要用（ ）"
+    },
+    {
+      "index": 729,
+      "id": "dq_KX2S002_01",
+      "topicId": "ct_KX2S002",
+      "question": "下面哪种动物是哺乳动物？"
+    },
+    {
+      "index": 732,
+      "id": "dq_KX3S030_03",
+      "topicId": "ct_KX3S002",
+      "question": "磁铁能吸住下面哪种物体？"
+    },
+    {
+      "index": 733,
+      "id": "dq_KX3S030_04",
+      "topicId": "ct_KX3S002",
+      "question": "磁铁有几个磁极？"
+    },
+    {
+      "index": 734,
+      "id": "dq_KX3S031_03",
+      "topicId": "ct_KX3S002",
+      "question": "下面哪种物体能导电？"
+    }
+  ]
+}
