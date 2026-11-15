@@ -36,3 +36,9 @@ desktop.ini
 .idea/
 *.swp
 *.swo
+
+# Android构建产物
+twa-project/app/build/
+twa-project/build/
+twa-project/.gradle/
+*.apk
