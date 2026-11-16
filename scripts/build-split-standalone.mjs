@@ -28,12 +28,29 @@ writeChunk('topics', topics);
 writeChunk('dependencies', deps);
 writeChunk('clusters', clusters);
 
-const injected = tpl.replace(
-  '<script>',
-  `<script src="./standalone-data/topics.js"></script>\n<script src="./standalone-data/dependencies.js"></script>\n<script src="./standalone-data/clusters.js"></script>\n<script>`
-);
+// 注入到 <head> 内、charset 声明之后（避免浏览器 prescan 回退 Windows-1252 导致中文乱码）
+const headRe = /<head[^>]*>/i;
+let injected = tpl;
+if (headRe.test(injected)) {
+  // 1) 保证 head 内有 charset 声明
+  const headEnd0 = injected.search(/<\/head>/i);
+  const headChunk0 = injected.slice(0, headEnd0 > 0 ? headEnd0 : 4096);
+  if (!/<meta[^>]+charset[^>]+>/i.test(headChunk0)) {
+    injected = injected.replace(headRe, (m) => `${m}\n<meta charset="utf-8">`);
+  }
+  // 2) 数据脚本插到 charset meta 之后
+  const tags = '<script src="./standalone-data/topics.js"></script>\n<script src="./standalone-data/dependencies.js"></script>\n<script src="./standalone-data/clusters.js"></script>';
+  const withTags = injected.replace(/(<meta[^>]+charset[^>]+>)/i, (m) => `${m}\n${tags}`);
+  injected = withTags === injected
+    ? injected.replace(headRe, (m) => `${m}\n${tags}`)
+    : withTags;
+} else {
+  injected = injected.replace('<script>', `<script src="./standalone-data/topics.js"></script>\n<script src="./standalone-data/dependencies.js"></script>\n<script src="./standalone-data/clusters.js"></script>\n<script>`);
+}
+const finalHtml = injected;
 
 const outPath = resolve(ROOT, 'cn-primary-taxonomy-split.html');
-writeFileSync(outPath, injected, 'utf8');
+// 带 UTF-8 BOM 写入，任何浏览器均按 UTF-8 解码
+writeFileSync(outPath, '\uFEFF' + finalHtml, 'utf8');
 console.log(`✅ 拆分版HTML写入: ${outPath}`);
 console.log(`✅ 拆分数据目录写入: ${OUT_DIR}`);

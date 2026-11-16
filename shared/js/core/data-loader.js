@@ -1,6 +1,7 @@
 /*!
  * CN-Primary-Taxonomy · 数据加载器
  * 支持多种数据加载策略：嵌入式 > 独立JS文件 > JSON fetch
+ * 增强字段（AI 生成初稿）作为独立数据集按需加载，并在加载后合并进主数据。
  */
 (function() {
   'use strict';
@@ -8,8 +9,27 @@
   window.CNPT = window.CNPT || {};
 
   /**
+   * 解析 build.mjs 生成的 shared/data/*.js（形如 `window.__CNPT_EMBEDDED.<name> = <JSON>;`）
+   * 只截取赋值号之后的 JSON 字面量，绝不执行远程脚本。
+   */
+  function parseEmbeddedJs(text, name) {
+    const marker = `window.__CNPT_EMBEDDED.${name}`;
+    const idx = text.indexOf(marker);
+    if (idx === -1) return null;
+    const eq = text.indexOf('=', idx);
+    if (eq === -1) return null;
+    const jsonText = text.slice(eq + 1).trim().replace(/;\s*$/, '');
+    try {
+      return JSON.parse(jsonText);
+    } catch (e) {
+      console.warn(`解析 ${name} 内嵌数据失败: ${e.message}`);
+      return null;
+    }
+  }
+
+  /**
    * 加载单个数据集
-   * @param {string} name - 数据集名称 (topics/dependencies/clusters)
+   * @param {string} name - 数据集名称 (topics/dependencies/clusters/enhanced)
    * @param {string} url - 备用JSON URL
    * @returns {Promise<object>}
    */
@@ -35,7 +55,13 @@
       return fetch(scriptUrl)
         .then(r => {
           if (!r.ok) throw new Error(`HTTP ${r.status}`);
-          return r.json();
+          return r.text();
+        })
+        .then(text => {
+          const parsed = parseEmbeddedJs(text, name);
+          if (parsed !== null) return parsed;
+          // 兼容纯 JSON 文件
+          return JSON.parse(text);
         })
         .catch(err => {
           console.warn(`${scriptUrl} 加载失败: ${err.message}，尝试JSON`);
@@ -78,17 +104,52 @@
   }
 
   /**
-   * 加载全部三个数据集
-   * @returns {Promise<{topics, dependencies, clusters}>}
+   * 把增强字段合并进主数据（只填充缺失字段，不覆盖已有内容）
+   * @param {Object} topicsObj - { version, topicCount, topics: [] }
+   * @param {Object|null} enhancedObj - { enhancedTopics: [] }
+   * @returns {{merged:number, total:number}}
+   */
+  function mergeEnhancedFields(topicsObj, enhancedObj) {
+    const result = { merged: 0, total: 0 };
+    if (!topicsObj || !Array.isArray(topicsObj.topics)) return result;
+    if (!enhancedObj || !Array.isArray(enhancedObj.enhancedTopics)) return result;
+
+    const byId = new Map();
+    for (const e of enhancedObj.enhancedTopics) {
+      if (e && typeof e.id === 'string') byId.set(e.id, e);
+    }
+
+    for (const t of topicsObj.topics) {
+      const e = byId.get(t.id);
+      if (!e) continue;
+      let hit = false;
+      if (t.oneLiner === undefined && typeof e.oneLiner === 'string') { t.oneLiner = e.oneLiner; hit = true; }
+      if (t.parentGuide === undefined && e.parentGuide && typeof e.parentGuide === 'object') { t.parentGuide = e.parentGuide; hit = true; }
+      if (t.teacherGuide === undefined && e.teacherGuide && typeof e.teacherGuide === 'object') { t.teacherGuide = e.teacherGuide; hit = true; }
+      if (t.quizQuestions === undefined && Array.isArray(e.quizQuestions)) { t.quizQuestions = e.quizQuestions; hit = true; }
+      if (hit) result.merged++;
+    }
+    result.total = byId.size;
+    return result;
+  }
+
+  /**
+   * 加载全部数据集（含增强字段）
+   * @returns {Promise<{topics, dependencies, clusters, enhanced, enhancedMerge}>}
    */
   async function loadAllData() {
     const dataPaths = getDataPaths();
-    const [topics, deps, clusters] = await Promise.all([
+    const [topics, deps, clusters, enhanced] = await Promise.all([
       loadDataset('topics', dataPaths.topics),
       loadDataset('dependencies', dataPaths.dependencies),
-      loadDataset('clusters', dataPaths.clusters).catch(() => ({ clusters: [] }))
+      loadDataset('clusters', dataPaths.clusters).catch(() => ({ clusters: [] })),
+      loadDataset('enhanced', dataPaths.enhanced).catch(() => null)
     ]);
-    return { topics, dependencies: deps, clusters };
+    const enhancedMerge = mergeEnhancedFields(topics, enhanced);
+    if (enhancedMerge.merged > 0) {
+      console.info(`[CNPT] 增强字段已合并 ${enhancedMerge.merged}/${enhancedMerge.total} 条（AI 生成初稿，未经教师审核）`);
+    }
+    return { topics, dependencies: deps, clusters, enhanced, enhancedMerge };
   }
 
   /**
@@ -101,14 +162,17 @@
     return {
       topics: `${prefix}topics.json`,
       dependencies: `${prefix}dependencies.json`,
-      clusters: `${prefix}clusters.json`
+      clusters: `${prefix}clusters.json`,
+      enhanced: `${prefix}topics-enhanced-fields-full.json`
     };
   }
 
   window.CNPT.dataLoader = {
     loadDataset,
     loadAllData,
+    mergeEnhancedFields,
     getPathDepth,
-    getScriptPath
+    getScriptPath,
+    parseEmbeddedJs
   };
 })();

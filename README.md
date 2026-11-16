@@ -18,7 +18,10 @@
 - 📝 **交互式练习**：选择题、判断题、填空题，即时判分
 - 📱 **多端适配**：PC网页 + H5移动端，家长/学生/教师多角色版本
 
-## 当前版本 v1.9-AdaptiveDiagnostic
+## 当前版本 v2.1-LearnKit
+
+> **v2.1 新增（借鉴第二批 4 篇行业文章反哺）**：枢纽度 centrality 全量计算与「⭐ 枢纽知识点」标签、4 个可拖拽交互模型（分数条/数轴/三角形内角/正方体展开图，14 主题挂接）、四轮拼写闯关（认形→元音→骨架→默写，接入 FSRS）、古诗词工具（搜索/随机/飞花令 + 独立页面）、上游授权合规文件 PROVENANCE.md。详见 [docs/四篇文章借鉴反哺报告-第二批.md](docs/四篇文章借鉴反哺报告-第二批.md)。
+> **v2.0 新增**：FSRS 间隔复习引擎、错题两步闭环（当天重测 → 次日盲测）、预检跳课、11 个错因探针（P01–P11）+ 低级失误台账、75 分钟今日学习台（复习封顶一半 + 知识边界硬约束）。详见 [docs/四篇文章借鉴反哺报告.md](docs/四篇文章借鉴反哺报告.md)。
 
 ### 数据规模
 
@@ -38,12 +41,18 @@
 | 家长版周刊 | 12期 | 阅读兴趣/计算粗心/英文发音/作业拖延/课堂专注/厌学/考试焦虑/社交等 |
 | 教师版周刊 | 12期 | 小数认知/平行四边形/英语绘本/科学实验/分数/周长/词汇教学等 |
 | 学习路径 | 3学科×12学期 | 数学/语文/英语完整学习路径（含前置依赖） |
-| 交互HTML页面 | 5个 | 周刊浏览/FAQ搜索/诊断中心/升学分析/管理者驾驶舱 |
+| 交互HTML页面 | 6个 | 周刊浏览/FAQ搜索/诊断中心/升学分析/管理者驾驶舱/古诗词工具 |
 | 诊断题库 | 735道 | 覆盖384个知识点，数学/语文/英语/科学 |
 | 诊断引擎v2 | 1套 | 难度自适应+智能确认题+多策略回溯+路径优化 |
+| 交互模型 | 4类/14主题 | 分数条/数轴/三角形内角/正方体展开图（可拖拽） |
+| 拼写闯关 | 6主题18词 | 四轮记忆法（认形→元音→骨架→默写），接入 FSRS |
+| 枢纽度 centrality | 4274个 | 全量计算（1.0×入度+0.5×出度加权，归一化 0-1） |
+| FSRS 间隔复习引擎 | 1套 | 6轮间隔(20分钟~30天)+信心校准+首做/重测分离+休眠退役 |
+| 诊断闭环 | 1套 | 错题两步闭环(当天重测→次日盲测)+预检跳课(3题全对) |
+| 今日学习台 | 2端 | H5/学生版：75分钟预算、复习封顶一半、知识边界硬约束 |
 | PWA支持 | ✅ | 离线缓存/平板适配/APK打包 |
 
-### 多角色版本（10大角色）
+### 多角色版本（15大角色）
 
 | 版本 | 入口 | 面向用户 | 特色功能 |
 |---|---|---|---|
@@ -143,34 +152,20 @@ open afterschool/index.html
 ### 方法三：重新构建独立版本
 
 ```bash
-# 生成shared/data/数据文件（开发模式必需）
-node build.mjs
+# 生成 shared/data/数据文件（开发模式必需）
+node scripts/merge.mjs
 
-# 生成所有独立HTML版本（数据内嵌，可离线使用）
-node build.mjs --standalone
+# 生成主独立HTML（数据内嵌，可离线使用）
+node scripts/build-standalone.mjs
 
-# 生成指定版本
-node build.mjs --target=h5
-node build.mjs --target=parent
-node build.mjs --target=student
-node build.mjs --target=teacher
-node build.mjs --target=training
-node build.mjs --target=admin
-node build.mjs --target=researcher
-node build.mjs --target=headteacher
-node build.mjs --target=testdesigner
-node build.mjs --target=transition
-node build.mjs --target=edu-sales
-node build.mjs --target=competitor-analyst
-node build.mjs --target=school-entity
-node build.mjs --target=admissions
-node build.mjs --target=afterschool
+# 生成拆分版离线页面与分包数据
+node scripts/build-split-standalone.mjs
 
 # 验证构建产物路径完整性
 node scripts/validate-build.mjs
 ```
 
-> **构建后自动验证**：`build.mjs --standalone` 会自动检查所有引用路径的有效性
+> 数据流水线：`merge.mjs` → `compute-centrality.mjs` → `enrich-topics.mjs` → `generate-dependencies.mjs` → `generate-manifest.mjs` → `validate.mjs`（详见 docs/PROJECT_RULES.md）
 
 ### 方法四：使用数据
 
@@ -357,6 +352,12 @@ cn-primary-taxonomy/
 | `multi-user-storage.js` | 多学员存储引擎（培训机构/学校场景） | constants |
 | `utils.js` | 防抖、HTML转义、Toast提示 | 无 |
 | `pc-graph.js` | D3.js力导向图谱渲染 | D3.js(本地 + CDN回退) |
+| `fsrs-engine.js` | FSRS 间隔复习（6轮间隔/信心校准/首做分离/休眠退役） | constants, storage |
+| `diagnostic-loop.js` | 错题两步闭环（当天重测→次日盲测）+ 预检跳课 | fsrs-engine, storage |
+| `daily-plan.js` | 今日学习台（75分钟预算/复习封顶/知识边界硬约束） | fsrs-engine |
+| `visual-models.js` | 4 个可拖拽 SVG 交互模型（分数条/数轴/三角形内角/正方体展开图） | 无 |
+| `spelling-quest.js` | 四轮拼写闯关（认形→元音→骨架→默写，错词定位反馈） | 无 |
+| `poetry.js` | 古诗词工具（搜索/随机抽诗/飞花令，40 首示例库） | 无 |
 
 ### 共享组件说明
 
@@ -368,6 +369,12 @@ cn-primary-taxonomy/
 | `mastery-row.js` | 掌握度三态按钮行（已掌握/学习中/未开始） | 学生/家长/教师 |
 | `diagnostic-engine.js` | 诊断测评引擎，学情缺口分析、学习建议生成 | 培训机构/教研员 |
 | `report-generator.js` | 报告生成器（进度报告/诊断报告/家校卡片） | 培训机构/教育管理者 |
+| `fsrs-engine.js` | FSRS 间隔复习引擎（首做/重测分离、信心校准、休眠退役） | H5/学生版 |
+| `diagnostic-loop.js` | 错题两步闭环 + 预检跳课（AI 初稿题自动标注声明） | H5/学生版 |
+| `daily-plan.js` | 今日学习台（预算/复习封顶/待解锁/错因分布） | H5/学生版 |
+| `visual-models.js` | 可拖拽交互模型（🎚️ 拖一拖，看变化） | 学生版/家长版 |
+| `spelling-quest.js` | 四轮拼写闯关（英语词表主题） | 学生版 |
+| `poetry.js` | 古诗词搜索/随机/飞花令（docs 工具页） | 全角色可用 |
 
 ### 数据加载策略
 
@@ -421,6 +428,9 @@ data-loader 自动选择最优加载方式：
 |---|---|
 | `docs/exam-review.html` | 小升初知识图谱可视化分析（占比/对比/易错/趋势） |
 | `docs/manager-dashboard.html` | 教育管理者交互式驾驶舱（区域学情/均衡分析/质量监测） |
+| `docs/poetry.html` | 古诗词工具（搜索/随机抽诗/飞花令，40 首示例库） |
+| `docs/四篇文章借鉴反哺报告.md` | 第一批 4 篇行业文章方法论 → 项目落地对照表与实测记录 |
+| `docs/四篇文章借鉴反哺报告-第二批.md` | 第二批 4 篇行业文章（诗词/Marble/拼写/模型）落地对照与实测 |
 
 ## 各角色版本功能详解
 
@@ -443,6 +453,9 @@ data-loader 自动选择最优加载方式：
 - **游戏化体验**：弹跳动画、吉祥物对话气泡、庆祝特效
 - **学科网格**：可视化选择学科和年级
 - **练习系统**：选择题、判断题、填空题即时判分
+- **今日学习台**：75 分钟预算、先复习后新学、知识边界硬约束、错因分布与低级失误统计
+- **错题两步闭环**：答错 → 当天重测（20 分钟）→ 次日盲测；预检 3 题全对可直接跳课
+- **错因探针**：答错后定位 P01–P11 错因，低级失误单独台账
 
 ### 👨‍🏫教师版 (teacher-web/)
 
@@ -465,6 +478,9 @@ data-loader 自动选择最优加载方式：
 - **底部抽屉**：原生App风格的节点详情面板
 - **学习助手**：自然语言输入，智能推荐辅导建议
 - **练习系统**：选择、判断、填空三种题型
+- **今日学习台**：75 分钟预算、先复习后新学、知识边界硬约束（待解锁）、错因分布统计
+- **错题两步闭环**：当天重测 → 次日盲测；预检 3 题全对直接标记掌握
+- **错因探针**：P01–P11 + 低级失误二级台账
 
 ### 🏫培训机构版 (training-web/)
 
@@ -513,6 +529,9 @@ data-loader 自动选择最优加载方式：
 | `evidence[]` | 掌握证据 | ["能列竖式计算进位加法"] |
 | `commonMistakes[]` | 常见易错点 | ["忘记加进位的1"] |
 | `standards[]` | 对齐的课标编码 | ["cn-shuxue-2022:1-2-syds-1"] |
+| `centrality` | 枢纽度 0-1（1.0×入度+0.5×出度加权归一化；null=未计算） | 0.0667 |
+| `wordList[]` | 英语词表（词/中文/音标），用于拼写闯关 | [{word:"hello",meaning:"你好"}] |
+| `modelRef` | 交互模型 ID（fraction-bar/number-line/triangle-angle/cube-net） | "fraction-bar" |
 
 ### 依赖边（Dependency）
 
@@ -557,7 +576,9 @@ data-loader 自动选择最优加载方式：
 - **v1.7**：✅ 内容矩阵扩充（529 FAQ + 69课程 + 24期周刊）
 - **v1.8**：✅ 学习路径系统（数学/语文/英语三学科）
 - **v1.9**：✅ 自适应诊断系统（三态判定+确认题+路径推荐+PWA）
-- **v2.0**：规模化推广体系（培训材料、试点经验、评估框架）
+- **v2.0**：✅ 学习闭环（FSRS 间隔复习 + 错题两步闭环 + 预检跳课 + 错因探针 + 今日学习台）—— 借鉴第一批 4 篇行业文章反哺
+- **v2.1**：✅ 学习工具包（枢纽度 + 交互模型 + 四轮拼写 + 诗词工具 + 授权合规）—— 借鉴第二批 4 篇行业文章反哺
+- **v2.2**：规模化推广体系（培训材料、试点经验、评估框架）
 - **v3.0**：对标 Marble 完整度并面向商用学习产品收口
 
 ## 参与贡献
@@ -573,3 +594,4 @@ data-loader 自动选择最优加载方式：
 - 文本内容层：**CC BY-SA 4.0**
 - 课标原文：只引用编码和关键术语
 - 代码：**MIT**
+- 上游来源、授权四层表与署名要求详见 [PROVENANCE.md](PROVENANCE.md)

@@ -248,6 +248,8 @@
         container: DOM.nodeDetailPanel,
         showStandards: true,
         showExamTips: true,
+        showEnhanced: true,
+        enhancedVariant: 'teacher',
         onNodeClick: (id) => {
           const n = state.graph.data.nodes.find(nd => nd.id === id);
           if (n) showNodeDetail(n);

@@ -40,6 +40,15 @@ if (!existsSync(SHARED_DATA_DIR)) {
 const topics = JSON.parse(readFileSync(resolve(DATA_DIR, 'topics.json'), 'utf8'));
 const deps = JSON.parse(readFileSync(resolve(DATA_DIR, 'dependencies.json'), 'utf8'));
 
+// 增强字段（AI 生成初稿：oneLiner / parentGuide / teacherGuide / quizQuestions）
+// 文件缺失或损坏时降级为 null，不影响主数据构建
+let enhanced = null;
+try {
+  enhanced = JSON.parse(readFileSync(resolve(DATA_DIR, 'topics-enhanced-fields-full.json'), 'utf8'));
+} catch (err) {
+  console.warn(`   ⚠️ 增强字段加载失败，构建将不含增强内容: ${err.message}`);
+}
+
 // 生成 topics.js
 const topicsJs = `// CN-Primary-Taxonomy · 知识点数据 (自动生成，请勿手动修改)
 window.__CNPT_EMBEDDED = window.__CNPT_EMBEDDED || {};
@@ -54,35 +63,56 @@ window.__CNPT_EMBEDDED.dependencies = ${JSON.stringify(deps).replace(/</g, '\\u0
 writeFileSync(resolve(SHARED_DATA_DIR, 'dependencies.js'), depsJs, 'utf8');
 console.log(`   ✓ shared/data/dependencies.js (${(depsJs.length / 1024 / 1024).toFixed(2)} MB)`);
 
+// 生成 enhanced.js（增强字段独立数据集，按需加载，避免主数据膨胀）
+if (enhanced) {
+  const enhancedJs = `// CN-Primary-Taxonomy · 知识点增强字段 (自动生成，请勿手动修改)
+// 内容为 AI 生成初稿，未经学科教师逐条审核，仅供启发，不可直接作为教学依据。
+window.__CNPT_EMBEDDED = window.__CNPT_EMBEDDED || {};
+window.__CNPT_EMBEDDED.enhanced = ${JSON.stringify(enhanced).replace(/</g, '\\u003c')};\n`;
+  writeFileSync(resolve(SHARED_DATA_DIR, 'enhanced.js'), enhancedJs, 'utf8');
+  console.log(`   ✓ shared/data/enhanced.js (${(enhancedJs.length / 1024 / 1024).toFixed(2)} MB)`);
+} else {
+  // 保持旧产物不残留：写入空壳，避免 data-loader 读到过期数据
+  const emptyJs = `// CN-Primary-Taxonomy · 知识点增强字段 (自动生成，请勿手动修改)\nwindow.__CNPT_EMBEDDED = window.__CNPT_EMBEDDED || {};\nwindow.__CNPT_EMBEDDED.enhanced = null;\n`;
+  writeFileSync(resolve(SHARED_DATA_DIR, 'enhanced.js'), emptyJs, 'utf8');
+  console.log(`   ✓ shared/data/enhanced.js (0.00 MB, 空壳)`);
+}
+
 // ========== 步骤2: 构建独立版本(可选) ==========
 if (BUILD_STANDALONE || TARGET) {
   console.log('\n📦 步骤2: 构建独立HTML版本...');
 
-  const dataScript = `<!-- 内嵌数据 -->
+  // 仅学习类角色内嵌增强字段（控制单文件体积），其余角色留空由 data-loader 降级
+  const dataScriptFor = (withEnhanced) => {
+    const enhancedPart = withEnhanced && enhanced
+      ? `,\n  enhanced: ${JSON.stringify(enhanced).replace(/</g, '\\u003c')}`
+      : '';
+    return `<!-- 内嵌数据 -->
 <script>
 window.__CNPT_EMBEDDED = {
   topics: ${JSON.stringify(topics).replace(/</g, '\\u003c')},
-  dependencies: ${JSON.stringify(deps).replace(/</g, '\\u003c')}
+  dependencies: ${JSON.stringify(deps).replace(/</g, '\\u003c')}${enhancedPart}
 };
 </script>`;
+  };
 
   // 定义所有入口
   const entries = [
-    { id: 'h5', name: 'H5移动版', dir: 'h5', file: 'index.html' },
-    { id: 'parent', name: '家长版', dir: 'parent-web', file: 'index.html' },
-    { id: 'student', name: '学生版', dir: 'student-web', file: 'index.html' },
-    { id: 'teacher', name: '教师版', dir: 'teacher-web', file: 'index.html' },
-    { id: 'training', name: '培训机构版', dir: 'training-web', file: 'index.html' },
-    { id: 'admin', name: '教育管理版', dir: 'admin-web', file: 'index.html' },
-    { id: 'researcher', name: '教研员版', dir: 'researcher-web', file: 'index.html' },
-    { id: 'headteacher', name: '班主任版', dir: 'headteacher-web', file: 'index.html' },
-    { id: 'testdesigner', name: '出题人版', dir: 'testdesigner-web', file: 'index.html' },
-    { id: 'transition', name: '升学过渡版', dir: 'transition-web', file: 'index.html' },
-    { id: 'edu-sales', name: '教育销售版', dir: 'edu-sales', file: 'index.html' },
-    { id: 'competitor-analyst', name: '竞品分析版', dir: 'competitor-analyst', file: 'index.html' },
-    { id: 'school-entity', name: '学校本体版', dir: 'school-entity', file: 'index.html' },
-    { id: 'admissions', name: '招生办版', dir: 'admissions', file: 'index.html' },
-    { id: 'afterschool', name: '课后服务版', dir: 'afterschool', file: 'index.html' },
+    { id: 'h5', name: 'H5移动版', dir: 'h5', file: 'index.html', enhanced: true },
+    { id: 'parent', name: '家长版', dir: 'parent-web', file: 'index.html', enhanced: true },
+    { id: 'student', name: '学生版', dir: 'student-web', file: 'index.html', enhanced: true },
+    { id: 'teacher', name: '教师版', dir: 'teacher-web', file: 'index.html', enhanced: true },
+    { id: 'training', name: '培训机构版', dir: 'training-web', file: 'index.html', enhanced: true },
+    { id: 'admin', name: '教育管理版', dir: 'admin-web', file: 'index.html', enhanced: false },
+    { id: 'researcher', name: '教研员版', dir: 'researcher-web', file: 'index.html', enhanced: false },
+    { id: 'headteacher', name: '班主任版', dir: 'headteacher-web', file: 'index.html', enhanced: false },
+    { id: 'testdesigner', name: '出题人版', dir: 'testdesigner-web', file: 'index.html', enhanced: false },
+    { id: 'transition', name: '升学过渡版', dir: 'transition-web', file: 'index.html', enhanced: true },
+    { id: 'edu-sales', name: '教育销售版', dir: 'edu-sales', file: 'index.html', enhanced: false },
+    { id: 'competitor-analyst', name: '竞品分析版', dir: 'competitor-analyst', file: 'index.html', enhanced: false },
+    { id: 'school-entity', name: '学校本体版', dir: 'school-entity', file: 'index.html', enhanced: false },
+    { id: 'admissions', name: '招生办版', dir: 'admissions', file: 'index.html', enhanced: false },
+    { id: 'afterschool', name: '课后服务版', dir: 'afterschool', file: 'index.html', enhanced: true },
   ];
 
   for (const entry of entries) {
@@ -95,11 +125,26 @@ window.__CNPT_EMBEDDED = {
     try {
       const html = readFileSync(htmlPath, 'utf8');
 
-      // 注入数据到head之前
-      let output = html.replace(
-        /(<title>|<head>)/,
-        `${dataScript}\n$1`
-      );
+      // 注入数据：必须位于 <head> 内、charset 声明之后，否则浏览器 prescan 前 1024 字节
+      // 找不到 charset 会回退 Windows-1252，导致内嵌中文全部乱码。
+      const dataScript = dataScriptFor(entry.enhanced);
+      let output = html;
+      const headRe = /<head[^>]*>/i;
+      if (headRe.test(output)) {
+        // 1) 保证 head 内有 charset 声明（缺失则补在最前）
+        const headEnd0 = output.search(/<\/head>/i);
+        const headChunk0 = output.slice(0, headEnd0 > 0 ? headEnd0 : 4096);
+        if (!/<meta[^>]+charset[^>]+>/i.test(headChunk0)) {
+          output = output.replace(headRe, (m) => `${m}\n<meta charset="utf-8">`);
+        }
+        // 2) 数据插到 charset meta 之后
+        const withPayload = output.replace(/(<meta[^>]+charset[^>]+>)/i, (m) => `${m}\n${dataScript}`);
+        output = withPayload === output
+          ? output.replace(headRe, (m) => `${m}\n${dataScript}`)
+          : withPayload;
+      } else {
+        output = output.replace(/(<title>|<html[^>]*>)/i, (m) => `${m}\n${dataScript}`);
+      }
 
       // 路径修正：从子目录移到根目录后，相对路径需要调整
       // 1. ../shared/ → shared/ (向上两级变一级)
@@ -111,7 +156,8 @@ window.__CNPT_EMBEDDED = {
 
       const outFileName = `cn-primary-taxonomy-${entry.id}.html`;
       const outPath = resolve(ROOT, outFileName);
-      writeFileSync(outPath, output, 'utf8');
+      // 写 UTF-8 BOM：任何浏览器/微信内置浏览器均按 UTF-8 解码，杜绝中文乱码
+      writeFileSync(outPath, '\uFEFF' + output, 'utf8');
 
       const fileSize = (output.length / 1024 / 1024).toFixed(2);
       console.log(`   ✓ ${entry.name}: ${outFileName} (${fileSize} MB)`);

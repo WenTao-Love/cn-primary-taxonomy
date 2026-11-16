@@ -307,6 +307,8 @@
         showMastery: true,
         showCoach: true,
         showExamTips: true,
+        showEnhanced: true,
+        enhancedVariant: 'parent',
         onMasteryChange: (id, status) => {
           state.storage.setTopicStatus(id, status);
           renderOverviewStats();

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>诗词飞花令 · 小学教育知识图谱</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 34px 20px;
+            text-align: center;
+            margin-bottom: 26px;
+            border-radius: 0 0 20px 20px;
+        }
+        header h1 { font-size: 26px; margin-bottom: 8px; }
+        header p { opacity: 0.92; font-size: 14px; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px 40px; }
+        .intro {
+            background: #fff;
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.8;
+        }
+        .intro b { color: #2d3748; }
+        footer {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 12px;
+            margin-top: 26px;
+            line-height: 1.8;
+        }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🌸 诗词飞花令 · 随机抽诗</h1>
+        <p>搜诗 / 抽诗 / 飞花令 —— 给孩子的古诗词小工具</p>
+    </header>
+
+    <div class="container">
+        <div class="intro">
+            <b>怎么用：</b>
+            ① 搜诗——输入标题、作者或诗句中的几个字，如「床前明月光」；
+            ② 随机抽一首——给孩子每天摇一首，读读背背；
+            ③ 飞花令——输入一个字（如「春」），找出所有含这个字的诗句，全家轮流接。
+            <br><b>数据来源：</b>内置 40 首课标常见古诗词（公版文本，示例库）。完整近 40 万首诗库可参考开源项目「中华古诗词」/ 诗泉（poetry.palemoky.com）。
+        </div>
+
+        <div id="app"></div>
+
+        <footer>
+            小学教育知识图谱 · 诗词工具页 · 与 <a href="../README.md">项目文档</a> 配套<br>
+            借鉴文章《免费查诗：唐诗三百首只是零头，近 40 万首古诗自己搭一座诗库》（2026-11-16 存档）
+        </footer>
+    </div>
+
+    <script src="../shared/js/components/poetry.js"></script>
+    <script>
+        (function () {
+            CNPT.components.poetry.renderTool(document.getElementById('app'));
+        })();
+    </script>
+</body>
+</html>

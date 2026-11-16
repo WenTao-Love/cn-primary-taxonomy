@@ -156,6 +156,70 @@ while (qi.length) {
 }
 check(done === topics.topics.length, `DAG存在环! 只拓扑排序${done}/${topics.topics.length}`);
 
+// ========== 增强字段校验 (enhanced fields) ==========
+// 数据源：data/topics-enhanced-fields-full.json（AI 生成初稿，覆盖率须 100%）
+let enhanced = null;
+try {
+  enhanced = load('topics-enhanced-fields-full.json');
+} catch (e) {
+  warn.push(`增强字段文件缺失或无法解析: ${e.message}`);
+}
+
+let enhancedCount = 0;
+let enhancedQuizCount = 0;
+if (enhanced && Array.isArray(enhanced.enhancedTopics)) {
+  const enhIds = new Set();
+  const dupEnh = new Set();
+  for (const e of enhanced.enhancedTopics) {
+    enhancedCount++;
+    if (enhIds.has(e.id)) dupEnh.add(e.id);
+    enhIds.add(e.id);
+    check(typeof e.id === 'string' && topicIds.has(e.id), `增强字段ID不存在于topics: ${e.id}`);
+    check(typeof e.oneLiner === 'string' && e.oneLiner.length >= 4 && e.oneLiner.length <= 120,
+      `oneLiner长度非法: ${e.id} (${e.oneLiner?.length ?? '缺失'})`);
+
+    const pg = e.parentGuide;
+    check(pg && typeof pg === 'object', `parentGuide缺失: ${e.id}`);
+    if (pg) {
+      for (const k of ['quickExplanation', 'dailyExample', 'commonParentMistake', 'encouragement']) {
+        check(typeof pg[k] === 'string' && pg[k].length >= (k === 'encouragement' ? 2 : 4),
+          `parentGuide.${k}非法: ${e.id}`);
+      }
+    }
+
+    const tg = e.teacherGuide;
+    check(tg && typeof tg === 'object', `teacherGuide缺失: ${e.id}`);
+    if (tg) {
+      for (const k of ['classroomActivity', 'keyQuestion', 'visualAid', 'transition']) {
+        check(typeof tg[k] === 'string' && tg[k].length >= (k === 'visualAid' ? 2 : 4),
+          `teacherGuide.${k}非法: ${e.id}`);
+      }
+    }
+
+    check(Array.isArray(e.quizQuestions) && e.quizQuestions.length >= 1, `quizQuestions为空: ${e.id}`);
+    (e.quizQuestions || []).forEach((q, qi) => {
+      enhancedQuizCount++;
+      const where = `${e.id}.quizQuestions[${qi}]`;
+      check(typeof q.question === 'string' && q.question.length >= 4, `题目过短: ${where}`);
+      check(['choice', 'judge', 'fill'].includes(q.type), `题型非法: ${where} -> ${q.type}`);
+      check(typeof q.explanation === 'string' && q.explanation.length >= 2, `解析过短: ${where}`);
+      if (q.type === 'choice') {
+        check(Array.isArray(q.options) && q.options.length >= 2 && q.options.length <= 6,
+          `选项数量非法: ${where}`);
+        check(Number.isInteger(q.answer) && q.answer >= 0 && q.answer < (q.options?.length ?? 0),
+          `正确项下标越界: ${where} answer=${q.answer}`);
+      } else if (q.type === 'judge') {
+        check(typeof q.answer === 'boolean', `判断题答案须为布尔: ${where}`);
+      } else if (q.type === 'fill') {
+        check(typeof q.answer === 'string' && q.answer.length >= 1, `填空题答案非法: ${where}`);
+      }
+    });
+  }
+  check(dupEnh.size === 0, `增强字段重复ID: ${[...dupEnh].slice(0, 5).join(',')}`);
+  check(enhIds.size === topics.topics.length,
+    `增强字段覆盖率不足: ${enhIds.size}/${topics.topics.length}（要求 100%）`);
+}
+
 // 报告
 console.log('╔══════════════════════════════════════════╗');
 console.log('║  CN-Primary-Taxonomy 数据校验报告        ║');
@@ -166,6 +230,11 @@ console.log(`依赖边: ${deps.edgeCount}（强依赖${deps.dependencies.filter(
 console.log(`课标: ${stds.curriculumCount}个文件, ${stds.curricula.reduce((s,c)=>s+c.topics.length,0)}个条目`);
 console.log(`领域概览: ${clusters.clusterCount}个`);
 console.log(`起始知识点(无前置): ${roots}个`);
+console.log(`增强字段: ${enhancedCount}条覆盖 / ${enhancedQuizCount}道随堂小题${enhancedCount ? `（覆盖率 ${enhancedCount}/${topics.topics.length}）` : '（未加载）'}`);
+if (warn.length) {
+  console.log(`\n⚠ ${warn.length} 条告警:`);
+  warn.slice(0, 10).forEach(w => console.log('  -', w));
+}
 console.log('');
 console.log('按学科分布:');
 Object.entries(subjects).sort((a,b)=>b[1]-a[1]).forEach(([s,c])=>console.log(`  ${s.padEnd(8)}: ${c}`));

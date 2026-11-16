@@ -10,6 +10,8 @@
     role: 'student',
     fullData: null,
     storage: null,
+    fsrs: null,
+    diag: null,
     stars: 0,
     currentSubject: null,
     currentGrade: null,
@@ -17,6 +19,16 @@
   };
 
   const DOM = {};
+
+  /**
+   * 增强字段 HTML（AI 生成初稿：一句话/家长指南/随堂小题三级提示）
+   */
+  function buildEnhancedHtml(topic, variant) {
+    if (window.CNPT?.components?.buildEnhancedHtml) {
+      return CNPT.components.buildEnhancedHtml(topic, variant);
+    }
+    return '';
+  }
 
   function cacheDom() {
     DOM.app = document.getElementById('app');
@@ -61,6 +73,8 @@
     }
 
     CNPT.indices.buildIndices(state.fullData);
+    if (CNPT.components.initNodeDetail) CNPT.components.initNodeDetail();
+    initFsrsAndDailyPlan();
     updateStats();
     renderSubjectGrid();
     initEvents();
@@ -201,6 +215,8 @@
     DOM.detailBody.innerHTML = `
       <div class="cnpt-detail-desc">${CNPT.utils.escapeHtml(topic.description || '暂无描述')}</div>
 
+      ${buildEnhancedHtml(topic, 'student')}
+
       <div class="cnpt-mastery-row">
         <button class="cnpt-mastery-btn ${status === 'mastered' ? 'active' : ''}" data-mastery="mastered">✅ 我学会啦</button>
         <button class="cnpt-mastery-btn ${status === 'learning' ? 'active' : ''}" data-mastery="learning">📖 正在学</button>
@@ -219,11 +235,30 @@
         </div>
       ` : ''}
 
+      ${topic.modelRef && window.CNPT?.components?.visualModels?.MODELS?.[topic.modelRef] ? `
+        <div class="cnpt-detail-section">
+          <h4>🎥 拖一拖，看变化</h4>
+          <div class="cnpt-vm-slot" data-model="${CNPT.utils.escapeHtml(topic.modelRef)}"></div>
+        </div>
+      ` : ''}
+
       <div class="cnpt-detail-actions">
         <button class="cnpt-detail-btn primary" id="btn-practice">✏️ 做练习</button>
         <button class="cnpt-detail-btn secondary" id="btn-path">🗺️ 学习路线</button>
+        ${Array.isArray(topic.wordList) && topic.wordList.length ? '<button class="cnpt-detail-btn secondary" id="btn-spelling">🔤 拼写闯关</button>' : ''}
       </div>
     `;
+
+    // 会动的模型
+    if (topic.modelRef && window.CNPT?.components?.visualModels?.render) {
+      const slot = DOM.detailBody.querySelector('.cnpt-vm-slot');
+      if (slot) CNPT.components.visualModels.render(slot, slot.dataset.model);
+    }
+
+    // 增强字段交互（三级折叠提示 + 随堂小题）
+    if (window.CNPT?.components?.bindEnhancedEvents) {
+      CNPT.components.bindEnhancedEvents(DOM.detailBody, topic);
+    }
 
     // 掌握状态
     DOM.detailBody.querySelectorAll('.cnpt-mastery-btn').forEach(btn => {
@@ -245,7 +280,53 @@
       showLearningPath(topic);
     });
 
+    // 拼写闯关（四轮记忆法）
+    const btnSpelling = document.getElementById('btn-spelling');
+    if (btnSpelling) {
+      btnSpelling.addEventListener('click', () => startSpelling(topic));
+    }
+
     DOM.detailCard.classList.remove('cnpt-hidden');
+  }
+
+  function startSpelling(topic) {
+    if (!Array.isArray(topic.wordList) || !topic.wordList.length) {
+      CNPT.utils.showToast('这个词还没有词表，请老师导入后再来闯关~');
+      return;
+    }
+    if (window.CNPT.components.dailyPlan) {
+      window.CNPT.components.dailyPlan.setSessionKind('new');
+    }
+    DOM.practiceModal.classList.remove('cnpt-hidden');
+    setTimeout(() => DOM.practiceModal.classList.add('show'), 10);
+    DOM.practiceTitle.textContent = `${topic.name} · 拼写闯关`;
+    CNPT.components.spellingQuest.render(DOM.practiceBody, topic.wordList, {
+      topicId: topic.id,
+      onResult: (result) => {
+        if (state.fsrs) {
+          state.fsrs.recordAnswer({
+            topicId: topic.id,
+            isCorrect: result.passed,
+            isIndependent: true,
+            confidence: result.passed ? 100 : 25,
+            questionInfo: {
+              questionId: `${topic.id}-spelling`,
+              question: `拼写闯关（${result.records.length} 词）`,
+              answer: 'passed',
+              selected: result.passed ? 'passed' : 'failed'
+            }
+          });
+        }
+        if (result.passed) {
+          addStar();
+          CNPT.components.showEncourage('🌟 单词闯关成功！');
+        } else {
+          CNPT.utils.showToast('💪 练完一组，明天再来一轮会更牢！');
+        }
+        updateStats();
+        renderTopicList();
+      }
+    });
   }
 
   function startPractice(topic) {
@@ -253,6 +334,11 @@
     if (!questions.length) {
       CNPT.utils.showToast('这个知识点的练习题还在准备中~');
       return;
+    }
+
+    if (window.CNPT.components.dailyPlan) {
+      const st = state.fsrs && state.fsrs.getStatus(topic.id);
+      window.CNPT.components.dailyPlan.setSessionKind(st && st.isDue ? 'review' : 'new');
     }
 
     DOM.practiceModal.classList.remove('cnpt-hidden');
@@ -295,7 +381,19 @@
     }
 
     const q = questions[idx];
-    let html = `<div class="cnpt-practice-question">${idx + 1}. ${CNPT.utils.escapeHtml(q.question)}</div><div class="cnpt-practice-options">`;
+    let html = `<div class="cnpt-practice-question">${idx + 1}. ${CNPT.utils.escapeHtml(q.question)}</div>`;
+
+    // 作答前信心（FSRS 信心校准）
+    html += `
+      <div class="pq-confidence">
+        <span class="pq-conf-label">作答前信心</span>
+        <button class="pq-conf" data-c="25">😕 没把握</button>
+        <button class="pq-conf pq-conf-on" data-c="50">🤔 有点虚</button>
+        <button class="pq-conf" data-c="75">🙂 有把握</button>
+        <button class="pq-conf" data-c="100">🤩 很有把握</button>
+      </div>`;
+
+    html += '<div class="cnpt-practice-options">';
 
     if (q.type === 'choice') {
       q.options.forEach((opt, i) => {
@@ -309,20 +407,66 @@
     html += '</div>';
     DOM.practiceBody.innerHTML = html;
 
+    let confidence = 50;
+    DOM.practiceBody.querySelectorAll('.pq-conf').forEach(btn => {
+      btn.addEventListener('click', () => {
+        DOM.practiceBody.querySelectorAll('.pq-conf').forEach(b => b.classList.remove('pq-conf-on'));
+        btn.classList.add('pq-conf-on');
+        confidence = parseInt(btn.dataset.c, 10);
+      });
+    });
+
     DOM.practiceBody.querySelectorAll('.cnpt-practice-option').forEach(opt => {
       opt.addEventListener('click', () => {
         const selected = parseInt(opt.dataset.idx);
         const correct = q.type === 'judge' ? (selected === 0) : (selected === q.answer);
+
+        /** 统一记录：FSRS（首做/复习分离 + 信心 + 错因）+ 错题两步闭环 */
+        const finish = (extra) => {
+          const payload = Object.assign({
+            topicId: topic.id,
+            isCorrect: correct,
+            isIndependent: true,
+            confidence,
+            questionInfo: {
+              questionId: `${topic.id}-${idx}`,
+              question: q.question,
+              options: q.options || null,
+              answer: q.answer,
+              selected
+            }
+          }, extra || {});
+          if (state.fsrs) state.fsrs.recordAnswer(payload);
+          if (!correct && state.diag) {
+            state.diag.registerWrong(topic, {
+              questionId: `${topic.id}-${idx}`,
+              question: q.question,
+              options: q.options || null,
+              answer: q.answer,
+              selected
+            });
+          }
+        };
+
         setTimeout(() => {
           if (correct) {
             opt.classList.add('correct');
             CNPT.components.showEncourage(['⭐ 太棒了！', '🌟 你真聪明！', '✨ 继续加油！'][Math.floor(Math.random() * 3)]);
             addStar();
+            finish();
             setTimeout(() => showPracticeQuestion(questions, idx + 1, topic), 800);
           } else {
             opt.classList.add('wrong');
             CNPT.utils.showToast('💡 差一点哦~再想想');
-            setTimeout(() => showPracticeQuestion(questions, idx + 1, topic), 1200);
+            // 错因探针：先选错因（可跳过），再进入下一题
+            showReasonPicker(DOM.practiceBody, (reason, lowType) => {
+              finish({
+                reason: reason || null,
+                isLowLevel: reason === 'LOW',
+                lowLevelType: lowType || null
+              });
+              setTimeout(() => showPracticeQuestion(questions, idx + 1, topic), 600);
+            });
           }
         }, 400);
       });
@@ -379,6 +523,183 @@
     DOM.modeSwitch.addEventListener('click', () => {
       window.location.href = '../parent-web/index.html';
     });
+  }
+
+  /**
+   * 错因探针（P01-P11 + 低级失误）：答错后先定位错因，再进入下一题
+   * 选“低级失误”会写入独立的低级失误台账
+   */
+  function showReasonPicker(container, done) {
+    const reasons = window.CNPT.fsrs && CNPT.fsrs.buildReasonOptions
+      ? CNPT.fsrs.buildReasonOptions()
+      : [];
+    if (!reasons.length) { done(); return; }
+
+    const picker = document.createElement('div');
+    picker.className = 'pq-reason';
+    picker.innerHTML = `
+      <div class="pq-reason-title">🤔 这一步卡在哪？（选错因能帮你下次避坑）</div>
+      <div class="pq-reason-grid">
+        ${reasons.map(r => `<button class="pq-reason-btn" data-reason="${r.value}">${r.label}</button>`).join('')}
+      </div>
+      <button class="pq-reason-skip">跳过，直接看下一题 →</button>
+    `;
+    container.appendChild(picker);
+
+    picker.querySelectorAll('[data-reason]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const reason = btn.dataset.reason;
+        if (reason === 'LOW') {
+          const types = (window.CNPT.fsrs && CNPT.fsrs.LOW_LEVEL_TYPES) || ['未分类'];
+          picker.innerHTML = `
+            <div class="pq-reason-title">🤔 哪一类低级失误？（单独记账，先改习惯再谈正确率）</div>
+            <div class="pq-reason-grid">
+              ${types.map(t => `<button class="pq-reason-btn" data-low="${t}">${t}</button>`).join('')}
+            </div>
+            <button class="pq-reason-skip">跳过，直接看下一题 →</button>
+          `;
+          picker.querySelectorAll('[data-low]').forEach(b => {
+            b.addEventListener('click', () => {
+              const lowType = b.dataset.low;
+              picker.remove();
+              done('LOW', lowType);
+            });
+          });
+          picker.querySelector('.pq-reason-skip').addEventListener('click', () => {
+            picker.remove();
+            done('LOW', null);
+          });
+          return;
+        }
+        picker.remove();
+        done(reason, null);
+      });
+    });
+    picker.querySelector('.pq-reason-skip').addEventListener('click', () => {
+      picker.remove();
+      done(null, null);
+    });
+  }
+
+  function closePractice() {
+    DOM.practiceModal.classList.remove('show');
+    setTimeout(() => DOM.practiceModal.classList.add('cnpt-hidden'), 250);
+  }
+
+  /**
+   * 重测 / 次日盲测：单题窗口（不看解析，独立作答）
+   * kind = 'retest'（第 1 步）| 'blind'（第 2 步）
+   */
+  function openRetest(item, kind) {
+    if (!state.diag) return;
+    const isBlind = kind === 'blind';
+    DOM.practiceModal.classList.remove('cnpt-hidden');
+    setTimeout(() => DOM.practiceModal.classList.add('show'), 10);
+    DOM.practiceTitle.textContent = isBlind ? '🌅 次日盲测 · 不看提示' : '🔬 错题重测 · 第 1 步';
+    const opts = (item.options || []).map((o, i) =>
+      `<button class="cnpt-practice-option" data-idx="${i}">${String.fromCharCode(65 + i)}. ${CNPT.utils.escapeHtml(o)}</button>`
+    ).join('');
+    DOM.practiceBody.innerHTML = `
+      ${item.aiGenerated ? '<div class="pq-ai-note">🤖 本题由 AI 生成初稿，未经学科教师审核。</div>' : ''}
+      <div class="cnpt-practice-question">${CNPT.utils.escapeHtml(item.question)}</div>
+      <div class="cnpt-practice-options">${opts}</div>
+    `;
+    DOM.practiceBody.querySelectorAll('.cnpt-practice-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const selected = parseInt(btn.dataset.idx, 10);
+        const correct = selected === item.answer;
+        btn.classList.add(correct ? 'correct' : 'wrong');
+        setTimeout(() => {
+          if (isBlind) state.diag.answerBlindTest(item.topicId, correct);
+          else state.diag.answerRetest(item.topicId, correct);
+          CNPT.utils.showToast(correct
+            ? (isBlind ? '🎉 盲测通过，这个知识点闭环啦！' : '✅ 重测通过，明天再来一次盲测')
+            : '💡 还没过，20 分钟后重测');
+          setTimeout(closePractice, 900);
+        }, 500);
+      });
+    });
+  }
+
+  /**
+   * 预检跳课：3 题全对 → 直接标记掌握
+   */
+  function openPrecheck(topic) {
+    if (!state.diag) { startPractice(topic); return; }
+    const questions = [0, 1, 2].map(i => state.diag.pickQuestion(topic, i)).filter(Boolean);
+    if (!questions.length) {
+      CNPT.utils.showToast('这个知识点暂时没有预检题，直接开始学习吧');
+      startPractice(topic);
+      return;
+    }
+
+    state.diag.startPrecheck(topic.id);
+    DOM.practiceModal.classList.remove('cnpt-hidden');
+    setTimeout(() => DOM.practiceModal.classList.add('show'), 10);
+    DOM.practiceTitle.textContent = `⚡ 预检 · ${topic.name}`;
+    let idx = 0;
+
+    const showPrecheckQuestion = () => {
+      const q = questions[idx];
+      DOM.practiceBody.innerHTML = `
+        <div class="pq-ai-note">🤖 预检题由 AI 生成初稿，未经学科教师审核，仅供分流参考。</div>
+        <div class="cnpt-practice-question">${idx + 1}/${questions.length}. ${CNPT.utils.escapeHtml(q.question)}</div>
+        <div class="cnpt-practice-options">
+          ${q.options.map((opt, i) => `<button class="cnpt-practice-option" data-idx="${i}">${String.fromCharCode(65 + i)}. ${CNPT.utils.escapeHtml(opt)}</button>`).join('')}
+        </div>
+      `;
+      DOM.practiceBody.querySelectorAll('.cnpt-practice-option').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const selected = parseInt(btn.dataset.idx, 10);
+          const correct = selected === q.answer;
+          btn.classList.add(correct ? 'correct' : 'wrong');
+          state.diag.answerPrecheck(topic.id, correct);
+          setTimeout(() => {
+            if (correct) {
+              idx++;
+              if (idx < questions.length) { showPrecheckQuestion(); return; }
+              CNPT.utils.showToast('🎉 预检全对，已标记掌握，跳过正式学习！');
+            } else {
+              CNPT.utils.showToast('💡 预检未过，直接从练习开始学吧');
+            }
+            setTimeout(closePractice, 900);
+          }, 500);
+        });
+      });
+    };
+
+    showPrecheckQuestion();
+  }
+
+  /**
+   * FSRS 间隔复习 + 今日学习台（75 分钟预算 / 先复习后新学 / 知识边界硬约束）
+   */
+  function initFsrsAndDailyPlan() {
+    if (!window.CNPT.fsrs || !window.CNPT.components.initDailyPlan) return;
+    state.fsrs = CNPT.fsrs.create('student');
+    state.diag = window.CNPT.diagnostic ? CNPT.diagnostic.create('student') : null;
+    CNPT.components.initDailyPlan({
+      role: 'student',
+      topicMap: CNPT.indices.getTopicMap(),
+      getIncoming: (id) => CNPT.indices.getIncoming(id),
+      isMastered: (id) => isTopicMastered(id),
+      diagnostic: state.diag,
+      mount: 'daily-plan',
+      onStartTopic: (topic) => {
+        showTopicDetail(topic.id);
+        setTimeout(() => startPractice(topic), 250);
+      },
+      onStartRetest: (item) => openRetest(item, 'retest'),
+      onStartBlindTest: (item) => openRetest(item, 'blind'),
+      onStartPrecheck: (topic) => openPrecheck(topic)
+    });
+  }
+
+  function isTopicMastered(topicId) {
+    if (state.storage.getTopicStatus(topicId) === 'mastered') return true;
+    const card = state.fsrs && state.fsrs.getStatus(topicId);
+    if (!card) return false;
+    return card.dormant || card.consecutiveCorrect >= 2;
   }
 
   function getSubjectIcon(subject) {

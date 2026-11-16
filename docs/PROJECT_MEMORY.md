@@ -342,3 +342,73 @@
 - README.md：已确认包含全部 15 个角色版本说明
 - PROJECT_MEMORY.md：新增本节记录 CSS 同步状态
 - DESIGN.md：已包含共享 CSS 架构说明（tokens.css + common.css）
+
+### 9.13 v2.0 学习闭环：四篇文章借鉴反哺 ✅（2026-11-16）
+
+**来源**
+- 4 篇微信文章存档于 `docs/references/01~04-*.md`（《AI 自学数学账本实操》《edulab 把考题变 3D 交互页》《cn-math-taxonomy 开源先锋》《词光 一词一画》）。
+- 逐篇方法论 → 落地对照表：`docs/四篇文章借鉴反哺报告.md`。
+
+**新增共享组件（3 个）**
+- `shared/js/components/fsrs-engine.js`：FSRS 间隔复习（6 轮 20分钟~30天、倍数 1/1.5/2、上限 60 天、连续 3 次独立答对休眠 60 天抽检、首做/重测分离、信心校准、错因与低级失误台账）。
+- `shared/js/components/diagnostic-loop.js`：错题两步闭环（答错 → 20 分钟后重测 → 次日盲测 → mastered）+ 预检跳课（3 题全对 → mastered + 卡片 7 天）。
+- `shared/js/components/daily-plan.js`：今日学习台（75 分钟预算、复习封顶 37 分钟、先复习后新学、知识边界硬约束、错因分布/低级失误统计）。
+
+**修改的共享层**
+- `constants.js`：新增 `LEARNING_BUDGET`、`ERROR_REASONS`（P01–P11 + LOW）。
+- `utils.js`：新增 `localDateKey()`（本地时区，修复 UTC 跨日误差）。
+- `storage.js`：新增 fsrs / mistakeLedger / dailyLog / diagnostic 读写。
+- `common.css`：新增 `.cnpt-dayplan` / `.dp-*` 样式。
+
+**修改的角色页**
+- H5 与学生版：接入 3 个新组件；练习答错弹错因探针（P01–P11 + LOW 二级）；答错登记重测；今日学习台渲染；预检/重测/盲测弹层；AI 生成题目标注「未经学科教师审核」。
+- `docs/diagnostic-center.html`：新增「🔄 诊断闭环机制」说明卡（含只读闭环队列状态）。
+
+**关键决策**
+- 「算」与「画」分离：依赖/路径/判分走确定性逻辑；AI 只生成展示性增强字段并显式声明。
+- 首做与重测分离：重测/盲测不计入首做正确率（借鉴《词光》）。
+- 错题两步闭环 + 预检跳课（借鉴《AI 自学数学账本实操》）。
+- 探针「观察/退役/顽固」状态机未完整落地，当前仅 FSRS 卡片级休眠退役；错因维度仍是标注 + 统计（列为 P2）。
+
+**验证**
+- `node scripts/validate.mjs` ✓；`node build.mjs --standalone --target=h5`（436 引用）✓；`--target=student`（439 引用）✓。
+- 浏览器实测：h5 与学生版的今日学习台、错因探针、重测/盲测/预检全流程均通过（详见反哺报告第四节）。
+
+**构建坑（重要）**
+- `build.mjs --target` 使用**入口 id**（如 `student`），不是目录名（`student-web`）；写错会静默跳过构建。
+
+### 9.14 v2.1 学习工具包：第二批四篇文章借鉴反哺 ✅（2026-11-16）
+
+**来源**
+- 4 篇微信文章存档于 `docs/references/05~08-*.md`（《诗泉 免费古诗词 API 与自建诗库》《Marble Skill Taxonomy 微主题先修图谱》《四轮闯关背单词网页》《导图加会动的模型 高中数学自学》）。
+- 逐篇方法论 → 落地对照表：`docs/四篇文章借鉴反哺报告-第二批.md`。
+
+**新增文件**
+- `PROVENANCE.md`：上游来源、四层授权表（ODbL 1.0 / CC BY-SA 4.0 / 课标上游 / MIT）、ODbL 衍生数据库澄清、规范署名与 SHA-256 版本锁。
+- `scripts/compute-centrality.mjs`：枢纽度计算（1.0×入度 + 0.5×出度加权，归一化 0-1，4 位小数；4274/4275 填充，TOP1=ct_YW2S032）。
+- `scripts/enrich-topics.mjs`：注入 `MODEL_REFS`（14 主题）与 `WORD_LISTS`（6 主题 18 词，取自 description 原文）。
+- `shared/js/components/visual-models.js`：4 个 SVG 交互模型（fraction-bar / number-line / triangle-angle / cube-net）。
+- `shared/js/components/spelling-quest.js`：四轮拼写闯关（认形→元音→骨架→默写；「第 N 个字母不对，还有 X 次机会」；3 次失败/看答案才揭示）。
+- `shared/js/components/poetry.js` + `docs/poetry.html`：40 首示例库 + 搜索/随机/飞花令（页脚声明未内嵌近 40 万首全量库）。
+
+**修改的共享层**
+- `schema/topics.schema.json`：`centrality` 口径更新；新增 `wordList`、`modelRef`。
+- `node-detail.js`：枢纽标签（⭐/🔗）、`showModels`、模型区块、家长费曼区块（🗣️ 让孩子讲给你听）；**修复 storage 误用命名空间的既有缺陷**。
+
+**修改的角色页**
+- 学生版：详情接入模型 + 「🔤 拼写闯关」按钮（接入 FSRS、加星、统计）。
+- 家长版/H5：引入 `visual-models.js`（家长版详情渲染模型；H5 详情走独立渲染，模型为共享储备）。
+- `web/index.html`：修正构建模板 CSS 路径（`../shared/` → `shared/`），消除产物断链。
+
+**自测中发现并修复的缺陷（如实记录）**
+1. `spelling-quest.js check()` 漏跳过「未遮挡槽」→ 填对也误报「第 1 个字母不对」；已改 `s.fixed || !state.mask[i]` 并同步标红/揭示/过关循环。
+2. 第 2 关掩码方向写反（遮辅音露元音）→ 已改「露辅遮元」。
+3. `node-detail.js` 误把 `CNPT.storage`（命名空间 `{StorageManager, create}`）当实例调用 `getTopicStatus` → 家长版/教师版详情一直无法打开；已改为接收 `storage` 实例参数并兜底 `create('parent')`。
+
+**验证**
+- `node scripts/validate.mjs` ✓（4275/4191，DAG 无环）；`node scripts/build-standalone.mjs` ✓（9430 KB）；`node scripts/build-split-standalone.mjs` ✓；`node scripts/validate-build.mjs` ✓（141 引用 0 问题）。
+- 浏览器实测：学生版拼写四轮 + 模型联动（×2→2/8、÷2→1/4）；家长版详情/枢纽标签/费曼/模型；docs/poetry.html 随机《静夜思》+ 飞花令「春」11 句；student standalone 产物组件就绪。
+
+**构建命令修正（重要）**
+- 仓库实际构建脚本为 `scripts/build-standalone.mjs`（主独立版）与 `scripts/build-split-standalone.mjs`（拆分版）；**不存在 `build.mjs`**，README 已同步修正。
+- 数据流水线：`merge.mjs` → `compute-centrality.mjs` → `enrich-topics.mjs` → `generate-dependencies.mjs` → `generate-manifest.mjs` → `validate.mjs`。

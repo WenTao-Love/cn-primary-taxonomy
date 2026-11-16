@@ -25,8 +25,26 @@ const payload = [
   jsonScript('embedded-clusters', clusters)
 ].join('\n');
 
-const embedded = tpl.replace('<script>', `${payload}\n<script>`);
+// 注入到 <head> 内、charset 声明之后（避免浏览器 prescan 回退 Windows-1252 导致中文乱码）
+let embedded = tpl;
+const headRe = /<head[^>]*>/i;
+if (headRe.test(embedded)) {
+  // 1) 保证 head 内有 charset 声明
+  const headEnd0 = embedded.search(/<\/head>/i);
+  const headChunk0 = embedded.slice(0, headEnd0 > 0 ? headEnd0 : 4096);
+  if (!/<meta[^>]+charset[^>]+>/i.test(headChunk0)) {
+    embedded = embedded.replace(headRe, (m) => `${m}\n<meta charset="utf-8">`);
+  }
+  // 2) 数据插到 charset meta 之后
+  const withPayload = embedded.replace(/(<meta[^>]+charset[^>]+>)/i, (m) => `${m}\n${payload}`);
+  embedded = withPayload === embedded
+    ? embedded.replace(headRe, (m) => `${m}\n${payload}`)
+    : withPayload;
+} else {
+  embedded = embedded.replace('<script>', `${payload}\n<script>`);
+}
 
 const outPath = resolve(ROOT,'cn-primary-taxonomy.html');
-writeFileSync(outPath, embedded, 'utf8');
+// 带 UTF-8 BOM 写入，任何浏览器均按 UTF-8 解码
+writeFileSync(outPath, '\uFEFF' + embedded, 'utf8');
 console.log(`✅ 独立HTML写入: ${outPath} (${(embedded.length/1024).toFixed(0)} KB)`);

@@ -69,6 +69,8 @@
     try {
       const data = await dataLoader.loadAllData();
       state.fullData = data;
+      // loadAllData() 返回 {topics:{topics:[]}, dependencies, clusters}，这里拍平出知识点数组供各视图使用
+      state.topicList = (data.topics && data.topics.topics) ? data.topics.topics : [];
       state.indices = indicesBuilder.buildIndices(data);
       state.storage = Storage.create('transition');
 
@@ -133,9 +135,9 @@
   }
 
   function fillSubjects() {
-    const subjects = [...new Set(state.fullData.topics.map(t => t.subject))];
+    const subjects = [...new Set(state.topicList.map(t => t.subject))];
     [DOM.hotspotSubject, DOM.gapSubject, DOM.mockSubject].forEach(select => {
-      const isFilter = select.id === 'hotspot-subject');
+      const isFilter = select.id === 'hotspot-subject';
       select.innerHTML = (isFilter ? '<option value="">全部学科</option>' : '') +
         subjects.map(s => `<option value="${s}">${s}</option>`).join('');
     });
@@ -162,7 +164,7 @@
   // ========== 总览 ==========
   function initOverview() {
     // 计算衔接知识点（高年级重点知识）
-    const transitionTopics = state.fullData.topics.filter(t =>
+    const transitionTopics = state.topicList.filter(t =>
       t.grade >= 5 && (t.centrality === 'high' || t.difficulty >= 3)
     );
 
@@ -274,7 +276,7 @@
     const subject = DOM.hotspotSubject.value;
     const grade = parseInt(DOM.hotspotGrade.value);
 
-    let topics = state.fullData.topics.filter(t =>
+    let topics = state.topicList.filter(t =>
       t.grade === grade && (!subject || t.subject === subject)
     );
 
@@ -332,7 +334,7 @@
       return;
     }
 
-    const topics = state.fullData.topics.filter(t =>
+    const topics = state.topicList.filter(t =>
       t.subject === subject && t.grade >= 4
     );
 
@@ -428,7 +430,7 @@
     const topicsPerDay = { light: 3, medium: 5, heavy: 8 }[load];
 
     // 获取需要学习的知识点
-    const remainingTopics = state.fullData.topics.filter(t =>
+    const remainingTopics = state.topicList.filter(t =>
       t.grade >= 5 && (t.difficulty >= 2 || t.centrality === 'high')
     );
 
@@ -489,7 +491,7 @@
       return;
     }
 
-    const topics = state.fullData.topics.filter(t =>
+    const topics = state.topicList.filter(t =>
       t.subject === subject && t.grade >= 5
     );
 

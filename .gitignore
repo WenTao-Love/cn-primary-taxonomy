@@ -42,3 +42,8 @@ twa-project/app/build/
 twa-project/build/
 twa-project/.gradle/
 *.apk
+# 默认忽略目录（用户约定 2026-11-15）：临时/构建产物/IDE 目录不入库
+.tmp/
+temp/
+bin/
+target/

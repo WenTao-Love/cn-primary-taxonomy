@@ -37,7 +37,7 @@
           "ageRangeStart": { "type": ["integer", "null"] },
           "ageRangeEnd": { "type": ["integer", "null"] },
           "difficulty": { "type": "integer", "minimum": 1, "maximum": 5, "description": "难度星级1-5" },
-          "centrality": { "type": ["number", "null"], "description": "在图中的中心度，后续计算填充" },
+          "centrality": { "type": ["number", "null"], "description": "枢纽度（0-1 归一化）：由 scripts/compute-centrality.mjs 基于依赖图计算，入度(被依赖,主)权重1.0 + 出度(依赖别人,次)权重0.5，hard边权重1.0/soft边0.5，再除以全图最高分；null 表示未计算" },
           "evidence": { "type": "array", "items": { "type": "string" }, "description": "掌握证据：会做什么就算掌握了" },
           "commonMistakes": { "type": "array", "items": { "type": "string" }, "description": "常见易错点" },
           "examTips": { "type": ["string", "null"], "description": "常见考法/考试提示" },
@@ -96,7 +96,22 @@
               },
               "additionalProperties": false
             }
-          }
+          },
+          "wordList": {
+            "type": "array",
+            "description": "拼写闯关词表（主要用于英语词汇类主题）：每项含单词与释义，供四轮拼写练习使用",
+            "items": {
+              "type": "object",
+              "required": ["word", "meaning"],
+              "properties": {
+                "word": { "type": "string", "description": "单词（小写）" },
+                "meaning": { "type": "string", "description": "中文释义" },
+                "phonetic": { "type": ["string", "null" }, "description": "音标（可选）" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "modelRef": { "type": ["string", "null"], "description": "交互演示模型标识（如 fraction-bar / number-line / triangle-angle / cube-net），供「会动的模型」组件渲染" }
         },
         "additionalProperties": false
       }

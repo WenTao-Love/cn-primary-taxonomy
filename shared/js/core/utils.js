@@ -76,6 +76,16 @@
   }
 
   /**
+   * 本地时区的日期键（YYYY-MM-DD），用于每日预算/复习日志
+   */
+  function localDateKey(date) {
+    const d = date || new Date();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${d.getFullYear()}-${m}-${day}`;
+  }
+
+  /**
    * 隐藏加载指示器
    */
   function hideLoadingScreen() {
@@ -100,6 +110,7 @@
     showToast,
     buildCoachText,
     buildGraphData,
+    localDateKey,
     hideLoadingScreen,
     updateLoadingProgress
   };

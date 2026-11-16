@@ -60,6 +60,46 @@
             gap: 10px;
         }
 
+        /* 诊断闭环机制说明 */
+        .loop-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 12px;
+            margin-top: 6px;
+        }
+        .loop-step {
+            display: flex;
+            gap: 10px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .loop-step-num {
+            flex: 0 0 26px;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #667eea;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        .loop-status {
+            margin-top: 14px;
+            font-size: 13px;
+            color: #2f855a;
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-radius: 8px;
+            padding: 10px 12px;
+            line-height: 1.6;
+        }
+
         /* 选题入口 */
         .entry-tabs {
             display: flex;
@@ -517,6 +557,31 @@
     </header>
 
     <div class="container">
+        <!-- 诊断闭环机制说明（错题两步闭环 / 次日盲测 / 预检跳课） -->
+        <div class="card">
+            <div class="card-title">🔄 诊断闭环机制</div>
+            <div class="loop-steps">
+                <div class="loop-step">
+                    <div class="loop-step-num">1</div>
+                    <div><b>当天重测</b><br>练习答错后 20 分钟进入「待重测」队列；重测通过才算第 1 步通过，未通过则重新计时。</div>
+                </div>
+                <div class="loop-step">
+                    <div class="loop-step-num">2</div>
+                    <div><b>次日盲测</b><br>重测通过后进入次日队列，第二天以不看提示的盲测形式出现；通过即标记「已掌握」，闭环完成。</div>
+                </div>
+                <div class="loop-step">
+                    <div class="loop-step-num">3</div>
+                    <div><b>预检跳课</b><br>新学知识点前可做 3 题预检，全对直接标记「已掌握」，跳过正式学习；未过则正常进入练习。</div>
+                </div>
+            </div>
+            <div id="loopStatus" class="loop-status">正在读取闭环状态...</div>
+            <p style="font-size:13px;color:#718096;margin-top:10px;line-height:1.7">
+                📌 闭环队列与 FSRS 卡片保存在各角色页的 localStorage（键前缀 <code>cnpt-{角色}-</code>），不上传服务器。<br>
+                🚪 入口：H5 移动版 / 学生版 →「今日学习台」中的「🔬 待重测」「🌅 次日盲测」「⚡ 预检跳课」。<br>
+                🧭 练习答错后会出现错因探针（P01-P11 + 低级失误），选「低级失误」会单独记入台账。
+            </p>
+        </div>
+
         <!-- 选题入口 -->
         <div class="card" id="entryCard">
             <div class="card-title">选择要诊断的知识点</div>
@@ -638,8 +703,35 @@
         let selectedSubject = '数学';
         let selectedGrade = 3;
 
+        /** 只读展示当前角色（student）的诊断闭环队列状态 */
+        function renderLoopStatus() {
+            const box = document.getElementById('loopStatus');
+            if (!box) return;
+            let raw = null;
+            try { raw = localStorage.getItem('cnpt-student-diagnostic'); } catch (e) { /* file:// 或隐私模式 */ }
+            if (!raw) {
+                box.textContent = '暂无闭环记录。到 H5 移动版 / 学生版的「今日学习台」答题后，这里会显示待重测 / 次日盲测 / 预检跳课的进度。';
+                return;
+            }
+            try {
+                const s = JSON.parse(raw);
+                const retests = Object.keys(s.retests || {}).length;
+                const blind = Object.keys(s.blindTests || {}).length;
+                const prechecks = Object.keys(s.prechecks || {}).length;
+                if (!retests && !blind && !prechecks) {
+                    box.textContent = '闭环队列为空：没有待重测或待盲测的错题 👏';
+                } else {
+                    box.textContent = `当前闭环队列：待重测 ${retests} · 次日盲测 ${blind} · 预检中 ${prechecks}（数据来自本浏览器 localStorage）`;
+                }
+            } catch (e) {
+                box.textContent = '闭环记录读取失败。';
+            }
+        }
+
         // 初始化
         async function init() {
+            // 先渲染只读闭环状态（不依赖数据加载，file:// 打开也能显示）
+            renderLoopStatus();
             // 加载数据
             const [topicsRes, depsRes, questionsRes] = await Promise.all([
                 fetch('../data/topics.json'),

@@ -661,3 +661,80 @@
   .cnpt-stats-grid { grid-template-columns: repeat(3, 1fr); }
   .cnpt-detail-card { width: 100vw; max-width: 100vw; }
 }
+
+/* === 作答前信心（FSRS 校准） === */
+.pq-confidence {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: -4px 0 12px;
+}
+.pq-conf-label {
+  font-size: 11px;
+  color: #7f8c9a;
+  margin-right: 2px;
+}
+.pq-conf {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #e8ecf1;
+  background: #f7f9fb;
+  color: #2c3e50;
+  transition: all 0.15s;
+}
+.pq-conf-on {
+  border-color: #4CAF50;
+  background: rgba(76, 175, 80, 0.12);
+  font-weight: 600;
+}
+
+/* === 错因探针（P01-P11 + 低级失误） === */
+.pq-reason {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(243, 156, 18, 0.08);
+  border: 1px solid rgba(243, 156, 18, 0.25);
+}
+.pq-reason-title {
+  font-size: 12px;
+  color: #b9770e;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.pq-reason-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.pq-reason-btn {
+  font-size: 11px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  border: 1px solid #e8ecf1;
+  background: #fff;
+  color: #2c3e50;
+}
+.pq-reason-btn:active { transform: scale(0.97); }
+.pq-reason-skip {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #7f8c9a;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* === AI 生成内容声明（练习/预检/重测） === */
+.pq-ai-note {
+  margin: 0 0 10px;
+  padding: 7px 10px;
+  border-radius: 10px;
+  background: rgba(155, 89, 182, 0.1);
+  color: #7d3c98;
+  font-size: 11px;
+  line-height: 1.5;
+}

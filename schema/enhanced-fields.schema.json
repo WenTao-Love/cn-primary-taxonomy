@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn-primary-taxonomy.cn/schema/enhanced-fields.schema.json",
+  "title": "CN-Primary-Taxonomy — 知识点增强字段 (enhanced fields)",
+  "description": "中国小学教育知识图谱 - 知识点增强字段：一句话说明、家长指南、教师指南、随堂小题。由 AI 生成初稿，未经学科教师逐条审核，仅供启发，不可直接作为教学依据。",
+  "type": "object",
+  "required": ["version", "enhancedTopics"],
+  "properties": {
+    "version": { "type": "string", "description": "增强字段数据版本号，如 v1.0-ai-draft" },
+    "description": { "type": "string" },
+    "generatedAt": { "type": "string" },
+    "generationMethod": { "type": "string" },
+    "note": { "type": "string" },
+    "totalTopics": { "type": "integer", "minimum": 0 },
+    "enhancedTopics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "oneLiner", "parentGuide", "teacherGuide", "quizQuestions"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^ct_[A-Z]{2,4}[0-6][SXQ][0-9]{3}$",
+            "description": "知识点ID，必须与 topics.json 中的 id 完全一致"
+          },
+          "oneLiner": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 120,
+            "description": "一句话说明：这个知识点到底是什么，家长/学生 10 秒能看懂"
+          },
+          "parentGuide": {
+            "type": "object",
+            "required": ["quickExplanation", "dailyExample", "commonParentMistake", "encouragement"],
+            "properties": {
+              "quickExplanation": { "type": "string", "minLength": 4, "description": "家长 30 秒快速讲解" },
+              "dailyExample": { "type": "string", "minLength": 4, "description": "生活中的例子，家长可直接带着做" },
+              "commonParentMistake": { "type": "string", "minLength": 4, "description": "家长最容易讲错/带偏的地方" },
+              "encouragement": { "type": "string", "minLength": 2, "description": "鼓励话术，贴在孩子书桌前也用得上" }
+            },
+            "additionalProperties": false
+          },
+          "teacherGuide": {
+            "type": "object",
+            "required": ["classroomActivity", "keyQuestion", "visualAid", "transition"],
+            "properties": {
+              "classroomActivity": { "type": "string", "minLength": 4, "description": "可直接落地的课堂活动（含组织形式与时长）" },
+              "keyQuestion": { "type": "string", "minLength": 4, "description": "关键提问：用来暴露迷思概念" },
+              "visualAid": { "type": "string", "minLength": 2, "description": "直观教具/板书/课件建议" },
+              "transition": { "type": "string", "minLength": 4, "description": "与前后知识点的衔接语" }
+            },
+            "additionalProperties": false
+          },
+          "quizQuestions": {
+            "type": "array",
+            "description": "随堂小题，用于三级折叠提示与即时自测",
+            "items": {
+              "type": "object",
+              "required": ["question", "type", "answer", "explanation"],
+              "properties": {
+                "question": { "type": "string", "minLength": 4 },
+                "type": { "type": "string", "enum": ["choice", "judge", "fill"] },
+                "options": {
+                  "type": "array",
+                  "items": { "type": "string", "minLength": 1 },
+                  "minItems": 2,
+                  "maxItems": 6
+                },
+                "answer": {
+                  "description": "choice=正确选项下标(0起)；judge=true/false；fill=参考答案文本",
+                  "oneOf": [
+                    { "type": "integer", "minimum": 0, "maximum": 5 },
+                    { "type": "boolean" },
+                    { "type": "string", "minLength": 1 }
+                  ]
+                },
+                "explanation": { "type": "string", "minLength": 2 }
+              },
+              "additionalProperties": false,
+              "allOf": [
+                {
+                  "if": { "properties": { "type": { "const": "choice" } }, "required": ["type"] },
+                  "then": { "required": ["options"], "properties": { "answer": { "type": "integer", "minimum": 0 } } }
+                },
+                {
+                  "if": { "properties": { "type": { "const": "judge" } }, "required": ["type"] },
+                  "then": { "properties": { "answer": { "type": "boolean" } } }
+                },
+                {
+                  "if": { "properties": { "type": { "const": "fill" } }, "required": ["type"] },
+                  "then": { "properties": { "answer": { "type": "string", "minLength": 1 } } }
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

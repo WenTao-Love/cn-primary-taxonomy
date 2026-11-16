@@ -401,6 +401,81 @@ function celebrateStar() {
 | 进入 | 直接展示图谱 | 欢迎面板 + 吉祥物自我介绍 |
 | 提示 | 文字说明 | 气泡 + 吉祥物图标 |
 
+## 五点五、学习闭环设计（v2.0）
+
+> 借鉴《AI 自学数学账本实操》《edulab》《cn-math-taxonomy》《词光》四篇文章反哺，落地于 H5 移动版与学生版。方法论对照见 `docs/四篇文章借鉴反哺报告.md`。
+
+### 5.5.1 FSRS 间隔复习引擎（`shared/js/components/fsrs-engine.js`）
+
+- **6 轮基础间隔**：20 分钟 / 1 小时 / 1 天 / 3 天 / 7 天 / 30 天；连续独立答对倍数 1 / 1.5 / 2；间隔上限 60 天。
+- **首做与重测分离**：`firstAttempts` 只记录每个知识点的第一次作答；重测（retest）、盲测（blind）不计入首做正确率，`getFirstAttemptAccuracy()` 单独统计（含独立作答子项）。
+- **信心校准**：练习作答前记录 25/50/75/100 四档信心，`getCalibrationBias()` 输出校准偏差。
+- **休眠退役**：连续 3 次独立答对 → `dormant=true`，60 天后抽检（`DORMANT_AFTER` / `DORMANT_PROBE`）。
+- **错因与台账**：答错写入 `errorLog`；若标记为低级失误（LOW），同时写入独立的 `mistakeLedger`（二级类型：抄写错误/口算错误/单位遗漏/符号遗漏/漏题/格式不规范）。
+
+### 5.5.2 诊断闭环（`shared/js/components/diagnostic-loop.js`）
+
+- **错题两步闭环**：答错 → `registerWrong()` 登记 20 分钟后重测（第 1 步）→ 重测通过进入次日「盲测」队列（第 2 步）→ 盲测通过标记 `mastered`，闭环完成；任一步失败回退到当天重测。
+- **预检跳课**：新学知识点前可答 3 题预检，全对直接标记 `mastered` 并推进 FSRS 卡片（`consecutiveCorrect≥2`、`nextReview=+7 天`）。
+- **题目来源**：优先取增强字段 `quizQuestions`（AI 生成初稿，UI 标注「未经学科教师审核」），缺失时回退到 `commonMistakes`/`evidence` 构造判断题。
+
+### 5.5.3 今日学习台（`shared/js/components/daily-plan.js`）
+
+- **75 分钟日预算**：复习最多占用一半（37 分钟），超出后 `reviewBudgetCapped` 提示并停止排复习；剩余预算保底新学。
+- **先复习后新学**：分区顺序固定，计时器按 `review`/`new` 分账写入 `dailySeconds`。
+- **知识边界硬约束**：`buildTodayPlan()` 扫描每个知识点的入边，`strength==='hard'` 的前置未掌握则进入 `blocked`（「🔒 待解锁」），不排进新学；H5 节点详情同步显示边界提示。
+- **统计面板**：在学卡片数、首做正确率、低级失误数、错因分布（P01–P11）。
+
+### 5.5.4 数据键与隐私
+
+- 全部学习数据保存于浏览器 localStorage，键前缀 `cnpt-{role}-`：`fsrs` / `mistakeLedger` / `dailyLog` / `diagnostic`。
+- 不上传任何服务器；支持导出 / 导入（`fsrs-engine.export/import`、`diagnostic-loop.export`）。
+
+### 5.5.5 组件挂载约定
+
+- 共享组件统一挂载到 `window.CNPT.*`（IIFE，无 `eval`）：`CNPT.fsrs.create(role)`、`CNPT.diagnostic.create(role)`、`CNPT.components.initDailyPlan/dailyPlan`。
+- 按角色缓存单例，避免多实例互相覆盖 localStorage。
+
+## 五点六、学习工具包设计（v2.1）
+
+> 借鉴《诗泉》《Marble Skill Taxonomy》《四轮闯关背单词》《导图加会动的模型》四篇文章反哺。方法论对照见 `docs/四篇文章借鉴反哺报告-第二批.md`。
+
+### 5.6.1 枢纽度 centrality（`scripts/compute-centrality.mjs`）
+
+- **口径**：`score(v) = 1.0 × 入度加权 + 0.5 × 出度加权`，其中 hard 边权 1.0 / soft 边权 0.5；再除以全图最高分归一化到 0–1，保留 4 位小数；`null` 表示未计算（全图仅 1 个孤立点）。
+- **展示**：节点详情标签 `centrality ≥ 0.5` → 「⭐ 枢纽知识点」，否则「🔗 枢纽度 N%」（title 提示依赖规模）。
+- **定位**：结构性枢纽度，不等于教学重要性；后续可接入学习路径排序与图谱节点视觉强调。
+
+### 5.6.2 交互模型（`shared/js/components/visual-models.js`）
+
+- **四个 SVG 交互模型**：分数条（分子/分母滑块 + ×2 等值 ÷2 约分 + 与 1/2 比较）、数轴（拖拽读数，多量程与刻度）、三角形内角（拖顶点实时显示内角与和恒 180°）、正方体展开图（点面显示相对面）。
+- **挂接方式**：`scripts/enrich-topics.mjs` 的 `MODEL_REFS` 把 `modelRef` 写入 14 个数学主题；`node-detail.js` 的 `modelHtml` 与 `student.js` 在详情中渲染 `.cnpt-vm-slot` 并调用 `visualModels.render`。
+- **设计原则**（来自文章 08）：网负责「知道考什么」、模型负责「看见为什么」，先网后模型；模型为可选增强，不阻塞学习流程。
+
+### 5.6.3 四轮拼写闯关（`shared/js/components/spelling-quest.js`）
+
+- **四轮遮挡递增**：① 认形留首尾 → ② 元音露辅遮元 → ③ 骨架留首字母 → ④ 默写全遮；短语按空格拆槽，空格为固定槽。
+- **错词反馈**：`check()` 只校验被遮挡槽（未遮挡槽与空格槽跳过），定位第一个错字母 → 「第 N 个字母不对，还有 X 次机会」；3 次失败或点「看答案」才揭示完整单词。
+- **数据接入**：`scripts/enrich-topics.mjs` 的 `WORD_LISTS` 为 6 个英语主题注入 18 词（词取自 description 原文）；schema 新增 `wordList`。
+- **闭环**：完成一组后 `onResult` → 学生版 `startSpelling` 调用 `state.fsrs.recordAnswer` 记录掌握，并更新星星/统计/列表。
+
+### 5.6.4 古诗词工具（`shared/js/components/poetry.js` + `docs/poetry.html`）
+
+- **内置 40 首**课标常见古诗示例库（公版文本，含 title/author/dynasty/tags/lines），零依赖、可离线。
+- **三个能力**：全文搜索（标题/作者/正文）、随机抽诗（按作者/体裁）、飞花令（按字逐句检索）。
+- **诚实边界**：完整近 40 万首库未内嵌，页面明确指路开源项目（中华古诗词/诗泉 poetry.palemoky.com）。
+
+### 5.6.5 家长费曼区块（`node-detail.js`）
+
+- `enhancedVariant === 'parent'` 时渲染「🗣️ 让孩子讲给你听」：话术「宝贝，你能给我讲讲 {name} 为什么是这样吗？」+ 费曼学习法说明（孩子能用自己的话讲出来，才是真的懂了）。
+- 与「先网后模型」配合：家长先引导孩子看模型，再请孩子复述为什么。
+
+### 5.6.6 授权合规（`PROVENANCE.md`）
+
+- 四层授权表：数据库层 ODbL 1.0 / 文本层 CC BY-SA 4.0 / 课标上游 / 项目代码 MIT。
+- 规范署名「Marble Skill Taxonomy (v1) · © Generative Spark, Inc. (Marble)」；manifest SHA-256 版本锁；ODbL 衍生数据库 vs 产出作品澄清。
+- 边界：无儿童个人数据；AI 生成字段均标注「未经学科教师审核」。
+
 ## 六、后续路线图
 
 - **v0.8.x**：把当前"主干映射版"继续加密为教材章节级 / 课时级 / 题型级颗粒度，并推广到更多非主科；同时把外部资源接入升级为逐单元精选题单、资源组键、资源ID和外部作品ID直链治理，并用缓存/停布局/卸载清理/旧 zoom 与 simulation 回收/隐藏态整图休眠/`requestAnimationFrame` tick 节流/布局结束主动释放实例引用等手段持续压低页面常驻负载；把年级/学科/版本筛选改造为右侧边栏可搜索的多选下拉式交互，并将知识点搜索与图谱状态提示也收拢进右侧；继续把标题、副标题、统计概览也移入右侧工作台，并为多选下拉增加"全选 / 反选 / 清空"，同时允许右侧整栏展开 / 折叠，以兼顾筛选效率与主图谱展示空间；继续把图谱解释层从"工程可读"往"家长可读"收敛，新增右侧阅读指引、节点级"先补什么 / 建议补什么 / 学稳后带动什么"摘要，以及面向家长的 Bot 结果结构，尽量把 DAG 关系翻译成可执行的辅导动作

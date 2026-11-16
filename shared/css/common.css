@@ -307,3 +307,226 @@
 *:focus:not(:focus-visible) {
   outline: none;
 }
+
+/* ========== 今日学习台（daily-plan 组件） ========== */
+
+.cnpt-dayplan {
+  --dp-gap: 10px;
+}
+
+.dp-card {
+  background: var(--cnpt-surface, #fff);
+  border: 1px solid var(--cnpt-border, #e8ecf1);
+  border-radius: var(--cnpt-radius-lg, 14px);
+  padding: 14px 16px;
+  margin-bottom: var(--dp-gap);
+}
+
+.dp-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.dp-title {
+  font-size: var(--cnpt-font-md, 15px);
+  font-weight: 700;
+  color: var(--cnpt-text, #2c3e50);
+}
+
+.dp-sub {
+  font-size: var(--cnpt-font-xs, 12px);
+  color: var(--cnpt-text-muted, #7f8c9a);
+  margin-top: 2px;
+}
+
+.dp-clock {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cnpt-info, #5dade2);
+  font-variant-numeric: tabular-nums;
+}
+
+.dp-clock span {
+  font-size: 12px;
+  color: var(--cnpt-text-muted, #7f8c9a);
+  font-weight: 500;
+}
+
+.dp-bar {
+  height: 8px;
+  background: var(--cnpt-border, #e8ecf1);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 10px 0 8px;
+}
+
+.dp-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.dp-budget-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: var(--cnpt-font-xs, 12px);
+  color: var(--cnpt-text-muted, #7f8c9a);
+}
+
+.dp-warn {
+  margin-top: var(--dp-gap);
+  padding: 8px 12px;
+  border-radius: var(--cnpt-radius-md, 8px);
+  background: rgba(243, 156, 18, 0.1);
+  color: #b9770e;
+  font-size: var(--cnpt-font-xs, 12px);
+  line-height: 1.5;
+}
+
+.dp-section {
+  margin-top: 14px;
+}
+
+.dp-h {
+  font-size: var(--cnpt-font-sm, 13px);
+  font-weight: 700;
+  color: var(--cnpt-text, #2c3e50);
+  margin: 0 0 8px;
+}
+
+.dp-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--cnpt-radius-md, 8px);
+  background: var(--cnpt-surface, #fff);
+  border: 1px solid var(--cnpt-border, #e8ecf1);
+  margin-bottom: 6px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.dp-item:active {
+  transform: scale(0.99);
+}
+
+.dp-item:hover {
+  border-color: var(--cnpt-info, #5dade2);
+}
+
+.dp-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+.dp-info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.dp-name {
+  font-size: var(--cnpt-font-sm, 13px);
+  font-weight: 600;
+  color: var(--cnpt-text, #2c3e50);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dp-meta {
+  font-size: var(--cnpt-font-xs, 11px);
+  color: var(--cnpt-text-muted, #7f8c9a);
+  margin-top: 2px;
+}
+
+.dp-badge {
+  flex: 0 0 auto;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.dp-badge-review {
+  background: rgba(46, 204, 113, 0.14);
+  color: #1e8449;
+}
+
+.dp-badge-new {
+  background: rgba(93, 173, 226, 0.16);
+  color: #2e6da4;
+}
+
+.dp-empty,
+.dp-blocked {
+  font-size: var(--cnpt-font-xs, 12px);
+  color: var(--cnpt-text-muted, #7f8c9a);
+  padding: 10px 12px;
+  background: var(--cnpt-surface, #fff);
+  border: 1px dashed var(--cnpt-border, #e8ecf1);
+  border-radius: var(--cnpt-radius-md, 8px);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.dp-stats {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.dp-stat {
+  flex: 1 1 0;
+  text-align: center;
+  background: var(--cnpt-surface, #fff);
+  border: 1px solid var(--cnpt-border, #e8ecf1);
+  border-radius: var(--cnpt-radius-md, 8px);
+  padding: 10px 6px;
+}
+
+.dp-stat b {
+  display: block;
+  font-size: 18px;
+  color: var(--cnpt-text, #2c3e50);
+}
+
+.dp-stat span {
+  font-size: 11px;
+  color: var(--cnpt-text-muted, #7f8c9a);
+}
+
+.dp-reasons {
+  margin-top: 4px;
+}
+
+.dp-reason {
+  display: inline-block;
+  font-size: 11px;
+  padding: 3px 8px;
+  margin: 0 6px 6px 0;
+  border-radius: 999px;
+  background: rgba(231, 76, 60, 0.1);
+  color: #c0392b;
+}
+
+.dp-badge-retest {
+  background: rgba(243, 156, 18, 0.16);
+  color: #b9770e;
+}
+
+.dp-badge-blind {
+  background: rgba(231, 76, 60, 0.14);
+  color: #c0392b;
+}
+
+.dp-badge-precheck {
+  background: rgba(155, 89, 182, 0.14);
+  color: #7d3c98;
+}

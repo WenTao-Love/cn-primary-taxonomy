@@ -11,6 +11,11 @@
   // ==================== 角色存储 (H5面向学生/孩子) ====================
   const storage = CNPT.storage.create('student');
 
+  // FSRS 间隔复习引擎（今日任务 / 首做正确率 / 错因台账）
+  let fsrsEngine = null;
+  // 诊断闭环（错题两步闭环 / 次日盲测 / 预检跳课）
+  let diagEngine = null;
+
   // ==================== State ====================
   let fullData = { topics: null, deps: null, clusters: null };
 
@@ -41,6 +46,150 @@
   let sheet, sheetContent;
   let toast;
 
+  // ==================== FSRS + 今日学习台 ====================
+  /**
+   * 知识点是否已掌握（人工标记 或 FSRS 连续 2 次独立答对 / 已退役）
+   * 用于「知识边界硬约束」：硬前置未掌握则不排进新学任务
+   */
+  function isTopicMastered(topicId) {
+    if (storage.getTopicStatus(topicId) === 'mastered') return true;
+    const card = fsrsEngine && fsrsEngine.getStatus(topicId);
+    if (!card) return false;
+    return card.dormant || card.consecutiveCorrect >= 2;
+  }
+
+  function initFsrsAndDailyPlan() {
+    if (!window.CNPT.fsrs || !window.CNPT.components.initDailyPlan) return;
+    fsrsEngine = CNPT.fsrs.create('student');
+    if (window.CNPT.diagnostic) diagEngine = CNPT.diagnostic.create('student');
+
+    CNPT.components.initDailyPlan({
+      role: 'student',
+      topicMap: CNPT.indices.getTopicMap(),
+      getIncoming: (id) => CNPT.indices.getIncoming(id),
+      isMastered: isTopicMastered,
+      diagnostic: diagEngine,
+      mount: 'daily-plan',
+      onStartTopic: (topic, kind) => {
+        window.CNPT.components.dailyPlan.startSessionTimer();
+        startPractice(topic.id);
+      },
+      onStartRetest: (item) => openRetest(item, 'retest'),
+      onStartBlindTest: (item) => openRetest(item, 'blind'),
+      onStartPrecheck: (topic) => openPrecheck(topic)
+    });
+  }
+
+  /**
+   * 重测 / 次日盲测：单题窗口（不看解析，独立作答）
+   * kind = 'retest'（第 1 步）| 'blind'（第 2 步）
+   */
+  function openRetest(item, kind) {
+    const modal = document.getElementById('practice-modal');
+    const body = document.getElementById('practice-body');
+    const title = document.getElementById('practice-title');
+
+    title.textContent = kind === 'blind' ? '🌅 次日盲测 · 不看提示' : '🔬 错题重测 · 第 1 步';
+    modal.classList.add('mo-open');
+
+    body.innerHTML = `
+      ${item.aiGenerated ? '<div class="pq-ai-note">🤖 本题由 AI 生成初稿，未经学科教师审核，仅供练习。</div>' : ''}
+      <div class="practice-question">${CNPT.utils.escapeHtml(item.question)}</div>
+      <div class="practice-options">
+        ${(item.options || []).map((opt, i) => `<button class="practice-option" data-idx="${i}">${String.fromCharCode(65 + i)}. ${CNPT.utils.escapeHtml(opt)}</button>`).join('')}
+      </div>
+      <div class="pq-reason-title" style="margin-top:10px">作答后才知道对错；盲测通过即完成闭环。</div>
+    `;
+
+    body.querySelectorAll('.practice-option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        const selected = parseInt(opt.dataset.idx, 10);
+        const correct = selected === item.answer;
+        opt.classList.add(correct ? 'po-correct' : 'po-wrong');
+        setTimeout(() => {
+          if (kind === 'blind') {
+            diagEngine && diagEngine.answerBlindTest(item.topicId, correct);
+          } else {
+            diagEngine && diagEngine.answerRetest(item.topicId, correct);
+          }
+          CNPT.utils.showToast(correct
+            ? (kind === 'blind' ? '🎉 盲测通过，闭环完成！' : '✅ 重测通过，明天再盲测一次')
+            : '💡 还没过，20 分钟后重测');
+          setTimeout(() => { closeSheet(); refreshDailyPlan(); switchView('learn'); }, 900);
+        }, 500);
+      });
+    });
+  }
+
+  /**
+   * 预检跳课：3 题全对 → 直接标记掌握
+   */
+  function openPrecheck(topic) {
+    if (!diagEngine) return;
+    const questions = [0, 1, 2].map(i => diagEngine.pickQuestion(topic, i)).filter(Boolean);
+    if (!questions.length) {
+      CNPT.utils.showToast('这个知识点暂时没有预检题，直接开始学习吧');
+      startPractice(topic.id);
+      return;
+    }
+
+    diagEngine.startPrecheck(topic.id);
+    const modal = document.getElementById('practice-modal');
+    const body = document.getElementById('practice-body');
+    const title = document.getElementById('practice-title');
+    let idx = 0;
+
+    title.textContent = `⚡ 预检 · ${topic.name}`;
+    modal.classList.add('mo-open');
+
+    const showPrecheckQuestion = () => {
+      const q = questions[idx];
+      body.innerHTML = `
+        <div class="pq-ai-note">🤖 预检题由 AI 生成初稿，未经学科教师审核，仅供分流参考。</div>
+        <div class="practice-question">${idx + 1}/${questions.length}. ${CNPT.utils.escapeHtml(q.question)}</div>
+        <div class="practice-options">
+          ${q.options.map((opt, i) => `<button class="practice-option" data-idx="${i}">${String.fromCharCode(65 + i)}. ${CNPT.utils.escapeHtml(opt)}</button>`).join('')}
+        </div>
+      `;
+      body.querySelectorAll('.practice-option').forEach(opt => {
+        opt.addEventListener('click', () => {
+          const selected = parseInt(opt.dataset.idx, 10);
+          const correct = selected === q.answer;
+          opt.classList.add(correct ? 'po-correct' : 'po-wrong');
+          diagEngine.answerPrecheck(topic.id, correct);
+          setTimeout(() => {
+            if (correct) {
+              idx++;
+              if (idx < questions.length) { showPrecheckQuestion(); return; }
+              CNPT.utils.showToast('🎉 预检全对，已标记掌握，跳过正式学习！');
+            } else {
+              CNPT.utils.showToast('💡 预检未过，直接从练习开始学吧');
+            }
+            setTimeout(() => { closeSheet(); refreshDailyPlan(); switchView('learn'); }, 900);
+          }, 500);
+        });
+      });
+    };
+
+    showPrecheckQuestion();
+  }
+
+  function refreshDailyPlan() {
+    if (window.CNPT.components.dailyPlan) window.CNPT.components.dailyPlan.refresh();
+  }
+
+  /**
+   * 记录一次 FSRS 作答（首做/复习分离、信心、错因、低级失误）
+   */
+  function recordFsrsAnswer(topic, payload) {
+    if (!fsrsEngine) return;
+    try {
+      fsrsEngine.recordAnswer(Object.assign({ topicId: topic.id }, payload));
+    } catch (e) {
+      console.error('FSRS 记录失败:', e);
+    }
+  }
+
   // ==================== Initialization ====================
   async function init() {
     canvas = document.getElementById('graph-canvas');
@@ -61,11 +210,14 @@
     setupFilter();
     setupSheet();
     setupModals();
-    setupSubjectQuickGrid();
+    // 注意：setupSubjectQuickGrid() 依赖 fullData，必须在数据加载完成后调用
 
     try {
       fullData = await CNPT.dataLoader.loadAllData();
       CNPT.indices.buildIndices(fullData);
+    if (CNPT.components.initNodeDetail) CNPT.components.initNodeDetail();
+    setupSubjectQuickGrid();
+    initFsrsAndDailyPlan();
 
       // 更新顶部信息
       document.getElementById('header-title').textContent =
@@ -162,7 +314,7 @@
     visibleNodes = filtered.length > limit ? filtered.slice(0, limit) : filtered;
 
     const visibleIds = new Set(visibleNodes.map(n => n.id));
-    visibleLinks = fullData.deps.dependencies.filter(
+    visibleLinks = fullData.dependencies.dependencies.filter(
       d => visibleIds.has(d.topicId) && visibleIds.has(d.prerequisiteId)
     ).map(d => ({ source: d.prerequisiteId, target: d.topicId, strength: d.strength, reason: d.reason }));
 
@@ -531,6 +683,17 @@
   // ==================== Node Detail Sheet ====================
   let selectedNodeId = null;
 
+  /**
+   * 增强字段 HTML（AI 生成初稿：一句话/家长指南/随堂小题三级提示）
+   * 未加载增强数据时返回空串，不影响原有详情面板。
+   */
+  function buildEnhancedHtml(topic, variant) {
+    if (window.CNPT?.components?.buildEnhancedHtml) {
+      return CNPT.components.buildEnhancedHtml(topic, variant);
+    }
+    return '';
+  }
+
   function showNodeDetail(nodeId) {
     selectedNodeId = nodeId;
     const topicMap = CNPT.indices.getTopicMap();
@@ -552,6 +715,13 @@
 
     const coachText = CNPT.utils.buildCoachText(topic, hardPrereqs, succs);
 
+    // 知识边界提示：硬前置未掌握时不禁止学习，但明确提醒（硬约束用于今日任务排课）
+    const unmetHard = hardPrereqs.filter(i => !isTopicMastered(i.topic.id));
+    const boundaryHint = unmetHard.length ? `
+      <div class="bs-boundary">
+        🔒 <b>知识边界</b>：建议先掌握 ${unmetHard.map(i => `<span class="bs-boundary-item" data-action="select-node" data-id="${i.topic.id}">${CNPT.utils.escapeHtml(i.topic.name)}</span>`).join('、')} 再开始练习，避免“夹生”。
+      </div>` : '';
+
     sheetContent.innerHTML = `
       <h2>${CNPT.utils.escapeHtml(topic.name)}</h2>
       <div class="bs-meta">${topic.id} · ${CNPT.utils.escapeHtml(topic.textbook || '')}${topic.unit ? ' · ' + CNPT.utils.escapeHtml(topic.unit) : ''}</div>
@@ -565,6 +735,8 @@
       </div>
 
       <div class="bs-coach-box">${coachText}</div>
+
+      ${boundaryHint}
 
       <h3>✓ 掌握标准</h3>
       <ul class="bs-list">${(topic.evidence || []).map(e => `<li>${CNPT.utils.escapeHtml(e)}</li>`).join('') || '<li style="color:#999">暂无</li>'}</ul>
@@ -588,6 +760,8 @@
         <button class="bs-action-btn primary" data-action="start-practice" data-id="${topic.id}">📝 练习题</button>
         <button class="bs-action-btn secondary" data-action="view-path" data-id="${topic.id}">🛤️ 学习路径</button>
       </div>
+
+      ${buildEnhancedHtml(topic, 'parent')}
     `;
 
     // Setup mastery buttons
@@ -612,6 +786,11 @@
       el.addEventListener('click', () => window._h5ViewPath(el.dataset.id));
     });
 
+    // 增强字段交互（三级折叠提示 + 随堂小题）
+    if (window.CNPT?.components?.bindEnhancedEvents) {
+      CNPT.components.bindEnhancedEvents(sheetContent, topic);
+    }
+
     sheet.classList.add('bs-open');
   }
 
@@ -635,12 +814,18 @@
   }
 
   // ==================== Practice System ====================
-  function startPractice(topicId) {
+    function startPractice(topicId) {
     const topicMap = CNPT.indices.getTopicMap();
     const topic = topicMap.get(topicId);
     if (!topic) return;
 
     closeSheet();
+
+    // 标记本次学习类型（到期卡片 → 复习；否则 → 新学），用于 75 分钟预算统计
+    if (window.CNPT.components.dailyPlan) {
+      const st = fsrsEngine && fsrsEngine.getStatus(topicId);
+      window.CNPT.components.dailyPlan.setSessionKind(st && st.isDue ? 'review' : 'new');
+    }
 
     const modal = document.getElementById('practice-modal');
     const body = document.getElementById('practice-body');
@@ -713,6 +898,16 @@
     const q = questions[idx];
     let html = `<div class="practice-question">${idx + 1}. ${CNPT.utils.escapeHtml(q.question)}</div>`;
 
+    // 作答前信心（用于 FSRS 信心校准；不选则默认 50）
+    html += `
+      <div class="pq-confidence">
+        <span class="pq-conf-label">作答前信心</span>
+        <button class="pq-conf" data-c="25">😕 没把握</button>
+        <button class="pq-conf pq-conf-on" data-c="50">🤔 有点虚</button>
+        <button class="pq-conf" data-c="75">🙂 有把握</button>
+        <button class="pq-conf" data-c="100">🤩 很有把握</button>
+      </div>`;
+
     if (q.type === 'choice') {
       html += '<div class="practice-options">';
       q.options.forEach((opt, i) => {
@@ -730,6 +925,52 @@
     }
 
     container.innerHTML = html;
+    container._cnptTopicId = topic.id;
+    container._cnptReason = null;
+
+    let confidence = 50;
+    container.querySelectorAll('.pq-conf').forEach(btn => {
+      btn.addEventListener('click', () => {
+        container.querySelectorAll('.pq-conf').forEach(b => b.classList.remove('pq-conf-on'));
+        btn.classList.add('pq-conf-on');
+        confidence = parseInt(btn.dataset.c, 10);
+      });
+    });
+
+    /**
+     * 作答后统一记录：FSRS（首做/复习分离 + 信心 + 错因）+ 错题本 + 统计
+     */
+    function answerOutcome(selected, correct, payload) {
+      recordFsrsAnswer(topic, Object.assign({
+        isCorrect: correct,
+        isIndependent: true,          // 练习页未提供提示，均为独立作答
+        confidence,
+        questionInfo: {
+          questionId: `${topic.id}-${idx}`,
+          question: q.question,
+          options: q.options || null,
+          answer: q.answer,
+          selected: selected
+        }
+      }, payload || {}));
+      if (!correct) {
+        recordWrong(topic, q.question, q.options?.[selected] || '', q.options?.[q.answer] || '正确说法');
+        // 错题两步闭环第 1 步：登记当天重测
+        if (diagEngine && !(payload && payload.skipRetest)) {
+          diagEngine.registerWrong(topic, {
+            questionId: `${topic.id}-${idx}`,
+            question: q.question,
+            options: q.options || null,
+            answer: q.answer,
+            selected
+          });
+        }
+      }
+      if (correct) {
+        storage.addStar();
+        if (kidMode) CNPT.components.showStarBurst();
+      }
+    }
 
     const opts = container.querySelectorAll('.practice-option');
     opts.forEach(opt => {
@@ -743,17 +984,18 @@
         setTimeout(() => {
           if (correct) {
             opt.classList.add('po-correct');
+            answerOutcome(selected, true);
             CNPT.utils.showToast(kidMode ? '🎉 太棒了！' : '✅ 正确！');
-            if (kidMode) CNPT.components.showStarBurst();
-            storage.addStar();
             setTimeout(() => showQuestion(container, questions, idx + 1, topic), 800);
           } else {
             opt.classList.add('po-wrong');
             CNPT.utils.showToast(kidMode ? '💡 差一点哦~' : '❌ 再想想');
-            recordWrong(topic, q.question, q.options?.[selected] || '', q.options?.[q.answer] || '正确说法');
-            setTimeout(() => {
-              showQuestion(container, questions, idx + 1, topic), 1200);
-            });
+            // 错因探针：先选错因（可跳过），再进入下一题
+            showReasonPicker(container, () => answerOutcome(selected, false, {
+              reason: container._cnptReason || null,
+              isLowLevel: container._cnptReason === 'LOW',
+              lowLevelType: container._cnptLowType || null
+            }));
           }
         }, 400);
       });
@@ -768,15 +1010,82 @@
         const match = keywords.some(k => val.includes(k.toLowerCase()));
 
         if (match || val.length > 2) {
+          answerOutcome(null, true, {
+            questionInfo: {
+              questionId: `${topic.id}-${idx}`,
+              question: q.question,
+              options: null,
+              answer: q.keywords || null,
+              selected: input.value.trim()
+            }
+          });
           CNPT.utils.showToast(kidMode ? '🎉 答对啦！' : '✅ 回答正确！');
-          if (kidMode) CNPT.components.showStarBurst();
-          storage.addStar();
           setTimeout(() => showQuestion(container, questions, idx + 1, topic), 800);
         } else {
           CNPT.utils.showToast('💡 再仔细想想');
         }
       });
     }
+  }
+
+  /**
+   * 错因探针（P01-P11 + 低级失误）：答错后先定位错因，再进入下一题
+   * 选“低级失误”会同时写入独立的低级失误台账
+   */
+  function showReasonPicker(container, done) {
+    const reasons = window.CNPT.fsrs && CNPT.fsrs.buildReasonOptions
+      ? CNPT.fsrs.buildReasonOptions()
+      : [];
+    if (!reasons.length) { done(); return; }
+
+    const picker = document.createElement('div');
+    picker.className = 'pq-reason';
+    picker.innerHTML = `
+      <div class="pq-reason-title">🤔 这一步卡在哪？（选错因能帮你下次避坑）</div>
+      <div class="pq-reason-grid">
+        ${reasons.map(r => `<button class="pq-reason-btn" data-reason="${r.value}">${r.label}</button>`).join('')}
+      </div>
+      <button class="pq-reason-skip">跳过，直接看下一题 →</button>
+    `;
+    container.appendChild(picker);
+
+    picker.querySelectorAll('[data-reason]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const reason = btn.dataset.reason;
+        if (reason === 'LOW') {
+          // 低级失误二级选择：单独台账，便于针对性改习惯
+          const types = (window.CNPT.fsrs && CNPT.fsrs.LOW_LEVEL_TYPES) || ['未分类'];
+          picker.innerHTML = `
+            <div class="pq-reason-title">🤔 哪一类低级失误？（单独记账，先改习惯再谈正确率）</div>
+            <div class="pq-reason-grid">
+              ${types.map(t => `<button class="pq-reason-btn" data-low="${t}">${t}</button>`).join('')}
+            </div>
+            <button class="pq-reason-skip">跳过，直接看下一题 →</button>
+          `;
+          picker.querySelectorAll('[data-low]').forEach(b => {
+            b.addEventListener('click', () => {
+              container._cnptReason = 'LOW';
+              container._cnptLowType = b.dataset.low;
+              picker.remove();
+              done();
+            });
+          });
+          picker.querySelector('.pq-reason-skip').addEventListener('click', () => {
+            container._cnptReason = 'LOW';
+            picker.remove();
+            done();
+          });
+          return;
+        }
+        container._cnptReason = reason;
+        picker.remove();
+        done();
+      });
+    });
+    picker.querySelector('.pq-reason-skip').addEventListener('click', () => {
+      picker.remove();
+      done();
+    });
   }
 
   function recordWrong(topic, question, userAnswer, correctAnswer) {
@@ -1125,6 +1434,7 @@
       document.getElementById('app-header').style.display = 'none';
       updateLearningPath();
       updateWrongBook();
+      refreshDailyPlan();
     } else if (viewName === 'mine') {
       document.getElementById('view-mine').classList.add('view-active');
       document.querySelector('[data-view="mine"]')?.classList.add('nav-active');

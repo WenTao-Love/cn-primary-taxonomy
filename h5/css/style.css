@@ -885,3 +885,102 @@ body.kid-mode .ls-num, body.kid-mode .ms-num { color: #FF9800; }
   .bottom-sheet.bs-open { transform: translate(-50%, 0); }
   .modal-content { max-width: 460px; }
 }
+
+/* === 作答前信心 + 错因探针（FSRS） === */
+.pq-confidence {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: -6px 0 12px;
+}
+.pq-conf-label {
+  font-size: 11px;
+  color: var(--text-muted, #7f8c9a);
+  margin-right: 2px;
+}
+.pq-conf {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border, #e8ecf1);
+  background: var(--bg, #f7f9fb);
+  color: var(--text, #2c3e50);
+  transition: all 0.15s;
+}
+.pq-conf-on {
+  border-color: var(--primary, #4A90D9);
+  background: var(--primary-light, rgba(74,144,217,0.12));
+  font-weight: 600;
+}
+
+.pq-reason {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: var(--radius-sm, 10px);
+  background: rgba(243,156,18,0.08);
+  border: 1px solid rgba(243,156,18,0.25);
+}
+.pq-reason-title {
+  font-size: 12px;
+  color: #b9770e;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.pq-reason-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.pq-reason-btn {
+  font-size: 11px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--border, #e8ecf1);
+  background: #fff;
+  color: var(--text, #2c3e50);
+}
+.pq-reason-btn:active { transform: scale(0.97); }
+.pq-reason-skip {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text-muted, #7f8c9a);
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* === 知识边界提示 === */
+.bs-boundary {
+  margin: 12px 0;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm, 10px);
+  background: rgba(231,76,60,0.07);
+  border: 1px solid rgba(231,76,60,0.2);
+  font-size: 12px;
+  line-height: 1.7;
+  color: #922b21;
+}
+.bs-boundary-item {
+  display: inline-block;
+  margin: 0 2px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid rgba(231,76,60,0.3);
+  color: #c0392b;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* === AI 生成内容声明（练习/预检/重测） === */
+.pq-ai-note {
+  margin: 0 0 10px;
+  padding: 7px 10px;
+  border-radius: var(--radius-sm, 10px);
+  background: rgba(155, 89, 182, 0.1);
+  color: #7d3c98;
+  font-size: 11px;
+  line-height: 1.5;
+}
