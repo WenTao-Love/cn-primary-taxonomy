@@ -89,4 +89,24 @@
 
 ---
 
-*最后更新：2026-08-27*
+## 构建与自检（v2.2）
+
+```bash
+# 构建全部 standalone 产物
+node build.mjs --standalone
+
+# 校验产物引用完整性
+node scripts/validate-build.mjs
+
+# 依赖质量评测（重复边/对称边/度分布/最长链/枢纽）
+node scripts/evaluate-dependencies.mjs
+
+# FSRS 引擎回归测试（11 项）
+node scripts/test-fsrs-engine.mjs
+```
+
+> 更完整的构建流水线、角色版本与学习系统说明见项目根目录 [README](../README.md)。
+
+---
+
+*最后更新：2026-11-16*
