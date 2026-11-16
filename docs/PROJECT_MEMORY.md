@@ -409,6 +409,61 @@
 - `node scripts/validate.mjs` ✓（4275/4191，DAG 无环）；`node scripts/build-standalone.mjs` ✓（9430 KB）；`node scripts/build-split-standalone.mjs` ✓；`node scripts/validate-build.mjs` ✓（141 引用 0 问题）。
 - 浏览器实测：学生版拼写四轮 + 模型联动（×2→2/8、÷2→1/4）；家长版详情/枢纽标签/费曼/模型；docs/poetry.html 随机《静夜思》+ 飞花令「春」11 句；student standalone 产物组件就绪。
 
-**构建命令修正（重要）**
-- 仓库实际构建脚本为 `scripts/build-standalone.mjs`（主独立版）与 `scripts/build-split-standalone.mjs`（拆分版）；**不存在 `build.mjs`**，README 已同步修正。
+**构建脚本（修正此前的错误结论）**
+- ⚠️ 先前记录「不存在 `build.mjs`」是**误判**（只在 `scripts/` 目录查找）。`build.mjs` 位于**项目根目录**，是统一构建脚本：生成 `shared/data/*.js` + 15 个角色独立 HTML（`--target=<入口id>` 可单角色构建）。
+- 辅助脚本：`scripts/build-standalone.mjs`（web 通用版主产物）、`scripts/build-split-standalone.mjs`（拆分版）、`h5/build-h5.mjs`（H5 专用，含增强字段）。
 - 数据流水线：`merge.mjs` → `compute-centrality.mjs` → `enrich-topics.mjs` → `generate-dependencies.mjs` → `generate-manifest.mjs` → `validate.mjs`。
+
+**乱码修复（2026-11-16 用户反馈「再学新」列表乱码）**
+- 现象：standalone 产物「再学新」等数据字段显示 `é—®å€™` 类乱码；源码页与外部 JS 正常。
+- 根因：旧构建把 15MB 数据脚本注入在 `<head>`/`<meta charset>` **之前**，浏览器 prescan 前 1024 字节找不到 charset，回退 **Windows-1252** 解码 UTF-8 字节 → 中文全乱。
+- 修复（4 个构建脚本统一）：① 数据脚本改注入到 `<head>` 内、`<meta charset>` **之后**；② 写文件统一加 **UTF-8 BOM**；③ `h5/build-h5.mjs` 补 `../shared/`→`shared/`、`css/`→`h5/css/`、`js/`→`h5/js/` 路径修正，并内嵌 enhanced 字段（此前会覆盖 build.mjs 产物且缺 enhanced、路径断链）。
+- 验证：h5 产物 4275 节点、`#daily-plan` 16 个名称全中文；student/parent 产物正常；`validate-build.mjs` 141 引用 0 问题。
+
+### 9.15 v2.2 开源业界借鉴反哺：FSRS-4 内核 + 图谱聚合 + 依赖评测 ✅（2026-11-16）
+
+**来源与调研**
+- 开源调研（16 项分类清单，含 FSRS、知识图谱、可视化、间隔复习等方向）；本批落地三项优先改进。
+- FSRS-4：算法与 17 参数默认值参照 open-spaced-repetition 社区（fsrs4anki / fsrs-rs）与 FSRS-4 论文公式；本项目按公式自研实现，未引入其代码。
+- K12-KGraph：多关系类型设计借鉴（`relationType`）；其仓库未逐条核实，仅作方法参照。
+- sigma.js / cytoscape：调研结论为本项目 4275 节点规模无需引入更重渲染器，沿用 D3 + 聚合降级即可（未引入 vendor）。
+
+**新增文件**
+- `shared/js/components/fsrs-scheduler.js`：FSRS-4 内核（17 参数 w0..w16；S/D/R；`R(t)=(1+FACTOR*t/S)^DECAY`，FACTOR=19/81，DECAY=-0.5；Again/Hard/Good/Easy 四档；间隔 `I = S/FACTOR*(r^(1/DECAY)-1)`）。零依赖，浏览器/Node 通用。
+- `data/fsrs-params.json`：参数载体（构建时注入 `window.__CNPT_FSRS_PARAMS__`；缺失则引擎用内核默认）。
+- `scripts/calibrate-fsrs.mjs`：用导出复习日志做 17 参数校准（log loss 目标；样本 ≥50 且 ≥5 知识点，不足 exit 2）。
+- `scripts/test-fsrs-engine.mjs`：11 项回归测试。
+- `scripts/evaluate-dependencies.mjs`：依赖质量评测（重复边 error / 对称边 warn / 度分布 / 跨学科年级学段 / hard-soft / reason 覆盖 / 拓扑最长链 / 入度 Top10 / 阈值告警；退出码 0/1/2）。
+
+**修改的共享层**
+- `fsrs-engine.js`：混合调度（学习阶段 6 步 20分钟~30天 → 之后 FSRS 稳定性算间隔）；存储 v2→v3 迁移（补 stability/difficulty/reps，**nextReview 不变**）；`getCard` 字段规范化；export/import v3；`CNPT.fsrs.setParams/getSchedulerInfo`。
+- `pc-graph.js`：节点数 > `maxNodes`（`constants.MAX_RENDER_NODES.aggregate=900`）且非下钻 → 学科聚合超级节点（`__agg__<学科>`，count/weight）；点击下钻 `drillDown` / 返回 `backToOverview` / `getViewInfo`；大图降级（边>500 只画 hard、标签阈值 300→500、碰撞半径自适应、模拟默认 8s 停止）。
+- `constants.js`：`MAX_RENDER_NODES = { core: 1300, detail: 900, aggregate: 900 }`。
+- `schema/dependencies.schema.json`：新增可选 `relationType`（prerequisite/related/visual/experiment/assessment）。
+- `scripts/validate.mjs`：新增重复边检测（error）、对称边对报告（warn）、`relationType` 枚举校验。
+
+**构建链路**
+- `build.mjs` / `build-standalone.mjs` / `build-split-standalone.mjs` / `h5/build-h5.mjs` 均注入 `window.__CNPT_FSRS_PARAMS__`；`student-web/index.html` 与 `h5/index.html` 在 fsrs-engine 前引用 `fsrs-scheduler.js`；`build.mjs` 步骤 1 生成 `shared/data/fsrs-params.js`。
+
+**关键决策**
+- 混合调度而非纯 FSRS：保留首学体验（学习阶段短间隔）与业务规则（休眠 3 次、60 天抽检、75 分钟预算、错因台账、首做分离），FSRS 只接管复习期间隔。
+- 迁移不改 `nextReview`，避免老用户排期突变；`stability` 由 round 推算 `BASE_INTERVALS[round]/DAY_MS`。
+- 聚合阈值 900：全量 4275（core 过滤后 1300/1455）远超 D3 交互流畅区；聚合后 11 个学科节点，下钻后单学科 ≤837。
+
+**验证（实测）**
+- 数据：`validate.mjs` ✓（重复边 0 / 对称 0）；`evaluate-dependencies` ✓ 无告警（4191 唯一边、hard 2810/soft 1381、reason 100%、孤立点 1、平均入度 0.98、最大入度 3、最大出度 8、跨学科 0、跨年级 195、跨学段 88 全 soft、最长链 141）。
+- FSRS：`test-fsrs-engine` 11/11 ✓；浏览器实测 student standalone：首做独立答对 → `nextReview` +20 分钟、`stability=13.8`、`difficulty=1`、`mode=fsrs-v4-hybrid`、`storageVersion=3`、17 参数生效；`document.characterSet=UTF-8`。
+- 图谱：教师版 standalone 实测聚合 11 节点（数学 837 / 语文 137 / 英语 224 / …）→ 点击数学下钻 837 节点 +「← 返回学科总览」→ 返回恢复 11 节点；家长版 337 节点标签正常显示。
+- 构建：`build.mjs --standalone`（15 产物 + 445 引用）✓；`h5/build-h5` ✓；`build-standalone` ✓（9430 KB）；`build-split-standalone` ✓；`validate-build` 143 引用 0 问题。
+
+**自测中发现并修复的缺陷（如实记录）**
+1. `pc-graph.js` 下钻后 `render()` 覆盖 `_lastTopics` → 返回总览失败（停在数学 837）；已改为仅非下钻态保存快照。
+2. 标签阈值 300 在家长版 337 节点时整图无标签；已放宽到 500。
+3. FSRS 测试间共享内存 localStorage 导致卡片状态污染；测试脚本已加 `resetRole` 清理。
+4. 手工构造 v2 卡片缺 `confidenceHistory` 导致 `push` 崩溃；`getCard` 已补字段规范化。
+
+**已知边界（诚实记录）**
+- FSRS 参数当前为 FSRS-4 默认值（`calibrated=false`）；需用真实复习日志跑 `calibrate-fsrs.mjs` 才是正式校准。
+- `relationType` 仅 schema/validate 就绪，数据尚未使用（全部按 prerequisite 口径）。
+- 聚合视图为 PC SVG 方案；H5 Canvas 未改（H5 有独立渲染与筛选）。
+- sigma.js / cytoscape 未引入（调研结论：当前规模不需要）。

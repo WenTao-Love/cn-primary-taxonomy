@@ -28,6 +28,12 @@ try {
   console.warn(`   ⚠️ 增强字段加载失败: ${err.message}`);
 }
 
+// FSRS 调度参数（可由 scripts/calibrate-fsrs.mjs 校准；缺失时引擎降级为内置默认）
+let fsrsParams = null;
+try {
+  fsrsParams = JSON.parse(readFileSync(resolve(ROOT, 'data/fsrs-params.json'), 'utf8'));
+} catch { /* 忽略，使用内置默认 */ }
+
 console.log(`   ✓ 知识点: ${topics.topicCount} 个`);
 console.log(`   ✓ 依赖关系: ${deps.edgeCount} 条`);
 console.log(`   ✓ 领域概览: ${clusters.clusters?.length || 0} 个`);
@@ -48,6 +54,9 @@ window.__CNPT_EMBEDDED = {
   dependencies: ${JSON.stringify(deps).replace(/</g, '\\u003c')},
   clusters: ${JSON.stringify(clusters).replace(/</g, '\\u003c')}${enhancedPart}
 };
+</script>
+<script>
+window.__CNPT_FSRS_PARAMS__ = ${JSON.stringify(fsrsParams || {}).replace(/</g, '\\u003c')};
 </script>`;
 
 // 注入数据到 <head> 内、charset 声明之后（避免 prescan 回退 Windows-1252 乱码）
@@ -75,6 +84,15 @@ if (html.includes('<!--DATA_INJECTION_POINT-->')) {
 
 // 写入输出文件（带 UTF-8 BOM，杜绝中文乱码）
 const outPath = resolve(ROOT, 'cn-primary-taxonomy-h5.html');
+
+// 路径修正：模板位于 h5/ 子目录，产物在根目录，相对路径必须调整
+// 1. ../shared/ → shared/
+output = output.replace(/\.\.\/shared\//g, 'shared/');
+// 2. css/xxx.css → h5/css/xxx.css
+output = output.replace(/(["'])css\//g, '$1h5/css/');
+// 3. js/xxx.js → h5/js/xxx.js
+output = output.replace(/(["'])js\//g, '$1h5/js/');
+
 writeFileSync(outPath, '\uFEFF' + output, 'utf8');
 
 const fileSize = (output.length / 1024 / 1024).toFixed(2);

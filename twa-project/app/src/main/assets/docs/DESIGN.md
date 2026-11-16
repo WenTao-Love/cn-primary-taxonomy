@@ -161,6 +161,7 @@
   - center force: 画布中心
 - **节点定位优化**：初始位置按学科（列）× 年级（行）分区，避免随机布局导致的混乱
 - **终止条件**：alphaDecay 0.045，模拟结束后自动停止以节省性能
+- **规模阈值与聚合（v2.2）**：节点数 > `MAX_RENDER_NODES.aggregate`（900）时自动按学科聚合为超级节点（详见 5.6.7）；下钻后单学科仍超阈值则走大图降级
 
 #### 层级树视图
 
@@ -400,6 +401,91 @@ function celebrateStar() {
 | 答错 | "❌ 回答错误" | "💡 差一点点！我们再看看" + 吉祥物鼓励 |
 | 进入 | 直接展示图谱 | 欢迎面板 + 吉祥物自我介绍 |
 | 提示 | 文字说明 | 气泡 + 吉祥物图标 |
+
+## 五点五、学习闭环设计（v2.0）
+
+> 借鉴《AI 自学数学账本实操》《edulab》《cn-math-taxonomy》《词光》四篇文章反哺，落地于 H5 移动版与学生版。方法论对照见 `docs/四篇文章借鉴反哺报告.md`。
+
+### 5.5.1 FSRS 间隔复习引擎（`shared/js/components/fsrs-engine.js` + `fsrs-scheduler.js`）
+
+- **内核（fsrs-scheduler.js）**：FSRS-4，17 参数 w0..w16，零依赖。状态为稳定性 S / 难度 D / 可提取性 R；`R(t) = (1 + FACTOR·t/S)^DECAY`（FACTOR=19/81，DECAY=-0.5）；目标保留率 r=0.9 时间隔 `I = S/FACTOR·(r^(1/DECAY) − 1)`；评分 1..4 = Again/Hard/Good/Easy，Again 走独立分支 `S' = w10·D^(−w11)·((S+1)^w12 − 1)`。
+- **混合调度**：学习阶段（连续独立答对 ≤ 6 步）沿用短间隔 20 分钟 / 1 小时 / 1 天 / 3 天 / 7 天 / 30 天；之后进入复习期，间隔由 FSRS 稳定性折算天数。业务规则不变（连续 3 次独立答对休眠、60 天抽检、首做/重测分离、信心校准、错因与低级失误台账）。
+- **参数注入**：`data/fsrs-params.json` → 构建生成 `shared/data/fsrs-params.js` 并注入 `window.__CNPT_FSRS_PARAMS__`；`scripts/calibrate-fsrs.mjs` 用导出日志做 17 参数校准（log loss），当前为 FSRS-4 默认值（`calibrated=false`）。
+- **存储 v3**：卡片新增 `stability/difficulty/reps/migratedFrom`；v2→v3 迁移补字段且 **nextReview 不变**，避免排期突变；`export/import` 版本号 3。
+- **首做与重测分离**：`firstAttempts` 只记录每个知识点的第一次作答；重测（retest）、盲测（blind）不计入首做正确率，`getFirstAttemptAccuracy()` 单独统计（含独立作答子项）。
+- **信心校准**：练习作答前记录 25/50/75/100 四档信心，`getCalibrationBias()` 输出校准偏差。
+- **错因与台账**：答错写入 `errorLog`；若标记为低级失误（LOW），同时写入独立的 `mistakeLedger`（二级类型：抄写错误/口算错误/单位遗漏/符号遗漏/漏题/格式不规范）。
+
+### 5.5.2 诊断闭环（`shared/js/components/diagnostic-loop.js`）
+
+- **错题两步闭环**：答错 → `registerWrong()` 登记 20 分钟后重测（第 1 步）→ 重测通过进入次日「盲测」队列（第 2 步）→ 盲测通过标记 `mastered`，闭环完成；任一步失败回退到当天重测。
+- **预检跳课**：新学知识点前可答 3 题预检，全对直接标记 `mastered` 并推进 FSRS 卡片（`consecutiveCorrect≥2`、`nextReview=+7 天`）。
+- **题目来源**：优先取增强字段 `quizQuestions`（AI 生成初稿，UI 标注「未经学科教师审核」），缺失时回退到 `commonMistakes`/`evidence` 构造判断题。
+
+### 5.5.3 今日学习台（`shared/js/components/daily-plan.js`）
+
+- **75 分钟日预算**：复习最多占用一半（37 分钟），超出后 `reviewBudgetCapped` 提示并停止排复习；剩余预算保底新学。
+- **先复习后新学**：分区顺序固定，计时器按 `review`/`new` 分账写入 `dailySeconds`。
+- **知识边界硬约束**：`buildTodayPlan()` 扫描每个知识点的入边，`strength==='hard'` 的前置未掌握则进入 `blocked`（「🔒 待解锁」），不排进新学；H5 节点详情同步显示边界提示。
+- **统计面板**：在学卡片数、首做正确率、低级失误数、错因分布（P01–P11）。
+
+### 5.5.4 数据键与隐私
+
+- 全部学习数据保存于浏览器 localStorage，键前缀 `cnpt-{role}-`：`fsrs` / `mistakeLedger` / `dailyLog` / `diagnostic`。
+- 不上传任何服务器；支持导出 / 导入（`fsrs-engine.export/import`、`diagnostic-loop.export`）。
+
+### 5.5.5 组件挂载约定
+
+- 共享组件统一挂载到 `window.CNPT.*`（IIFE，无 `eval`）：`CNPT.fsrs.create(role)`、`CNPT.diagnostic.create(role)`、`CNPT.components.initDailyPlan/dailyPlan`。
+- 按角色缓存单例，避免多实例互相覆盖 localStorage。
+
+## 五点六、学习工具包设计（v2.1）
+
+> 借鉴《诗泉》《Marble Skill Taxonomy》《四轮闯关背单词》《导图加会动的模型》四篇文章反哺。方法论对照见 `docs/四篇文章借鉴反哺报告-第二批.md`。
+
+### 5.6.1 枢纽度 centrality（`scripts/compute-centrality.mjs`）
+
+- **口径**：`score(v) = 1.0 × 入度加权 + 0.5 × 出度加权`，其中 hard 边权 1.0 / soft 边权 0.5；再除以全图最高分归一化到 0–1，保留 4 位小数；`null` 表示未计算（全图仅 1 个孤立点）。
+- **展示**：节点详情标签 `centrality ≥ 0.5` → 「⭐ 枢纽知识点」，否则「🔗 枢纽度 N%」（title 提示依赖规模）。
+- **定位**：结构性枢纽度，不等于教学重要性；后续可接入学习路径排序与图谱节点视觉强调。
+
+### 5.6.2 交互模型（`shared/js/components/visual-models.js`）
+
+- **四个 SVG 交互模型**：分数条（分子/分母滑块 + ×2 等值 ÷2 约分 + 与 1/2 比较）、数轴（拖拽读数，多量程与刻度）、三角形内角（拖顶点实时显示内角与和恒 180°）、正方体展开图（点面显示相对面）。
+- **挂接方式**：`scripts/enrich-topics.mjs` 的 `MODEL_REFS` 把 `modelRef` 写入 14 个数学主题；`node-detail.js` 的 `modelHtml` 与 `student.js` 在详情中渲染 `.cnpt-vm-slot` 并调用 `visualModels.render`。
+- **设计原则**（来自文章 08）：网负责「知道考什么」、模型负责「看见为什么」，先网后模型；模型为可选增强，不阻塞学习流程。
+
+### 5.6.3 四轮拼写闯关（`shared/js/components/spelling-quest.js`）
+
+- **四轮遮挡递增**：① 认形留首尾 → ② 元音露辅遮元 → ③ 骨架留首字母 → ④ 默写全遮；短语按空格拆槽，空格为固定槽。
+- **错词反馈**：`check()` 只校验被遮挡槽（未遮挡槽与空格槽跳过），定位第一个错字母 → 「第 N 个字母不对，还有 X 次机会」；3 次失败或点「看答案」才揭示完整单词。
+- **数据接入**：`scripts/enrich-topics.mjs` 的 `WORD_LISTS` 为 6 个英语主题注入 18 词（词取自 description 原文）；schema 新增 `wordList`。
+- **闭环**：完成一组后 `onResult` → 学生版 `startSpelling` 调用 `state.fsrs.recordAnswer` 记录掌握，并更新星星/统计/列表。
+
+### 5.6.4 古诗词工具（`shared/js/components/poetry.js` + `docs/poetry.html`）
+
+- **内置 40 首**课标常见古诗示例库（公版文本，含 title/author/dynasty/tags/lines），零依赖、可离线。
+- **三个能力**：全文搜索（标题/作者/正文）、随机抽诗（按作者/体裁）、飞花令（按字逐句检索）。
+- **诚实边界**：完整近 40 万首库未内嵌，页面明确指路开源项目（中华古诗词/诗泉 poetry.palemoky.com）。
+
+### 5.6.5 家长费曼区块（`node-detail.js`）
+
+- `enhancedVariant === 'parent'` 时渲染「🗣️ 让孩子讲给你听」：话术「宝贝，你能给我讲讲 {name} 为什么是这样吗？」+ 费曼学习法说明（孩子能用自己的话讲出来，才是真的懂了）。
+- 与「先网后模型」配合：家长先引导孩子看模型，再请孩子复述为什么。
+
+### 5.6.6 授权合规（`PROVENANCE.md`）
+
+- 四层授权表：数据库层 ODbL 1.0 / 文本层 CC BY-SA 4.0 / 课标上游 / 项目代码 MIT。
+- 规范署名「Marble Skill Taxonomy (v1) · © Generative Spark, Inc. (Marble)」；manifest SHA-256 版本锁；ODbL 衍生数据库 vs 产出作品澄清。
+- 边界：无儿童个人数据；AI 生成字段均标注「未经学科教师审核」。
+
+### 5.6.7 图谱规模治理：学科聚合与大图降级（v2.2，`shared/js/graph/pc-graph.js`）
+
+- **触发**：节点数 > `maxNodes`（`constants.MAX_RENDER_NODES.aggregate=900`）且非下钻态 → 渲染学科聚合超级节点（`__agg__<学科>`，半径随知识点数，标签「学科 (数量)」）。
+- **下钻**：点击聚合节点 → `drillDown(subject)` 只渲染该学科；「← 返回学科总览」→ `backToOverview()` 恢复全量聚合（快照仅总览态保存，避免被子集覆盖）。
+- **大图降级**：边数 > 500 只画 hard 依赖；标签显示阈值 500（聚合态必显示）；碰撞半径按节点数 6/9/12 自适应；模拟默认 8s 后停止。
+- **实测**：教师版 core 层 1300 节点 → 聚合 11 个学科（数学 837 / 语文 137 / 英语 224 / …）；点击数学下钻 837 节点；返回总览恢复。
+- **阈值配置**：`MAX_RENDER_NODES = { core: 1300, detail: 900, aggregate: 900 }`。
 
 ## 六、后续路线图
 

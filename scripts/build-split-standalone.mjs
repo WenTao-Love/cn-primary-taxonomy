@@ -15,6 +15,12 @@ mkdirSync(OUT_DIR, { recursive: true });
 const topics = JSON.parse(readFileSync(resolve(ROOT, 'data/topics.json'), 'utf8'));
 const deps = JSON.parse(readFileSync(resolve(ROOT, 'data/dependencies.json'), 'utf8'));
 const clusters = JSON.parse(readFileSync(resolve(ROOT, 'data/clusters.json'), 'utf8'));
+
+// FSRS 调度参数（可由 scripts/calibrate-fsrs.mjs 校准；缺失时引擎降级为内置默认）
+let fsrsParams = null;
+try {
+  fsrsParams = JSON.parse(readFileSync(resolve(ROOT, 'data/fsrs-params.json'), 'utf8'));
+} catch { /* 忽略，使用内置默认 */ }
 const tpl = readFileSync(resolve(ROOT, 'web/index.html'), 'utf8');
 
 function writeChunk(name, data) {
@@ -39,7 +45,8 @@ if (headRe.test(injected)) {
     injected = injected.replace(headRe, (m) => `${m}\n<meta charset="utf-8">`);
   }
   // 2) 数据脚本插到 charset meta 之后
-  const tags = '<script src="./standalone-data/topics.js"></script>\n<script src="./standalone-data/dependencies.js"></script>\n<script src="./standalone-data/clusters.js"></script>';
+  const fsrsTag = `<script>window.__CNPT_FSRS_PARAMS__ = ${JSON.stringify(fsrsParams || {}).replace(/</g, '\\u003c')};</script>`;
+  const tags = '<script src="./standalone-data/topics.js"></script>\n<script src="./standalone-data/dependencies.js"></script>\n<script src="./standalone-data/clusters.js"></script>\n' + fsrsTag;
   const withTags = injected.replace(/(<meta[^>]+charset[^>]+>)/i, (m) => `${m}\n${tags}`);
   injected = withTags === injected
     ? injected.replace(headRe, (m) => `${m}\n${tags}`)

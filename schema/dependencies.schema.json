@@ -17,6 +17,11 @@
           "topicId": { "type": "string", "pattern": "^ct_" },
           "prerequisiteId": { "type": "string", "pattern": "^ct_" },
           "strength": { "type": "string", "enum": ["hard", "soft"], "description": "hard=必须先掌握；soft=有帮助但非必须" },
+          "relationType": {
+            "type": "string",
+            "enum": ["prerequisite", "related", "visual", "experiment", "assessment"],
+            "description": "关系类型，默认 prerequisite（先修）。related=相关；visual=视觉元素关联；experiment=实验验证；assessment=测评关联。借鉴 K12-KGraph 的多关系类型设计，当前数据均以 prerequisite 口径生成"
+          },
           "reason": { "type": ["string", "null"], "description": "依赖原因，一句话说明" }
         },
         "additionalProperties": false

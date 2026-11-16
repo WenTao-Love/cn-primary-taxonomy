@@ -46,6 +46,7 @@
 ## 3.2 CPU 负载防线
 
 - 默认只渲染当前筛选子图，不允许默认全量暴力渲染
+- 图谱渲染设规模阈值：节点数 > `MAX_RENDER_NODES.aggregate`（900）时自动按学科聚合；下钻后单学科仍超阈值则走大图降级（边>500 只画 hard、标签≤500、碰撞半径自适应、模拟默认 8s 停止）
 - 拖拽结束后应自动停止布局
 - tick 更新应通过 `requestAnimationFrame` 节流
 - 搜索、缩放、重绘等高频动作应做防抖或节流
@@ -111,14 +112,20 @@
 
 每次提交较大改动前，至少确认：
 
-1. `node scripts/merge.mjs`
-2. `node scripts/generate-dependencies.mjs`
-3. `node scripts/generate-manifest.mjs`
-4. `node scripts/validate.mjs`
-5. `node build.mjs --standalone`（构建所有角色独立版本）
-6. `node scripts/build-standalone.mjs`
-7. `node scripts/build-split-standalone.mjs`
-8. `node scripts/validate-build.mjs`（验证所有构建产物路径完整性）
+1. 数据流水线**按固定顺序**执行（centrality/enrich 依赖 merge 结果，dependencies/manifest 依赖 enrich 结果）：
+   1. `node scripts/merge.mjs`
+   2. `node scripts/compute-centrality.mjs`
+   3. `node scripts/enrich-topics.mjs`
+   4. `node scripts/generate-dependencies.mjs`
+   5. `node scripts/generate-manifest.mjs`
+   6. `node scripts/validate.mjs` + `node scripts/evaluate-dependencies.mjs`（数据校验 + 依赖质量评测）
+2. `node build.mjs --standalone`（**统一构建**：生成 shared/data 与全部 15 个角色独立 HTML；`--target=h5` 可单角色重建）
+3. `node scripts/build-standalone.mjs`（web 通用版主产物，数据内嵌）
+4. `node scripts/build-split-standalone.mjs`（拆分版，降低首屏压力）
+5. `node h5/build-h5.mjs`（H5 专用构建；它会覆盖 h5 产物，**必须与 build.mjs 同批执行**且含增强字段 + 路径修正 + UTF-8 BOM）
+6. `node scripts/validate-build.mjs`（验证所有构建产物路径完整性）
+7. `node scripts/test-fsrs-engine.mjs`（FSRS 引擎回归测试，11 项）
+8. 产物编码检查：BOM 存在、数据脚本位于 `<meta charset>` 之后（防 Windows-1252 中文乱码）
 9. README / DESIGN / 规则文档是否同步
 10. 页面是否存在控件遮挡主图
 11. 长挂页面的定时器、simulation、zoom 事件是否有回收路径
@@ -186,3 +193,61 @@
 - 数学资源治理当前处于"映射位 -> 外部作品 ID 直链"过渡阶段，新增直链时必须优先保证准确性
 - 多学科子节点与评价框架已成项目固定模式，后续扩展应尽量复用现有字段和渲染方式，避免再造一套并行结构
 - 本次新增教育管理者视角，若后续开发涉及区域对比、质量监测、数据安全等功能，须优先遵守第8章专项规则
+
+## 10. 学习闭环与 AI 内容规则（v2.0）
+
+> 本章约束 FSRS 间隔复习、错题两步闭环、预检跳课、错因探针、今日学习台等学习闭环功能的开发与迭代。
+
+### 10.1 AI 生成内容必须显式声明
+
+- 增强字段（一句话/家长指南/教师指南/随堂小题）、预检题、重测题均为 **AI 生成初稿，未经学科教师逐条审核**。
+- 凡向用户展示这些内容的弹层/卡片，必须带显著声明（现有 `.pq-ai-note`）。
+- 不得把 AI 生成内容表述为"教师审定""权威结论"。
+
+### 10.2 首做与重测分离
+
+- 首做正确率只统计每个知识点的第一次作答（`firstAttempts`）。
+- 重测（retest）、盲测（blind）不得覆盖首做记录。
+- 低级失误必须与知识性错题分账（独立 `mistakeLedger`）。
+
+### 10.3 数据键与隐私
+
+- 学习数据只写 localStorage，键前缀 `cnpt-{role}-`，按角色隔离。
+- 不得引入任何远端上报；导出/导入仅限用户主动触发。
+- 日期键必须用本地时区（`CNPT.utils.localDateKey()`），禁止 UTC 直接切片。
+
+### 10.4 共享组件挂载与单例
+
+- 共享组件统一挂 `window.CNPT.*`（IIFE，禁止 `eval`）。
+- `CNPT.fsrs.create(role)` / `CNPT.diagnostic.create(role)` 必须按角色缓存单例，禁止每次新建实例（否则会互相覆盖 localStorage）。
+- FSRS 内核（`fsrs-scheduler.js`）与引擎（`fsrs-engine.js`）分离：内核零依赖、可独立校准；参数经 `window.__CNPT_FSRS_PARAMS__` 注入（构建自 `data/fsrs-params.json`）。
+- 存储结构升级必须保持 `nextReview` 不变（v2→v3 平滑迁移），并为旧卡片补 `stability/difficulty/reps` 字段。
+
+### 10.5 定时器回收
+
+- 今日学习台的计时器（`setInterval`）必须有停止路径（`stopSessionTimer`）与离开页面兜底（`pagehide`）。
+- 新增任何长驻定时器时，同步在切页/卸载时清理。
+
+## 11. 学习工具包与开源授权规则（v2.1）
+
+> 本章约束枢纽度（centrality）、交互模型、拼写闯关、诗词工具等学习工具包功能，以及借鉴外部来源时的署名合规。
+
+### 11.1 枢纽度（centrality）口径
+
+- 口径固定：`score(v) = 1.0×入度加权 + 0.5×出度加权`（hard=1.0 / soft=0.5），除以全图最高分归一化，保留 4 位小数。
+- 重新计算后必须重跑 `generate-dependencies` 之后的流水线与 `validate.mjs`。
+- **禁止**把 centrality 表述为「教学重要性」——它只表达图结构上的枢纽位置。
+
+### 11.2 交互模型与数据驱动
+
+- `MODEL_REFS` / `WORD_LISTS` 等映射数据必须由 `scripts/enrich-topics.mjs` 统一注入，禁止散落在组件或页面里。
+- 组件（`visual-models.js` / `spelling-quest.js` / `poetry.js`）只负责渲染与交互，数据一律从 `topics` 字段读取。
+- 拼写闯关的校验逻辑必须只针对**被遮挡槽**（`s.fixed || !state.mask[i]` 跳过），避免误判。
+
+### 11.3 开源授权与署名（PROVENANCE）
+
+- 引入任何外部来源（文章、数据集、代码、API）前，先在 `PROVENANCE.md` 登记来源与授权。
+- 文本内容沿用 **CC BY-SA 4.0**：二次分发/改编必须同样以 CC BY-SA 4.0 发布，并保留规范署名（作者/来源/许可证/改动说明）。
+- 数据库层沿用 **ODbL 1.0**：公开派生数据库须以 ODbL 发布并保留署名。
+- 引用课标只使用编码与关键术语，不大段引用原文。
+- 借鉴文章的方法论落地后，须在 `docs/PROJECT_MEMORY.md` 与对应反哺报告中记录出处。

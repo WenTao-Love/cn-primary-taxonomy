@@ -342,3 +342,128 @@
 - README.md：已确认包含全部 15 个角色版本说明
 - PROJECT_MEMORY.md：新增本节记录 CSS 同步状态
 - DESIGN.md：已包含共享 CSS 架构说明（tokens.css + common.css）
+
+### 9.13 v2.0 学习闭环：四篇文章借鉴反哺 ✅（2026-11-16）
+
+**来源**
+- 4 篇微信文章存档于 `docs/references/01~04-*.md`（《AI 自学数学账本实操》《edulab 把考题变 3D 交互页》《cn-math-taxonomy 开源先锋》《词光 一词一画》）。
+- 逐篇方法论 → 落地对照表：`docs/四篇文章借鉴反哺报告.md`。
+
+**新增共享组件（3 个）**
+- `shared/js/components/fsrs-engine.js`：FSRS 间隔复习（6 轮 20分钟~30天、倍数 1/1.5/2、上限 60 天、连续 3 次独立答对休眠 60 天抽检、首做/重测分离、信心校准、错因与低级失误台账）。
+- `shared/js/components/diagnostic-loop.js`：错题两步闭环（答错 → 20 分钟后重测 → 次日盲测 → mastered）+ 预检跳课（3 题全对 → mastered + 卡片 7 天）。
+- `shared/js/components/daily-plan.js`：今日学习台（75 分钟预算、复习封顶 37 分钟、先复习后新学、知识边界硬约束、错因分布/低级失误统计）。
+
+**修改的共享层**
+- `constants.js`：新增 `LEARNING_BUDGET`、`ERROR_REASONS`（P01–P11 + LOW）。
+- `utils.js`：新增 `localDateKey()`（本地时区，修复 UTC 跨日误差）。
+- `storage.js`：新增 fsrs / mistakeLedger / dailyLog / diagnostic 读写。
+- `common.css`：新增 `.cnpt-dayplan` / `.dp-*` 样式。
+
+**修改的角色页**
+- H5 与学生版：接入 3 个新组件；练习答错弹错因探针（P01–P11 + LOW 二级）；答错登记重测；今日学习台渲染；预检/重测/盲测弹层；AI 生成题目标注「未经学科教师审核」。
+- `docs/diagnostic-center.html`：新增「🔄 诊断闭环机制」说明卡（含只读闭环队列状态）。
+
+**关键决策**
+- 「算」与「画」分离：依赖/路径/判分走确定性逻辑；AI 只生成展示性增强字段并显式声明。
+- 首做与重测分离：重测/盲测不计入首做正确率（借鉴《词光》）。
+- 错题两步闭环 + 预检跳课（借鉴《AI 自学数学账本实操》）。
+- 探针「观察/退役/顽固」状态机未完整落地，当前仅 FSRS 卡片级休眠退役；错因维度仍是标注 + 统计（列为 P2）。
+
+**验证**
+- `node scripts/validate.mjs` ✓；`node build.mjs --standalone --target=h5`（436 引用）✓；`--target=student`（439 引用）✓。
+- 浏览器实测：h5 与学生版的今日学习台、错因探针、重测/盲测/预检全流程均通过（详见反哺报告第四节）。
+
+**构建坑（重要）**
+- `build.mjs --target` 使用**入口 id**（如 `student`），不是目录名（`student-web`）；写错会静默跳过构建。
+
+### 9.14 v2.1 学习工具包：第二批四篇文章借鉴反哺 ✅（2026-11-16）
+
+**来源**
+- 4 篇微信文章存档于 `docs/references/05~08-*.md`（《诗泉 免费古诗词 API 与自建诗库》《Marble Skill Taxonomy 微主题先修图谱》《四轮闯关背单词网页》《导图加会动的模型 高中数学自学》）。
+- 逐篇方法论 → 落地对照表：`docs/四篇文章借鉴反哺报告-第二批.md`。
+
+**新增文件**
+- `PROVENANCE.md`：上游来源、四层授权表（ODbL 1.0 / CC BY-SA 4.0 / 课标上游 / MIT）、ODbL 衍生数据库澄清、规范署名与 SHA-256 版本锁。
+- `scripts/compute-centrality.mjs`：枢纽度计算（1.0×入度 + 0.5×出度加权，归一化 0-1，4 位小数；4274/4275 填充，TOP1=ct_YW2S032）。
+- `scripts/enrich-topics.mjs`：注入 `MODEL_REFS`（14 主题）与 `WORD_LISTS`（6 主题 18 词，取自 description 原文）。
+- `shared/js/components/visual-models.js`：4 个 SVG 交互模型（fraction-bar / number-line / triangle-angle / cube-net）。
+- `shared/js/components/spelling-quest.js`：四轮拼写闯关（认形→元音→骨架→默写；「第 N 个字母不对，还有 X 次机会」；3 次失败/看答案才揭示）。
+- `shared/js/components/poetry.js` + `docs/poetry.html`：40 首示例库 + 搜索/随机/飞花令（页脚声明未内嵌近 40 万首全量库）。
+
+**修改的共享层**
+- `schema/topics.schema.json`：`centrality` 口径更新；新增 `wordList`、`modelRef`。
+- `node-detail.js`：枢纽标签（⭐/🔗）、`showModels`、模型区块、家长费曼区块（🗣️ 让孩子讲给你听）；**修复 storage 误用命名空间的既有缺陷**。
+
+**修改的角色页**
+- 学生版：详情接入模型 + 「🔤 拼写闯关」按钮（接入 FSRS、加星、统计）。
+- 家长版/H5：引入 `visual-models.js`（家长版详情渲染模型；H5 详情走独立渲染，模型为共享储备）。
+- `web/index.html`：修正构建模板 CSS 路径（`../shared/` → `shared/`），消除产物断链。
+
+**自测中发现并修复的缺陷（如实记录）**
+1. `spelling-quest.js check()` 漏跳过「未遮挡槽」→ 填对也误报「第 1 个字母不对」；已改 `s.fixed || !state.mask[i]` 并同步标红/揭示/过关循环。
+2. 第 2 关掩码方向写反（遮辅音露元音）→ 已改「露辅遮元」。
+3. `node-detail.js` 误把 `CNPT.storage`（命名空间 `{StorageManager, create}`）当实例调用 `getTopicStatus` → 家长版/教师版详情一直无法打开；已改为接收 `storage` 实例参数并兜底 `create('parent')`。
+
+**验证**
+- `node scripts/validate.mjs` ✓（4275/4191，DAG 无环）；`node scripts/build-standalone.mjs` ✓（9430 KB）；`node scripts/build-split-standalone.mjs` ✓；`node scripts/validate-build.mjs` ✓（141 引用 0 问题）。
+- 浏览器实测：学生版拼写四轮 + 模型联动（×2→2/8、÷2→1/4）；家长版详情/枢纽标签/费曼/模型；docs/poetry.html 随机《静夜思》+ 飞花令「春」11 句；student standalone 产物组件就绪。
+
+**构建脚本（修正此前的错误结论）**
+- ⚠️ 先前记录「不存在 `build.mjs`」是**误判**（只在 `scripts/` 目录查找）。`build.mjs` 位于**项目根目录**，是统一构建脚本：生成 `shared/data/*.js` + 15 个角色独立 HTML（`--target=<入口id>` 可单角色构建）。
+- 辅助脚本：`scripts/build-standalone.mjs`（web 通用版主产物）、`scripts/build-split-standalone.mjs`（拆分版）、`h5/build-h5.mjs`（H5 专用，含增强字段）。
+- 数据流水线：`merge.mjs` → `compute-centrality.mjs` → `enrich-topics.mjs` → `generate-dependencies.mjs` → `generate-manifest.mjs` → `validate.mjs`。
+
+**乱码修复（2026-11-16 用户反馈「再学新」列表乱码）**
+- 现象：standalone 产物「再学新」等数据字段显示 `é—®å€™` 类乱码；源码页与外部 JS 正常。
+- 根因：旧构建把 15MB 数据脚本注入在 `<head>`/`<meta charset>` **之前**，浏览器 prescan 前 1024 字节找不到 charset，回退 **Windows-1252** 解码 UTF-8 字节 → 中文全乱。
+- 修复（4 个构建脚本统一）：① 数据脚本改注入到 `<head>` 内、`<meta charset>` **之后**；② 写文件统一加 **UTF-8 BOM**；③ `h5/build-h5.mjs` 补 `../shared/`→`shared/`、`css/`→`h5/css/`、`js/`→`h5/js/` 路径修正，并内嵌 enhanced 字段（此前会覆盖 build.mjs 产物且缺 enhanced、路径断链）。
+- 验证：h5 产物 4275 节点、`#daily-plan` 16 个名称全中文；student/parent 产物正常；`validate-build.mjs` 141 引用 0 问题。
+
+### 9.15 v2.2 开源业界借鉴反哺：FSRS-4 内核 + 图谱聚合 + 依赖评测 ✅（2026-11-16）
+
+**来源与调研**
+- 开源调研（16 项分类清单，含 FSRS、知识图谱、可视化、间隔复习等方向）；本批落地三项优先改进。
+- FSRS-4：算法与 17 参数默认值参照 open-spaced-repetition 社区（fsrs4anki / fsrs-rs）与 FSRS-4 论文公式；本项目按公式自研实现，未引入其代码。
+- K12-KGraph：多关系类型设计借鉴（`relationType`）；其仓库未逐条核实，仅作方法参照。
+- sigma.js / cytoscape：调研结论为本项目 4275 节点规模无需引入更重渲染器，沿用 D3 + 聚合降级即可（未引入 vendor）。
+
+**新增文件**
+- `shared/js/components/fsrs-scheduler.js`：FSRS-4 内核（17 参数 w0..w16；S/D/R；`R(t)=(1+FACTOR*t/S)^DECAY`，FACTOR=19/81，DECAY=-0.5；Again/Hard/Good/Easy 四档；间隔 `I = S/FACTOR*(r^(1/DECAY)-1)`）。零依赖，浏览器/Node 通用。
+- `data/fsrs-params.json`：参数载体（构建时注入 `window.__CNPT_FSRS_PARAMS__`；缺失则引擎用内核默认）。
+- `scripts/calibrate-fsrs.mjs`：用导出复习日志做 17 参数校准（log loss 目标；样本 ≥50 且 ≥5 知识点，不足 exit 2）。
+- `scripts/test-fsrs-engine.mjs`：11 项回归测试。
+- `scripts/evaluate-dependencies.mjs`：依赖质量评测（重复边 error / 对称边 warn / 度分布 / 跨学科年级学段 / hard-soft / reason 覆盖 / 拓扑最长链 / 入度 Top10 / 阈值告警；退出码 0/1/2）。
+
+**修改的共享层**
+- `fsrs-engine.js`：混合调度（学习阶段 6 步 20分钟~30天 → 之后 FSRS 稳定性算间隔）；存储 v2→v3 迁移（补 stability/difficulty/reps，**nextReview 不变**）；`getCard` 字段规范化；export/import v3；`CNPT.fsrs.setParams/getSchedulerInfo`。
+- `pc-graph.js`：节点数 > `maxNodes`（`constants.MAX_RENDER_NODES.aggregate=900`）且非下钻 → 学科聚合超级节点（`__agg__<学科>`，count/weight）；点击下钻 `drillDown` / 返回 `backToOverview` / `getViewInfo`；大图降级（边>500 只画 hard、标签阈值 300→500、碰撞半径自适应、模拟默认 8s 停止）。
+- `constants.js`：`MAX_RENDER_NODES = { core: 1300, detail: 900, aggregate: 900 }`。
+- `schema/dependencies.schema.json`：新增可选 `relationType`（prerequisite/related/visual/experiment/assessment）。
+- `scripts/validate.mjs`：新增重复边检测（error）、对称边对报告（warn）、`relationType` 枚举校验。
+
+**构建链路**
+- `build.mjs` / `build-standalone.mjs` / `build-split-standalone.mjs` / `h5/build-h5.mjs` 均注入 `window.__CNPT_FSRS_PARAMS__`；`student-web/index.html` 与 `h5/index.html` 在 fsrs-engine 前引用 `fsrs-scheduler.js`；`build.mjs` 步骤 1 生成 `shared/data/fsrs-params.js`。
+
+**关键决策**
+- 混合调度而非纯 FSRS：保留首学体验（学习阶段短间隔）与业务规则（休眠 3 次、60 天抽检、75 分钟预算、错因台账、首做分离），FSRS 只接管复习期间隔。
+- 迁移不改 `nextReview`，避免老用户排期突变；`stability` 由 round 推算 `BASE_INTERVALS[round]/DAY_MS`。
+- 聚合阈值 900：全量 4275（core 过滤后 1300/1455）远超 D3 交互流畅区；聚合后 11 个学科节点，下钻后单学科 ≤837。
+
+**验证（实测）**
+- 数据：`validate.mjs` ✓（重复边 0 / 对称 0）；`evaluate-dependencies` ✓ 无告警（4191 唯一边、hard 2810/soft 1381、reason 100%、孤立点 1、平均入度 0.98、最大入度 3、最大出度 8、跨学科 0、跨年级 195、跨学段 88 全 soft、最长链 141）。
+- FSRS：`test-fsrs-engine` 11/11 ✓；浏览器实测 student standalone：首做独立答对 → `nextReview` +20 分钟、`stability=13.8`、`difficulty=1`、`mode=fsrs-v4-hybrid`、`storageVersion=3`、17 参数生效；`document.characterSet=UTF-8`。
+- 图谱：教师版 standalone 实测聚合 11 节点（数学 837 / 语文 137 / 英语 224 / …）→ 点击数学下钻 837 节点 +「← 返回学科总览」→ 返回恢复 11 节点；家长版 337 节点标签正常显示。
+- 构建：`build.mjs --standalone`（15 产物 + 445 引用）✓；`h5/build-h5` ✓；`build-standalone` ✓（9430 KB）；`build-split-standalone` ✓；`validate-build` 143 引用 0 问题。
+
+**自测中发现并修复的缺陷（如实记录）**
+1. `pc-graph.js` 下钻后 `render()` 覆盖 `_lastTopics` → 返回总览失败（停在数学 837）；已改为仅非下钻态保存快照。
+2. 标签阈值 300 在家长版 337 节点时整图无标签；已放宽到 500。
+3. FSRS 测试间共享内存 localStorage 导致卡片状态污染；测试脚本已加 `resetRole` 清理。
+4. 手工构造 v2 卡片缺 `confidenceHistory` 导致 `push` 崩溃；`getCard` 已补字段规范化。
+
+**已知边界（诚实记录）**
+- FSRS 参数当前为 FSRS-4 默认值（`calibrated=false`）；需用真实复习日志跑 `calibrate-fsrs.mjs` 才是正式校准。
+- `relationType` 仅 schema/validate 就绪，数据尚未使用（全部按 prerequisite 口径）。
+- 聚合视图为 PC SVG 方案；H5 Canvas 未改（H5 有独立渲染与筛选）。
+- sigma.js / cytoscape 未引入（调研结论：当前规模不需要）。

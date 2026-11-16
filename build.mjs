@@ -40,6 +40,14 @@ if (!existsSync(SHARED_DATA_DIR)) {
 const topics = JSON.parse(readFileSync(resolve(DATA_DIR, 'topics.json'), 'utf8'));
 const deps = JSON.parse(readFileSync(resolve(DATA_DIR, 'dependencies.json'), 'utf8'));
 
+// FSRS 调度参数（可由 scripts/calibrate-fsrs.mjs 校准；缺失时引擎降级为内置默认）
+let fsrsParams = null;
+try {
+  fsrsParams = JSON.parse(readFileSync(resolve(DATA_DIR, 'fsrs-params.json'), 'utf8'));
+} catch (err) {
+  console.warn(`   ⚠️ FSRS 参数加载失败，将使用引擎内置默认: ${err.message}`);
+}
+
 // 增强字段（AI 生成初稿：oneLiner / parentGuide / teacherGuide / quizQuestions）
 // 文件缺失或损坏时降级为 null，不影响主数据构建
 let enhanced = null;
@@ -78,6 +86,11 @@ window.__CNPT_EMBEDDED.enhanced = ${JSON.stringify(enhanced).replace(/</g, '\\u0
   console.log(`   ✓ shared/data/enhanced.js (0.00 MB, 空壳)`);
 }
 
+// 生成 fsrs-params.js（开发模式；standalone 也会内嵌同一份参数）
+const fsrsParamsJs = `// CN-Primary-Taxonomy · FSRS 调度参数 (自动生成，请勿手动修改)\nwindow.__CNPT_FSRS_PARAMS__ = ${JSON.stringify(fsrsParams || {}).replace(/</g, '\\u003c')};\n`;
+writeFileSync(resolve(SHARED_DATA_DIR, 'fsrs-params.js'), fsrsParamsJs, 'utf8');
+console.log(`   ✓ shared/data/fsrs-params.js (${((fsrsParams && fsrsParams.w) ? '已校准/默认 17 参数' : '降级空对象')})`);
+
 // ========== 步骤2: 构建独立版本(可选) ==========
 if (BUILD_STANDALONE || TARGET) {
   console.log('\n📦 步骤2: 构建独立HTML版本...');
@@ -93,6 +106,9 @@ window.__CNPT_EMBEDDED = {
   topics: ${JSON.stringify(topics).replace(/</g, '\\u003c')},
   dependencies: ${JSON.stringify(deps).replace(/</g, '\\u003c')}${enhancedPart}
 };
+</script>
+<script>
+window.__CNPT_FSRS_PARAMS__ = ${JSON.stringify(fsrsParams || {}).replace(/</g, '\\u003c')};
 </script>`;
   };
 

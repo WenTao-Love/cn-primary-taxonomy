@@ -7,6 +7,12 @@
  *      知识边界硬约束、信心校准、错因探针、低级失误台账、连续 3 次独立答对后退役（休眠抽检）
  *   2. 《词光》——首次作答才计入"首做正确率"，重测（retest）不计入
  *   3. 《cn-math-taxonomy》——三态掌握（未开始/学习中/已掌握）与 FSRS 卡片相互独立但可互证
+ *   4. 开源 FSRS 社区（open-spaced-repetition / FSRS-4 公开算法）——记忆状态（S/D/R）
+ *      与间隔由 fsrs-scheduler.js 计算，参数可被 scripts/calibrate-fsrs.mjs 校准。
+ *
+ * 混合调度：学习阶段（连续独立答对 ≤ LEARNING_STEPS 轮）沿用短间隔序列，
+ * 之后进入 FSRS 复习阶段（按稳定性 S 计算天数）。业务规则（休眠/退役/错因台账）保持不变。
+ * 存储版本：v3（v2 会自动迁移，nextReview 不变以避免排期突变）。
  *
  * 全部数据只保存在 localStorage，不上传任何服务器。
  */
@@ -27,10 +33,14 @@
     30 * DAY_MS    // 第6轮：30 天
   ];
 
-  const MULTIPLIERS = [1, 1.5, 2];       // 连续 1/2/3 次独立答对
+  const MULTIPLIERS = [1, 1.5, 2];       // 连续 1/2/3 次独立答对（legacy 模式保留）
   const MAX_INTERVAL = 60 * DAY_MS;       // 间隔上限 60 天
   const DORMANT_AFTER = 3;                // 连续 3 次独立答对 → 退役（休眠）
   const DORMANT_PROBE = 60 * DAY_MS;      // 退役后 60 天抽检
+
+  // 学习阶段短间隔（天，含小数）：与 BASE_INTERVALS 对齐（20 分钟/1 小时/1 天/3 天/7 天/30 天）
+  const LEARNING_STEPS = BASE_INTERVALS.map(ms => ms / DAY_MS);
+  const STORAGE_VERSION = 3;
 
   /**
    * FSRS 引擎实例（按角色隔离存储）
@@ -55,12 +65,34 @@
       this.errorLog = Array.isArray(s.errorLog) ? s.errorLog : [];
       this.firstAttempts = s.firstAttempts && typeof s.firstAttempts === 'object' ? s.firstAttempts : {};
       this.dailySeconds = s.dailySeconds && typeof s.dailySeconds === 'object' ? s.dailySeconds : {};
+      // v2 → v3 迁移：旧卡片补 S/D/reps，nextReview 保持不变（不改变既有排期）
+      const ver = s.version || 2;
+      if (ver < STORAGE_VERSION) {
+        let migrated = 0;
+        for (const id in this.cards) {
+          const c = this.cards[id];
+          if (typeof c.stability !== 'number') {
+            const round = Math.min(c.round || 0, BASE_INTERVALS.length - 1);
+            c.stability = Math.max(BASE_INTERVALS[round] / DAY_MS, 0.02);
+            c.difficulty = 5;
+            c.reps = c.totalReviews || 0;
+            c.migratedFrom = ver;
+            migrated++;
+          }
+        }
+        if (migrated) {
+          this.save();
+          if (window.console && console.info) {
+            console.info(`[FSRS] 已迁移 ${migrated} 张卡片到 v${STORAGE_VERSION}（nextReview 不变）`);
+          }
+        }
+      }
       return s;
     }
 
     save() {
       this.storage.setFsrsState({
-        version: 2,
+        version: STORAGE_VERSION,
         cards: this.cards,
         reviewLog: this.reviewLog.slice(-2000),
         errorLog: this.errorLog.slice(-500),
@@ -87,7 +119,16 @@
           confidenceHistory: []
         };
       }
-      return this.cards[topicId];
+      // 规范化旧数据（含手工构造/导入的卡片），避免后续 push 报错
+      const c = this.cards[topicId];
+      if (!Array.isArray(c.confidenceHistory)) c.confidenceHistory = [];
+      if (typeof c.consecutiveCorrect !== 'number') c.consecutiveCorrect = 0;
+      if (typeof c.consecutiveWrong !== 'number') c.consecutiveWrong = 0;
+      if (typeof c.round !== 'number') c.round = 0;
+      if (typeof c.totalReviews !== 'number') c.totalReviews = 0;
+      if (typeof c.totalCorrect !== 'number') c.totalCorrect = 0;
+      if (typeof c.dormant !== 'boolean') c.dormant = false;
+      return c;
     }
 
     /**
@@ -138,40 +179,10 @@
         card.confidenceHistory = card.confidenceHistory.slice(-50);
       }
 
-      if (isCorrect && isIndependent) {
-        card.consecutiveCorrect++;
-        card.consecutiveWrong = 0;
+      // 调度：FSRS 混合模式（学习阶段短间隔 + 复习阶段按稳定性），业务规则不变
+      this._schedule(card, { isCorrect, isIndependent, confidence, now });
 
-        if (card.consecutiveCorrect >= DORMANT_AFTER) {
-          // 退役：连续 3 次独立答对 → 休眠，60 天后抽检
-          card.dormant = true;
-          card.dormantSince = now;
-          card.nextReview = now + DORMANT_PROBE;
-        } else {
-          const roundIndex = Math.min(card.round, BASE_INTERVALS.length - 1);
-          const baseInterval = BASE_INTERVALS[roundIndex];
-          const multiplier = MULTIPLIERS[Math.min(card.consecutiveCorrect - 1, MULTIPLIERS.length - 1)];
-          let interval = Math.round(baseInterval * multiplier);
-          if (interval > MAX_INTERVAL) interval = MAX_INTERVAL;
-          card.nextReview = now + interval;
-          card.round = Math.min(card.round + 1, BASE_INTERVALS.length);
-          card.dormant = false;
-        }
-      } else if (isCorrect && !isIndependent) {
-        // 提示后答对：不算通过，回到第 1 轮
-        card.consecutiveCorrect = 0;
-        card.consecutiveWrong = 0;
-        card.round = 0;
-        card.nextReview = now + BASE_INTERVALS[0];
-        card.dormant = false;
-      } else {
-        // 答错：归零并立即重排；若处于休眠则唤醒
-        card.consecutiveCorrect = 0;
-        card.consecutiveWrong++;
-        card.round = 0;
-        card.nextReview = now + BASE_INTERVALS[0];
-        card.dormant = false;
-
+      if (!isCorrect) {
         this.errorLog.push({
           topicId,
           questionId: p.questionInfo ? p.questionInfo.questionId : null,
@@ -199,6 +210,115 @@
       card.lastReview = now;
       this.save();
       return card;
+    }
+
+    // ---------------- 调度内核（FSRS-4 混合模式） ----------------
+
+    /** 当前生效的调度参数（可被 window.__CNPT_FSRS_PARAMS__ 覆盖） */
+    _params() {
+      const g = (typeof window !== 'undefined') ? window : {};
+      const cand = g.__CNPT_FSRS_PARAMS__ || (g.CNPT && g.CNPT.fsrsParams) || null;
+      if (cand && Array.isArray(cand.w) && cand.w.length === 17 && cand.w.every(x => typeof x === 'number' && isFinite(x))) {
+        return { w: cand.w, desiredRetention: cand.desiredRetention || 0.9 };
+      }
+      return { w: null, desiredRetention: 0.9 };
+    }
+
+    _scheduler() {
+      const lib = (typeof window !== 'undefined') ? (window.CNPT && window.CNPT.fsrsScheduler) : null;
+      if (!lib) return null;               // 未加载 fsrs-scheduler.js → 由调用方降级
+      const key = 'sched';
+      if (!this[key]) this[key] = lib.createScheduler(this._params());
+      return this[key];
+    }
+
+    /**
+     * 混合调度：
+     *   - 连续独立答对 ≤ LEARNING_STEPS.length：沿用短间隔序列（20 分钟 → 30 天）
+     *   - 之后：由 FSRS 稳定性 S 计算间隔天数
+     *   - 答错 / 提示后答对：回到学习第 1 步（20 分钟），答错额外记 consecutiveWrong
+     *   - 休眠：连续 3 次独立答对 → 60 天抽检；抽检答错唤醒
+     */
+    _schedule(card, p) {
+      const now = p.now;
+      const sched = this._scheduler();
+
+      // 连续计数（独立答对才推进）
+      if (p.isCorrect && p.isIndependent) {
+        card.consecutiveCorrect = (card.consecutiveCorrect || 0) + 1;
+        card.consecutiveWrong = 0;
+      } else {
+        card.consecutiveCorrect = 0;
+        if (!p.isCorrect) card.consecutiveWrong = (card.consecutiveWrong || 0) + 1;
+      }
+
+      // 休眠抽检：到期卡片先处理休眠态
+      if (card.dormant) {
+        if (p.isCorrect) {
+          // 抽检通过：保持休眠，60 天后再抽检
+          card.dormantSince = now;
+          card.nextReview = now + DORMANT_PROBE;
+          card.lastReview = now;
+          return;
+        }
+        // 抽检失败：唤醒，回落到学习第 1 步
+        card.dormant = false;
+        card.dormantSince = null;
+        card.round = 0;
+        card.nextReview = now + BASE_INTERVALS[0];
+        card.lastReview = now;
+        return;
+      }
+
+      // 连续 3 次独立答对 → 退役休眠（业务规则保留）
+      if (card.consecutiveCorrect >= DORMANT_AFTER) {
+        card.dormant = true;
+        card.dormantSince = now;
+        card.nextReview = now + DORMANT_PROBE;
+      } else if (p.isCorrect && p.isIndependent) {
+        let intervalMs;
+        if (sched) {
+          // 评分映射：独立答对且信心高 → Easy，否则 Good
+          const rating = (p.confidence >= 75) ? sched.RATING.EASY : sched.RATING.GOOD;
+          const step = sched.step({
+            stability: card.stability,
+            difficulty: card.difficulty,
+            lastReview: card.lastReview
+          }, rating, now);
+          card.stability = step.stability;
+          card.difficulty = step.difficulty;
+          card.reps = (card.reps || 0) + 1;
+          if (card.consecutiveCorrect <= LEARNING_STEPS.length) {
+            intervalMs = LEARNING_STEPS[card.consecutiveCorrect - 1] * DAY_MS;
+          } else {
+            intervalMs = step.intervalDays * DAY_MS;
+          }
+        } else {
+          // 降级 legacy：原 6 轮 × 倍数
+          const roundIndex = Math.min(card.round || 0, BASE_INTERVALS.length - 1);
+          const multiplier = MULTIPLIERS[Math.min(card.consecutiveCorrect - 1, MULTIPLIERS.length - 1)];
+          intervalMs = Math.round(BASE_INTERVALS[roundIndex] * multiplier);
+        }
+        if (intervalMs > MAX_INTERVAL) intervalMs = MAX_INTERVAL;
+        card.nextReview = now + intervalMs;
+        card.round = Math.min((card.round || 0) + 1, BASE_INTERVALS.length);
+      } else {
+        // 答错 / 提示后答对：回到学习第 1 步
+        card.round = 0;
+        card.nextReview = now + BASE_INTERVALS[0];
+        if (sched) {
+          // 仍然更新难度/稳定性，供后续 FSRS 间隔使用
+          const rating = p.isCorrect ? sched.RATING.HARD : sched.RATING.AGAIN;
+          const step = sched.step({
+            stability: card.stability,
+            difficulty: card.difficulty,
+            lastReview: card.lastReview
+          }, rating, now);
+          card.stability = step.stability;
+          card.difficulty = step.difficulty;
+          card.reps = (card.reps || 0) + 1;
+        }
+      }
     }
 
     // ---------------- 查询 ----------------
@@ -318,7 +438,11 @@
         isDue: !!card.nextReview && card.nextReview <= now,
         daysUntil: card.nextReview ? Math.ceil((card.nextReview - now) / DAY_MS) : null,
         totalReviews: card.totalReviews,
-        totalCorrect: card.totalCorrect
+        totalCorrect: card.totalCorrect,
+        stability: card.stability ?? null,
+        difficulty: card.difficulty ?? null,
+        reps: card.reps || 0,
+        migratedFrom: card.migratedFrom || null
       };
     }
 
@@ -434,7 +558,7 @@
 
     export() {
       return {
-        version: 2,
+        version: STORAGE_VERSION,
         cards: this.cards,
         reviewLog: this.reviewLog,
         errorLog: this.errorLog,
@@ -452,6 +576,17 @@
       if (data.errorLog) this.errorLog = data.errorLog;
       if (data.firstAttempts) this.firstAttempts = data.firstAttempts;
       if (data.dailySeconds) this.dailySeconds = data.dailySeconds;
+      // 兼容 v2 导入：补齐 S/D/reps 字段
+      for (const id in this.cards) {
+        const c = this.cards[id];
+        if (typeof c.stability !== 'number') {
+          const round = Math.min(c.round || 0, BASE_INTERVALS.length - 1);
+          c.stability = Math.max(BASE_INTERVALS[round] / DAY_MS, 0.02);
+          c.difficulty = 5;
+          c.reps = c.totalReviews || 0;
+          c.migratedFrom = data.version || 2;
+        }
+      }
       this.save();
       return true;
     }
@@ -484,7 +619,34 @@
     _clearCache() { for (const k in _instances) delete _instances[k]; },
     LOW_LEVEL_TYPES,
     BASE_INTERVALS,
+    LEARNING_STEPS,
+    STORAGE_VERSION,
     DORMANT_AFTER,
+    /** 运行时注入校准参数（会重建单例，下一张卡片生效） */
+    setParams(params) {
+      if (params && Array.isArray(params.w) && params.w.length === 17) {
+        window.__CNPT_FSRS_PARAMS__ = {
+          w: params.w,
+          desiredRetention: params.desiredRetention || 0.9
+        };
+        this._clearCache();
+        return true;
+      }
+      return false;
+    },
+    /** 当前生效的调度参数信息（调试用） */
+    getSchedulerInfo(engine) {
+      const e = engine || _instances.student || null;
+      if (!e) return { mode: 'uninitialized' };
+      const sched = e._scheduler && e._scheduler();
+      return {
+        mode: sched ? 'fsrs-v4-hybrid' : 'legacy',
+        storageVersion: STORAGE_VERSION,
+        learningStepsDays: LEARNING_STEPS,
+        desiredRetention: sched ? sched.params.desiredRetention : null,
+        w: sched ? sched.params.w : null
+      };
+    },
     buildReasonOptions() {
       const reasons = (window.CNPT.constants && window.CNPT.constants.ERROR_REASONS) || {};
       return Object.keys(reasons).map(k => ({ value: k, label: `${k} ${reasons[k]}` }));

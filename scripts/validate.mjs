@@ -126,12 +126,29 @@ for (const c of stds.curricula) {
 }
 
 let dangling = 0;
+const edgeKeys = new Set();
+const dupEdges = [];
+const REL_TYPES = new Set(['prerequisite', 'related', 'visual', 'experiment', 'assessment']);
 for (const d of deps.dependencies) {
   check(topicIds.has(d.topicId), `dep topicId不存在: ${d.topicId}`);
   check(topicIds.has(d.prerequisiteId), `dep prereq不存在: ${d.prerequisiteId}`);
   check(d.topicId !== d.prerequisiteId, `自依赖: ${d.topicId}`);
   check(STRENGTHS.has(d.strength), `strength错: ${d.strength}`);
+  if (d.relationType !== undefined) {
+    check(REL_TYPES.has(d.relationType), `relationType错: ${d.relationType}`);
+  }
+  const ek = `${d.prerequisiteId} ${d.topicId}`;
+  if (edgeKeys.has(ek)) dupEdges.push(ek);
+  edgeKeys.add(ek);
 }
+if (dupEdges.length) errors.push(`重复边 ${dupEdges.length} 条: ${[...new Set(dupEdges)].slice(0, 3).join(' | ')}`);
+const symPairs = [];
+for (const d of deps.dependencies) {
+  if (edgeKeys.has(`${d.topicId} ${d.prerequisiteId}`) && d.prerequisiteId < d.topicId) {
+    symPairs.push(`${d.prerequisiteId} ⇄ ${d.topicId}`);
+  }
+}
+if (symPairs.length) warn.push(`对称边对 ${symPairs.length} 组（A→B 且 B→A）: ${symPairs.slice(0, 3).join(' | ')}`);
 for (const t of topics.topics) {
   for (const key of t.standards) {
     if (!stdKeys.has(key)) {
@@ -229,7 +246,7 @@ console.log(`知识点: ${topics.topicCount}`);
 console.log(`依赖边: ${deps.edgeCount}（强依赖${deps.dependencies.filter(d=>d.strength==='hard').length}/弱依赖${deps.dependencies.filter(d=>d.strength==='soft').length}）`);
 console.log(`课标: ${stds.curriculumCount}个文件, ${stds.curricula.reduce((s,c)=>s+c.topics.length,0)}个条目`);
 console.log(`领域概览: ${clusters.clusterCount}个`);
-console.log(`起始知识点(无前置): ${roots}个`);
+console.log(`起始知识点(无前置): ${roots}个 · 重复边: ${dupEdges.length} · 对称边对: ${symPairs.length}`);
 console.log(`增强字段: ${enhancedCount}条覆盖 / ${enhancedQuizCount}道随堂小题${enhancedCount ? `（覆盖率 ${enhancedCount}/${topics.topics.length}）` : '（未加载）'}`);
 if (warn.length) {
   console.log(`\n⚠ ${warn.length} 条告警:`);

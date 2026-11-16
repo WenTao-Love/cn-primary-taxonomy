@@ -161,6 +161,7 @@
   - center force: 画布中心
 - **节点定位优化**：初始位置按学科（列）× 年级（行）分区，避免随机布局导致的混乱
 - **终止条件**：alphaDecay 0.045，模拟结束后自动停止以节省性能
+- **规模阈值与聚合（v2.2）**：节点数 > `MAX_RENDER_NODES.aggregate`（900）时自动按学科聚合为超级节点（详见 5.6.7）；下钻后单学科仍超阈值则走大图降级
 
 #### 层级树视图
 
@@ -405,12 +406,14 @@ function celebrateStar() {
 
 > 借鉴《AI 自学数学账本实操》《edulab》《cn-math-taxonomy》《词光》四篇文章反哺，落地于 H5 移动版与学生版。方法论对照见 `docs/四篇文章借鉴反哺报告.md`。
 
-### 5.5.1 FSRS 间隔复习引擎（`shared/js/components/fsrs-engine.js`）
+### 5.5.1 FSRS 间隔复习引擎（`shared/js/components/fsrs-engine.js` + `fsrs-scheduler.js`）
 
-- **6 轮基础间隔**：20 分钟 / 1 小时 / 1 天 / 3 天 / 7 天 / 30 天；连续独立答对倍数 1 / 1.5 / 2；间隔上限 60 天。
+- **内核（fsrs-scheduler.js）**：FSRS-4，17 参数 w0..w16，零依赖。状态为稳定性 S / 难度 D / 可提取性 R；`R(t) = (1 + FACTOR·t/S)^DECAY`（FACTOR=19/81，DECAY=-0.5）；目标保留率 r=0.9 时间隔 `I = S/FACTOR·(r^(1/DECAY) − 1)`；评分 1..4 = Again/Hard/Good/Easy，Again 走独立分支 `S' = w10·D^(−w11)·((S+1)^w12 − 1)`。
+- **混合调度**：学习阶段（连续独立答对 ≤ 6 步）沿用短间隔 20 分钟 / 1 小时 / 1 天 / 3 天 / 7 天 / 30 天；之后进入复习期，间隔由 FSRS 稳定性折算天数。业务规则不变（连续 3 次独立答对休眠、60 天抽检、首做/重测分离、信心校准、错因与低级失误台账）。
+- **参数注入**：`data/fsrs-params.json` → 构建生成 `shared/data/fsrs-params.js` 并注入 `window.__CNPT_FSRS_PARAMS__`；`scripts/calibrate-fsrs.mjs` 用导出日志做 17 参数校准（log loss），当前为 FSRS-4 默认值（`calibrated=false`）。
+- **存储 v3**：卡片新增 `stability/difficulty/reps/migratedFrom`；v2→v3 迁移补字段且 **nextReview 不变**，避免排期突变；`export/import` 版本号 3。
 - **首做与重测分离**：`firstAttempts` 只记录每个知识点的第一次作答；重测（retest）、盲测（blind）不计入首做正确率，`getFirstAttemptAccuracy()` 单独统计（含独立作答子项）。
 - **信心校准**：练习作答前记录 25/50/75/100 四档信心，`getCalibrationBias()` 输出校准偏差。
-- **休眠退役**：连续 3 次独立答对 → `dormant=true`，60 天后抽检（`DORMANT_AFTER` / `DORMANT_PROBE`）。
 - **错因与台账**：答错写入 `errorLog`；若标记为低级失误（LOW），同时写入独立的 `mistakeLedger`（二级类型：抄写错误/口算错误/单位遗漏/符号遗漏/漏题/格式不规范）。
 
 ### 5.5.2 诊断闭环（`shared/js/components/diagnostic-loop.js`）
@@ -475,6 +478,14 @@ function celebrateStar() {
 - 四层授权表：数据库层 ODbL 1.0 / 文本层 CC BY-SA 4.0 / 课标上游 / 项目代码 MIT。
 - 规范署名「Marble Skill Taxonomy (v1) · © Generative Spark, Inc. (Marble)」；manifest SHA-256 版本锁；ODbL 衍生数据库 vs 产出作品澄清。
 - 边界：无儿童个人数据；AI 生成字段均标注「未经学科教师审核」。
+
+### 5.6.7 图谱规模治理：学科聚合与大图降级（v2.2，`shared/js/graph/pc-graph.js`）
+
+- **触发**：节点数 > `maxNodes`（`constants.MAX_RENDER_NODES.aggregate=900`）且非下钻态 → 渲染学科聚合超级节点（`__agg__<学科>`，半径随知识点数，标签「学科 (数量)」）。
+- **下钻**：点击聚合节点 → `drillDown(subject)` 只渲染该学科；「← 返回学科总览」→ `backToOverview()` 恢复全量聚合（快照仅总览态保存，避免被子集覆盖）。
+- **大图降级**：边数 > 500 只画 hard 依赖；标签显示阈值 500（聚合态必显示）；碰撞半径按节点数 6/9/12 自适应；模拟默认 8s 后停止。
+- **实测**：教师版 core 层 1300 节点 → 聚合 11 个学科（数学 837 / 语文 137 / 英语 224 / …）；点击数学下钻 837 节点；返回总览恢复。
+- **阈值配置**：`MAX_RENDER_NODES = { core: 1300, detail: 900, aggregate: 900 }`。
 
 ## 六、后续路线图
 

@@ -45,7 +45,10 @@ const GRADEBAND_LABELS = {
   };
 
   // 渲染节点上限
-  const MAX_RENDER_NODES = { core: 1300, detail: 900 };
+  //   core: buildGraphData 截断上限（筛选后最多渲染的知识点数）
+  //   detail: 详情页/小图上限
+  //   aggregate: 超过该值时 PCGraph 自动按学科聚合为超级节点（点击下钻）
+  const MAX_RENDER_NODES = { core: 1300, detail: 900, aggregate: 900 };
 
   // 学习预算（借鉴《AI 自学数学账本》的 75 分钟日预算与"复习封顶一半"）
   const LEARNING_BUDGET = {

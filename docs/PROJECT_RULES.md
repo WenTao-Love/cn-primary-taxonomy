@@ -46,6 +46,7 @@
 ## 3.2 CPU 负载防线
 
 - 默认只渲染当前筛选子图，不允许默认全量暴力渲染
+- 图谱渲染设规模阈值：节点数 > `MAX_RENDER_NODES.aggregate`（900）时自动按学科聚合；下钻后单学科仍超阈值则走大图降级（边>500 只画 hard、标签≤500、碰撞半径自适应、模拟默认 8s 停止）
 - 拖拽结束后应自动停止布局
 - tick 更新应通过 `requestAnimationFrame` 节流
 - 搜索、缩放、重绘等高频动作应做防抖或节流
@@ -117,13 +118,17 @@
    3. `node scripts/enrich-topics.mjs`
    4. `node scripts/generate-dependencies.mjs`
    5. `node scripts/generate-manifest.mjs`
-   6. `node scripts/validate.mjs`
-2. `node scripts/build-standalone.mjs`（主独立版，数据内嵌）
-3. `node scripts/build-split-standalone.mjs`（拆分版，降低首屏压力）
-4. `node scripts/validate-build.mjs`（验证所有构建产物路径完整性）
-5. README / DESIGN / 规则文档是否同步
-6. 页面是否存在控件遮挡主图
-7. 长挂页面的定时器、simulation、zoom 事件是否有回收路径
+   6. `node scripts/validate.mjs` + `node scripts/evaluate-dependencies.mjs`（数据校验 + 依赖质量评测）
+2. `node build.mjs --standalone`（**统一构建**：生成 shared/data 与全部 15 个角色独立 HTML；`--target=h5` 可单角色重建）
+3. `node scripts/build-standalone.mjs`（web 通用版主产物，数据内嵌）
+4. `node scripts/build-split-standalone.mjs`（拆分版，降低首屏压力）
+5. `node h5/build-h5.mjs`（H5 专用构建；它会覆盖 h5 产物，**必须与 build.mjs 同批执行**且含增强字段 + 路径修正 + UTF-8 BOM）
+6. `node scripts/validate-build.mjs`（验证所有构建产物路径完整性）
+7. `node scripts/test-fsrs-engine.mjs`（FSRS 引擎回归测试，11 项）
+8. 产物编码检查：BOM 存在、数据脚本位于 `<meta charset>` 之后（防 Windows-1252 中文乱码）
+9. README / DESIGN / 规则文档是否同步
+10. 页面是否存在控件遮挡主图
+11. 长挂页面的定时器、simulation、zoom 事件是否有回收路径
 
 ## 8. 教育管理者视角专项规则
 
@@ -215,6 +220,8 @@
 
 - 共享组件统一挂 `window.CNPT.*`（IIFE，禁止 `eval`）。
 - `CNPT.fsrs.create(role)` / `CNPT.diagnostic.create(role)` 必须按角色缓存单例，禁止每次新建实例（否则会互相覆盖 localStorage）。
+- FSRS 内核（`fsrs-scheduler.js`）与引擎（`fsrs-engine.js`）分离：内核零依赖、可独立校准；参数经 `window.__CNPT_FSRS_PARAMS__` 注入（构建自 `data/fsrs-params.json`）。
+- 存储结构升级必须保持 `nextReview` 不变（v2→v3 平滑迁移），并为旧卡片补 `stability/difficulty/reps` 字段。
 
 ### 10.5 定时器回收
 

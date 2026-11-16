@@ -13,16 +13,24 @@ const topics = JSON.parse(readFileSync(resolve(ROOT,'data/topics.json'),'utf8'))
 const deps = JSON.parse(readFileSync(resolve(ROOT,'data/dependencies.json'),'utf8'));
 const clusters = JSON.parse(readFileSync(resolve(ROOT,'data/clusters.json'),'utf8'));
 
+// FSRS 调度参数（可由 scripts/calibrate-fsrs.mjs 校准；缺失时引擎降级为内置默认）
+let fsrsParams = null;
+try {
+  fsrsParams = JSON.parse(readFileSync(resolve(ROOT,'data/fsrs-params.json'),'utf8'));
+} catch { /* 忽略，使用内置默认 */ }
+
 const tpl = readFileSync(resolve(ROOT,'web/index.html'),'utf8');
 
 function jsonScript(id, data) {
   return `<script id="${id}" type="application/json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
 }
 
+const fsrsScript = `<script>window.__CNPT_FSRS_PARAMS__ = ${JSON.stringify(fsrsParams || {}).replace(/</g, '\\u003c')};</script>`;
 const payload = [
   jsonScript('embedded-topics', topics),
   jsonScript('embedded-dependencies', deps),
-  jsonScript('embedded-clusters', clusters)
+  jsonScript('embedded-clusters', clusters),
+  fsrsScript
 ].join('\n');
 
 // 注入到 <head> 内、charset 声明之后（避免浏览器 prescan 回退 Windows-1252 导致中文乱码）

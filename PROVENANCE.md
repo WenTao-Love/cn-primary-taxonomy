@@ -22,6 +22,21 @@
   - Marble Skill Taxonomy 解读文章（字段与合规口径来源）
   - 四轮闯关背单词、会动的模型等（交互设计方法来源）
 
+### 1.3 开源业界借鉴（v2.2，2026-11-16）
+
+- **FSRS-4 / open-spaced-repetition**（算法来源）
+  - 仓库：`open-spaced-repetition/fsrs4anki`、`open-spaced-repetition/fsrs-rs`（GitHub）
+  - 用途：间隔复习内核（稳定性 S / 难度 D / 可提取性 R、17 参数、Again/Hard/Good/Easy 分支）的方法与默认参数参照。
+  - 落地：`shared/js/components/fsrs-scheduler.js` 按 FSRS-4 论文公式自研实现（零依赖），**未引入其代码**；参数可被 `scripts/calibrate-fsrs.mjs` 用本地导出日志校准。
+  - 授权：本项目代码层为 MIT；上游实现未复制，仅参照公开算法与默认参数。
+- **K12-KGraph**（方法参照）
+  - 用途：多关系类型设计（`relationType`: prerequisite / related / visual / experiment / assessment）。
+  - 说明：其仓库未逐条核实，仅作方法参照；当前数据仍以 prerequisite 口径生成。
+- **sigma.js / cytoscape.js**（调研结论）
+  - 用途：大规模图渲染器调研。
+  - 结论：本项目 4275 节点规模无需引入更重渲染器，沿用 D3 + 学科聚合/大图降级（见 `docs/DESIGN.md` 5.6.7）；**未引入 vendor**。
+- **其他调研来源**（16 项分类清单）：Anki/SuperMemo、LangChain/LlamaIndex、Obsidian 图谱视图、Neo4j、ECharts/D3/G6 等，作为架构与交互参照，未直接引入代码。
+
 ## 2. 授权条款（多层）
 
 Marble Skill Taxonomy 为**多授权层**结构，本项目遵循如下口径：

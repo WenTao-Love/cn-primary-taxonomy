@@ -18,8 +18,9 @@
 - 📝 **交互式练习**：选择题、判断题、填空题，即时判分
 - 📱 **多端适配**：PC网页 + H5移动端，家长/学生/教师多角色版本
 
-## 当前版本 v2.1-LearnKit
+## 当前版本 v2.2-FSRS-Core
 
+> **v2.2 新增（开源业界借鉴反哺）**：FSRS-4 调度内核（17 参数可校准）+ 学习阶段混合调度 + 存储 v3 平滑迁移；知识图谱学科聚合视图（超 900 节点自动聚合、点击下钻、大图降级）；依赖质量评测脚本（重复边/对称边/度分布/最长链/入度枢纽）。详见 [docs/PROJECT_MEMORY.md](docs/PROJECT_MEMORY.md) 第 9.15 节。
 > **v2.1 新增（借鉴第二批 4 篇行业文章反哺）**：枢纽度 centrality 全量计算与「⭐ 枢纽知识点」标签、4 个可拖拽交互模型（分数条/数轴/三角形内角/正方体展开图，14 主题挂接）、四轮拼写闯关（认形→元音→骨架→默写，接入 FSRS）、古诗词工具（搜索/随机/飞花令 + 独立页面）、上游授权合规文件 PROVENANCE.md。详见 [docs/四篇文章借鉴反哺报告-第二批.md](docs/四篇文章借鉴反哺报告-第二批.md)。
 > **v2.0 新增**：FSRS 间隔复习引擎、错题两步闭环（当天重测 → 次日盲测）、预检跳课、11 个错因探针（P01–P11）+ 低级失误台账、75 分钟今日学习台（复习封顶一半 + 知识边界硬约束）。详见 [docs/四篇文章借鉴反哺报告.md](docs/四篇文章借鉴反哺报告.md)。
 
@@ -47,7 +48,8 @@
 | 交互模型 | 4类/14主题 | 分数条/数轴/三角形内角/正方体展开图（可拖拽） |
 | 拼写闯关 | 6主题18词 | 四轮记忆法（认形→元音→骨架→默写），接入 FSRS |
 | 枢纽度 centrality | 4274个 | 全量计算（1.0×入度+0.5×出度加权，归一化 0-1） |
-| FSRS 间隔复习引擎 | 1套 | 6轮间隔(20分钟~30天)+信心校准+首做/重测分离+休眠退役 |
+| FSRS 间隔复习引擎 | 1套 | FSRS-4 内核（17 参数，可校准）+ 6 轮学习间隔（20分钟~30天）+ 复习期按稳定性 + 信心校准 + 首做/重测分离 + 休眠退役 |
+| 依赖质量评测 | 1套 | 重复边/对称边/度分布/跨学段硬边/DAG 最长链/入度枢纽（`scripts/evaluate-dependencies.mjs`） |
 | 诊断闭环 | 1套 | 错题两步闭环(当天重测→次日盲测)+预检跳课(3题全对) |
 | 今日学习台 | 2端 | H5/学生版：75分钟预算、复习封顶一半、知识边界硬约束 |
 | PWA支持 | ✅ | 离线缓存/平板适配/APK打包 |
@@ -152,20 +154,40 @@ open afterschool/index.html
 ### 方法三：重新构建独立版本
 
 ```bash
-# 生成 shared/data/数据文件（开发模式必需）
-node scripts/merge.mjs
+# 【推荐】统一构建：生成 shared/data/ 数据文件 + 全部 15 个角色独立HTML（数据内嵌，可离线使用）
+node build.mjs --standalone
 
-# 生成主独立HTML（数据内嵌，可离线使用）
+# 仅生成 shared/data/ 数据文件（开发模式必需）
+node build.mjs
+
+# 单独重建某个角色（--target 使用入口 id：h5 / parent / student / teacher / ...）
+node build.mjs --target=h5
+
+# 生成主独立HTML（web 通用版，数据内嵌）
 node scripts/build-standalone.mjs
 
-# 生成拆分版离线页面与分包数据
+# 生成拆分版离线页面与分包数据（降低单文件体积）
 node scripts/build-split-standalone.mjs
+
+# H5 专用构建（与 build.mjs 等价，含增强字段 + 路径修正 + UTF-8 BOM）
+node h5/build-h5.mjs
 
 # 验证构建产物路径完整性
 node scripts/validate-build.mjs
+
+# 依赖质量评测（重复边/对称边/度分布/最长链/枢纽）
+node scripts/evaluate-dependencies.mjs
+
+# FSRS 引擎回归测试（11 项）
+node scripts/test-fsrs-engine.mjs
+
+# 校准 FSRS 参数（输入：导出的复习日志 JSON）
+node scripts/calibrate-fsrs.mjs <导出文件.json> [--out=data/fsrs-params.json]
 ```
 
-> 数据流水线：`merge.mjs` → `compute-centrality.mjs` → `enrich-topics.mjs` → `generate-dependencies.mjs` → `generate-manifest.mjs` → `validate.mjs`（详见 docs/PROJECT_RULES.md）
+> **构建流水线**：`merge.mjs` → `compute-centrality.mjs` → `enrich-topics.mjs` → `generate-dependencies.mjs` → `generate-manifest.mjs` → `validate.mjs`（详见 docs/PROJECT_RULES.md）
+>
+> **编码注意**：所有独立 HTML 产物统一写入 **UTF-8 BOM**，并把数据脚本放在 `<meta charset="utf-8">` 之后，避免浏览器按 Windows-1252 解码导致中文乱码。
 
 ### 方法四：使用数据
 
@@ -221,12 +243,16 @@ cn-primary-taxonomy/
 │   │   │   ├── topic-tags.js      ← 知识点标签构建（学科/领域/年级/难度）
 │   │   │   ├── mastery-row.js     ← 掌握度三态按钮行
 │   │   │   ├── diagnostic-engine.js ← 诊断测评引擎（入学诊断/学情分析）
+│   │   │   ├── fsrs-scheduler.js  ← FSRS-4 调度内核（17 参数，零依赖）
+│   │   │   ├── fsrs-engine.js     ← FSRS 引擎（学习阶段 + FSRS 间隔，存储 v3）
 │   │   │   └── report-generator.js  ← 报告生成器（进度/诊断/家校卡片）
 │   │   └── graph/
 │   │       └── pc-graph.js      ← PC端D3图谱渲染引擎
 │   └── data/                    ← 构建生成的数据JS文件
 │       ├── topics.js            ← 知识点数据（构建生成）
-│       └── dependencies.js      ← 依赖关系数据（构建生成）
+│       ├── dependencies.js      ← 依赖关系数据（构建生成）
+│       ├── enhanced.js           ← 增强字段（构建生成，按需加载）
+│       └── fsrs-params.js        ← FSRS 调度参数（构建生成，可校准）
 │
 ├── h5/                          ← H5移动版（Canvas渲染）
 │   ├── index.html
@@ -352,7 +378,8 @@ cn-primary-taxonomy/
 | `multi-user-storage.js` | 多学员存储引擎（培训机构/学校场景） | constants |
 | `utils.js` | 防抖、HTML转义、Toast提示 | 无 |
 | `pc-graph.js` | D3.js力导向图谱渲染 | D3.js(本地 + CDN回退) |
-| `fsrs-engine.js` | FSRS 间隔复习（6轮间隔/信心校准/首做分离/休眠退役） | constants, storage |
+| `fsrs-scheduler.js` | FSRS-4 调度内核（17 参数、稳定性 S/难度 D/可提取性 R、间隔计算） | 无 |
+| `fsrs-engine.js` | FSRS 混合引擎（学习阶段 6 步 + 复习期 FSRS 间隔；信心校准/首做分离/休眠退役；存储 v3） | fsrs-scheduler, constants, storage |
 | `diagnostic-loop.js` | 错题两步闭环（当天重测→次日盲测）+ 预检跳课 | fsrs-engine, storage |
 | `daily-plan.js` | 今日学习台（75分钟预算/复习封顶/知识边界硬约束） | fsrs-engine |
 | `visual-models.js` | 4 个可拖拽 SVG 交互模型（分数条/数轴/三角形内角/正方体展开图） | 无 |
@@ -369,7 +396,7 @@ cn-primary-taxonomy/
 | `mastery-row.js` | 掌握度三态按钮行（已掌握/学习中/未开始） | 学生/家长/教师 |
 | `diagnostic-engine.js` | 诊断测评引擎，学情缺口分析、学习建议生成 | 培训机构/教研员 |
 | `report-generator.js` | 报告生成器（进度报告/诊断报告/家校卡片） | 培训机构/教育管理者 |
-| `fsrs-engine.js` | FSRS 间隔复习引擎（首做/重测分离、信心校准、休眠退役） | H5/学生版 |
+| `fsrs-engine.js` | FSRS 间隔复习引擎（FSRS-4 内核 + 学习阶段混合调度；首做/重测分离、信心校准、休眠退役） | H5/学生版 |
 | `diagnostic-loop.js` | 错题两步闭环 + 预检跳课（AI 初稿题自动标注声明） | H5/学生版 |
 | `daily-plan.js` | 今日学习台（预算/复习封顶/待解锁/错因分布） | H5/学生版 |
 | `visual-models.js` | 可拖拽交互模型（🎚️ 拖一拖，看变化） | 学生版/家长版 |
@@ -541,6 +568,7 @@ data-loader 自动选择最优加载方式：
 | `prerequisiteId` | 前置知识点（先学它） |
 | `strength` | `hard`=必须先掌握 / `soft`=有帮助但非必须 |
 | `reason` | 一句话说明为什么需要这个前置 |
+| `relationType` | 可选，关系类型：`prerequisite`（默认）/ `related` / `visual` / `experiment` / `assessment` |
 
 ## 学科代码
 
@@ -578,7 +606,8 @@ data-loader 自动选择最优加载方式：
 - **v1.9**：✅ 自适应诊断系统（三态判定+确认题+路径推荐+PWA）
 - **v2.0**：✅ 学习闭环（FSRS 间隔复习 + 错题两步闭环 + 预检跳课 + 错因探针 + 今日学习台）—— 借鉴第一批 4 篇行业文章反哺
 - **v2.1**：✅ 学习工具包（枢纽度 + 交互模型 + 四轮拼写 + 诗词工具 + 授权合规）—— 借鉴第二批 4 篇行业文章反哺
-- **v2.2**：规模化推广体系（培训材料、试点经验、评估框架）
+- **v2.2**：✅ FSRS-4 内核 + 图谱学科聚合视图 + 依赖质量评测 —— 借鉴开源业界（FSRS/K12-KGraph 等）反哺
+- **v2.3**：规模化推广体系（培训材料、试点经验、评估框架）
 - **v3.0**：对标 Marble 完整度并面向商用学习产品收口
 
 ## 参与贡献
