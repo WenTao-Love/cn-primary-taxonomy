@@ -35,7 +35,7 @@
 - **sigma.js / cytoscape.js**（调研结论）
   - 用途：大规模图渲染器调研。
   - 结论：本项目 4275 节点规模无需引入更重渲染器，沿用 D3 + 学科聚合/大图降级（见 `docs/DESIGN.md` 5.6.7）；**未引入 vendor**。
-- **其他调研来源**（16 项分类清单）：Anki/SuperMemo、LangChain/LlamaIndex、Obsidian 图谱视图、Neo4j、ECharts/D3/G6 等，作为架构与交互参照，未直接引入代码。
+- **其他调研来源**（16 项分类清单）：Anki/SuperMemo、LangChain/LlamaIndex、Obsidian 图谱视图、Neo4j、ECharts/D3/G6 等，作为架构与交互参照，未直接引入代码。完整清单与落地结果见 [docs/开源项目借鉴反哺报告-第三批.md](docs/开源项目借鉴反哺报告-第三批.md)。
 
 ## 2. 授权条款（多层）
 

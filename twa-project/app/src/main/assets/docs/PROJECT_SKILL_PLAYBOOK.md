@@ -68,6 +68,8 @@
 - 年级 / 学科 / 版本统一用可搜索的多选下拉
 - 图谱默认只画当前筛选子图
 - 页面隐藏时销毁旧图，恢复时重建
+- **规模阈值（v2.2）**：节点数 > `MAX_RENDER_NODES.aggregate`（900）且非下钻态时，自动按学科聚合为超级节点（`__agg__<学科>`，含 count/weight）；点击聚合节点下钻，提供「← 返回学科总览」；大图降级（边 > 500 只画 hard、标签阈值 500、碰撞半径自适应、模拟默认 8s 停止）
+- 标签显示阈值为 500（低于该值显示标签，避免 337 节点等临界情况整图无标签）
 
 ## 2.5 处理"越挂越卡"
 
@@ -78,6 +80,9 @@
 3. 是否存在 `requestAnimationFrame` 未取消
 4. 是否存在 zoom 事件重复绑定
 5. 是否存在搜索、缩放、重绘未做防抖
+6. 是否关闭了聚合/大图降级，直接全量渲染 4275 节点
+7. 下钻/返回总览时是否保存了全量快照（`_lastTopics` 仅非下钻态保存，否则返回后停在子集）
+8. 力导向模拟是否有超时停止（默认 8s），避免长时间空转
 
 ## 2.6 教育管理者视角操作手册
 
@@ -154,6 +159,15 @@ node scripts/merge.mjs
 node scripts/generate-dependencies.mjs
 node scripts/generate-manifest.mjs
 node scripts/validate.mjs
+
+# 依赖质量评测（重复边/对称边/度分布/最长链/枢纽）
+node scripts/evaluate-dependencies.mjs
+
+# FSRS 引擎回归测试（11 项）
+node scripts/test-fsrs-engine.mjs
+
+# 校准 FSRS 参数（输入：导出的复习日志 JSON）
+node scripts/calibrate-fsrs.mjs <导出文件.json> [--out=data/fsrs-params.json]
 ```
 
 ### 3.2 页面层改动
@@ -172,6 +186,8 @@ node scripts/merge.mjs
 node scripts/generate-dependencies.mjs
 node scripts/generate-manifest.mjs
 node scripts/validate.mjs
+node scripts/evaluate-dependencies.mjs
+node scripts/test-fsrs-engine.mjs
 node build.mjs --standalone
 node scripts/build-standalone.mjs
 node scripts/build-split-standalone.mjs
@@ -192,6 +208,9 @@ node scripts/validate-build.mjs
 - 恢复全量节点默认渲染
 - 新增动画但没有销毁逻辑
 - 新增缓存但没有失效机制
+- 关掉聚合阈值或大图降级，让全量 4275 节点直接渲染
+- 下钻后覆盖总览快照（`pc-graph.js` 的 `_lastTopics`），导致返回总览时停在子集
+- FSRS 存储升级（v2→v3）时改动 `nextReview`，导致老用户排期突变
 
 ### 4.3 文档高风险
 
@@ -213,6 +232,8 @@ node scripts/validate-build.mjs
 - **独立版本路径断链**：构建脚本生成的HTML引用了不存在的文件路径，导致用户双击白屏
 - **CDN依赖失效**：网络环境受限时D3.js无法加载，图谱无法渲染
 - **构建产物未验证**：构建后未自动检查引用完整性，问题直到用户反馈才被发现
+- **FSRS 参数未注入**：`data/fsrs-params.json` 更新后未重新构建，页面仍用旧参数（参数链路：`data/fsrs-params.json` → `shared/data/fsrs-params.js` + `window.__CNPT_FSRS_PARAMS__`）
+- **大内嵌数据编码**：数据脚本必须注入在 `<meta charset>` 之后，并写 UTF-8 BOM，否则中文乱码
 
 ## 5. 新同学接手建议
 
