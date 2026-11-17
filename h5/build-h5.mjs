@@ -41,6 +41,12 @@ try {
   diagnosticQuestions = Array.isArray(dq.questions) ? dq.questions : [];
 } catch { /* 忽略，回退 quizQuestions */ }
 
+// 跨学科主题研修（缺失时为空，主题模块降级）
+let themesData = { themes: [] };
+try {
+  themesData = JSON.parse(readFileSync(resolve(ROOT, 'data/themes.json'), 'utf8'));
+} catch { /* 忽略，主题模块降级 */ }
+
 console.log(`   ✓ 知识点: ${topics.topicCount} 个`);
 console.log(`   ✓ 依赖关系: ${deps.edgeCount} 条`);
 console.log(`   ✓ 领域概览: ${clusters.clusters?.length || 0} 个`);
@@ -67,6 +73,9 @@ window.__CNPT_FSRS_PARAMS__ = ${JSON.stringify(fsrsParams || {}).replace(/</g, '
 </script>
 <script>
 window.__CNPT_DIAGNOSTIC_QUESTIONS__ = ${JSON.stringify(diagnosticQuestions).replace(/</g, '\\u003c')};
+</script>
+<script>
+window.__CNPT_THEMES__ = ${JSON.stringify(themesData).replace(/</g, '\\u003c')};
 </script>`;
 
 // 注入数据到 <head> 内、charset 声明之后（避免 prescan 回退 Windows-1252 乱码）

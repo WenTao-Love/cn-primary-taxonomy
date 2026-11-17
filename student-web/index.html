@@ -49,6 +49,7 @@
     <!-- 学习统计 -->
     <div id="daily-plan" class="cnpt-dayplan"></div>
     <button class="cnpt-rcd-entry" id="btn-rcd">🔍 根因诊断 · 找出“病根”</button>
+    <button class="cnpt-rcd-entry" id="btn-theme">🎯 主题研修 · 国防·安全·意志</button>
     <div class="cnpt-stats-grid">
       <div class="cnpt-stat-card">
         <div class="cnpt-stat-num" id="stat-mastered">0</div>
@@ -122,6 +123,17 @@
   </div>
 </div>
 
+<!-- 主题研修弹窗 -->
+<div class="cnpt-modal-overlay cnpt-hidden" id="theme-modal">
+  <div class="cnpt-modal-content cnpt-rcd-content">
+    <div class="cnpt-modal-header">
+      <span class="cnpt-modal-title" id="theme-title">🎯 主题研修</span>
+      <button class="cnpt-modal-close" id="theme-close">×</button>
+    </div>
+    <div class="cnpt-modal-body" id="theme-body"></div>
+  </div>
+</div>
+
 <!-- 脚本 -->
 <script src="../shared/js/core/constants.js"></script>
 <script src="../shared/js/core/utils.js"></script>
@@ -152,6 +164,7 @@
 <script src="../shared/js/components/diagnostic-loop.js"></script>
 <script src="../shared/js/components/daily-plan.js"></script>
 <script src="../shared/js/components/root-cause-diagnosis.js"></script>
+<script src="../shared/js/components/theme-learning.js"></script>
 <script src="../shared/js/components/visual-models.js"></script>
 <script src="../shared/js/components/spelling-quest.js"></script>
 <script src="js/student.js"></script>

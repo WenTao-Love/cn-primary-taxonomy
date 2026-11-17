@@ -26,6 +26,12 @@ try {
   diagnosticQuestions = Array.isArray(dq.questions) ? dq.questions : [];
 } catch { /* 忽略，回退 quizQuestions */ }
 
+// 跨学科主题研修（缺失时为空，主题模块降级）
+let themesData = { themes: [] };
+try {
+  themesData = JSON.parse(readFileSync(resolve(ROOT,'data/themes.json'),'utf8'));
+} catch { /* 忽略，主题模块降级 */ }
+
 const tpl = readFileSync(resolve(ROOT,'web/index.html'),'utf8');
 
 function jsonScript(id, data) {
@@ -34,12 +40,14 @@ function jsonScript(id, data) {
 
 const fsrsScript = `<script>window.__CNPT_FSRS_PARAMS__ = ${JSON.stringify(fsrsParams || {}).replace(/</g, '\\u003c')};</script>`;
 const diagScript = `<script>window.__CNPT_DIAGNOSTIC_QUESTIONS__ = ${JSON.stringify(diagnosticQuestions).replace(/</g, '\\u003c')};</script>`;
+const themesScript = `<script>window.__CNPT_THEMES__ = ${JSON.stringify(themesData).replace(/</g, '\\u003c')};</script>`;
 const payload = [
   jsonScript('embedded-topics', topics),
   jsonScript('embedded-dependencies', deps),
   jsonScript('embedded-clusters', clusters),
   fsrsScript,
-  diagScript
+  diagScript,
+  themesScript
 ].join('\n');
 
 // 注入到 <head> 内、charset 声明之后（避免浏览器 prescan 回退 Windows-1252 导致中文乱码）

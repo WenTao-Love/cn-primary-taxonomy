@@ -61,6 +61,11 @@
     DOM.rcdBody = document.getElementById('rcd-body');
     DOM.rcdClose = document.getElementById('rcd-close');
     DOM.btnRcd = document.getElementById('btn-rcd');
+    DOM.themeModal = document.getElementById('theme-modal');
+    DOM.themeTitle = document.getElementById('theme-title');
+    DOM.themeBody = document.getElementById('theme-body');
+    DOM.themeClose = document.getElementById('theme-close');
+    DOM.btnTheme = document.getElementById('btn-theme');
   }
 
   // showLoadError 已移至共享组件 CNPT.components.showLoadError
@@ -83,6 +88,7 @@
     if (CNPT.components.initNodeDetail) CNPT.components.initNodeDetail();
     initFsrsAndDailyPlan();
     initRootCauseDiagnosis();
+    initThemeLearning();
     updateStats();
     renderSubjectGrid();
     initEvents();
@@ -877,6 +883,69 @@
     document.getElementById('rcd-back').addEventListener('click', () => renderRcdPicker());
   }
 
+  // =========================================================
+  // 主题研修（国防教育 / 国家安全 / 挫折与意志）
+  // =========================================================
+  function initThemeLearning() {
+    if (!window.CNPT || !CNPT.themeLearning) return;
+    state.theme = CNPT.themeLearning.create(state.role);
+    DOM.btnTheme?.addEventListener('click', openThemePicker);
+    DOM.themeClose?.addEventListener('click', closeTheme);
+    DOM.themeModal?.addEventListener('click', (e) => { if (e.target === DOM.themeModal) closeTheme(); });
+  }
+
+  function openThemePicker() {
+    renderThemeList();
+    DOM.themeTitle.textContent = '🎯 主题研修';
+    DOM.themeModal.classList.remove('cnpt-hidden');
+    setTimeout(() => DOM.themeModal.classList.add('show'), 10);
+  }
+
+  function closeTheme() {
+    DOM.themeModal.classList.remove('show');
+    setTimeout(() => DOM.themeModal.classList.add('cnpt-hidden'), 250);
+  }
+
+  function themeStatusIcon(s) {
+    return s === 'mastered' ? '✅' : s === 'learning' ? '📖' : '⚪';
+  }
+
+  function renderThemeList() {
+    const body = DOM.themeBody;
+    const themes = state.theme.list();
+    body.innerHTML = `<div class="rcd-picker-tip">跨学科主题，把散落各科的知识点串成一条线（数据来自现有图谱挂接）。</div>` +
+      themes.map(t => `<div class="rcd-cand" data-id="${t.id}">${t.icon} ${CNPT.utils.escapeHtml(t.name)}<span>${t.total} 个知识点 · 已掌握 ${t.mastered}/${t.total}</span></div>`).join('');
+    body.querySelectorAll('[data-id]').forEach(el =>
+      el.addEventListener('click', () => renderThemeDetail(el.dataset.id)));
+  }
+
+  function renderThemeDetail(id) {
+    const theme = state.theme.getTheme(id);
+    if (!theme) return;
+    DOM.themeTitle.textContent = `${theme.icon} ${theme.name}`;
+    const path = state.theme.buildThemePath(id);
+    const stats = state.theme.stats(id);
+    const body = DOM.themeBody;
+    body.innerHTML = `
+      <div class="rcd-ai-note">${CNPT.utils.escapeHtml(theme.intro)}</div>
+      <div class="rcd-block"><h4>🎯 学习目标</h4>${(theme.objectives || []).map(o => `<div class="rcd-item">${CNPT.utils.escapeHtml(o)}</div>`).join('')}</div>
+      <div class="rcd-block"><h4>🧩 学习路线（${path.length} 个知识点 · 已掌握 ${stats.mastered}）</h4>
+        ${path.map((p, i) => `<div class="rcd-item ${p.status}">${i + 1}. ${themeStatusIcon(p.status)} ${CNPT.utils.escapeHtml(p.name)}<span>${p.subject} · ${p.grade}年级</span></div>`).join('')}</div>
+      <div class="rcd-block"><h4>🧪 建议活动</h4>${(theme.activities || []).map(a => `<div class="rcd-item">${CNPT.utils.escapeHtml(a)}</div>`).join('')}</div>
+      <div class="rcd-block"><h4>⚠️ 内容缺口（待补）</h4>${(theme.gaps || []).map(g => `<div class="rcd-item unstable">${CNPT.utils.escapeHtml(g)}</div>`).join('')}</div>
+      <div class="rcd-actions">
+        <button class="cnpt-detail-btn primary" id="theme-start">开始主题学习</button>
+        <button class="cnpt-detail-btn secondary" id="theme-back">← 返回</button>
+      </div>`;
+    document.getElementById('theme-back').addEventListener('click', renderThemeList);
+    document.getElementById('theme-start').addEventListener('click', () => {
+      const first = path.find(p => p.status !== 'mastered') || path[0];
+      closeTheme();
+      // 主题挂接点（多为道法/信息科技母点）常无随堂题，打开详情页查看内容与标记掌握
+      if (first) setTimeout(() => showTopicDetail(first.id), 250);
+    });
+  }
+
   function isTopicMastered(topicId) {
     if (state.storage.getTopicStatus(topicId) === 'mastered') return true;
     const card = state.fsrs && state.fsrs.getStatus(topicId);
@@ -896,6 +965,4 @@
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
-    init();
-  }
-})();
+  

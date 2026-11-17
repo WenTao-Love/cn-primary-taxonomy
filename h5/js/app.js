@@ -17,6 +17,7 @@
   let diagEngine = null;
   // 根因回溯诊断（共享组件，cn-math-taxonomy 借鉴）
   let rcdEngine = null;
+  let themeEngine = null;
   let rcdSession = null;
 
   // ==================== State ====================
@@ -84,6 +85,7 @@
 
     // 根因回溯诊断（共享组件，cn-math-taxonomy 借鉴）
     initRootCauseDiagnosis();
+    initThemeLearning();
   }
 
   /**
@@ -982,6 +984,64 @@
     document.getElementById('rcd-back').addEventListener('click', () => renderRcdPicker());
   }
 
+  // ==================== 主题研修（国防/安全/意志） ====================
+  function initThemeLearning() {
+    if (!window.CNPT || !CNPT.themeLearning) return;
+    themeEngine = CNPT.themeLearning.create('student');
+    document.getElementById('btn-theme')?.addEventListener('click', openThemePicker);
+    document.getElementById('theme-close')?.addEventListener('click', closeTheme);
+  }
+
+  function openThemePicker() {
+    renderThemeList();
+    document.getElementById('theme-title').textContent = '🎯 主题研修';
+    document.getElementById('theme-modal').classList.add('mo-open');
+  }
+
+  function closeTheme() {
+    document.getElementById('theme-modal').classList.remove('mo-open');
+  }
+
+  function themeStatusIcon(s) {
+    return s === 'mastered' ? '✅' : s === 'learning' ? '📖' : '⚪';
+  }
+
+  function renderThemeList() {
+    const body = document.getElementById('theme-body');
+    const themes = themeEngine.list();
+    body.innerHTML = '<div class="rcd-picker-tip">跨学科主题，把散落各科的知识点串成一条线（数据来自现有图谱挂接）。</div>' +
+      themes.map(t => `<div class="rcd-cand" data-id="${t.id}">${t.icon} ${CNPT.utils.escapeHtml(t.name)}<span>${t.total} 个知识点 · 已掌握 ${t.mastered}/${t.total}</span></div>`).join('');
+    body.querySelectorAll('[data-id]').forEach(el =>
+      el.addEventListener('click', () => renderThemeDetail(el.dataset.id)));
+  }
+
+  function renderThemeDetail(id) {
+    const theme = themeEngine.getTheme(id);
+    if (!theme) return;
+    document.getElementById('theme-title').textContent = `${theme.icon} ${theme.name}`;
+    const path = themeEngine.buildThemePath(id);
+    const stats = themeEngine.stats(id);
+    const body = document.getElementById('theme-body');
+    body.innerHTML = `
+      <div class="rcd-ai-note">${CNPT.utils.escapeHtml(theme.intro)}</div>
+      <div class="rcd-block"><h4>🎯 学习目标</h4>${(theme.objectives || []).map(o => `<div class="rcd-item">${CNPT.utils.escapeHtml(o)}</div>`).join('')}</div>
+      <div class="rcd-block"><h4>🧩 学习路线（${path.length} 个知识点 · 已掌握 ${stats.mastered}）</h4>
+        ${path.map((p, i) => `<div class="rcd-item ${p.status}">${i + 1}. ${themeStatusIcon(p.status)} ${CNPT.utils.escapeHtml(p.name)}<span>${p.subject} · ${p.grade}年级</span></div>`).join('')}</div>
+      <div class="rcd-block"><h4>🧪 建议活动</h4>${(theme.activities || []).map(a => `<div class="rcd-item">${CNPT.utils.escapeHtml(a)}</div>`).join('')}</div>
+      <div class="rcd-block"><h4>⚠️ 内容缺口（待补）</h4>${(theme.gaps || []).map(g => `<div class="rcd-item unstable">${CNPT.utils.escapeHtml(g)}</div>`).join('')}</div>
+      <div class="rcd-actions">
+        <button class="rcd-btn primary" id="theme-start">开始主题学习</button>
+        <button class="rcd-btn" id="theme-back">← 返回</button>
+      </div>`;
+    document.getElementById('theme-back').addEventListener('click', renderThemeList);
+    document.getElementById('theme-start').addEventListener('click', () => {
+      const first = path.find(p => p.status !== 'mastered') || path[0];
+      closeTheme();
+      // 主题挂接点（多为道法/信息科技母点）常无随堂题，打开详情页查看内容与标记掌握
+      if (first) setTimeout(() => showNodeDetail(first.id), 250);
+    });
+  }
+
   // ==================== Practice System ====================
     function startPractice(topicId) {
     const topicMap = CNPT.indices.getTopicMap();
@@ -1782,10 +1842,4 @@
   window._h5StartRcd = function(id) { openRcdPicker(id); };
   window._h5ViewPath = function(id) { viewPath(id); };
 
-  // ==================== Start ====================
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
+  // ==================== Start ============
