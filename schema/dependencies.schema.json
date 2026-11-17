@@ -22,7 +22,18 @@
             "enum": ["prerequisite", "related", "visual", "experiment", "assessment"],
             "description": "关系类型，默认 prerequisite（先修）。related=相关；visual=视觉元素关联；experiment=实验验证；assessment=测评关联。借鉴 K12-KGraph 的多关系类型设计，当前数据均以 prerequisite 口径生成"
           },
-          "reason": { "type": ["string", "null"], "description": "依赖原因，一句话说明" }
+          "reason": { "type": ["string", "null"], "description": "依赖原因，一句话说明" },
+          "category": {
+            "type": "string",
+            "enum": ["概念理解", "技能操作", "计算能力", "空间观念", "量感与单位", "阅读表达", "工具使用", "常识经验", "其他"],
+            "description": "教学前提类型，由 scripts/enrich-edge-explanations.mjs 规则化分类生成"
+          },
+          "explain": { "type": "string", "description": "结构化边解释，由前置/目标知识点名 + category + reason 拼装，不引入新事实" },
+          "explainSource": {
+            "type": "string",
+            "enum": ["rule-derived", "curated"],
+            "description": "rule-derived=规则生成（待人工复核）；curated=人工审定"
+          }
         },
         "additionalProperties": false
       }

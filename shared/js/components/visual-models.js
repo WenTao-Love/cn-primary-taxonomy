@@ -5,6 +5,8 @@
  *   CNPT.components.visualModels.render(container, 'fraction-bar');   // 渲染到容器
  *   CNPT.components.initVisualModels();                               // 注入样式（render 内部已自动调用）
  * 模型清单：fraction-bar（分数条）/ number-line（数轴）/ triangle-angle（三角形内角和）/ cube-net（正方体展开图）
+ *         angle-protractor（角的度量）/ decimal-grid（小数的意义）
+ * 带动画的模型均返回 anim 句柄，render() 会在重渲染前统一 stop，避免 rAF/定时器泄漏。
  */
 (function() {
   'use strict';
@@ -24,6 +26,58 @@
     for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, v);
     if (parent) parent.appendChild(node);
     return node;
+  }
+
+  // ---------------- 动画基础设施 ----------------
+  // 约束：切换知识点 / 重渲染时必须销毁旧动画（rAF + 定时器），否则会泄漏。
+  let activeAnim = null;
+
+  function stopActiveAnim() {
+    if (activeAnim) {
+      try { activeAnim.stop(); } catch { /* noop */ }
+      activeAnim = null;
+    }
+  }
+
+  /**
+   * 动画宿主：登记 rAF 与定时器，stop() 一次全部销毁。
+   * raf(loop)：loop(t) 返回 false 时自行停止；every(ms, fn)：周期任务。
+   */
+  function createAnimHost() {
+    let rafId = 0;
+    let timers = [];
+    let stopped = false;
+    return {
+      raf(loop) {
+        if (stopped) return;
+        const step = (t) => {
+          if (stopped) return;
+          if (loop(t) === false) return;
+          rafId = requestAnimationFrame(step);
+        };
+        rafId = requestAnimationFrame(step);
+      },
+      every(ms, fn) {
+        if (stopped) return 0;
+        const id = setInterval(() => { if (!stopped) fn(); }, ms);
+        timers.push(id);
+        return id;
+      },
+      stop() {
+        stopped = true;
+        if (rafId) cancelAnimationFrame(rafId);
+        timers.forEach(clearInterval);
+        rafId = 0;
+        timers = [];
+      }
+    };
+  }
+
+  /** 可重复指向新宿主的句柄（模型内多次启动/停止动画时用） */
+  function createAnimRef() {
+    const ref = { current: null };
+    ref.api = { stop() { try { ref.current?.stop(); } catch { /* noop */ } ref.current = null; } };
+    return ref;
   }
 
   // ---------------- 模型 1：分数条 ----------------
@@ -306,12 +360,223 @@
     return { hint: '点任意一个面：绿色就是它在立方体中的相对面（相对面一定不相邻）。' };
   }
 
+  // ---------------- 模型 5：角的度量 ----------------
+  function renderAngleProtractor(host) {
+    const W = 340, H = 210;
+    const O = { x: 64, y: 168 };
+    const L = 140;
+    const state = { deg: 45 };
+    const anims = createAnimRef();
+    host.innerHTML = '';
+
+    const ctls = document.createElement('div');
+    ctls.className = 'vm-ctls';
+    ctls.innerHTML = `<div class="vm-frac-btns"><button class="vm-btn vm-ap-play">▶ 自动演示 0°→180°</button></div>`;
+    host.appendChild(ctls);
+
+    const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, class: 'vm-svg', 'aria-label': '角的度量' });
+    host.appendChild(svg);
+    const read = el('div', { class: 'vm-read' }, host);
+
+    const gStatic = el('g', {}, svg);
+    const gDyn = el('g', {}, svg);
+
+    function polar(cx, cy, r, deg) {
+      const rad = -deg * Math.PI / 180;
+      return [cx + r * Math.cos(rad), cy + r * Math.sin(rad)];
+    }
+    function arcPath(cx, cy, r, a0, a1) {
+      const [x0, y0] = polar(cx, cy, r, a0);
+      const [x1, y1] = polar(cx, cy, r, a1);
+      const large = Math.abs(a1 - a0) > 180 ? 1 : 0;
+      return `M ${x0.toFixed(2)} ${y0.toFixed(2)} A ${r} ${r} 0 ${large} 1 ${x1.toFixed(2)} ${y1.toFixed(2)}`;
+    }
+
+    // 静态：0° 射线、顶点、刻度（每 10°）
+    const [rx1, ry1] = polar(O.x, O.y, L + 16, 0);
+    el('line', { x1: O.x, y1: O.y, x2: rx1, y2: ry1, stroke: '#64748b', 'stroke-width': 3 }, gStatic);
+    for (let d = 0; d <= 180; d += 10) {
+      const [tx1, ty1] = polar(O.x, O.y, 46, d);
+      const [tx2, ty2] = polar(O.x, O.y, d % 30 === 0 ? 38 : 42, d);
+      el('line', { x1: tx1, y1: ty1, x2: tx2, y2: ty2, stroke: '#94a3b8', 'stroke-width': d % 30 === 0 ? 2 : 1 }, gStatic);
+      if (d % 30 === 0) {
+        const [lx, ly] = polar(O.x, O.y, 30, d);
+        const t = el('text', { x: lx, y: ly + 3, 'text-anchor': 'middle', 'font-size': 9, fill: '#64748b' }, gStatic);
+        t.textContent = String(d);
+      }
+    }
+    el('circle', { cx: O.x, cy: O.y, r: 5, fill: '#1e293b' }, gStatic);
+
+    const arcEl = el('path', { fill: 'rgba(59,130,246,0.18)', stroke: '#3b82f6', 'stroke-width': 2 }, gDyn);
+    const ray2 = el('line', { x1: O.x, y1: O.y, x2: 0, y2: 0, stroke: '#3b82f6', 'stroke-width': 3 }, gDyn);
+    const handle = el('circle', { cx: 0, cy: 0, r: 10, fill: '#f59e0b', stroke: '#fff', 'stroke-width': 2, style: 'cursor:grab' }, gDyn);
+    handle.dataset.role = 'handle';
+    const degText = el('text', { 'text-anchor': 'middle', 'font-size': 13, 'font-weight': 700, fill: '#1d4ed8' }, gDyn);
+
+    function typeOf(deg) {
+      if (deg <= 0.5) return '零角';
+      if (deg < 89.5) return '锐角（小于 90°）';
+      if (deg < 90.5) return '直角（正好 90°）';
+      if (deg < 179.5) return '钝角（大于 90°）';
+      return '平角（正好 180°）';
+    }
+
+    function draw() {
+      const [px, py] = polar(O.x, O.y, L, state.deg);
+      ray2.setAttribute('x2', px.toFixed(1));
+      ray2.setAttribute('y2', py.toFixed(1));
+      handle.setAttribute('cx', px.toFixed(1));
+      handle.setAttribute('cy', py.toFixed(1));
+      const [tx, ty] = polar(O.x, O.y, L * 0.66, state.deg / 2);
+      degText.setAttribute('x', tx.toFixed(1));
+      degText.setAttribute('y', (ty - 6).toFixed(1));
+      degText.textContent = `${Math.round(state.deg)}°`;
+      if (state.deg > 0.5) {
+        arcEl.setAttribute('d', arcPath(O.x, O.y, 50, 0, state.deg));
+        arcEl.style.display = '';
+      } else {
+        arcEl.style.display = 'none';
+      }
+      const dInt = Math.round(state.deg);
+      read.innerHTML = `这个角是 <b class="vm-num">${dInt}°</b> <span class="vm-chip">${typeOf(state.deg)}</span>
+        <span class="vm-chip">由 ${dInt} 个 1° 组成</span>
+        <span class="vm-chip">它的补角是 ${180 - dInt}°</span>`;
+    }
+
+    let dragging = false;
+    svg.addEventListener('pointerdown', e => {
+      if (e.target.dataset?.role === 'handle' || e.target.tagName === 'circle') { dragging = true; svg.setPointerCapture(e.pointerId); }
+    });
+    svg.addEventListener('pointermove', e => {
+      if (!dragging) return;
+      const rect = svg.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width * W;
+      const y = (e.clientY - rect.top) / rect.height * H;
+      const deg = -Math.atan2(y - O.y, x - O.x) * 180 / Math.PI;
+      state.deg = Math.max(0, Math.min(180, Math.round(deg)));
+      draw();
+    });
+    svg.addEventListener('pointerup', () => { dragging = false; });
+    svg.addEventListener('pointerleave', () => { dragging = false; });
+
+    const playBtn = ctls.querySelector('.vm-ap-play');
+    let playing = false;
+    function stopPlay() {
+      anims.api.stop();
+      playing = false;
+      playBtn.textContent = '▶ 自动演示 0°→180°';
+    }
+    playBtn.addEventListener('click', () => {
+      if (playing) { stopPlay(); return; }
+      playing = true;
+      playBtn.textContent = '⏸ 停止演示';
+      anims.current = createAnimHost();
+      const t0 = performance.now();
+      anims.current.raf((now) => {
+        if (!playing) return false;
+        const t = (now - t0) / 1000;
+        const cycle = (t % 8) / 8;                 // 8 秒一个来回
+        const deg = cycle < 0.5 ? cycle * 2 * 180 : (1 - cycle) * 2 * 180;
+        state.deg = Math.round(deg);
+        draw();
+        return true;
+      });
+    });
+
+    draw();
+    return { hint: '拖动橙色端点改变角的大小，或点「自动演示」看 0° 到 180° 的变化；转到 180° 就是平角。', anim: anims.api };
+  }
+
+  // ---------------- 模型 6：小数的意义（十乘十方格） ----------------
+  function renderDecimalGrid(host) {
+    const state = { tenths: 2, hundredths: 5 };
+    const anims = createAnimRef();
+    host.innerHTML = '';
+
+    const ctls = document.createElement('div');
+    ctls.className = 'vm-ctls';
+    ctls.innerHTML = `
+      <label>十分位 <input type="range" class="vm-dg-t" min="0" max="9" step="1" value="${state.tenths}"><b class="vm-dg-tv">${state.tenths}</b></label>
+      <label>百分位 <input type="range" class="vm-dg-h" min="0" max="9" step="1" value="${state.hundredths}"><b class="vm-dg-hv">${state.hundredths}</b></label>
+      <div class="vm-frac-btns"><button class="vm-btn vm-dg-play">▶ 演示：0 → 0.99</button></div>
+    `;
+    host.appendChild(ctls);
+
+    const svg = el('svg', { viewBox: '0 0 240 245', class: 'vm-svg', 'aria-label': '小数的意义' });
+    host.appendChild(svg);
+    const read = el('div', { class: 'vm-read' }, host);
+
+    const N = 10, CELL = 20, OX = 20, OY = 8;
+    const cells = [];
+    for (let r = 0; r < N; r++) {
+      for (let c = 0; c < N; c++) {
+        const rect = el('rect', {
+          x: OX + c * CELL, y: OY + r * CELL, width: CELL - 1.5, height: CELL - 1.5, rx: 2,
+          fill: '#f1f5f9', stroke: '#e2e8f0', 'stroke-width': 0.75
+        }, svg);
+        cells.push({ rect, r, c });
+      }
+    }
+    const cap = el('text', { x: OX, y: OY + N * CELL + 22, 'font-size': 11, fill: '#64748b' }, svg);
+    cap.textContent = '整个方格 = 1，平均分成 100 个小格';
+
+    function draw() {
+      const lit = state.tenths * 10 + state.hundredths;
+      const fullCols = Math.floor(lit / 10);
+      const rem = lit % 10;
+      for (const { rect, r, c } of cells) {
+        let fill = '#f1f5f9';
+        if (c < fullCols) fill = '#3b82f6';
+        else if (c === fullCols && r < rem) fill = '#93c5fd';
+        rect.setAttribute('fill', fill);
+      }
+      ctls.querySelector('.vm-dg-tv').textContent = state.tenths;
+      ctls.querySelector('.vm-dg-hv').textContent = state.hundredths;
+      ctls.querySelector('.vm-dg-t').value = state.tenths;
+      ctls.querySelector('.vm-dg-h').value = state.hundredths;
+      read.innerHTML = `小数 <b class="vm-num">${(lit / 100).toFixed(2)}</b> ＝ 分数 <b class="vm-num">${lit}/100</b> ＝ 百分数 <b class="vm-num">${lit}%</b>
+        <span class="vm-chip">${state.tenths} 个 0.1 ＋ ${state.hundredths} 个 0.01</span>
+        <span class="vm-chip">${lit === 99 ? '再添 1 个小格就是 1' : `占 100 格中的 ${lit} 格`}</span>`;
+    }
+
+    ctls.querySelector('.vm-dg-t').addEventListener('input', e => { state.tenths = Number(e.target.value); draw(); });
+    ctls.querySelector('.vm-dg-h').addEventListener('input', e => { state.hundredths = Number(e.target.value); draw(); });
+
+    const playBtn = ctls.querySelector('.vm-dg-play');
+    let playing = false;
+    function stopPlay() {
+      anims.api.stop();
+      playing = false;
+      playBtn.textContent = '▶ 演示：0 → 0.99';
+    }
+    playBtn.addEventListener('click', () => {
+      if (playing) { stopPlay(); return; }
+      playing = true;
+      playBtn.textContent = '⏸ 停止演示';
+      state.tenths = 0; state.hundredths = 0; draw();
+      anims.current = createAnimHost();
+      let n = 0;
+      anims.current.every(45, () => {
+        n += 1;
+        if (n > 99) { stopPlay(); return; }
+        state.tenths = Math.floor(n / 10);
+        state.hundredths = n % 10;
+        draw();
+      });
+    });
+
+    draw();
+    return { hint: '拖「十分位 / 百分位」，看小数一格一格变大：0.1 是一列（10 小格），0.01 是一小格。', anim: anims.api };
+  }
+
   // ---------------- 模型注册与渲染 ----------------
   const MODELS = {
     'fraction-bar': { title: '🎚️ 分数条', sub: '拖分子分母，看分数怎么变', render: renderFractionBar },
     'number-line': { title: '📏 数轴', sub: '拖一拖，越往右越大', render: renderNumberLine },
     'triangle-angle': { title: '📐 三角形内角和', sub: '拉动顶点，三个角永远凑成 180°', render: renderTriangleAngle },
-    'cube-net': { title: '🧊 正方体展开图', sub: '点一个面，找它的相对面', render: renderCubeNet }
+    'cube-net': { title: '🧊 正方体展开图', sub: '点一个面，找它的相对面', render: renderCubeNet },
+    'angle-protractor': { title: '📐 角的度量', sub: '拖一拖，一度一度看角变大', render: renderAngleProtractor },
+    'decimal-grid': { title: '🔲 小数的意义', sub: '1 张方格 = 100 个小格', render: renderDecimalGrid }
   };
 
   function injectStyles() {
@@ -340,6 +605,7 @@
   }
 
   function render(container, modelId) {
+    stopActiveAnim();   // 重渲染前销毁旧动画（rAF / 定时器）
     injectStyles();
     const model = MODELS[modelId];
     if (!container || !model) return;
@@ -351,15 +617,17 @@
     body.className = 'cnpt-vm-body';
     box.appendChild(body);
     container.appendChild(box);
-    const { hint } = model.render(body);
+    const res = model.render(body) || {};
+    const { hint } = res;
     if (hint) {
       const h = document.createElement('div');
       h.className = 'cnpt-vm-hint';
       h.textContent = '💡 ' + hint;
       box.appendChild(h);
     }
+    if (res.anim) activeAnim = res.anim;
   }
 
-  window.CNPT.components.visualModels = { MODELS, render, injectStyles };
+  window.CNPT.components.visualModels = { MODELS, render, injectStyles, stop: stopActiveAnim };
   window.CNPT.components.initVisualModels = injectStyles;
 })();

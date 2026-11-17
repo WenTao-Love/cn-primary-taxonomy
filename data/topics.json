@@ -1,6 +1,6 @@
 {
   "version": "v0.8-expanded",
-  "generatedAt": "2026-11-15T23:46:57.520Z",
+  "generatedAt": "2026-11-17T02:58:54.991Z",
   "grades": [
     1,
     2,
@@ -37326,7 +37326,7 @@
           }
         ]
       },
-      "modelRef": "triangle-angle"
+      "modelRef": "angle-protractor"
     },
     {
       "id": "ct_SX2S021",
@@ -47799,7 +47799,7 @@
           }
         ]
       },
-      "modelRef": "number-line"
+      "modelRef": "decimal-grid"
     },
     {
       "id": "ct_SX4X008",
@@ -48323,7 +48323,7 @@
           }
         ]
       },
-      "modelRef": "triangle-angle"
+      "modelRef": "angle-protractor"
     },
     {
       "id": "ct_SX4S014",

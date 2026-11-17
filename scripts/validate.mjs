@@ -37,6 +37,8 @@ const TERMS = new Set(['上','下','全']);
 const GRADE_BANDS = new Set(['L','M','H']);
 const STRENGTHS = new Set(['hard','soft']);
 const RESOURCE_TYPES = new Set(['example','exercise','worksheet','video','article']);
+const EDGE_CATEGORIES = new Set(['概念理解','技能操作','计算能力','空间观念','量感与单位','阅读表达','工具使用','常识经验','其他']);
+const EDGE_EXPLAIN_SOURCES = new Set(['rule-derived','curated']);
 
 const topicIds = new Set();
 const idDup = new Set();
@@ -137,6 +139,10 @@ for (const d of deps.dependencies) {
   if (d.relationType !== undefined) {
     check(REL_TYPES.has(d.relationType), `relationType错: ${d.relationType}`);
   }
+  // 可解释边（category / explain / explainSource）
+  check(EDGE_CATEGORIES.has(d.category), `category错或缺失: ${d.topicId} <- ${d.prerequisiteId} -> ${d.category}`);
+  check(typeof d.explain === 'string' && d.explain.length >= 8, `explain过短: ${d.topicId} <- ${d.prerequisiteId}`);
+  check(EDGE_EXPLAIN_SOURCES.has(d.explainSource), `explainSource错: ${d.explainSource}`);
   const ek = `${d.prerequisiteId} ${d.topicId}`;
   if (edgeKeys.has(ek)) dupEdges.push(ek);
   edgeKeys.add(ek);
@@ -149,6 +155,15 @@ for (const d of deps.dependencies) {
   }
 }
 if (symPairs.length) warn.push(`对称边对 ${symPairs.length} 组（A→B 且 B→A）: ${symPairs.slice(0, 3).join(' | ')}`);
+
+// 可解释边覆盖率（rule-derived 由 enrich-edge-explanations.mjs 派生，curated 为人工精修）
+const explainedEdges = deps.dependencies.filter(d => typeof d.explain === 'string' && d.explain.length >= 8);
+const curatedEdges = deps.dependencies.filter(d => d.explainSource === 'curated');
+if (explainedEdges.length < deps.dependencies.length) {
+  warn.push(`可解释边覆盖不足: ${explainedEdges.length}/${deps.dependencies.length}`);
+}
+const categoryDist = {};
+for (const d of deps.dependencies) categoryDist[d.category || '缺失'] = (categoryDist[d.category || '缺失'] || 0) + 1;
 for (const t of topics.topics) {
   for (const key of t.standards) {
     if (!stdKeys.has(key)) {
@@ -247,6 +262,8 @@ console.log(`依赖边: ${deps.edgeCount}（强依赖${deps.dependencies.filter(
 console.log(`课标: ${stds.curriculumCount}个文件, ${stds.curricula.reduce((s,c)=>s+c.topics.length,0)}个条目`);
 console.log(`领域概览: ${clusters.clusterCount}个`);
 console.log(`起始知识点(无前置): ${roots}个 · 重复边: ${dupEdges.length} · 对称边对: ${symPairs.length}`);
+console.log(`可解释边: ${explainedEdges.length}/${deps.edgeCount}（规则派生 ${explainedEdges.length - curatedEdges.length} / 人工 curated ${curatedEdges.length}）`);
+console.log(`边类型分布: ${Object.entries(categoryDist).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`${k} ${v}`).join(' · ')}`);
 console.log(`增强字段: ${enhancedCount}条覆盖 / ${enhancedQuizCount}道随堂小题${enhancedCount ? `（覆盖率 ${enhancedCount}/${topics.topics.length}）` : '（未加载）'}`);
 if (warn.length) {
   console.log(`\n⚠ ${warn.length} 条告警:`);

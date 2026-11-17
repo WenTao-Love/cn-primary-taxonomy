@@ -157,8 +157,8 @@
     if (hardPrereqs.length) {
       hardPrereqsHtml = `
         <div class="cnpt-detail-section">
-          <h4>🔴 必须先补</h4>
-          ${hardPrereqs.map(i => `<div class="cnpt-chain-item hard" data-id="${i.topic.id}"><span>🔴</span><b>${escapeHtml(i.topic.name)}</b><br><span style="color:#999;font-size:11px">${escapeHtml(i.edge.reason || '')}</span></div>`).join('')}
+          <h4>🔴 必须先补<span class="cnpt-detail-sub">${hardPrereqs.length} 个直接前置 · 不补会听不懂</span></h4>
+          ${hardPrereqs.map(i => chainItemHtml(i, '🔴', 'hard')).join('')}
         </div>
       `;
     }
@@ -167,19 +167,26 @@
     if (softPrereqs.length) {
       softPrereqsHtml = `
         <div class="cnpt-detail-section">
-          <h4>🟡 建议先补</h4>
-          ${softPrereqs.map(i => `<div class="cnpt-chain-item soft" data-id="${i.topic.id}"><span>🟡</span><b>${escapeHtml(i.topic.name)}</b><br><span style="color:#999;font-size:11px">${escapeHtml(i.edge.reason || '')}</span></div>`).join('')}
+          <h4>🟡 建议先补<span class="cnpt-detail-sub">${softPrereqs.length} 个 · 有基础更轻松</span></h4>
+          ${softPrereqs.map(i => chainItemHtml(i, '🟡', 'soft')).join('')}
         </div>
       `;
     }
 
     // 后续解锁
+    const SUCCESSOR_COLLAPSE = 5;
     let successorsHtml = '';
     if (successors.length) {
+      const headItems = successors.slice(0, SUCCESSOR_COLLAPSE);
+      const restItems = successors.slice(SUCCESSOR_COLLAPSE);
       successorsHtml = `
         <div class="cnpt-detail-section">
-          <h4>🚀 后续解锁</h4>
-          ${successors.slice(0, 5).map(i => `<div class="cnpt-chain-item" data-id="${i.topic.id}"><span>→</span><b>${escapeHtml(i.topic.name)}</b><br><span style="color:#999;font-size:11px">${escapeHtml(i.edge.reason || '')}</span></div>`).join('')}
+          <h4>🚀 后续解锁<span class="cnpt-detail-sub">被 ${successors.length} 个知识点依赖</span></h4>
+          ${headItems.map(i => chainItemHtml(i, '→')).join('')}
+          ${restItems.length ? `
+            <details class="cnpt-more"><summary>展开全部 ${successors.length} 个后续知识点（还有 ${restItems.length} 个）</summary>
+            ${restItems.map(i => chainItemHtml(i, '→')).join('')}</details>
+          ` : ''}
         </div>
       `;
     }
@@ -195,7 +202,8 @@
       `;
     }
 
-    // 组装HTML
+    // 组装HTML（先销毁上一个模型的动画，避免切换知识点时 rAF/定时器泄漏）
+    if (window.CNPT?.components?.visualModels?.stop) CNPT.components.visualModels.stop();
     container.innerHTML = `
       <div class="cnpt-detail-name">${escapeHtml(topic.name)}</div>
       <div class="cnpt-detail-meta">${topic.id} · ${topic.textbook || ''}${topic.unit ? ' · ' + topic.unit : ''}</div>
@@ -442,6 +450,43 @@
   }
 
   /**
+   * 依赖边类型 → 展示色板（与 enrich-edge-explanations.mjs 的九类一致）
+   */
+  const EDGE_CATEGORY_COLORS = {
+    '概念理解': ['#eef2ff', '#4f46e5'],
+    '技能操作': ['#ecfdf5', '#059669'],
+    '计算能力': ['#eff6ff', '#2563eb'],
+    '空间观念': ['#fdf4ff', '#c026d3'],
+    '量感与单位': ['#fff7ed', '#ea580c'],
+    '阅读表达': ['#fefce8', '#a16207'],
+    '工具使用': ['#f0fdfa', '#0d9488'],
+    '常识经验': ['#fdf2f8', '#db2777'],
+    '其他': ['#f1f5f9', '#64748b']
+  };
+
+  function edgeCategoryChip(category) {
+    if (!category) return '';
+    const [bg, fg] = EDGE_CATEGORY_COLORS[category] || ['#f1f5f9', '#64748b'];
+    return `<span class="cnpt-edge-cat" style="background:${bg};color:${fg}">${escapeHtml(category)}</span>`;
+  }
+
+  /**
+   * 构造可跳转的依赖链条目（前置 / 后续共用）
+   * 展示：图标 + 名称 + 边类型 chip + reason（悬停可见完整 explain）
+   */
+  function chainItemHtml(item, icon, extraClass = '') {
+    const t = item.topic;
+    if (!t) return '';
+    const e = item.edge || {};
+    const reason = e.reason || e.explain || '';
+    const explainTitle = e.explain && e.explain !== e.reason ? ` title="${escapeHtml(e.explain)}"` : '';
+    return `<div class="cnpt-chain-item ${extraClass}" data-id="${t.id}">
+      <div class="cnpt-chain-head"><span style="flex:none">${icon}</span><b>${escapeHtml(t.name)}</b>${edgeCategoryChip(e.category)}</div>
+      ${reason ? `<div class="cnpt-chain-reason"${explainTitle}>${escapeHtml(reason)}</div>` : ''}
+    </div>`;
+  }
+
+  /**
    * 注入样式
    */
   function injectStyles() {
@@ -463,10 +508,19 @@
       .cnpt-detail-section h4 { font-size: 13px; color: var(--cnpt-text-main, #1e293b); margin-bottom: 6px; }
       .cnpt-detail-section ul { margin: 0; padding-left: 18px; }
       .cnpt-detail-section li { font-size: 12px; line-height: 1.7; color: var(--cnpt-text-sub, #475569); }
-      .cnpt-chain-item { display: flex; align-items: flex-start; gap: 8px; padding: 8px 10px; background: var(--cnpt-bg-hover, rgba(59,130,246,0.04)); border-radius: 6px; margin: 4px 0; font-size: 12px; cursor: pointer; transition: background 0.2s; }
+      .cnpt-chain-item { display: flex; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 10px; background: var(--cnpt-bg-hover, rgba(59,130,246,0.04)); border-radius: 6px; margin: 4px 0; font-size: 12px; cursor: pointer; transition: background 0.2s; }
       .cnpt-chain-item:hover { background: rgba(59,130,246,0.1); }
       .cnpt-chain-item.hard { border-left: 2px solid #e74c3c; }
       .cnpt-chain-item.soft { border-left: 2px solid #f39c12; }
+      .cnpt-chain-head { display: flex; align-items: center; gap: 8px; min-width: 0; }
+      .cnpt-chain-head b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .cnpt-chain-reason { margin-top: 3px; color: #94a3b8; font-size: 11px; line-height: 1.5; }
+      .cnpt-edge-cat { font-size: 10px; padding: 1px 7px; border-radius: 999px; white-space: nowrap; flex: none; }
+      .cnpt-detail-sub { font-weight: 400; color: var(--cnpt-text-muted, #94a3b8); font-size: 11px; margin-left: 8px; }
+      .cnpt-more { margin-top: 4px; }
+      .cnpt-more > summary { cursor: pointer; font-size: 12px; color: var(--cnpt-primary, #3b82f6); padding: 4px 0; list-style: none; }
+      .cnpt-more > summary::-webkit-details-marker { display: none; }
+      .cnpt-more > summary::before { content: '▸ '; }
       .cnpt-resource-link { display: block; margin: 6px 0; padding: 8px 10px; background: var(--cnpt-bg-hover, rgba(59,130,246,0.04)); border-radius: 6px; color: var(--cnpt-primary, #3b82f6); text-decoration: none; font-size: 12px; }
       .cnpt-resource-link:hover { background: rgba(59,130,246,0.1); }
       .cnpt-resource-link small { color: var(--cnpt-text-muted, #94a3b8); display: block; margin-top: 2px; }

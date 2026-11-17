@@ -31,16 +31,18 @@ const MODEL_REFS = {
   // 数轴
   'ct_SX3X035': 'number-line',    // 数轴上的数感提升
   'ct_SX6X012': 'number-line',    // 负数初步认识
-  'ct_SX4X007': 'number-line',    // 小数的意义
   'ct_SX4X008': 'number-line',    // 小数大小比较
   // 三角形内角和
   'ct_SX1S038': 'triangle-angle', // 认识平面图形圆三角形正方形长方形
   'ct_SX5S017': 'triangle-angle', // 三角形面积
-  'ct_SX2S020': 'triangle-angle', // 角的初步认识
-  'ct_SX4S013': 'triangle-angle', // 角的意义和角的度量
+  // 角的度量（量角器 + 自动演示 0°→180°）
+  'ct_SX2S020': 'angle-protractor', // 角的初步认识
+  'ct_SX4S013': 'angle-protractor', // 角的意义和角的度量
   // 正方体展开图
   'ct_SX1S035': 'cube-net',       // 认识长方体正方体圆柱球
-  'ct_SX5X020': 'cube-net'        // 长方体和正方体特征
+  'ct_SX5X020': 'cube-net',       // 长方体和正方体特征
+  // 小数的意义（十乘十方格 + 自动演示 0→0.99）
+  'ct_SX4X007': 'decimal-grid'    // 小数的意义
 };
 
 // 拼写闯关词表（单词均来自主题 description 明确出现的词）
