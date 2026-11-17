@@ -48,6 +48,7 @@
 
     <!-- 学习统计 -->
     <div id="daily-plan" class="cnpt-dayplan"></div>
+    <button class="cnpt-rcd-entry" id="btn-rcd">🔍 根因诊断 · 找出“病根”</button>
     <div class="cnpt-stats-grid">
       <div class="cnpt-stat-card">
         <div class="cnpt-stat-num" id="stat-mastered">0</div>
@@ -110,6 +111,17 @@
   </div>
 </div>
 
+<!-- 根因诊断弹窗 -->
+<div class="cnpt-modal-overlay cnpt-hidden" id="rcd-modal">
+  <div class="cnpt-modal-content cnpt-rcd-content">
+    <div class="cnpt-modal-header">
+      <span class="cnpt-modal-title" id="rcd-title">🔍 根因诊断</span>
+      <button class="cnpt-modal-close" id="rcd-close">×</button>
+    </div>
+    <div class="cnpt-modal-body" id="rcd-body"></div>
+  </div>
+</div>
+
 <!-- 脚本 -->
 <script src="../shared/js/core/constants.js"></script>
 <script src="../shared/js/core/utils.js"></script>
@@ -139,6 +151,7 @@
 <script src="../shared/js/components/fsrs-engine.js"></script>
 <script src="../shared/js/components/diagnostic-loop.js"></script>
 <script src="../shared/js/components/daily-plan.js"></script>
+<script src="../shared/js/components/root-cause-diagnosis.js"></script>
 <script src="../shared/js/components/visual-models.js"></script>
 <script src="../shared/js/components/spelling-quest.js"></script>
 <script src="js/student.js"></script>

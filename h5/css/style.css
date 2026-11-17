@@ -984,3 +984,124 @@ body.kid-mode .ls-num, body.kid-mode .ms-num { color: #FF9800; }
   font-size: 11px;
   line-height: 1.5;
 }
+
+/* === 根因回溯诊断（cn-math-taxonomy 借鉴） === */
+.rcd-entry {
+  display: block;
+  width: 100%;
+  margin: 0 0 12px;
+  padding: 12px 16px;
+  border: 1px dashed var(--warning);
+  border-radius: var(--radius-md);
+  background: rgba(243, 156, 18, 0.08);
+  color: #b9770e;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+}
+.rcd-entry:active { transform: scale(0.99); }
+.rcd-modal-content { max-height: 85vh; max-height: 85dvh; }
+.rcd-ai-note {
+  margin: 0 0 10px;
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  background: rgba(155, 89, 182, 0.1);
+  color: #7d3c98;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.rcd-picker-tip { font-size: 12px; color: var(--text-secondary); margin: 0 0 10px; line-height: 1.6; }
+.rcd-search {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  font-size: 14px;
+  margin-bottom: 10px;
+  user-select: text;
+  -webkit-user-select: text;
+}
+.rcd-search:focus { border-color: var(--primary); }
+.rcd-cand-list { display: flex; flex-direction: column; gap: 6px; max-height: 300px; overflow-y: auto; }
+.rcd-cand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 14px;
+  text-align: left;
+}
+.rcd-cand span { font-size: 11px; color: var(--text-muted); }
+.rcd-cand:active { transform: scale(0.99); }
+.rcd-empty { font-size: 12px; color: var(--text-muted); padding: 12px; text-align: center; }
+.rcd-preset { font-size: 13px; color: var(--text-primary); margin-bottom: 10px; line-height: 1.6; }
+.rcd-go {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  background: var(--primary);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+.rcd-history { margin-top: 12px; border-top: 1px solid var(--border); padding-top: 10px; }
+.rcd-history-title { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+.rcd-history-item { font-size: 12px; color: var(--text-secondary); padding: 4px 0; }
+.rcd-progress { font-size: 11px; color: var(--text-muted); margin-bottom: 8px; }
+.rcd-confirm-tag {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(243, 156, 18, 0.15);
+  color: #b9770e;
+  font-size: 11px;
+}
+.rcd-topic { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+.rcd-topic span { font-size: 11px; color: var(--text-muted); font-weight: 400; margin-left: 8px; }
+.rcd-msg { min-height: 18px; font-size: 12px; color: var(--text-secondary); margin-top: 8px; }
+.rcd-report { display: flex; flex-direction: column; gap: 12px; }
+.rcd-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.rcd-stats > div {
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  padding: 8px 4px;
+  text-align: center;
+}
+.rcd-stats b { display: block; font-size: 18px; color: var(--text-primary); }
+.rcd-stats span { font-size: 11px; color: var(--text-muted); }
+.rcd-block h4 { font-size: 13px; margin: 0 0 6px; }
+.rcd-graph { overflow-x: auto; margin: 2px 0 6px; padding: 4px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); }
+.rcd-graph svg { display: block; }
+.rcd-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  background: var(--bg);
+  margin-bottom: 4px;
+}
+.rcd-item span { font-size: 11px; color: var(--text-muted); }
+.rcd-item.weak { background: rgba(231, 76, 60, 0.08); }
+.rcd-item.unstable { background: rgba(243, 156, 18, 0.08); }
+.rcd-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.rcd-btn {
+  flex: 1 1 calc(50% - 4px);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-primary);
+}
+.rcd-btn:active { transform: scale(0.98); }
+.rcd-btn.primary { background: var(--primary); border-color: var(--primary); color: #fff; font-weight: 600; }

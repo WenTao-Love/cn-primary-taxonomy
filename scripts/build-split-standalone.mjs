@@ -21,6 +21,13 @@ let fsrsParams = null;
 try {
   fsrsParams = JSON.parse(readFileSync(resolve(ROOT, 'data/fsrs-params.json'), 'utf8'));
 } catch { /* 忽略，使用内置默认 */ }
+
+// 诊断题（根因回溯诊断；缺失时为空数组，组件回退 quizQuestions/commonMistakes）
+let diagnosticQuestions = [];
+try {
+  const dq = JSON.parse(readFileSync(resolve(ROOT, 'data/diagnostic-questions.json'), 'utf8'));
+  diagnosticQuestions = Array.isArray(dq.questions) ? dq.questions : [];
+} catch { /* 忽略，回退 quizQuestions */ }
 const tpl = readFileSync(resolve(ROOT, 'web/index.html'), 'utf8');
 
 function writeChunk(name, data) {
@@ -33,6 +40,8 @@ function writeChunk(name, data) {
 writeChunk('topics', topics);
 writeChunk('dependencies', deps);
 writeChunk('clusters', clusters);
+writeFileSync(resolve(OUT_DIR, 'diagnostic-questions.js'),
+  `window.__CNPT_DIAGNOSTIC_QUESTIONS__ = ${JSON.stringify(diagnosticQuestions).replace(/</g, '\\u003c')};\n`, 'utf8');
 
 // 注入到 <head> 内、charset 声明之后（避免浏览器 prescan 回退 Windows-1252 导致中文乱码）
 const headRe = /<head[^>]*>/i;
@@ -46,13 +55,13 @@ if (headRe.test(injected)) {
   }
   // 2) 数据脚本插到 charset meta 之后
   const fsrsTag = `<script>window.__CNPT_FSRS_PARAMS__ = ${JSON.stringify(fsrsParams || {}).replace(/</g, '\\u003c')};</script>`;
-  const tags = '<script src="./standalone-data/topics.js"></script>\n<script src="./standalone-data/dependencies.js"></script>\n<script src="./standalone-data/clusters.js"></script>\n' + fsrsTag;
+  const tags = '<script src="./standalone-data/topics.js"></script>\n<script src="./standalone-data/dependencies.js"></script>\n<script src="./standalone-data/clusters.js"></script>\n<script src="./standalone-data/diagnostic-questions.js"></script>\n' + fsrsTag;
   const withTags = injected.replace(/(<meta[^>]+charset[^>]+>)/i, (m) => `${m}\n${tags}`);
   injected = withTags === injected
     ? injected.replace(headRe, (m) => `${m}\n${tags}`)
     : withTags;
 } else {
-  injected = injected.replace('<script>', `<script src="./standalone-data/topics.js"></script>\n<script src="./standalone-data/dependencies.js"></script>\n<script src="./standalone-data/clusters.js"></script>\n<script>`);
+  injected = injected.replace('<script>', `<script src="./standalone-data/topics.js"></script>\n<script src="./standalone-data/dependencies.js"></script>\n<script src="./standalone-data/clusters.js"></script>\n<script src="./standalone-data/diagnostic-questions.js"></script>\n<script>`);
 }
 const finalHtml = injected;
 

@@ -48,6 +48,23 @@ try {
   console.warn(`   ⚠️ FSRS 参数加载失败，将使用引擎内置默认: ${err.message}`);
 }
 
+// 诊断题（根因回溯诊断；缺失时为空数组，组件回退 quizQuestions/commonMistakes）
+let diagnosticQuestions = [];
+try {
+  const dq = JSON.parse(readFileSync(resolve(DATA_DIR, 'diagnostic-questions.json'), 'utf8'));
+  diagnosticQuestions = Array.isArray(dq.questions) ? dq.questions : [];
+} catch (err) {
+  console.warn(`   ⚠️ 诊断题加载失败，根因诊断将回退 quizQuestions: ${err.message}`);
+}
+
+// 跨学科主题研修（国防教育/国家安全/挫折与意志；缺失时为空，主题模块降级）
+let themesData = { themes: [] };
+try {
+  themesData = JSON.parse(readFileSync(resolve(DATA_DIR, 'themes.json'), 'utf8'));
+} catch (err) {
+  console.warn(`   ⚠️ 主题数据加载失败，主题研修将为空: ${err.message}`);
+}
+
 // 增强字段（AI 生成初稿：oneLiner / parentGuide / teacherGuide / quizQuestions）
 // 文件缺失或损坏时降级为 null，不影响主数据构建
 let enhanced = null;
@@ -109,6 +126,12 @@ window.__CNPT_EMBEDDED = {
 </script>
 <script>
 window.__CNPT_FSRS_PARAMS__ = ${JSON.stringify(fsrsParams || {}).replace(/</g, '\\u003c')};
+</script>
+<script>
+window.__CNPT_DIAGNOSTIC_QUESTIONS__ = ${JSON.stringify(diagnosticQuestions).replace(/</g, '\\u003c')};
+</script>
+<script>
+window.__CNPT_THEMES__ = ${JSON.stringify(themesData).replace(/</g, '\\u003c')};
 </script>`;
   };
 

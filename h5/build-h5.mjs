@@ -34,6 +34,13 @@ try {
   fsrsParams = JSON.parse(readFileSync(resolve(ROOT, 'data/fsrs-params.json'), 'utf8'));
 } catch { /* 忽略，使用内置默认 */ }
 
+// 诊断题（根因回溯诊断；缺失时为空数组，组件回退 quizQuestions/commonMistakes）
+let diagnosticQuestions = [];
+try {
+  const dq = JSON.parse(readFileSync(resolve(ROOT, 'data/diagnostic-questions.json'), 'utf8'));
+  diagnosticQuestions = Array.isArray(dq.questions) ? dq.questions : [];
+} catch { /* 忽略，回退 quizQuestions */ }
+
 console.log(`   ✓ 知识点: ${topics.topicCount} 个`);
 console.log(`   ✓ 依赖关系: ${deps.edgeCount} 条`);
 console.log(`   ✓ 领域概览: ${clusters.clusters?.length || 0} 个`);
@@ -57,6 +64,9 @@ window.__CNPT_EMBEDDED = {
 </script>
 <script>
 window.__CNPT_FSRS_PARAMS__ = ${JSON.stringify(fsrsParams || {}).replace(/</g, '\\u003c')};
+</script>
+<script>
+window.__CNPT_DIAGNOSTIC_QUESTIONS__ = ${JSON.stringify(diagnosticQuestions).replace(/</g, '\\u003c')};
 </script>`;
 
 // 注入数据到 <head> 内、charset 声明之后（避免 prescan 回退 Windows-1252 乱码）

@@ -12,6 +12,8 @@
     storage: null,
     fsrs: null,
     diag: null,
+    rcd: null,
+    rcdSession: null,
     stars: 0,
     currentSubject: null,
     currentGrade: null,
@@ -54,6 +56,11 @@
     DOM.mascot = document.getElementById('mascot');
     DOM.mascotBubble = document.getElementById('mascot-bubble');
     DOM.modeSwitch = document.getElementById('mode-switch');
+    DOM.rcdModal = document.getElementById('rcd-modal');
+    DOM.rcdTitle = document.getElementById('rcd-title');
+    DOM.rcdBody = document.getElementById('rcd-body');
+    DOM.rcdClose = document.getElementById('rcd-close');
+    DOM.btnRcd = document.getElementById('btn-rcd');
   }
 
   // showLoadError 已移至共享组件 CNPT.components.showLoadError
@@ -75,6 +82,7 @@
     CNPT.indices.buildIndices(state.fullData);
     if (CNPT.components.initNodeDetail) CNPT.components.initNodeDetail();
     initFsrsAndDailyPlan();
+    initRootCauseDiagnosis();
     updateStats();
     renderSubjectGrid();
     initEvents();
@@ -245,6 +253,7 @@
       <div class="cnpt-detail-actions">
         <button class="cnpt-detail-btn primary" id="btn-practice">✏️ 做练习</button>
         <button class="cnpt-detail-btn secondary" id="btn-path">🗺️ 学习路线</button>
+        <button class="cnpt-detail-btn secondary" id="btn-rcd">🔍 根因诊断</button>
         ${Array.isArray(topic.wordList) && topic.wordList.length ? '<button class="cnpt-detail-btn secondary" id="btn-spelling">🔤 拼写闯关</button>' : ''}
       </div>
     `;
@@ -279,6 +288,12 @@
     document.getElementById('btn-path').addEventListener('click', () => {
       showLearningPath(topic);
     });
+
+    // 根因诊断（从目标考点回溯找“病根”）
+    const btnRcd = document.getElementById('btn-rcd');
+    if (btnRcd) {
+      btnRcd.addEventListener('click', () => openRcdPicker(topic.id));
+    }
 
     // 拼写闯关（四轮记忆法）
     const btnSpelling = document.getElementById('btn-spelling');
@@ -693,6 +708,173 @@
       onStartBlindTest: (item) => openRetest(item, 'blind'),
       onStartPrecheck: (topic) => openPrecheck(topic)
     });
+  }
+
+  /**
+   * 根因回溯诊断（借鉴 cn-math-taxonomy）：
+   * 从目标考点开始测 → 答错先出确认题 → 确认也错判薄弱 → 沿 hard 前置回溯 → 生成补学路线
+   */
+  function initRootCauseDiagnosis() {
+    if (!window.CNPT.rootCause) return;
+    state.rcd = CNPT.rootCause.create('student');
+    DOM.rcdClose.addEventListener('click', closeRcd);
+    DOM.rcdModal.addEventListener('click', (e) => { if (e.target === DOM.rcdModal) closeRcd(); });
+    if (DOM.btnRcd) DOM.btnRcd.addEventListener('click', () => openRcdPicker());
+  }
+
+  function openRcdModal() {
+    DOM.rcdModal.classList.remove('cnpt-hidden');
+    setTimeout(() => DOM.rcdModal.classList.add('show'), 10);
+  }
+
+  function closeRcd() {
+    DOM.rcdModal.classList.remove('show');
+    setTimeout(() => DOM.rcdModal.classList.add('cnpt-hidden'), 250);
+  }
+
+  function openRcdPicker(presetId) {
+    state.rcdSession = null;
+    DOM.rcdTitle.textContent = '🔍 根因诊断';
+    renderRcdPicker(presetId);
+    openRcdModal();
+  }
+
+  function renderRcdPicker(presetId) {
+    const history = state.rcd.getHistory();
+    const candidates = [...CNPT.indices.getTopicMap().values()]
+      .filter(t => !isTopicMastered(t.id))
+      .slice(0, 12);
+    DOM.rcdBody.innerHTML = `
+      <div class="rcd-ai-note">🤖 诊断题多为 AI 生成初稿，未经学科教师逐条审核，结果仅供学习参考。</div>
+      <div class="rcd-picker-tip">选一个你觉得“好像会了”的知识点测一测，找出真正卡住的“病根”。</div>
+      <input class="rcd-search" id="rcd-search" type="text" placeholder="搜索知识点…" />
+      <div class="rcd-cand-list" id="rcd-cand-list">
+        ${candidates.map(t => `<button class="rcd-cand" data-id="${t.id}">${CNPT.utils.escapeHtml(t.name)}<span>${t.subject} · ${t.grade}年级</span></button>`).join('')}
+      </div>
+      ${history.length ? `<div class="rcd-history"><div class="rcd-history-title">最近诊断</div>${history.slice(0, 3).map(h => `<div class="rcd-history-item">🎯 ${CNPT.utils.escapeHtml((h.target && h.target.name) || h.target.topicId || '')} · 薄弱 ${h.statistics.weakCount} · 不稳 ${h.statistics.unstableCount}</div>`).join('')}</div>` : ''}
+    `;
+    const search = document.getElementById('rcd-search');
+    const list = document.getElementById('rcd-cand-list');
+    const renderList = (items) => {
+      list.innerHTML = items.length
+        ? items.map(t => `<button class="rcd-cand" data-id="${t.id}">${CNPT.utils.escapeHtml(t.name)}<span>${t.subject} · ${t.grade}年级</span></button>`).join('')
+        : '<div class="rcd-empty">没有找到这个知识点</div>';
+      list.querySelectorAll('.rcd-cand').forEach(btn => {
+        btn.addEventListener('click', () => startRcdSession(btn.dataset.id));
+      });
+    };
+    search.addEventListener('input', () => {
+      const k = search.value.trim();
+      const items = k
+        ? [...CNPT.indices.getTopicMap().values()].filter(t => t.name && t.name.includes(k)).slice(0, 12)
+        : candidates;
+      renderList(items);
+    });
+    renderList(candidates);
+
+    if (presetId) {
+      const t = CNPT.indices.getTopicMap().get(presetId);
+      if (t) {
+        list.innerHTML = `<div class="rcd-preset">目标考点：<b>${CNPT.utils.escapeHtml(t.name)}</b>（${t.subject} · ${t.grade}年级）</div><button class="cnpt-detail-btn primary" id="rcd-go">开始诊断 →</button>`;
+        document.getElementById('rcd-go').addEventListener('click', () => startRcdSession(presetId));
+      }
+    }
+  }
+
+  function startRcdSession(targetId) {
+    state.rcdSession = state.rcd.start(targetId, {
+      maxQuestions: 15,
+      isMastered: (id) => isTopicMastered(id)
+    });
+    DOM.rcdTitle.textContent = '🔍 根因诊断';
+    renderRcdQuestion();
+  }
+
+  function renderRcdQuestion() {
+    const item = state.rcd.next(state.rcdSession);
+    if (!item) {
+      renderRcdReport(state.rcd.finish(state.rcdSession));
+      return;
+    }
+    const q = item.question;
+    const p = item.progress;
+    DOM.rcdBody.innerHTML = `
+      <div class="rcd-progress">第 ${p.answered + 1} 题 / 上限 ${p.limit} · 薄弱 ${p.weak} · 不稳 ${p.unstable}</div>
+      ${item.type === 'confirm' ? '<div class="rcd-confirm-tag">确认题 · 再确认一次</div>' : ''}
+      <div class="rcd-topic">${CNPT.utils.escapeHtml((item.topic && item.topic.name) || '')}<span>${(item.topic && item.topic.subject) || ''} · ${(item.topic && item.topic.grade) || ''}年级</span></div>
+      <div class="cnpt-practice-question">${CNPT.utils.escapeHtml(q.question)}</div>
+      <div class="cnpt-practice-options">
+        ${q.options.map((opt, i) => `<button class="cnpt-practice-option" data-idx="${i}">${String.fromCharCode(65 + i)}. ${CNPT.utils.escapeHtml(opt)}</button>`).join('')}
+      </div>
+      <div class="rcd-msg">${CNPT.utils.escapeHtml(item.message || '')}</div>
+    `;
+    DOM.rcdBody.querySelectorAll('.cnpt-practice-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt(btn.dataset.idx, 10);
+        const res = item.type === 'confirm'
+          ? state.rcd.answerConfirm(state.rcdSession, q.id, idx)
+          : state.rcd.answer(state.rcdSession, q.id, idx);
+        btn.classList.add(res.correct ? 'correct' : 'wrong');
+        DOM.rcdBody.querySelector('.rcd-msg').textContent = res.message || '';
+        setTimeout(renderRcdQuestion, 650);
+      });
+    });
+  }
+
+  function renderRcdReport(report) {
+    const s = report.statistics;
+    const route = report.remedialPath || [];
+    DOM.rcdTitle.textContent = '📋 诊断报告';
+    DOM.rcdBody.innerHTML = `
+      <div class="rcd-report">
+        <div class="rcd-stats">
+          <div><b>${s.totalQuestions}</b><span>已答</span></div>
+          <div><b>${s.weakCount}</b><span>薄弱</span></div>
+          <div><b>${s.unstableCount}</b><span>不稳</span></div>
+          <div><b>${s.untestedCount}</b><span>未测</span></div>
+        </div>
+        <div class="rcd-block">
+          <h4>🎯 根因盲区（优先补）</h4>
+          ${report.rootCauses.length
+            ? report.rootCauses.map(r => `<div class="rcd-item weak">🔴 ${CNPT.utils.escapeHtml(r.name)}<span>${r.subject} · ${r.grade}年级</span></div>`).join('')
+            : '<div class="rcd-item">✅ 没发现薄弱根因，基础扎实！</div>'}
+        </div>
+        ${report.unstable.length ? `<div class="rcd-block"><h4>🟠 不稳（先巩固，不用回溯）</h4>${report.unstable.map(u => `<div class="rcd-item unstable">${CNPT.utils.escapeHtml(u.name)}<span>${u.subject} · ${u.grade}年级</span></div>`).join('')}</div>` : ''}
+        ${route.length ? `<div class="rcd-block"><h4>🧩 根因路径图</h4><div class="rcd-graph">${state.rcd.renderPathGraphSVG(report)}</div></div>` : ''}
+        ${route.length ? `<div class="rcd-block"><h4>🗺️ 补学路线（按顺序）</h4>${route.map((p, i) => `<div class="rcd-item ${p.status}">${i + 1}. ${p.status === 'weak' ? '🔴' : '🟠'} ${CNPT.utils.escapeHtml(p.name)}<span>${p.subject} · ${p.grade}年级</span></div>`).join('')}</div>` : ''}
+        <div class="rcd-actions">
+          <button class="cnpt-detail-btn primary" id="rcd-start-learn">开始补学第一个</button>
+          ${s.untestedCount > 0 ? '<button class="cnpt-detail-btn secondary" id="rcd-retest">🧪 盲区再测</button>' : ''}
+          <button class="cnpt-detail-btn secondary" id="rcd-retry">🔁 重新诊断</button>
+          <button class="cnpt-detail-btn secondary" id="rcd-export">📤 导出 JSON</button>
+          <button class="cnpt-detail-btn secondary" id="rcd-back">← 换目标</button>
+        </div>
+      </div>
+    `;
+    document.getElementById('rcd-start-learn').addEventListener('click', () => {
+      const first = route[0] || report.rootCauses[0];
+      if (!first) { closeRcd(); return; }
+      closeRcd();
+      showTopicDetail(first.topicId);
+      setTimeout(() => startPractice(CNPT.indices.getTopicMap().get(first.topicId)), 250);
+    });
+    document.getElementById('rcd-retry').addEventListener('click', () => startRcdSession(report.target.topicId));
+    const retestBtn = document.getElementById('rcd-retest');
+    if (retestBtn) retestBtn.addEventListener('click', () => {
+      const n = state.rcd.expandUntested(state.rcdSession);
+      if (!n) return;
+      DOM.rcdTitle.textContent = '🔍 根因诊断';
+      renderRcdQuestion();
+    });
+    document.getElementById('rcd-export').addEventListener('click', () => {
+      const blob = new Blob([state.rcd.exportReport(report)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `根因诊断-${report.target.name || report.target.topicId}.json`;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    });
+    document.getElementById('rcd-back').addEventListener('click', () => renderRcdPicker());
   }
 
   function isTopicMastered(topicId) {

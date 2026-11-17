@@ -467,3 +467,45 @@
 - `relationType` 仅 schema/validate 就绪，数据尚未使用（全部按 prerequisite 口径）。
 - 聚合视图为 PC SVG 方案；H5 Canvas 未改（H5 有独立渲染与筛选）。
 - sigma.js / cytoscape 未引入（调研结论：当前规模不需要）。
+
+### 9.16 v2.3 cn-math-taxonomy 借鉴反哺：根因回溯诊断 ✅（2026-11-17）
+
+> 出处：开源项目 cn-math-taxonomy（github.com/xiaoyang111222/cn-math-taxonomy，CC BY-NC 4.0）的「根因回溯诊断」方法论；详见 [开源项目借鉴反哺报告-第四批.md](开源项目借鉴反哺报告-第四批.md)，竞品分析 P0 差距就此关闭。
+
+**新增共享组件**
+- `shared/js/components/root-cause-diagnosis.js`：`window.CNPT.rootCause.create(role)`，VERSION 1.0。核心方法 `start/next/answer/answerConfirm/finish/buildRemedialPath/getHistory/clearHistory/exportReport`；历史 localStorage `cnpt-<role>-rcd-history`（上限 20）。
+- 判定：掌握 / 不稳（答错但确认题对，不回溯）/ 薄弱（答错且确认题也错，回溯）/ 未测。
+- 回溯：薄弱点沿 hard 前置 BFS；根因 = 薄弱点中无更薄弱 hard 前置者；补学路线按拓扑序（`CNPT.path`）。
+- 确认题：同知识点、更低或同难度、非当前题。
+
+**数据与构建**
+- `data/diagnostic-questions.json`（735 题 / 384 知识点）→ 4 个构建脚本注入 `window.__CNPT_DIAGNOSTIC_QUESTIONS__`。
+- 题目三级回退：诊断题 → `topic.quizQuestions` → `commonMistakes[0]+evidence[0]` 判断题（answer=1）。
+
+**端侧接入**
+- 学生版 `student-web/js/student.js`：今日学习台入口 + 详情按钮 + 弹层；`isTopicMastered` = storage mastered 或 FSRS dormant/连续答对≥2。
+- H5 `h5/index.html` / `h5/js/app.js` / `h5/css/style.css`：`#btn-rcd` 入口 + `#rcd-modal` 弹层；复用 `.practice-question/.practice-option`；桥接 `window._h5StartRcd`。
+- 测试：`scripts/test-root-cause-diagnosis.mjs` 11/11 ✅。
+
+**顺带修复（既有缺陷）**
+- H5 模板根容器 `#main-content` 与 CSS `#app` 不一致导致整页布局崩塌（内容区高 64、底部导航置顶）；已统一为 `#app`（容器 id / skip-link href / 闭合注释三处）。
+
+**验证（实测）**
+- `validate.mjs` ✅；`evaluate-dependencies` ✅；`test-fsrs-engine` 11/11 ✅；`test-root-cause-diagnosis` 11/11 ✅；`validate-build` 146 引用 0 问题 ✅。
+- 构建：`build.mjs --standalone`（15 产物）/ `build-standalone` / `build-split-standalone` / `h5/build-h5` 全部 ✅。
+- 浏览器实测：学生端 picker→答题→报告→补学闭环 ✅；H5 入口/详情预设/答题/报告/补学 ✅（移动视口）。
+
+**已知边界（诚实记录）**
+- 诊断题仅覆盖 384 知识点，其余走兜底题，题目质量低于专属诊断题。
+- 单轮默认 15 题，根因可能未回溯到底，报告以「未测」如实呈现。
+- picker 候选为 Map 顺序前 12，未按 centrality/难度排序（有搜索过滤）。
+- PDF/图片导出、按册章/整册入口未做，列 P2。
+
+### 9.16.1 增补（同日）：根因路径图 + 盲区再测
+
+> 文章结果页明确展示的两项，上一版列为 P2，本次补齐。
+
+- **根因路径图**：`getPathGraphData(report)`（节点/边/深度，目标=0、前置递增）+ `renderPathGraphSVG(report)`（目标橙框、根因/薄弱红框、不稳黄底；hard 实线 / soft 虚线；名称悬停全称）。自绘轻量 SVG，不引 D3。学生端/H5 报告页均已渲染（实测 2 节点 1 边）。
+- **盲区再测**：`expandUntested(session, extraBudget)` 把「未测」点重新入队续测，上限自动放宽（已答数 + 未测数 + 5），续测报告 id 带 `-r1`。实测说明：15 题上限下单目标前置链基本可覆盖，「未测」自然出现少，按钮多数时候隐藏（符合设计）；逻辑由回归测试覆盖。
+- **测试**：`test-root-cause-diagnosis.mjs` 11 → **20 项**（新增盲区再测 5 项、路径图 4 项），20/20 ✅。
+- **端侧**：`student-web/js/student.js`、`h5/js/app.js` 报告页新增路径图块与「🧪 盲区再测」按钮；两端 CSS 新增 `.rcd-graph`。

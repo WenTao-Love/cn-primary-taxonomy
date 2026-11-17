@@ -251,3 +251,32 @@
 - 数据库层沿用 **ODbL 1.0**：公开派生数据库须以 ODbL 发布并保留署名。
 - 引用课标只使用编码与关键术语，不大段引用原文。
 - 借鉴文章的方法论落地后，须在 `docs/PROJECT_MEMORY.md` 与对应反哺报告中记录出处。
+
+## 12. 根因诊断与 H5 布局规则（v2.3）
+
+> 本章约束根因回溯诊断（`root-cause-diagnosis.js`）与 H5 端模板/样式一致性。
+
+### 12.1 根因诊断
+
+- 诊断引擎只放在 `shared/js/components/root-cause-diagnosis.js`，端侧（学生版/H5）只做 UI 与桥接，禁止复制判定逻辑。
+- 诊断题数据只走 `data/diagnostic-questions.json` + 构建注入 `window.__CNPT_DIAGNOSTIC_QUESTIONS__`；端侧禁止硬编码题目。
+- 判定口径固定：**不稳**（确认题对）不回溯、**薄弱**（确认题也错）才回溯；回溯只走 hard 前置边；根因 = 薄弱点中无更薄弱 hard 前置者。口径变更须同步 `DESIGN.md` 5.7 与第四批反哺报告。
+- 单轮题量上限（默认 15）与「未测」语义不得隐藏：报告必须如实呈现未测知识点，禁止把未测表述为「没问题」。
+- 历史存 localStorage `cnpt-<role>-rcd-history`（上限 20），导出仅 JSON。
+- 报告页固定含**根因路径图**（`renderPathGraphSVG`：目标橙框、根因/薄弱红框、不稳黄底；hard 实线 / soft 虚线）；路径图与文字路线同源（`remedialPath`），不得各自维护一套数据。
+- 盲区再测（`expandUntested`）只在 `untestedCount > 0` 时出现；续测必须沿用同一 session（不新建会话），且续测报告 id 带 `-rN` 后缀。
+- 端侧全局桥接（如 `window._h5StartRcd`）用于替代 inline onclick，防 XSS。
+
+### 12.2 H5 模板与样式一致性
+
+- H5 根容器 id 必须为 `#app`（`h5/index.html` 与 `h5/css/style.css` 强耦合：flex column / 100dvh / 底部导航定位）；新增区块不得改动该 id 与 skip-link 指向。
+- 视图切换使用 `.view` / `.view-active` 约定；弹层使用 `.modal-overlay.mo-open` 底部弹出，禁止另起一套定位。
+- H5 实测必须带移动视口，并注意浏览器缓存：验证新旧 HTML/JS/CSS 是否生效时以桥接函数/新样式存在为准（必要时加时间戳破缓存）。
+
+### 12.3 交付前测试命令
+
+```bash
+node scripts/test-root-cause-diagnosis.mjs   # 根因诊断回归（20 项）
+node scripts/test-fsrs-engine.mjs            # FSRS 回归（11 项）
+node scripts/validate-build.mjs             # 构建产物引用完整性
+```

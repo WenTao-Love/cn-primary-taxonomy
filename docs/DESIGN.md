@@ -487,6 +487,44 @@ function celebrateStar() {
 - **实测**：教师版 core 层 1300 节点 → 聚合 11 个学科（数学 837 / 语文 137 / 英语 224 / …）；点击数学下钻 837 节点；返回总览恢复。
 - **阈值配置**：`MAX_RENDER_NODES = { core: 1300, detail: 900, aggregate: 900 }`。
 
+## 五点七、根因回溯诊断设计（v2.3，`shared/js/components/root-cause-diagnosis.js`）
+
+> 借鉴开源项目 cn-math-taxonomy 的「根因回溯诊断」方法论（[反哺报告-第四批](开源项目借鉴反哺报告-第四批.md) / [竞品分析](竞品分析_cn-math-taxonomy.md) P0）。目标：从指定目标考点出发，答错自动退回前置知识继续查，揪出真正的「病根」，再给一条按顺序补回来的路线。
+
+### 5.7.1 诊断流程
+
+1. **选题**：目标考点（学生版今日学习台入口 / 节点详情按钮预设目标；弹层内 picker = 未掌握候选前 12 + 实时搜索 + 历史记录）。
+2. **目标优先队列**：先测目标，再测其前置；每题后按结果更新队列。
+3. **三态判定**：
+   - **掌握**：答对且无需继续；
+   - **不稳**：第一题答错，但确认题答对（偶然失误，**不回溯**，进巩固清单）；
+   - **薄弱**：答错且确认题也错 → 沿依赖链回溯。
+4. **确认题机制**：答错后换同知识点、更低或同难度、且非当前题的题目确认，排除手滑/看错题等偶然因素。
+5. **回溯**：薄弱点沿 **hard 前置边** BFS 往回查（soft 边只作参考不回溯）；一直查到没有更薄弱的前置为止。
+6. **根因**：薄弱点中「没有更薄弱 hard 前置」的知识点，即「病根」。
+7. **补学路线**：把「根因 → 目标」之间未掌握的点按拓扑序（`CNPT.path`）排成一条路线，报告页一键「开始补学第一个」直接跳转练习。
+
+### 5.7.2 题目三级回退
+
+`window.__CNPT_DIAGNOSTIC_QUESTIONS__`（构建注入，735 题 / 384 知识点）→ `topic.quizQuestions`（choice 型随堂题）→ `commonMistakes[0] + evidence[0]` 自动生成判断题（answer=1），保证任意知识点都可诊断。
+
+### 5.7.3 接口与存储
+
+- `window.CNPT.rootCause.create(role)` → 引擎实例；`start(targetId, {maxQuestions:15, confirmOnFail, autoBacktrack, backtrackStrength, isMastered})`、`next(session)`、`answer(session, qid, idx)`、`answerConfirm(...)`、`finish(session)`、`buildRemedialPath(...)`、`getHistory/clearHistory/exportReport`、`expandUntested(session)`（盲区再测）、`getPathGraphData(report)`/`renderPathGraphSVG(report)`（根因路径图）。
+- 历史：localStorage `cnpt-<role>-rcd-history`，上限 20 条；报告可导出 JSON。
+- 结果结构：`target / statistics / rootCauses / weak / unstable / untested / mastered / remedialPath / answers`。
+
+### 5.7.4 端侧接入
+
+- **学生版**（`student-web/js/student.js`）：今日学习台入口 + 详情「🔍 根因诊断」按钮 + 弹层；`isTopicMastered` 取 storage mastered 或 FSRS dormant/连续答对≥2。
+- **H5**（`h5/index.html` + `h5/js/app.js` + `h5/css/style.css`）：`#btn-rcd` 入口 + `#rcd-modal` 底部弹层；答题复用 `.practice-question/.practice-option` 组件与正误态；全局桥接 `window._h5StartRcd`（替代 inline onclick，防 XSS）。
+- **回归测试**：`scripts/test-root-cause-diagnosis.mjs`（20 项：目标优先、薄弱/掌握、根因、路线、历史、确认题→不稳、不稳不回溯、盲区再测、路径图数据/SVG）。
+
+### 5.7.5 根因路径图与盲区再测
+
+- **路径图**：`getPathGraphData` 从 `remedialPath` 提取节点（含 `isRoot`/`isTarget`）与路线内边（强度取自依赖图），按拓扑深度分层（目标=0，前置递增，最长链）；`renderPathGraphSVG` 输出自绘 SVG：目标橙框、根因/薄弱红框、不稳黄底，hard 实线 / soft 虚线，节点名超 7 字截断、悬停显示全称。不引第三方库。
+- **盲区再测**：报告页在 `untestedCount > 0` 时显示「🧪 盲区再测」，点击调用 `expandUntested(session)`：清空未测列表 → 未测点重新入队（priority 3）→ 上限放宽为 `已答数 + 未测数 + 5` → 回到答题流程；续测完成报告 id 加 `-rN` 后缀。
+
 ## 六、后续路线图
 
 - **v0.8.x**：把当前"主干映射版"继续加密为教材章节级 / 课时级 / 题型级颗粒度，并推广到更多非主科；同时把外部资源接入升级为逐单元精选题单、资源组键、资源ID和外部作品ID直链治理，并用缓存/停布局/卸载清理/旧 zoom 与 simulation 回收/隐藏态整图休眠/`requestAnimationFrame` tick 节流/布局结束主动释放实例引用等手段持续压低页面常驻负载；把年级/学科/版本筛选改造为右侧边栏可搜索的多选下拉式交互，并将知识点搜索与图谱状态提示也收拢进右侧；继续把标题、副标题、统计概览也移入右侧工作台，并为多选下拉增加"全选 / 反选 / 清空"，同时允许右侧整栏展开 / 折叠，以兼顾筛选效率与主图谱展示空间；继续把图谱解释层从"工程可读"往"家长可读"收敛，新增右侧阅读指引、节点级"先补什么 / 建议补什么 / 学稳后带动什么"摘要，以及面向家长的 Bot 结果结构，尽量把 DAG 关系翻译成可执行的辅导动作
