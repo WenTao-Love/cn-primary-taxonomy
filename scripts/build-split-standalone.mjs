@@ -10,6 +10,20 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const OUT_DIR = resolve(ROOT, 'standalone-data');
 
+// 构建版本戳：附加到分包数据脚本引用上，杜绝浏览器复用旧缓存
+const ASSET_VER = String(Date.now());
+
+/**
+ * 给 HTML 中指向本地文件的 js/css 引用附加 ?v=<ver>（CDN/data: 链接跳过）
+ */
+function stampLocalAssets(html, ver) {
+  return html.replace(/((?:src|href)\s*=\s*["'])([^"']+?\.)(js|css)(["'])/g,
+    (m, pre, path, ext, q) => {
+      if (/^(https?:)?\/\//i.test(path) || path.startsWith('data:') || path.includes('?')) return m;
+      return `${pre}${path}${ext}?v=${ver}${q}`;
+    });
+}
+
 mkdirSync(OUT_DIR, { recursive: true });
 
 const topics = JSON.parse(readFileSync(resolve(ROOT, 'data/topics.json'), 'utf8'));
@@ -71,6 +85,8 @@ if (headRe.test(injected)) {
 } else {
   injected = injected.replace('<script>', `<script src="./standalone-data/topics.js"></script>\n<script src="./standalone-data/dependencies.js"></script>\n<script src="./standalone-data/clusters.js"></script>\n<script src="./standalone-data/diagnostic-questions.js"></script>\n<script src="./standalone-data/themes.js"></script>\n<script>`);
 }
+// 本地 JS/CSS 引用附加构建版本戳，避免浏览器复用旧缓存
+injected = stampLocalAssets(injected, ASSET_VER);
 const finalHtml = injected;
 
 const outPath = resolve(ROOT, 'cn-primary-taxonomy-split.html');

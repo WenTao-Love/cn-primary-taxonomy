@@ -20,6 +20,20 @@ const ROOT = __dirname;
 const DATA_DIR = resolve(ROOT, 'data');
 const SHARED_DATA_DIR = resolve(ROOT, 'shared', 'data');
 
+// 构建版本戳：附加到产物中的本地 JS/CSS 引用上，杜绝浏览器复用旧缓存
+const ASSET_VER = String(Date.now());
+
+/**
+ * 给 HTML 中指向本地文件的 js/css 引用附加 ?v=<ver>（CDN/data: 链接跳过）
+ */
+function stampLocalAssets(html, ver) {
+  return html.replace(/((?:src|href)\s*=\s*["'])([^"']+?\.)(js|css)(["'])/g,
+    (m, pre, path, ext, q) => {
+      if (/^(https?:)?\/\//i.test(path) || path.startsWith('data:') || path.includes('?')) return m;
+      return `${pre}${path}${ext}?v=${ver}${q}`;
+    });
+}
+
 // 解析命令行参数
 const args = process.argv.slice(2);
 const BUILD_STANDALONE = args.includes('--standalone');
@@ -192,6 +206,9 @@ window.__CNPT_THEMES__ = ${JSON.stringify(themesData).replace(/</g, '\\u003c')};
       output = output.replace(/(["'])css\//g, `$1${entry.dir}/css/`);
       // 3. js/xxx.js → {dir}/js/xxx.js (针对角色JS文件)
       output = output.replace(/(["'])js\//g, `$1${entry.dir}/js/`);
+      // 4. 本地 JS/CSS 引用附加构建版本戳，避免浏览器复用旧缓存（实测踩坑：
+      //    外部脚本更新后页面仍执行缓存旧版，导致新功能"看起来没生效"）
+      output = stampLocalAssets(output, ASSET_VER);
 
       const outFileName = `cn-primary-taxonomy-${entry.id}.html`;
       const outPath = resolve(ROOT, outFileName);
@@ -241,7 +258,8 @@ for (const outFile of standaloneOutputs) {
       const ref = m[1];
       if (ref.startsWith('http') || ref.startsWith('#')) continue;
       validationChecked++;
-      if (!existsSync(resolve(ROOT, ref))) {
+      const refPath = ref.split('?')[0]; // 去掉构建版本戳再校验文件存在性
+      if (!existsSync(resolve(ROOT, refPath))) {
         console.log(`   ⚠️ ${outFile}: 断链 ${ref}`);
         validationIssues++;
       }

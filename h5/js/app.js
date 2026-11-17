@@ -1842,4 +1842,10 @@
   window._h5StartRcd = function(id) { openRcdPicker(id); };
   window._h5ViewPath = function(id) { viewPath(id); };
 
-  // ==================== Start ============
+  // ==================== Start ====================
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

@@ -11,6 +11,20 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const H5_DIR = resolve(__dirname);
 
+// 构建版本戳：附加到产物中的本地 JS/CSS 引用上，杜绝浏览器复用旧缓存
+const ASSET_VER = String(Date.now());
+
+/**
+ * 给 HTML 中指向本地文件的 js/css 引用附加 ?v=<ver>（CDN/data: 链接跳过）
+ */
+function stampLocalAssets(html, ver) {
+  return html.replace(/((?:src|href)\s*=\s*["'])([^"']+?\.)(js|css)(["'])/g,
+    (m, pre, path, ext, q) => {
+      if (/^(https?:)?\/\//i.test(path) || path.startsWith('data:') || path.includes('?')) return m;
+      return `${pre}${path}${ext}?v=${ver}${q}`;
+    });
+}
+
 console.log('🚀 开始构建 CN-Primary-Taxonomy H5 版本...\n');
 
 // 读取数据
@@ -111,6 +125,8 @@ output = output.replace(/\.\.\/shared\//g, 'shared/');
 output = output.replace(/(["'])css\//g, '$1h5/css/');
 // 3. js/xxx.js → h5/js/xxx.js
 output = output.replace(/(["'])js\//g, '$1h5/js/');
+// 4. 本地 JS/CSS 引用附加构建版本戳，避免浏览器复用旧缓存
+output = stampLocalAssets(output, ASSET_VER);
 
 writeFileSync(outPath, '\uFEFF' + output, 'utf8');
 

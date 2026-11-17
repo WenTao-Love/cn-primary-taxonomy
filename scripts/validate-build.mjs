@@ -48,7 +48,7 @@ for (const file of standaloneFiles) {
       console.log(`   🌐 ${src} (外部CDN，跳过)`);
       continue;
     }
-    const resolved = resolve(ROOT, src);
+    const resolved = resolve(ROOT, src.split('?')[0]); // 忽略构建版本戳
     if (!existsSync(resolved)) {
       totalIssues++;
       console.log(`   ❌ ${src} - 文件不存在!`);
@@ -64,7 +64,7 @@ for (const file of standaloneFiles) {
       console.log(`   🌐 ${href} (外部CDN，跳过)`);
       continue;
     }
-    const resolved = resolve(ROOT, href);
+    const resolved = resolve(ROOT, href.split('?')[0]); // 忽略构建版本戳
     if (!existsSync(resolved)) {
       totalIssues++;
       console.log(`   ❌ ${href} - 文件不存在!`);
