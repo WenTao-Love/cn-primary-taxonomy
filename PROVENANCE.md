@@ -1,7 +1,7 @@
 # PROVENANCE · 上游来源与授权声明
 
 > 本文件记录 `cn-primary-taxonomy`（CN-Primary-Taxonomy）的上游数据来源、授权条款与署名要求。
-> 最后更新：2026-11-16。
+> 最后更新：2026-11-17。
 
 ## 1. 上游数据来源
 
@@ -36,6 +36,29 @@
   - 用途：大规模图渲染器调研。
   - 结论：本项目 4275 节点规模无需引入更重渲染器，沿用 D3 + 学科聚合/大图降级（见 `docs/DESIGN.md` 5.6.7）；**未引入 vendor**。
 - **其他调研来源**（16 项分类清单）：Anki/SuperMemo、LangChain/LlamaIndex、Obsidian 图谱视图、Neo4j、ECharts/D3/G6 等，作为架构与交互参照，未直接引入代码。完整清单与落地结果见 [docs/开源项目借鉴反哺报告-第三批.md](docs/开源项目借鉴反哺报告-第三批.md)。
+
+### 1.4 开源业界借鉴（v2.3，2026-11-17）
+
+- **CAHLR/pyBKT**（方法参照）
+  - 仓库：`CAHLR/pyBKT`（GitHub，`pip install pyBKT`）。
+  - 用途：BKT 掌握概率校准口径（pInit/pLearn/pGuess/pSlip、AUC/MAE、题目区分度）。
+  - 落地：`scripts/evaluate-diagnostic.mjs` 自研轻量 BKT 与评测口径，**未引入其代码**。
+- **pykt-team/pykt-toolkit**（方法参照）
+  - 仓库：`pykt-team/pykt-toolkit`（MIT）。
+  - 用途：知识追踪基准方法论（统一预处理、留出评估、AUC 口径）。
+  - 落地：评测脚本的留出评估与可复现种子设计参照其方法论，**未引入其代码**。
+- **ManimCommunity/manim**（方法参照）
+  - 仓库：`ManimCommunity/manim`（MIT，3b1b/manim 原版已不维护）。
+  - 用途：「分步演示 + 状态驱动」的动画思路。
+  - 落地：`shared/js/components/visual-models.js` 的「自动演示」交互，**未引入其代码**。
+- **antvis/G6**（候选，未引入）
+  - 仓库：`antvis/G6`（MIT）。
+  - 用途：分层 DAG 布局 / Combo 折叠 / 大图渲染候选。
+  - 结论：当前 4275 节点规模暂不引入，沿用 D3 + 聚合降级（见 `docs/DESIGN.md` 5.6.7 与 `docs/开源项目借鉴反哺报告-第四批.md` 6.2）。
+- **open-spaced-repetition/fsrs-rs**（公式参照）
+  - 仓库：`open-spaced-repetition/fsrs-rs`。
+  - 用途：FSRS-6 官方公式与 17→21 参数迁移规则。
+  - 落地：`scripts/evaluate-fsrs-v6.mjs` 按公开公式自研实现，**未引入其代码**；线上引擎仍FSRS-4，未切换。
 
 ## 2. 授权条款（多层）
 

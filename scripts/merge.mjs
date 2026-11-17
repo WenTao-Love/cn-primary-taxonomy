@@ -179,10 +179,20 @@ const datasets = topicFiles.map(name => ({
   data: JSON.parse(readFileSync(resolve(DATA, name), 'utf8'))
 }));
 
-const all = datasets.flatMap(item => item.data.topics).map(topic => ({
-  ...topic,
-  resources: normalizeResources(topic)
-}));
+// 只合并「知识点集合」文件；增强字段类文件（topics-enhanced-fields*.json）
+// 的结构是 { enhancedTopics: [...] }，由 enrich-topics / validate 单独消费。
+const skipped = datasets.filter(d => !Array.isArray(d.data && d.data.topics)).map(d => d.file);
+if (skipped.length) {
+  console.error(`⚠ 跳过非知识点集合文件: ${skipped.join(', ')}`);
+}
+
+const all = datasets
+  .filter(item => Array.isArray(item.data && item.data.topics))
+  .flatMap(item => item.data.topics)
+  .map(topic => ({
+    ...topic,
+    resources: normalizeResources(topic)
+  }));
 
 // 检查ID唯一性
 const ids = new Set();
