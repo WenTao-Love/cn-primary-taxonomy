@@ -48,7 +48,11 @@
         source: dep.prerequisiteId,
         target: dep.topicId,
         strength: dep.strength,
-        reason: dep.reason
+        reason: dep.reason,
+        // 可解释边字段（enrich-edge-explanations.mjs 派生）
+        category: dep.category || null,
+        explain: dep.explain || null,
+        explainSource: dep.explainSource || null
       };
       if (indices.incomingMap.has(dep.topicId)) {
         indices.incomingMap.get(dep.topicId).push(edge);

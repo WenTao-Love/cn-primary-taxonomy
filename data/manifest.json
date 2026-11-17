@@ -2,7 +2,7 @@
   "dataset": "CN-Primary-Taxonomy",
   "datasetNameCn": "中国小学教育知识图谱",
   "taxonomyVersion": "v0.7-expanded",
-  "generatedAt": "2026-11-15T23:46:57.685Z",
+  "generatedAt": "2026-11-17T03:06:26.386Z",
   "basedOn": "Marble Skill Taxonomy v1 (https://github.com/withmarbleapp/os-taxonomy)",
   "country": "CN",
   "grades": [
@@ -39,12 +39,12 @@
   },
   "files": {
     "topics.json": {
-      "bytes": 18298743,
-      "sha256": "5e523684166743738c44c1653760b8f9575050dd99b824575008f88d78600c8e"
+      "bytes": 15391084,
+      "sha256": "d6c407cd06e9cef04d997b8e47cb8ed53975e111ce102404a3db78e7088c8054"
     },
     "dependencies.json": {
-      "bytes": 1136068,
-      "sha256": "9f1768137c9967877e135070cfdb02e746d8a6beed1684ace4e666d5c5df8ae1"
+      "bytes": 2507011,
+      "sha256": "a9032a356e722dbb0ed993a7dcad235e500224191718daac06dc71aa9d440247"
     },
     "curriculum-standards.json": {
       "bytes": 55542,

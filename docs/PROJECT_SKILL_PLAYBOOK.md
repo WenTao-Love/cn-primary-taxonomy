@@ -156,12 +156,21 @@
 
 ```bash
 node scripts/merge.mjs
+node scripts/compute-centrality.mjs
+node scripts/enrich-topics.mjs
 node scripts/generate-dependencies.mjs
+node scripts/enrich-edge-explanations.mjs   # 可解释边：category/explain/explainSource
 node scripts/generate-manifest.mjs
 node scripts/validate.mjs
 
 # 依赖质量评测（重复边/对称边/度分布/最长链/枢纽）
 node scripts/evaluate-dependencies.mjs
+
+# 诊断引擎离线基准（gap 检测/BKT 校准/题目区分度）
+node scripts/evaluate-diagnostic.mjs
+
+# FSRS-6 升级评估（官方公式 + 17→21 迁移对比）
+node scripts/evaluate-fsrs-v6.mjs
 
 # FSRS 引擎回归测试（11 项）
 node scripts/test-fsrs-engine.mjs
@@ -183,10 +192,15 @@ node scripts/validate-build.mjs
 
 ```bash
 node scripts/merge.mjs
+node scripts/compute-centrality.mjs
+node scripts/enrich-topics.mjs
 node scripts/generate-dependencies.mjs
+node scripts/enrich-edge-explanations.mjs
 node scripts/generate-manifest.mjs
 node scripts/validate.mjs
 node scripts/evaluate-dependencies.mjs
+node scripts/evaluate-diagnostic.mjs
+node scripts/evaluate-fsrs-v6.mjs
 node scripts/test-fsrs-engine.mjs
 node build.mjs --standalone
 node scripts/build-standalone.mjs
@@ -217,6 +231,8 @@ node scripts/validate-build.mjs
 - 数据已经变了，README 还写旧数字
 - 交互已经变了，DESIGN 还写旧布局
 - 团队已经形成新约束，但 memory 没更新
+- 新增评测脚本（evaluate-*）或模型后，PLAYBOOK 3.1/3.3 工作流与 DESIGN 模型清单未同步
+- 可解释边（category/explain/explainSource）变更后，schema 与 validate 未同步
 
 ### 4.4 教育管理者视角高风险
 

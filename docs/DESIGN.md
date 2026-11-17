@@ -451,7 +451,8 @@ function celebrateStar() {
 
 ### 5.6.2 交互模型（`shared/js/components/visual-models.js`）
 
-- **四个 SVG 交互模型**：分数条（分子/分母滑块 + ×2 等值 ÷2 约分 + 与 1/2 比较）、数轴（拖拽读数，多量程与刻度）、三角形内角（拖顶点实时显示内角与和恒 180°）、正方体展开图（点面显示相对面）。
+- **六个 SVG 交互模型**：分数条（分子/分母滑块 + ×2 等值 ÷2 约分 + 与 1/2 比较）、数轴（拖拽读数，多量程与刻度）、三角形内角（拖顶点实时显示内角与和恒 180°）、正方体展开图（点面显示相对面）、**角的度量**（量角器刻度 + 拖拽端点 + 角的类型/补角 + 自动演示 0°→180°）、**小数的意义**（十乘十方格 + 十分位/百分位滑块 + 读数换算 + 演示 0→0.99）。
+- **动画销毁硬约束**：所有带动画的模型统一走 `createAnimHost()`（登记 rAF/定时器）与 `createAnimRef()`；`render()` 开头 `stopActiveAnim()`；`node-detail.js` 在组装 HTML 前调用 `visualModels.stop()`。新增动画必须提供销毁路径（PLAYBOOK 4.2 高风险）。
 - **挂接方式**：`scripts/enrich-topics.mjs` 的 `MODEL_REFS` 把 `modelRef` 写入 14 个数学主题；`node-detail.js` 的 `modelHtml` 与 `student.js` 在详情中渲染 `.cnpt-vm-slot` 并调用 `visualModels.render`。
 - **设计原则**（来自文章 08）：网负责「知道考什么」、模型负责「看见为什么」，先网后模型；模型为可选增强，不阻塞学习流程。
 
@@ -486,6 +487,14 @@ function celebrateStar() {
 - **大图降级**：边数 > 500 只画 hard 依赖；标签显示阈值 500（聚合态必显示）；碰撞半径按节点数 6/9/12 自适应；模拟默认 8s 后停止。
 - **实测**：教师版 core 层 1300 节点 → 聚合 11 个学科（数学 837 / 语文 137 / 英语 224 / …）；点击数学下钻 837 节点；返回总览恢复。
 - **阈值配置**：`MAX_RENDER_NODES = { core: 1300, detail: 900, aggregate: 900 }`。
+- **图渲染候选（v2.3）**：评估 AntV G6（dagre 分层布局 / Combo 折叠 / WebGL 插件），结论为当前 4275 节点规模**暂不引入**，沿用 D3 + 聚合降级；若节点增至数万或需分层折叠视图再评估（见 `docs/开源项目借鉴反哺报告-第四批.md` 6.2）。
+
+### 5.6.8 可解释边与反向链接（v2.3）
+
+- **数据层**：`scripts/enrich-edge-explanations.mjs` 对全部依赖边派生 `category`（九类：概念理解/技能操作/计算能力/空间观念/量感与单位/阅读表达/工具使用/常识经验/其他）、`explain`（「T」依赖「P」：类别前提。+ 原因）、`explainSource`（`rule-derived` / `curated`）；`validate.mjs` 校验枚举与长度并报告分布，schema `additionalProperties:false` 同步。
+- **页面层**（`node-detail.js`）：前置链路展示类别 chip + 具体原因 + 「N 个直接前置 · 不补会听不懂」/「N 个 · 有基础更轻松」；后续链路展示「被 N 个知识点依赖」，超过 5 个折叠进 `<details>`。
+- **浏览器端字段链路**：`shared/js/core/indices.js` 构造 edge 时必须保留 `category/explain/explainSource`，否则页面 chip 不显示（已修复并复验）。
+- **定位**：把 `reason` 从自由文本升级为语义化、可统计、可精修的边属性，为后续路径代价函数与边质量评测打底。
 
 ## 六、后续路线图
 
