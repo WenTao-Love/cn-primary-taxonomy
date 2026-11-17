@@ -534,6 +534,15 @@ function celebrateStar() {
 - **路径图**：`getPathGraphData` 从 `remedialPath` 提取节点（含 `isRoot`/`isTarget`）与路线内边（强度取自依赖图），按拓扑深度分层（目标=0，前置递增，最长链）；`renderPathGraphSVG` 输出自绘 SVG：目标橙框、根因/薄弱红框、不稳黄底，hard 实线 / soft 虚线，节点名超 7 字截断、悬停显示全称。不引第三方库。
 - **盲区再测**：报告页在 `untestedCount > 0` 时显示「🧪 盲区再测」，点击调用 `expandUntested(session)`：清空未测列表 → 未测点重新入队（priority 3）→ 上限放宽为 `已答数 + 未测数 + 5` → 回到答题流程；续测完成报告 id 加 `-rN` 后缀。
 
+### 5.7.6 跨学科主题研修（国防教育 / 国家安全 / 挫折与意志）
+
+- **定位**：把散落在各学科的同一主题知识点串成一条学习线，作为跨学科主题学习的落地入口；**不新增知识点**，只做挂接、路线与导航。
+- **数据**：`data/themes.json`（3 主题 23 点）：`defense-education`（5 点，家乡/国家象征/爱国情感）、`national-security`（10 点，信息/网络/国家主权）、`resilience-will`（8 点，挫折/意志/坚持）。字段：`id/name/icon/intro/objectives/activities/topics/gaps`；`topics` 为现有知识点 id（以母点为主），`gaps` 为待补内容缺口。
+- **组件**：`shared/js/components/theme-learning.js`（IIFE + `CNPT.themeLearning.create(role)`）：`getThemes / getTheme / topicsOf / buildThemePath / stats / list`；`buildThemePath` 用 `CNPT.path.topologicalSort` 对主题点排序并补充名称/学科/年级/状态。
+- **端侧**：学生版 `#btn-theme` → `#theme-modal`（列表 → 详情 → 「开始主题学习」→ 关闭弹层并 `showTopicDetail(first)`）；H5 同构（`showNodeDetail`）。主题挂接点多为道法/信息科技母点、几乎无随堂题，因此闭环走**详情页**（查看内容 + 标记掌握），不依赖自动生成练习。
+- **注入**：4 个构建脚本统一注入 `window.__CNPT_THEMES__`；split 版另生成 `standalone-data/themes.js`。
+- **测试**：`scripts/test-themes.mjs` 16 项（数据完整性、关联点存在、组件 API、未知主题空路径）。
+
 ## 六、后续路线图
 
 - **v0.8.x**：把当前"主干映射版"继续加密为教材章节级 / 课时级 / 题型级颗粒度，并推广到更多非主科；同时把外部资源接入升级为逐单元精选题单、资源组键、资源ID和外部作品ID直链治理，并用缓存/停布局/卸载清理/旧 zoom 与 simulation 回收/隐藏态整图休眠/`requestAnimationFrame` tick 节流/布局结束主动释放实例引用等手段持续压低页面常驻负载；把年级/学科/版本筛选改造为右侧边栏可搜索的多选下拉式交互，并将知识点搜索与图谱状态提示也收拢进右侧；继续把标题、副标题、统计概览也移入右侧工作台，并为多选下拉增加"全选 / 反选 / 清空"，同时允许右侧整栏展开 / 折叠，以兼顾筛选效率与主图谱展示空间；继续把图谱解释层从"工程可读"往"家长可读"收敛，新增右侧阅读指引、节点级"先补什么 / 建议补什么 / 学稳后带动什么"摘要，以及面向家长的 Bot 结果结构，尽量把 DAG 关系翻译成可执行的辅导动作

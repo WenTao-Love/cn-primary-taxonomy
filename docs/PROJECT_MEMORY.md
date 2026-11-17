@@ -510,6 +510,17 @@
 - **测试**：`test-root-cause-diagnosis.mjs` 11 → **20 项**（新增盲区再测 5 项、路径图 4 项），20/20 ✅。
 - **端侧**：`student-web/js/student.js`、`h5/js/app.js` 报告页新增路径图块与「🧪 盲区再测」按钮；两端 CSS 新增 `.rcd-graph`。
 
+### 9.16.2 主题研修落地 + 构建缓存版本戳（同日）
+
+> 用户就「国防教育 / 国家安全 / 挫折与意志」类主题提出反思，要求把这类主题在小学图谱里梳理并落成项目里具体的东西。
+
+- **挂接梳理**：23 个现有知识点挂接（5/10/8），均为各学科母点，**未新建知识点**；主题内顺序由 `CNPT.path.topologicalSort` 决定。详见 `DESIGN.md` 5.7.6。
+- **内容缺口**：写入 `data/themes.json` 的 `gaps` 字段并在详情页可见（如低年级国防教育缺具象活动载体、国家安全缺信息素养分层、挫折与意志缺可量化的坚持性任务）。
+- **模块落地**：数据 `data/themes.json` + 共享组件 `shared/js/components/theme-learning.js` + 学生版/H5 双端入口（`#btn-theme` / `#theme-modal`）+ 详情页闭环（`showTopicDetail` / `showNodeDetail`）；`scripts/test-themes.mjs` **16/16 ✅**。
+- **实测**：学生端 3 主题列表 → 国防教育详情（路线 5 点）→ 「开始主题学习」→ 详情页「了解家乡和中华传统文化」✅；H5 同链路（`#node-detail-sheet` 打开）✅。
+- **排障**：实测一度出现「theme-start 无反应」，根因是**浏览器 HTTP 缓存**复用旧 `student.js`（`performance.getEntriesByType('resource')` 的 `transferSize=0` 佐证），非功能缺陷。
+- **构建缓存版本戳**：`build.mjs` / `h5/build-h5.mjs` / `scripts/build-standalone.mjs` / `scripts/build-split-standalone.mjs` 统一为产物中本地 JS/CSS 引用附加 `?v=<构建时间戳>`（`stampLocalAssets`，跳过 CDN/data:）；两处产物校验（`build.mjs` 步骤3、`scripts/validate-build.mjs`）解析引用时先去掉 query。杜绝「脚本更新后页面仍执行旧版」。
+
 ### 9.17 v2.3 开源业界借鉴反哺：诊断离线评测 + 可解释边 + 模型升级/FSRS-6 评估 ✅（2026-11-17）
 
 **来源与调研**

@@ -107,6 +107,23 @@ node scripts/test-root-cause-diagnosis.mjs   # 20 项：目标优先/薄弱掌�
 - 浏览器有缓存：验证新 HTML/JS/CSS 是否生效，以桥接函数或新样式存在为准，必要时给资源加时间戳破缓存。
 - 用移动视口实测：今日学习台 `#btn-rcd` 入口 + 详情预设目标 + 弹层答题 + 报告补学跳转。
 
+## 2.6.1 主题研修相关任务（v2.4）
+
+> 组件：`shared/js/components/theme-learning.js`；数据：`data/themes.json`；测试：`scripts/test-themes.mjs`。
+
+**跑回归测试**
+
+```bash
+node scripts/test-themes.mjs   # 16 项：数据完整性/关联点存在/组件 API/未知主题空路径
+```
+
+**端侧接入（学生版 / H5）**
+
+1. 入口：`#btn-theme`（学生版今日学习台 / H5 学习页），弹层 `#theme-modal`。
+2. 流程：列表（3 主题 + 已掌握数）→ 详情（简介/目标/路线/活动/缺口）→ 「开始主题学习」→ 关弹层并打开第一个未掌握点详情（`showTopicDetail` / `showNodeDetail`）。
+3. 约束：主题点必须是既有 id，顺序走 `CNPT.path.topologicalSort`；缺口必须展示（`gaps`），禁止伪造练习。
+4. 实测注意：验证闭环时确认详情页确实打开（缓存会复现"点了没反应"的假象）。
+
 ## 2.7 教育管理者视角操作手册
 
 > 本节专为教育管理者/教育局工作人员设计，介绍如何建设性使用知识图谱系统辅助管理决策

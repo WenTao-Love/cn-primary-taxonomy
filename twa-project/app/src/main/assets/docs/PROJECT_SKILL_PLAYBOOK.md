@@ -107,6 +107,23 @@ node scripts/test-root-cause-diagnosis.mjs   # 20 项：目标优先/薄弱掌�
 - 浏览器有缓存：验证新 HTML/JS/CSS 是否生效，以桥接函数或新样式存在为准，必要时给资源加时间戳破缓存。
 - 用移动视口实测：今日学习台 `#btn-rcd` 入口 + 详情预设目标 + 弹层答题 + 报告补学跳转。
 
+## 2.6.1 主题研修相关任务（v2.4）
+
+> 组件：`shared/js/components/theme-learning.js`；数据：`data/themes.json`；测试：`scripts/test-themes.mjs`。
+
+**跑回归测试**
+
+```bash
+node scripts/test-themes.mjs   # 16 项：数据完整性/关联点存在/组件 API/未知主题空路径
+```
+
+**端侧接入（学生版 / H5）**
+
+1. 入口：`#btn-theme`（学生版今日学习台 / H5 学习页），弹层 `#theme-modal`。
+2. 流程：列表（3 主题 + 已掌握数）→ 详情（简介/目标/路线/活动/缺口）→ 「开始主题学习」→ 关弹层并打开第一个未掌握点详情（`showTopicDetail` / `showNodeDetail`）。
+3. 约束：主题点必须是既有 id，顺序走 `CNPT.path.topologicalSort`；缺口必须展示（`gaps`），禁止伪造练习。
+4. 实测注意：验证闭环时确认详情页确实打开（缓存会复现"点了没反应"的假象）。
+
 ## 2.7 教育管理者视角操作手册
 
 > 本节专为教育管理者/教育局工作人员设计，介绍如何建设性使用知识图谱系统辅助管理决策
@@ -179,12 +196,21 @@ node scripts/test-root-cause-diagnosis.mjs   # 20 项：目标优先/薄弱掌�
 
 ```bash
 node scripts/merge.mjs
+node scripts/compute-centrality.mjs
+node scripts/enrich-topics.mjs
 node scripts/generate-dependencies.mjs
+node scripts/enrich-edge-explanations.mjs   # 可解释边：category/explain/explainSource
 node scripts/generate-manifest.mjs
 node scripts/validate.mjs
 
 # 依赖质量评测（重复边/对称边/度分布/最长链/枢纽）
 node scripts/evaluate-dependencies.mjs
+
+# 诊断引擎离线基准（gap 检测/BKT 校准/题目区分度）
+node scripts/evaluate-diagnostic.mjs
+
+# FSRS-6 升级评估（官方公式 + 17→21 迁移对比）
+node scripts/evaluate-fsrs-v6.mjs
 
 # FSRS 引擎回归测试（11 项）
 node scripts/test-fsrs-engine.mjs
@@ -206,10 +232,15 @@ node scripts/validate-build.mjs
 
 ```bash
 node scripts/merge.mjs
+node scripts/compute-centrality.mjs
+node scripts/enrich-topics.mjs
 node scripts/generate-dependencies.mjs
+node scripts/enrich-edge-explanations.mjs
 node scripts/generate-manifest.mjs
 node scripts/validate.mjs
 node scripts/evaluate-dependencies.mjs
+node scripts/evaluate-diagnostic.mjs
+node scripts/evaluate-fsrs-v6.mjs
 node scripts/test-fsrs-engine.mjs
 node build.mjs --standalone
 node scripts/build-standalone.mjs
@@ -240,6 +271,8 @@ node scripts/validate-build.mjs
 - 数据已经变了，README 还写旧数字
 - 交互已经变了，DESIGN 还写旧布局
 - 团队已经形成新约束，但 memory 没更新
+- 新增评测脚本（evaluate-*）或模型后，PLAYBOOK 3.1/3.3 工作流与 DESIGN 模型清单未同步
+- 可解释边（category/explain/explainSource）变更后，schema 与 validate 未同步
 
 ### 4.4 教育管理者视角高风险
 

@@ -277,6 +277,19 @@
 
 ```bash
 node scripts/test-root-cause-diagnosis.mjs   # 根因诊断回归（20 项）
+node scripts/test-themes.mjs                 # 主题研修回归（16 项）
 node scripts/test-fsrs-engine.mjs            # FSRS 回归（11 项）
 node scripts/validate-build.mjs             # 构建产物引用完整性
 ```
+
+### 12.4 跨学科主题研修
+
+- 主题数据只放 `data/themes.json`，`topics` 必须是既有知识点 id（禁止为主题新建变体点）；主题内顺序统一走 `CNPT.path.topologicalSort`，端侧不得自行排序或另存一份顺序。
+- 主题挂接点通常无随堂题，闭环走**详情页**（查看内容 + 标记掌握）；禁止为主题伪造练习或自动生成题目。
+- 内容缺口必须写入 `gaps` 字段并在详情页可见（如实呈现「待补」），不得静默省略。
+
+### 12.5 构建产物缓存治理
+
+- 4 个构建脚本（`build.mjs` / `h5/build-h5.mjs` / `scripts/build-standalone.mjs` / `scripts/build-split-standalone.mjs`）统一用 `stampLocalAssets` 为产物中本地 JS/CSS 引用附加 `?v=<构建时间戳>`；CDN / data: 链接跳过。
+- 校验脚本解析引用时必须先去掉 query 再判断文件存在，禁止把 `?v=` 当文件名。
+- 该机制用于杜绝「脚本更新后页面仍执行浏览器缓存旧版」；新增构建脚本必须沿用同一机制。

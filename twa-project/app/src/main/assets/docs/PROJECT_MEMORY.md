@@ -509,3 +509,54 @@
 - **盲区再测**：`expandUntested(session, extraBudget)` 把「未测」点重新入队续测，上限自动放宽（已答数 + 未测数 + 5），续测报告 id 带 `-r1`。实测说明：15 题上限下单目标前置链基本可覆盖，「未测」自然出现少，按钮多数时候隐藏（符合设计）；逻辑由回归测试覆盖。
 - **测试**：`test-root-cause-diagnosis.mjs` 11 → **20 项**（新增盲区再测 5 项、路径图 4 项），20/20 ✅。
 - **端侧**：`student-web/js/student.js`、`h5/js/app.js` 报告页新增路径图块与「🧪 盲区再测」按钮；两端 CSS 新增 `.rcd-graph`。
+
+### 9.16.2 主题研修落地 + 构建缓存版本戳（同日）
+
+> 用户就「国防教育 / 国家安全 / 挫折与意志」类主题提出反思，要求把这类主题在小学图谱里梳理并落成项目里具体的东西。
+
+- **挂接梳理**：23 个现有知识点挂接（5/10/8），均为各学科母点，**未新建知识点**；主题内顺序由 `CNPT.path.topologicalSort` 决定。详见 `DESIGN.md` 5.7.6。
+- **内容缺口**：写入 `data/themes.json` 的 `gaps` 字段并在详情页可见（如低年级国防教育缺具象活动载体、国家安全缺信息素养分层、挫折与意志缺可量化的坚持性任务）。
+- **模块落地**：数据 `data/themes.json` + 共享组件 `shared/js/components/theme-learning.js` + 学生版/H5 双端入口（`#btn-theme` / `#theme-modal`）+ 详情页闭环（`showTopicDetail` / `showNodeDetail`）；`scripts/test-themes.mjs` **16/16 ✅**。
+- **实测**：学生端 3 主题列表 → 国防教育详情（路线 5 点）→ 「开始主题学习」→ 详情页「了解家乡和中华传统文化」✅；H5 同链路（`#node-detail-sheet` 打开）✅。
+- **排障**：实测一度出现「theme-start 无反应」，根因是**浏览器 HTTP 缓存**复用旧 `student.js`（`performance.getEntriesByType('resource')` 的 `transferSize=0` 佐证），非功能缺陷。
+- **构建缓存版本戳**：`build.mjs` / `h5/build-h5.mjs` / `scripts/build-standalone.mjs` / `scripts/build-split-standalone.mjs` 统一为产物中本地 JS/CSS 引用附加 `?v=<构建时间戳>`（`stampLocalAssets`，跳过 CDN/data:）；两处产物校验（`build.mjs` 步骤3、`scripts/validate-build.mjs`）解析引用时先去掉 query。杜绝「脚本更新后页面仍执行旧版」。
+
+### 9.17 v2.3 开源业界借鉴反哺：诊断离线评测 + 可解释边 + 模型升级/FSRS-6 评估 ✅（2026-11-17）
+
+**来源与调研**
+- 调研截止 2026-11-17，聚焦第三批遗留的三个重点难点；清单与证据见 [docs/开源项目借鉴反哺报告-第四批.md](开源项目借鉴反哺报告-第四批.md)。
+- pyBKT（CAHLR/pyBKT）：BKT 四参数 + AUC/MAE 校准口径；pyKT（pykt-team/pykt-toolkit，MIT）：留出评估与可复现基准方法论。均为方法参照，**未引入代码**。
+- Manim（ManimCommunity/manim）：分步演示思路，用于交互模型的「自动演示」。
+- AntV G6：分层 DAG/Combo 折叠候选，结论**暂不引入**（当前规模用 D3 + 聚合降级足够）。
+- fsrs-rs（FSRS-6 官方 Rust 实现）：公式与 17→21 迁移规则参照，**未引入代码**。
+
+**P1 诊断引擎离线评测（新增）**
+- `scripts/evaluate-diagnostic.mjs` + `reports/diagnostic-benchmark.json`：合成数据（种子 42，3000 名学生）下引擎 gap 检测（无噪声 F1 1；8% 噪声 F1 0.952；分学科数学 0.9551/语文 0.941/科学 0.94/英语 0.9547）、BKT 掌握概率校准（65 主题/195,000 观测，AUC 0.8186、MAE 0.2837）、题目区分度（basic 0.7194/medium 0.6025/hard 0.4831）。
+- 告警：735 道诊断题中 189 个 topicId 不在 topics.json（孤儿引用，待清理）。
+
+**P2 可解释边 + 反向链接（新增）**
+- `scripts/enrich-edge-explanations.mjs`：4191/4191 边派生 `category`（九类）/`explain`/`explainSource`（rule-derived）；`validate.mjs` 三条 check + 分布报告；schema 同步 `additionalProperties:false`。
+- `node-detail.js`：前置链路 chip + 原因 + 「N 个直接前置 · 不补会听不懂」/「N 个 · 有基础更轻松」；后续「被 N 个知识点依赖」，>5 个折叠。
+- `shared/js/core/indices.js`：edge 构造补 `category/explain/explainSource`（浏览器端 chip 不显示的根因修复）。
+- 浏览器实测（家长版 standalone）：ct_SX2S020 chip 3 个 + 副标题正确；ct_YW2S032（8 后续）折叠文案正确。
+
+**P3 交互模型 + G6 + FSRS-6（新增/升级）**
+- `visual-models.js` 新增 `angle-protractor`（量角器 + 自动演示 0°→180°）与 `decimal-grid`（十乘十方格 + 演示 0→0.99）；模型清单 6 个、挂接 14 主题（`enrich-topics.mjs` MODEL_REFS）。
+- 动画基础设施：`createAnimHost()`（rAF/定时器统一登记，stop 一次销毁）、`createAnimRef()`；`render()` 开头 `stopActiveAnim()`；`node-detail.js` 组装前 `visualModels.stop()`。浏览器 mock 验证：点击演示注册 1 个 rAF/1 个 setInterval，stop 后各 cancel/clear 1 次，切换知识点 stop 调用 3 次。
+- `scripts/evaluate-fsrs-v6.mjs` + `reports/fsrs-v6-evaluation.json`：按 fsrs-rs 官方公式实现 FSRS-6（21 参数）与 17→21 迁移；两环境平均 logLoss FSRS-4 0.2691 / FSRS-6 官方 0.2592 / 迁移版 0.2798；RMSE 0.0817/0.0436/0.0849；AUC 0.5468/0.5149/0.5242。结论：FSRS-6 官方默认最优但**未校准**，建议影子运行 + ≥50 条真实日志校准后再切换；**线上仍 FSRS-4**。
+
+**关键决策**
+- 诊断评测用合成口径（种子固定可复现），明确标注「不代表真实学生表现」。
+- 可解释边先做规则派生（rule-derived），人工精修（curated）列为后续。
+- G6 暂不引入；FSRS-6 只评估不切换。
+- 新增动画必须带销毁路径（PLAYBOOK 4.2）。
+
+**验证（实测）**
+- 数据：`validate.mjs` ✓（可解释边 4191/4191）；`evaluate-dependencies` ✓；`evaluate-diagnostic` ✓（1 条孤儿告警）；`evaluate-fsrs-v6` ✓；`test-fsrs-engine` 11/11 ✓。
+- 构建：`build.mjs --standalone` / `build-standalone` / `build-split-standalone` / `validate-build` 全 EXIT=0。
+- 浏览器：家长版 standalone 详情页 chip/折叠/两个新模型渲染与动画销毁均通过（mock rAF/定时器验证）。
+
+**已知边界（诚实记录）**
+- 诊断题 189 个孤儿 topicId 未清理，诊断覆盖 384 个主题。
+- 可解释边 100% 为规则派生，未经人工逐条审核。
+- FSRS-6 未校准、未切换；G6 未引入。
