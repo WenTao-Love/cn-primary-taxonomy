@@ -621,7 +621,7 @@
       "id": "dq_SX3S015_03"
     },
     {
-      "topicId": "ct_SX3S030",
+      "topicId": "ct_SX3S042",
       "difficulty": "basic",
       "question": "长方形的长是8厘米，宽是5厘米，周长是多少？",
       "options": [
@@ -635,7 +635,7 @@
       "id": "dq_SX3S030_01"
     },
     {
-      "topicId": "ct_SX3S030",
+      "topicId": "ct_SX3S042",
       "difficulty": "medium",
       "question": "正方形的边长是6厘米，周长是多少？",
       "options": [
@@ -649,7 +649,7 @@
       "id": "dq_SX3S030_02"
     },
     {
-      "topicId": "ct_SX3S030",
+      "topicId": "ct_SX3S042",
       "difficulty": "hard",
       "question": "一个长方形的周长是24厘米，长是8厘米，宽是多少？",
       "options": [
@@ -1223,7 +1223,7 @@
       "id": "dq_SX6S002_02"
     },
     {
-      "topicId": "ct_SX6S010",
+      "topicId": "ct_SX6S017",
       "difficulty": "basic",
       "question": "圆的周长公式是（ ）",
       "options": [
@@ -1237,7 +1237,7 @@
       "id": "dq_SX6S010_01"
     },
     {
-      "topicId": "ct_SX6S010",
+      "topicId": "ct_SX6S017",
       "difficulty": "medium",
       "question": "半径3厘米的圆，周长是多少？（π取3.14）",
       "options": [
@@ -1251,7 +1251,7 @@
       "id": "dq_SX6S010_02"
     },
     {
-      "topicId": "ct_SX6S010",
+      "topicId": "ct_SX6S017",
       "difficulty": "hard",
       "question": "半径4厘米的圆，面积是多少？（π取3.14）",
       "options": [
@@ -5955,7 +5955,7 @@
       "id": "dq_SX4S022_02"
     },
     {
-      "topicId": "ct_SX5S025",
+      "topicId": "ct_SX5X025",
       "difficulty": "basic",
       "question": "折线统计图的优点是什么？",
       "options": [
@@ -5969,7 +5969,7 @@
       "id": "dq_SX5S025_01"
     },
     {
-      "topicId": "ct_SX5S025",
+      "topicId": "ct_SX5X025",
       "difficulty": "medium",
       "question": "如果折线向上，表示数量（ ）",
       "options": [
@@ -5983,7 +5983,7 @@
       "id": "dq_SX5S025_02"
     },
     {
-      "topicId": "ct_SX5S025",
+      "topicId": "ct_SX5X025",
       "difficulty": "hard",
       "question": "如果折线向下，表示数量（ ）",
       "options": [
@@ -6333,7 +6333,7 @@
       "id": "dq_YW2S009_02"
     },
     {
-      "topicId": "ct_YW2S011",
+      "topicId": "ct_YW2S033",
       "difficulty": "basic",
       "question": "照样子写句子：'小鸟飞上了天空。' → '小鸟（ ）飞上了天空。'",
       "options": [
@@ -6347,7 +6347,7 @@
       "id": "dq_YW2S011_01"
     },
     {
-      "topicId": "ct_YW2S011",
+      "topicId": "ct_YW2S033",
       "difficulty": "medium",
       "question": "照样子写句子：'太阳升起来了。' → '（ ）太阳升起来了。'",
       "options": [
@@ -8139,7 +8139,7 @@
       "id": "dq_YW2S013_02"
     },
     {
-      "topicId": "ct_YW2S014",
+      "topicId": "ct_YW2X064",
       "difficulty": "basic",
       "question": "写日记的格式不包括（ ）",
       "options": [
@@ -8153,7 +8153,7 @@
       "id": "dq_YW2S014_01"
     },
     {
-      "topicId": "ct_YW2S014",
+      "topicId": "ct_YW2X064",
       "difficulty": "medium",
       "question": "日记正文应该写（ ）",
       "options": [
@@ -9091,7 +9091,7 @@
       "id": "dq_KX4S018_01"
     },
     {
-      "topicId": "ct_KX5S018",
+      "topicId": "ct_KX5S001",
       "difficulty": "basic",
       "question": "细胞是生物体什么的基本单位？",
       "options": [
@@ -9105,7 +9105,7 @@
       "id": "dq_KX5S018_01"
     },
     {
-      "topicId": "ct_KX5S018",
+      "topicId": "ct_KX5S001",
       "difficulty": "medium",
       "question": "植物细胞与动物细胞最大的区别是植物细胞有（ ）",
       "options": [
@@ -9385,7 +9385,7 @@
       "id": "dq_SX2S048_02"
     },
     {
-      "topicId": "ct_SX2S049",
+      "topicId": "ct_SX2X075",
       "difficulty": "basic",
       "question": "下面哪个图形是轴对称图形？",
       "options": [
@@ -9399,7 +9399,7 @@
       "id": "dq_SX2S049_01"
     },
     {
-      "topicId": "ct_SX2S049",
+      "topicId": "ct_SX2X075",
       "difficulty": "medium",
       "question": "正方形有几条对称轴？",
       "options": [
@@ -9413,7 +9413,7 @@
       "id": "dq_SX2S049_02"
     },
     {
-      "topicId": "ct_SX2S049",
+      "topicId": "ct_SX2X075",
       "difficulty": "hard",
       "question": "圆有几条对称轴？",
       "options": [
@@ -10294,5 +10294,6 @@
       "explanation": "铜线能导电。",
       "id": "dq_KX3S031_03"
     }
-  ]
+  ],
+  "note": "已应用人工映射 18 题（备份 D:\\xwtwork\\xdemo\\cn-primary-taxonomy\\reports\\diagnostic-questions.backup-1795077921593.json）"
 }

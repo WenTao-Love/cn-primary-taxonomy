@@ -13,6 +13,9 @@
  * 混合调度：学习阶段（连续独立答对 ≤ LEARNING_STEPS 轮）沿用短间隔序列，
  * 之后进入 FSRS 复习阶段（按稳定性 S 计算天数）。业务规则（休眠/退役/错因台账）保持不变。
  * 存储版本：v3（v2 会自动迁移，nextReview 不变以避免排期突变）。
+ * 影子运行：若页面加载了 fsrs6-scheduler.js，每次作答会并行计算 FSRS-6 间隔，
+ *   记录在 card.shadow6 与 reviewLog 的 shadow6IntervalDays / shadow6Stability 字段，
+ *   只观察不改排期；统计见 getShadowStats()，离线消费见 scripts/evaluate-fsrs-v6.mjs --logs。
  *
  * 全部数据只保存在 localStorage，不上传任何服务器。
  */
@@ -128,6 +131,13 @@
       if (typeof c.totalReviews !== 'number') c.totalReviews = 0;
       if (typeof c.totalCorrect !== 'number') c.totalCorrect = 0;
       if (typeof c.dormant !== 'boolean') c.dormant = false;
+      if (!c.shadow6 || typeof c.shadow6.stability !== 'number') {
+        c.shadow6 = {
+          stability: typeof c.stability === 'number' ? c.stability : 0,
+          difficulty: typeof c.difficulty === 'number' ? c.difficulty : 5,
+          lastReview: c.lastReview || null
+        };
+      }
       return c;
     }
 
@@ -161,6 +171,12 @@
         };
       }
 
+      const rating = this._ratingOf({ isCorrect, isIndependent, confidence });
+      this._schedule(card, { isCorrect, isIndependent, confidence, now, rating });
+      // FSRS-6 影子运行：并行计算 FSRS-6 间隔，只记录不影响线上排期
+      const shadowStep = this._updateShadow6(card, rating, now);
+      const fsrs4Days = card.nextReview ? Math.round((card.nextReview - now) / DAY_MS * 100) / 100 : null;
+
       this.reviewLog.push({
         topicId,
         isCorrect,
@@ -169,7 +185,11 @@
         reason: p.reason || null,
         isLowLevel: !!p.isLowLevel,
         timestamp: now,
-        questionId: p.questionInfo ? p.questionInfo.questionId : null
+        questionId: p.questionInfo ? p.questionInfo.questionId : null,
+        rating,
+        fsrs4IntervalDays: fsrs4Days,
+        shadow6IntervalDays: shadowStep ? shadowStep.intervalDays : null,
+        shadow6Stability: shadowStep ? shadowStep.stability : null
       });
       card.totalReviews++;
       if (isCorrect) card.totalCorrect++;
@@ -180,7 +200,7 @@
       }
 
       // 调度：FSRS 混合模式（学习阶段短间隔 + 复习阶段按稳定性），业务规则不变
-      this._schedule(card, { isCorrect, isIndependent, confidence, now });
+      // （shadow6 在 _schedule 之后并行更新，见下方 _updateShadow6）
 
       if (!isCorrect) {
         this.errorLog.push({
@@ -232,6 +252,60 @@
       return this[key];
     }
 
+    _ratingOf({ isCorrect, isIndependent, confidence }) {
+      if (!isCorrect) return 1;                 // Again
+      if (!isIndependent) return 2;             // Hard（提示后答对）
+      return confidence >= 75 ? 4 : 3;         // Easy / Good
+    }
+
+    // ---------------- FSRS-6 影子运行 ----------------
+
+    /**
+     * 用 FSRS-6 内核并行计算一次排期，写入 card.shadow6。
+     * 只记录，不改变 nextReview / 不覆盖 FSRS-4 状态。
+     */
+    _updateShadow6(card, rating, now) {
+      const lib = (typeof window !== 'undefined') ? (window.CNPT && window.CNPT.fsrs6Scheduler) : null;
+      if (!lib) return null;
+      if (!this._sched6) {
+        const g = (typeof window !== 'undefined') ? window : {};
+        const cand = g.__CNPT_FSRS6_PARAMS__ || null;
+        let params = null;
+        if (cand && Array.isArray(cand.w) && cand.w.length === 21) params = { w: cand.w, desiredRetention: cand.desiredRetention || 0.9 };
+        else if (cand && Array.isArray(cand.w17) && cand.w17.length === 17) params = { w17: cand.w17, desiredRetention: cand.desiredRetention || 0.9 };
+        this._sched6 = lib.createScheduler(params || {});
+      }
+      if (!card.shadow6 || typeof card.shadow6.stability !== 'number') {
+        card.shadow6 = {
+          stability: typeof card.stability === 'number' ? card.stability : 0,
+          difficulty: typeof card.difficulty === 'number' ? card.difficulty : 5,
+          lastReview: card.lastReview || null
+        };
+      }
+      const step = this._sched6.step(card.shadow6, rating, now);
+      card.shadow6 = { stability: step.stability, difficulty: step.difficulty, lastReview: now };
+      return step;
+    }
+
+    /** 影子运行汇总：FSRS-4 实际间隔 vs FSRS-6 影子间隔 */
+    getShadowStats(limit = 200) {
+      const rows = this.reviewLog.filter(l => typeof l.shadow6IntervalDays === 'number' && typeof l.fsrs4IntervalDays === 'number');
+      const n = rows.length;
+      if (!n) return { count: 0, note: '暂无影子记录（需新版页面产生 reviewLog）' };
+      const diffs = rows.map(l => l.shadow6IntervalDays - l.fsrs4IntervalDays);
+      const sum = diffs.reduce((a, b) => a + b, 0);
+      const absSum = diffs.reduce((a, b) => a + Math.abs(b), 0);
+      return {
+        count: n,
+        meanDiff: +(sum / n).toFixed(2),
+        meanAbsDiff: +(absSum / n).toFixed(2),
+        larger: diffs.filter(d => d > 0).length,
+        smaller: diffs.filter(d => d < 0).length,
+        same: diffs.filter(d => d === 0).length,
+        latest: rows.slice(-limit)
+      };
+    }
+
     /**
      * 混合调度：
      *   - 连续独立答对 ≤ LEARNING_STEPS.length：沿用短间隔序列（20 分钟 → 30 天）
@@ -241,6 +315,7 @@
      */
     _schedule(card, p) {
       const now = p.now;
+      const rating = p.rating || this._ratingOf(p);
       const sched = this._scheduler();
 
       // 连续计数（独立答对才推进）
@@ -278,8 +353,7 @@
       } else if (p.isCorrect && p.isIndependent) {
         let intervalMs;
         if (sched) {
-          // 评分映射：独立答对且信心高 → Easy，否则 Good
-          const rating = (p.confidence >= 75) ? sched.RATING.EASY : sched.RATING.GOOD;
+          // 评分映射见 _ratingOf（独立答对且信心高 → Easy，否则 Good；提示后答对 → Hard；答错 → Again）
           const step = sched.step({
             stability: card.stability,
             difficulty: card.difficulty,
@@ -308,7 +382,6 @@
         card.nextReview = now + BASE_INTERVALS[0];
         if (sched) {
           // 仍然更新难度/稳定性，供后续 FSRS 间隔使用
-          const rating = p.isCorrect ? sched.RATING.HARD : sched.RATING.AGAIN;
           const step = sched.step({
             stability: card.stability,
             difficulty: card.difficulty,

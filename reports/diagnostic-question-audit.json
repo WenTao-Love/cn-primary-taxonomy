@@ -1,0 +1,2130 @@
+{
+  "generatedAt": "2026-11-19T08:53:23.049Z",
+  "questions": 735,
+  "orphanTopics": 182,
+  "orphanQuestions": 349,
+  "confidence": {
+    "high": 17,
+    "mid": 45,
+    "low": 120
+  },
+  "note": "保守处置：不自动改题。high 候选建议人工确认后通过 --apply=map.json 应用；mid/low 建议补题或保留。",
+  "orphans": [
+    {
+      "topicId": "ct_YW4S010",
+      "subject": "YW",
+      "grade": 4,
+      "questionCount": 6,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_YW4S015",
+        "name": "体会人物语言动作神态描写",
+        "score": 0.361,
+        "margin": 0.134
+      }
+    },
+    {
+      "topicId": "ct_YY3S005",
+      "subject": "YY",
+      "grade": 3,
+      "questionCount": 6,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_KX3S030",
+      "subject": "KX",
+      "grade": 3,
+      "questionCount": 4,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX3S001",
+        "name": "植物生长条件",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX4S010",
+      "subject": "KX",
+      "grade": 4,
+      "questionCount": 4,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX4X003",
+        "name": "食物链和生物生存关系初步",
+        "score": 0.029,
+        "margin": 0.004
+      }
+    },
+    {
+      "topicId": "ct_SX3S029",
+      "subject": "SX",
+      "grade": 3,
+      "questionCount": 4,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_SX3X056",
+        "name": "24时记时法初步",
+        "score": 0.254,
+        "margin": 0.254
+      }
+    },
+    {
+      "topicId": "ct_KX3S020",
+      "subject": "KX",
+      "grade": 3,
+      "questionCount": 3,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX3S002",
+        "name": "水和空气占据空间",
+        "score": 0.229,
+        "margin": 0.098
+      }
+    },
+    {
+      "topicId": "ct_KX3S025",
+      "subject": "KX",
+      "grade": 3,
+      "questionCount": 3,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX3S001",
+        "name": "植物生长条件",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX3S031",
+      "subject": "KX",
+      "grade": 3,
+      "questionCount": 3,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX3X003",
+        "name": "提出问题并做简单实验记录",
+        "score": 0.169,
+        "margin": 0.062
+      }
+    },
+    {
+      "topicId": "ct_KX4S015",
+      "subject": "KX",
+      "grade": 4,
+      "questionCount": 3,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX4X003",
+        "name": "食物链和生物生存关系初步",
+        "score": 0.029,
+        "margin": 0.004
+      }
+    },
+    {
+      "topicId": "ct_KX5S010",
+      "subject": "KX",
+      "grade": 5,
+      "questionCount": 3,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX5S005",
+        "name": "生物结构与功能联系·易错辨析任务",
+        "score": 0.015,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX6S015",
+      "subject": "KX",
+      "grade": 6,
+      "questionCount": 3,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_KX6S001",
+        "name": "生态环境和资源保护意识",
+        "score": 0.368,
+        "margin": 0.15
+      }
+    },
+    {
+      "topicId": "ct_SX2S024",
+      "subject": "SX",
+      "grade": 2,
+      "questionCount": 3,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_SX2X112",
+        "name": "简单的质量计算",
+        "score": 0.303,
+        "margin": 0.102
+      }
+    },
+    {
+      "topicId": "ct_SX3S025",
+      "subject": "SX",
+      "grade": 3,
+      "questionCount": 3,
+      "confidence": "high",
+      "suggest": {
+        "id": "ct_SX3X020",
+        "name": "几分之一的意义",
+        "score": 0.676,
+        "margin": 0.3
+      }
+    },
+    {
+      "topicId": "ct_SX3S032",
+      "subject": "SX",
+      "grade": 3,
+      "questionCount": 3,
+      "confidence": "high",
+      "suggest": {
+        "id": "ct_SX3X048",
+        "name": "长方形正方形面积计算初步",
+        "score": 0.911,
+        "margin": 0.114
+      }
+    },
+    {
+      "topicId": "ct_SX4S007",
+      "subject": "SX",
+      "grade": 4,
+      "questionCount": 3,
+      "confidence": "high",
+      "suggest": {
+        "id": "ct_SX4X017",
+        "name": "从不同方向观察立体图形提升",
+        "score": 0.66,
+        "margin": 0.66
+      }
+    },
+    {
+      "topicId": "ct_SX4S011",
+      "subject": "SX",
+      "grade": 4,
+      "questionCount": 3,
+      "confidence": "high",
+      "suggest": {
+        "id": "ct_SX4S005",
+        "name": "除数是两位数的除法",
+        "score": 0.678,
+        "margin": 0.621
+      }
+    },
+    {
+      "topicId": "ct_SX4S020",
+      "subject": "SX",
+      "grade": 4,
+      "questionCount": 3,
+      "confidence": "high",
+      "suggest": {
+        "id": "ct_SX4X020",
+        "name": "条形统计图进一步应用",
+        "score": 0.825,
+        "margin": 0.284
+      }
+    },
+    {
+      "topicId": "ct_SX4S021",
+      "subject": "SX",
+      "grade": 4,
+      "questionCount": 3,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_SX4S005",
+        "name": "除数是两位数的除法",
+        "score": 0.452,
+        "margin": 0.052
+      }
+    },
+    {
+      "topicId": "ct_SX5S010",
+      "subject": "SX",
+      "grade": 5,
+      "questionCount": 3,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_SX5S001",
+        "name": "小数的数位和计数单位提升",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_SX5S020",
+      "subject": "SX",
+      "grade": 5,
+      "questionCount": 3,
+      "confidence": "high",
+      "suggest": {
+        "id": "ct_SX5X023",
+        "name": "长方体和正方体体积",
+        "score": 0.954,
+        "margin": 0.127
+      }
+    },
+    {
+      "topicId": "ct_SX6S015",
+      "subject": "SX",
+      "grade": 6,
+      "questionCount": 3,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_SX6X012",
+        "name": "负数初步认识",
+        "score": 0.426,
+        "margin": 0.383
+      }
+    },
+    {
+      "topicId": "ct_SX6S025",
+      "subject": "SX",
+      "grade": 6,
+      "questionCount": 3,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_SX6S007",
+        "name": "比的基本性质与化简比",
+        "score": 0.448,
+        "margin": 0.286
+      }
+    },
+    {
+      "topicId": "ct_YW2S010",
+      "subject": "YW",
+      "grade": 2,
+      "questionCount": 3,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_YW2S043",
+        "name": "带着问题读课文",
+        "score": 0.28,
+        "margin": 0.144
+      }
+    },
+    {
+      "topicId": "ct_YW2S012",
+      "subject": "YW",
+      "grade": 2,
+      "questionCount": 3,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_YW2S034",
+        "name": "句子扩写",
+        "score": 0.571,
+        "margin": 0.02
+      }
+    },
+    {
+      "topicId": "ct_YW3S008",
+      "subject": "YW",
+      "grade": 3,
+      "questionCount": 3,
+      "confidence": "high",
+      "suggest": {
+        "id": "ct_YW3S017",
+        "name": "排比句初步认识",
+        "score": 0.657,
+        "margin": 0.343
+      }
+    },
+    {
+      "topicId": "ct_YW3S020",
+      "subject": "YW",
+      "grade": 3,
+      "questionCount": 3,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_YW3S066",
+        "name": "讲述一则小故事",
+        "score": 0.295,
+        "margin": 0.092
+      }
+    },
+    {
+      "topicId": "ct_YW5S015",
+      "subject": "YW",
+      "grade": 5,
+      "questionCount": 3,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_YW5S011",
+        "name": "概括文章主要内容和中心意思",
+        "score": 0.308,
+        "margin": 0.117
+      }
+    },
+    {
+      "topicId": "ct_YY3S002",
+      "subject": "YY",
+      "grade": 3,
+      "questionCount": 3,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY4S001",
+      "subject": "YY",
+      "grade": 4,
+      "questionCount": 3,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY4S005",
+      "subject": "YY",
+      "grade": 4,
+      "questionCount": 3,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY4S008",
+      "subject": "YY",
+      "grade": 4,
+      "questionCount": 3,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY5S001",
+      "subject": "YY",
+      "grade": 5,
+      "questionCount": 3,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY5S005",
+      "subject": "YY",
+      "grade": 5,
+      "questionCount": 3,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY5S008",
+      "subject": "YY",
+      "grade": 5,
+      "questionCount": 3,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY6S001",
+      "subject": "YY",
+      "grade": 6,
+      "questionCount": 3,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY6S008",
+      "subject": "YY",
+      "grade": 6,
+      "questionCount": 3,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_KX3S010",
+      "subject": "KX",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_KX3S001",
+        "name": "植物生长条件",
+        "score": 0.403,
+        "margin": 0.174
+      }
+    },
+    {
+      "topicId": "ct_KX3S015",
+      "subject": "KX",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX3S001",
+        "name": "植物生长条件",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX3S032",
+      "subject": "KX",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX3S001",
+        "name": "植物生长条件",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX3S033",
+      "subject": "KX",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX3S001",
+        "name": "植物生长条件",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX4S014",
+      "subject": "KX",
+      "grade": 4,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX4S002",
+        "name": "声音和热现象初步",
+        "score": 0.025,
+        "margin": 0.025
+      }
+    },
+    {
+      "topicId": "ct_KX4S016",
+      "subject": "KX",
+      "grade": 4,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX4S001",
+        "name": "太阳月亮和一天一年变化",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX5S015",
+      "subject": "KX",
+      "grade": 5,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX5S003",
+        "name": "生物结构与功能联系·观察实验任务",
+        "score": 0.014,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX5S019",
+      "subject": "KX",
+      "grade": 5,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX5S001",
+        "name": "生物结构与功能联系",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX6S010",
+      "subject": "KX",
+      "grade": 6,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX6S001",
+        "name": "生态环境和资源保护意识",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX6S020",
+      "subject": "KX",
+      "grade": 6,
+      "questionCount": 2,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_KX6S002",
+        "name": "常见能量形式和转化初步",
+        "score": 0.375,
+        "margin": 0.157
+      }
+    },
+    {
+      "topicId": "ct_KX6S023",
+      "subject": "KX",
+      "grade": 6,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX6S001",
+        "name": "生态环境和资源保护意识",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX6S024",
+      "subject": "KX",
+      "grade": 6,
+      "questionCount": 2,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_KX6S002",
+        "name": "常见能量形式和转化初步",
+        "score": 0.375,
+        "margin": 0.157
+      }
+    },
+    {
+      "topicId": "ct_SX1S043",
+      "subject": "SX",
+      "grade": 1,
+      "questionCount": 2,
+      "confidence": "high",
+      "suggest": {
+        "id": "ct_SX1S035",
+        "name": "认识长方体正方体圆柱球",
+        "score": 0.628,
+        "margin": 0.335
+      }
+    },
+    {
+      "topicId": "ct_SX2S025",
+      "subject": "SX",
+      "grade": 2,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_SX2S016",
+        "name": "100以内加减法的估算",
+        "score": 0.16,
+        "margin": 0.074
+      }
+    },
+    {
+      "topicId": "ct_SX2S026",
+      "subject": "SX",
+      "grade": 2,
+      "questionCount": 2,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_SX2S016",
+        "name": "100以内加减法的估算",
+        "score": 0.33,
+        "margin": 0.113
+      }
+    },
+    {
+      "topicId": "ct_SX2S028",
+      "subject": "SX",
+      "grade": 2,
+      "questionCount": 2,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_SX2X112",
+        "name": "简单的质量计算",
+        "score": 0.303,
+        "margin": 0.122
+      }
+    },
+    {
+      "topicId": "ct_SX2S048",
+      "subject": "SX",
+      "grade": 2,
+      "questionCount": 2,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_SX2X077",
+        "name": "旋转",
+        "score": 1.682,
+        "margin": 0.023
+      }
+    },
+    {
+      "topicId": "ct_SX2S052",
+      "subject": "SX",
+      "grade": 2,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_SX2S034",
+        "name": "求一个数的几倍是多少",
+        "score": 0.216,
+        "margin": 0.159
+      }
+    },
+    {
+      "topicId": "ct_SX3S019",
+      "subject": "SX",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_SX3S042",
+        "name": "长方形正方形周长计算",
+        "score": 0.233,
+        "margin": 0.004
+      }
+    },
+    {
+      "topicId": "ct_SX3S021",
+      "subject": "SX",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_SX3S042",
+        "name": "长方形正方形周长计算",
+        "score": 0.233,
+        "margin": 0.004
+      }
+    },
+    {
+      "topicId": "ct_SX3S028",
+      "subject": "SX",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_SX3S001",
+        "name": "万以内数的进一步认识",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_SX3S033",
+      "subject": "SX",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_SX3S062",
+        "name": "统计表和统计图互相转化",
+        "score": 0.465,
+        "margin": 0.141
+      }
+    },
+    {
+      "topicId": "ct_SX3S034",
+      "subject": "SX",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_SX3S009",
+        "name": "求一个数的几倍是多少",
+        "score": 0.211,
+        "margin": 0.033
+      }
+    },
+    {
+      "topicId": "ct_SX3S035",
+      "subject": "SX",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_SX3S037",
+        "name": "毫米的认识",
+        "score": 0.033,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_SX3S036",
+      "subject": "SX",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_SX3S042",
+        "name": "长方形正方形周长计算",
+        "score": 0.233,
+        "margin": 0.004
+      }
+    },
+    {
+      "topicId": "ct_SX4S008",
+      "subject": "SX",
+      "grade": 4,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_SX4S001",
+        "name": "亿以内数的认识",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_SX4S010",
+      "subject": "SX",
+      "grade": 4,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_SX4S003",
+        "name": "三位数乘两位数笔算",
+        "score": 0.029,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_SX4S016",
+      "subject": "SX",
+      "grade": 4,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_SX4S003",
+        "name": "三位数乘两位数笔算",
+        "score": 0.029,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_SX4S017",
+      "subject": "SX",
+      "grade": 4,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_SX4S003",
+        "name": "三位数乘两位数笔算",
+        "score": 0.029,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_SX4S019",
+      "subject": "SX",
+      "grade": 4,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_SX4S001",
+        "name": "亿以内数的认识",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_SX4S022",
+      "subject": "SX",
+      "grade": 4,
+      "questionCount": 2,
+      "confidence": "high",
+      "suggest": {
+        "id": "ct_SX4X020",
+        "name": "条形统计图进一步应用",
+        "score": 0.825,
+        "margin": 0.284
+      }
+    },
+    {
+      "topicId": "ct_SX5S021",
+      "subject": "SX",
+      "grade": 5,
+      "questionCount": 2,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_SX5X015",
+        "name": "分数加减法",
+        "score": 0.492,
+        "margin": 0.021
+      }
+    },
+    {
+      "topicId": "ct_SX5S022",
+      "subject": "SX",
+      "grade": 5,
+      "questionCount": 2,
+      "confidence": "high",
+      "suggest": {
+        "id": "ct_SX5X014",
+        "name": "异分母分数大小比较",
+        "score": 0.706,
+        "margin": 0.121
+      }
+    },
+    {
+      "topicId": "ct_SX5S023",
+      "subject": "SX",
+      "grade": 5,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_SX5X014",
+        "name": "异分母分数大小比较",
+        "score": 0.235,
+        "margin": 0.18
+      }
+    },
+    {
+      "topicId": "ct_SX5S024",
+      "subject": "SX",
+      "grade": 5,
+      "questionCount": 2,
+      "confidence": "high",
+      "suggest": {
+        "id": "ct_SX5S006",
+        "name": "一个数除以小数",
+        "score": 0.84,
+        "margin": 0.474
+      }
+    },
+    {
+      "topicId": "ct_SX5S026",
+      "subject": "SX",
+      "grade": 5,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_SX5S001",
+        "name": "小数的数位和计数单位提升",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_SX6S020",
+      "subject": "SX",
+      "grade": 6,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_SX6S005",
+        "name": "分数乘除法应用题",
+        "score": 0.023,
+        "margin": 0.023
+      }
+    },
+    {
+      "topicId": "ct_SX6S027",
+      "subject": "SX",
+      "grade": 6,
+      "questionCount": 2,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_SX6S007",
+        "name": "比的基本性质与化简比",
+        "score": 0.448,
+        "margin": 0.286
+      }
+    },
+    {
+      "topicId": "ct_YW1S038",
+      "subject": "YW",
+      "grade": 1,
+      "questionCount": 2,
+      "confidence": "high",
+      "suggest": {
+        "id": "ct_YW1X039",
+        "name": "词语分类",
+        "score": 0.552,
+        "margin": 0.211
+      }
+    },
+    {
+      "topicId": "ct_YW2S013",
+      "subject": "YW",
+      "grade": 2,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_YW2S042",
+        "name": "默读不出声不指读",
+        "score": 0.021,
+        "margin": 0.01
+      }
+    },
+    {
+      "topicId": "ct_YW2S016",
+      "subject": "YW",
+      "grade": 2,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_YW2X063",
+        "name": "写清楚四要素",
+        "score": 0.009,
+        "margin": 0.002
+      }
+    },
+    {
+      "topicId": "ct_YW2S066",
+      "subject": "YW",
+      "grade": 2,
+      "questionCount": 2,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_YW2S033",
+        "name": "仿写句子",
+        "score": 0.542,
+        "margin": 0.001
+      }
+    },
+    {
+      "topicId": "ct_YW2S067",
+      "subject": "YW",
+      "grade": 2,
+      "questionCount": 2,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_YW2X063",
+        "name": "写清楚四要素",
+        "score": 0.454,
+        "margin": 0.235
+      }
+    },
+    {
+      "topicId": "ct_YW3S007",
+      "subject": "YW",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "high",
+      "suggest": {
+        "id": "ct_YW3X022",
+        "name": "病句初步修改",
+        "score": 0.661,
+        "margin": 0.305
+      }
+    },
+    {
+      "topicId": "ct_YW3S021",
+      "subject": "YW",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_YW3X035",
+        "name": "概括文章中心意思",
+        "score": 0.025,
+        "margin": 0.002
+      }
+    },
+    {
+      "topicId": "ct_YW3S022",
+      "subject": "YW",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_YW3X035",
+        "name": "概括文章中心意思",
+        "score": 0.482,
+        "margin": 0.078
+      }
+    },
+    {
+      "topicId": "ct_YW3S023",
+      "subject": "YW",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_YW3X060",
+        "name": "写想象作文",
+        "score": 0.426,
+        "margin": 0.223
+      }
+    },
+    {
+      "topicId": "ct_YW3S024",
+      "subject": "YW",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_YW3S047",
+        "name": "《饮湖上初晴后雨》",
+        "score": 0.229,
+        "margin": 0.11
+      }
+    },
+    {
+      "topicId": "ct_YW4S017",
+      "subject": "YW",
+      "grade": 4,
+      "questionCount": 2,
+      "confidence": "high",
+      "suggest": {
+        "id": "ct_YW4S022",
+        "name": "《题西林壁》",
+        "score": 1.7,
+        "margin": 0.967
+      }
+    },
+    {
+      "topicId": "ct_YW4S018",
+      "subject": "YW",
+      "grade": 4,
+      "questionCount": 2,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_YW4X065",
+        "name": "围绕中心选择材料·阅读表达任务",
+        "score": 0.279,
+        "margin": 0.017
+      }
+    },
+    {
+      "topicId": "ct_YW4S023",
+      "subject": "YW",
+      "grade": 4,
+      "questionCount": 2,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_YW4S002",
+        "name": "借助工具书理解词语义项",
+        "score": 0.366,
+        "margin": 0.037
+      }
+    },
+    {
+      "topicId": "ct_YW4S024",
+      "subject": "YW",
+      "grade": 4,
+      "questionCount": 2,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_YW4X009",
+        "name": "标点符号在语境中的作用",
+        "score": 0.364,
+        "margin": 0.152
+      }
+    },
+    {
+      "topicId": "ct_YW5S008",
+      "subject": "YW",
+      "grade": 5,
+      "questionCount": 2,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_YW5X026",
+        "name": "写简单说明性文章",
+        "score": 0.31,
+        "margin": 0.003
+      }
+    },
+    {
+      "topicId": "ct_YW5S018",
+      "subject": "YW",
+      "grade": 5,
+      "questionCount": 2,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_YW5X026",
+        "name": "写简单说明性文章",
+        "score": 0.31,
+        "margin": 0.109
+      }
+    },
+    {
+      "topicId": "ct_YW5S021",
+      "subject": "YW",
+      "grade": 5,
+      "questionCount": 2,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_YW5X026",
+        "name": "写简单说明性文章",
+        "score": 0.31,
+        "margin": 0.109
+      }
+    },
+    {
+      "topicId": "ct_YW6S008",
+      "subject": "YW",
+      "grade": 6,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_YW6S010",
+        "name": "概括文章内容和中心关系",
+        "score": 0.029,
+        "margin": 0.004
+      }
+    },
+    {
+      "topicId": "ct_YW6S020",
+      "subject": "YW",
+      "grade": 6,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_YW6X025",
+        "name": "独立修改习作并说明修改理由",
+        "score": 0.032,
+        "margin": 0.003
+      }
+    },
+    {
+      "topicId": "ct_YW6S021",
+      "subject": "YW",
+      "grade": 6,
+      "questionCount": 2,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_YW6S040",
+        "name": "概括文章内容和中心关系·阅读表达任务",
+        "score": 0.446,
+        "margin": 0.012
+      }
+    },
+    {
+      "topicId": "ct_YY3S001",
+      "subject": "YY",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY3S003",
+      "subject": "YY",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY3S004",
+      "subject": "YY",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY3S006",
+      "subject": "YY",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY3S007",
+      "subject": "YY",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY3S008",
+      "subject": "YY",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY3S009",
+      "subject": "YY",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY3S010",
+      "subject": "YY",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY3S011",
+      "subject": "YY",
+      "grade": 3,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY4S002",
+      "subject": "YY",
+      "grade": 4,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY4S003",
+      "subject": "YY",
+      "grade": 4,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY4S004",
+      "subject": "YY",
+      "grade": 4,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY4S006",
+      "subject": "YY",
+      "grade": 4,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY4S007",
+      "subject": "YY",
+      "grade": 4,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY4S009",
+      "subject": "YY",
+      "grade": 4,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY4S010",
+      "subject": "YY",
+      "grade": 4,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY5S002",
+      "subject": "YY",
+      "grade": 5,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY5S003",
+      "subject": "YY",
+      "grade": 5,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY5S004",
+      "subject": "YY",
+      "grade": 5,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY5S006",
+      "subject": "YY",
+      "grade": 5,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY5S007",
+      "subject": "YY",
+      "grade": 5,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY5S009",
+      "subject": "YY",
+      "grade": 5,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY6S002",
+      "subject": "YY",
+      "grade": 6,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY6S003",
+      "subject": "YY",
+      "grade": 6,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY6S004",
+      "subject": "YY",
+      "grade": 6,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY6S006",
+      "subject": "YY",
+      "grade": 6,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY6S007",
+      "subject": "YY",
+      "grade": 6,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY6S009",
+      "subject": "YY",
+      "grade": 6,
+      "questionCount": 2,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_KX3S009",
+      "subject": "KX",
+      "grade": 3,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX3S001",
+        "name": "植物生长条件",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX3S034",
+      "subject": "KX",
+      "grade": 3,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX3S003",
+        "name": "植物生长条件·观察实验任务",
+        "score": 0.148,
+        "margin": 0.02
+      }
+    },
+    {
+      "topicId": "ct_KX3S035",
+      "subject": "KX",
+      "grade": 3,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX3X003",
+        "name": "提出问题并做简单实验记录",
+        "score": 0.169,
+        "margin": 0.021
+      }
+    },
+    {
+      "topicId": "ct_KX3S036",
+      "subject": "KX",
+      "grade": 3,
+      "questionCount": 1,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_KX3X003",
+        "name": "提出问题并做简单实验记录",
+        "score": 0.484,
+        "margin": 0.148
+      }
+    },
+    {
+      "topicId": "ct_KX4S009",
+      "subject": "KX",
+      "grade": 4,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX4S001",
+        "name": "太阳月亮和一天一年变化",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX4S011",
+      "subject": "KX",
+      "grade": 4,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX4S001",
+        "name": "太阳月亮和一天一年变化",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX4S012",
+      "subject": "KX",
+      "grade": 4,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX4X003",
+        "name": "食物链和生物生存关系初步",
+        "score": 0.145,
+        "margin": 0.041
+      }
+    },
+    {
+      "topicId": "ct_KX4S013",
+      "subject": "KX",
+      "grade": 4,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX4S001",
+        "name": "太阳月亮和一天一年变化",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX4S017",
+      "subject": "KX",
+      "grade": 4,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX4S006",
+        "name": "声音和热现象初步·观察实验任务",
+        "score": 0.128,
+        "margin": 0.021
+      }
+    },
+    {
+      "topicId": "ct_KX4S018",
+      "subject": "KX",
+      "grade": 4,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX4S007",
+        "name": "声音和热现象初步·结论表达任务",
+        "score": 0.017,
+        "margin": 0.002
+      }
+    },
+    {
+      "topicId": "ct_KX5S009",
+      "subject": "KX",
+      "grade": 5,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX5S001",
+        "name": "生物结构与功能联系",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX5S016",
+      "subject": "KX",
+      "grade": 5,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX5S001",
+        "name": "生物结构与功能联系",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX5S017",
+      "subject": "KX",
+      "grade": 5,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX5S001",
+        "name": "生物结构与功能联系",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX5S020",
+      "subject": "KX",
+      "grade": 5,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX5S001",
+        "name": "生物结构与功能联系",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX5S021",
+      "subject": "KX",
+      "grade": 5,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX5X003",
+        "name": "基于证据解释实验现象",
+        "score": 0.204,
+        "margin": 0.083
+      }
+    },
+    {
+      "topicId": "ct_KX5S022",
+      "subject": "KX",
+      "grade": 5,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX5S004",
+        "name": "生物结构与功能联系·结论表达任务",
+        "score": 0.016,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX6S009",
+      "subject": "KX",
+      "grade": 6,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX6S001",
+        "name": "生态环境和资源保护意识",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX6S021",
+      "subject": "KX",
+      "grade": 6,
+      "questionCount": 1,
+      "confidence": "high",
+      "suggest": {
+        "id": "ct_KX6S001",
+        "name": "生态环境和资源保护意识",
+        "score": 0.576,
+        "margin": 0.249
+      }
+    },
+    {
+      "topicId": "ct_KX6S022",
+      "subject": "KX",
+      "grade": 6,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX6S001",
+        "name": "生态环境和资源保护意识",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX6S025",
+      "subject": "KX",
+      "grade": 6,
+      "questionCount": 1,
+      "confidence": "high",
+      "suggest": {
+        "id": "ct_KX6S001",
+        "name": "生态环境和资源保护意识",
+        "score": 0.576,
+        "margin": 0.249
+      }
+    },
+    {
+      "topicId": "ct_KX6S026",
+      "subject": "KX",
+      "grade": 6,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_KX6S003",
+        "name": "生态环境和资源保护意识·观察实验任务",
+        "score": 0.107,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_KX6S027",
+      "subject": "KX",
+      "grade": 6,
+      "questionCount": 1,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_KX6X003",
+        "name": "基于问题设计并改进探究方案",
+        "score": 0.345,
+        "margin": 0.134
+      }
+    },
+    {
+      "topicId": "ct_SX1S044",
+      "subject": "SX",
+      "grade": 1,
+      "questionCount": 1,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_SX1S067",
+        "name": "排队中的第几个",
+        "score": 0.293,
+        "margin": 0.084
+      }
+    },
+    {
+      "topicId": "ct_SX2S006",
+      "subject": "SX",
+      "grade": 2,
+      "questionCount": 1,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_SX2X112",
+        "name": "简单的质量计算",
+        "score": 0.303,
+        "margin": 0.066
+      }
+    },
+    {
+      "topicId": "ct_SX2S007",
+      "subject": "SX",
+      "grade": 2,
+      "questionCount": 1,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_SX2X112",
+        "name": "简单的质量计算",
+        "score": 0.291,
+        "margin": 0.25
+      }
+    },
+    {
+      "topicId": "ct_SX2S008",
+      "subject": "SX",
+      "grade": 2,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_SX2S034",
+        "name": "求一个数的几倍是多少",
+        "score": 0.187,
+        "margin": 0.14
+      }
+    },
+    {
+      "topicId": "ct_SX2S027",
+      "subject": "SX",
+      "grade": 2,
+      "questionCount": 1,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_SX2S050",
+        "name": "简单的排列",
+        "score": 0.441,
+        "margin": 0.232
+      }
+    },
+    {
+      "topicId": "ct_SX2S029",
+      "subject": "SX",
+      "grade": 2,
+      "questionCount": 1,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_SX2X112",
+        "name": "简单的质量计算",
+        "score": 0.291,
+        "margin": 0.25
+      }
+    },
+    {
+      "topicId": "ct_SX3S020",
+      "subject": "SX",
+      "grade": 3,
+      "questionCount": 1,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_SX3X056",
+        "name": "24时记时法初步",
+        "score": 0.279,
+        "margin": 0.068
+      }
+    },
+    {
+      "topicId": "ct_SX3S022",
+      "subject": "SX",
+      "grade": 3,
+      "questionCount": 1,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_SX3S063",
+        "name": "平均分布和离散分布直观感受",
+        "score": 0.291,
+        "margin": 0.08
+      }
+    },
+    {
+      "topicId": "ct_SX6S009",
+      "subject": "SX",
+      "grade": 6,
+      "questionCount": 1,
+      "confidence": "high",
+      "suggest": {
+        "id": "ct_SX6X020",
+        "name": "比例尺的意义",
+        "score": 0.781,
+        "margin": 0.188
+      }
+    },
+    {
+      "topicId": "ct_SX6S026",
+      "subject": "SX",
+      "grade": 6,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_SX6S001",
+        "name": "分数乘法的意义",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_SX6S028",
+      "subject": "SX",
+      "grade": 6,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_SX6X009",
+        "name": "百分数的意义",
+        "score": 0.035,
+        "margin": 0.008
+      }
+    },
+    {
+      "topicId": "ct_SX6S029",
+      "subject": "SX",
+      "grade": 6,
+      "questionCount": 1,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_SX6X013",
+        "name": "用方程表示数量关系",
+        "score": 0.467,
+        "margin": 0.396
+      }
+    },
+    {
+      "topicId": "ct_SX6S030",
+      "subject": "SX",
+      "grade": 6,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_SX6X027",
+        "name": "综合运用比例和方程解决问题",
+        "score": 0.19,
+        "margin": 0.155
+      }
+    },
+    {
+      "topicId": "ct_YW1S039",
+      "subject": "YW",
+      "grade": 1,
+      "questionCount": 1,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_YW1X041",
+        "name": "把句子说具体",
+        "score": 0.416,
+        "margin": 0.048
+      }
+    },
+    {
+      "topicId": "ct_YW1S040",
+      "subject": "YW",
+      "grade": 1,
+      "questionCount": 1,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_YW1X053",
+        "name": "课外阅读分享",
+        "score": 0.32,
+        "margin": 0.054
+      }
+    },
+    {
+      "topicId": "ct_YW1S041",
+      "subject": "YW",
+      "grade": 1,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_YW1S073",
+        "name": "单韵母a o e i u u·基础积累任务",
+        "score": 0,
+        "margin": 0
+      }
+    },
+    {
+      "topicId": "ct_YW1S042",
+      "subject": "YW",
+      "grade": 1,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_YW1S072",
+        "name": "向同学借物品有礼貌",
+        "score": 0.021,
+        "margin": 0.003
+      }
+    },
+    {
+      "topicId": "ct_YW2S015",
+      "subject": "YW",
+      "grade": 2,
+      "questionCount": 1,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_YW2S043",
+        "name": "带着问题读课文",
+        "score": 0.28,
+        "margin": 0.144
+      }
+    },
+    {
+      "topicId": "ct_YW2S017",
+      "subject": "YW",
+      "grade": 2,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_YW2S169",
+        "name": "商量·基础积累任务",
+        "score": 0.226,
+        "margin": 0.018
+      }
+    },
+    {
+      "topicId": "ct_YW2S068",
+      "subject": "YW",
+      "grade": 2,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_YW2X036",
+        "name": "冒号引号的用法（对话）",
+        "score": 0.021,
+        "margin": 0.009
+      }
+    },
+    {
+      "topicId": "ct_YW4S019",
+      "subject": "YW",
+      "grade": 4,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_YW4S015",
+        "name": "体会人物语言动作神态描写",
+        "score": 0.181,
+        "margin": 0.08
+      }
+    },
+    {
+      "topicId": "ct_YW4S020",
+      "subject": "YW",
+      "grade": 4,
+      "questionCount": 1,
+      "confidence": "mid",
+      "suggest": {
+        "id": "ct_YW4X029",
+        "name": "转述和表达观点",
+        "score": 0.288,
+        "margin": 0.103
+      }
+    },
+    {
+      "topicId": "ct_YW5S003",
+      "subject": "YW",
+      "grade": 5,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_YW5S004",
+        "name": "体会关键词句在表情达意中的作用",
+        "score": 0.16,
+        "margin": 0.027
+      }
+    },
+    {
+      "topicId": "ct_YW5S022",
+      "subject": "YW",
+      "grade": 5,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_YW5S011",
+        "name": "概括文章主要内容和中心意思",
+        "score": 0.154,
+        "margin": 0.058
+      }
+    },
+    {
+      "topicId": "ct_YW6S003",
+      "subject": "YW",
+      "grade": 6,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_YW6S010",
+        "name": "概括文章内容和中心关系",
+        "score": 0.029,
+        "margin": 0.004
+      }
+    },
+    {
+      "topicId": "ct_YW6S007",
+      "subject": "YW",
+      "grade": 6,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": {
+        "id": "ct_YW6S005",
+        "name": "综合运用修辞服务中心表达",
+        "score": 0.174,
+        "margin": 0.068
+      }
+    },
+    {
+      "topicId": "ct_YY3S012",
+      "subject": "YY",
+      "grade": 3,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY3S013",
+      "subject": "YY",
+      "grade": 3,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY3S014",
+      "subject": "YY",
+      "grade": 3,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY4S011",
+      "subject": "YY",
+      "grade": 4,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY4S012",
+      "subject": "YY",
+      "grade": 4,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY5S010",
+      "subject": "YY",
+      "grade": 5,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY5S011",
+      "subject": "YY",
+      "grade": 5,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY5S012",
+      "subject": "YY",
+      "grade": 5,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY6S005",
+      "subject": "YY",
+      "grade": 6,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY6S010",
+      "subject": "YY",
+      "grade": 6,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY6S011",
+      "subject": "YY",
+      "grade": 6,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": null
+    },
+    {
+      "topicId": "ct_YY6S012",
+      "subject": "YY",
+      "grade": 6,
+      "questionCount": 1,
+      "confidence": "low",
+      "suggest": null
+    }
+  ]
+}

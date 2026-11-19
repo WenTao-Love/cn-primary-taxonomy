@@ -43,6 +43,7 @@ globalThis.CNPT.storage = { create: createMockStorage };
 
 // ---------- 加载被测模块 ----------
 await import('../shared/js/components/fsrs-scheduler.js');
+await import('../shared/js/components/fsrs6-scheduler.js');
 await import('../shared/js/components/fsrs-engine.js');
 
 const DAY_MS = 24 * 3600 * 1000;
@@ -214,6 +215,62 @@ test('export/import 版本为 v3 且幂等', () => {
   assert.equal(e2.import(dump), true);
   assert.ok(e2.cards['ct_SX2S011']);
   assert.notEqual(e2.cards['ct_SX2S011'].migratedFrom, 2, 'v3 数据导入不应误标迁移');
+});
+
+test('FSRS-6 内核：加载/默认参数/17→21 迁移', () => {
+  assert.equal(typeof globalThis.CNPT.fsrs6Scheduler.createScheduler, 'function');
+  const s = globalThis.CNPT.fsrs6Scheduler.createScheduler();
+  assert.equal(s.params.w.length, 21);
+  assert.ok(Math.abs(s.params.decay + 0.1542) < 1e-9);
+  const w17 = globalThis.CNPT.fsrsScheduler.DEFAULT_W;
+  const w21 = globalThis.CNPT.fsrs6Scheduler.migrate17to21(w17);
+  assert.equal(w21.length, 21);
+  assert.equal(w21[20], 0.5);
+  assert.ok(Math.abs(w21[4] - (w17[5] * 2 + w17[4])) < 1e-9);
+});
+
+test('FSRS-6 内核：新卡/当天短期/隔天成功间隔单调', () => {
+  const s = globalThis.CNPT.fsrs6Scheduler.createScheduler();
+  const now = Date.now();
+  const c0 = s.step({ stability: 0, difficulty: 5, lastReview: null }, 3, now);
+  assert.equal(c0.sameDay, false);
+  assert.ok(c0.intervalDays >= 1);
+  const c1 = s.step({ stability: c0.stability, difficulty: c0.difficulty, lastReview: now }, 3, now + 2 * 60 * 60 * 1000);
+  assert.equal(c1.sameDay, true, '当天再复习应走短期分支');
+  const c2 = s.step({ stability: c0.stability, difficulty: c0.difficulty, lastReview: now - 3 * DAY_MS }, 3, now);
+  assert.equal(c2.sameDay, false);
+  assert.ok(c2.intervalDays >= c0.intervalDays, '隔天成功间隔应不优于新卡');
+});
+
+test('影子运行：reviewLog 记录 shadow6 间隔且不影响线上排期', () => {
+  resetRole('student');
+  fsrs._clearCache();
+  const e = fsrs.create('student');
+  const now = Date.now();
+  const c = e.recordAnswer({ topicId: 'ct_SX2S011', isCorrect: true, isIndependent: true, confidence: 50 });
+  assert.ok(c.shadow6 && typeof c.shadow6.stability === 'number', 'card.shadow6 应被初始化');
+  const last = e.reviewLog[e.reviewLog.length - 1];
+  assert.equal(typeof last.shadow6IntervalDays, 'number');
+  assert.equal(typeof last.fsrs4IntervalDays, 'number');
+  // 线上仍是 FSRS-4 学习阶段：20 分钟
+  assert.ok(Math.abs((c.nextReview - now) - 20 * MIN_MS) <= 2000, '影子运行不得改变线上排期');
+  const stats = e.getShadowStats();
+  assert.ok(stats.count >= 1);
+  assert.equal(typeof stats.meanDiff, 'number');
+});
+
+test('影子运行：官方参数影子间隔与 FSRS-4 不同（有对比价值）', () => {
+  resetRole('student');
+  fsrs._clearCache();
+  const e = fsrs.create('student');
+  let c = null;
+  for (let i = 0; i < 6; i++) {
+    if (c) c.lastReview = Date.now() - 3 * DAY_MS;
+    c = e.recordAnswer({ topicId: 'ct_SX2S011', isCorrect: true, isIndependent: true, confidence: 50 });
+  }
+  const rows = e.reviewLog.filter(l => typeof l.shadow6IntervalDays === 'number');
+  assert.ok(rows.length >= 6);
+  assert.ok(rows.some(l => l.shadow6IntervalDays !== l.fsrs4IntervalDays), 'FSRS-6 与 FSRS-4 间隔应存在差异');
 });
 
 // ---------- 汇总 ----------

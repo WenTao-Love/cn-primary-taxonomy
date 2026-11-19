@@ -1,0 +1,13 @@
+{
+  "note": "人工核对后的诊断题 topicId 映射（旧编号 → 现有 topics.json 的 id）。仅收录题目内容与目标主题名称/内容吻合的条目；其余孤儿题保留原样，见 reports/diagnostic-question-audit.json。",
+  "verifiedAt": "2026-11-17",
+  "map": {
+    "ct_SX2S049": "ct_SX2X075",
+    "ct_SX3S030": "ct_SX3S042",
+    "ct_SX5S025": "ct_SX5X025",
+    "ct_SX6S010": "ct_SX6S017",
+    "ct_KX5S018": "ct_KX5S001",
+    "ct_YW2S014": "ct_YW2X064",
+    "ct_YW2S011": "ct_YW2S033"
+  }
+}

@@ -134,10 +134,12 @@ function makeFsrs6(w) {
   const step = (S, D, rating, dt, isNew) => {
     if (isNew || !(S > 0)) return { S: initS(rating), D: clamp(initD(rating), D_MIN, D_MAX) };
     const d = clamp(D, D_MIN, D_MAX);
+    // 官方：delta_t 四舍五入后为 0 才走当天短期分支
+    const dtRounded = Math.max(0, Math.round(dt));
     let s;
-    if (dt <= 0) s = shortTermS(S, rating);
-    else if (rating === 1) s = failS(S, R(dt, S), d);
-    else s = succS(S, R(dt, S), d, rating);
+    if (dtRounded === 0) s = shortTermS(S, rating);
+    else if (rating === 1) s = failS(S, R(dtRounded, S), d);
+    else s = succS(S, R(dtRounded, S), d, rating);
     return { S: s, D: nextD(d, rating) };
   };
   const interval = S => clamp(S / factor * (Math.pow(DESIRED_RETENTION, 1 / decay) - 1), 0, S_MAX);
@@ -254,8 +256,74 @@ function intervalTable(models) {
   return SList.map(S => ({ stability: S, intervals: models.map(m => +m.interval(S).toFixed(3)) }));
 }
 
+// ---------------- 影子日志消费 ----------------
+/**
+ * 读取真实 reviewLog（fsrs-engine 影子运行产出），统计 FSRS-4 实际间隔 vs FSRS-6 影子间隔。
+ * 输入可以是导出的 fsrs state JSON（含 reviewLog）或直接 reviewLog 数组。
+ */
+function consumeShadowLogs(file) {
+  const SHADOW_OUT = resolve(ROOT, 'reports', 'fsrs6-shadow-stats.json');
+  let j;
+  try {
+    j = JSON.parse(readFileSync(resolve(ROOT, file), 'utf8'));
+  } catch (e) {
+    console.error(`✗ 读取影子日志失败: ${file}（${e.message}）`);
+    process.exit(2);
+  }
+  const rows = Array.isArray(j) ? j : (Array.isArray(j.reviewLog) ? j.reviewLog : []);
+  const shadow = rows.filter(l => typeof l.shadow6IntervalDays === 'number' && typeof l.fsrs4IntervalDays === 'number');
+  const n = shadow.length;
+  if (!n) {
+    console.log('未找到影子记录（reviewLog 需含 shadow6IntervalDays 与 fsrs4IntervalDays 字段）');
+    console.log('请用加载了 shared/js/components/fsrs6-scheduler.js 的页面产生作答后再导出。');
+    return;
+  }
+  const diffs = shadow.map(l => l.shadow6IntervalDays - l.fsrs4IntervalDays);
+  const sum = diffs.reduce((a, b) => a + b, 0);
+  const absSum = diffs.reduce((a, b) => a + Math.abs(b), 0);
+  const byTopic = {};
+  for (const l of shadow) {
+    if (!byTopic[l.topicId]) byTopic[l.topicId] = { count: 0, diffSum: 0 };
+    byTopic[l.topicId].count++;
+    byTopic[l.topicId].diffSum += l.shadow6IntervalDays - l.fsrs4IntervalDays;
+  }
+  const report = {
+    generatedAt: new Date().toISOString(),
+    source: file,
+    count: n,
+    meanDiff: +(sum / n).toFixed(2),
+    meanAbsDiff: +(absSum / n).toFixed(2),
+    larger: diffs.filter(d => d > 0).length,
+    smaller: diffs.filter(d => d < 0).length,
+    same: diffs.filter(d => d === 0).length,
+    byTopic: Object.fromEntries(Object.entries(byTopic).map(([k, v]) => [k, { count: v.count, meanDiff: +(v.diffSum / v.count).toFixed(2) }])),
+    latest: shadow.slice(-20),
+    note: n < 50
+      ? '样本不足 50 条：仅作观察，尚不具备校准条件（校准需 ≥50 条真实 reviewLog）。'
+      : '样本 ≥50 条：可用 calibrate-fsrs.mjs 对 21 参数做正式校准。'
+  };
+  if (!NO_WRITE) {
+    mkdirSync(dirname(SHADOW_OUT), { recursive: true });
+    writeFileSync(SHADOW_OUT, JSON.stringify(report, null, 2), 'utf8');
+  }
+  if (JSON_ONLY) {
+    console.log(JSON.stringify(report, null, 2));
+  } else {
+    console.log('\n【FSRS-6 影子运行统计】');
+    console.log(`  来源: ${file}`);
+    console.log(`  影子记录: ${n} 条`);
+    console.log(`  平均差（FSRS-6 − FSRS-4）: ${report.meanDiff} 天 · 平均绝对差: ${report.meanAbsDiff} 天`);
+    console.log(`  FSRS-6 更长: ${report.larger} · 更短: ${report.smaller} · 相同: ${report.same}`);
+    console.log(`  ${report.note}`);
+    if (!NO_WRITE) console.log(`\n✅ 已写入 ${SHADOW_OUT}`);
+  }
+}
+
 // ---------------- 主流程 ----------------
 function main() {
+  const logsArg = args.find(a => a.startsWith('--logs='));
+  if (logsArg) return consumeShadowLogs(logsArg.slice('--logs='.length));
+
   const project = loadProjectW17();
   const w17 = project ? project.w : [
     0.4872, 1.4003, 3.7, 13.8, 5.16, 1.23, 0.897, 0.031, 1.647, 0.1367,

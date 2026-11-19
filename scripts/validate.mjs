@@ -4,7 +4,7 @@
  * 数据完整性校验（参考 Marble validate.mjs 设计）
  */
 import { createHash } from 'node:crypto';
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -164,6 +164,25 @@ if (explainedEdges.length < deps.dependencies.length) {
 }
 const categoryDist = {};
 for (const d of deps.dependencies) categoryDist[d.category || '缺失'] = (categoryDist[d.category || '缺失'] || 0) + 1;
+
+// curated 精修表校验（可选文件，人工精修的边必须可溯源且命中真实边）
+const curatedPath = resolve(DATA, 'edge-explanations-curated.json');
+if (existsSync(curatedPath)) {
+  try {
+    const curated = JSON.parse(readFileSync(curatedPath, 'utf8'));
+    const overrides = curated.overrides || {};
+    const edgeKeys = new Set(deps.dependencies.map(d => `${d.prerequisiteId}->${d.topicId}`));
+    let curatedBad = 0;
+    for (const [k, v] of Object.entries(overrides)) {
+      if (!edgeKeys.has(k)) { warn.push(`curated 覆盖表 key 无对应边: ${k}`); curatedBad++; continue; }
+      if (!EDGE_CATEGORIES.has(v.category)) { errors.push(`curated category 非法: ${k} -> ${v.category}`); curatedBad++; }
+      if (typeof v.explain !== 'string' || v.explain.length < 8) { errors.push(`curated explain 过短: ${k}`); curatedBad++; }
+    }
+    if (curatedBad === 0) console.log(`curated 精修表: ${Object.keys(overrides).length} 条，全部命中且合法`);
+  } catch (e) {
+    warn.push(`curated 覆盖表解析失败: ${e.message}`);
+  }
+}
 for (const t of topics.topics) {
   for (const key of t.standards) {
     if (!stdKeys.has(key)) {

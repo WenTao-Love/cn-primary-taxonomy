@@ -18,8 +18,9 @@
 - 📝 **交互式练习**：选择题、判断题、填空题，即时判分
 - 📱 **多端适配**：PC网页 + H5移动端，家长/学生/教师多角色版本
 
-## 当前版本 v2.4
+## 当前版本 v2.4-Shadow-Curated
 
+> **v2.4 新增（边界改进）**：FSRS-6 影子运行闭环（浏览器内核 + 引擎影子记录 + `evaluate-fsrs-v6 --logs` 消费，只观察不改排期）+ 可解释边 curated 人工精修层（覆盖表 + 校验 + 首批 6 条）+ 孤儿诊断题保守处置（审计脚本 + 人工确认映射，189→182 个）。详见 [docs/PROJECT_MEMORY.md](docs/PROJECT_MEMORY.md) 第 9.17 节与 [docs/开源项目借鉴反哺报告-第四批.md](docs/开源项目借鉴反哺报告-第四批.md) 第十节。
 > **v2.4 新增（主题落地 + 构建缓存治理）**：**跨学科主题研修**——国防教育（5 点）/ 国家安全（10 点）/ 挫折与意志（8 点），共 23 个**现有**知识点挂接（不新增知识点），拓扑序学习路线 + 学习目标/建议活动/**内容缺口**展示；共享组件 `theme-learning.js`，学生版 / H5 双端入口（`#btn-theme`），「开始主题学习」直达详情页闭环；`data/themes.json` + 构建注入。同时 4 个构建脚本为产物中本地 JS/CSS 引用附加 `?v=` 构建版本戳，杜绝「脚本更新后仍执行浏览器缓存旧版」。测试：`scripts/test-themes.mjs`（16 项）。详见 [docs/PROJECT_MEMORY.md](docs/PROJECT_MEMORY.md) 9.16.2。
 > **v2.3 新增（cn-math-taxonomy 借鉴反哺）**：**根因回溯诊断**——从目标考点出发，三态判定（薄弱/不稳/未测）+ 确认题机制 + 沿硬先修回溯找「病根」+ 拓扑序补学路线 + **根因路径图（SVG）**与**盲区再测**；共享组件 `root-cause-diagnosis.js`，学生版 / H5 双端接入；诊断题构建注入（735 题，另随堂题与易错点判断题三级回退）；H5 整页布局缺陷修复（`#main-content`→`#app`）。详见 [docs/开源项目借鉴反哺报告-第四批.md](docs/开源项目借鉴反哺报告-第四批.md)。
 > **v2.3 新增（开源业界借鉴反哺）**：诊断引擎离线基准（gap 检测/BKT 校准/题目区分度，种子可复现）+ 可解释边（4191/4191 条 category/explain/explainSource，详情页前置/后续链路与折叠）+ 交互模型升级至 6 个（新增角的度量、小数的意义，带动画销毁）+ FSRS-6 官方公式评估（未切换线上）+ AntV G6 候选评估（暂不引入）。详见 [docs/PROJECT_MEMORY.md](docs/PROJECT_MEMORY.md) 第 9.16 节与 [docs/开源项目借鉴反哺报告-第四批.md](docs/开源项目借鉴反哺报告-第四批.md)。
@@ -56,8 +57,9 @@
 | FSRS 间隔复习引擎 | 1套 | FSRS-4 内核（17 参数，可校准）+ 6 轮学习间隔（20分钟~30天）+ 复习期按稳定性 + 信心校准 + 首做/重测分离 + 休眠退役 |
 | 依赖质量评测 | 1套 | 重复边/对称边/度分布/跨学段硬边/DAG 最长链/入度枢纽（`scripts/evaluate-dependencies.mjs`） |
 | 诊断离线评测 | 1套 | 引擎 gap 检测（结构/噪声）+ BKT 掌握校准（AUC/MAE）+ 题目区分度（`scripts/evaluate-diagnostic.mjs`） |
-| FSRS-6 评估 | 1套 | 官方公式 + 17→21 迁移对比（`scripts/evaluate-fsrs-v6.mjs`，未切换线上） |
-| 可解释边 | 4191/4191 | 九类 category + explain + explainSource（rule-derived） |
+| FSRS-6 评估 | 1套 | 官方公式 + 17→21 迁移对比 + 真实影子日志消费（`scripts/evaluate-fsrs-v6.mjs`，未切换线上） |
+| 可解释边 | 4191/4191 | 九类 category + explain + explainSource（rule-derived 4185 / curated 6） |
+| 诊断题审计 | 1套 | 孤儿题/候选映射/可选应用（`scripts/audit-diagnostic-questions.mjs`） |
 | 诊断闭环 | 1套 | 错题两步闭环(当天重测→次日盲测)+预检跳课(3题全对) |
 | 今日学习台 | 2端 | H5/学生版：75分钟预算、复习封顶一半、知识边界硬约束 |
 | PWA支持 | ✅ | 离线缓存/平板适配/APK打包 |
@@ -635,6 +637,7 @@ data-loader 自动选择最优加载方式：
 - **v2.2**：✅ FSRS-4 内核 + 图谱学科聚合视图 + 依赖质量评测 —— 借鉴开源业界（FSRS/K12-KGraph 等）反哺
 - **v2.3**：✅ 根因回溯诊断（共享组件 + 学生端/H5 双端 + 诊断题注入 + 回归测试）—— 借鉴 cn-math-taxonomy 反哺
 - **v2.3**：✅ 诊断离线评测 + 可解释边与反向链接 + 交互模型升级 + FSRS-6 评估 —— 借鉴 pyBKT/pyKT/Manim/fsrs-rs 等反哺
+- **v2.4-Shadow-Curated**：✅ FSRS-6 影子运行闭环（只观察不改排期）+ 可解释边 curated 人工精修层 + 孤儿诊断题保守处置 —— 边界改进落地
 - **v2.4**：规模化推广体系（培训材料、试点经验、评估框架）
 - **v3.0**：对标 Marble 完整度并面向商用学习产品收口
 

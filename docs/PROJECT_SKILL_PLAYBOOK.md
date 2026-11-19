@@ -211,8 +211,13 @@ node scripts/evaluate-diagnostic.mjs
 
 # FSRS-6 升级评估（官方公式 + 17→21 迁移对比）
 node scripts/evaluate-fsrs-v6.mjs
+# FSRS-6 影子日志消费（真实 reviewLog，输出间隔差分布）
+node scripts/evaluate-fsrs-v6.mjs --logs=<导出的fsrs-state.json>
 
-# FSRS 引擎回归测试（11 项）
+# 诊断题引用审计（孤儿题/候选映射；默认只报告）
+node scripts/audit-diagnostic-questions.mjs
+
+# FSRS 引擎回归测试（15 项：含 FSRS-6 内核/影子运行）
 node scripts/test-fsrs-engine.mjs
 
 # 校准 FSRS 参数（输入：导出的复习日志 JSON）
@@ -241,6 +246,7 @@ node scripts/validate.mjs
 node scripts/evaluate-dependencies.mjs
 node scripts/evaluate-diagnostic.mjs
 node scripts/evaluate-fsrs-v6.mjs
+node scripts/audit-diagnostic-questions.mjs
 node scripts/test-fsrs-engine.mjs
 node build.mjs --standalone
 node scripts/build-standalone.mjs

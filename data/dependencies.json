@@ -1,6 +1,6 @@
 {
   "version": "v0.7-expanded",
-  "note": "DAG 依赖方向：topicId 依赖 prerequisiteId（先学prerequisite，再学topic）；category/explain 由规则化分类生成（explainSource=rule-derived）",
+  "note": "DAG 依赖方向：topicId 依赖 prerequisiteId（先学prerequisite，再学topic）；category/explain 由规则化分类生成（explainSource=rule-derived）；category/explain 由规则化分类生成（rule-derived 4185 / curated 6）",
   "edgeCount": 4191,
   "dependencies": [
     {
@@ -107,9 +107,9 @@
       "prerequisiteId": "ct_YW2S023",
       "strength": "hard",
       "reason": "系统学习\"的地得\"要以上册词语搭配初步感知为基础",
-      "category": "其他",
-      "explain": "「\"的、地、得\"的用法」依赖「动词名词形容词搭配」：其他前提。系统学习\"的地得\"要以上册词语搭配初步感知为基础",
-      "explainSource": "rule-derived"
+      "category": "阅读表达",
+      "explain": "「“的地得”的用法」依赖「词语搭配初步感知」：阅读表达前提。先建立词语搭配的语感，才能理解结构助词在不同搭配中的分工。",
+      "explainSource": "curated"
     },
     {
       "topicId": "ct_YW2X025",
@@ -206,9 +206,9 @@
       "prerequisiteId": "ct_YW2S032",
       "strength": "hard",
       "reason": "学习冒号引号先要掌握基础标点（句号/问号/感叹号/逗号）",
-      "category": "其他",
-      "explain": "「冒号引号的用法（对话）」依赖「常用标点符号」：其他前提。学习冒号引号先要掌握基础标点（句号/问号/感叹号/逗号）",
-      "explainSource": "rule-derived"
+      "category": "阅读表达",
+      "explain": "「冒号引号的用法」依赖「基础标点（句号/问号/感叹号/逗号）」：阅读表达前提。先掌握句内停顿与句末标点，再学提示语与直接引语的标点规则。",
+      "explainSource": "curated"
     },
     {
       "topicId": "ct_YW2S041",
@@ -548,9 +548,9 @@
       "prerequisiteId": "ct_SX2S031",
       "strength": "hard",
       "reason": "7-9乘法口诀在2-6口诀熟记后扩展",
-      "category": "其他",
-      "explain": "「7-9的乘法口诀」依赖「2-6的乘法口诀」：其他前提。7-9乘法口诀在2-6口诀熟记后扩展",
-      "explainSource": "rule-derived"
+      "category": "计算能力",
+      "explain": "「7-9乘法口诀」依赖「2-6乘法口诀」：计算能力前提。已熟记 2-6 口诀后，7-9 口诀可按相同规律扩展记忆，重点突破 7、8、9 的难点口诀。",
+      "explainSource": "curated"
     },
     {
       "topicId": "ct_SX2S033",
@@ -620,9 +620,9 @@
       "prerequisiteId": "ct_SX2S050",
       "strength": "hard",
       "reason": "组合问题与排列对比学习，先学排列再学组合更清晰",
-      "category": "其他",
-      "explain": "「简单的组合」依赖「简单的排列」：其他前提。组合问题与排列对比学习，先学排列再学组合更清晰",
-      "explainSource": "rule-derived"
+      "category": "计算能力",
+      "explain": "「组合问题」依赖「排列问题」：计算能力前提。先理解排列的「有序计数」，再对比组合「不计顺序」，才能区分何时除以重复次数。",
+      "explainSource": "curated"
     },
     {
       "topicId": "ct_SX2X060",
@@ -728,9 +728,9 @@
       "prerequisiteId": "ct_SX2X068",
       "strength": "soft",
       "reason": "两步应用题常涉及乘除法",
-      "category": "其他",
-      "explain": "「两步应用题」依赖「除法应用题」：其他前提。两步应用题常涉及乘除法",
-      "explainSource": "rule-derived"
+      "category": "计算能力",
+      "explain": "「两步应用题」依赖「除法应用题」：计算能力前提。两步问题常需先算单一量再合并，除法应用题的数量关系是列综合算式的基础。",
+      "explainSource": "curated"
     },
     {
       "topicId": "ct_SX2X090",
@@ -26315,9 +26315,9 @@
       "prerequisiteId": "ct_YY1S005",
       "strength": "soft",
       "reason": "英语1年级“词汇”领域按知识与能力递进组织，学习家庭和动物词汇识记前通常会先掌握颜色和数字词汇识记",
-      "category": "其他",
-      "explain": "「家庭和动物词汇识记」依赖「颜色和数字词汇识记」：其他前提。英语1年级“词汇”领域按知识与能力递进组织，学习家庭和动物词汇识记前通常会先掌握颜色和数字词汇识记",
-      "explainSource": "rule-derived"
+      "category": "概念理解",
+      "explain": "「家庭和动物词汇识记」依赖「颜色和数字词汇识记」：概念理解前提。颜色与数字是英语1年级最先接触的主题词，家庭与动物词汇以其为认知锚点扩展。",
+      "explainSource": "curated"
     },
     {
       "topicId": "ct_YY1X013",
@@ -37723,5 +37723,5 @@
       "explainSource": "rule-derived"
     }
   ],
-  "generatedAt": "2026-11-17T03:06:26.265Z"
+  "generatedAt": "2026-11-19T08:43:47.772Z"
 }

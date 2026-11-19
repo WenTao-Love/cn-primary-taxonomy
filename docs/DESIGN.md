@@ -411,6 +411,7 @@ function celebrateStar() {
 - **内核（fsrs-scheduler.js）**：FSRS-4，17 参数 w0..w16，零依赖。状态为稳定性 S / 难度 D / 可提取性 R；`R(t) = (1 + FACTOR·t/S)^DECAY`（FACTOR=19/81，DECAY=-0.5）；目标保留率 r=0.9 时间隔 `I = S/FACTOR·(r^(1/DECAY) − 1)`；评分 1..4 = Again/Hard/Good/Easy，Again 走独立分支 `S' = w10·D^(−w11)·((S+1)^w12 − 1)`。
 - **混合调度**：学习阶段（连续独立答对 ≤ 6 步）沿用短间隔 20 分钟 / 1 小时 / 1 天 / 3 天 / 7 天 / 30 天；之后进入复习期，间隔由 FSRS 稳定性折算天数。业务规则不变（连续 3 次独立答对休眠、60 天抽检、首做/重测分离、信心校准、错因与低级失误台账）。
 - **参数注入**：`data/fsrs-params.json` → 构建生成 `shared/data/fsrs-params.js` 并注入 `window.__CNPT_FSRS_PARAMS__`；`scripts/calibrate-fsrs.mjs` 用导出日志做 17 参数校准（log loss），当前为 FSRS-4 默认值（`calibrated=false`）。
+- **FSRS-6 影子运行（v2.4）**：`fsrs6-scheduler.js` 提供官方 FSRS-6 内核（21 参数，当天短期分支按 `round(delta_t)==0` 判定）；`fsrs-engine` 每次作答并行计算 FSRS-6 间隔写入 `card.shadow6` 与 `reviewLog`（`shadow6IntervalDays/shadow6Stability` + 线上 `fsrs4IntervalDays`），**只观察不改排期**；`getShadowStats()` 汇总，`scripts/evaluate-fsrs-v6.mjs --logs` 离线消费。FSRS-6 选型结论见 `docs/开源项目借鉴反哺报告-第四批.md`。
 - **存储 v3**：卡片新增 `stability/difficulty/reps/migratedFrom`；v2→v3 迁移补字段且 **nextReview 不变**，避免排期突变；`export/import` 版本号 3。
 - **首做与重测分离**：`firstAttempts` 只记录每个知识点的第一次作答；重测（retest）、盲测（blind）不计入首做正确率，`getFirstAttemptAccuracy()` 单独统计（含独立作答子项）。
 - **信心校准**：练习作答前记录 25/50/75/100 四档信心，`getCalibrationBias()` 输出校准偏差。
@@ -491,7 +492,7 @@ function celebrateStar() {
 
 ### 5.6.8 可解释边与反向链接（v2.3）
 
-- **数据层**：`scripts/enrich-edge-explanations.mjs` 对全部依赖边派生 `category`（九类：概念理解/技能操作/计算能力/空间观念/量感与单位/阅读表达/工具使用/常识经验/其他）、`explain`（「T」依赖「P」：类别前提。+ 原因）、`explainSource`（`rule-derived` / `curated`）；`validate.mjs` 校验枚举与长度并报告分布，schema `additionalProperties:false` 同步。
+- **数据层**：`scripts/enrich-edge-explanations.mjs` 对全部依赖边派生 `category`（九类：概念理解/技能操作/计算能力/空间观念/量感与单位/阅读表达/工具使用/常识经验/其他）、`explain`（「T」依赖「P」：类别前提。+ 原因）、`explainSource`（`rule-derived` / `curated`）；人工精修走 `data/edge-explanations-curated.json` 覆盖表（key=`前置->目标`，命中即 `curated` 且优先于规则派生）；`validate.mjs` 校验枚举/长度/curated 命中并报告分布，schema `additionalProperties:false` 同步。
 - **页面层**（`node-detail.js`）：前置链路展示类别 chip + 具体原因 + 「N 个直接前置 · 不补会听不懂」/「N 个 · 有基础更轻松」；后续链路展示「被 N 个知识点依赖」，超过 5 个折叠进 `<details>`。
 - **浏览器端字段链路**：`shared/js/core/indices.js` 构造 edge 时必须保留 `category/explain/explainSource`，否则页面 chip 不显示（已修复并复验）。
 - **定位**：把 `reason` 从自由文本升级为语义化、可统计、可精修的边属性，为后续路径代价函数与边质量评测打底。

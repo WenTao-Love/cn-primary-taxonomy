@@ -560,3 +560,33 @@
 - 诊断题 189 个孤儿 topicId 未清理，诊断覆盖 384 个主题。
 - 可解释边 100% 为规则派生，未经人工逐条审核。
 - FSRS-6 未校准、未切换；G6 未引入。
+
+### 9.17 v2.4 边界改进：FSRS-6 影子运行 + curated 精修层 + 孤儿诊断题处置 ✅（2026-11-17）
+
+**边界 1：FSRS-6 影子运行闭环**
+- 新增 `shared/js/components/fsrs6-scheduler.js`（IIFE，浏览器/Node 通用）：官方 FSRS-6 内核，21 参数；`migrate17to21`；当天短期分支按官方 `round(delta_t)==0` 判定（已对齐 fsrs-rs `model_v6.rs` 的 `next_state_scalar`）。
+- `fsrs-engine.js`：每次作答后用 `_updateShadow6()` 并行计算 FSRS-6 间隔，写 `card.shadow6` 与 `reviewLog` 的 `shadow6IntervalDays/shadow6Stability/fsrs4IntervalDays`；新增 `getShadowStats()`；**只记录不改排期**（线上仍 FSRS-4）。h5/student 页面引入内核。
+- `scripts/evaluate-fsrs-v6.mjs` 新增 `--logs=<file>`：消费真实 reviewLog → `reports/fsrs6-shadow-stats.json`（间隔差分布/按主题/样本数建议）。
+- `test-fsrs-engine.mjs` 扩到 15 项（新增内核加载、17→21 迁移、当天/隔天分支、影子记录、影子差异），全部通过。
+- 浏览器实测（h5 standalone）：6 次作答后 reviewLog 含影子字段，`getShadowStats()` count=6、meanDiff=-38.01 天。
+- 公式对齐修正：`evaluate-fsrs-v6` 与内核同步为 `round(delta_t)` 判定（原 `dt<=0` 不严谨），重跑报告 logLoss 0.2599，结论不变。
+
+**边界 2：可解释边 curated 人工精修层**
+- 新增 `data/edge-explanations-curated.json`（覆盖表，key=`前置->目标`）；`enrich-edge-explanations.mjs` 命中时以 curated 覆盖规则结果（`explainSource=curated`），并报告未命中 key。
+- `validate.mjs` 新增 curated 表校验（key 命中、category 枚举、explain 长度）。
+- 首批精修 6 条；validate 通过：4191/4191 可解释边（rule-derived 4185 / curated 6）。
+
+**边界 3：孤儿诊断题保守处置**
+- 新增 `scripts/audit-diagnostic-questions.mjs`：审计孤儿题（引用不存在的 topicId），输出候选映射置信度（high/mid/low），默认只报告；`--apply=<map.json>` 应用人工确认映射并自动备份到 reports/。
+- 结果：735 题中孤儿 189 ID / 367 题；人工核对 high 中 7 个 ID（18 题）并应用映射（`data/diagnostic-questions-id-map.json`），孤儿降至 182/349；`evaluate-diagnostic` BKT 覆盖 65→68 主题、AUC 0.8186→0.8229。其余候选保留在 `reports/diagnostic-question-audit.json` 待确认。
+
+**验证（实测）**
+- 数据：`validate` ✓（curated 6 条全部命中合法）；`evaluate-diagnostic` ✓（1 条孤儿告警 182 个）；`audit-diagnostic-questions` ✓。
+- 评测：`evaluate-fsrs-v6` ✓（logLoss 0.2599）；`test-fsrs-engine` 15/15 ✓。
+- 构建：`build.mjs --standalone` / `build-standalone` / `build-split-standalone` / `validate-build`（151 引用 0 问题）全 EXIT=0。
+- 浏览器：h5 standalone 影子字段与 getShadowStats 实测通过。
+
+**已知边界（诚实记录）**
+- 182 个孤儿 topicId / 349 题未处置（等人工确认映射）。
+- curated 仅 6 条，绝大部分仍为规则派生。
+- FSRS-6 仍只影子运行，未切换；官方默认参数影子间隔普遍小于 FSRS-4 学习阶段固定间隔，需真实数据校准。
