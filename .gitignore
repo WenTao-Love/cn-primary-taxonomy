@@ -26,6 +26,10 @@ data/diagnostic-questions-deduped.json
 data/topics-by-subject-grade.txt
 data/topics-yw-yy-kx.txt
 
+# 脚本生成的评估报告（evaluate-diagnostic.mjs / evaluate-fsrs-v6.mjs / audit-diagnostic-questions.mjs 的输出，
+# 可重新生成；2026-11-19 约定不入库，避免误提交）
+reports/
+
 # 系统文件
 .DS_Store
 Thumbs.db
