@@ -84,20 +84,20 @@
 7. 下钻/返回总览时是否保存了全量快照（`_lastTopics` 仅非下钻态保存，否则返回后停在子集）
 8. 力导向模拟是否有超时停止（默认 8s），避免长时间空转
 
-## 2.6 根因诊断相关任务（v2.3）
+## 2.6 根因诊断相关任务（v2.5）
 
 > 组件：`shared/js/components/root-cause-diagnosis.js`；测试：`scripts/test-root-cause-diagnosis.mjs`。
 
 **跑回归测试**
 
 ```bash
-node scripts/test-root-cause-diagnosis.mjs   # 20 项：目标优先/薄弱掌握/根因/路线/历史/确认题→不稳/不稳不回溯/盲区再测/路径图
+node scripts/test-root-cause-diagnosis.mjs   # 31 项：目标优先/薄弱掌握/根因/路线/历史/确认题→不稳/不稳不回溯/盲区再测/路径图/进阶综合题/缺陷画像/跨年级
 ```
 
 **端侧接入（学生版 / H5）**
 
 1. 入口：学生版今日学习台 + 详情「🔍 根因诊断」按钮；H5 `#btn-rcd` + 详情按钮。
-2. 弹层：picker（未掌握候选前 12 + 搜索 + 历史）→ 开始诊断 → 答题（复用 `.practice-question/.practice-option`）→ 报告（统计/根因/不稳/**路径图**/路线）→ 「开始补学第一个」跳转练习；未测 > 0 时出现「🧪 盲区再测」。
+2. 弹层：picker（未掌握候选前 12 + 搜索 + 历史）→ 开始诊断 → 答题（复用 `.practice-question/.practice-option`；答题卡显示「难度 · 基础/中等/拔高」标签；答对出现「⬆️ 进阶综合题」标签）→ 报告（统计/缺陷画像/根因/不稳/**路径图**/路线；项带缺陷标签与「⏪跨年级」、根因下「💡 建议」）→ 「开始补学第一个」跳转练习；未测 > 0 时出现「🧪 盲区再测」。
 3. 桥接：H5 用 `window._h5StartRcd(id)`，禁止 inline onclick。
 4. 数据：题目只从 `window.__CNPT_DIAGNOSTIC_QUESTIONS__` / `topic.quizQuestions` / `commonMistakes+evidence` 取，禁止硬编码。
 
@@ -106,6 +106,24 @@ node scripts/test-root-cause-diagnosis.mjs   # 20 项：目标优先/薄弱掌�
 - 根容器必须是 `#app`（CSS 强耦合）；改动 `h5/index.html` 后先查模板 id / skip-link / 闭合注释三处一致。
 - 浏览器有缓存：验证新 HTML/JS/CSS 是否生效，以桥接函数或新样式存在为准，必要时给资源加时间戳破缓存。
 - 用移动视口实测：今日学习台 `#btn-rcd` 入口 + 详情预设目标 + 弹层答题 + 报告补学跳转。
+
+## 2.7 数据备份与题目难度标注（v2.6）
+
+> 组件：`shared/js/components/data-export.js`；测试：`scripts/test-data-backup.mjs`；审计：`scripts/audit-question-difficulty.mjs`。
+
+**跑回归测试**
+
+```bash
+node scripts/test-data-backup.mjs        # 8 项：空结构/有数据收集/往返/v1.0 兼容/非法输入/角色隔离/legacy 回写/缺失字段不覆盖
+node scripts/audit-question-difficulty.mjs   # 诊断题难度覆盖审计（735/735，基础 392/中等 270/拔高 73）
+```
+
+**端侧接入**
+
+1. 三端 `initDataExport({ role })`：h5 / student = `student`，teacher = `teacher`；入口按钮「📦 数据备份」。
+2. 面板：完整备份/恢复区（导出 JSON v2.0；恢复 JSON 文件选择 + 二次确认）、分类 CSV、危险清除（同时清新键与旧键）。
+3. 恢复只写备份中存在的字段（缺失字段不覆盖）；兼容 v1.0 备份（`userData`/`compliance`/设置）。
+4. 难度标签：根因诊断答题卡 `.rcd-diff-tag diff-basic|diff-medium|diff-hard`，映射取 `CNPT.rootCause.DIFFICULTY_NAMES`。
 
 ## 2.6.1 主题研修相关任务（v2.4）
 

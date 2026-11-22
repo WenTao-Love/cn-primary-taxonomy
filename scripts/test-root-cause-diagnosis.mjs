@@ -17,9 +17,9 @@ globalThis.localStorage = {
 
 // ---- 最小图谱 mock：A → B → C（C 依赖 B、B 依赖 A，均 hard）----
 const topics = [
-  { id: 'A', name: '用字母表示数', subject: '数学', grade: 7, difficulty: 1, description: '' },
-  { id: 'B', name: '一元一次方程', subject: '数学', grade: 7, difficulty: 2, description: '' },
-  { id: 'C', name: '二次函数', subject: '数学', grade: 9, difficulty: 4, description: '' }
+  { id: 'A', name: '用字母表示数', subject: '数学', grade: 7, difficulty: 1, type: 'CONCEPTUAL', description: '' },
+  { id: 'B', name: '一元一次方程', subject: '数学', grade: 7, difficulty: 2, type: 'PROCEDURAL', description: '' },
+  { id: 'C', name: '二次函数', subject: '数学', grade: 9, difficulty: 4, type: 'CONCEPTUAL', description: '' }
 ];
 const deps = [
   { topicId: 'B', prerequisiteId: 'A', strength: 'hard', reason: '需要先会字母表示数' },
@@ -128,6 +128,28 @@ assert(gd.targetId === 'C' && gd.depth['C'] === 0 && gd.depth['B'] === 1, '路�
 const svg = engine.renderPathGraphSVG(report);
 assert(svg.indexOf('<svg') === 0 && svg.indexOf('<rect') !== -1 && svg.indexOf('<line') !== -1, '路径图 SVG 渲染含节点与边');
 assert(engine.renderPathGraphSVG({ remedialPath: [] }) === '', '无路线时路径图返回空串');
+
+// 6) 进阶综合题：答对目标后沿 hard 后继向上出题（限量）
+const s4 = engine.start('A', { maxQuestions: 10 });
+const aq = engine.next(s4);
+const ar = engine.answer(s4, aq.question.id, aq.question.answer);
+assert(ar.advanced === 1, '答对后加入 1 道进阶题');
+assert(s4.queue.some(i => i.topicId === 'B' && i.isAdvance), '进阶题标记 isAdvance');
+const adv = engine.next(s4);
+assert(adv && adv.isAdvance === true && adv.topic.id === 'B', '进阶题出题且带 isAdvance');
+const s5 = engine.start('A', { maxQuestions: 10, advanceLimit: 0 });
+const aq5 = engine.next(s5);
+const ar5 = engine.answer(s5, aq5.question.id, aq5.question.answer);
+assert(ar5.advanced === 0 && !s5.queue.some(i => i.isAdvance), 'advanceLimit=0 时不加进阶题');
+
+// 7) 缺陷画像与跨学段标注
+assert(engine.classifyDefect({ name: '问候词汇识记', type: 'LANGUAGE' }).defectType === 'memory', '词汇类 → 记忆背诵');
+assert(engine.classifyDefect({ name: '现在完成时', type: 'LANGUAGE' }).defectType === 'language', '时态类 → 语言规则');
+assert(engine.classifyDefect({ name: '二次函数', type: 'CONCEPTUAL' }).defectType === 'concept', '概念类 → 概念理解');
+assert(engine.classifyDefect({ name: '一元一次方程', type: 'PROCEDURAL' }).defectType === 'skill', '技能类 → 技能熟练');
+assert(report.rootCauses[0].defectType === 'skill' && report.rootCauses[0].crossGrade === true, '根因带缺陷画像且跨年级（B 7年级 vs 目标 C 9年级）');
+assert(report.defectSummary.length >= 1 && report.defectSummary[0].count >= 1, '缺陷画像汇总非空');
+assert(report.remedialPath.every(p => p.defectType && p.suggestion), '补学路线每项带缺陷画像与建议');
 
 console.log(`\n共 ${pass + fail} 项 · 通过 ${pass} · 失败 ${fail}`);
 if (fail) process.exitCode = 1;

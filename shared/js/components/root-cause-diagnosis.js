@@ -6,6 +6,8 @@
  *   2. 答错 → 先出确认题：确认题也错 → 薄弱；确认题对 → 不稳（不继续回溯）
  *   3. 薄弱 → 沿先修边（默认仅 hard）往回找根因，直到揪出「根因盲区」
  *   4. 生成「按顺序补回来」的补学路线（拓扑序 + 排除已掌握）
+ *   5. 答对 → 沿后继边出「进阶综合题」（更狠的下游应用，限量向上挑战）
+ *   6. 结论标注「缺陷画像」（概念理解/记忆背诵/语言规则/技能熟练/方法策略…）与「跨年级回溯」
  *
  * 与既有脚本 scripts/diagnostic-engine-v2.js 的关系：
  *   v2 面向 docs/diagnostic-center.html，依赖 data/diagnostic-questions.json 的 735 道题；
@@ -127,6 +129,9 @@
           confirmOnFail: options.confirmOnFail !== false,
           autoBacktrack: options.autoBacktrack !== false,
           backtrackStrength: options.backtrackStrength || 'hard',
+          advanceOnCorrect: options.advanceOnCorrect !== false,
+          advanceLimit: options.advanceLimit != null ? options.advanceLimit : 2,
+          advanceStrength: options.advanceStrength || 'hard',
           isMastered: options.isMastered || function() { return false; }
         },
         status: 'running',
@@ -137,7 +142,8 @@
         queue: [],
         pendingConfirm: null,
         confirmedTopics: new Set(),
-        currentDifficulty: 'basic'
+        currentDifficulty: 'basic',
+        advanceAdded: 0
       };
 
       const target = this.getTopicInfo(targetTopicId);
@@ -224,6 +230,7 @@
           question: q,
           topic: this.getTopicInfo(item.topicId),
           message: item.reason || '',
+          isAdvance: !!item.isAdvance,
           progress: this._progress(session)
         };
       }
@@ -237,7 +244,8 @@
         answered: session.questionCount,
         limit: session.options.maxQuestions,
         weak: session.results.weak.length,
-        unstable: session.results.unstable.length
+        unstable: session.results.unstable.length,
+        advance: session.advanceAdded
       };
     }
 
@@ -267,7 +275,16 @@
 
       if (isCorrect) {
         this._pushMastered(session, topicId, '掌握良好');
-        return { correct: true, needConfirm: false, markedAs: 'mastered', message: '答对了，这个点掌握了 👍' };
+        const advanced = session.options.advanceOnCorrect ? this._advance(session, topicId) : 0;
+        return {
+          correct: true,
+          needConfirm: false,
+          markedAs: 'mastered',
+          advanced,
+          message: advanced > 0
+            ? `答对了，这个点掌握了 👍 再加 ${advanced} 道进阶综合题`
+            : '答对了，这个点掌握了 👍'
+        };
       }
 
       // 答错：尝试确认题
@@ -395,6 +412,38 @@
       }
     }
 
+    /**
+     * 进阶：答对后把该知识点的 hard 后继（未测/未标记/不在队列）插入队首，
+     * 形成「更狠的综合题」向上挑战；受 advanceLimit 限量，默认 2 道。
+     * 无 hard 后继时退而取 soft 后继（仍限量的综合应用）。
+     */
+    _advance(session, topicId) {
+      const limit = session.options.advanceLimit || 0;
+      if (session.advanceAdded >= limit) return 0;
+      const want = session.options.advanceStrength || 'hard';
+      let succs = this.getSuccessors(topicId).filter(s => s.strength === want);
+      if (!succs.length) succs = this.getSuccessors(topicId);
+      const fromName = this.getTopicInfo(topicId)?.name || topicId;
+      let added = 0;
+      for (const s of succs) {
+        if (session.advanceAdded >= limit) break;
+        if (this._alreadyMarked(session, s.id)) continue;
+        if (session.queue.some(i => i.topicId === s.id)) continue;
+        const t = this.getTopicInfo(s.id);
+        if (!t) continue;
+        if (typeof session.options.isMastered === 'function' && session.options.isMastered(s.id)) continue;
+        session.queue.unshift({
+          topicId: s.id,
+          priority: 0,
+          isAdvance: true,
+          reason: `进阶挑战：已掌握「${fromName}」，试试更综合的「${t.name}」`
+        });
+        session.advanceAdded++;
+        added++;
+      }
+      return added;
+    }
+
     // ---------------- 结果与路线 ----------------
 
     /**
@@ -406,10 +455,11 @@
       }
       session.status = 'completed';
 
-      const weak = session.results.weak.map(w => this._withTopic(w, 'weak'));
-      const unstable = session.results.unstable.map(u => this._withTopic(u, 'unstable'));
-      const mastered = session.results.mastered.map(m => this._withTopic(m, 'mastered'));
-      const untested = session.results.untested.map(u => this._withTopic(u, 'untested'));
+      const targetGrade = (this.getTopicInfo(session.targetTopicId) || {}).grade || 0;
+      const weak = session.results.weak.map(w => this._withTopic(w, 'weak', targetGrade));
+      const unstable = session.results.unstable.map(u => this._withTopic(u, 'unstable', targetGrade));
+      const mastered = session.results.mastered.map(m => this._withTopic(m, 'mastered', targetGrade));
+      const untested = session.results.untested.map(u => this._withTopic(u, 'untested', targetGrade));
 
       // 根因 = 薄弱点中「没有更薄弱前置」者（最深处）
       const weakIds = new Set(weak.map(w => w.topicId));
@@ -425,7 +475,7 @@
         version: VERSION,
         role: this.role,
         createdAt: new Date().toISOString(),
-        target: this._withTopic({ topicId: session.targetTopicId }, 'target'),
+        target: this._withTopic({ topicId: session.targetTopicId }, 'target', targetGrade),
         statistics: {
           totalQuestions: session.questionCount,
           correctAnswers: session.answers.filter(a => a.isCorrect).length,
@@ -433,7 +483,8 @@
           unstableCount: unstable.length,
           untestedCount: untested.length,
           masteredCount: mastered.length,
-          rootCauseCount: rootCauses.length
+          rootCauseCount: rootCauses.length,
+          advanceCount: session.advanceAdded
         },
         rootCauses,
         weak,
@@ -441,6 +492,7 @@
         untested,
         mastered,
         remedialPath,
+        defectSummary: this._summarizeDefects(weak, unstable),
         answers: session.answers
       };
 
@@ -448,8 +500,51 @@
       return report;
     }
 
-    _withTopic(ref, status) {
+    /**
+     * 缺陷画像：把知识点映射为「缺陷类型 + 针对性建议」。
+     * 判据来自知识点自身的 type/domain/subnodeType/name（不依赖边、不编造）。
+     * 例：英语「词汇识记」→ 记忆背诵；「现在完成时」→ 语言规则；数学「方程」→ 技能熟练。
+     */
+    classifyDefect(topic) {
+      if (!topic) return { defectType: 'other', defectLabel: '综合', suggestion: '按补学路线顺序巩固。' };
+      const text = `${topic.name || ''} ${topic.domain || ''} ${topic.subnodeType || ''}`;
+      const type = topic.type || '';
+      if (/词汇|单词|识字|写字|抄写|背|默写|字词|名称|术语|符号/.test(text)) {
+        return { defectType: 'memory', defectLabel: '记忆背诵', suggestion: '用间隔复习与听写默写巩固，重在准确再现。' };
+      }
+      if (type === 'LANGUAGE' || /时态|语法|句型|语篇|阅读|表达|口语|写作|拼读|发音/.test(text)) {
+        return { defectType: 'language', defectLabel: '语言规则', suggestion: '梳理规则并做对比练习，在语境中反复运用。' };
+      }
+      if (type === 'CONCEPTUAL' || /概念|意义|性质|特征|规律|关系|定义|原理|函数/.test(text)) {
+        return { defectType: 'concept', defectLabel: '概念理解', suggestion: '回到定义与例子，先弄清“是什么/为什么”，再去做题。' };
+      }
+      if (type === 'PROCEDURAL' || /计算|运算|竖式|口算|笔算|解方程|方程|作图|操作|测量|实验|步骤/.test(text)) {
+        return { defectType: 'skill', defectLabel: '技能熟练', suggestion: '按规范步骤限时练习，先求对再求快。' };
+      }
+      if (type === 'META') {
+        return { defectType: 'meta', defectLabel: '方法策略', suggestion: '复盘解题思路，总结可迁移的方法。' };
+      }
+      if (type === 'REPRESENTATIONAL') {
+        return { defectType: 'representation', defectLabel: '表征转换', suggestion: '在图形、符号、语言之间相互转换练习。' };
+      }
+      return { defectType: 'other', defectLabel: '综合', suggestion: '按补学路线顺序巩固。' };
+    }
+
+    /** 缺陷画像汇总（仅统计薄弱 + 不稳），按数量降序 */
+    _summarizeDefects(weak, unstable) {
+      const summary = {};
+      for (const item of [...weak, ...unstable]) {
+        const key = item.defectType || 'other';
+        if (!summary[key]) summary[key] = { defectType: key, defectLabel: item.defectLabel || '综合', count: 0 };
+        summary[key].count++;
+      }
+      return Object.values(summary).sort((a, b) => b.count - a.count);
+    }
+
+    _withTopic(ref, status, targetGrade) {
       const t = this.getTopicInfo(ref.topicId) || {};
+      const defect = this.classifyDefect(t);
+      const crossGrade = !!(targetGrade && t.grade && t.grade !== targetGrade);
       return {
         topicId: ref.topicId,
         name: t.name || ref.topicId,
@@ -459,7 +554,11 @@
         difficulty: t.difficulty || 0,
         status,
         message: ref.message || '',
-        description: t.description || ''
+        description: t.description || '',
+        defectType: defect.defectType,
+        defectLabel: defect.defectLabel,
+        suggestion: defect.suggestion,
+        crossGrade
       };
     }
 
@@ -496,6 +595,7 @@
         const t = this.getTopicInfo(id) || {};
         const status = statusOf[id] || 'unknown';
         const prereqs = this.getDirectPrerequisites(id).map(p => p.id);
+        const defect = this.classifyDefect(t);
         return {
           topicId: id,
           name: t.name || id,
@@ -504,7 +604,10 @@
           term: t.term || '',
           status,
           prerequisites: prereqs,
-          weight: this.calculateTopicWeight(id, status === 'weak')
+          weight: this.calculateTopicWeight(id, status === 'weak'),
+          defectType: defect.defectType,
+          defectLabel: defect.defectLabel,
+          suggestion: defect.suggestion
         };
       });
     }

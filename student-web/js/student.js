@@ -100,7 +100,7 @@
   if (CNPT.components.initVoiceSearch) { CNPT.components.initVoiceSearch(); }
   if (CNPT.components.initShareCard) { CNPT.components.initShareCard(); }
   if (CNPT.components.initPWA) { CNPT.components.initPWA(); }
-  if (CNPT.components.initDataExport) { CNPT.components.initDataExport(); }
+  if (CNPT.components.initDataExport) { CNPT.components.initDataExport({ role: 'student' }); }
 
     // 初始化主题管理器（主题切换+字号控制）
     if (CNPT.components.initThemeManager) {
@@ -805,8 +805,10 @@
     const q = item.question;
     const p = item.progress;
     DOM.rcdBody.innerHTML = `
-      <div class="rcd-progress">第 ${p.answered + 1} 题 / 上限 ${p.limit} · 薄弱 ${p.weak} · 不稳 ${p.unstable}</div>
+      <div class="rcd-progress">第 ${p.answered + 1} 题 / 上限 ${p.limit} · 薄弱 ${p.weak} · 不稳 ${p.unstable}${p.advance ? ` · 进阶 ${p.advance}` : ''}</div>
       ${item.type === 'confirm' ? '<div class="rcd-confirm-tag">确认题 · 再确认一次</div>' : ''}
+      ${item.isAdvance ? '<div class="rcd-advance-tag">⬆️ 进阶综合题 · 已掌握前置，挑战更综合的下游应用</div>' : ''}
+      ${q.difficulty ? `<div class="rcd-diff-tag diff-${q.difficulty}">难度 · ${(CNPT.rootCause.DIFFICULTY_NAMES || {})[q.difficulty] || q.difficulty}</div>` : ''}
       <div class="rcd-topic">${CNPT.utils.escapeHtml((item.topic && item.topic.name) || '')}<span>${(item.topic && item.topic.subject) || ''} · ${(item.topic && item.topic.grade) || ''}年级</span></div>
       <div class="cnpt-practice-question">${CNPT.utils.escapeHtml(q.question)}</div>
       <div class="cnpt-practice-options">
@@ -839,15 +841,16 @@
           <div><b>${s.unstableCount}</b><span>不稳</span></div>
           <div><b>${s.untestedCount}</b><span>未测</span></div>
         </div>
+        ${report.defectSummary && report.defectSummary.length ? `<div class="rcd-block"><h4>🧬 缺陷画像</h4>${report.defectSummary.map(d => `<div class="rcd-defect-row"><span class="rcd-defect-tag defect-${d.defectType}">${CNPT.utils.escapeHtml(d.defectLabel)}</span><span class="rcd-defect-count">${d.count} 个知识点</span></div>`).join('')}<div class="rcd-defect-tip">记忆背诵靠间隔重复，语言规则靠对比运用，概念理解回到定义，技能熟练靠限时规范练习。</div></div>` : ''}
         <div class="rcd-block">
           <h4>🎯 根因盲区（优先补）</h4>
           ${report.rootCauses.length
-            ? report.rootCauses.map(r => `<div class="rcd-item weak">🔴 ${CNPT.utils.escapeHtml(r.name)}<span>${r.subject} · ${r.grade}年级</span></div>`).join('')
+            ? report.rootCauses.map(r => `<div class="rcd-item weak">🔴 ${CNPT.utils.escapeHtml(r.name)}<span>${r.subject} · ${r.grade}年级${r.crossGrade ? ' · ⏪跨年级' : ''} · ${CNPT.utils.escapeHtml(r.defectLabel)}</span></div><div class="rcd-suggestion">💡 ${CNPT.utils.escapeHtml(r.suggestion)}</div>`).join('')
             : '<div class="rcd-item">✅ 没发现薄弱根因，基础扎实！</div>'}
         </div>
-        ${report.unstable.length ? `<div class="rcd-block"><h4>🟠 不稳（先巩固，不用回溯）</h4>${report.unstable.map(u => `<div class="rcd-item unstable">${CNPT.utils.escapeHtml(u.name)}<span>${u.subject} · ${u.grade}年级</span></div>`).join('')}</div>` : ''}
+        ${report.unstable.length ? `<div class="rcd-block"><h4>🟠 不稳（先巩固，不用回溯）</h4>${report.unstable.map(u => `<div class="rcd-item unstable">${CNPT.utils.escapeHtml(u.name)}<span>${u.subject} · ${u.grade}年级${u.crossGrade ? ' · ⏪跨年级' : ''} · ${CNPT.utils.escapeHtml(u.defectLabel)}</span></div>`).join('')}</div>` : ''}
         ${route.length ? `<div class="rcd-block"><h4>🧩 根因路径图</h4><div class="rcd-graph">${state.rcd.renderPathGraphSVG(report)}</div></div>` : ''}
-        ${route.length ? `<div class="rcd-block"><h4>🗺️ 补学路线（按顺序）</h4>${route.map((p, i) => `<div class="rcd-item ${p.status}">${i + 1}. ${p.status === 'weak' ? '🔴' : '🟠'} ${CNPT.utils.escapeHtml(p.name)}<span>${p.subject} · ${p.grade}年级</span></div>`).join('')}</div>` : ''}
+        ${route.length ? `<div class="rcd-block"><h4>🗺️ 补学路线（按顺序）</h4>${route.map((p, i) => `<div class="rcd-item ${p.status}">${i + 1}. ${p.status === 'weak' ? '🔴' : '🟠'} ${CNPT.utils.escapeHtml(p.name)}<span>${p.subject} · ${p.grade}年级 · ${CNPT.utils.escapeHtml(p.defectLabel)}</span></div>`).join('')}</div>` : ''}
         <div class="rcd-actions">
           <button class="cnpt-detail-btn primary" id="rcd-start-learn">开始补学第一个</button>
           ${s.untestedCount > 0 ? '<button class="cnpt-detail-btn secondary" id="rcd-retest">🧪 盲区再测</button>' : ''}

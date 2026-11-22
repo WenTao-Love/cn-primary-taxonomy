@@ -80,7 +80,7 @@
   if (CNPT.components.initVoiceSearch) { CNPT.components.initVoiceSearch(); }
   if (CNPT.components.initShareCard) { CNPT.components.initShareCard(); }
   if (CNPT.components.initPWA) { CNPT.components.initPWA(); }
-  if (CNPT.components.initDataExport) { CNPT.components.initDataExport(); }
+  if (CNPT.components.initDataExport) { CNPT.components.initDataExport({ role: 'teacher' }); }
   if (CNPT.components.initNodeDetail) { CNPT.components.initNodeDetail(); }
 
     // 初始化主题管理器（主题切换+字号控制）

@@ -513,6 +513,8 @@ function celebrateStar() {
 5. **回溯**：薄弱点沿 **hard 前置边** BFS 往回查（soft 边只作参考不回溯）；一直查到没有更薄弱的前置为止。
 6. **根因**：薄弱点中「没有更薄弱 hard 前置」的知识点，即「病根」。
 7. **补学路线**：把「根因 → 目标」之间未掌握的点按拓扑序（`CNPT.path`）排成一条路线，报告页一键「开始补学第一个」直接跳转练习。
+8. **进阶综合题**：答对某知识点后，沿其次继边（默认 hard）把未测的下游综合应用**插入队首**，限量（默认 2 道）——对应文章「答对了，系统往后出更狠的综合题」。
+9. **缺陷画像与跨学段标注**：每个薄弱/不稳/根因/补学项带 `defectType/defectLabel/suggestion`（记忆背诵/语言规则/概念理解/技能熟练/方法策略/表征转换/综合），并标注 `crossGrade`（与目标不同年级，如高一函数 → 初中二次函数）。
 
 ### 5.7.2 题目三级回退
 
@@ -520,15 +522,16 @@ function celebrateStar() {
 
 ### 5.7.3 接口与存储
 
-- `window.CNPT.rootCause.create(role)` → 引擎实例；`start(targetId, {maxQuestions:15, confirmOnFail, autoBacktrack, backtrackStrength, isMastered})`、`next(session)`、`answer(session, qid, idx)`、`answerConfirm(...)`、`finish(session)`、`buildRemedialPath(...)`、`getHistory/clearHistory/exportReport`、`expandUntested(session)`（盲区再测）、`getPathGraphData(report)`/`renderPathGraphSVG(report)`（根因路径图）。
+- `window.CNPT.rootCause.create(role)` → 引擎实例；`start(targetId, {maxQuestions:15, confirmOnFail, autoBacktrack, backtrackStrength, advanceOnCorrect, advanceLimit, advanceStrength, isMastered})`、`next(session)`、`answer(session, qid, idx)`、`answerConfirm(...)`、`finish(session)`、`buildRemedialPath(...)`、`getHistory/clearHistory/exportReport`、`expandUntested(session)`（盲区再测）、`getPathGraphData(report)`/`renderPathGraphSVG(report)`（根因路径图）、`classifyDefect(topic)`（缺陷画像）。
 - 历史：localStorage `cnpt-<role>-rcd-history`，上限 20 条；报告可导出 JSON。
-- 结果结构：`target / statistics / rootCauses / weak / unstable / untested / mastered / remedialPath / answers`。
+- 结果结构：`target / statistics(含 advanceCount) / rootCauses / weak / unstable / untested / mastered / remedialPath / defectSummary / answers`；各知识点项含 `defectType/defectLabel/suggestion/crossGrade`。
 
 ### 5.7.4 端侧接入
 
 - **学生版**（`student-web/js/student.js`）：今日学习台入口 + 详情「🔍 根因诊断」按钮 + 弹层；`isTopicMastered` 取 storage mastered 或 FSRS dormant/连续答对≥2。
 - **H5**（`h5/index.html` + `h5/js/app.js` + `h5/css/style.css`）：`#btn-rcd` 入口 + `#rcd-modal` 底部弹层；答题复用 `.practice-question/.practice-option` 组件与正误态；全局桥接 `window._h5StartRcd`（替代 inline onclick，防 XSS）。
-- **回归测试**：`scripts/test-root-cause-diagnosis.mjs`（20 项：目标优先、薄弱/掌握、根因、路线、历史、确认题→不稳、不稳不回溯、盲区再测、路径图数据/SVG）。
+- **回归测试**：`scripts/test-root-cause-diagnosis.mjs`（31 项：目标优先、薄弱/掌握、根因、路线、历史、确认题→不稳、不稳不回溯、盲区再测、路径图数据/SVG、进阶综合题（答对向上/限量）、缺陷画像分类、根因跨年级标注、缺陷汇总）。
+- **端侧新元素**：答题页「⬆️ 进阶综合题」标签 + 进度「进阶 N」；报告页「🧬 缺陷画像」块（类型标签 + 数量 + 口诀）、根因/不稳项带缺陷标签与「⏪跨年级」、根因下「💡 建议」、补学路线项带缺陷标签。
 
 ### 5.7.5 根因路径图与盲区再测
 
@@ -543,6 +546,25 @@ function celebrateStar() {
 - **端侧**：学生版 `#btn-theme` → `#theme-modal`（列表 → 详情 → 「开始主题学习」→ 关闭弹层并 `showTopicDetail(first)`）；H5 同构（`showNodeDetail`）。主题挂接点多为道法/信息科技母点、几乎无随堂题，因此闭环走**详情页**（查看内容 + 标记掌握），不依赖自动生成练习。
 - **注入**：4 个构建脚本统一注入 `window.__CNPT_THEMES__`；split 版另生成 `standalone-data/themes.js`。
 - **测试**：`scripts/test-themes.mjs` 16 项（数据完整性、关联点存在、组件 API、未知主题空路径）。
+
+## 五点八、数据备份与题目难度标注设计（v2.6）
+
+> 反哺来源：AI 初中数学助手（微信文章）——「完整备份/恢复」「每题标注难易程度」。
+
+### 5.8.1 数据备份与恢复（`shared/js/components/data-export.js`）
+
+- **定位**：原导出组件只读旧版下划线键（`cnpt_mastery` 等），与现行分角色存储（`cnpt-<role>-*`）不一致且**只能导出不能恢复**；v2.6 重写为备份 / 导出 / 恢复一体。
+- **收集**：`initDataExport({ role })` 显式角色（h5/student=student，teacher=teacher，缺省按路径推断）；`collectAllData(role)` 基于 `CNPT.storage.create(role).keys` 读取：`mastery / wrongBook / fsrs / mistakeLedger / dailyLog / diagnostic / lastVisit / days`（学生另 `stars`）+ `cnpt-<role>-rcd-history` + 设置（theme/fontSize/onboarding）+ 旧键残留（`legacy` 段，仅在存在时携带）。
+- **导出结构 v2.0**：`exportInfo{ version, exportedAt, appName, appVersion, role } + storage + settings + rcdHistory + counts (+ legacy)`；文件名 `cnpt_backup_<role>_<date>.json`。
+- **恢复 `importFromJSON(parsed, role)`**：兼容 v2.0（`storage/legacy`）与 v1.0（`userData/compliance/设置`）；角色取自参数 → 备份 `exportInfo.role` → 自动推断；**只写备份中存在的字段**（缺失字段不覆盖现有数据，防止误清空）；旧键写回同名旧键；非法输入（null/数组/字符串）返回 `{ok:false,error}`。
+- **UI**：入口按钮「📦 数据备份」；面板含统计（掌握/错题/FSRS 卡片/诊断历史）、「完整备份 / 恢复」区（导出 JSON + 恢复 JSON + 隐藏 file input，恢复前二次确认）、分类 CSV、危险清除（同时清新键与旧键）。
+- **测试**：`scripts/test-data-backup.mjs` 8 项（空结构 / 有数据收集 / 导出→清空→导入往返 / v1.0 兼容 / 非法输入 / 角色隔离 / legacy 回写 / 缺失字段不覆盖）。
+
+### 5.8.2 题目难易程度标注
+
+- **数据**：`data/diagnostic-questions.json` 735 题 difficulty 覆盖率 100%（基础 392 / 中等 270 / 拔高 73）；`topics.json` 随堂题为 0（题目走诊断题库 + 三级回退）。
+- **端侧**：根因诊断答题卡在主题行前显示 `难度 · 基础/中等/拔高` 标签（`.rcd-diff-tag diff-basic|diff-medium|diff-hard`，h5 与 student 双端）；难度名映射复用 `CNPT.rootCause.DIFFICULTY_NAMES`。
+- **审计**：`scripts/audit-question-difficulty.mjs` 统计诊断题 / 随堂题难度覆盖与分布，输出 `reports/question-difficulty-audit.json`，全部标注且无未知值时退出码 0。
 
 ## 六、后续路线图
 

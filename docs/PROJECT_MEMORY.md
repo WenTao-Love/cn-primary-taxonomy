@@ -590,3 +590,56 @@
 - 182 个孤儿 topicId / 349 题未处置（等人工确认映射）。
 - curated 仅 6 条，绝大部分仍为规则派生。
 - FSRS-6 仍只影子运行，未切换；官方默认参数影子间隔普遍小于 FSRS-4 学习阶段固定间隔，需真实数据校准。
+
+### 9.18 v2.5 cn-math-taxonomy 文章反哺：进阶综合题 + 缺陷画像 + 跨学段标注 ✅（2026-11-22）
+
+**来源**：公众号文章《GitHub超牛的开源项目：中小学全学科知识图谱》（https://mp.weixin.qq.com/s/eh-7jJK0Mi6BT2yeLJH4Rg），介绍 cn-math-taxonomy 的图谱漫游 + 前置诊断。对照项目现状，落地文章明确提到而项目此前缺失的两点：
+
+**反哺 1：答对后的「进阶综合题」**
+- `root-cause-diagnosis.js` 新增 `_advance()`：答对后沿后继边（默认 hard，无则 soft）把未测下游综合应用插入队首，限量 `advanceLimit`（默认 2），带 `isAdvance` 标记；`start` 选项 `advanceOnCorrect/advanceLimit/advanceStrength`；`statistics.advanceCount`、`progress.advance`。
+- 两端 UI：答题页「⬆️ 进阶综合题」标签 + 进度「进阶 N」。
+- 文章依据：「答对了，系统往后出更狠的综合题」。
+
+**反哺 2：缺陷画像（概念性 vs 记忆性）+ 跨学段回溯标注**
+- 新增 `classifyDefect(topic)`：按 type/domain/name 映射记忆背诵/语言规则/概念理解/技能熟练/方法策略/表征转换/综合 + 针对性建议；`_withTopic` 输出 `defectType/defectLabel/suggestion/crossGrade`；报告 `defectSummary` 汇总。
+- 文章依据：「是时态逻辑没通，还是单纯单词没背住」→ 词汇类判记忆背诵、时态类判语言规则；「初高中衔接」「跨年级的病根」→ crossGrade 标注。
+- 两端 UI：报告「🧬 缺陷画像」块（类型 + 数量 + 口诀）、根因/不稳项带缺陷标签与「⏪跨年级」、根因下「💡 建议」、补学路线项带缺陷标签。
+
+**验证（实测）**
+- `test-root-cause-diagnosis.mjs` 扩到 31 项（新增进阶 3 项、缺陷画像/跨年级 6 项），全部通过；`test-fsrs-engine` 15/15。
+- 构建链 EXIT=0，validate-build 151 引用 0 问题。
+- 浏览器（h5 standalone，真实数据）：答对目标后 `advanced=2`、`nextIsAdvance=true`；答错流程报告 `defectSummary` 含「概念理解」；UI 实测「⬆️ 进阶综合题」标签出现、报告「记忆背诵」标签与「💡 建议」渲染正常（候选「问候与礼貌表达词汇识记」正确判为记忆背诵）。
+- 文档：DESIGN 5.7、PLAYBOOK 2.6、README、本节。
+
+**已知边界（诚实记录）**
+- 缺陷画像判据为规则化（type + 关键词），非教师逐条标注；少数名称跨类时可能偏差。
+- 进阶题默认最多 2 道，且仅沿 hard 后继；无 hard 后继时退化为 soft 后继。
+- 跨学段回溯的「跨年」仅按 grade 数值比较，未区分小学/初中/高中学段边界。
+
+### 9.19 v2.6 备份恢复 + 难度标注：AI 初中数学助手文章反哺 ✅（2026-11-22）
+
+**反哺来源**：微信文章《AI 初中数学助手》——商业软件特征「完整备份/恢复」「每题标注难易程度」等。对照项目现状：原 `data-export.js` 只读旧版下划线键（与现行 `cnpt-<role>-*` 分角色存储不一致）且只能导出不能恢复；诊断题已 100% 标注难度但答题 UI 未展示。
+
+**反哺 1：数据备份与恢复（重写 `shared/js/components/data-export.js`）**
+- 收集：`initDataExport({ role })` 显式角色（h5/student=student，teacher=teacher，缺省路径推断）；`collectAllData(role)` 基于 `CNPT.storage.create(role).keys` 读取 mastery/wrongBook/fsrs/mistakeLedger/dailyLog/diagnostic/lastVisit/days（学生含 stars）+ `cnpt-<role>-rcd-history` + 设置 + 旧键残留（legacy 段）。
+- 导出 v2.0：`exportInfo{version,role,appVersion,exportedAt} + storage + settings + rcdHistory + counts (+legacy)`，文件名 `cnpt_backup_<role>_<date>.json`；保留掌握/错题 CSV。
+- 恢复 `importFromJSON`：兼容 v2.0 与 v1.0（userData/compliance/设置）；只写备份存在字段（缺失不覆盖）；旧键回写；非法输入返回错误；角色三级取值（参数→备份 role→推断）。
+- UI：入口按钮「📦 数据备份」；面板统计（掌握/错题/FSRS 卡片/诊断历史）+「完整备份 / 恢复」（导出 JSON、恢复文件选择 + 二次确认）+ 分类 CSV + 危险清除（新键与旧键同清）。
+- 新增 `scripts/test-data-backup.mjs` 8 项（空结构/收集/往返/v1 兼容/非法/角色隔离/legacy/缺失不覆盖），全部通过。
+
+**反哺 2：题目难易程度标注**
+- 数据：诊断题 735/735 已标注（基础 392 / 中等 270 / 拔高 73），随堂题为 0。
+- 端侧：h5 与 student 根因诊断答题卡新增 `.rcd-diff-tag` 难度标签（基础蓝/中等橙/拔高红），映射复用 `CNPT.rootCause.DIFFICULTY_NAMES`。
+- 审计：新增 `scripts/audit-question-difficulty.mjs`，输出 `reports/question-difficulty-audit.json`，覆盖率 100% PASS。
+
+**验证（实测）**
+- 测试：`test-data-backup.mjs` 8/8 ✓；`test-root-cause-diagnosis.mjs` 31/31 ✓；`test-fsrs-engine.mjs` 15/15 ✓。
+- 数据：`validate.mjs` ✓；`audit-question-difficulty.mjs` PASS（735/735）。
+- 构建：`build-standalone` / `build-split-standalone` / `validate-build`（151 引用 0 问题）全 EXIT=0。
+- 浏览器（standalone）：h5 备份面板含恢复按钮/文件输入，导出 v2.0 → 清空 → 恢复 10 键且数据全部还原；h5/student 答题卡实测「难度 · 基础」（`diff-basic`）；teacher 版导出角色为 teacher。
+- 文档：DESIGN 5.8、PLAYBOOK 2.7、README、本节、反哺报告第十二节。
+
+**已知边界（诚实记录）**
+- 恢复为「覆盖式」：备份中存在的字段直接写回，不做事前逐字段对比；建议先导出当前备份再恢复。
+- 难度标签依赖题目的 `difficulty` 字段；若题目无该字段则不显示标签（数据侧已 100% 覆盖）。
+- 备份文件为明文 JSON，含学习记录，未做加密；仅本地导出/导入，不上传。

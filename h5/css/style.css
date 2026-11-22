@@ -1063,6 +1063,38 @@ body.kid-mode .ls-num, body.kid-mode .ms-num { color: #FF9800; }
   color: #b9770e;
   font-size: 11px;
 }
+.rcd-advance-tag {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(46, 160, 67, 0.15);
+  color: #2b8a3e;
+  font-size: 11px;
+}
+.rcd-diff-tag {
+  display: inline-block;
+  margin-bottom: 8px;
+  margin-left: 6px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  background: rgba(59, 130, 246, 0.12);
+  color: #1d4ed8;
+}
+.rcd-diff-tag.diff-medium { background: rgba(243, 156, 18, 0.15); color: #b9770e; }
+.rcd-diff-tag.diff-hard { background: rgba(239, 68, 68, 0.12); color: #b91c1c; }
+.rcd-defect-row { display: flex; align-items: center; gap: 8px; font-size: 12px; margin-bottom: 4px; }
+.rcd-defect-tag { padding: 2px 8px; border-radius: 999px; font-size: 11px; background: #f1f3f5; color: #495057; }
+.rcd-defect-tag.defect-memory { background: rgba(102, 19, 255, 0.12); color: #5f3dc4; }
+.rcd-defect-tag.defect-language { background: rgba(13, 110, 253, 0.12); color: #1864ab; }
+.rcd-defect-tag.defect-concept { background: rgba(12, 145, 133, 0.12); color: #0b7285; }
+.rcd-defect-tag.defect-skill { background: rgba(46, 160, 67, 0.12); color: #2b8a3e; }
+.rcd-defect-tag.defect-meta { background: rgba(243, 156, 18, 0.15); color: #b9770e; }
+.rcd-defect-tag.defect-representation { background: rgba(214, 51, 132, 0.12); color: #a61e4d; }
+.rcd-defect-count { font-size: 11px; color: var(--text-muted); }
+.rcd-defect-tip { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+.rcd-suggestion { font-size: 11px; color: var(--text-secondary); margin: -2px 4px 4px 12px; }
 .rcd-topic { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
 .rcd-topic span { font-size: 11px; color: var(--text-muted); font-weight: 400; margin-left: 8px; }
 .rcd-msg { min-height: 18px; font-size: 12px; color: var(--text-secondary); margin-top: 8px; }
