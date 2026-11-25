@@ -155,6 +155,21 @@ HTML_TEMPLATE = r'''<!DOCTYPE html>
         .path-step.unstable { background: #ed8936; }
         .disclaimer { background: #fffaf0; border: 1px solid #fbd38d; border-radius: 8px; padding: 15px; margin-top: 20px; font-size: 13px; color: #744210; }
         .disclaimer strong { color: #c05621; }
+        /* 错题溯源链 */
+        .lineage-banner { background: linear-gradient(90deg, #ebf8ff, #f0fff4); border: 1px solid #bee3f8; border-radius: 8px; padding: 12px 15px; margin-bottom: 15px; font-size: 14px; color: #2c5282; }
+        .lineage-chain { display: flex; flex-direction: column; gap: 0; }
+        .lineage-node { display: flex; align-items: center; gap: 10px; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 12px; }
+        .lineage-node.target { border-color: #f56565; background: #fff5f5; }
+        .lineage-grade { flex-shrink: 0; min-width: 64px; text-align: center; font-size: 12px; font-weight: 600; color: #4a5568; background: #edf2f7; border-radius: 6px; padding: 4px 6px; }
+        .lineage-name { font-size: 14px; font-weight: 600; color: #2d3748; }
+        .lineage-meta { font-size: 12px; color: #a0aec0; margin-top: 2px; }
+        .lineage-arrow { text-align: center; color: #a0aec0; font-size: 13px; line-height: 1.2; padding: 1px 0; }
+        .lineage-reason { font-size: 12px; color: #718096; margin-top: 2px; }
+        .lineage-toggle { background: none; border: none; color: #667eea; font-size: 13px; cursor: pointer; padding: 5px; }
+        /* 练习解析 */
+        .parse-box { margin-top: 15px; padding: 15px; background: #f0fff4; border: 1px solid #9ae6b4; border-radius: 8px; }
+        .parse-title { font-weight: 600; color: #276749; margin-bottom: 5px; }
+        .parse-text { color: #2f855a; font-size: 14px; line-height: 1.6; }
         /* 复习区域 */
         .review-container { display: none; }
         .review-container.active { display: block; }
@@ -270,6 +285,10 @@ HTML_TEMPLATE = r'''<!DOCTYPE html>
                 <div style="font-weight:600; color:#2b6cb0; margin-bottom:5px;">💡 引导提示</div>
                 <div id="hintText" style="color:#2c5282; font-size:14px;"></div>
             </div>
+            <div id="parseBox" style="display:none;">
+                <div class="parse-title">📖 本题解析</div>
+                <div class="parse-text" id="parseText"></div>
+            </div>
             <div style="margin-top: 20px; padding: 15px; background: #f7fafc; border-radius: 8px;">
                 <div style="font-weight: 600; margin-bottom: 10px;">作答前：这题几成把握？</div>
                 <div style="display: flex; gap: 8px; flex-wrap: wrap;">
@@ -289,7 +308,7 @@ HTML_TEMPLATE = r'''<!DOCTYPE html>
 
         <!-- 结果页 -->
         <div class="card result-container" id="resultContainer">
-            <div class="card-title">📊 诊断结果</div>
+            <div class="card-title" id="resultTitle">📊 诊断结果</div>
             <div class="stats-grid" id="statsGrid"></div>
             <div class="result-section" id="weakSection">
                 <div class="result-section-title">🔴 薄弱知识点</div>
@@ -307,6 +326,10 @@ HTML_TEMPLATE = r'''<!DOCTYPE html>
                 <div class="result-section-title">🗺️ 推荐学习路径</div>
                 <div class="path-container" id="pathContainer"></div>
             </div>
+            <div class="result-section" id="lineageSection" style="display:none;">
+                <div class="result-section-title">🔍 错题溯源链</div>
+                <div id="lineageContent"></div>
+            </div>
             <div class="result-section" id="prereqSection" style="display:none;">
                 <div class="result-section-title">🔗 前置知识关系</div>
                 <div id="prereqContent"></div>
@@ -319,7 +342,8 @@ HTML_TEMPLATE = r'''<!DOCTYPE html>
                 <strong>⚠️ 诚实声明：</strong>诊断结果由 AI 生成的题目自动判定，自动判题只是近似的，可能存在误判。建议在答题记录中逐题核对。题目与答案全部由 AI 生成、未经教师审核。
             </div>
             <div style="display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap;">
-                <button class="btn btn-success" onclick="retest()">🔄 盲区重测</button>
+                <button class="btn btn-success" id="retestBtn" onclick="retest()">🔄 盲区重测</button>
+                <button class="btn btn-warning" id="weakPracticeBtn" onclick="startWeakPractice()">🎯 定向练习薄弱点</button>
                 <button class="btn btn-primary" onclick="exportResult()">📤 导出结果</button>
                 <button class="btn btn-secondary" onclick="backToEntry()">📚 重新选题</button>
             </div>
@@ -405,6 +429,7 @@ let session = null;
 let currentQuestion = null;
 let selectedOption = null;
 let selectedConfidence = null;
+let currentHintUsed = false;   // 本题是否查看过引导提示（影响"独立作答"判定）
 let allTopics = [];
 let selectedSubject = '数学';
 let selectedGrade = 3;
@@ -652,10 +677,13 @@ function loadNextQuestion() {
     currentQuestion = question;
     selectedOption = null;
     selectedConfidence = null;
+    currentHintUsed = false;
     document.querySelectorAll('.confidence-btn').forEach(btn => btn.classList.remove('selected'));
     const progress = (session.questionCount / session.options.maxQuestions) * 100;
     document.getElementById('progressFill').style.width = progress + '%';
-    document.getElementById('questionNumber').textContent = '第 ' + (session.questionCount + 1) + ' 题 / 最多' + session.options.maxQuestions + '题';
+    // 练习模式在 getNextQuestion 中已计数，诊断模式在提交后计数
+    const displayIndex = session.practiceMode ? session.questionCount : session.questionCount + 1;
+    document.getElementById('questionNumber').textContent = '第 ' + displayIndex + ' 题 / ' + (session.practiceMode ? '共' : '最多') + session.options.maxQuestions + '题';
     const topic = engine.getTopicInfo(question.topicId);
     document.getElementById('questionTopic').textContent = '知识点：' + (topic ? topic.name : question.topicId);
     const diffNames = { basic: '基础', medium: '中等', hard: '拔高' };
@@ -667,6 +695,7 @@ function loadNextQuestion() {
     }
     document.getElementById('questionText').textContent = question.question.question;
     document.getElementById('hintBox').style.display = 'none';
+    document.getElementById('parseBox').style.display = 'none';
     document.getElementById('hintBtn').style.display = 'inline-block';
     const optionsContainer = document.getElementById('optionsContainer');
     optionsContainer.innerHTML = '';
@@ -707,9 +736,9 @@ function submitAnswer() {
         result = engine.submitAnswer(session, currentQuestion.question.id, selectedOption);
     }
     
-    // 记录到FSRS v2（含信心校准）
+    // 记录到FSRS v2（含信心校准）；看过引导提示则不算"独立作答"
     if (fsrs && currentQuestion) {
-        const isIndependent = true;  // 诊断模式下都是独立作答
+        const isIndependent = !currentHintUsed;
         fsrs.recordAnswer(
             currentQuestion.topicId,
             result.correct,
@@ -724,7 +753,7 @@ function submitAnswer() {
             }
         );
     }
-    
+
     const options = document.querySelectorAll('.option');
     options.forEach((el, i) => {
         if (i === currentQuestion.question.answer) {
@@ -733,6 +762,26 @@ function submitAnswer() {
             el.classList.add('wrong');
         }
     });
+
+    // 定向练习模式：展示本题解析，由孩子看清错因后手动进入下一题
+    if (session.practiceMode && currentQuestion) {
+        const q = currentQuestion.question;
+        const correctText = (q.options && q.options[q.answer]) || '';
+        let parseHtml = '<strong>✅ 正确答案：' + String.fromCharCode(65 + q.answer) + '. ' + correctText + '</strong>';
+        if (q.hint) {
+            parseHtml += '<br>💡 引导：' + q.hint;
+        }
+        if (!result.correct) {
+            parseHtml += '<br>❌ 这题还没掌握，已记入错题本，建议稍后重练。';
+        } else {
+            parseHtml += '<br>🎉 答对了！这个知识点正在变扎实。';
+        }
+        parseHtml += '<div style="margin-top:10px;"><button class="btn btn-primary btn-sm" onclick="loadNextQuestion()">下一题 ▶</button></div>';
+        document.getElementById('parseText').innerHTML = parseHtml;
+        document.getElementById('parseBox').style.display = 'block';
+        return;
+    }
+
     setTimeout(() => { loadNextQuestion(); }, 1500);
 }
 
@@ -742,6 +791,7 @@ function showHint() {
     document.getElementById('hintText').textContent = currentQuestion.question.hint;
     document.getElementById('hintBox').style.display = 'block';
     document.getElementById('hintBtn').style.display = 'none';
+    currentHintUsed = true;
 }
 
 // ========== 跳过题目 ==========
@@ -749,9 +799,15 @@ function skipQuestion() { loadNextQuestion(); }
 
 // ========== 显示结果 ==========
 function showResults() {
+    const isPractice = !!(session && session.practiceMode);
     const report = engine.finishSession(session);
     document.getElementById('quizContainer').classList.remove('active');
     document.getElementById('resultContainer').classList.add('active');
+
+    // 练习模式与诊断模式的界面差异
+    document.getElementById('resultTitle').textContent = isPractice ? '🎯 定向练习成绩' : '📊 诊断结果';
+    document.getElementById('retestBtn').style.display = isPractice ? 'none' : '';
+    document.getElementById('weakPracticeBtn').textContent = isPractice ? '🎯 再练一次' : '🎯 定向练习薄弱点';
 
     // 统计
     const statsGrid = document.getElementById('statsGrid');
@@ -779,6 +835,7 @@ function showResults() {
         });
     }
 
+    renderLineage(report);
     renderAdvice(report);
     renderPrereq(report);
 }
@@ -795,7 +852,10 @@ function renderResultList(containerId, items, status) {
         const topic = allTopics.find(t => t.id === item.topicId);
         const topicItem = document.createElement('div');
         topicItem.className = 'topic-item';
-        topicItem.innerHTML = '<div class="topic-info"><h4>' + (topic ? topic.name : item.topicId) + '</h4><p>' + (item.message || '') + '</p></div><span class="topic-status status-' + (status === '薄弱' ? 'weak' : status === '不稳' ? 'unstable' : 'untested') + '">' + status + '</span>';
+        const practiceBtn = (status !== '未测')
+            ? '<button class="btn btn-warning btn-sm" style="margin-left:8px;" onclick="startPractice([\'' + item.topicId + '\'])">▶ 练习</button>'
+            : '';
+        topicItem.innerHTML = '<div class="topic-info"><h4>' + (topic ? topic.name : item.topicId) + '</h4><p>' + (item.message || '') + '</p></div><span style="display:flex;align-items:center;"><span class="topic-status status-' + (status === '薄弱' ? 'weak' : status === '不稳' ? 'unstable' : 'untested') + '">' + status + '</span>' + practiceBtn + '</span>';
         container.appendChild(topicItem);
     });
 }
@@ -868,6 +928,79 @@ function renderPrereq(report) {
     
     prereqContent.innerHTML = html;
     prereqSection.style.display = 'block';
+}
+
+// ========== 错题溯源链（跨学段追溯） ==========
+function renderLineage(report) {
+    const section = document.getElementById('lineageSection');
+    const content = document.getElementById('lineageContent');
+    // 优先展示最薄弱的知识点；没有薄弱则展示第一个需要学习的
+    const target = report.learningPath.find(item => item.status === 'weak') || report.learningPath[0];
+    if (!target) {
+        section.style.display = 'none';
+        return;
+    }
+    const lineage = engine.traceLineage(target.topicId);
+    if (!lineage || !lineage.nodes || lineage.nodes.length <= 1) {
+        section.style.display = 'none';
+        return;
+    }
+    // 反转：从最底层前置一路指向当前错题知识点
+    const nodes = lineage.nodes.slice().reverse();
+    let banner = '<div class="lineage-banner">🔍 <strong>' + (target.name || '') + '</strong> 的错题溯源链：';
+    if (lineage.crossGrade && lineage.gradeSpan) {
+        banner += '从 ' + lineage.gradeSpan[1] + ' 年级一路追溯到 <strong>' + lineage.gradeSpan[0] + ' 年级</strong>，';
+    }
+    banner += '共涉及 ' + lineage.ancestorCount + ' 个前置知识点';
+    if (lineage.crossGrade && lineage.gradeSpan) {
+        banner += '（横跨 ' + (lineage.gradeSpan[1] - lineage.gradeSpan[0] + 1) + ' 个年级）';
+    }
+    banner += '。顺着这条链逐环检查，哪一环没掌握就补哪一环。</div>';
+
+    let html = banner + '<div class="lineage-chain">';
+    nodes.forEach((n, idx) => {
+        const isTarget = idx === nodes.length - 1;
+        const gradeLabel = (n.grade !== null && n.grade !== undefined) ? (n.grade + ' 年级') : '';
+        html += '<div class="lineage-node' + (isTarget ? ' target' : '') + '">';
+        html += '<span class="lineage-grade">' + gradeLabel + '</span>';
+        html += '<div><div class="lineage-name">' + n.name + '</div>';
+        if (isTarget) {
+            html += '<div class="lineage-meta">👈 本次错误对应的知识点</div>';
+        } else if (n.reason) {
+            html += '<div class="lineage-reason">⛓ ' + n.reason + '</div>';
+        }
+        html += '</div></div>';
+        if (!isTarget) {
+            html += '<div class="lineage-arrow">↓ 依赖</div>';
+        }
+    });
+    html += '</div>';
+    content.innerHTML = html;
+    section.style.display = 'block';
+}
+
+// ========== 定向练习（哪里薄弱练哪里） ==========
+function startPractice(topicIds) {
+    if (!topicIds || topicIds.length === 0) { alert('没有可练习的知识点'); return; }
+    session = engine.startPractice(topicIds);
+    if (!session.practiceQueue || session.practiceQueue.length === 0) {
+        alert('这些知识点暂无练习题，请先进行诊断');
+        session = null;
+        return;
+    }
+    document.getElementById('entryCard').style.display = 'none';
+    document.getElementById('resultContainer').classList.remove('active');
+    document.getElementById('quizContainer').classList.add('active');
+    loadNextQuestion();
+}
+
+function startWeakPractice() {
+    const ids = [];
+    if (session && session.results) {
+        (session.results.weak || []).forEach(w => ids.push(w.topicId));
+        (session.results.unstable || []).forEach(u => ids.push(u.topicId));
+    }
+    startPractice(ids);
 }
 
 // ========== 盲区重测 ==========

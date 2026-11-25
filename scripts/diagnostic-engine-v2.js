@@ -125,6 +125,107 @@ class DiagnosticEngine {
   }
 
   /**
+   * 错题溯源：追溯某个知识点完整的跨学段上游依赖链
+   * 返回从目标知识点出发、沿最强路径追溯到最底层前置的完整链条，
+   * 并统计所有祖先（去重）与年级跨度。用于结果页「错题溯源」展示：
+   * 例如六年级错题一路追溯到三年级，直观呈现「哪里没掌握牢」。
+   */
+  traceLineage(topicId, options = {}) {
+    const maxDepth = options.maxDepth || 12;
+    const memo = {};
+
+    // 记忆化递归：返回从 id 出发的最长前置链（含自身）
+    const build = (id, depth) => {
+      if (depth > maxDepth) return [id];
+      if (memo[id]) return [id].concat(memo[id]);
+      const prereqs = this.prereqMap[id] || [];
+      let best = [];
+      for (const p of prereqs) {
+        const sub = build(p.id, depth + 1);
+        if (sub.length > best.length) best = sub;
+      }
+      memo[id] = best;
+      return [id].concat(best);
+    };
+
+    const chainIds = build(topicId, 0);
+
+    // 收集全部祖先（去重，用于统计覆盖范围）
+    const allAncestors = new Set();
+    const collect = (id, visited) => {
+      if (visited.has(id)) return;
+      visited.add(id);
+      const prereqs = this.prereqMap[id] || [];
+      for (const p of prereqs) {
+        allAncestors.add(p.id);
+        collect(p.id, visited);
+      }
+    };
+    collect(topicId, new Set());
+
+    // 链上相邻节点的依赖强度与原因
+    const nodes = chainIds.map((id, idx) => {
+      const t = this.getTopicInfo(id);
+      let strength = null;
+      let reason = '';
+      if (idx > 0) {
+        const edge = (this.prereqMap[chainIds[idx - 1]] || []).find(e => e.id === id);
+        if (edge) {
+          strength = edge.strength || 'soft';
+          reason = edge.reason || '';
+        }
+      }
+      return {
+        id: id,
+        name: t ? t.name : id,
+        subject: t ? t.subject : '',
+        grade: t ? t.grade : null,
+        term: t ? t.term : '',
+        description: t ? (t.description || '') : '',
+        strength: strength,
+        reason: reason
+      };
+    });
+
+    const grades = nodes.map(n => n.grade).filter(g => g !== null);
+    const uniqueGrades = Array.from(new Set(grades)).sort((a, b) => a - b);
+
+    return {
+      targetId: topicId,
+      nodes: nodes,                 // 顺序：目标 -> ... -> 最底层前置
+      ancestorCount: allAncestors.size,
+      gradeSpan: uniqueGrades.length > 0 ? [uniqueGrades[0], uniqueGrades[uniqueGrades.length - 1]] : null,
+      crossGrade: uniqueGrades.length > 1
+    };
+  }
+
+  /**
+   * 定向练习会话：只练习指定的薄弱/不稳知识点，逐题训练
+   * 与诊断模式的区别：不出确认题、不回溯、不自适应难度，题目平铺逐道练
+   */
+  startPractice(topicIds, options = {}) {
+    const validIds = (topicIds || []).filter(id => this.getQuestions(id).length > 0);
+    const session = this.startSession(validIds[0] || '__empty__', Object.assign({
+      confirmOnFail: false,
+      autoBacktrack: false,
+      adaptiveDifficulty: false
+    }, options || {}));
+    session.practiceMode = true;
+    // 展开为题目级队列：按知识点分组、组内按难度排序
+    session.practiceQueue = [];
+    session.results.untested = [];
+    for (const id of validIds) {
+      const qs = this.getQuestions(id);
+      for (const q of qs) {
+        session.practiceQueue.push(q.id);
+      }
+    }
+    session.options.maxQuestions = session.practiceQueue.length;
+    session.queue = [];
+    return session;
+  }
+
+  /**
    * 获取某个知识点的所有后继（依赖它的知识点）
    */
   getSuccessors(topicId) {
@@ -259,6 +360,25 @@ class DiagnosticEngine {
    * 获取下一道题（难度自适应）
    */
   getNextQuestion(session) {
+    // 定向练习模式：按平铺的题目队列逐题练习
+    if (session.practiceMode && session.practiceQueue && session.practiceQueue.length > 0) {
+      const qid = session.practiceQueue.shift();
+      const question = this.questions.find(q => q.id === qid);
+      if (!question) {
+        return this.getNextQuestion(session);
+      }
+      session.currentTopicId = question.topicId;
+      session.questionCount++;
+      return {
+        type: 'practice',
+        question: question,
+        topicId: question.topicId,
+        reason: '定向练习',
+        remaining: session.practiceQueue.length,
+        difficultyLevel: session.currentDifficulty
+      };
+    }
+
     // 如果有待确认的题，先返回确认题
     if (session.pendingConfirm) {
       const confirmQ = session.pendingConfirm;
@@ -746,16 +866,14 @@ class DiagnosticEngine {
     const advice = {
       topic: topic ? topic.name : topicId,
       description: topic ? topic.description : '',
-      prerequisites: prereqs.map(p => ({
-        id: p.id,
-        name: this.getTopicInfo(p.id)?.name || p.id,
-        strength: p.strength
-      })),
-      successors: successors.map(s => ({
-        id: s.id,
-        name: this.getTopicInfo(s.id)?.name || s.id,
-        strength: s.strength
-      })),
+prerequisites: prereqs.map(p => {
+const t = this.getTopicInfo(p.id) || {};
+return { id: p.id, name: t.name || p.id, strength: p.strength, subject: t.subject || '', grade: t.grade != null ? t.grade : '', term: t.term || '' };
+}),
+successors: successors.map(s => {
+const t = this.getTopicInfo(s.id) || {};
+return { id: s.id, name: t.name || s.id, strength: s.strength, subject: t.subject || '', grade: t.grade != null ? t.grade : '', term: t.term || '' };
+}),
       tips: []
     };
     
