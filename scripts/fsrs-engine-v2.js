@@ -203,6 +203,34 @@
     }
 
     /**
+     * 给最近一道错题补标错因与「当时怎么想的」
+     * reason: careless(粗心) / unknown(没掌握) / unsolved(不会做)
+     */
+    updateLastError(reason, note) {
+      if (this.errorLog.length === 0) return null;
+      const last = this.errorLog[this.errorLog.length - 1];
+      if (reason) last.reason = reason;
+      if (note !== undefined && note !== null) last.note = note;
+      this.save();
+      return last;
+    }
+
+    /**
+     * 给指定知识点的最近一道错题补标错因（结果页薄弱项使用）
+     */
+    updateLastErrorByTopic(topicId, reason, note) {
+      for (let i = this.errorLog.length - 1; i >= 0; i--) {
+        if (this.errorLog[i].topicId === topicId) {
+          if (reason) this.errorLog[i].reason = reason;
+          if (note !== undefined && note !== null) this.errorLog[i].note = note;
+          this.save();
+          return this.errorLog[i];
+        }
+      }
+      return null;
+    }
+
+    /**
      * 获取错题统计
      */
     getErrorStats() {

@@ -170,6 +170,26 @@ HTML_TEMPLATE = r'''<!DOCTYPE html>
         .parse-box { margin-top: 15px; padding: 15px; background: #f0fff4; border: 1px solid #9ae6b4; border-radius: 8px; }
         .parse-title { font-weight: 600; color: #276749; margin-bottom: 5px; }
         .parse-text { color: #2f855a; font-size: 14px; line-height: 1.6; }
+        /* 错因三分类 */
+        .reason-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: 8px; }
+        .reason-btn { border: 1px solid #e2e8f0; background: #fff; border-radius: 14px; padding: 4px 10px; font-size: 12px; cursor: pointer; color: #4a5568; }
+        .reason-btn:hover { border-color: #cbd5e0; }
+        .reason-btn.selected.careless { background: #fffaf0; border-color: #fbd38d; color: #c05621; font-weight: 600; }
+        .reason-btn.selected.unknown { background: #fff5f5; border-color: #feb2b2; color: #c53030; font-weight: 600; }
+        .reason-btn.selected.unsolved { background: #faf5ff; border-color: #d6bcfa; color: #6b46c1; font-weight: 600; }
+        .fix-text { font-size: 12px; color: #2f855a; margin-top: 6px; line-height: 1.5; }
+        .reason-tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 12px; margin-left: 4px; }
+        .reason-tag.careless { background: #fffaf0; color: #c05621; }
+        .reason-tag.unknown { background: #fff5f5; color: #c53030; }
+        .reason-tag.unsolved { background: #faf5ff; color: #6b46c1; }
+        /* 周末巩固练习卷 */
+        .sheet-group-title { font-size: 14px; font-weight: 600; color: #2d3748; margin: 14px 0 6px; padding-left: 8px; border-left: 3px solid #667eea; }
+        .sheet-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; }
+        .sheet-q { font-size: 14px; color: #2d3748; line-height: 1.6; }
+        .sheet-opts { font-size: 13px; color: #4a5568; margin-top: 4px; line-height: 1.7; }
+        .sheet-remove { float: right; background: none; border: none; color: #e53e3e; cursor: pointer; font-size: 13px; }
+        .seg-btn { flex: 1; padding: 8px 12px; border: 1px solid #e2e8f0; background: #f7fafc; font-size: 13px; cursor: pointer; border-radius: 8px; color: #4a5568; }
+        .seg-btn.active { background: #667eea; color: #fff; border-color: #667eea; }
         /* 复习区域 */
         .review-container { display: none; }
         .review-container.active { display: block; }
@@ -363,11 +383,27 @@ HTML_TEMPLATE = r'''<!DOCTYPE html>
         <!-- 错题本 -->
         <div class="card review-container" id="errorNotebookContainer">
             <div class="card-title">📕 错题本</div>
-            <p style="color: #718096; margin-bottom: 15px;">记录做错的题目，定期复习可以加深印象。</p>
+            <p style="color: #718096; margin-bottom: 15px;">记录做错的题目，定期复习可以加深印象。可标记错因（粗心 / 没掌握 / 不会做），三种错的补法不一样。</p>
             <div id="errorList"></div>
-            <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <div style="display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap;">
                 <button class="btn btn-success" onclick="startErrorReview()">复习错题</button>
+                <button class="btn btn-warning" onclick="showPracticeSheet()">📋 生成练习卷</button>
                 <button class="btn btn-secondary" onclick="backToEntry()">返回选题</button>
+            </div>
+        </div>
+
+        <!-- 周末巩固 · 练习卷 -->
+        <div class="card review-container" id="practiceSheetContainer">
+            <div class="card-title">📋 周末巩固 · 练习卷</div>
+            <p style="color: #718096; margin-bottom: 10px;">把错题按知识点重新组卷，只出题、不给答案；不想要的题可以去掉，复制文本发给家人或打印。</p>
+            <div style="display:flex;gap:8px;margin-bottom:12px;">
+                <button class="seg-btn active" id="sheetModeWeek" onclick="setSheetMode('week')">本周错题</button>
+                <button class="seg-btn" id="sheetModeAll" onclick="setSheetMode('all')">全部错题</button>
+            </div>
+            <div id="sheetList"></div>
+            <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
+                <button class="btn btn-primary" onclick="copySheet()">📄 复制题目文本</button>
+                <button class="btn btn-secondary" onclick="backFromSheet()">← 返回错题本</button>
             </div>
         </div>
 
@@ -431,6 +467,17 @@ let selectedOption = null;
 let selectedConfidence = null;
 let currentHintUsed = false;   // 本题是否查看过引导提示（影响"独立作答"判定）
 let allTopics = [];
+
+// 错因三分类：三种错的补法不一样（粗心→检查；没掌握→回炉同类型题；不会做→回到前置概念）
+const REASON_MAP = {
+    careless: { label: '粗心', fix: '下次做完花 10 秒回头检查一遍，重点看运算符号和抄写' },
+    unknown: { label: '没掌握', fix: '回到这个知识点，先看引导提示，再做同类型题' },
+    unsolved: { label: '不会做', fix: '先看前置知识溯源链，从更基础的概念学起' }
+};
+
+function escapeHtml(str) {
+    return String(str == null ? '' : str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
 let selectedSubject = '数学';
 let selectedGrade = 3;
 let reviewQueue = [];
@@ -772,7 +819,13 @@ function submitAnswer() {
             parseHtml += '<br>💡 引导：' + q.hint;
         }
         if (!result.correct) {
-            parseHtml += '<br>❌ 这题还没掌握，已记入错题本，建议稍后重练。';
+            parseHtml += '<br>❌ 这题还没掌握，已记入错题本。点一下错因，补法更对症：';
+            parseHtml += '<div class="reason-row"><span style="font-size:12px;color:#718096;">错因</span>' +
+                '<button class="reason-btn" data-reason="careless" onclick="markReason(\'careless\')">粗心</button>' +
+                '<button class="reason-btn" data-reason="unknown" onclick="markReason(\'unknown\')">没掌握</button>' +
+                '<button class="reason-btn" data-reason="unsolved" onclick="markReason(\'unsolved\')">不会做</button>' +
+                '<input id="reasonNote" placeholder="当时怎么想的？（一句就行）" style="flex:1;min-width:120px;border:1px solid #e2e8f0;border-radius:6px;padding:4px 8px;font-size:12px;">' +
+                '</div><div id="fixHint" class="fix-text" style="display:none;"></div>';
         } else {
             parseHtml += '<br>🎉 答对了！这个知识点正在变扎实。';
         }
@@ -840,7 +893,32 @@ function showResults() {
     renderPrereq(report);
 }
 
-// ========== 渲染结果列表 ==========
+// ========== 错因标记（练习解析面板 & 结果页薄弱项） ==========
+function markReason(reason) {
+    if (!fsrs) return;
+    const noteEl = document.getElementById('reasonNote');
+    const note = noteEl ? noteEl.value.trim() : '';
+    fsrs.updateLastError(reason, note || null);
+    document.querySelectorAll('#parseBox .reason-btn').forEach(b => b.classList.remove('selected'));
+    const btn = document.querySelector('#parseBox .reason-btn[data-reason="' + reason + '"]');
+    if (btn) btn.classList.add('selected');
+    const fix = document.getElementById('fixHint');
+    if (fix && REASON_MAP[reason]) {
+        fix.textContent = '💊 补法：' + REASON_MAP[reason].fix;
+        fix.style.display = 'block';
+    }
+}
+
+function markWeakReason(topicId, reason) {
+    if (!fsrs) return;
+    fsrs.updateLastErrorByTopic(topicId, reason);
+    const info = REASON_MAP[reason];
+    const btn = document.querySelector('[data-topic="' + topicId + '"]');
+    if (btn && btn.parentElement) {
+        btn.parentElement.innerHTML = '<span class="fix-text">💊 ' + info.fix + '</span>';
+    }
+}
+
 function renderResultList(containerId, items, status) {
     const container = document.getElementById(containerId);
     container.innerHTML = '';
@@ -852,10 +930,18 @@ function renderResultList(containerId, items, status) {
         const topic = allTopics.find(t => t.id === item.topicId);
         const topicItem = document.createElement('div');
         topicItem.className = 'topic-item';
+        let reasonRow = '';
+        if (status === '薄弱' || status === '不稳') {
+            reasonRow = '<div class="reason-row"><span style="font-size:12px;color:#a0aec0;">错因</span>' +
+                '<button class="reason-btn" data-topic="' + item.topicId + '" onclick="markWeakReason(\'' + item.topicId + '\', \'careless\')">粗心</button>' +
+                '<button class="reason-btn" data-topic="' + item.topicId + '" onclick="markWeakReason(\'' + item.topicId + '\', \'unknown\')">没掌握</button>' +
+                '<button class="reason-btn" data-topic="' + item.topicId + '" onclick="markWeakReason(\'' + item.topicId + '\', \'unsolved\')">不会做</button>' +
+                '</div>';
+        }
         const practiceBtn = (status !== '未测')
             ? '<button class="btn btn-warning btn-sm" style="margin-left:8px;" onclick="startPractice([\'' + item.topicId + '\'])">▶ 练习</button>'
             : '';
-        topicItem.innerHTML = '<div class="topic-info"><h4>' + (topic ? topic.name : item.topicId) + '</h4><p>' + (item.message || '') + '</p></div><span style="display:flex;align-items:center;"><span class="topic-status status-' + (status === '薄弱' ? 'weak' : status === '不稳' ? 'unstable' : 'untested') + '">' + status + '</span>' + practiceBtn + '</span>';
+        topicItem.innerHTML = '<div class="topic-info"><h4>' + (topic ? topic.name : item.topicId) + '</h4><p>' + (item.message || '') + '</p>' + reasonRow + '</div><span style="display:flex;align-items:center;"><span class="topic-status status-' + (status === '薄弱' ? 'weak' : status === '不稳' ? 'unstable' : 'untested') + '">' + status + '</span>' + practiceBtn + '</span>';
         container.appendChild(topicItem);
     });
 }
@@ -1089,11 +1175,19 @@ function showErrorNotebook() {
             item.className = 'error-item';
             const correctText = err.options ? err.options[err.answer] : '';
             const selectedText = err.options ? err.options[err.selected] : '';
+            let extraHtml = '';
+            if (err.reason && REASON_MAP[err.reason]) {
+                extraHtml += '<div class="error-answer">错因：<span class="reason-tag ' + err.reason + '">' + REASON_MAP[err.reason].label + '</span>　💊 ' + REASON_MAP[err.reason].fix + '</div>';
+            }
+            if (err.note) {
+                extraHtml += '<div class="error-answer">💭 当时的想法：' + escapeHtml(err.note) + '</div>';
+            }
             item.innerHTML = '<div class="error-question">' + (err.question || '') + '</div>' +
                 '<div class="error-answer"><span class="correct">✓ 正确答案：' + correctText + '</span></div>' +
                 '<div class="error-answer"><span class="wrong">✗ 你的答案：' + selectedText + '</span></div>' +
                 '<div class="error-answer" style="margin-top:5px;">知识点：' + (topic ? topic.name : err.topicId) + ' · ' + (topic ? topic.subject + ' ' + topic.grade + '年级' : '') + '</div>' +
-                '<div class="error-answer">信心：' + (err.confidence !== null ? err.confidence + '%' : '未记录') + ' · 时间：' + new Date(err.timestamp).toLocaleString('zh-CN') + '</div>';
+                '<div class="error-answer">信心：' + (err.confidence !== null ? err.confidence + '%' : '未记录') + ' · 时间：' + new Date(err.timestamp).toLocaleString('zh-CN') + '</div>' +
+                extraHtml;
             container.appendChild(item);
         });
     }
