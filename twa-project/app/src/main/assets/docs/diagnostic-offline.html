@@ -1757,6 +1757,22 @@ const REASON_MAP = {
 function escapeHtml(str) {
     return String(str == null ? '' : str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
+
+// 轻量提示条：替代原生 alert（离线 WebView 中 alert 不显示）
+let _toastTimer = null;
+function appAlert(msg) {
+    let el = document.getElementById('appToast');
+    if (!el) {
+        el = document.createElement('div');
+        el.id = 'appToast';
+        el.style.cssText = 'position:fixed;left:50%;bottom:80px;transform:translateX(-50%);background:#2d3748;color:#fff;padding:12px 20px;border-radius:10px;font-size:14px;z-index:9999;box-shadow:0 4px 14px rgba(0,0,0,.3);max-width:86%;text-align:center;opacity:0;transition:opacity .2s;pointer-events:none;';
+        document.body.appendChild(el);
+    }
+    el.textContent = msg;
+    requestAnimationFrame(() => { el.style.opacity = '1'; });
+    clearTimeout(_toastTimer);
+    _toastTimer = setTimeout(() => { el.style.opacity = '0'; }, 2200);
+}
 let selectedSubject = '数学';
 let selectedGrade = 3;
 let reviewQueue = [];
@@ -1973,10 +1989,10 @@ function startDiagnostic(topicId) {
 // ========== 整册诊断 ==========
 function startGradeDiagnostic() {
     const topics = allTopics.filter(t => t.subject === selectedSubject && t.grade === selectedGrade);
-    if (topics.length === 0) { alert('该年级暂无知识点'); return; }
+    if (topics.length === 0) { appAlert('该年级暂无知识点'); return; }
     const diagnosticTopicIds = new Set(engine.questions.map(q => q.topicId));
     const diagnosticTopics = topics.filter(t => diagnosticTopicIds.has(t.id));
-    if (diagnosticTopics.length === 0) { alert('该年级暂无诊断题'); return; }
+    if (diagnosticTopics.length === 0) { appAlert('该年级暂无诊断题'); return; }
     const targetTopic = diagnosticTopics[0];
     session = engine.startSession(targetTopic.id, {
         maxQuestions: Math.min(diagnosticTopics.length * 2, 40),
@@ -2346,10 +2362,10 @@ function renderLineage(report) {
 
 // ========== 定向练习（哪里薄弱练哪里） ==========
 function startPractice(topicIds) {
-    if (!topicIds || topicIds.length === 0) { alert('没有可练习的知识点'); return; }
+    if (!topicIds || topicIds.length === 0) { appAlert('没有可练习的知识点'); return; }
     session = engine.startPractice(topicIds);
     if (!session.practiceQueue || session.practiceQueue.length === 0) {
-        alert('这些知识点暂无练习题，请先进行诊断');
+        appAlert('这些知识点暂无练习题，请先进行诊断');
         session = null;
         return;
     }
@@ -2433,7 +2449,7 @@ function showReview() {
 }
 
 function startReview() {
-    if (reviewQueue.length === 0) { alert('没有待复习的知识点'); return; }
+    if (reviewQueue.length === 0) { appAlert('没有待复习的知识点'); return; }
     // 复习第一个知识点
     startDiagnostic(reviewQueue[0]);
 }
@@ -2481,7 +2497,7 @@ function showErrorNotebook() {
 function startErrorReview() {
     if (!fsrs) return;
     const errors = fsrs.getErrors();
-    if (errors.length === 0) { alert('没有错题需要复习'); return; }
+    if (errors.length === 0) { appAlert('没有错题需要复习'); return; }
     // 找到第一个错题的知识点
     const topicId = errors[errors.length - 1].topicId;
     startDiagnostic(topicId);
@@ -2565,7 +2581,7 @@ function renderSheet() {
 
 function copySheet() {
     const errors = getSheetErrors().filter(e => !sheetExcluded.has(sheetKey(e)));
-    if (errors.length === 0) { alert('没有可复制的题目'); return; }
+    if (errors.length === 0) { appAlert('没有可复制的题目'); return; }
     const groups = {};
     errors.forEach(e => {
         if (!groups[e.topicId]) groups[e.topicId] = [];
@@ -2589,7 +2605,7 @@ function copySheet() {
     });
     text += '\n—— 由 cn-primary-taxonomy 离线诊断生成';
     if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(() => alert('已复制 ' + errors.length + ' 道题到剪贴板')).catch(() => fallbackCopy(text, errors.length));
+        navigator.clipboard.writeText(text).then(() => appAlert('已复制 ' + errors.length + ' 道题到剪贴板')).catch(() => fallbackCopy(text, errors.length));
     } else {
         fallbackCopy(text, errors.length);
     }
@@ -2605,9 +2621,9 @@ function fallbackCopy(text, count) {
     ta.select();
     try {
         document.execCommand('copy');
-        alert('已复制 ' + (count || '') + ' 道题到剪贴板');
+        appAlert('已复制 ' + (count || '') + ' 道题到剪贴板');
     } catch (err) {
-        alert('复制失败：' + err.message);
+        appAlert('复制失败：' + err.message);
     }
     document.body.removeChild(ta);
 }
