@@ -1112,14 +1112,15 @@ function exportResult() {
 
 // ========== 返回选题 ==========
 function backToEntry() {
-    document.getElementById('resultContainer').classList.remove('active');
-    document.getElementById('quizContainer').classList.remove('active');
-    document.getElementById('reviewContainer').classList.remove('active');
-    document.getElementById('errorNotebookContainer').classList.remove('active');
-    document.getElementById('weeklyReportContainer').classList.remove('active');
-    document.getElementById('entryCard').style.display = 'block';
-    updateReviewBanner();
-    renderTopicList();
+document.getElementById('resultContainer').classList.remove('active');
+document.getElementById('quizContainer').classList.remove('active');
+document.getElementById('reviewContainer').classList.remove('active');
+document.getElementById('errorNotebookContainer').classList.remove('active');
+document.getElementById('weeklyReportContainer').classList.remove('active');
+document.getElementById('practiceSheetContainer').classList.remove('active');
+document.getElementById('entryCard').style.display = 'block';
+updateReviewBanner();
+renderTopicList();
 }
 
 // ========== 复习系统（FSRS） ==========
@@ -1205,6 +1206,131 @@ function startErrorReview() {
     // 找到第一个错题的知识点
     const topicId = errors[errors.length - 1].topicId;
     startDiagnostic(topicId);
+}
+
+// ========== 周末巩固 · 生成练习卷 ==========
+let sheetMode = 'week';            // week=近7天（以一周为限） | all=全部
+let sheetExcluded = new Set();     // 本次组卷剔除的题目 key
+
+function sheetKey(e) {
+    return (e.questionId || '') + '|' + e.timestamp;
+}
+
+function getSheetErrors() {
+    const errors = fsrs ? fsrs.getErrors() : [];
+    if (sheetMode === 'week') {
+        const weekAgo = Date.now() - 7 * 24 * 3600 * 1000;
+        return errors.filter(e => e.timestamp >= weekAgo);
+    }
+    return errors.slice();
+}
+
+function showPracticeSheet() {
+    if (!fsrs) return;
+    sheetExcluded = new Set();
+    document.getElementById('errorNotebookContainer').classList.remove('active');
+    document.getElementById('practiceSheetContainer').classList.add('active');
+    renderSheet();
+}
+
+function backFromSheet() {
+    document.getElementById('practiceSheetContainer').classList.remove('active');
+    document.getElementById('errorNotebookContainer').classList.add('active');
+}
+
+function setSheetMode(mode) {
+    sheetMode = mode;
+    sheetExcluded = new Set();
+    renderSheet();
+}
+
+function excludeSheetItem(key) {
+    sheetExcluded.add(key);
+    renderSheet();
+}
+
+function renderSheet() {
+    document.getElementById('sheetModeWeek').classList.toggle('active', sheetMode === 'week');
+    document.getElementById('sheetModeAll').classList.toggle('active', sheetMode === 'all');
+    const list = document.getElementById('sheetList');
+    const errors = getSheetErrors().filter(e => !sheetExcluded.has(sheetKey(e)));
+    if (errors.length === 0) {
+        list.innerHTML = '<div class="loading">' + (fsrs.getErrors().length === 0 ? '🎉 暂无错题，先从诊断或练习开始吧' : '本周没有新错题，可切换到「全部错题」看看历史') + '</div>';
+        return;
+    }
+    // 按知识点分组
+    const groups = {};
+    errors.forEach(e => {
+        if (!groups[e.topicId]) groups[e.topicId] = [];
+        groups[e.topicId].push(e);
+    });
+    let html = '';
+    let seq = 0;
+    Object.keys(groups).forEach(topicId => {
+        const topic = allTopics.find(t => t.id === topicId);
+        const name = topic ? topic.name : topicId;
+        const meta = topic ? (topic.subject + ' · ' + topic.grade + '年级') : '';
+        html += '<div class="sheet-group-title">' + escapeHtml(name) + (meta ? ' <span style="font-weight:400;font-size:12px;color:#a0aec0;">' + escapeHtml(meta) + '</span>' : '') + '</div>';
+        groups[topicId].forEach(e => {
+            seq++;
+            const opts = e.options ? e.options.map((o, i) => String.fromCharCode(65 + i) + '. ' + o).join('　') : '';
+            html += '<div class="sheet-item"><button class="sheet-remove" onclick="excludeSheetItem(\'' + sheetKey(e) + '\')">✕ 去掉</button>' +
+                '<div class="sheet-q">' + seq + '. ' + escapeHtml(e.question || '') + '</div>' +
+                (opts ? '<div class="sheet-opts">' + escapeHtml(opts) + '</div>' : '') +
+                '</div>';
+        });
+    });
+    html += '<div style="font-size:12px;color:#a0aec0;margin-top:5px;">共 ' + seq + ' 道题 · 只出题不给答案，做完可回错题本对答案</div>';
+    list.innerHTML = html;
+}
+
+function copySheet() {
+    const errors = getSheetErrors().filter(e => !sheetExcluded.has(sheetKey(e)));
+    if (errors.length === 0) { alert('没有可复制的题目'); return; }
+    const groups = {};
+    errors.forEach(e => {
+        if (!groups[e.topicId]) groups[e.topicId] = [];
+        groups[e.topicId].push(e);
+    });
+    let text = '📋 周末巩固练习卷（' + (sheetMode === 'week' ? '本周' : '全部') + ' · ' + errors.length + ' 道题）\n';
+    text += '说明：只出题不给答案，做完回错题本核对。\n';
+    let seq = 0;
+    Object.keys(groups).forEach(topicId => {
+        const topic = allTopics.find(t => t.id === topicId);
+        text += '\n【' + (topic ? topic.name : topicId) + (topic ? '（' + topic.subject + '·' + topic.grade + '年级）' : '') + '】\n';
+        groups[topicId].forEach(e => {
+            seq++;
+            text += seq + '. ' + (e.question || '') + '\n';
+            if (e.options) {
+                e.options.forEach((o, i) => {
+                    text += '    ' + String.fromCharCode(65 + i) + '. ' + o + '\n';
+                });
+            }
+        });
+    });
+    text += '\n—— 由 cn-primary-taxonomy 离线诊断生成';
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => alert('已复制 ' + errors.length + ' 道题到剪贴板')).catch(() => fallbackCopy(text, errors.length));
+    } else {
+        fallbackCopy(text, errors.length);
+    }
+}
+
+function fallbackCopy(text, count) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try {
+        document.execCommand('copy');
+        alert('已复制 ' + (count || '') + ' 道题到剪贴板');
+    } catch (err) {
+        alert('复制失败：' + err.message);
+    }
+    document.body.removeChild(ta);
 }
 
 // ========== 每周战报 ==========
